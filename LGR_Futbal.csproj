@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EB714CA-7E20-4ABD-8FCB-75F26A5649CA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LGR_Futbal</RootNamespace>
+    <AssemblyName>LGR_Futbal</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\CervenaKartaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CervenaKartaForm.Designer.cs">
+      <DependentUpon>CervenaKartaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CervenaKartaSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CervenaKartaSettingsForm.Designer.cs">
+      <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DatabazaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DatabazaForm.Designer.cs">
+      <DependentUpon>DatabazaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FarbyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FarbyForm.Designer.cs">
+      <DependentUpon>FarbyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FarbyPrezentacie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FarbyPrezentacie.Designer.cs">
+      <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FontyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FontyForm.Designer.cs">
+      <DependentUpon>FontyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FontyPrezentacieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FontyPrezentacieForm.Designer.cs">
+      <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GolForm.Designer.cs">
+      <DependentUpon>GolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GolSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GolSettingsForm.Designer.cs">
+      <DependentUpon>GolSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HraciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HraciForm.Designer.cs">
+      <DependentUpon>HraciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HraciZapasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HraciZapasForm.Designer.cs">
+      <DependentUpon>HraciZapasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NadstavCasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NadstavCasForm.Designer.cs">
+      <DependentUpon>NadstavCasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PozadieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PozadieForm.Designer.cs">
+      <DependentUpon>PozadieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PredstavenieSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PredstavenieSettingsForm.Designer.cs">
+      <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrezentaciaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrezentaciaForm.Designer.cs">
+      <DependentUpon>PrezentaciaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RiadiaciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RiadiaciForm.Designer.cs">
+      <DependentUpon>RiadiaciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RozlozenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RozlozenieForm.Designer.cs">
+      <DependentUpon>RozlozenieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectForm.Designer.cs">
+      <DependentUpon>SelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupForm.Designer.cs">
+      <DependentUpon>SetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SizeForm.Designer.cs">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StriedanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StriedanieForm.Designer.cs">
+      <DependentUpon>StriedanieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StriedanieSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StriedanieSettingsForm.Designer.cs">
+      <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TabulaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TabulaForm.Designer.cs">
+      <DependentUpon>TabulaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TestovaciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TestovaciForm.Designer.cs">
+      <DependentUpon>TestovaciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypZapasuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypZapasuForm.Designer.cs">
+      <DependentUpon>TypZapasuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZltaKartaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZltaKartaForm.Designer.cs">
+      <DependentUpon>ZltaKartaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZltaKartaSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZltaKartaSettingsForm.Designer.cs">
+      <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZmenaCasuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZmenaCasuForm.Designer.cs">
+      <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Triedy\AnimacnaKonfiguracia.cs" />
+    <Compile Include="Triedy\Databaza.cs" />
+    <Compile Include="Triedy\FarbyPrezentacie.cs" />
+    <Compile Include="Triedy\FarebnaSchema.cs" />
+    <Compile Include="Triedy\FontyTabule.cs" />
+    <Compile Include="Triedy\Hrac.cs" />
+    <Compile Include="Triedy\ParametreZapasu.cs" />
+    <Compile Include="Triedy\PriebehZapasu.cs" />
+    <Compile Include="Triedy\RozlozenieTabule.cs" />
+    <Compile Include="Triedy\Tim.cs" />
+    <EmbeddedResource Include="Forms\CervenaKartaForm.resx">
+      <DependentUpon>CervenaKartaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CervenaKartaSettingsForm.resx">
+      <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DatabazaForm.resx">
+      <DependentUpon>DatabazaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FarbyForm.resx">
+      <DependentUpon>FarbyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FarbyPrezentacie.resx">
+      <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FontyForm.resx">
+      <DependentUpon>FontyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FontyPrezentacieForm.resx">
+      <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GolForm.resx">
+      <DependentUpon>GolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GolSettingsForm.resx">
+      <DependentUpon>GolSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HraciForm.resx">
+      <DependentUpon>HraciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HraciZapasForm.resx">
+      <DependentUpon>HraciZapasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NadstavCasForm.resx">
+      <DependentUpon>NadstavCasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PozadieForm.resx">
+      <DependentUpon>PozadieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PredstavenieSettingsForm.resx">
+      <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrezentaciaForm.resx">
+      <DependentUpon>PrezentaciaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RiadiaciForm.resx">
+      <DependentUpon>RiadiaciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RozlozenieForm.resx">
+      <DependentUpon>RozlozenieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectForm.resx">
+      <DependentUpon>SelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupForm.resx">
+      <DependentUpon>SetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SizeForm.resx">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StriedanieForm.resx">
+      <DependentUpon>StriedanieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StriedanieSettingsForm.resx">
+      <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TabulaForm.resx">
+      <DependentUpon>TabulaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TestovaciForm.resx">
+      <DependentUpon>TestovaciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypZapasuForm.resx">
+      <DependentUpon>TypZapasuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZltaKartaForm.resx">
+      <DependentUpon>ZltaKartaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZltaKartaSettingsForm.resx">
+      <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZmenaCasuForm.resx">
+      <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward - Next.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Advanced Options.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar Day.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Browse 1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Folder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fonts 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Properties.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spell.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Write.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contacts.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Publish.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Card.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Attach.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rename - Edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obrázok1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obrázok3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obrázok4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Browse 3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Themes 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Browse 11.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Favourites.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward Email.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18552593841537356147-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18552593841537356147-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4214982731537355855-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13898481211537356036-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
