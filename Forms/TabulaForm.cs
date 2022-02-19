@@ -14,9 +14,8 @@ namespace LGR_Futbal.Forms
         private Color casColor;
         private Color polcasColor;
         private int aktualnyJazyk;
-
         #endregion
-
+        public RozlozenieTabule RozlozenieTabule { get; set; }
         #region Kontruktor a metody
 
         public void prelozTabuluDoJazyka(int jazyk)
@@ -52,7 +51,7 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
             aktualnyJazyk = jazyk;
-
+            RozlozenieTabule = new RozlozenieTabule();
             setDefaultColors();
 
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
@@ -69,6 +68,22 @@ namespace LGR_Futbal.Forms
                     l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
                 }
             }
+            this.RozlozenieTabule.CasX = this.casLabel.Left;
+            this.RozlozenieTabule.CasY = this.casLabel.Top;
+            this.RozlozenieTabule.DomaciX = this.domaciLabel.Left;
+            this.RozlozenieTabule.DomaciY = this.domaciLabel.Top;
+            this.RozlozenieTabule.HostiaX = this.hostiaLabel.Left;
+            this.RozlozenieTabule.HostiaY = this.hostiaLabel.Top;
+            this.RozlozenieTabule.LogoDomaciX = this.logoDomaci.Left;
+            this.RozlozenieTabule.LogoDomaciY = this.logoDomaci.Top;
+            this.RozlozenieTabule.LogoDomaciZobrazit = true;
+            this.RozlozenieTabule.LogoDomaciSirka = this.logoDomaci.Width;
+            this.RozlozenieTabule.LogoHostiaX = this.logoHostia.Left;
+            this.RozlozenieTabule.LogoHostiaY = this.logoHostia.Top;
+            this.RozlozenieTabule.LogoHostiaZobrazit = true;
+            this.RozlozenieTabule.LogoHostiaSirka = this.logoHostia.Width;
+            this.RozlozenieTabule.polCasX = this.polcasLabel.Left;
+            this.RozlozenieTabule.polCasY = this.polcasLabel.Top;
         }
 
         private void TabulaForm_Load(object sender, EventArgs e)
@@ -185,26 +200,32 @@ namespace LGR_Futbal.Forms
 
         public void setLayout(RozlozenieTabule rozlozenie)
         {
+            double pom = this.logoDomaci.Width / this.logoDomaci.Height;
+            this.RozlozenieTabule = rozlozenie;
             if (!rozlozenie.LogoDomaciZobrazit)
             {
-                this.logoDomaci.Enabled = false;
+                this.logoDomaci.Visible = false;
             }
             else
             {
                 this.logoDomaci.Left = rozlozenie.LogoDomaciX;
                 this.logoDomaci.Top = rozlozenie.LogoDomaciY;
                 this.logoDomaci.Width = rozlozenie.LogoDomaciSirka;
+                this.logoDomaci.Height = (int)(pom * this.logoDomaci.Width);
+                this.logoDomaci.Visible = true;
             }
                 
             if (!rozlozenie.LogoHostiaZobrazit)
             {
-                this.logoHostia.Enabled = false;
+                this.logoHostia.Visible = false;
             }
             else
             {
                 this.logoHostia.Left = rozlozenie.LogoHostiaX;
                 this.logoHostia.Top = rozlozenie.LogoHostiaY;
                 this.logoHostia.Width = rozlozenie.LogoHostiaSirka;
+                this.logoHostia.Height = (int)(pom * this.logoHostia.Width);
+                this.logoHostia.Visible = true;
             }
 
 

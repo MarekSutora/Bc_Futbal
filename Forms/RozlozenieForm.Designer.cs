@@ -64,7 +64,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.nacitatRozlozenieButton = new System.Windows.Forms.Button();
             this.ulozitRozlozenie = new System.Windows.Forms.Button();
             this.aktivovatRozlozenieButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -98,7 +98,7 @@
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown1.Location = new System.Drawing.Point(153, 21);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -131,7 +131,7 @@
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown2.Location = new System.Drawing.Point(314, 21);
             this.numericUpDown2.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -154,7 +154,7 @@
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown3.Location = new System.Drawing.Point(314, 68);
             this.numericUpDown3.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -177,7 +177,7 @@
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown4.Location = new System.Drawing.Point(153, 68);
             this.numericUpDown4.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -210,7 +210,7 @@
             this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown5.Location = new System.Drawing.Point(314, 162);
             this.numericUpDown5.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -233,7 +233,7 @@
             this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown6.Location = new System.Drawing.Point(153, 162);
             this.numericUpDown6.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -266,7 +266,7 @@
             this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown7.Location = new System.Drawing.Point(314, 115);
             this.numericUpDown7.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -289,7 +289,7 @@
             this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown8.Location = new System.Drawing.Point(153, 115);
             this.numericUpDown8.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -322,7 +322,7 @@
             this.numericUpDown9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown9.Location = new System.Drawing.Point(314, 230);
             this.numericUpDown9.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -345,7 +345,7 @@
             this.numericUpDown10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown10.Location = new System.Drawing.Point(153, 230);
             this.numericUpDown10.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -398,7 +398,7 @@
             this.numericUpDown11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown11.Location = new System.Drawing.Point(314, 196);
             this.numericUpDown11.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -421,7 +421,7 @@
             this.numericUpDown12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown12.Location = new System.Drawing.Point(314, 263);
             this.numericUpDown12.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -444,7 +444,7 @@
             this.numericUpDown13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown13.Location = new System.Drawing.Point(314, 299);
             this.numericUpDown13.Maximum = new decimal(new int[] {
-            1920,
+            2000,
             0,
             0,
             0});
@@ -467,7 +467,7 @@
             this.numericUpDown14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.numericUpDown14.Location = new System.Drawing.Point(153, 299);
             this.numericUpDown14.Maximum = new decimal(new int[] {
-            1080,
+            2000,
             0,
             0,
             0});
@@ -485,17 +485,18 @@
             this.label20.TabIndex = 31;
             this.label20.Text = "Polčas:";
             // 
-            // button2
+            // nacitatRozlozenieButton
             // 
-            this.button2.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(314, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 41);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "Načítať konfiguráciu";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.nacitatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
+            this.nacitatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nacitatRozlozenieButton.Location = new System.Drawing.Point(314, 350);
+            this.nacitatRozlozenieButton.Name = "nacitatRozlozenieButton";
+            this.nacitatRozlozenieButton.Size = new System.Drawing.Size(149, 41);
+            this.nacitatRozlozenieButton.TabIndex = 38;
+            this.nacitatRozlozenieButton.Text = "Načítať konfiguráciu";
+            this.nacitatRozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nacitatRozlozenieButton.UseVisualStyleBackColor = true;
+            this.nacitatRozlozenieButton.Click += new System.EventHandler(this.nacitatRozlozenieButton_Click);
             // 
             // ulozitRozlozenie
             // 
@@ -528,7 +529,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 417);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.nacitatRozlozenieButton);
             this.Controls.Add(this.ulozitRozlozenie);
             this.Controls.Add(this.aktivovatRozlozenieButton);
             this.Controls.Add(this.label18);
@@ -629,6 +630,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button aktivovatRozlozenieButton;
         private System.Windows.Forms.Button ulozitRozlozenie;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button nacitatRozlozenieButton;
     }
 }

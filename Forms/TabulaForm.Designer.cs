@@ -116,7 +116,7 @@
             this.logoHostia.Location = new System.Drawing.Point(695, 10);
             this.logoHostia.Name = "logoHostia";
             this.logoHostia.Size = new System.Drawing.Size(255, 244);
-            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoHostia.TabIndex = 542;
             this.logoHostia.TabStop = false;
             // 
@@ -125,7 +125,7 @@
             this.logoDomaci.Location = new System.Drawing.Point(10, 10);
             this.logoDomaci.Name = "logoDomaci";
             this.logoDomaci.Size = new System.Drawing.Size(255, 244);
-            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoDomaci.TabIndex = 541;
             this.logoDomaci.TabStop = false;
             // 

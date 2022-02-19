@@ -214,7 +214,7 @@ namespace LGR_Futbal
             InitializeComponent();
             setDefaultColors();
 
-            rozlozenieTabule = new RozlozenieTabule();
+            
 
             // Vytvorenie casovaca
             casovac = new System.Timers.Timer();
@@ -294,6 +294,8 @@ namespace LGR_Futbal
             formularTabule.prelozTabuluDoJazyka(indexJazyka);
             formularTabule.Show();
             formularTabule.NastavFonty(pisma);
+            rozlozenieTabule = formularTabule.RozlozenieTabule;
+
 
             if (!defaultColorScheme.Equals(string.Empty))
             {
@@ -1152,9 +1154,8 @@ namespace LGR_Futbal
             {
                 formularTabule.setLayout(sf.rozlozenieTabule);
                 this.rozlozenieTabule = sf.rozlozenieTabule;
+                formularTabule.RozlozenieTabule = sf.rozlozenieTabule;
             }
-               
-
         }
 
         private void Sf_OnAnimacieKarietConfirmed(string s1, string s2)

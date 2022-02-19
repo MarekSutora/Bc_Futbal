@@ -58,6 +58,7 @@ namespace LGR_Futbal.Forms
         private FontyTabule pisma;
         private Font fontNaStriedanie;
         private FarebnaSchema nastaveniaFarieb;
+        private RozlozenieForm rf = null;
 
         private List<ParametreZapasu> zoznamTypovZapasu = null;
         private AnimacnaKonfiguracia konfig;
@@ -256,7 +257,6 @@ namespace LGR_Futbal.Forms
 
             zoznamTypovZapasu = new List<ParametreZapasu>();
             typyZapasovListBox.Items.Clear();
-            rozlozenieTabule = new RozlozenieTabule();
             loadList();
         }
 
@@ -1003,7 +1003,7 @@ namespace LGR_Futbal.Forms
 
         private void rozlozenieButton_Click(object sender, EventArgs e)
         {
-            RozlozenieForm rf = new RozlozenieForm();
+            rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule);
             this.rozlozenieTabule = rf.rozlozenieTabule;
             rf.OnLayoutConfirmed += On_LayoutConfirmed;
             rf.Show();
@@ -1011,8 +1011,13 @@ namespace LGR_Futbal.Forms
 
         private void On_LayoutConfirmed()
         {
-            if (OnLayoutChanged != null)
-                OnLayoutChanged();
+            if (rf != null)
+            {
+                this.rozlozenieTabule = rf.rozlozenieTabule;
+                if (OnLayoutChanged != null)
+                    OnLayoutChanged();
+            }
+            
         }
 
         #endregion
