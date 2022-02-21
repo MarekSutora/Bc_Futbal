@@ -185,6 +185,7 @@
             // 
             // fontyButton
             // 
+            this.fontyButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.fontyButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.fontyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fontyButton.Location = new System.Drawing.Point(175, 243);
@@ -1252,7 +1253,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SetupForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LGR Futbal - nastavenia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);

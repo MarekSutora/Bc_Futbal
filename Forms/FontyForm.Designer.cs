@@ -46,16 +46,18 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.ulozitFonty = new System.Windows.Forms.Button();
+            this.nacitatFonty = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // zrusitButton
             // 
             this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(419, 63);
+            this.zrusitButton.Location = new System.Drawing.Point(470, 192);
             this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.zrusitButton.Name = "zrusitButton";
-            this.zrusitButton.Size = new System.Drawing.Size(106, 52);
+            this.zrusitButton.Size = new System.Drawing.Size(93, 41);
             this.zrusitButton.TabIndex = 20;
             this.zrusitButton.Text = "Zrušiť      ";
             this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -66,10 +68,10 @@
             // 
             this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(419, 6);
+            this.aktivovatButton.Location = new System.Drawing.Point(11, 192);
             this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(106, 52);
+            this.aktivovatButton.Size = new System.Drawing.Size(151, 41);
             this.aktivovatButton.TabIndex = 19;
             this.aktivovatButton.Text = "Uložiť      \r\nzmeny      ";
             this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,7 +161,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(365, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 21);
             this.button1.TabIndex = 35;
@@ -170,7 +172,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(365, 115);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(50, 21);
             this.button2.TabIndex = 36;
@@ -181,7 +183,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(365, 79);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(50, 21);
             this.button3.TabIndex = 37;
@@ -192,7 +194,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(365, 42);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(50, 21);
             this.button4.TabIndex = 38;
@@ -223,7 +225,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(365, 151);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(50, 21);
             this.button5.TabIndex = 42;
@@ -231,11 +233,39 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // ulozitFonty
+            // 
+            this.ulozitFonty.Image = global::LGR_Futbal.Properties.Resources._13898481211537356036_32;
+            this.ulozitFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ulozitFonty.Location = new System.Drawing.Point(322, 192);
+            this.ulozitFonty.Name = "ulozitFonty";
+            this.ulozitFonty.Size = new System.Drawing.Size(140, 41);
+            this.ulozitFonty.TabIndex = 43;
+            this.ulozitFonty.Text = "Uložiť konfiguráciu";
+            this.ulozitFonty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ulozitFonty.UseVisualStyleBackColor = true;
+            this.ulozitFonty.Click += new System.EventHandler(this.ulozitFonty_Click);
+            // 
+            // nacitatFonty
+            // 
+            this.nacitatFonty.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
+            this.nacitatFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nacitatFonty.Location = new System.Drawing.Point(167, 192);
+            this.nacitatFonty.Name = "nacitatFonty";
+            this.nacitatFonty.Size = new System.Drawing.Size(149, 41);
+            this.nacitatFonty.TabIndex = 44;
+            this.nacitatFonty.Text = "Načítať konfiguráciu";
+            this.nacitatFonty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nacitatFonty.UseVisualStyleBackColor = true;
+            this.nacitatFonty.Click += new System.EventHandler(this.nacitatFonty_Click);
+            // 
             // FontyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 185);
+            this.ClientSize = new System.Drawing.Size(574, 243);
+            this.Controls.Add(this.nacitatFonty);
+            this.Controls.Add(this.ulozitFonty);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
@@ -255,11 +285,10 @@
             this.Controls.Add(this.aktivovatButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FontyForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nastavenie fontov";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FontyFormForm_KeyDown);
@@ -287,5 +316,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ulozitFonty;
+        private System.Windows.Forms.Button nacitatFonty;
     }
 }

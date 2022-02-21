@@ -11,6 +11,7 @@ namespace LGR_Futbal.Triedy
         private string nazvyFont;
         private string casFont;
         private string polcasFont;
+        private string striedaniaFont;
 
         public FontyTabule()
         {
@@ -20,12 +21,14 @@ namespace LGR_Futbal.Triedy
             NazvyFont = converter.ConvertToString(font);
             CasFont = converter.ConvertToString(font);
             PolcasFont = converter.ConvertToString(font);
+            StriedaniaFont = converter.ConvertToString(font);
         }
 
         public string SkoreFont { get => skoreFont; set => skoreFont = value; }
         public string NazvyFont { get => nazvyFont; set => nazvyFont = value; }
         public string CasFont { get => casFont; set => casFont = value; }
         public string PolcasFont { get => polcasFont; set => polcasFont = value; }
+        public string StriedaniaFont { get => striedaniaFont; set => striedaniaFont = value; }
 
         public Font CreateSkoreFont()
         {
@@ -51,6 +54,12 @@ namespace LGR_Futbal.Triedy
             return (Font)converter.ConvertFromString(polcasFont);
         }
 
+        public Font CreateStriedaniaFont()
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+            return (Font)converter.ConvertFromString(striedaniaFont);
+        }
+
         public void convertSkoreFont(Font font)
         {
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
@@ -73,6 +82,12 @@ namespace LGR_Futbal.Triedy
         {
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
             PolcasFont = converter.ConvertToString(font);
+        }
+
+        public void convertStriedaniaFont(Font font)
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+            StriedaniaFont = converter.ConvertToString(font);
         }
     }
 }

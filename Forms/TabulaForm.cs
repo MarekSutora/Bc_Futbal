@@ -16,6 +16,7 @@ namespace LGR_Futbal.Forms
         private int aktualnyJazyk;
         #endregion
         public RozlozenieTabule RozlozenieTabule { get; set; }
+        public FontyTabule fontyTabule { get; set; }
         #region Kontruktor a metody
 
         public void prelozTabuluDoJazyka(int jazyk)
@@ -74,6 +75,10 @@ namespace LGR_Futbal.Forms
             this.RozlozenieTabule.DomaciY = this.domaciLabel.Top;
             this.RozlozenieTabule.HostiaX = this.hostiaLabel.Left;
             this.RozlozenieTabule.HostiaY = this.hostiaLabel.Top;
+            this.RozlozenieTabule.DomaciSkoreX = this.skoreDomaciLabel.Left;
+            this.RozlozenieTabule.DomaciSkoreY = this.skoreDomaciLabel.Top;
+            this.RozlozenieTabule.HostiaSkoreX = this.skoreHostiaLabel.Left;
+            this.RozlozenieTabule.HostiaSkoreY = this.skoreHostiaLabel.Top;
             this.RozlozenieTabule.LogoDomaciX = this.logoDomaci.Left;
             this.RozlozenieTabule.LogoDomaciY = this.logoDomaci.Top;
             this.RozlozenieTabule.LogoDomaciZobrazit = true;
@@ -196,6 +201,7 @@ namespace LGR_Futbal.Forms
 
             casLabel.Font = fonty.CreateCasFont();
             polcasLabel.Font = fonty.CreatePolcasFont();
+            
         }
 
         public void setLayout(RozlozenieTabule rozlozenie)
@@ -228,6 +234,11 @@ namespace LGR_Futbal.Forms
                 this.logoHostia.Visible = true;
             }
 
+            this.skoreDomaciLabel.Left = rozlozenie.DomaciSkoreX;
+            this.skoreDomaciLabel.Top = rozlozenie.DomaciSkoreY;
+
+            this.skoreHostiaLabel.Left = rozlozenie.HostiaSkoreX;
+            this.skoreHostiaLabel.Top = rozlozenie.HostiaSkoreY;
 
             this.hostiaLabel.Left = rozlozenie.HostiaX;
             this.hostiaLabel.Top = rozlozenie.HostiaY;

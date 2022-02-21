@@ -55,19 +55,21 @@ namespace LGR_Futbal.Forms
         private Tim hostiaT = null;
 
         private string originalFolder = null;
-        private FontyTabule pisma;
-        private Font fontNaStriedanie;
+        //private Font fontNaStriedanie;
         private FarebnaSchema nastaveniaFarieb;
         private RozlozenieForm rf = null;
+        private FontyForm fontyForm = null;
 
         private List<ParametreZapasu> zoznamTypovZapasu = null;
         private AnimacnaKonfiguracia konfig;
         private List<string> zoznamSuborov;
 
         public RozlozenieTabule rozlozenieTabule { get; set; }
+        public FontyTabule Pisma { get; set; }
 
         private string zltaAnimacia;
         private string cervenaAnimacia;
+
 
         public event PrenesDataHandler OnDataConfirmed;
         public event ResetHandler OnReset;
@@ -91,7 +93,7 @@ namespace LGR_Futbal.Forms
         public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string logoDom, string logoHos, string nazovDom, string nazovHos,
             Databaza databaza, Tim domaciTim, Tim hostiaTim, string folder, int animacia,
-            FontyTabule fonty, Font f, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
+            FontyTabule fonty, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena)
         {
             InitializeComponent();
@@ -184,8 +186,6 @@ namespace LGR_Futbal.Forms
             originalFolder = folder;
             inicializujNastaveniaAnimacii();
             nastaveniaFarieb = schema;
-            pisma = fonty;
-            fontNaStriedanie = f;
 
             if (zltaAnimacia.Equals(string.Empty))
                 pictureBox1.Image = null;
@@ -775,10 +775,10 @@ namespace LGR_Futbal.Forms
 
         private void fontyButton_Click(object sender, EventArgs e)
         {
-            FontyForm ff = new FontyForm(pisma, fontNaStriedanie);
-            ff.OnFontStriedaniaSelected += Ff_OnFontStriedaniaSelected;
-            ff.OnFontsConfirmed += Ff_OnFontsConfirmed;
-            ff.Show();
+            fontyForm = new FontyForm(originalFolder + "\\FontyNastavenia", Pisma);
+            //ff.OnFontStriedaniaSelected += Ff_OnFontStriedaniaSelected;
+            fontyForm.OnFontsConfirmed += Ff_OnFontsConfirmed;
+            fontyForm.Show();
         }
 
         private void Ff_OnFontStriedaniaSelected(Font f)
@@ -790,8 +790,12 @@ namespace LGR_Futbal.Forms
         private void Ff_OnFontsConfirmed()
         {
             if (OnObnovaFontov != null)
+            {
+                this.Pisma = fontyForm.pisma;
                 OnObnovaFontov();
-            this.Close();
+            }
+                
+            //this.Close();
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -1004,7 +1008,7 @@ namespace LGR_Futbal.Forms
         private void rozlozenieButton_Click(object sender, EventArgs e)
         {
             rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule);
-            this.rozlozenieTabule = rf.rozlozenieTabule;
+            this.rozlozenieTabule = rf.RozlozenieTabule;
             rf.OnLayoutConfirmed += On_LayoutConfirmed;
             rf.Show();
         }
@@ -1013,7 +1017,7 @@ namespace LGR_Futbal.Forms
         {
             if (rf != null)
             {
-                this.rozlozenieTabule = rf.rozlozenieTabule;
+                this.rozlozenieTabule = rf.RozlozenieTabule;
                 if (OnLayoutChanged != null)
                     OnLayoutChanged();
             }

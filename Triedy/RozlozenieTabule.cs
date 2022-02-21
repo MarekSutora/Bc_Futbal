@@ -14,6 +14,10 @@ namespace LGR_Futbal.Triedy
         public int DomaciY { get; set; }
         public int HostiaX { get; set; }
         public int HostiaY { get; set; }
+        public int DomaciSkoreX { get; set; }
+        public int DomaciSkoreY { get; set; }
+        public int HostiaSkoreX { get; set; }
+        public int HostiaSkoreY { get; set; }
         public int LogoDomaciX { get; set; }
         public int LogoDomaciY { get; set; }
         public int LogoDomaciSirka { get; set; }
