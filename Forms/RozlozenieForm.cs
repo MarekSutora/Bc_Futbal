@@ -15,11 +15,13 @@ namespace LGR_Futbal.Forms
 {
 
     public delegate void LayoutConfirmedHandler();
+    public delegate void FileSelectedHandlerRF(string cesta);
 
     public partial class RozlozenieForm : Form
     {
         private string adresa;
-        public LayoutConfirmedHandler OnLayoutConfirmed;
+        public event LayoutConfirmedHandler OnLayoutConfirmed;
+        public event FileSelectedHandlerRF OnFileSelected;
         public RozlozenieTabule RozlozenieTabule { get; set; }
 
         public RozlozenieForm(string adresa, RozlozenieTabule rt)
@@ -157,8 +159,9 @@ namespace LGR_Futbal.Forms
                     if (textWriter != null)
                         textWriter.Close();
 
-                    if (uspech)
-                    { 
+                    if (uspech && OnFileSelected != null)
+                    {
+                        OnFileSelected(adresa + sfd.FileName);
                     }
                     this.Close();
                 }
@@ -200,6 +203,10 @@ namespace LGR_Futbal.Forms
                         if (OnLayoutConfirmed != null)
                         {
                             OnLayoutConfirmed();
+                        }
+                        if (OnFileSelected != null)
+                        {
+                            OnFileSelected(adresa + ofd.FileName);
                         }
                     }
                 }

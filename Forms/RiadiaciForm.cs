@@ -43,6 +43,7 @@ namespace LGR_Futbal
         private bool odstranovatDiakritiku = true;
         private string logoDomaciFile = string.Empty;
         private string logoHostiaFile = string.Empty;
+        private string rozlozenieCesta = string.Empty;
         private Stopwatch sw = null;
         private System.Timers.Timer casovac;
         private Databaza databaza = null;
@@ -322,6 +323,34 @@ namespace LGR_Futbal
                         AplikujFarebnuSchemu(schema);
                 }
             }
+
+            if (!rozlozenieCesta.Equals(string.Empty))
+            {
+                TextReader textReader = null;
+                bool uspech = true;
+                RozlozenieTabule rt = null;
+
+                try
+                {
+                    string nazovSuboru = currentDirectory + "\\" + "RozlozenieNastavenia\\" + Path.GetFileName(rozlozenieCesta);
+                    XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
+                    textReader = new StreamReader(nazovSuboru);
+                    rt = (RozlozenieTabule)deserializer.Deserialize(textReader);
+                }
+                catch (Exception ex)
+                {
+                    uspech = false;
+                    MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (textReader != null)
+                        textReader.Close();
+
+                    if (uspech)
+                        formularTabule.setLayout(rt);
+                }
+            }
         }
 
         private void SpracujCas()
@@ -599,6 +628,7 @@ namespace LGR_Futbal
                 zobrazitFunkcionarov = br.ReadBoolean();
                 animaciaZltaKarta = br.ReadString();
                 animaciaCervenaKarta = br.ReadString();
+                rozlozenieCesta = br.ReadString();
             }
             catch (Exception ex)
             {
@@ -649,6 +679,7 @@ namespace LGR_Futbal
                 bw.Write(zobrazitFunkcionarov);
                 bw.Write(animaciaZltaKarta);
                 bw.Write(animaciaCervenaKarta);
+                bw.Write(rozlozenieCesta);
             }
             catch (Exception ex)
             {
@@ -1143,9 +1174,15 @@ namespace LGR_Futbal
             sf.OnObnovaFontov += Sf_OnObnovaFontov;
             sf.OnFontPosted += Sf_OnFontPosted;
             sf.OnLayoutChanged += Sf_OnLayoutChanged;
+            sf.OnFileSelectedRF += Sf_OnFileSelectedRF;
             sf.rozlozenieTabule = formularTabule.RozlozenieTabule;
             sf.Pisma = this.pisma;
             sf.Show();
+        }
+
+        private void Sf_OnFileSelectedRF(string cesta)
+        {
+            this.rozlozenieCesta = cesta;
         }
 
         private void Sf_OnLayoutChanged()
@@ -1209,6 +1246,7 @@ namespace LGR_Futbal
 
         private void Sf_OnObnovaFarieb()
         {
+
             setDefaultColors();
             formularTabule.setDefaultColors();
         }

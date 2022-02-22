@@ -224,7 +224,6 @@
             this.loadColorsButton.Text = "Načítať              \r\nnastavenia farieb       ";
             this.loadColorsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.loadColorsButton.UseVisualStyleBackColor = true;
-            this.loadColorsButton.Click += new System.EventHandler(this.loadColorsButton_Click);
             // 
             // obnovaFariebButton
             // 
@@ -238,7 +237,6 @@
             this.obnovaFariebButton.Text = "Obnoviť výrobné        \r\nnastavenia farieb        ";
             this.obnovaFariebButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.obnovaFariebButton.UseVisualStyleBackColor = true;
-            this.obnovaFariebButton.Click += new System.EventHandler(this.obnovaFariebButton_Click);
             // 
             // rozsvietButton
             // 

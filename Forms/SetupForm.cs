@@ -24,6 +24,7 @@ namespace LGR_Futbal.Forms
     public delegate void ObnovaFariebHandler();
     public delegate void ColorsLoadedHandler(FarebnaSchema fs);
     public delegate void FileSelectedHandler(string cesta);
+    public delegate void FileSelectedHandlerRF2(string cesta);
     public delegate void ObnovaFontovHandler();
     public delegate void FontPostedHandler(Font f);
     public delegate void LanguageSelectedHandler(int cislo);
@@ -80,6 +81,7 @@ namespace LGR_Futbal.Forms
         public event ObnovaFariebHandler OnObnovaFarieb;
         public event ColorsLoadedHandler OnColorsLoaded;
         public event FileSelectedHandler OnFileSelected;
+        public event FileSelectedHandlerRF2 OnFileSelectedRF;
         public event ObnovaFontovHandler OnObnovaFontov;
         public event FontPostedHandler OnFontPosted;
         public event LanguageSelectedHandler OnLanguageSelected;
@@ -706,71 +708,93 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void obnovaFariebButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (OnObnovaFarieb != null)
-                    OnObnovaFarieb();
-                if (OnFileSelected != null)
-                    OnFileSelected(string.Empty);
-                this.Close();
-            }
-        }
+        //private void obnovaFariebButton_Click(object sender, EventArgs e)
+        //{
+        //    if (MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //    {
+        //        if (OnObnovaFarieb != null)
+        //            OnObnovaFarieb();
+        //        if (OnFileSelected != null)
+        //            OnFileSelected(string.Empty);
+        //        this.Close();
+        //    }
+        //}
 
-        private void nacitajFarby(string cesta)
-        {
-            TextReader textReader = null;
-            bool uspech = true;
-            FarebnaSchema schema = null;
+        //private void nacitajFarby(string cesta)
+        //{
+        //    TextReader textReader = null;
+        //    bool uspech = true;
+        //    FarebnaSchema schema = null;
 
-            try
-            {
-                XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
-                textReader = new StreamReader(cesta);
-                schema = (FarebnaSchema)deserializer.Deserialize(textReader);
-            }
-            catch (Exception ex)
-            {
-                uspech = false;
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (textReader != null)
-                    textReader.Close();
+        //    try
+        //    {
+        //        XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
+        //        textReader = new StreamReader(cesta);
+        //        schema = (FarebnaSchema)deserializer.Deserialize(textReader);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        uspech = false;
+        //        MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally
+        //    {
+        //        if (textReader != null)
+        //            textReader.Close();
 
-                if (uspech)
-                {
-                    if (OnColorsLoaded != null)
-                        OnColorsLoaded(schema);
-                    if (OnFileSelected != null)
-                        OnFileSelected(cesta);
-                    this.Close();
-                }
-            }
-        }
+        //        if (uspech)
+        //        {
+        //            if (OnColorsLoaded != null)
+        //                OnColorsLoaded(schema);
+        //            if (OnFileSelected != null)
+        //                OnFileSelected(cesta);
+        //            this.Close();
+        //        }
+        //    }
+        //}
 
-        private void loadColorsButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = false;
-            ofd.InitialDirectory = originalFolder + "\\FarebneNastavenia";
-            ofd.Filter = "xml files (*.xml)|*.xml";
-            if (ofd.ShowDialog() == DialogResult.OK)
-                nacitajFarby(ofd.FileName);
-        }
+        //private void loadColorsButton_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog();
+        //    ofd.Multiselect = false;
+        //    ofd.InitialDirectory = originalFolder + "\\FarebneNastavenia";
+        //    ofd.Filter = "xml files (*.xml)|*.xml";
+        //    if (ofd.ShowDialog() == DialogResult.OK)
+        //        nacitajFarby(ofd.FileName);
+        //}
 
         private void createColorsButton_Click(object sender, EventArgs e)
         {
             FarbyForm ff = new FarbyForm(originalFolder + "\\FarebneNastavenia", nastaveniaFarieb);
-            ff.OnFileSaved += Ff_OnFileSaved;
+            //ff.OnFileSaved += Ff_OnFileSaved;
+            ff.OnColorsLoadedFF += Ff_OnColorsLoaded;
+            ff.OnFileSelectedFF += Ff_OnFileSelected;
+            ff.OnObnovaFariebFF += Ff_OnObnovaFarieb;
             ff.Show();
         }
 
-        private void Ff_OnFileSaved(string s)
+        private void Ff_OnColorsLoaded(FarebnaSchema s)
         {
-            nacitajFarby(s);
+            if (OnColorsLoaded != null)
+            {
+                OnColorsLoaded(s);
+            }
+        }
+
+        private void Ff_OnFileSelected(string cesta)
+        {
+            if (OnFileSelected != null)
+            {
+                OnFileSelected(cesta);
+            }
+        }
+
+        private void Ff_OnObnovaFarieb()
+        {
+            if (OnObnovaFarieb != null)
+            {
+                OnObnovaFarieb();
+            }
         }
 
         private void fontyButton_Click(object sender, EventArgs e)
@@ -1010,6 +1034,7 @@ namespace LGR_Futbal.Forms
             rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule);
             this.rozlozenieTabule = rf.RozlozenieTabule;
             rf.OnLayoutConfirmed += On_LayoutConfirmed;
+            rf.OnFileSelected += Rf_OnFileSelected;
             rf.Show();
         }
 
@@ -1022,6 +1047,13 @@ namespace LGR_Futbal.Forms
                     OnLayoutChanged();
             }
             
+        }
+
+        private void Rf_OnFileSelected(string cesta)
+        {
+             if (OnFileSelectedRF != null)
+                OnFileSelectedRF(cesta);
+
         }
 
         #endregion

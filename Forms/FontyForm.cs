@@ -4,7 +4,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using LGR_Futbal.Triedy;
 using System.Xml.Serialization;
 using System.IO;
 
