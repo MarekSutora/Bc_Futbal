@@ -470,8 +470,6 @@
             this.zmenitCasButton.Text = "Zmeniť čas";
             this.zmenitCasButton.UseVisualStyleBackColor = false;
             this.zmenitCasButton.Click += new System.EventHandler(this.zmenitCasButton_Click);
-            this.zmenitCasButton.MouseEnter += new System.EventHandler(this.zmenitCasButton_MouseEnter);
-            this.zmenitCasButton.MouseLeave += new System.EventHandler(this.zmenitCasButton_MouseLeave);
             // 
             // RiadiaciForm
             // 

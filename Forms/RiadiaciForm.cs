@@ -214,8 +214,6 @@ namespace LGR_Futbal
             InitializeComponent();
             setDefaultColors();
 
-            
-
             // Vytvorenie casovaca
             casovac = new System.Timers.Timer();
             casovac.Interval = 100;

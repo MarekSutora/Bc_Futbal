@@ -70,6 +70,8 @@ namespace LGR_Futbal.Forms
 
         private string zltaAnimacia;
         private string cervenaAnimacia;
+        private int sirkaObr;
+        private int vyskaObr;
 
 
         public event PrenesDataHandler OnDataConfirmed;
@@ -222,8 +224,8 @@ namespace LGR_Futbal.Forms
 
             var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
             var screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-            int sirkaObr = screen.Bounds.Width;
-            int vyskaObr = screen.Bounds.Height;
+            sirkaObr = screen.Bounds.Width;
+            vyskaObr = screen.Bounds.Height;
             rozlisenieLabel.Text = sirkaObr.ToString() + " x " + vyskaObr.ToString();
 
             sirkaNumUpDown.Value = sirka;
@@ -1032,7 +1034,7 @@ namespace LGR_Futbal.Forms
 
         private void rozlozenieButton_Click(object sender, EventArgs e)
         {
-            rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule);
+            rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule, sirkaObr, vyskaObr);
             this.rozlozenieTabule = rf.RozlozenieTabule;
             rf.OnLayoutConfirmed += On_LayoutConfirmed;
             rf.OnFileSelected += Rf_OnFileSelected;
