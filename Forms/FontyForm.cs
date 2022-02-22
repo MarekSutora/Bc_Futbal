@@ -219,5 +219,23 @@ namespace LGR_Futbal.Forms
                 }
             }
         }
+
+        private void obnovaFontovButton_Click(object sender, EventArgs e)
+        {
+            label5.Text = "Arial; 53,25pt; style=Bold";
+            label6.Text = "Arial; 147pt; style=Bold";
+            label7.Text = "Arial; 147pt; style=Bold";
+            label8.Text = "Arial; 66pt";
+            label9.Text = "Arial; 48pt";
+
+            pisma.NazvyFont = label5.Text;
+            pisma.SkoreFont = label6.Text;
+            pisma.CasFont = label7.Text;
+            pisma.PolcasFont = label8.Text;
+            pisma.StriedaniaFont = label9.Text;
+
+            if (OnFontsConfirmed != null)
+                OnFontsConfirmed();
+        }
     }
 }

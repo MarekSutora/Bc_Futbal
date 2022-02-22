@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.ovladace = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rozlozenieButton = new System.Windows.Forms.Button();
             this.fontyButton = new System.Windows.Forms.Button();
             this.createColorsButton = new System.Windows.Forms.Button();
-            this.loadColorsButton = new System.Windows.Forms.Button();
-            this.obnovaFariebButton = new System.Windows.Forms.Button();
             this.rozsvietButton = new System.Windows.Forms.Button();
             this.zhasniButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
@@ -113,6 +112,7 @@
             this.kartyButton = new System.Windows.Forms.Button();
             this.zrusitButton = new System.Windows.Forms.Button();
             this.aktivovatButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ovladace.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.velkostGroupBox.SuspendLayout();
@@ -152,8 +152,6 @@
             this.tabPage1.Controls.Add(this.rozlozenieButton);
             this.tabPage1.Controls.Add(this.fontyButton);
             this.tabPage1.Controls.Add(this.createColorsButton);
-            this.tabPage1.Controls.Add(this.loadColorsButton);
-            this.tabPage1.Controls.Add(this.obnovaFariebButton);
             this.tabPage1.Controls.Add(this.rozsvietButton);
             this.tabPage1.Controls.Add(this.zhasniButton);
             this.tabPage1.Controls.Add(this.resetButton);
@@ -173,7 +171,7 @@
             // 
             this.rozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
             this.rozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rozlozenieButton.Location = new System.Drawing.Point(11, 243);
+            this.rozlozenieButton.Location = new System.Drawing.Point(11, 183);
             this.rozlozenieButton.Margin = new System.Windows.Forms.Padding(2);
             this.rozlozenieButton.Name = "rozlozenieButton";
             this.rozlozenieButton.Size = new System.Drawing.Size(160, 50);
@@ -188,7 +186,7 @@
             this.fontyButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.fontyButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.fontyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fontyButton.Location = new System.Drawing.Point(175, 243);
+            this.fontyButton.Location = new System.Drawing.Point(351, 183);
             this.fontyButton.Margin = new System.Windows.Forms.Padding(2);
             this.fontyButton.Name = "fontyButton";
             this.fontyButton.Size = new System.Drawing.Size(167, 50);
@@ -207,36 +205,9 @@
             this.createColorsButton.Name = "createColorsButton";
             this.createColorsButton.Size = new System.Drawing.Size(167, 50);
             this.createColorsButton.TabIndex = 23;
-            this.createColorsButton.Text = "Vytvoriť vlastné         \r\nnastavenia farieb        \r\n(zmeniť aktuálne)        ";
-            this.createColorsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.createColorsButton.Text = "               Zmeniť                                     farebné nastavenia";
             this.createColorsButton.UseVisualStyleBackColor = true;
             this.createColorsButton.Click += new System.EventHandler(this.createColorsButton_Click);
-            // 
-            // loadColorsButton
-            // 
-            this.loadColorsButton.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
-            this.loadColorsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.loadColorsButton.Location = new System.Drawing.Point(11, 184);
-            this.loadColorsButton.Margin = new System.Windows.Forms.Padding(2);
-            this.loadColorsButton.Name = "loadColorsButton";
-            this.loadColorsButton.Size = new System.Drawing.Size(160, 50);
-            this.loadColorsButton.TabIndex = 22;
-            this.loadColorsButton.Text = "Načítať              \r\nnastavenia farieb       ";
-            this.loadColorsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loadColorsButton.UseVisualStyleBackColor = true;
-            // 
-            // obnovaFariebButton
-            // 
-            this.obnovaFariebButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
-            this.obnovaFariebButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.obnovaFariebButton.Location = new System.Drawing.Point(346, 184);
-            this.obnovaFariebButton.Margin = new System.Windows.Forms.Padding(2);
-            this.obnovaFariebButton.Name = "obnovaFariebButton";
-            this.obnovaFariebButton.Size = new System.Drawing.Size(180, 50);
-            this.obnovaFariebButton.TabIndex = 21;
-            this.obnovaFariebButton.Text = "Obnoviť výrobné        \r\nnastavenia farieb        ";
-            this.obnovaFariebButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.obnovaFariebButton.UseVisualStyleBackColor = true;
             // 
             // rozsvietButton
             // 
@@ -1342,8 +1313,6 @@
         private System.Windows.Forms.Button odstranitTypZapasuButton;
         private System.Windows.Forms.ListBox typyZapasovListBox;
         private System.Windows.Forms.Button vybratButton;
-        private System.Windows.Forms.Button obnovaFariebButton;
-        private System.Windows.Forms.Button loadColorsButton;
         private System.Windows.Forms.Button createColorsButton;
         private System.Windows.Forms.Button fontyButton;
         private System.Windows.Forms.GroupBox jazykGroupBox;
@@ -1370,5 +1339,6 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button rozlozenieButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -67,105 +67,121 @@
             // 
             this.domZltaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.domZltaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domZltaKartaButton.Location = new System.Drawing.Point(8, 8);
-            this.domZltaKartaButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domZltaKartaButton.Location = new System.Drawing.Point(7, 8);
+            this.domZltaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.domZltaKartaButton.Name = "domZltaKartaButton";
             this.domZltaKartaButton.Size = new System.Drawing.Size(147, 78);
             this.domZltaKartaButton.TabIndex = 0;
             this.domZltaKartaButton.Text = "ŽLTÁ\r\nKARTA";
             this.domZltaKartaButton.UseVisualStyleBackColor = false;
             this.domZltaKartaButton.Click += new System.EventHandler(this.DomZltaKartaButton_Click);
+            this.domZltaKartaButton.MouseEnter += new System.EventHandler(this.domZltaKartaButton_Enter);
+            this.domZltaKartaButton.MouseLeave += new System.EventHandler(this.domZltaKartaButton_Leave);
             // 
             // hosZltaKartaButton
             // 
             this.hosZltaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.hosZltaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hosZltaKartaButton.Location = new System.Drawing.Point(684, 8);
-            this.hosZltaKartaButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hosZltaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosZltaKartaButton.Name = "hosZltaKartaButton";
             this.hosZltaKartaButton.Size = new System.Drawing.Size(147, 78);
             this.hosZltaKartaButton.TabIndex = 1;
             this.hosZltaKartaButton.Text = "ŽLTÁ\r\nKARTA";
             this.hosZltaKartaButton.UseVisualStyleBackColor = false;
             this.hosZltaKartaButton.Click += new System.EventHandler(this.HosZltaKartaButton_Click);
+            this.hosZltaKartaButton.MouseEnter += new System.EventHandler(this.hosZltaKartaButton_Enter);
+            this.hosZltaKartaButton.MouseLeave += new System.EventHandler(this.hosZltaKartaButton_Leave);
             // 
             // domCervenaKartaButton
             // 
             this.domCervenaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.domCervenaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domCervenaKartaButton.Location = new System.Drawing.Point(8, 89);
-            this.domCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.domCervenaKartaButton.Name = "domCervenaKartaButton";
             this.domCervenaKartaButton.Size = new System.Drawing.Size(147, 78);
             this.domCervenaKartaButton.TabIndex = 2;
             this.domCervenaKartaButton.Text = "ČERVENÁ\r\nKARTA";
             this.domCervenaKartaButton.UseVisualStyleBackColor = false;
             this.domCervenaKartaButton.Click += new System.EventHandler(this.DomCervenaKartaButton_Click);
+            this.domCervenaKartaButton.MouseEnter += new System.EventHandler(this.domCervenaKartaButton_MouseEnter);
+            this.domCervenaKartaButton.MouseLeave += new System.EventHandler(this.domCervenaKartaButton_MouseLeave);
             // 
             // hosCervenaKartaButton
             // 
             this.hosCervenaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.hosCervenaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hosCervenaKartaButton.Location = new System.Drawing.Point(684, 89);
-            this.hosCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hosCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosCervenaKartaButton.Name = "hosCervenaKartaButton";
             this.hosCervenaKartaButton.Size = new System.Drawing.Size(147, 78);
             this.hosCervenaKartaButton.TabIndex = 3;
             this.hosCervenaKartaButton.Text = "ČERVENÁ\r\nKARTA";
             this.hosCervenaKartaButton.UseVisualStyleBackColor = false;
             this.hosCervenaKartaButton.Click += new System.EventHandler(this.HosCervenaKartaButton_Click);
+            this.hosCervenaKartaButton.MouseEnter += new System.EventHandler(this.hosCervenaKartaButton_MouseEnter);
+            this.hosCervenaKartaButton.MouseLeave += new System.EventHandler(this.hosCervenaKartaButton_MouseLeave);
             // 
             // domZmenaStavuButton
             // 
             this.domZmenaStavuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.domZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domZmenaStavuButton.Location = new System.Drawing.Point(8, 171);
-            this.domZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2);
             this.domZmenaStavuButton.Name = "domZmenaStavuButton";
             this.domZmenaStavuButton.Size = new System.Drawing.Size(147, 78);
             this.domZmenaStavuButton.TabIndex = 4;
             this.domZmenaStavuButton.Text = "ZMENA\r\nSTAVU";
             this.domZmenaStavuButton.UseVisualStyleBackColor = false;
             this.domZmenaStavuButton.Click += new System.EventHandler(this.DomZmenaStavuButton_Click);
+            this.domZmenaStavuButton.MouseEnter += new System.EventHandler(this.domZmenaStavuButton_MouseEnter);
+            this.domZmenaStavuButton.MouseLeave += new System.EventHandler(this.domZmenaStavuButton_MouseLeave);
             // 
             // hosZmenaStavuButton
             // 
             this.hosZmenaStavuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.hosZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hosZmenaStavuButton.Location = new System.Drawing.Point(684, 171);
-            this.hosZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hosZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosZmenaStavuButton.Name = "hosZmenaStavuButton";
             this.hosZmenaStavuButton.Size = new System.Drawing.Size(147, 78);
             this.hosZmenaStavuButton.TabIndex = 5;
             this.hosZmenaStavuButton.Text = "ZMENA\r\nSTAVU";
             this.hosZmenaStavuButton.UseVisualStyleBackColor = false;
             this.hosZmenaStavuButton.Click += new System.EventHandler(this.HosZmenaStavuButton_Click);
+            this.hosZmenaStavuButton.MouseEnter += new System.EventHandler(this.hosZmenaStavuButton_MouseEnter);
+            this.hosZmenaStavuButton.MouseLeave += new System.EventHandler(this.hosZmenaStavuButton_MouseLeave);
             // 
             // domStriedanieButton
             // 
             this.domStriedanieButton.BackColor = System.Drawing.SystemColors.Control;
             this.domStriedanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domStriedanieButton.Location = new System.Drawing.Point(8, 254);
-            this.domStriedanieButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domStriedanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.domStriedanieButton.Name = "domStriedanieButton";
             this.domStriedanieButton.Size = new System.Drawing.Size(147, 78);
             this.domStriedanieButton.TabIndex = 6;
             this.domStriedanieButton.Text = "STRIEDANIE";
             this.domStriedanieButton.UseVisualStyleBackColor = false;
             this.domStriedanieButton.Click += new System.EventHandler(this.DomStriedanieButton_Click);
+            this.domStriedanieButton.MouseEnter += new System.EventHandler(this.domStriedanieButton_MouseEnter);
+            this.domStriedanieButton.MouseLeave += new System.EventHandler(this.domStriedanieButton_MouseLeave);
             // 
             // hosStriedanieButton
             // 
             this.hosStriedanieButton.BackColor = System.Drawing.SystemColors.Control;
             this.hosStriedanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hosStriedanieButton.Location = new System.Drawing.Point(684, 254);
-            this.hosStriedanieButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hosStriedanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosStriedanieButton.Name = "hosStriedanieButton";
             this.hosStriedanieButton.Size = new System.Drawing.Size(147, 78);
             this.hosStriedanieButton.TabIndex = 7;
             this.hosStriedanieButton.Text = "STRIEDANIE";
             this.hosStriedanieButton.UseVisualStyleBackColor = false;
             this.hosStriedanieButton.Click += new System.EventHandler(this.HosStriedanieButton_Click);
+            this.hosStriedanieButton.MouseEnter += new System.EventHandler(this.hosStriedanieButton_MouseEnter);
+            this.hosStriedanieButton.MouseLeave += new System.EventHandler(this.hosStriedanieButton_MouseLeave);
             // 
             // polcasButton
             // 
@@ -173,13 +189,15 @@
             this.polcasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.polcasButton.ForeColor = System.Drawing.Color.Lime;
             this.polcasButton.Location = new System.Drawing.Point(326, 171);
-            this.polcasButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.polcasButton.Margin = new System.Windows.Forms.Padding(2);
             this.polcasButton.Name = "polcasButton";
             this.polcasButton.Size = new System.Drawing.Size(187, 78);
             this.polcasButton.TabIndex = 11;
             this.polcasButton.Text = "1. polčas\r\nSTART";
             this.polcasButton.UseVisualStyleBackColor = false;
             this.polcasButton.Click += new System.EventHandler(this.PolcasButton_Click);
+            this.polcasButton.MouseEnter += new System.EventHandler(this.polcasButton_MouseEnter);
+            this.polcasButton.MouseLeave += new System.EventHandler(this.polcasButton_MouseLeave);
             // 
             // hostiaLabel
             // 
@@ -332,7 +350,7 @@
             this.testovanieButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.testovanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.testovanieButton.Location = new System.Drawing.Point(9, 346);
-            this.testovanieButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.testovanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.testovanieButton.Name = "testovanieButton";
             this.testovanieButton.Size = new System.Drawing.Size(146, 78);
             this.testovanieButton.TabIndex = 552;
@@ -347,13 +365,15 @@
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.closeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.closeButton.Location = new System.Drawing.Point(685, 346);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(146, 78);
             this.closeButton.TabIndex = 551;
             this.closeButton.Text = "UKONČIŤ";
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.MouseEnter += new System.EventHandler(this.closeButton_MouseEnter);
+            this.closeButton.MouseLeave += new System.EventHandler(this.closeButton_MouseLeave);
             // 
             // logoHostia
             // 
@@ -381,13 +401,15 @@
             this.predstavButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.predstavButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.predstavButton.Location = new System.Drawing.Point(326, 345);
-            this.predstavButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.predstavButton.Margin = new System.Windows.Forms.Padding(2);
             this.predstavButton.Name = "predstavButton";
             this.predstavButton.Size = new System.Drawing.Size(187, 78);
             this.predstavButton.TabIndex = 10;
             this.predstavButton.Text = "PREDSTAV\r\nHRÁČOV";
             this.predstavButton.UseVisualStyleBackColor = false;
             this.predstavButton.Click += new System.EventHandler(this.PredstavButton_Click);
+            this.predstavButton.MouseEnter += new System.EventHandler(this.predstavButton_MouseEnter);
+            this.predstavButton.MouseLeave += new System.EventHandler(this.predstavButton_MouseLeave);
             // 
             // casButton
             // 
@@ -395,7 +417,7 @@
             this.casButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.casButton.Location = new System.Drawing.Point(326, 346);
-            this.casButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.casButton.Margin = new System.Windows.Forms.Padding(2);
             this.casButton.Name = "casButton";
             this.casButton.Size = new System.Drawing.Size(187, 78);
             this.casButton.TabIndex = 9;
@@ -410,13 +432,15 @@
             this.setupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.setupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.setupButton.Location = new System.Drawing.Point(9, 346);
-            this.setupButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.setupButton.Margin = new System.Windows.Forms.Padding(2);
             this.setupButton.Name = "setupButton";
             this.setupButton.Size = new System.Drawing.Size(146, 78);
             this.setupButton.TabIndex = 8;
             this.setupButton.Text = "SETUP";
             this.setupButton.UseVisualStyleBackColor = false;
             this.setupButton.Click += new System.EventHandler(this.SetupButton_Click);
+            this.setupButton.MouseEnter += new System.EventHandler(this.setupButton_MouseEnter);
+            this.setupButton.MouseLeave += new System.EventHandler(this.setupButton_MouseLeave);
             // 
             // obnovaHryButton
             // 
@@ -424,7 +448,7 @@
             this.obnovaHryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.obnovaHryButton.ForeColor = System.Drawing.Color.Lime;
             this.obnovaHryButton.Location = new System.Drawing.Point(327, 254);
-            this.obnovaHryButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.obnovaHryButton.Margin = new System.Windows.Forms.Padding(2);
             this.obnovaHryButton.Name = "obnovaHryButton";
             this.obnovaHryButton.Size = new System.Drawing.Size(187, 39);
             this.obnovaHryButton.TabIndex = 553;
@@ -439,13 +463,15 @@
             this.zmenitCasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zmenitCasButton.ForeColor = System.Drawing.Color.Lime;
             this.zmenitCasButton.Location = new System.Drawing.Point(326, 254);
-            this.zmenitCasButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.zmenitCasButton.Margin = new System.Windows.Forms.Padding(2);
             this.zmenitCasButton.Name = "zmenitCasButton";
             this.zmenitCasButton.Size = new System.Drawing.Size(187, 39);
             this.zmenitCasButton.TabIndex = 554;
             this.zmenitCasButton.Text = "Zmeniť čas";
             this.zmenitCasButton.UseVisualStyleBackColor = false;
             this.zmenitCasButton.Click += new System.EventHandler(this.zmenitCasButton_Click);
+            this.zmenitCasButton.MouseEnter += new System.EventHandler(this.zmenitCasButton_MouseEnter);
+            this.zmenitCasButton.MouseLeave += new System.EventHandler(this.zmenitCasButton_MouseLeave);
             // 
             // RiadiaciForm
             // 
@@ -486,7 +512,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RiadiaciForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LGR Futbal";

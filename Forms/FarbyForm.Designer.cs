@@ -237,7 +237,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(653, 352);
+            this.ClientSize = new System.Drawing.Size(642, 254);
             this.Controls.Add(this.aktivovatFarby);
             this.Controls.Add(this.obnovaFariebButton);
             this.Controls.Add(this.loadColorsButton);

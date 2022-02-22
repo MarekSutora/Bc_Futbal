@@ -1661,11 +1661,146 @@ namespace LGR_Futbal
             return string.Empty;
         }
 
-        #endregion
-
         private void RiadiaciForm_Load(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+        #region
+
+        private void domZltaKartaButton_Enter(object sender, EventArgs e)
+        {
+            domZltaKartaButton.BackColor = Color.Yellow;
+        }
+
+        private void domZltaKartaButton_Leave(object sender, EventArgs e)
+        {
+            domZltaKartaButton.BackColor = Color.FromArgb(255, 255, 128);
+        }
+
+        private void hosZltaKartaButton_Enter(object sender, EventArgs e)
+        {
+            hosZltaKartaButton.BackColor = Color.Yellow;
+        }
+
+        private void hosZltaKartaButton_Leave(object sender, EventArgs e)
+        {
+            hosZltaKartaButton.BackColor = Color.FromArgb(255, 255, 128);
+        }
+
+        private void domCervenaKartaButton_MouseEnter(object sender, EventArgs e)
+        {
+            domCervenaKartaButton.BackColor = Color.Red;
+        }
+
+        private void domCervenaKartaButton_MouseLeave(object sender, EventArgs e)
+        {
+            domCervenaKartaButton.BackColor = Color.FromArgb(255, 128, 128);
+        }
+
+        private void hosCervenaKartaButton_MouseEnter(object sender, EventArgs e)
+        {
+            hosCervenaKartaButton.BackColor = Color.Red;
+        }
+
+        private void hosCervenaKartaButton_MouseLeave(object sender, EventArgs e)
+        {
+            hosCervenaKartaButton.BackColor = Color.FromArgb(255, 128, 128);
+        }
+
+        private void domZmenaStavuButton_MouseEnter(object sender, EventArgs e)
+        {
+            domZmenaStavuButton.BackColor = Color.Green;
+        }
+
+        private void domZmenaStavuButton_MouseLeave(object sender, EventArgs e)
+        {
+            domZmenaStavuButton.BackColor = Color.FromArgb(128, 255, 128);
+        }
+
+        private void hosZmenaStavuButton_MouseEnter(object sender, EventArgs e)
+        {
+            hosZmenaStavuButton.BackColor = Color.Green;
+        }
+
+        private void hosZmenaStavuButton_MouseLeave(object sender, EventArgs e)
+        {
+            hosZmenaStavuButton.BackColor = Color.FromArgb(128, 255, 128);
+        }
+
+        private void domStriedanieButton_MouseEnter(object sender, EventArgs e)
+        {
+            domStriedanieButton.BackColor = Color.Gray;
+        }
+
+        private void domStriedanieButton_MouseLeave(object sender, EventArgs e)
+        {
+            domStriedanieButton.BackColor = SystemColors.Control;
+        }
+
+        private void hosStriedanieButton_MouseEnter(object sender, EventArgs e)
+        {
+            hosStriedanieButton.BackColor = Color.Gray;
+        }
+
+        private void hosStriedanieButton_MouseLeave(object sender, EventArgs e)
+        {
+            hosStriedanieButton.BackColor = SystemColors.Control;
+        }
+
+        private void setupButton_MouseEnter(object sender, EventArgs e)
+        {
+            setupButton.BackColor = Color.FromArgb(0, 192, 192);
+        }
+
+        private void setupButton_MouseLeave(object sender, EventArgs e)
+        {
+            setupButton.BackColor = Color.FromArgb(128, 255, 255);
+        }
+
+        private void predstavButton_MouseEnter(object sender, EventArgs e)
+        {
+            predstavButton.BackColor = Color.FromArgb(0, 192, 192);
+        }
+
+        private void predstavButton_MouseLeave(object sender, EventArgs e)
+        {
+            predstavButton.BackColor = Color.FromArgb(128, 255, 255);
+        }
+
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.FromArgb(255, 192, 192);
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.FromArgb(192, 255, 255);
+        }
+
+        private void polcasButton_MouseEnter(object sender, EventArgs e)
+        {
+            polcasButton.ForeColor = Color.Yellow;
+        }
+
+        private void polcasButton_MouseLeave(object sender, EventArgs e)
+        {
+            polcasButton.ForeColor = Color.Lime;
+        }
+
+        private void zmenitCasButton_MouseEnter(object sender, EventArgs e)
+        {
+            zmenitCasButton.ForeColor = Color.Yellow;
+        }
+
+        private void zmenitCasButton_MouseLeave(object sender, EventArgs e)
+        {
+            zmenitCasButton.ForeColor = Color.Lime;
+        }
+        #endregion
+
+
     }
 }

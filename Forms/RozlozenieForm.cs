@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LGR_Futbal.Triedy;
 using System.Xml.Serialization;
 using System.IO;
+using LGR_Futbal.Properties;
 
 namespace LGR_Futbal.Forms
 {
@@ -26,8 +27,29 @@ namespace LGR_Futbal.Forms
 
         public RozlozenieForm(string adresa, RozlozenieTabule rt)
         {
-            this.adresa = adresa;
             InitializeComponent();
+            if (Settings.Default.Jazyk == 1)
+            {
+                this.Text = "Rozložení tabule";
+                label1.Text = "Čas:";
+                label20.Text = "Poločas:";
+                label23.Text = "Skóre domáci:";
+                label26.Text = "Skóre hosté:";
+                label6.Text = "Domáci:";
+                label12.Text = "Hosté:";
+                label9.Text = "Logo Domáci:";
+
+                checkBox2.Text = "Zobrazit logo:";
+                checkBox1.Text = "Zobrazit logo:";
+
+                this.aktivovatRozlozenieButton.Text = "Aktivovat zmeny";
+                ulozitRozlozenie.Text = "Uložit rozložení:";
+                nacitatRozlozenieButton.Text = "Načíst rozložení";
+                obnovaRozlozeniaButton.Text = "Obnovit výrobní        nastavení";
+
+
+            }
+            this.adresa = adresa;
             RozlozenieTabule = rt;
             nastavRozlozenie();
         }
@@ -211,6 +233,66 @@ namespace LGR_Futbal.Forms
                     }
                 }
             }
+        }
+
+        private void obnovaRozlozeniaButton_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Value = 432;
+            numericUpDown2.Value = 16;
+
+            numericUpDown4.Value = 16;
+            numericUpDown3.Value = 435;
+
+            numericUpDown8.Value = 878;
+            numericUpDown7.Value = 435;
+
+            numericUpDown16.Value = 30;
+            numericUpDown15.Value = 539;
+
+            numericUpDown18.Value = 894;
+            numericUpDown17.Value = 539;
+
+            numericUpDown6.Value = 16;
+            numericUpDown5.Value = 16;
+            numericUpDown11.Value = 408;
+            checkBox2.Checked = true;
+
+            numericUpDown10.Value = 1112;
+            numericUpDown9.Value = 16;
+            numericUpDown12.Value = 408;
+            checkBox2.Checked = true;
+
+            numericUpDown14.Value = 440;
+            numericUpDown13.Value = 702;
+
+            RozlozenieTabule.CasX = (int)numericUpDown1.Value;
+            RozlozenieTabule.CasY = (int)numericUpDown2.Value;
+
+            RozlozenieTabule.DomaciX = (int)numericUpDown4.Value;
+            RozlozenieTabule.DomaciY = (int)numericUpDown3.Value;
+
+            RozlozenieTabule.HostiaX = (int)numericUpDown8.Value;
+            RozlozenieTabule.HostiaY = (int)numericUpDown7.Value;
+
+            RozlozenieTabule.DomaciSkoreX = (int)numericUpDown16.Value;
+            RozlozenieTabule.DomaciSkoreY = (int)numericUpDown15.Value;
+
+            RozlozenieTabule.HostiaSkoreX = (int)numericUpDown18.Value;
+            RozlozenieTabule.HostiaSkoreY = (int)numericUpDown17.Value;
+
+            RozlozenieTabule.LogoDomaciX = (int)numericUpDown6.Value;
+            RozlozenieTabule.LogoDomaciY = (int)numericUpDown5.Value;
+            RozlozenieTabule.LogoDomaciSirka = (int)numericUpDown11.Value;
+            RozlozenieTabule.LogoDomaciZobrazit = checkBox2.Checked;
+
+            RozlozenieTabule.LogoHostiaX = (int)numericUpDown10.Value;
+            RozlozenieTabule.LogoHostiaY = (int)numericUpDown9.Value;
+            RozlozenieTabule.LogoHostiaSirka = (int)numericUpDown12.Value;
+            RozlozenieTabule.LogoHostiaZobrazit = checkBox1.Checked;
+
+            RozlozenieTabule.polCasX = (int)numericUpDown14.Value;
+            RozlozenieTabule.polCasY = (int)numericUpDown13.Value;
+            OnLayoutConfirmed();
         }
     }
 }

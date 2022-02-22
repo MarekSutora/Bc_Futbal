@@ -48,13 +48,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.ulozitFonty = new System.Windows.Forms.Button();
             this.nacitatFonty = new System.Windows.Forms.Button();
+            this.obnovaFontovButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // zrusitButton
             // 
             this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(470, 192);
+            this.zrusitButton.Location = new System.Drawing.Point(419, 6);
             this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.zrusitButton.Name = "zrusitButton";
             this.zrusitButton.Size = new System.Drawing.Size(93, 41);
@@ -71,7 +72,7 @@
             this.aktivovatButton.Location = new System.Drawing.Point(11, 192);
             this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(151, 41);
+            this.aktivovatButton.Size = new System.Drawing.Size(97, 41);
             this.aktivovatButton.TabIndex = 19;
             this.aktivovatButton.Text = "Uložiť      \r\nzmeny      ";
             this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,7 +228,7 @@
             this.button5.Location = new System.Drawing.Point(365, 151);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(50, 21);
+            this.button5.Size = new System.Drawing.Size(50, 22);
             this.button5.TabIndex = 42;
             this.button5.Text = "Zmeniť";
             this.button5.UseVisualStyleBackColor = true;
@@ -237,9 +238,9 @@
             // 
             this.ulozitFonty.Image = global::LGR_Futbal.Properties.Resources._13898481211537356036_32;
             this.ulozitFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ulozitFonty.Location = new System.Drawing.Point(322, 192);
+            this.ulozitFonty.Location = new System.Drawing.Point(268, 192);
             this.ulozitFonty.Name = "ulozitFonty";
-            this.ulozitFonty.Size = new System.Drawing.Size(140, 41);
+            this.ulozitFonty.Size = new System.Drawing.Size(147, 41);
             this.ulozitFonty.TabIndex = 43;
             this.ulozitFonty.Text = "Uložiť konfiguráciu";
             this.ulozitFonty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -250,7 +251,7 @@
             // 
             this.nacitatFonty.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
             this.nacitatFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nacitatFonty.Location = new System.Drawing.Point(167, 192);
+            this.nacitatFonty.Location = new System.Drawing.Point(113, 192);
             this.nacitatFonty.Name = "nacitatFonty";
             this.nacitatFonty.Size = new System.Drawing.Size(149, 41);
             this.nacitatFonty.TabIndex = 44;
@@ -259,11 +260,26 @@
             this.nacitatFonty.UseVisualStyleBackColor = true;
             this.nacitatFonty.Click += new System.EventHandler(this.nacitatFonty_Click);
             // 
+            // obnovaFontovButton
+            // 
+            this.obnovaFontovButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.obnovaFontovButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.obnovaFontovButton.Location = new System.Drawing.Point(420, 192);
+            this.obnovaFontovButton.Margin = new System.Windows.Forms.Padding(2);
+            this.obnovaFontovButton.Name = "obnovaFontovButton";
+            this.obnovaFontovButton.Size = new System.Drawing.Size(164, 41);
+            this.obnovaFontovButton.TabIndex = 45;
+            this.obnovaFontovButton.Text = "Obnoviť výrobné        \r\nnastavenia fontov        ";
+            this.obnovaFontovButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.obnovaFontovButton.UseVisualStyleBackColor = true;
+            this.obnovaFontovButton.Click += new System.EventHandler(this.obnovaFontovButton_Click);
+            // 
             // FontyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 243);
+            this.ClientSize = new System.Drawing.Size(595, 247);
+            this.Controls.Add(this.obnovaFontovButton);
             this.Controls.Add(this.nacitatFonty);
             this.Controls.Add(this.ulozitFonty);
             this.Controls.Add(this.button5);
@@ -318,5 +334,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button ulozitFonty;
         private System.Windows.Forms.Button nacitatFonty;
+        private System.Windows.Forms.Button obnovaFontovButton;
     }
 }

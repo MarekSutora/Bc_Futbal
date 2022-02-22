@@ -30,7 +30,14 @@ namespace LGR_Futbal.Forms
                 this.Text = "Vytvoření vlastní barevné konfigurace";
                 saveButton.Text = "Uložit   ";
                 zrusitButton.Text = "Zavřít   ";
-                
+                obnovaFariebButton.Text = "Obnovit výrobní \nnastavení barev         ";
+                loadColorsButton.Text = loadColorsButton.Text.Replace("Načítať", "Načíst ");
+                loadColorsButton.Text = loadColorsButton.Text.Replace("nastavenia", "nastavení");
+                loadColorsButton.Text = loadColorsButton.Text.Replace("farieb", "barev");
+                aktivovatFarby.Text = "Aktivovat změny";
+
+
+
                 button1.Text = "Změnit";
                 button3.Text = "Změnit";
                 button4.Text = "Změnit";

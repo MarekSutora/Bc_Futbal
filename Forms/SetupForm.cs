@@ -134,11 +134,11 @@ namespace LGR_Futbal.Forms
                 zhasniButton.Text = "ZHASNOUT";
                 rozsvietButton.Text = "ROZSVÍTIT";
 
-                loadColorsButton.Text = loadColorsButton.Text.Replace("Načítať", "Načíst ");
-                loadColorsButton.Text = loadColorsButton.Text.Replace("nastavenia", "nastavení");
-                loadColorsButton.Text = loadColorsButton.Text.Replace("farieb", "barev");
-                createColorsButton.Text = "Vytvořit vlastní        \nnastavení barev       \n(změnit aktuální)       ";
-                obnovaFariebButton.Text = "Obnovit výrobní         \nnastavení barev         ";
+                //loadColorsButton.Text = loadColorsButton.Text.Replace("Načítať", "Načíst ");
+                //loadColorsButton.Text = loadColorsButton.Text.Replace("nastavenia", "nastavení");
+                //loadColorsButton.Text = loadColorsButton.Text.Replace("farieb", "barev");
+                createColorsButton.Text = "Změnit farební        \nnastavení barev       \n(změnit aktuální)       ";
+                //obnovaFariebButton.Text = "Obnovit výrobní         \nnastavení barev         ";
                 fontyButton.Text = "Nastavit fonty           \na velikosti písma         ";
 
                 label1.Text = "Délka poločasu [min]:";
@@ -157,6 +157,7 @@ namespace LGR_Futbal.Forms
                 nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("Vybrať", "Vybrat");
                 nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("tímy", "týmy");
                 nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("z databázy", "z databáze");
+                rozlozenieButton.Text = "Změnit rozložení";
                 zrusitDatabazaButton.Text = "Zrušit propojení      \ns databází           ";
 
                 checkBox1.Text = "Domácí - zobrazovat předdefinovanou animaci (góóól)";

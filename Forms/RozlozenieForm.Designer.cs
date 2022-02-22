@@ -77,6 +77,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
+            this.obnovaRozlozeniaButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -503,7 +504,7 @@
             // 
             this.nacitatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
             this.nacitatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nacitatRozlozenieButton.Location = new System.Drawing.Point(314, 312);
+            this.nacitatRozlozenieButton.Location = new System.Drawing.Point(308, 312);
             this.nacitatRozlozenieButton.Name = "nacitatRozlozenieButton";
             this.nacitatRozlozenieButton.Size = new System.Drawing.Size(149, 41);
             this.nacitatRozlozenieButton.TabIndex = 38;
@@ -516,7 +517,7 @@
             // 
             this.ulozitRozlozenie.Image = global::LGR_Futbal.Properties.Resources._13898481211537356036_32;
             this.ulozitRozlozenie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ulozitRozlozenie.Location = new System.Drawing.Point(153, 312);
+            this.ulozitRozlozenie.Location = new System.Drawing.Point(151, 312);
             this.ulozitRozlozenie.Name = "ulozitRozlozenie";
             this.ulozitRozlozenie.Size = new System.Drawing.Size(149, 41);
             this.ulozitRozlozenie.TabIndex = 37;
@@ -650,11 +651,26 @@
             this.label26.TabIndex = 44;
             this.label26.Text = "Skóre hostia:";
             // 
+            // obnovaRozlozeniaButton
+            // 
+            this.obnovaRozlozeniaButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.obnovaRozlozeniaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.obnovaRozlozeniaButton.Location = new System.Drawing.Point(462, 312);
+            this.obnovaRozlozeniaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.obnovaRozlozeniaButton.Name = "obnovaRozlozeniaButton";
+            this.obnovaRozlozeniaButton.Size = new System.Drawing.Size(167, 41);
+            this.obnovaRozlozeniaButton.TabIndex = 49;
+            this.obnovaRozlozeniaButton.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
+            this.obnovaRozlozeniaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.obnovaRozlozeniaButton.UseVisualStyleBackColor = true;
+            this.obnovaRozlozeniaButton.Click += new System.EventHandler(this.obnovaRozlozeniaButton_Click);
+            // 
             // RozlozenieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 366);
+            this.ClientSize = new System.Drawing.Size(640, 366);
+            this.Controls.Add(this.obnovaRozlozeniaButton);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.numericUpDown17);
             this.Controls.Add(this.label25);
@@ -705,7 +721,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Name = "RozlozenieForm";
-            this.Text = "RozlozenieForm";
+            this.Text = "Rozloženie tabule";
             this.Load += new System.EventHandler(this.RozlozenieForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -781,5 +797,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.NumericUpDown numericUpDown18;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button obnovaRozlozeniaButton;
     }
 }
