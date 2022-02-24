@@ -419,7 +419,20 @@ namespace LGR_Futbal
                                 milis = 0;
                                 ZastavCas();
                                 polcasButton.Text = (polcas + 1) + ". " + Translate(2) + "\nSTART";
+                                if (pocetNadstavenychMinut > 0)
+                                {
+                                    casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
+                                    formularTabule.SetCas(casLabel.Text, false);
+                                    polcas = 1;
+                                    odohraneMinuty = 0;
+                                    aktMin = 0;
+                                    sw.Restart();
+                                    formularTabule.SetPolcas(3, pocetNadstavenychMinut);
+                                    casPodrobneLabel.ForeColor = predlzenieColor;
+                                    casLabel.ForeColor = predlzenieColor;
+                                }
                             }
+
                             else
                             {
                                 if (pocetNadstavenychMinut == 0)
@@ -440,6 +453,7 @@ namespace LGR_Futbal
                                     casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                                     formularTabule.SetCas(casLabel.Text, false);
                                     polcas = 3;
+                                    //polcas = 2;
                                     odohraneMinuty = 0;
                                     aktMin = 0;
                                     sw.Restart();
@@ -1797,6 +1811,17 @@ namespace LGR_Futbal
         {
             zmenitCasButton.ForeColor = Color.Lime;
         }
+
+        private void casButton_MouseEnter(object sender, EventArgs e)
+        {
+            casButton.BackColor = Color.FromArgb(0, 192, 192);
+        }
+
+        private void casButton_MouseLeave(object sender, EventArgs e)
+        {
+            casButton.BackColor = Color.FromArgb(128, 255, 255);
+        }
+
         #endregion
 
 

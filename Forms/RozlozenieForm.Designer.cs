@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
             this.obnovaRozlozeniaButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -316,7 +318,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label12.Location = new System.Drawing.Point(15, 165);
+            this.label12.Location = new System.Drawing.Point(12, 168);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 18);
             this.label12.TabIndex = 10;
@@ -374,9 +376,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label15.Location = new System.Drawing.Point(15, 249);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 18);
+            this.label15.Size = new System.Drawing.Size(93, 18);
             this.label15.TabIndex = 20;
-            this.label15.Text = "Logo Hostia";
+            this.label15.Text = "Logo Hostia:";
             // 
             // checkBox1
             // 
@@ -502,40 +504,43 @@
             // 
             // nacitatRozlozenieButton
             // 
-            this.nacitatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
+            this.nacitatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
             this.nacitatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nacitatRozlozenieButton.Location = new System.Drawing.Point(308, 312);
             this.nacitatRozlozenieButton.Name = "nacitatRozlozenieButton";
             this.nacitatRozlozenieButton.Size = new System.Drawing.Size(149, 41);
             this.nacitatRozlozenieButton.TabIndex = 38;
             this.nacitatRozlozenieButton.Text = "Načítať konfiguráciu";
-            this.nacitatRozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nacitatRozlozenieButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.nacitatRozlozenieButton.UseCompatibleTextRendering = true;
             this.nacitatRozlozenieButton.UseVisualStyleBackColor = true;
             this.nacitatRozlozenieButton.Click += new System.EventHandler(this.nacitatRozlozenieButton_Click);
             // 
             // ulozitRozlozenie
             // 
-            this.ulozitRozlozenie.Image = global::LGR_Futbal.Properties.Resources._13898481211537356036_32;
+            this.ulozitRozlozenie.Image = global::LGR_Futbal.Properties.Resources.Save;
             this.ulozitRozlozenie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ulozitRozlozenie.Location = new System.Drawing.Point(151, 312);
             this.ulozitRozlozenie.Name = "ulozitRozlozenie";
             this.ulozitRozlozenie.Size = new System.Drawing.Size(149, 41);
             this.ulozitRozlozenie.TabIndex = 37;
             this.ulozitRozlozenie.Text = "Uložiť konfiguráciu";
-            this.ulozitRozlozenie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ulozitRozlozenie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ulozitRozlozenie.UseCompatibleTextRendering = true;
             this.ulozitRozlozenie.UseVisualStyleBackColor = true;
             this.ulozitRozlozenie.Click += new System.EventHandler(this.ulozitRozlozenie_Click);
             // 
             // aktivovatRozlozenieButton
             // 
-            this.aktivovatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources._18552593841537356147_32;
+            this.aktivovatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.aktivovatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aktivovatRozlozenieButton.Location = new System.Drawing.Point(15, 312);
             this.aktivovatRozlozenieButton.Name = "aktivovatRozlozenieButton";
             this.aktivovatRozlozenieButton.Size = new System.Drawing.Size(132, 41);
             this.aktivovatRozlozenieButton.TabIndex = 36;
             this.aktivovatRozlozenieButton.Text = "Aktivovať zmeny";
-            this.aktivovatRozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.aktivovatRozlozenieButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.aktivovatRozlozenieButton.UseCompatibleTextRendering = true;
             this.aktivovatRozlozenieButton.UseVisualStyleBackColor = true;
             this.aktivovatRozlozenieButton.Click += new System.EventHandler(this.aktivovatRozlozenieButton_Click);
             // 
@@ -661,7 +666,8 @@
             this.obnovaRozlozeniaButton.Size = new System.Drawing.Size(167, 41);
             this.obnovaRozlozeniaButton.TabIndex = 49;
             this.obnovaRozlozeniaButton.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
-            this.obnovaRozlozeniaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.obnovaRozlozeniaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.obnovaRozlozeniaButton.UseCompatibleTextRendering = true;
             this.obnovaRozlozeniaButton.UseVisualStyleBackColor = true;
             this.obnovaRozlozeniaButton.Click += new System.EventHandler(this.obnovaRozlozeniaButton_Click);
             // 
@@ -798,5 +804,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown18;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button obnovaRozlozeniaButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

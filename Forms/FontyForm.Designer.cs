@@ -236,7 +236,7 @@
             // 
             // ulozitFonty
             // 
-            this.ulozitFonty.Image = global::LGR_Futbal.Properties.Resources._13898481211537356036_32;
+            this.ulozitFonty.Image = global::LGR_Futbal.Properties.Resources.Save;
             this.ulozitFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ulozitFonty.Location = new System.Drawing.Point(268, 192);
             this.ulozitFonty.Name = "ulozitFonty";
@@ -249,7 +249,7 @@
             // 
             // nacitatFonty
             // 
-            this.nacitatFonty.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_32;
+            this.nacitatFonty.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
             this.nacitatFonty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nacitatFonty.Location = new System.Drawing.Point(113, 192);
             this.nacitatFonty.Name = "nacitatFonty";

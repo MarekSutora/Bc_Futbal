@@ -93,6 +93,7 @@
             this.minuta.Size = new System.Drawing.Size(70, 26);
             this.minuta.TabIndex = 557;
             this.minuta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.minuta.ValueChanged += new System.EventHandler(this.minuta_ValueChanged);
             // 
             // sekunda
             // 

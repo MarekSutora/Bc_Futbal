@@ -32,6 +32,7 @@ namespace LGR_Futbal.Forms
             sekunda.Minimum = 0;
             sekunda.Maximum = 59;
             sekunda.Value = s;
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -43,6 +44,10 @@ namespace LGR_Futbal.Forms
         {
             int nm = (int)minuta.Value;
             int ns = (int)sekunda.Value;
+            if (minuta.Value == minuta.Maximum)
+            {
+                ns = 0;
+            }
             if (OnZmenaCasu != null)
                 OnZmenaCasu(nm, ns);
             this.Close();
@@ -55,5 +60,17 @@ namespace LGR_Futbal.Forms
         }
 
         #endregion
+
+        private void minuta_ValueChanged(object sender, EventArgs e)
+        {
+            if (minuta.Value == minuta.Maximum)
+            {
+                sekunda.Enabled = false;
+                sekunda.Value = 0;
+            } else
+            {
+                sekunda.Enabled = true;
+            }
+        }
     }
 }

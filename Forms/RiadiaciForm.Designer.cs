@@ -400,10 +400,10 @@
             this.predstavButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.predstavButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.predstavButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.predstavButton.Location = new System.Drawing.Point(326, 345);
+            this.predstavButton.Location = new System.Drawing.Point(226, 346);
             this.predstavButton.Margin = new System.Windows.Forms.Padding(2);
             this.predstavButton.Name = "predstavButton";
-            this.predstavButton.Size = new System.Drawing.Size(187, 78);
+            this.predstavButton.Size = new System.Drawing.Size(187, 74);
             this.predstavButton.TabIndex = 10;
             this.predstavButton.Text = "PREDSTAV\r\nHRÁČOV";
             this.predstavButton.UseVisualStyleBackColor = false;
@@ -416,15 +416,16 @@
             this.casButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.casButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.casButton.Location = new System.Drawing.Point(326, 346);
+            this.casButton.Location = new System.Drawing.Point(426, 346);
             this.casButton.Margin = new System.Windows.Forms.Padding(2);
             this.casButton.Name = "casButton";
-            this.casButton.Size = new System.Drawing.Size(187, 78);
+            this.casButton.Size = new System.Drawing.Size(187, 74);
             this.casButton.TabIndex = 9;
             this.casButton.Text = "NADSTAVENÝ\r\nČAS";
             this.casButton.UseVisualStyleBackColor = false;
-            this.casButton.Visible = false;
             this.casButton.Click += new System.EventHandler(this.CasButton_Click);
+            this.casButton.MouseEnter += new System.EventHandler(this.casButton_MouseEnter);
+            this.casButton.MouseLeave += new System.EventHandler(this.casButton_MouseLeave);
             // 
             // setupButton
             // 
@@ -470,6 +471,8 @@
             this.zmenitCasButton.Text = "Zmeniť čas";
             this.zmenitCasButton.UseVisualStyleBackColor = false;
             this.zmenitCasButton.Click += new System.EventHandler(this.zmenitCasButton_Click);
+            this.zmenitCasButton.MouseEnter += new System.EventHandler(this.zmenitCasButton_MouseEnter);
+            this.zmenitCasButton.MouseLeave += new System.EventHandler(this.zmenitCasButton_MouseLeave);
             // 
             // RiadiaciForm
             // 

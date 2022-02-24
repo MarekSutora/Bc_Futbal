@@ -63,16 +63,17 @@
             // 
             // saveButton
             // 
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.saveButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Location = new System.Drawing.Point(321, 123);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(166, 51);
+            this.saveButton.Size = new System.Drawing.Size(146, 51);
             this.saveButton.TabIndex = 24;
-            this.saveButton.Text = "Uložiť   ";
-            this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveButton.Text = "       Uložiť   ";
+            this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.saveButton.UseCompatibleTextRendering = true;
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -193,42 +194,48 @@
             // 
             // loadColorsButton
             // 
+            this.loadColorsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.loadColorsButton.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
             this.loadColorsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.loadColorsButton.Location = new System.Drawing.Point(321, 67);
             this.loadColorsButton.Margin = new System.Windows.Forms.Padding(2);
             this.loadColorsButton.Name = "loadColorsButton";
-            this.loadColorsButton.Size = new System.Drawing.Size(166, 51);
+            this.loadColorsButton.Size = new System.Drawing.Size(146, 51);
             this.loadColorsButton.TabIndex = 39;
-            this.loadColorsButton.Text = "Načítať                       nastavenia farieb";
-            this.loadColorsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loadColorsButton.Text = "Načítať nastavenia farieb";
+            this.loadColorsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.loadColorsButton.UseCompatibleTextRendering = true;
             this.loadColorsButton.UseVisualStyleBackColor = true;
             this.loadColorsButton.Click += new System.EventHandler(this.loadColorsButton_Click);
             // 
             // obnovaFariebButton
             // 
+            this.obnovaFariebButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.obnovaFariebButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
             this.obnovaFariebButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.obnovaFariebButton.Location = new System.Drawing.Point(321, 179);
             this.obnovaFariebButton.Margin = new System.Windows.Forms.Padding(2);
             this.obnovaFariebButton.Name = "obnovaFariebButton";
-            this.obnovaFariebButton.Size = new System.Drawing.Size(166, 49);
+            this.obnovaFariebButton.Size = new System.Drawing.Size(146, 49);
             this.obnovaFariebButton.TabIndex = 40;
-            this.obnovaFariebButton.Text = "Obnoviť výrobné        \r\nnastavenia farieb        ";
-            this.obnovaFariebButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.obnovaFariebButton.Text = "Obnoviť výrobné \r\nnastavenia farieb ";
+            this.obnovaFariebButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.obnovaFariebButton.UseCompatibleTextRendering = true;
             this.obnovaFariebButton.UseVisualStyleBackColor = true;
             this.obnovaFariebButton.Click += new System.EventHandler(this.obnovaFariebButton_Click);
             // 
             // aktivovatFarby
             // 
-            this.aktivovatFarby.Image = global::LGR_Futbal.Properties.Resources._18552593841537356147_32;
+            this.aktivovatFarby.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.aktivovatFarby.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.aktivovatFarby.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aktivovatFarby.Location = new System.Drawing.Point(321, 12);
             this.aktivovatFarby.Name = "aktivovatFarby";
-            this.aktivovatFarby.Size = new System.Drawing.Size(166, 50);
+            this.aktivovatFarby.Size = new System.Drawing.Size(146, 50);
             this.aktivovatFarby.TabIndex = 41;
             this.aktivovatFarby.Text = "Aktivovať zmeny";
-            this.aktivovatFarby.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.aktivovatFarby.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.aktivovatFarby.UseCompatibleTextRendering = true;
             this.aktivovatFarby.UseVisualStyleBackColor = true;
             this.aktivovatFarby.Click += new System.EventHandler(this.aktivovatFarby_Click);
             // 

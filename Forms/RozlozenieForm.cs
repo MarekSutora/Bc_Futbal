@@ -51,6 +51,24 @@ namespace LGR_Futbal.Forms
 
 
             }
+            toolTip1.SetToolTip(numericUpDown1, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown14, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown16, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown18, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown4, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown8, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown6, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(numericUpDown10, "Zvyšovanie - doprava \nZnižovanie - doľava");
+
+            toolTip1.SetToolTip(numericUpDown2, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown13, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown15, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown17, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown3, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown7, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown5, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(numericUpDown9, "Zvyšovanie - dole \nZnižovanie - hore");
+
             this.adresa = adresa;
             this.sirka = sirka;
             this.vyska = vyska;

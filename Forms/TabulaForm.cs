@@ -104,6 +104,8 @@ namespace LGR_Futbal.Forms
         {
             casColor = Color.Lime;
             polcasColor = Color.Lime;
+            casLabel.ForeColor = casColor;
+            polcasLabel.ForeColor = polcasColor;
 
             domaciLabel.ForeColor = Color.Aqua;
             hostiaLabel.ForeColor = Color.Aqua;
