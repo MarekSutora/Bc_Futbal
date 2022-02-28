@@ -9,6 +9,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 
 namespace LGR_Futbal
 {
@@ -349,6 +351,7 @@ namespace LGR_Futbal
                         formularTabule.setLayout(rt);
                 }
             }
+            testDatabazy();
         }
 
         private void SpracujCas()
@@ -1680,6 +1683,41 @@ namespace LGR_Futbal
 
         #endregion
 
+        #region Databaza
+
+        //public string OracleConnString(string host, string port, string servicename, string user, string pass)
+        //{
+        //    return String.Format(
+        //      "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={0})" +
+        //      "(PORT={1}))(CONNECT_DATA=(SERVICE_NAME={2})));User Id={3};Password={4};",
+        //      host,
+        //      port,
+        //      servicename,
+        //      user,
+        //      pass);
+        //}
+
+        private void testDatabazy()
+        {
+            string constring = "User Id=sutora_bc;Password=bcproj84Qt;Data Source=obelix.fri.uniza.sk:1521/orcl.fri.uniza.sk";
+            string sql = "select nazov_pozicie from pozicia_hraca";
+
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = constring;
+            conn.Open();
+            OracleCommand cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            OracleDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                string test = rdr.GetString(0);                                    
+            }
+            rdr.Close();
+   
+        }
+
+        #endregion Databaza
+        //Scaffold "User Id=sutora_bc;Password=bcproj84Qt;Data Source=obelix.fri.uniza.sk:1521/orcl.fri.uniza.sk" Oracle.ManagedDataAccess.EntityFramework
         #region
 
         private void domZltaKartaButton_Enter(object sender, EventArgs e)
