@@ -3,7 +3,7 @@ using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public delegate void HracCervenaKartaSelectedHandler(Hrac hrac);
@@ -12,11 +12,11 @@ namespace LGR_Futbal.Forms
     {
         public event HracCervenaKartaSelectedHandler OnHracZltaKartaSelected;
         private List<Hrac> zoznam;
-        private Tim t;
+        private FutbalovyTim t;
 
         #region Konstruktor a metody
 
-        public CervenaKartaSettingsForm(Tim tim)
+        public CervenaKartaSettingsForm(FutbalovyTim tim)
         {
             InitializeComponent();
 
@@ -37,8 +37,8 @@ namespace LGR_Futbal.Forms
                     if ((h.HraAktualnyZapas) && (!h.Nahradnik) && (!h.CervenaKarta))
                     {
                         zoznam.Add(h);
-                        if (!h.CisloHraca.Equals(string.Empty))
-                            hraciLB.Items.Add(h.CisloHraca + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        if (!h.CisloDresu.Equals(string.Empty))
+                            hraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                         else
                             hraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                     }

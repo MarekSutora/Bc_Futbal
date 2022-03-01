@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
+using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public partial class PrezentaciaForm : Form
@@ -20,7 +20,7 @@ namespace LGR_Futbal.Forms
         #region Atributy
 
         private string adresar;
-        private Tim prezentovanyTim;
+        private FutbalovyTim prezentovanyTim;
         private int pocetPrezentovanychHracov;
         private List<Hrac> zakladnaJedenastka;
         private List<Hrac> nahradnici;
@@ -31,7 +31,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PrezentaciaForm(string folder, int sirka, int cas, Tim tim, FarbyPrezentacieClass farby, FontyTabule fonty, bool ajNahradnici, bool ajFunkcionari)
+        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacieClass farby, FontyTabule fonty, bool ajNahradnici, bool ajFunkcionari)
         {
             InitializeComponent();
 
@@ -97,7 +97,7 @@ namespace LGR_Futbal.Forms
                 }
             }
 
-            nazovLabel.Text = tim.Nazov;
+            nazovLabel.Text = tim.NazovTimu;
             prezentacnyPanel.Visible = false;
             nahradniciPanel.Visible = false;
             funkcionariPanel.Visible = false;
@@ -158,14 +158,14 @@ namespace LGR_Futbal.Forms
                     Hrac h = aktualnyZoznam[pocetPrezentovanychHracov];
                     try
                     {
-                        fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + h.Fotografia);
+                        fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + h.Fotka);
                     }
                     catch
                     {
                         fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                     }
 
-                    cisloHracaLabel.Text = h.CisloHraca.ToString();
+                    cisloHracaLabel.Text = h.CisloDresu.ToString();
                     
                     String identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
                     menoHracaLabel.Text = identifikacia;
@@ -181,7 +181,7 @@ namespace LGR_Futbal.Forms
                         infoRichTextBox.Text = h.Poznamka;
                         infoRichTextBox.Visible = true;
                     }
-                    postLabel.Text = h.Post;
+                    postLabel.Text = h.Pozicia;
 
                     pocetPrezentovanychHracov++;
                 }

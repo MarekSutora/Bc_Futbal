@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -94,7 +95,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotografia);
+                    fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);
                 }
                 catch
                 {
@@ -102,7 +103,7 @@ namespace LGR_Futbal.Forms
                     //fotkaPictureBox.Image = null;
                 }
 
-                cisloHracaLabel.Text = prezentovanyHrac.CisloHraca.ToString();
+                cisloHracaLabel.Text = prezentovanyHrac.CisloDresu.ToString();
                 
                 String identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
                 //if (identifikacia.Length > 15)

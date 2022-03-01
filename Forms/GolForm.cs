@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
+using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public partial class GolForm : Form
@@ -91,14 +91,14 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + h.Fotografia);
+                    fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + h.Fotka);
                 }
                 catch
                 {
                     fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                 }
 
-                cisloHracaLabel.Text = h.CisloHraca.ToString();
+                cisloHracaLabel.Text = h.CisloDresu.ToString();
                 String identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
 
                 menoHracaLabel.Text = identifikacia;
@@ -107,7 +107,7 @@ namespace LGR_Futbal.Forms
                     vekLabel.Text = h.getVek().ToString() + " let";
                 else
                     vekLabel.Text = h.getVek().ToString() + " rokov";
-                postLabel.Text = h.Post;
+                postLabel.Text = h.Pozicia;
             }
 
             // Nastavenie farieb podla volby

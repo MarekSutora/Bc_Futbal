@@ -1,22 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Triedy
 {
+    public enum Kategoria
+    {
+        DospeliZeny,
+
+    }
+
     [Serializable]
-    public class Tim
+    public class FutbalovyTim
     {
         private string nazov;
         private string logo;
         private List<Hrac> zoznamHracov;
 
-        public string Nazov { get => nazov; set => nazov = value; }
-
+        public string NazovTimu { get => nazov; set => nazov = value; }
+        public FutbalovyKlub FutbalovyKlub { get; set; }
         public string Logo { get => logo; set => logo = value; }
 
         public List<Hrac> ZoznamHracov { get => zoznamHracov; set => zoznamHracov = value; }
 
-        public Tim()
+        public FutbalovyTim()
         {
             zoznamHracov = new List<Hrac>();
         }
@@ -25,7 +32,7 @@ namespace LGR_Futbal.Triedy
         {
             foreach(Hrac h in zoznamHracov)
             {
-                if (h.CisloHraca.Equals(hladaneCisloHraca))
+                if (h.CisloDresu.Equals(hladaneCisloHraca))
                     return h;
             }
             return null;
@@ -66,10 +73,10 @@ namespace LGR_Futbal.Triedy
 
         public void resetKariet()
         {
-            foreach (Hrac h in zoznamHracov)
-            {
-                h.resetKariet();
-            }
+            //foreach (Hrac h in zoznamHracov)
+            //{
+            //    h.resetKariet();
+            //}
         }
     }
 }

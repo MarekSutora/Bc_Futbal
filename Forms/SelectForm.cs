@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void TeamsSelectedHandler(Tim t1, Tim t2);
+    public delegate void TeamsSelectedHandler(FutbalovyTim t1, FutbalovyTim t2);
 
     public partial class SelectForm : Form
     {
@@ -30,10 +30,10 @@ namespace LGR_Futbal.Forms
                 aktivovatButton.Enabled = false;
             else
             {
-                foreach(Tim t in databaza.ZoznamTimov)
+                foreach(FutbalovyTim t in databaza.ZoznamTimov)
                 {
-                    domaciLB.Items.Add(t.Nazov);
-                    hostiaLB.Items.Add(t.Nazov);
+                    domaciLB.Items.Add(t.NazovTimu);
+                    hostiaLB.Items.Add(t.NazovTimu);
                 }
 
                 domaciLB.SelectedIndex = 0;

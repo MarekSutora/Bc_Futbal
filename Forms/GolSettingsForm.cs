@@ -3,7 +3,7 @@ using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public delegate void GoalSettingsConfirmedHandler(Hrac h, bool priznak, int novyStav);
@@ -23,7 +23,7 @@ namespace LGR_Futbal.Forms
         public event GoalValueConfirmedHandler OnGoalValueConfirmed;
 
         private List<Hrac> zoznam;
-        private Tim t;
+        private FutbalovyTim t;
         private bool priznak;
         private int stav;
 
@@ -31,7 +31,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public GolSettingsForm(Tim tim, bool domaciPriznak, int aktualneSkore)
+        public GolSettingsForm(FutbalovyTim tim, bool domaciPriznak, int aktualneSkore)
         {
             InitializeComponent();
             
@@ -64,8 +64,8 @@ namespace LGR_Futbal.Forms
                     if ((h.HraAktualnyZapas) && (!h.Nahradnik) && (!h.CervenaKarta))
                     {
                         zoznam.Add(h);
-                        if (!h.CisloHraca.Equals(string.Empty))
-                            hraciLB.Items.Add(h.CisloHraca + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        if (!h.CisloDresu.Equals(string.Empty))
+                            hraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                         else
                             hraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                     }

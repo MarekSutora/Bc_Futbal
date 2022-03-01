@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -21,7 +22,7 @@ namespace LGR_Futbal.Forms
         #region Atributy
 
         private Databaza dbs;
-        private Tim aktTim = null;
+        private FutbalovyTim aktTim = null;
         private string originalLogoCesta = string.Empty;
         private string currentDirectory = null;
 
@@ -67,9 +68,9 @@ namespace LGR_Futbal.Forms
             dbs = d;
             currentDirectory = folder;
 
-            foreach (Tim t in dbs.ZoznamTimov)
+            foreach (FutbalovyTim t in dbs.ZoznamTimov)
             {
-                timyListBox.Items.Add(t.Nazov);
+                timyListBox.Items.Add(t.NazovTimu);
             }
 
             if (dbs.ZoznamTimov.Count > 0)
@@ -137,8 +138,8 @@ namespace LGR_Futbal.Forms
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    Tim t = new Tim();
-                    t.Nazov = novyNazov;
+                    FutbalovyTim t = new FutbalovyTim();
+                    t.NazovTimu = novyNazov;
                     if (originalLogoCesta.Equals(string.Empty))
                         t.Logo = string.Empty;
                     else
@@ -172,7 +173,7 @@ namespace LGR_Futbal.Forms
         private void EditButton_Click(object sender, EventArgs e)
         {
             aktTim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
-            editNazovTextBox.Text = aktTim.Nazov;
+            editNazovTextBox.Text = aktTim.NazovTimu;
 
             try
             {
@@ -192,7 +193,7 @@ namespace LGR_Futbal.Forms
 
         private void ZapasButton_Click(object sender, EventArgs e)
         {
-            Tim tim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
+            FutbalovyTim tim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
             if (tim.ZoznamHracov.Count == 0)
                 MessageBox.Show(Translate(3), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -207,9 +208,9 @@ namespace LGR_Futbal.Forms
             addGroupBox.Visible = false;
             editGroupBox.Visible = false;
 
-            Tim t = dbs.ZoznamTimov[timyListBox.SelectedIndex];
+            FutbalovyTim t = dbs.ZoznamTimov[timyListBox.SelectedIndex];
             var i = timyListBox.Items[timyListBox.SelectedIndex];
-            if (MessageBox.Show(Translate(4) + t.Nazov + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translate(4) + t.NazovTimu + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbs.ZoznamTimov.Remove(t);
                 timyListBox.Items.Remove(i);
@@ -261,12 +262,12 @@ namespace LGR_Futbal.Forms
                 MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                Tim pomTim = dbs.NajstTim(novyNazov);
+                FutbalovyTim pomTim = dbs.NajstTim(novyNazov);
                 if ((pomTim != aktTim) && (pomTim != null))
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    aktTim.Nazov = novyNazov;
+                    aktTim.NazovTimu = novyNazov;
                     if (originalLogoCesta.Equals(string.Empty))
                         aktTim.Logo = string.Empty;
                     else
@@ -279,7 +280,7 @@ namespace LGR_Futbal.Forms
                         }
                         aktTim.Logo = fi.Name;
                     }
-                    timyListBox.Items[timyListBox.SelectedIndex] = aktTim.Nazov;
+                    timyListBox.Items[timyListBox.SelectedIndex] = aktTim.NazovTimu;
 
                     editGroupBox.Visible = false;
                 }
@@ -308,7 +309,7 @@ namespace LGR_Futbal.Forms
             if (timyListBox.SelectedIndex >= 0)
             {
                 aktTim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
-                editNazovTextBox.Text = aktTim.Nazov;
+                editNazovTextBox.Text = aktTim.NazovTimu;
 
                 try
                 {
@@ -359,13 +360,13 @@ namespace LGR_Futbal.Forms
             {
                 TextReader textReader = null;
                 bool uspech = true;
-                Tim novyTim = null;
+                FutbalovyTim novyTim = null;
 
                 try
                 {
-                    XmlSerializer deserializer = new XmlSerializer(typeof(Tim));
+                    XmlSerializer deserializer = new XmlSerializer(typeof(FutbalovyTim));
                     textReader = new StreamReader(cesta);
-                    novyTim = (Tim)deserializer.Deserialize(textReader);
+                    novyTim = (FutbalovyTim)deserializer.Deserialize(textReader);
                 }
                 catch (Exception ex)
                 {
@@ -381,7 +382,7 @@ namespace LGR_Futbal.Forms
                     {
                         dbs.ZoznamTimov.Add(novyTim);
                         aktTim = novyTim;
-                        timyListBox.Items.Add(novyTim.Nazov);
+                        timyListBox.Items.Add(novyTim.NazovTimu);
                         timyListBox.SelectedIndex = timyListBox.Items.Count - 1;
                         editGroupBox.Visible = false;
                         addGroupBox.Visible = false;
@@ -392,13 +393,13 @@ namespace LGR_Futbal.Forms
             {
                 TextReader textReader = null;
                 bool uspech = true;
-                Tim novyTim = null;
+                FutbalovyTim novyTim = null;
 
                 try
                 {
                     textReader = new StreamReader(cesta);
-                    novyTim = new Tim();
-                    novyTim.Nazov = textReader.ReadLine();
+                    novyTim = new FutbalovyTim();
+                    novyTim.NazovTimu = textReader.ReadLine();
                     novyTim.Logo = textReader.ReadLine();
                     int pocet = Convert.ToInt32(textReader.ReadLine());
                     textReader.ReadLine();
@@ -421,7 +422,7 @@ namespace LGR_Futbal.Forms
                     {
                         dbs.ZoznamTimov.Add(novyTim);
                         aktTim = novyTim;
-                        timyListBox.Items.Add(novyTim.Nazov);
+                        timyListBox.Items.Add(novyTim.NazovTimu);
                         timyListBox.SelectedIndex = timyListBox.Items.Count - 1;
                         editGroupBox.Visible = false;
                         addGroupBox.Visible = false;
@@ -439,7 +440,7 @@ namespace LGR_Futbal.Forms
 
                 try
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Tim));
+                    XmlSerializer serializer = new XmlSerializer(typeof(FutbalovyTim));
                     textWriter = new StreamWriter(cesta);
                     serializer.Serialize(textWriter, aktTim);
                 }
@@ -454,7 +455,7 @@ namespace LGR_Futbal.Forms
                         textWriter.Close();
 
                     if (uspech)
-                        MessageBox.Show(Translate(5) + aktTim.Nazov + Translate(6), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Translate(5) + aktTim.NazovTimu + Translate(6), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if ((cesta.EndsWith(".txt")) || (cesta.EndsWith(".csv")))
@@ -465,7 +466,7 @@ namespace LGR_Futbal.Forms
                 try
                 {
                     textWriter = new StreamWriter(cesta);
-                    textWriter.WriteLine(aktTim.Nazov);
+                    textWriter.WriteLine(aktTim.NazovTimu);
                     textWriter.WriteLine(aktTim.Logo);
                     textWriter.WriteLine(aktTim.ZoznamHracov.Count);
 
@@ -518,7 +519,7 @@ namespace LGR_Futbal.Forms
                         textWriter.Close();
 
                     if (uspech)
-                        MessageBox.Show(Translate(5) + aktTim.Nazov + Translate(6), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Translate(5) + aktTim.NazovTimu + Translate(6), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -77,7 +78,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotka1PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac1.Fotografia);
+                    fotka1PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac1.Fotka);
                 }
                 catch
                 {
@@ -85,7 +86,7 @@ namespace LGR_Futbal.Forms
                     //fotka1PictureBox.Image = null;
                 }
 
-                cisloHraca1Label.Text = prezentovanyHrac1.CisloHraca.ToString();
+                cisloHraca1Label.Text = prezentovanyHrac1.CisloDresu.ToString();
                
                 String identifikacia = prezentovanyHrac1.Meno + " " + prezentovanyHrac1.Priezvisko.ToUpper();
                 //if (identifikacia.Length > 15)
@@ -98,7 +99,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotka2PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac2.Fotografia);
+                    fotka2PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac2.Fotka);
                 }
                 catch
                 {
@@ -106,7 +107,7 @@ namespace LGR_Futbal.Forms
                     //fotka2PictureBox.Image = null;
                 }
 
-                cisloHraca2Label.Text = prezentovanyHrac2.CisloHraca.ToString();
+                cisloHraca2Label.Text = prezentovanyHrac2.CisloDresu.ToString();
                 String identifikacia = prezentovanyHrac2.Meno + " " + prezentovanyHrac2.Priezvisko.ToUpper();
                 //if (identifikacia.Length > 15)
                 //    identifikacia = identifikacia.Replace(" ", "\n");

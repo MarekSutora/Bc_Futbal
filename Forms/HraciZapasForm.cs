@@ -3,21 +3,21 @@ using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public partial class HraciZapasForm : Form
     {
         #region Atributy
 
-        private Tim aktualnyTim = null;
+        private FutbalovyTim aktualnyTim = null;
         private List<Hrac> hraci;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public HraciZapasForm(Tim t)
+        public HraciZapasForm(FutbalovyTim t)
         {
             InitializeComponent();
 
@@ -42,18 +42,18 @@ namespace LGR_Futbal.Forms
 
             aktualnyTim = t;
             hraci = new List<Hrac>();
-            this.Text = this.Text + Translate(1) + aktualnyTim.Nazov;
+            this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
 
             int pocet = 0;
             foreach (Hrac h in aktualnyTim.ZoznamHracov)
             {
                 pocet++;
                 hraci.Add(h);
-                if (!h.CisloHraca.Equals(string.Empty))
+                if (!h.CisloDresu.Equals(string.Empty))
                 {
-                    zoznamCheckListBox.Items.Add(h.CisloHraca + ". "
+                    zoznamCheckListBox.Items.Add(h.CisloDresu + ". "
                         + h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
-                    nahradniciCheckListBox.Items.Add(h.CisloHraca + ". "
+                    nahradniciCheckListBox.Items.Add(h.CisloDresu + ". "
                         + h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
                 }
                 else

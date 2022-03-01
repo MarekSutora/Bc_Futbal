@@ -20,7 +20,7 @@ namespace LGR_Futbal.Forms
     public delegate void ZhasniHandler();
     public delegate void RozsvietHandler();
     public delegate void NazvyLogaConfirmedHandler(string domNazov, string domLogo, string hosNazov, string hosLogo);
-    public delegate void TimySelectedHandler(Tim domTim, Tim hosTim);
+    public delegate void TimySelectedHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
     public delegate void ObnovaFariebHandler();
     public delegate void ColorsLoadedHandler(FarebnaSchema fs);
     public delegate void FileSelectedHandler(string cesta);
@@ -52,8 +52,8 @@ namespace LGR_Futbal.Forms
         private bool aktivnaZmena = true;
 
         private Databaza databazaTimov = null;
-        private Tim domaciT = null;
-        private Tim hostiaT = null;
+        private FutbalovyTim domaciT = null;
+        private FutbalovyTim hostiaT = null;
 
         private string originalFolder = null;
         //private Font fontNaStriedanie;
@@ -96,7 +96,7 @@ namespace LGR_Futbal.Forms
 
         public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string logoDom, string logoHos, string nazovDom, string nazovHos,
-            Databaza databaza, Tim domaciTim, Tim hostiaTim, string folder, int animacia,
+            Databaza databaza, FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
             FontyTabule fonty, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena)
         {
@@ -246,8 +246,8 @@ namespace LGR_Futbal.Forms
             if ((domaciT != null) && (hostiaT != null))
             {
                 ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
-                domNazov.Text = domaciT.Nazov;
-                hosNazov.Text = hostiaT.Nazov;
+                domNazov.Text = domaciT.NazovTimu;
+                hosNazov.Text = hostiaT.NazovTimu;
                 zrusitDatabazaButton.Enabled = true;
             }
             else
@@ -593,13 +593,13 @@ namespace LGR_Futbal.Forms
             selectform.Show();
         }
 
-        private void Selectform_OnTeamsSelected(Tim t1, Tim t2)
+        private void Selectform_OnTeamsSelected(FutbalovyTim t1, FutbalovyTim t2)
         {
             domaciT = t1;
             hostiaT = t2;
             ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
-            domNazov.Text = domaciT.Nazov;
-            hosNazov.Text = hostiaT.Nazov;
+            domNazov.Text = domaciT.NazovTimu;
+            hosNazov.Text = hostiaT.NazovTimu;
             zrusitDatabazaButton.Enabled = true;
         }
 

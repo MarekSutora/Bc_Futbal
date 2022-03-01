@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -19,12 +20,12 @@ namespace LGR_Futbal.Forms
 
         #region Atributy
 
-        private Tim tim;
+        private FutbalovyTim tim;
         private Databaza databaza;
         private Hrac hrac = null;
         private string adresar;
         private string originalFotkaCesta = string.Empty;
-        private List<Tim> zoznamMoznychCielovHraca = null;
+        private List<FutbalovyTim> zoznamMoznychCielovHraca = null;
         private List<Hrac> zoznamVyfiltrovanychHracov = null;
 
         #endregion
@@ -42,8 +43,8 @@ namespace LGR_Futbal.Forms
                 {
                     zoznamVyfiltrovanychHracov.Add(hrac);
 
-                    if (!hrac.CisloHraca.Equals(string.Empty))
-                        hraciListBox.Items.Add(hrac.CisloHraca + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper());
+                    if (!hrac.CisloDresu.Equals(string.Empty))
+                        hraciListBox.Items.Add(hrac.CisloDresu + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper());
                     else
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko.ToUpper());
                 }
@@ -71,8 +72,8 @@ namespace LGR_Futbal.Forms
 
             foreach (Hrac hrac in zoznamVyfiltrovanychHracov)
             {
-                if (!hrac.CisloHraca.Equals(string.Empty))
-                    hraciListBox.Items.Add(hrac.CisloHraca + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper());
+                if (!hrac.CisloDresu.Equals(string.Empty))
+                    hraciListBox.Items.Add(hrac.CisloDresu + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper());
                 else
                     hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko.ToUpper());
             }
@@ -106,7 +107,7 @@ namespace LGR_Futbal.Forms
                 prestupButton.Enabled = false;
         }
 
-        public HraciForm(Databaza d, Tim t, string adr, bool aplikovatZapasovyFilter)
+        public HraciForm(Databaza d, FutbalovyTim t, string adr, bool aplikovatZapasovyFilter)
         {
             InitializeComponent();
             
@@ -153,18 +154,18 @@ namespace LGR_Futbal.Forms
                 prestupConfirmButton.Text = prestupConfirmButton.Text.Replace("hráča", "hráče");
             }
 
-            Text = Text + Translate(1) + t.Nazov;
+            Text = Text + Translate(1) + t.NazovTimu;
             databaza = d;
             tim = t;
             adresar = adr;
 
-            zoznamMoznychCielovHraca = new List<Tim>();
-            foreach (Tim team in databaza.ZoznamTimov)
+            zoznamMoznychCielovHraca = new List<FutbalovyTim>();
+            foreach (FutbalovyTim team in databaza.ZoznamTimov)
             {
                 if (team != tim)
                 {
                     zoznamMoznychCielovHraca.Add(team);
-                    cieleListBox.Items.Add(team.Nazov);
+                    cieleListBox.Items.Add(team.NazovTimu);
                 }
             }
 
@@ -221,7 +222,7 @@ namespace LGR_Futbal.Forms
         {
             try
             {
-                originalFotkaCesta = adresar + "\\" + fotkyAdresar + hrac.Fotografia;
+                originalFotkaCesta = adresar + "\\" + fotkyAdresar + hrac.Fotka;
                 fotkaPictureBox.Image = Image.FromFile(originalFotkaCesta);
             }
             catch
@@ -230,10 +231,10 @@ namespace LGR_Futbal.Forms
                 fotkaPictureBox.Image = null;
             }
 
-            cisloHracaTextBox.Text = hrac.CisloHraca;
+            cisloHracaTextBox.Text = hrac.CisloDresu;
             menoTextBox.Text = hrac.Meno;
             priezviskoTextBox.Text = hrac.Priezvisko;
-            postTextBox.Text = hrac.Post;
+            postTextBox.Text = hrac.Pozicia;
             datumPicker.Value = hrac.DatumNarodenia.Date;
             poznamkaRichTextBox.Text = hrac.Poznamka;
 
@@ -284,10 +285,10 @@ namespace LGR_Futbal.Forms
             string poznamka = poznamkaRichTextBox.Text.Trim();
 
             Hrac novyHrac = new Hrac();
-            novyHrac.CisloHraca = cisloHraca;
+            novyHrac.CisloDresu = cisloHraca;
             novyHrac.Meno = menoHraca;
             novyHrac.Priezvisko = priezviskoHraca;
-            novyHrac.Post = postHraca;
+            novyHrac.Pozicia = postHraca;
             novyHrac.DatumNarodenia = datumPicker.Value.Date;
             novyHrac.Poznamka = poznamka;
 
@@ -298,7 +299,7 @@ namespace LGR_Futbal.Forms
             novyHrac.Funkcionar = funkcionarCheckBox.Checked;
 
             if (originalFotkaCesta.Equals(string.Empty))
-                novyHrac.Fotografia = string.Empty;
+                novyHrac.Fotka = string.Empty;
             else
             {
                 FileInfo fi = new FileInfo(originalFotkaCesta);
@@ -307,15 +308,15 @@ namespace LGR_Futbal.Forms
                     if (!File.Exists(adresar + "\\" + fotkyAdresar + fi.Name))
                         File.Copy(originalFotkaCesta, adresar + "\\" + fotkyAdresar + fi.Name);
                 }
-                novyHrac.Fotografia = fi.Name;
+                novyHrac.Fotka = fi.Name;
             }
 
             tim.ZoznamHracov.Add(novyHrac);
             if (zoznamVyfiltrovanychHracov != tim.ZoznamHracov)
                 zoznamVyfiltrovanychHracov.Add(novyHrac);
 
-            if (!novyHrac.CisloHraca.Equals(string.Empty))
-                hraciListBox.Items.Add(novyHrac.CisloHraca + ". " + novyHrac.Meno + " " + novyHrac.Priezvisko.ToUpper());
+            if (!novyHrac.CisloDresu.Equals(string.Empty))
+                hraciListBox.Items.Add(novyHrac.CisloDresu + ". " + novyHrac.Meno + " " + novyHrac.Priezvisko.ToUpper());
             else
                 hraciListBox.Items.Add(novyHrac.Meno + " " + novyHrac.Priezvisko.ToUpper());
             
@@ -354,10 +355,10 @@ namespace LGR_Futbal.Forms
             string postHraca = postTextBox.Text.Trim();
             string poznamka = poznamkaRichTextBox.Text.Trim();
 
-            hrac.CisloHraca = cisloHraca;
+            hrac.CisloDresu = cisloHraca;
             hrac.Meno = menoHraca;
             hrac.Priezvisko = priezviskoHraca;
-            hrac.Post = postHraca;
+            hrac.Pozicia = postHraca;
             hrac.DatumNarodenia = datumPicker.Value.Date;
             hrac.Poznamka = poznamka;
             hrac.HraAktualnyZapas = zapasCheckBox.Checked;
@@ -367,7 +368,7 @@ namespace LGR_Futbal.Forms
             hrac.Funkcionar = funkcionarCheckBox.Checked;
 
             if (originalFotkaCesta.Equals(string.Empty))
-                hrac.Fotografia = string.Empty;
+                hrac.Fotka = string.Empty;
             else
             {
                 FileInfo fi = new FileInfo(originalFotkaCesta);
@@ -376,11 +377,11 @@ namespace LGR_Futbal.Forms
                     if (!File.Exists(adresar + "\\" + fotkyAdresar + fi.Name))
                         File.Copy(originalFotkaCesta, adresar + "\\" + fotkyAdresar + fi.Name);
                 }
-                hrac.Fotografia = fi.Name;
+                hrac.Fotka = fi.Name;
             }
 
-            if (!hrac.CisloHraca.Equals(string.Empty))
-                hraciListBox.Items[hraciListBox.SelectedIndex] = hrac.CisloHraca + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper();
+            if (!hrac.CisloDresu.Equals(string.Empty))
+                hraciListBox.Items[hraciListBox.SelectedIndex] = hrac.CisloDresu + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper();
             else
                 hraciListBox.Items[hraciListBox.SelectedIndex] = hrac.Meno + " " + hrac.Priezvisko.ToUpper();
 
@@ -448,8 +449,8 @@ namespace LGR_Futbal.Forms
             hrac = zoznamVyfiltrovanychHracov[hraciListBox.SelectedIndex];
             addGroupBox.Visible = false;
 
-            if (!hrac.CisloHraca.Equals(string.Empty))
-                prestupGroupBox.Text = Translate(6) + hrac.CisloHraca + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper();
+            if (!hrac.CisloDresu.Equals(string.Empty))
+                prestupGroupBox.Text = Translate(6) + hrac.CisloDresu + ". " + hrac.Meno + " " + hrac.Priezvisko.ToUpper();
             else
                 prestupGroupBox.Text = Translate(6) + hrac.Meno + " " + hrac.Priezvisko.ToUpper();
 
@@ -458,8 +459,8 @@ namespace LGR_Futbal.Forms
 
         private void PrestupConfirmButton_Click(object sender, EventArgs e)
         {
-            Tim cielovyTim = zoznamMoznychCielovHraca[cieleListBox.SelectedIndex];
-            if (MessageBox.Show(Translate(7) + cielovyTim.Nazov + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            FutbalovyTim cielovyTim = zoznamMoznychCielovHraca[cieleListBox.SelectedIndex];
+            if (MessageBox.Show(Translate(7) + cielovyTim.NazovTimu + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 tim.ZoznamHracov.Remove(hrac);
                 if (zoznamVyfiltrovanychHracov != tim.ZoznamHracov)
@@ -492,7 +493,7 @@ namespace LGR_Futbal.Forms
 
             Hrac h = tim.ZoznamHracov[hraciListBox.SelectedIndex];
             var i = hraciListBox.Items[hraciListBox.SelectedIndex];
-            if (MessageBox.Show(Translate(8) + tim.Nazov + Translate(9), nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translate(8) + tim.NazovTimu + Translate(9), nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 tim.ZoznamHracov.Remove(h);
                 hraciListBox.Items.Remove(i);

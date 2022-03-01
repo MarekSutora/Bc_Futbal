@@ -3,6 +3,7 @@ using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -14,7 +15,7 @@ namespace LGR_Futbal.Forms
 
         public event StriedanieHraciSelectedHandler OnStriedanieHraciSelected;
         private string nazov;
-        private Tim spracovavanyTim;
+        private FutbalovyTim spracovavanyTim;
         private List<Hrac> odchMoznosti;
         private List<Hrac> nastMoznosti;
         private bool domaciTim;
@@ -23,7 +24,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieSettingsForm(Tim tim, string nazovTimu, bool jeDomaci)
+        public StriedanieSettingsForm(FutbalovyTim tim, string nazovTimu, bool jeDomaci)
         {
             InitializeComponent();
 
@@ -52,16 +53,16 @@ namespace LGR_Futbal.Forms
                         if ((h.HraAktualnyZapas) && (!h.Nahradnik))
                         {
                             odchMoznosti.Add(h);
-                            if (!h.CisloHraca.Equals(string.Empty))
-                                hraciLBodch.Items.Add(h.CisloHraca.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                            if (!h.CisloDresu.Equals(string.Empty))
+                                hraciLBodch.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                             else
                                 hraciLBodch.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                         }
                         else if ((!h.HraAktualnyZapas) && (h.Nahradnik))
                         {
                             nastMoznosti.Add(h);
-                            if (!h.CisloHraca.Equals(string.Empty))
-                                hraciLBnast.Items.Add(h.CisloHraca.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                            if (!h.CisloDresu.Equals(string.Empty))
+                                hraciLBnast.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                             else
                                 hraciLBnast.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                         }

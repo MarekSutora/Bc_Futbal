@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void VyberTimuNaPrezentaciuHandler(Tim tim, FarbyPrezentacieClass farby);
+    public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacieClass farby);
     public delegate void ZastavenieHandler();
     public delegate void NastaveniaConfirmedHandler(bool n, bool f);
 
@@ -19,8 +19,8 @@ namespace LGR_Futbal.Forms
         public event ZastavenieHandler OnZastaveniePrezentacie;
         public event NastaveniaConfirmedHandler OnNastaveniaConfirmed;
 
-        private Tim dom;
-        private Tim hos;
+        private FutbalovyTim dom;
+        private FutbalovyTim hos;
         private FarbyPrezentacieClass farbyDom;
         private FarbyPrezentacieClass farbyHos;
         private string adresar;
@@ -30,7 +30,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PredstavenieSettingsForm(String adr, Tim domaci, Tim hostia, FontyTabule fonty, bool nahr, bool funk)
+        public PredstavenieSettingsForm(String adr, FutbalovyTim domaci, FutbalovyTim hostia, FontyTabule fonty, bool nahr, bool funk)
         {
             InitializeComponent();
 
