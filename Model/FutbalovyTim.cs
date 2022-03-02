@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Collections.Generic;
 using LGR_Futbal.Model;
 
@@ -16,16 +18,38 @@ namespace LGR_Futbal.Triedy
         private string nazov;
         private string logo;
         private List<Hrac> zoznamHracov;
-
         public string NazovTimu { get => nazov; set => nazov = value; }
         public FutbalovyKlub FutbalovyKlub { get; set; }
         public string Logo { get => logo; set => logo = value; }
-
+        public byte[] LogoBlob { get; set; }
+        public int BlobSize { get; set; }
+        public Image LogoImage { get; set; }
         public List<Hrac> ZoznamHracov { get => zoznamHracov; set => zoznamHracov = value; }
+        public int Kategoria { get; set; }
+        public int IdFutbalovyTim { get; set; }
 
         public FutbalovyTim()
         {
+            FutbalovyKlub = null;
+            LogoBlob = null;
+            LogoImage = null;
             zoznamHracov = new List<Hrac>();
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            try
+            {
+                using (var ms = new MemoryStream(byteArrayIn))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch
+            {
+
+            }
+            return null;
         }
 
         public Hrac NajstHraca(string hladaneCisloHraca)

@@ -32,6 +32,8 @@
             this.infoLabel1 = new System.Windows.Forms.Label();
             this.timyListBox = new System.Windows.Forms.ListBox();
             this.addGroupBox = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.kategoriaComboBox = new System.Windows.Forms.ComboBox();
             this.spatButton = new System.Windows.Forms.Button();
             this.zrusitLogoButton = new System.Windows.Forms.Button();
             this.vlozitButton = new System.Windows.Forms.Button();
@@ -55,6 +57,8 @@
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.zrusitButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.kategoriaCombobox2 = new System.Windows.Forms.ComboBox();
             this.addGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.editGroupBox.SuspendLayout();
@@ -87,6 +91,8 @@
             // 
             // addGroupBox
             // 
+            this.addGroupBox.Controls.Add(this.label2);
+            this.addGroupBox.Controls.Add(this.kategoriaComboBox);
             this.addGroupBox.Controls.Add(this.spatButton);
             this.addGroupBox.Controls.Add(this.zrusitLogoButton);
             this.addGroupBox.Controls.Add(this.vlozitButton);
@@ -95,7 +101,7 @@
             this.addGroupBox.Controls.Add(this.nazovTextBox);
             this.addGroupBox.Controls.Add(this.infoLabel2);
             this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(318, 27);
+            this.addGroupBox.Location = new System.Drawing.Point(326, 288);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -104,6 +110,23 @@
             this.addGroupBox.TabStop = false;
             this.addGroupBox.Text = "Vloženie nového tímu";
             this.addGroupBox.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "kategória:";
+            // 
+            // kategoriaComboBox
+            // 
+            this.kategoriaComboBox.FormattingEnabled = true;
+            this.kategoriaComboBox.Location = new System.Drawing.Point(8, 75);
+            this.kategoriaComboBox.Name = "kategoriaComboBox";
+            this.kategoriaComboBox.Size = new System.Drawing.Size(121, 25);
+            this.kategoriaComboBox.TabIndex = 27;
             // 
             // spatButton
             // 
@@ -153,7 +176,7 @@
             this.zmenaObrazkaButton.Name = "zmenaObrazkaButton";
             this.zmenaObrazkaButton.Size = new System.Drawing.Size(113, 30);
             this.zmenaObrazkaButton.TabIndex = 4;
-            this.zmenaObrazkaButton.Text = "Zmeniť logo";
+            this.zmenaObrazkaButton.Text = "Vložiť logo";
             this.zmenaObrazkaButton.UseVisualStyleBackColor = true;
             this.zmenaObrazkaButton.Click += new System.EventHandler(this.ZmenaObrazkaButton_Click);
             // 
@@ -188,6 +211,8 @@
             // 
             // editGroupBox
             // 
+            this.editGroupBox.Controls.Add(this.label3);
+            this.editGroupBox.Controls.Add(this.kategoriaCombobox2);
             this.editGroupBox.Controls.Add(this.editHraciButton);
             this.editGroupBox.Controls.Add(this.editBackButton);
             this.editGroupBox.Controls.Add(this.editZrusButton);
@@ -309,7 +334,7 @@
             this.exportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exportButton.Image = global::LGR_Futbal.Properties.Resources.Save;
             this.exportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exportButton.Location = new System.Drawing.Point(201, 338);
+            this.exportButton.Location = new System.Drawing.Point(201, 339);
             this.exportButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(113, 57);
@@ -412,6 +437,23 @@
             this.zrusitButton.UseVisualStyleBackColor = true;
             this.zrusitButton.Click += new System.EventHandler(this.ZrusitButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "kategória:";
+            // 
+            // kategoriaCombobox2
+            // 
+            this.kategoriaCombobox2.FormattingEnabled = true;
+            this.kategoriaCombobox2.Location = new System.Drawing.Point(8, 83);
+            this.kategoriaCombobox2.Name = "kategoriaCombobox2";
+            this.kategoriaCombobox2.Size = new System.Drawing.Size(121, 25);
+            this.kategoriaCombobox2.TabIndex = 29;
+            // 
             // DatabazaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,5 +519,9 @@
         private System.Windows.Forms.Button editHraciButton;
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox kategoriaComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox kategoriaCombobox2;
     }
 }

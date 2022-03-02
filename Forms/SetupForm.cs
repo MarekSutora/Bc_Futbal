@@ -38,10 +38,10 @@ namespace LGR_Futbal.Forms
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        private const string logaAdresar = "Databaza\\Loga\\";
-        private const string gifyAdresar = "Databaza\\Gify\\";
-        private const string kartyAdresar = "Databaza\\Karty\\";
-        private const string typyZapasovSubor = "Databaza\\Typy.xml";
+        private const string logaAdresar = "Databazaa\\Loga\\";
+        private const string gifyAdresar = "Databazaa\\Gify\\";
+        private const string kartyAdresar = "Databazaa\\Karty\\";
+        private const string typyZapasovSubor = "Databazaa\\Typy.xml";
 
         #endregion
 

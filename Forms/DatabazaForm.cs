@@ -1,6 +1,7 @@
 ﻿using LGR_Futbal.Properties;
 using LGR_Futbal.Triedy;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -23,6 +24,7 @@ namespace LGR_Futbal.Forms
 
         private Databaza dbs;
         private FutbalovyTim aktTim = null;
+        private List<string> nazvyTimov = null;
         private string originalLogoCesta = string.Empty;
         private string currentDirectory = null;
 
@@ -64,22 +66,39 @@ namespace LGR_Futbal.Forms
                 editConfirmButton.Text = editConfirmButton.Text.Replace("zmeny", "změny");
                 editConfirmButton.Text = editConfirmButton.Text.Replace("Potvrdiť", "Potvrdit");
             }
-
+            nazvyTimov = new List<string>();
             dbs = d;
             currentDirectory = folder;
 
-            foreach (FutbalovyTim t in dbs.ZoznamTimov)
+            FillTimyCB();
+            kategoriaComboBox.Items.Add("");
+            kategoriaCombobox2.Items.Add("");
+            for (int i = 0; i < dbs.GetKategorie().Count; i++)
             {
-                timyListBox.Items.Add(t.NazovTimu);
+                kategoriaComboBox.Items.Add(dbs.GetKategorie()[i]);
+                kategoriaCombobox2.Items.Add(dbs.GetKategorie()[i]);
+
             }
 
-            if (dbs.ZoznamTimov.Count > 0)
+
+            if (this.nazvyTimov.Count > 0)
             {
                 timyListBox.SelectedIndex = 0;
                 editButton.Enabled = true;
                 zapasButton.Enabled = true;
                 removeButton.Enabled = true;
                 exportButton.Enabled = true;
+            }
+        }
+
+        private void FillTimyCB()
+        {
+            timyListBox.Items.Clear();
+            nazvyTimov.Clear();
+            for (int i = 0; i < dbs.GetNazvyTimov().Count; i++)
+            {
+                nazvyTimov.Add(dbs.GetNazvyTimov()[i]);
+                timyListBox.Items.Add(dbs.GetNazvyTimov()[i]);
             }
         }
 
@@ -134,7 +153,7 @@ namespace LGR_Futbal.Forms
                 MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                if (dbs.NajstTim(novyNazov) != null)
+                if (dbs.CheckNazovTimu(novyNazov))
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -145,22 +164,29 @@ namespace LGR_Futbal.Forms
                     else
                     {
                         FileInfo fi = new FileInfo(originalLogoCesta);
-                        if (!originalLogoCesta.Contains(currentDirectory + "\\" + logaAdresar))
-                        {
-                            if (!File.Exists(currentDirectory + "\\" + logaAdresar + fi.Name))
-                                File.Copy(originalLogoCesta, currentDirectory + "\\" + logaAdresar + fi.Name);
-                        }
-                        t.Logo = fi.Name;
+                        //if (!originalLogoCesta.Contains(currentDirectory + "\\" + logaAdresar))
+                        //{
+                        //    if (!File.Exists(currentDirectory + "\\" + logaAdresar + fi.Name))
+                        //        File.Copy(originalLogoCesta, currentDirectory + "\\" + logaAdresar + fi.Name);
+                        //}
+                        t.Logo = originalLogoCesta;
+                        t.Kategoria = kategoriaComboBox.SelectedIndex + 1;
                     }
-                    dbs.ZoznamTimov.Add(t);
+                    try
+                    {
+                        dbs.InsertFutbalovyTeam(t);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
-                    timyListBox.Items.Add(novyNazov);
-                    timyListBox.SelectedIndex = timyListBox.Items.Count - 1;
                     editButton.Enabled = true;
                     zapasButton.Enabled = true;
                     removeButton.Enabled = true;
                     exportButton.Enabled = true;
                     addGroupBox.Visible = false;
+                    FillTimyCB();
                 }
             }
         }
@@ -172,20 +198,28 @@ namespace LGR_Futbal.Forms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            aktTim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
-            editNazovTextBox.Text = aktTim.NazovTimu;
 
+            aktTim = dbs.GetTim(nazvyTimov[timyListBox.SelectedIndex]);
+            editNazovTextBox.Text = aktTim.NazovTimu;
+            kategoriaCombobox2.SelectedIndex = aktTim.Kategoria - 1;
             try
             {
-                originalLogoCesta = currentDirectory + "\\" + logaAdresar + aktTim.Logo;
-                editPictureBox.Image = Image.FromFile(originalLogoCesta);
+                //originalLogoCesta = currentDirectory + "\\" + logaAdresar + aktTim.Logo;
+                //editPictureBox.Image = Image.FromFile(originalLogoCesta);
+                if (aktTim != null && aktTim.LogoBlob != null)
+                {
+                    editPictureBox.Image = aktTim.LogoImage;
+                }
+                else
+                {
+                    editPictureBox.Image = null;
+                }     
             }
             catch
             {
                 originalLogoCesta = string.Empty;
                 editPictureBox.Image = null;
             }
-
             editGroupBox.Visible = true;
             addGroupBox.Visible = false;
             editNazovTextBox.Focus();
@@ -240,12 +274,14 @@ namespace LGR_Futbal.Forms
                 {
                     editPictureBox.Image = Image.FromFile(ofd.FileName);
                     originalLogoCesta = ofd.FileName;
+                    aktTim.LogoImage = Image.FromFile(ofd.FileName);
                 }
             }
             catch
             {
                 editPictureBox.Image = null;
                 originalLogoCesta = string.Empty;
+                aktTim.LogoImage = null;
             }
         }
 
@@ -262,26 +298,35 @@ namespace LGR_Futbal.Forms
                 MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                FutbalovyTim pomTim = dbs.NajstTim(novyNazov);
-                if ((pomTim != aktTim) && (pomTim != null))
+                
+                if (dbs.CheckNazovTimu(novyNazov) && aktTim.NazovTimu != novyNazov)
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     aktTim.NazovTimu = novyNazov;
-                    if (originalLogoCesta.Equals(string.Empty))
-                        aktTim.Logo = string.Empty;
+                    if (originalLogoCesta == string.Empty)
+                        aktTim.Logo = null;
                     else
                     {
-                        FileInfo fi = new FileInfo(originalLogoCesta);
-                        if (!originalLogoCesta.Contains(currentDirectory + "\\" + logaAdresar))
-                        {
-                            if (!File.Exists(currentDirectory + "\\" + logaAdresar + fi.Name))
-                                File.Copy(originalLogoCesta, currentDirectory + "\\" + logaAdresar + fi.Name);
-                        }
-                        aktTim.Logo = fi.Name;
+                        //FileInfo fi = new FileInfo(originalLogoCesta);
+                        //if (!originalLogoCesta.Contains(currentDirectory + "\\" + logaAdresar))
+                        //{
+                        //    if (!File.Exists(currentDirectory + "\\" + logaAdresar + fi.Name))
+                        //        File.Copy(originalLogoCesta, currentDirectory + "\\" + logaAdresar + fi.Name);
+                        //}
+                        aktTim.Logo = originalLogoCesta;
                     }
-                    timyListBox.Items[timyListBox.SelectedIndex] = aktTim.NazovTimu;
-
+                    //timyListBox.Items[timyListBox.SelectedIndex] = aktTim.NazovTimu;
+                    try
+                    {
+                        aktTim.Kategoria = kategoriaCombobox2.SelectedIndex;
+                        dbs.UpdateTim(aktTim);
+                    } 
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    FillTimyCB();
                     editGroupBox.Visible = false;
                 }
             }
@@ -308,20 +353,28 @@ namespace LGR_Futbal.Forms
         {
             if (timyListBox.SelectedIndex >= 0)
             {
-                aktTim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
+                aktTim = dbs.GetTim(nazvyTimov[timyListBox.SelectedIndex]);
                 editNazovTextBox.Text = aktTim.NazovTimu;
+                kategoriaCombobox2.SelectedIndex = aktTim.Kategoria - 1;
 
                 try
                 {
-                    originalLogoCesta = currentDirectory + "\\" + logaAdresar + aktTim.Logo;
-                    editPictureBox.Image = Image.FromFile(originalLogoCesta);
+                    //originalLogoCesta = currentDirectory + "\\" + logaAdresar + aktTim.Logo;
+                    //editPictureBox.Image = Image.FromFile(originalLogoCesta);
+                    if (aktTim != null && aktTim.LogoBlob != null)
+                    {
+                        editPictureBox.Image = aktTim.LogoImage;
+                    }
+                    else
+                    {
+                        editPictureBox.Image = null;
+                    }
                 }
                 catch
                 {
                     originalLogoCesta = string.Empty;
                     editPictureBox.Image = null;
                 }
-
                 editGroupBox.Visible = true;
                 addGroupBox.Visible = false;
                 editNazovTextBox.Focus();

@@ -13,6 +13,7 @@ using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 using LGR_Futbal.Model;
 
+
 namespace LGR_Futbal
 {
     public delegate void SetTextCallback();
@@ -23,9 +24,9 @@ namespace LGR_Futbal
 
         private const string nazovProgramuString = "LGR Futbal";
         private const string konfiguracnySubor = "Config.bin";
-        private const string databazaSubor = "Databaza\\Databaza.xml";
-        private const string priebehSubor = "Databaza\\Priebeh.xml";
-        private const string animacieSubor = "Databaza\\Gify\\Settings.xml";
+        private const string databazaSubor = "Databazaa\\Databaza.xml";
+        private const string priebehSubor = "Databazaa\\Priebeh.xml";
+        private const string animacieSubor = "Databazaa\\Gify\\Settings.xml";
 
         #endregion
 
@@ -235,7 +236,6 @@ namespace LGR_Futbal
                 formular.OnSettingsConfirmation += Formular_OnSettingsConfirmation;
                 formular.ShowDialog();
             }
-
             nastavJazyk(indexJazyka);
 
             // Cierne pozadie obrazovky (prekrytie nevyuzitej plochy)
@@ -272,7 +272,7 @@ namespace LGR_Futbal
 
             currentDirectory = Directory.GetCurrentDirectory();
 
-            LoadDatabase();
+            LoadDatabase();    
             sw = new Stopwatch();
 
             // Pociatocne nastavenia
@@ -352,7 +352,6 @@ namespace LGR_Futbal
                         formularTabule.setLayout(rt);
                 }
             }
-            testDatabazy();
         }
 
         private void SpracujCas()
@@ -1679,7 +1678,7 @@ namespace LGR_Futbal
 
         private void RiadiaciForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         #endregion
