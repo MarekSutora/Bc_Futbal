@@ -124,7 +124,7 @@
             this.addGroupBox.Controls.Add(this.zrusitObrazokButton);
             this.addGroupBox.Controls.Add(this.zmenaObrazkaButton);
             this.addGroupBox.Controls.Add(this.fotkaPictureBox);
-            this.addGroupBox.Location = new System.Drawing.Point(318, 29);
+            this.addGroupBox.Location = new System.Drawing.Point(335, 27);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -235,6 +235,7 @@
             // 
             this.poznamkaRichTextBox.Location = new System.Drawing.Point(132, 153);
             this.poznamkaRichTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.poznamkaRichTextBox.MaxLength = 500;
             this.poznamkaRichTextBox.Name = "poznamkaRichTextBox";
             this.poznamkaRichTextBox.Size = new System.Drawing.Size(134, 179);
             this.poznamkaRichTextBox.TabIndex = 51;
@@ -592,12 +593,12 @@
             this.Controls.Add(this.showAllButton);
             this.Controls.Add(this.prestupButton);
             this.Controls.Add(this.removeButton);
+            this.Controls.Add(this.addGroupBox);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.hraciListBox);
             this.Controls.Add(this.infoLabel1);
             this.Controls.Add(this.zrusitButton);
-            this.Controls.Add(this.addGroupBox);
             this.Controls.Add(this.prestupGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

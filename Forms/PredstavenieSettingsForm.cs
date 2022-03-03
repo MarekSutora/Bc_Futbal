@@ -1,5 +1,6 @@
 ﻿using LGR_Futbal.Properties;
 using LGR_Futbal.Triedy;
+using LGR_Futbal.Model;
 using System;
 using System.IO;
 using System.Windows.Forms;

@@ -1,5 +1,6 @@
 ﻿using LGR_Futbal.Properties;
 using LGR_Futbal.Triedy;
+using LGR_Futbal.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -821,7 +822,7 @@ namespace LGR_Futbal.Forms
                 this.Pisma = fontyForm.pisma;
                 OnObnovaFontov();
             }
-                
+
             //this.Close();
         }
 
@@ -850,7 +851,7 @@ namespace LGR_Futbal.Forms
         {
             if (Settings.Default.Jazyk == 0)
             {
-                switch(cisloVety)
+                switch (cisloVety)
                 {
                     case 1: return "Naozaj chcete resetovať výsledkovú tabuľu?";
                     case 2: return "Naozaj chcete obnoviť výrobné nastavenia farieb?";
@@ -1000,7 +1001,7 @@ namespace LGR_Futbal.Forms
                 string novyNazov = originalFolder + "\\" + kartyAdresar + nazov;
                 if (!File.Exists(novyNazov))
                     File.Copy(povodnySubor, novyNazov);
-                
+
                 try
                 {
                     pictureBox2.Image = Image.FromFile(novyNazov);
@@ -1049,12 +1050,12 @@ namespace LGR_Futbal.Forms
                 if (OnLayoutChanged != null)
                     OnLayoutChanged();
             }
-            
+
         }
 
         private void Rf_OnFileSelected(string cesta)
         {
-             if (OnFileSelectedRF != null)
+            if (OnFileSelectedRF != null)
                 OnFileSelectedRF(cesta);
 
         }
@@ -1066,6 +1067,6 @@ namespace LGR_Futbal.Forms
 
         }
 
-     
+
     }
 }

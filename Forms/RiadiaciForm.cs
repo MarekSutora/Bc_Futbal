@@ -1,5 +1,6 @@
 ﻿using LGR_Futbal.Forms;
 using LGR_Futbal.Properties;
+using LGR_Futbal.Model;
 using LGR_Futbal.Triedy;
 using System;
 using System.ComponentModel;
@@ -11,7 +12,6 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
-using LGR_Futbal.Model;
 
 
 namespace LGR_Futbal

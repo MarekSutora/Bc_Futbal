@@ -2,17 +2,9 @@
 using System.Drawing;
 using System.IO;
 using System.Collections.Generic;
-using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Triedy
+namespace LGR_Futbal.Model
 {
-    public enum Kategoria
-    {
-        DospeliZeny,
-
-    }
-
-    [Serializable]
     public class FutbalovyTim
     {
         private string nazov;
@@ -22,12 +14,12 @@ namespace LGR_Futbal.Triedy
         public FutbalovyKlub FutbalovyKlub { get; set; }
         public string Logo { get => logo; set => logo = value; }
         public byte[] LogoBlob { get; set; }
-        public int BlobSize { get; set; }
         public Image LogoImage { get; set; }
         public List<Hrac> ZoznamHracov { get => zoznamHracov; set => zoznamHracov = value; }
         public int Kategoria { get; set; }
         public int IdFutbalovyTim { get; set; }
-
+        public DateTime DatumVytvorenia { get; set; }
+        public DateTime DatumZrusenia { get; set; }
         public FutbalovyTim()
         {
             FutbalovyKlub = null;
