@@ -9,7 +9,7 @@ namespace LGR_Futbal.Model
     {
         public int IdHrac { get; set; }
         public DateTime DatumNastupu { get; set; }
-        public FutbalovyTim FutbalovyTim { get; set; }
+        public int IdFutbalovyTim { get; set; }
         public string CisloDresu { get; set; }
         public DateTime DatumUkoncenia { get; set; }
         public int IdPozicia { get; set; }

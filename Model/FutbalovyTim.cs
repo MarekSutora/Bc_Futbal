@@ -28,21 +28,6 @@ namespace LGR_Futbal.Model
             zoznamHracov = new List<Hrac>();
         }
 
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            try
-            {
-                using (var ms = new MemoryStream(byteArrayIn))
-                {
-                    return Image.FromStream(ms);
-                }
-            }
-            catch
-            {
-
-            }
-            return null;
-        }
 
         public Hrac NajstHraca(string hladaneCisloHraca)
         {

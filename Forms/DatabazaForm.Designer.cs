@@ -61,6 +61,27 @@
             this.editNazovTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.editHracGroupBox = new System.Windows.Forms.GroupBox();
+            this.editTimComboBox = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.editCisloTextBox = new System.Windows.Forms.TextBox();
+            this.editHracConfirmbutton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.editRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.editDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.editPostTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.editPriezviskoTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.editMenoTextBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.editZrusFotografiu = new System.Windows.Forms.Button();
+            this.editVlozFotografiu = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -86,10 +107,9 @@
             this.vlozFotobtn = new System.Windows.Forms.Button();
             this.fotkaPictureBox = new System.Windows.Forms.PictureBox();
             this.filterHracovbtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timFilterCB = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.hraciListBox = new System.Windows.Forms.ListBox();
             this.hracButton = new System.Windows.Forms.Button();
             this.timyButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -99,6 +119,8 @@
             this.editGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.editHracGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.vlozHracaGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +132,7 @@
             this.tabControl1.Location = new System.Drawing.Point(214, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(724, 497);
+            this.tabControl1.Size = new System.Drawing.Size(724, 546);
             this.tabControl1.TabIndex = 31;
             // 
             // tabPage1
@@ -128,7 +150,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(716, 471);
+            this.tabPage1.Size = new System.Drawing.Size(716, 520);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TÍMY";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -239,6 +261,7 @@
             this.timyListBox.Size = new System.Drawing.Size(168, 366);
             this.timyListBox.TabIndex = 32;
             this.timyListBox.SelectedIndexChanged += new System.EventHandler(this.TimyListBox_SelectedIndexChanged);
+            this.timyListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.timyListBox_MouseDoubleClick);
             // 
             // infoLabel1
             // 
@@ -263,7 +286,7 @@
             this.addGroupBox.Controls.Add(this.nazovTextBox);
             this.addGroupBox.Controls.Add(this.infoLabel2);
             this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(298, 22);
+            this.addGroupBox.Location = new System.Drawing.Point(298, 270);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -509,15 +532,15 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.editHracGroupBox);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.vlozHracaGroupBox);
             this.tabPage2.Controls.Add(this.filterHracovbtn);
-            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.timFilterCB);
-            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.hraciListBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -525,6 +548,254 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "HRÁČI";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // editHracGroupBox
+            // 
+            this.editHracGroupBox.BackColor = System.Drawing.SystemColors.Control;
+            this.editHracGroupBox.Controls.Add(this.editTimComboBox);
+            this.editHracGroupBox.Controls.Add(this.label14);
+            this.editHracGroupBox.Controls.Add(this.editCisloTextBox);
+            this.editHracGroupBox.Controls.Add(this.editHracConfirmbutton);
+            this.editHracGroupBox.Controls.Add(this.label15);
+            this.editHracGroupBox.Controls.Add(this.editRichTextBox);
+            this.editHracGroupBox.Controls.Add(this.label16);
+            this.editHracGroupBox.Controls.Add(this.label17);
+            this.editHracGroupBox.Controls.Add(this.editDateTimePicker);
+            this.editHracGroupBox.Controls.Add(this.editPostTextBox);
+            this.editHracGroupBox.Controls.Add(this.label18);
+            this.editHracGroupBox.Controls.Add(this.label19);
+            this.editHracGroupBox.Controls.Add(this.editPriezviskoTextBox);
+            this.editHracGroupBox.Controls.Add(this.label20);
+            this.editHracGroupBox.Controls.Add(this.editMenoTextBox);
+            this.editHracGroupBox.Controls.Add(this.label21);
+            this.editHracGroupBox.Controls.Add(this.button3);
+            this.editHracGroupBox.Controls.Add(this.editZrusFotografiu);
+            this.editHracGroupBox.Controls.Add(this.editVlozFotografiu);
+            this.editHracGroupBox.Controls.Add(this.pictureBox);
+            this.editHracGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.editHracGroupBox.Location = new System.Drawing.Point(310, 31);
+            this.editHracGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editHracGroupBox.Name = "editHracGroupBox";
+            this.editHracGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editHracGroupBox.Size = new System.Drawing.Size(401, 393);
+            this.editHracGroupBox.TabIndex = 72;
+            this.editHracGroupBox.TabStop = false;
+            this.editHracGroupBox.Text = "Úprava hráča";
+            this.editHracGroupBox.Visible = false;
+            // 
+            // editTimComboBox
+            // 
+            this.editTimComboBox.FormattingEnabled = true;
+            this.editTimComboBox.Location = new System.Drawing.Point(132, 125);
+            this.editTimComboBox.Name = "editTimComboBox";
+            this.editTimComboBox.Size = new System.Drawing.Size(132, 25);
+            this.editTimComboBox.TabIndex = 42;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.Location = new System.Drawing.Point(5, 130);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 17);
+            this.label14.TabIndex = 71;
+            this.label14.Text = "Tím:";
+            // 
+            // editCisloTextBox
+            // 
+            this.editCisloTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editCisloTextBox.Location = new System.Drawing.Point(131, 17);
+            this.editCisloTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editCisloTextBox.Name = "editCisloTextBox";
+            this.editCisloTextBox.Size = new System.Drawing.Size(134, 23);
+            this.editCisloTextBox.TabIndex = 70;
+            // 
+            // editHracConfirmbutton
+            // 
+            this.editHracConfirmbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editHracConfirmbutton.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.editHracConfirmbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editHracConfirmbutton.Location = new System.Drawing.Point(269, 335);
+            this.editHracConfirmbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editHracConfirmbutton.Name = "editHracConfirmbutton";
+            this.editHracConfirmbutton.Size = new System.Drawing.Size(118, 52);
+            this.editHracConfirmbutton.TabIndex = 69;
+            this.editHracConfirmbutton.Text = "Uložiť     \r\nzmeny    ";
+            this.editHracConfirmbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.editHracConfirmbutton.UseVisualStyleBackColor = true;
+            this.editHracConfirmbutton.Click += new System.EventHandler(this.editHracConfirmbutton_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.Location = new System.Drawing.Point(5, 374);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 13);
+            this.label15.TabIndex = 63;
+            this.label15.Text = "* povinné údaje";
+            // 
+            // editRichTextBox
+            // 
+            this.editRichTextBox.Location = new System.Drawing.Point(130, 188);
+            this.editRichTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editRichTextBox.Name = "editRichTextBox";
+            this.editRichTextBox.Size = new System.Drawing.Size(134, 179);
+            this.editRichTextBox.TabIndex = 51;
+            this.editRichTextBox.Text = "";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.Location = new System.Drawing.Point(4, 182);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(91, 17);
+            this.label16.TabIndex = 50;
+            this.label16.Text = "Iné záznamy:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(4, 159);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(121, 17);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "Dátum narodenia:";
+            // 
+            // editDateTimePicker
+            // 
+            this.editDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.editDateTimePicker.Location = new System.Drawing.Point(131, 155);
+            this.editDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editDateTimePicker.Name = "editDateTimePicker";
+            this.editDateTimePicker.Size = new System.Drawing.Size(134, 23);
+            this.editDateTimePicker.TabIndex = 40;
+            // 
+            // editPostTextBox
+            // 
+            this.editPostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editPostTextBox.Location = new System.Drawing.Point(132, 99);
+            this.editPostTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editPostTextBox.Name = "editPostTextBox";
+            this.editPostTextBox.Size = new System.Drawing.Size(134, 23);
+            this.editPostTextBox.TabIndex = 39;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label18.Location = new System.Drawing.Point(5, 103);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(40, 17);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Post:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.Location = new System.Drawing.Point(5, 75);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(95, 17);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Priezvisko (*):";
+            // 
+            // editPriezviskoTextBox
+            // 
+            this.editPriezviskoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editPriezviskoTextBox.Location = new System.Drawing.Point(132, 72);
+            this.editPriezviskoTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editPriezviskoTextBox.Name = "editPriezviskoTextBox";
+            this.editPriezviskoTextBox.Size = new System.Drawing.Size(134, 23);
+            this.editPriezviskoTextBox.TabIndex = 35;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label20.Location = new System.Drawing.Point(5, 48);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 17);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "Meno (*):";
+            // 
+            // editMenoTextBox
+            // 
+            this.editMenoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editMenoTextBox.Location = new System.Drawing.Point(132, 45);
+            this.editMenoTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editMenoTextBox.Name = "editMenoTextBox";
+            this.editMenoTextBox.Size = new System.Drawing.Size(134, 23);
+            this.editMenoTextBox.TabIndex = 33;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.Location = new System.Drawing.Point(5, 20);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(82, 17);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "Číslo hráča:";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(269, 335);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 52);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "Vložiť     \r\nhráča     ";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // editZrusFotografiu
+            // 
+            this.editZrusFotografiu.Location = new System.Drawing.Point(269, 188);
+            this.editZrusFotografiu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editZrusFotografiu.Name = "editZrusFotografiu";
+            this.editZrusFotografiu.Size = new System.Drawing.Size(118, 30);
+            this.editZrusFotografiu.TabIndex = 28;
+            this.editZrusFotografiu.Text = "Zrušiť fotografiu";
+            this.editZrusFotografiu.UseVisualStyleBackColor = true;
+            this.editZrusFotografiu.Click += new System.EventHandler(this.zrusitObrazokButton_Click);
+            // 
+            // editVlozFotografiu
+            // 
+            this.editVlozFotografiu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.editVlozFotografiu.Location = new System.Drawing.Point(269, 153);
+            this.editVlozFotografiu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.editVlozFotografiu.Name = "editVlozFotografiu";
+            this.editVlozFotografiu.Size = new System.Drawing.Size(118, 30);
+            this.editVlozFotografiu.TabIndex = 27;
+            this.editVlozFotografiu.Text = "Zmeň fotografiu";
+            this.editVlozFotografiu.UseVisualStyleBackColor = true;
+            this.editVlozFotografiu.Click += new System.EventHandler(this.vlozFotobtn_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(269, 20);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(118, 127);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 26;
+            this.pictureBox.TabStop = false;
             // 
             // button6
             // 
@@ -825,22 +1096,13 @@
             // filterHracovbtn
             // 
             this.filterHracovbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.filterHracovbtn.Location = new System.Drawing.Point(47, 58);
+            this.filterHracovbtn.Location = new System.Drawing.Point(24, 64);
             this.filterHracovbtn.Name = "filterHracovbtn";
-            this.filterHracovbtn.Size = new System.Drawing.Size(121, 23);
+            this.filterHracovbtn.Size = new System.Drawing.Size(130, 23);
             this.filterHracovbtn.TabIndex = 4;
             this.filterHracovbtn.Text = "Filtruj";
             this.filterHracovbtn.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.label5.Location = new System.Drawing.Point(6, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Tím:";
+            this.filterHracovbtn.Click += new System.EventHandler(this.filterHracovbtn_Click);
             // 
             // label4
             // 
@@ -854,20 +1116,23 @@
             // 
             // timFilterCB
             // 
+            this.timFilterCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.timFilterCB.FormattingEnabled = true;
-            this.timFilterCB.Location = new System.Drawing.Point(47, 31);
+            this.timFilterCB.Location = new System.Drawing.Point(6, 31);
             this.timFilterCB.Name = "timFilterCB";
-            this.timFilterCB.Size = new System.Drawing.Size(121, 21);
+            this.timFilterCB.Size = new System.Drawing.Size(162, 25);
             this.timFilterCB.TabIndex = 1;
             // 
-            // listBox1
+            // hraciListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(6, 93);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(162, 378);
-            this.listBox1.TabIndex = 0;
+            this.hraciListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hraciListBox.FormattingEnabled = true;
+            this.hraciListBox.IntegralHeight = false;
+            this.hraciListBox.ItemHeight = 18;
+            this.hraciListBox.Location = new System.Drawing.Point(6, 93);
+            this.hraciListBox.Name = "hraciListBox";
+            this.hraciListBox.Size = new System.Drawing.Size(162, 378);
+            this.hraciListBox.TabIndex = 0;
             // 
             // hracButton
             // 
@@ -924,6 +1189,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.editHracGroupBox.ResumeLayout(false);
+            this.editHracGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.vlozHracaGroupBox.ResumeLayout(false);
             this.vlozHracaGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).EndInit();
@@ -968,10 +1236,9 @@
         private System.Windows.Forms.Button hracButton;
         private System.Windows.Forms.Button timyButton;
         private System.Windows.Forms.Button filterHracovbtn;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox timFilterCB;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox hraciListBox;
         private System.Windows.Forms.GroupBox vlozHracaGroupBox;
         private System.Windows.Forms.TextBox cisloHracaTextBox;
         private System.Windows.Forms.Button vlozHracaButton;
@@ -996,5 +1263,26 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ComboBox timHracCB;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox editHracGroupBox;
+        private System.Windows.Forms.ComboBox editTimComboBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox editCisloTextBox;
+        private System.Windows.Forms.Button editHracConfirmbutton;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox editRichTextBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker editDateTimePicker;
+        private System.Windows.Forms.TextBox editPostTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox editPriezviskoTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox editMenoTextBox;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button editZrusFotografiu;
+        private System.Windows.Forms.Button editVlozFotografiu;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

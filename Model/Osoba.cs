@@ -8,7 +8,7 @@ namespace LGR_Futbal.Model
 {
     public class Osoba
     {
-        public string RodCislo { get; set; }
+        public int IdOsoba { get; set; }
         public string Meno { get; set; }
         public string Priezvisko { get; set; }
     }
