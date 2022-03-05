@@ -85,15 +85,6 @@ namespace LGR_Futbal.Triedy
             return null;
         }
 
-        public byte[] ImageToByteArray(Image imageIn)
-        {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, imageIn.RawFormat);
-                return ms.ToArray();
-            }
-        }
-
         public void resetKariet()
         {
             foreach (FutbalovyTim t in zoznamTimov)
@@ -250,13 +241,20 @@ namespace LGR_Futbal.Triedy
                 {
                     byte[] blob = null;
                     int? kategoria = null;
-                    if (futbalovyTim.Kategoria != 0)
+                    if (futbalovyTim.Kategoria != 0 && futbalovyTim.Kategoria != -1)
                         kategoria = futbalovyTim.Kategoria;
                     int? klub = null;
                     if (futbalovyTim.FutbalovyKlub != null)
                         klub = futbalovyTim.FutbalovyKlub.IdKlub;
                     string nazov = futbalovyTim.NazovTimu;
-                    blob = futbalovyTim.LogoBlob;
+                    if (futbalovyTim.Logo != null)
+                    {
+                        FileStream fls;
+                        fls = new FileStream(@futbalovyTim.Logo, FileMode.Open, FileAccess.Read);
+                        blob = new byte[fls.Length];
+                        fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
+                        fls.Close();
+                    }
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
                     OracleParameter[] param = new OracleParameter[4];
@@ -294,7 +292,7 @@ namespace LGR_Futbal.Triedy
                     byte[] blob = null;
                     int? kategoria = null;
                     if (ft.Kategoria != 0 && ft.Kategoria != -1)
-                        kategoria = ft.Kategoria - 1;
+                        kategoria = ft.Kategoria;
                     int? idklub = null;
                     if (ft.FutbalovyKlub != null && ft.FutbalovyKlub.IdKlub != 0)
                         idklub = ft.FutbalovyKlub.IdKlub;
@@ -302,15 +300,21 @@ namespace LGR_Futbal.Triedy
                     if (ft.FutbalovyKlub != null)
                         klub = ft.FutbalovyKlub.IdKlub;
                     string nazov = ft.NazovTimu;
-                    blob = ft.LogoBlob;
-                    //if (ft.Logo != null)
-                    //{
-                    //    FileStream fls;
-                    //    fls = new FileStream(ft.Logo, FileMode.Open, FileAccess.Read);
-                    //    blob = new byte[fls.Length];
-                    //    fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
-                    //    fls.Close();
-                    //}
+                    if (ft.Logo != null)
+                    {
+                        if (ft.LogoBlob != null)
+                        {
+                            blob = ft.LogoBlob;
+                        }
+                        else
+                        {
+                            FileStream fls;
+                            fls = new FileStream(ft.Logo, FileMode.Open, FileAccess.Read);
+                            blob = new byte[fls.Length];
+                            fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
+                            fls.Close();
+                        }
+                    }
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
                     OracleParameter[] param = new OracleParameter[5];
@@ -678,6 +682,151 @@ namespace LGR_Futbal.Triedy
                 }
             }
             return hrac;
+        }
+
+        public void UpdateHrac(Hrac h)
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia WHERE id_osoba = :id_osoba";
+                string cmdQuery2 = "UPDATE hrac SET id_futbalovy_tim = :id_futbalovy_tim, poznamka = :poznamka, cislo_dresu = :cislo_dresu, fotka = :fotka, post = :post WHERE id_hrac = :id_hrac";
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = new OracleCommand(cmdQuery1);
+                    OracleParameter[] param = new OracleParameter[4];
+
+                    param[0] = cmd.Parameters.Add("meno", OracleDbType.Varchar2);
+                    param[0].Value = h.Meno;
+                    param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
+                    param[1].Value = h.Priezvisko;
+                    param[2] = cmd.Parameters.Add("datum_narodenia", OracleDbType.Date);
+                    param[2].Value = h.DatumNarodenia;
+                    param[3] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
+                    param[3].Value = h.IdOsoba;
+
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    byte[] blob = null;
+
+                    if (h.Fotka != null)
+                    {
+                        if (h.FotkaBlob != null)
+                        {
+                            blob = h.FotkaBlob; 
+                        }
+                        else
+                        {
+                            FileStream fls;
+                            fls = new FileStream(h.Fotka, FileMode.Open, FileAccess.Read);
+                            blob = new byte[fls.Length];
+                            fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
+                            fls.Close();
+                        }    
+                    }
+
+                    int? idTimu = null;
+                    if (h.IdFutbalovyTim != 0)
+                        idTimu = h.IdFutbalovyTim;
+                    string pozicia = null;
+                    if (!h.Pozicia.Equals(string.Empty))
+                        pozicia = h.Pozicia;
+                    string poznamka = null;
+                    if (!h.Poznamka.Equals(string.Empty))
+                        poznamka = h.Poznamka;
+                    int? cislo_dresu = null;
+                    if (!h.CisloDresu.Equals(string.Empty))
+                        cislo_dresu = Convert.ToInt32(h.CisloDresu);
+
+                    OracleCommand cmd2 = new OracleCommand(cmdQuery2);
+                    OracleParameter[] param2 = new OracleParameter[6];
+
+                    param2[0] = cmd2.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                    param2[0].Value = idTimu;
+                    param2[1] = cmd2.Parameters.Add("poznamka", OracleDbType.Varchar2);
+                    param2[1].Value = poznamka;
+                    param2[2] = cmd2.Parameters.Add("cislo_dresu", OracleDbType.Int16);
+                    param2[2].Value = cislo_dresu;
+                    param2[3] = cmd2.Parameters.Add("fotka", OracleDbType.Blob);
+                    param2[3].Value = blob;
+                    param2[4] = cmd2.Parameters.Add("post", OracleDbType.Varchar2);
+                    param2[4].Value = pozicia;
+                    param2[5] = cmd2.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param2[5].Value = h.IdHrac;
+
+                    cmd2.Connection = conn;
+                    cmd2.CommandType = CommandType.Text;
+                    cmd2.ExecuteNonQuery();
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+        }
+
+        public void VymazHraca(Hrac h)
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "UPDATE hrac SET datum_ukoncenia = SYSDATE WHERE id_hrac = :id_hrac";
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int16);
+                    param.Value = h.IdHrac;
+                    cmd.Parameters.Add(param);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+        }
+
+        public void pridajHracovDoTimu(int idTimu, List<Hrac> hraci)
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                
+                string cmdQuery = "UPDATE hrac SET id_futbalovy_tim = :id_timu WHERE id_hrac = :id_hrac";
+                OracleCommand cmd = new OracleCommand(cmdQuery);
+                
+               
+                for (int i = 0; i < hraci.Count; i++)
+                {
+                    try
+                    {
+                        OracleParameter[] param = new OracleParameter[2];
+                        cmd.Parameters.Clear();
+                        param[0] = cmd.Parameters.Add("id_timu", OracleDbType.Int16);
+                        param[0].Value = idTimu;
+                        param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                        param[1].Value = hraci[i].IdHrac;
+                        conn.Open();
+
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = conn;         
+                        cmd.ExecuteNonQuery();
+
+                        conn.Close();
+                    }
+                    catch
+                    {
+                        throw new Exception("Chyba pri praci s Databazou");
+                    }
+                }  
+            }
         }
 
         #endregion hraci

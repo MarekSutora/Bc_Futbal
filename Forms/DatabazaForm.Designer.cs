@@ -132,7 +132,7 @@
             this.tabControl1.Location = new System.Drawing.Point(214, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(724, 546);
+            this.tabControl1.Size = new System.Drawing.Size(724, 497);
             this.tabControl1.TabIndex = 31;
             // 
             // tabPage1
@@ -150,7 +150,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(716, 520);
+            this.tabPage1.Size = new System.Drawing.Size(716, 471);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TÍMY";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -197,8 +197,9 @@
             this.zapasButton.Name = "zapasButton";
             this.zapasButton.Size = new System.Drawing.Size(113, 57);
             this.zapasButton.TabIndex = 37;
-            this.zapasButton.Text = "Hráči    \r\nna zápas ";
+            this.zapasButton.Text = "  Pridať   hráčov";
             this.zapasButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.zapasButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.zapasButton.UseVisualStyleBackColor = true;
             this.zapasButton.Click += new System.EventHandler(this.ZapasButton_Click);
             // 
@@ -286,7 +287,7 @@
             this.addGroupBox.Controls.Add(this.nazovTextBox);
             this.addGroupBox.Controls.Add(this.infoLabel2);
             this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(298, 270);
+            this.addGroupBox.Location = new System.Drawing.Point(298, 16);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -585,6 +586,7 @@
             // 
             // editTimComboBox
             // 
+            this.editTimComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editTimComboBox.FormattingEnabled = true;
             this.editTimComboBox.Location = new System.Drawing.Point(132, 125);
             this.editTimComboBox.Name = "editTimComboBox";
@@ -881,6 +883,7 @@
             // 
             // timHracCB
             // 
+            this.timHracCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.timHracCB.FormattingEnabled = true;
             this.timHracCB.Location = new System.Drawing.Point(132, 125);
             this.timHracCB.Name = "timHracCB";
@@ -1116,6 +1119,8 @@
             // 
             // timFilterCB
             // 
+            this.timFilterCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.timFilterCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.timFilterCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.timFilterCB.FormattingEnabled = true;
             this.timFilterCB.Location = new System.Drawing.Point(6, 31);
@@ -1133,6 +1138,7 @@
             this.hraciListBox.Name = "hraciListBox";
             this.hraciListBox.Size = new System.Drawing.Size(162, 378);
             this.hraciListBox.TabIndex = 0;
+            this.hraciListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hraciListBox_MouseDoubleClick);
             // 
             // hracButton
             // 

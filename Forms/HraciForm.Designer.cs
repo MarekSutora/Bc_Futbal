@@ -124,7 +124,7 @@
             this.addGroupBox.Controls.Add(this.zrusitObrazokButton);
             this.addGroupBox.Controls.Add(this.zmenaObrazkaButton);
             this.addGroupBox.Controls.Add(this.fotkaPictureBox);
-            this.addGroupBox.Location = new System.Drawing.Point(335, 27);
+            this.addGroupBox.Location = new System.Drawing.Point(314, 29);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);

@@ -2,6 +2,7 @@
 using LGR_Futbal.Triedy;
 using LGR_Futbal.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms
@@ -11,6 +12,7 @@ namespace LGR_Futbal.Forms
     public partial class SelectForm : Form
     {
         private Databaza databaza;
+        private List<FutbalovyTim> timy = null;
         public event TeamsSelectedHandler OnTeamsSelected;
 
         public SelectForm(Databaza zdrojDat)
@@ -25,13 +27,13 @@ namespace LGR_Futbal.Forms
                 aktivovatButton.Text = aktivovatButton.Text.Replace("Vybrať", "Vybrat");
                 zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
             }
-
             databaza = zdrojDat;
-            if (databaza.ZoznamTimov.Count == 0)
+            timy = databaza.GetTimy();
+            if (timy.Count == 0)
                 aktivovatButton.Enabled = false;
             else
             {
-                foreach(FutbalovyTim t in databaza.ZoznamTimov)
+                foreach(FutbalovyTim t in timy)
                 {
                     domaciLB.Items.Add(t.NazovTimu);
                     hostiaLB.Items.Add(t.NazovTimu);
