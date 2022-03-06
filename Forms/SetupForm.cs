@@ -20,7 +20,7 @@ namespace LGR_Futbal.Forms
     public delegate void ResetHandler();
     public delegate void ZhasniHandler();
     public delegate void RozsvietHandler();
-    public delegate void NazvyLogaConfirmedHandler(string domNazov, string domLogo, string hosNazov, string hosLogo);
+    public delegate void NazvyLogaConfirmedHandler(string domNazov, Image domaciLogo, string hosNazov, Image hosLogo);
     public delegate void TimySelectedHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
     public delegate void ObnovaFariebHandler();
     public delegate void ColorsLoadedHandler(FarebnaSchema fs);
@@ -192,6 +192,9 @@ namespace LGR_Futbal.Forms
             originalFolder = folder;
             inicializujNastaveniaAnimacii();
             nastaveniaFarieb = schema;
+            nastavMuzstvoHostiabutton.Enabled = false;
+            nastavMuzstvoDomacibutton.Enabled = false;
+
 
             if (zltaAnimacia.Equals(string.Empty))
                 pictureBox1.Image = null;
@@ -246,14 +249,15 @@ namespace LGR_Futbal.Forms
 
             if ((domaciT != null) && (hostiaT != null))
             {
-                ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
+                ZobrazLoga(hostiaT.LogoImage, hostiaT.LogoImage);
+                //ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
                 domNazov.Text = domaciT.NazovTimu;
                 hosNazov.Text = hostiaT.NazovTimu;
                 zrusitDatabazaButton.Enabled = true;
             }
             else
             {
-                ZobrazLoga(logoDom, logoHos);
+                //ZobrazLoga(Image.FromFile(logoDom), Image.FromFile(logoHos));
                 domNazov.Text = nazovDom;
                 hosNazov.Text = nazovHos;
                 zrusitDatabazaButton.Enabled = false;
@@ -271,12 +275,12 @@ namespace LGR_Futbal.Forms
             saveList();
         }
 
-        private void ZobrazLoga(string domaci, string hostia)
+        private void ZobrazLoga(Image domaci, Image hostia)
         {
             try
             {
-                logoDomaci.Image = Image.FromFile(domaci);
-                domaciLogo = domaci;
+                logoDomaci.Image = domaci;
+                domaciLogo = string.Empty;
             }
             catch
             {
@@ -286,8 +290,8 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                logoHostia.Image = Image.FromFile(hostia);
-                hostiaLogo = hostia;
+                logoHostia.Image = hostia;
+                hostiaLogo = string.Empty;
             }
             catch
             {
@@ -375,8 +379,15 @@ namespace LGR_Futbal.Forms
                     dn = OdstranDiakritiku(dn);
                     hn = OdstranDiakritiku(hn);
                 }
-
-                OnNazvyLogaConfirmed(dn, domaciLogo, hn, hostiaLogo);
+                if(domaciT != null && hostiaT != null)
+                {
+                    OnNazvyLogaConfirmed(dn, domaciT.LogoImage, hn, hostiaT.LogoImage);
+                } 
+                else
+                {
+                    OnNazvyLogaConfirmed(dn, null, hn, null);
+                }
+                
             }
 
             if (OnTimySelected != null)
@@ -521,6 +532,7 @@ namespace LGR_Futbal.Forms
                 {
                     logoDomaci.Image = Image.FromFile(ofd.FileName);
                     domaciLogo = ofd.FileName;
+                    domaciT.LogoImage = Image.FromFile(ofd.FileName);
                 }
             }
             catch
@@ -544,12 +556,15 @@ namespace LGR_Futbal.Forms
                 {
                     logoHostia.Image = Image.FromFile(ofd.FileName);
                     hostiaLogo = ofd.FileName;
+                    hostiaT.LogoImage = Image.FromFile(ofd.FileName); 
                 }
             }
             catch
             {
                 logoHostia.Image = null;
                 hostiaLogo = string.Empty;
+                domaciT.LogoImage = null;
+                hostiaT.LogoImage = null;
             }
         }
 
@@ -557,12 +572,14 @@ namespace LGR_Futbal.Forms
         {
             logoDomaci.Image = null;
             domaciLogo = string.Empty;
+            domaciT.LogoImage = null;
         }
 
         private void ZrusitLogoHos_Click(object sender, EventArgs e)
         {
             logoHostia.Image = null;
             hostiaLogo = string.Empty;
+            hostiaT.LogoImage = null;
         }
 
         private string OdstranDiakritiku(string vstup)
@@ -589,7 +606,7 @@ namespace LGR_Futbal.Forms
 
         private void NacitatDatabazaButton_Click(object sender, EventArgs e)
         {
-            SelectForm selectform = new SelectForm(databazaTimov);
+            SelectForm selectform = new SelectForm(databazaTimov, domaciT, hostiaT);
             selectform.OnTeamsSelected += Selectform_OnTeamsSelected;
             selectform.Show();
         }
@@ -598,9 +615,33 @@ namespace LGR_Futbal.Forms
         {
             domaciT = t1;
             hostiaT = t2;
-            ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
-            domNazov.Text = domaciT.NazovTimu;
-            hosNazov.Text = hostiaT.NazovTimu;
+            if (domaciT != null && hostiaT != null)
+            {
+                ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
+                domNazov.Text = domaciT.NazovTimu;
+                hosNazov.Text = hostiaT.NazovTimu;
+                nastavMuzstvoDomacibutton.Enabled = true;
+                nastavMuzstvoHostiabutton.Enabled = true;
+            } 
+            else if (domaciT != null && hostiaT == null)
+            {
+                ZobrazLoga(domaciT.LogoImage, null);
+                domNazov.Text = domaciT.NazovTimu;
+                hosNazov.Text = "Hostia";
+                nastavMuzstvoDomacibutton.Enabled = true;
+                nastavMuzstvoHostiabutton.Enabled = false;
+            }
+            else if (domaciT == null && hostiaT != null)
+            {
+                ZobrazLoga(null, hostiaT.LogoImage);
+                domNazov.Text = "Domáci";
+                hosNazov.Text = hostiaT.NazovTimu;
+                nastavMuzstvoDomacibutton.Enabled = false;
+                nastavMuzstvoHostiabutton.Enabled = true;
+            }
+            //ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
+            
+            
             zrusitDatabazaButton.Enabled = true;
         }
 
@@ -1067,6 +1108,16 @@ namespace LGR_Futbal.Forms
 
         }
 
+        private void nastavMuzstvoDomacibutton_Click(object sender, EventArgs e)
+        {
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
+            hraciZapasForm.Show();
+        }
 
+        private void nastavMuzstvoHostiabutton_Click(object sender, EventArgs e)
+        {
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
+            hraciZapasForm.Show();
+        }
     }
 }

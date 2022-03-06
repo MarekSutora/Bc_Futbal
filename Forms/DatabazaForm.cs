@@ -660,7 +660,7 @@ namespace LGR_Futbal.Forms
                         pom++;
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
                     }
-                    lastFilterHraci = pom + 1;
+                    lastFilterHraci = pom + 2;
                 }
                 if (hraciListBox.Items.Count > 0)
                 {

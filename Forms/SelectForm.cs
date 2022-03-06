@@ -13,9 +13,12 @@ namespace LGR_Futbal.Forms
     {
         private Databaza databaza;
         private List<FutbalovyTim> timy = null;
+        private FutbalovyTim domaci = null;
+        private FutbalovyTim hostia = null;
+
         public event TeamsSelectedHandler OnTeamsSelected;
 
-        public SelectForm(Databaza zdrojDat)
+        public SelectForm(Databaza zdrojDat, FutbalovyTim domaci, FutbalovyTim hostia)
         {
             InitializeComponent();
 
@@ -33,7 +36,9 @@ namespace LGR_Futbal.Forms
                 aktivovatButton.Enabled = false;
             else
             {
-                foreach(FutbalovyTim t in timy)
+                domaciLB.Items.Add("    ");
+                hostiaLB.Items.Add("    ");
+                foreach (FutbalovyTim t in timy)
                 {
                     domaciLB.Items.Add(t.NazovTimu);
                     hostiaLB.Items.Add(t.NazovTimu);
@@ -42,6 +47,8 @@ namespace LGR_Futbal.Forms
                 domaciLB.SelectedIndex = 0;
                 hostiaLB.SelectedIndex = 0;
             }
+            this.domaci = domaci;
+            this.hostia = hostia;
         }
 
         private void ZrusitButton_Click(object sender, EventArgs e)
@@ -51,9 +58,26 @@ namespace LGR_Futbal.Forms
 
         private void AktivovatButton_Click(object sender, EventArgs e)
         {
+            if (domaciLB.SelectedIndex == 0 )
+            {
+                this.domaci = null;
+            }
+            else
+            {
+                this.domaci = timy[domaciLB.SelectedIndex - 1];
+                this.domaci.ZoznamHracov = databaza.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
+            }
+            if (hostiaLB.SelectedIndex == 0)
+            {
+                this.hostia = null;
+            }
+            else
+            {
+                this.hostia = timy[hostiaLB.SelectedIndex - 1];
+                this.hostia.ZoznamHracov = databaza.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
+            }
             if (OnTeamsSelected != null)
-                OnTeamsSelected(databaza.ZoznamTimov[domaciLB.SelectedIndex],
-                    databaza.ZoznamTimov[hostiaLB.SelectedIndex]);
+                OnTeamsSelected(domaci, hostia);
             this.Close();
         }
 

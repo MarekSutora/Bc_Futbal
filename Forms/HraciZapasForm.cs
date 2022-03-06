@@ -12,12 +12,13 @@ namespace LGR_Futbal.Forms
 
         private FutbalovyTim aktualnyTim = null;
         private List<Hrac> hraci;
+        private Databaza databaza = null;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public HraciZapasForm(FutbalovyTim t)
+        public HraciZapasForm(FutbalovyTim t, Databaza databaza)
         {
             InitializeComponent();
 
@@ -39,16 +40,15 @@ namespace LGR_Futbal.Forms
                 button2.Text = button2.Text.Replace("Zrušiť", "Zrušit");
                 button2.Text = button2.Text.Replace("všetko", "vše  ");
             }
-
+            this.databaza = databaza;
             aktualnyTim = t;
-            hraci = new List<Hrac>();
+            hraci = t.ZoznamHracov;
             this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
 
             int pocet = 0;
-            foreach (Hrac h in aktualnyTim.ZoznamHracov)
+            foreach (Hrac h in hraci)
             {
                 pocet++;
-                hraci.Add(h);
                 if (!h.CisloDresu.Equals(string.Empty))
                 {
                     zoznamCheckListBox.Items.Add(h.CisloDresu + ". "
@@ -74,7 +74,7 @@ namespace LGR_Futbal.Forms
         {
             // Kontrola spravnosti nastavenia udajov
             bool vsetkoVporiadku = true;
-            for (int i = 0; i < aktualnyTim.ZoznamHracov.Count; i++)
+            for (int i = 0; i < hraci.Count; i++)
             {
                 if ((zoznamCheckListBox.GetItemChecked(i)) && (nahradniciCheckListBox.GetItemChecked(i)))
                 {
@@ -85,7 +85,7 @@ namespace LGR_Futbal.Forms
 
             if (vsetkoVporiadku)
             {
-                for (int i = 0; i < aktualnyTim.ZoznamHracov.Count; i++)
+                for (int i = 0; i < hraci.Count; i++)
                 {
                     hraci[i].HraAktualnyZapas = zoznamCheckListBox.GetItemChecked(i);
                     hraci[i].Nahradnik = nahradniciCheckListBox.GetItemChecked(i);

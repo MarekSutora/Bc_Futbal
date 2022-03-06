@@ -1276,13 +1276,13 @@ namespace LGR_Futbal
                     MessageBox.Show(Translate(13), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ZobrazLoga(string domaci, string hostia)
+        private void ZobrazLoga(Image domaci, Image hostia)
         {
             try
             {
-                logoDomaci.Image = Image.FromFile(domaci);
-                formularTabule.ZobrazLogoDomaci(Image.FromFile(domaci));
-                logoDomaciFile = domaci;
+                logoDomaci.Image = domaci;
+                formularTabule.ZobrazLogoDomaci(domaci);
+                logoDomaciFile = string.Empty;
             }
             catch
             {
@@ -1293,9 +1293,9 @@ namespace LGR_Futbal
 
             try
             {
-                logoHostia.Image = Image.FromFile(hostia);
-                formularTabule.ZobrazLogoHostia(Image.FromFile(hostia));
-                logoHostiaFile = hostia;
+                logoHostia.Image = hostia;
+                formularTabule.ZobrazLogoHostia(hostia);
+                logoHostiaFile = string.Empty;
             }
             catch
             {
@@ -1305,7 +1305,7 @@ namespace LGR_Futbal
             }
         }
 
-        private void Sf_OnNazvyLogaConfirmed(string domNazov, string domLogo, string hosNazov, string hosLogo)
+        private void Sf_OnNazvyLogaConfirmed(string domNazov, Image domLogo, string hosNazov, Image hosLogo)
         {
             if ((polcas == 0) || (polcas == 4))
             {

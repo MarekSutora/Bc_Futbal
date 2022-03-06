@@ -113,6 +113,8 @@
             this.zrusitButton = new System.Windows.Forms.Button();
             this.aktivovatButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.nastavMuzstvoDomacibutton = new System.Windows.Forms.Button();
+            this.nastavMuzstvoHostiabutton = new System.Windows.Forms.Button();
             this.ovladace.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.velkostGroupBox.SuspendLayout();
@@ -737,6 +739,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.nastavMuzstvoHostiabutton);
+            this.tabPage3.Controls.Add(this.nastavMuzstvoDomacibutton);
             this.tabPage3.Controls.Add(this.nacitatDatabazaButton);
             this.tabPage3.Controls.Add(this.zrusitDatabazaButton);
             this.tabPage3.Controls.Add(this.zrusitLogoHos);
@@ -791,10 +795,10 @@
             // zrusitLogoHos
             // 
             this.zrusitLogoHos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitLogoHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitLogoHos.Location = new System.Drawing.Point(423, 261);
+            this.zrusitLogoHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zrusitLogoHos.Location = new System.Drawing.Point(409, 257);
             this.zrusitLogoHos.Name = "zrusitLogoHos";
-            this.zrusitLogoHos.Size = new System.Drawing.Size(100, 65);
+            this.zrusitLogoHos.Size = new System.Drawing.Size(115, 40);
             this.zrusitLogoHos.TabIndex = 549;
             this.zrusitLogoHos.Text = "Zrušiť\r\nlogo";
             this.zrusitLogoHos.UseVisualStyleBackColor = false;
@@ -803,10 +807,10 @@
             // zrusitLogoDom
             // 
             this.zrusitLogoDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitLogoDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitLogoDom.Location = new System.Drawing.Point(138, 261);
+            this.zrusitLogoDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zrusitLogoDom.Location = new System.Drawing.Point(124, 257);
             this.zrusitLogoDom.Name = "zrusitLogoDom";
-            this.zrusitLogoDom.Size = new System.Drawing.Size(100, 65);
+            this.zrusitLogoDom.Size = new System.Drawing.Size(115, 40);
             this.zrusitLogoDom.TabIndex = 548;
             this.zrusitLogoDom.Text = "Zrušiť\r\nlogo";
             this.zrusitLogoDom.UseVisualStyleBackColor = false;
@@ -815,10 +819,10 @@
             // zmenaLogaHos
             // 
             this.zmenaLogaHos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.zmenaLogaHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zmenaLogaHos.Location = new System.Drawing.Point(293, 261);
+            this.zmenaLogaHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zmenaLogaHos.Location = new System.Drawing.Point(293, 257);
             this.zmenaLogaHos.Name = "zmenaLogaHos";
-            this.zmenaLogaHos.Size = new System.Drawing.Size(100, 65);
+            this.zmenaLogaHos.Size = new System.Drawing.Size(115, 40);
             this.zmenaLogaHos.TabIndex = 547;
             this.zmenaLogaHos.Text = "Zmeniť\r\nlogo";
             this.zmenaLogaHos.UseVisualStyleBackColor = false;
@@ -827,12 +831,12 @@
             // zmenaLogaDom
             // 
             this.zmenaLogaDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.zmenaLogaDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zmenaLogaDom.Location = new System.Drawing.Point(7, 261);
+            this.zmenaLogaDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zmenaLogaDom.Location = new System.Drawing.Point(7, 257);
             this.zmenaLogaDom.Name = "zmenaLogaDom";
-            this.zmenaLogaDom.Size = new System.Drawing.Size(100, 65);
+            this.zmenaLogaDom.Size = new System.Drawing.Size(115, 40);
             this.zmenaLogaDom.TabIndex = 546;
-            this.zmenaLogaDom.Text = "Zmeniť\r\nlogo";
+            this.zmenaLogaDom.Text = "Zmeniť \nlogo";
             this.zmenaLogaDom.UseVisualStyleBackColor = false;
             this.zmenaLogaDom.Click += new System.EventHandler(this.ZmenaLogaDom_Click);
             // 
@@ -1202,6 +1206,28 @@
             this.aktivovatButton.UseVisualStyleBackColor = true;
             this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
             // 
+            // nastavMuzstvoDomacibutton
+            // 
+            this.nastavMuzstvoDomacibutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.nastavMuzstvoDomacibutton.Location = new System.Drawing.Point(35, 301);
+            this.nastavMuzstvoDomacibutton.Name = "nastavMuzstvoDomacibutton";
+            this.nastavMuzstvoDomacibutton.Size = new System.Drawing.Size(175, 28);
+            this.nastavMuzstvoDomacibutton.TabIndex = 552;
+            this.nastavMuzstvoDomacibutton.Text = "nastav hráčov";
+            this.nastavMuzstvoDomacibutton.UseVisualStyleBackColor = true;
+            this.nastavMuzstvoDomacibutton.Click += new System.EventHandler(this.nastavMuzstvoDomacibutton_Click);
+            // 
+            // nastavMuzstvoHostiabutton
+            // 
+            this.nastavMuzstvoHostiabutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.nastavMuzstvoHostiabutton.Location = new System.Drawing.Point(318, 301);
+            this.nastavMuzstvoHostiabutton.Name = "nastavMuzstvoHostiabutton";
+            this.nastavMuzstvoHostiabutton.Size = new System.Drawing.Size(175, 28);
+            this.nastavMuzstvoHostiabutton.TabIndex = 553;
+            this.nastavMuzstvoHostiabutton.Text = "nastav hráčov";
+            this.nastavMuzstvoHostiabutton.UseVisualStyleBackColor = true;
+            this.nastavMuzstvoHostiabutton.Click += new System.EventHandler(this.nastavMuzstvoHostiabutton_Click);
+            // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1340,5 +1366,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button rozlozenieButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button nastavMuzstvoHostiabutton;
+        private System.Windows.Forms.Button nastavMuzstvoDomacibutton;
     }
 }
