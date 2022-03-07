@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -22,9 +23,9 @@ namespace LGR_Futbal
 
         private const string nazovProgramuString = "LGR Futbal";
         private const string konfiguracnySubor = "Config.bin";
-        private const string databazaSubor = "Databazaa\\Databaza.xml";
-        private const string priebehSubor = "Databazaa\\Priebeh.xml";
-        private const string animacieSubor = "Databazaa\\Gify\\Settings.xml";
+        private const string databazaSubor = "Databaza\\Databaza.xml";
+        private const string priebehSubor = "Databaza\\Priebeh.xml";
+        private const string animacieSubor = "Databaza\\Gify\\Settings.xml";
 
         #endregion
 
@@ -60,11 +61,11 @@ namespace LGR_Futbal
         private string defaultColorScheme = string.Empty;
         private FontyTabule pisma;
         private FontyTabule pismaPrezentacie;
-        private Font fontStriedania;
+        //private Font fontStriedania;
         private bool zobrazitNahradnikov = true;
         private bool zobrazitFunkcionarov = true;
         private AnimacnaKonfiguracia animaciaGolov = null;
-
+        private List<Rozhodca> rozhodcovia = null;
         // Farby
         private Color casColor;
         private Color polcasColor;
@@ -248,7 +249,7 @@ namespace LGR_Futbal
             int sirkaObr = primaryDisplay.Bounds.Width;
             float pomer = (float)sirkaObr / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
-
+            this.rozhodcovia = new List<Rozhodca>();
             // Nastavenie velkosti fontu pre jednotlive labely
             Label l;
             Button b;
@@ -420,20 +421,7 @@ namespace LGR_Futbal
                                 milis = 0;
                                 ZastavCas();
                                 polcasButton.Text = (polcas + 1) + ". " + Translate(2) + "\nSTART";
-                                if (pocetNadstavenychMinut > 0)
-                                {
-                                    casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
-                                    formularTabule.SetCas(casLabel.Text, false);
-                                    polcas = 1;
-                                    odohraneMinuty = 0;
-                                    aktMin = 0;
-                                    sw.Restart();
-                                    formularTabule.SetPolcas(3, pocetNadstavenychMinut);
-                                    casPodrobneLabel.ForeColor = predlzenieColor;
-                                    casLabel.ForeColor = predlzenieColor;
-                                }
                             }
-
                             else
                             {
                                 if (pocetNadstavenychMinut == 0)
@@ -454,7 +442,6 @@ namespace LGR_Futbal
                                     casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                                     formularTabule.SetCas(casLabel.Text, false);
                                     polcas = 3;
-                                    //polcas = 2;
                                     odohraneMinuty = 0;
                                     aktMin = 0;
                                     sw.Restart();
@@ -636,7 +623,7 @@ namespace LGR_Futbal
                 pismaPrezentacie.PolcasFont = br.ReadString();
                 pismaPrezentacie.SkoreFont = br.ReadString();
                 pismaPrezentacie.CasFont = br.ReadString();
-                fontStriedania = convertStringToFont(br.ReadString());
+                pisma.StriedaniaFont = br.ReadString();           
                 zobrazitNahradnikov = br.ReadBoolean();
                 zobrazitFunkcionarov = br.ReadBoolean();
                 animaciaZltaKarta = br.ReadString();
@@ -693,6 +680,7 @@ namespace LGR_Futbal
                 bw.Write(animaciaZltaKarta);
                 bw.Write(animaciaCervenaKarta);
                 bw.Write(rozlozenieCesta);
+                //bw.Write(fontStriedania);
             }
             catch (Exception ex)
             {
@@ -1117,7 +1105,7 @@ namespace LGR_Futbal
             
             if (!jeDomaciTim)
                 farbicky = psf.GetFarbyHos();
-            StriedanieForm sf = new StriedanieForm(currentDirectory, sirkaTabule, animacnyCas, nazovTimu, odchadzajuci, nastupujuci, farbicky, pismaPrezentacie, fontStriedania);
+            StriedanieForm sf = new StriedanieForm(currentDirectory, sirkaTabule, animacnyCas, nazovTimu, odchadzajuci, nastupujuci, farbicky, pismaPrezentacie, pisma);
             sf.Show();
         }
 
@@ -1172,7 +1160,7 @@ namespace LGR_Futbal
              sf = new SetupForm(indexJazyka, zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu, povolitPrerusenieHry, odstranovatDiakritiku, 
                 logoDomaciFile, logoHostiaFile, domaciLabel.Text, hostiaLabel.Text,
                 databaza, timDomaci, timHostia, currentDirectory, animacnyCas, pisma, dajSchemu(),
-                animaciaGolov, animaciaZltaKarta, animaciaCervenaKarta);
+                animaciaGolov, animaciaZltaKarta, animaciaCervenaKarta, rozhodcovia);
             sf.OnAnimacieKarietConfirmed += Sf_OnAnimacieKarietConfirmed;
             sf.OnLanguageSelected += Sf_OnLanguageSelected;
             sf.OnDataConfirmed += Sf_OnDataConfirmed;
@@ -1220,13 +1208,13 @@ namespace LGR_Futbal
 
         private void Sf_OnFontPosted(Font f)
         {
-            fontStriedania = f;
+            //fontStriedania = f;
         }
 
         private void Sf_OnObnovaFontov()
         {
             this.pisma = sf.Pisma;
-            fontStriedania = pisma.CreateStriedaniaFont();
+            //fontStriedania = pisma.CreateStriedaniaFont();
             formularTabule.NastavFonty(pisma);
         }
 

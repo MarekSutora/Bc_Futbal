@@ -11,5 +11,7 @@ namespace LGR_Futbal.Model
         public int IdOsoba { get; set; }
         public string Meno { get; set; }
         public string Priezvisko { get; set; }
+        public DateTime DatumNarodenia { get; set; }
+        public int Pohlavie { get; set; }
     }
 }

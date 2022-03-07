@@ -28,7 +28,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacieClass farby, FontyTabule fonty, Font textovyFont)
+        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacieClass farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
         {
             InitializeComponent();
 
@@ -78,7 +78,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotka1PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac1.Fotka);
+                    fotka1PictureBox.Image = prezentovanyHrac1.FotkaImage;
                 }
                 catch
                 {
@@ -99,7 +99,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotka2PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac2.Fotka);
+                    fotka2PictureBox.Image = prezentovanyHrac2.FotkaImage;
                 }
                 catch
                 {
@@ -120,13 +120,13 @@ namespace LGR_Futbal.Forms
             label1.ForeColor = farby.NadpisFarba();
             
             // Nastavenie fontov podla volby
-            nazovLabel.Font = fonty.CreateNazvyFont();
-            label1.Font = fonty.CreateSkoreFont();
+            nazovLabel.Font = pismaPrezentacie.CreateNazvyFont();
+            label1.Font = pismaPrezentacie.CreateSkoreFont();
 
-            cisloHraca1Label.Font = textovyFont;
-            menoHraca1Label.Font = textovyFont;
-            cisloHraca2Label.Font = textovyFont;
-            menoHraca2Label.Font = textovyFont;
+            cisloHraca1Label.Font = pisma.CreateStriedaniaFont();
+            menoHraca1Label.Font = pisma.CreateStriedaniaFont();
+            cisloHraca2Label.Font = pisma.CreateStriedaniaFont();
+            menoHraca2Label.Font = pisma.CreateStriedaniaFont();
 
             prezentacnyPanel.Visible = false;
             uvodnyPanel.Visible = true;

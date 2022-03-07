@@ -155,31 +155,31 @@ namespace LGR_Futbal.Forms
         public void SetPolcas(int hodnota, int nadstaveneMinuty)
         {
 
-            polcasLabel.Text = hodnota + " " + nadstaveneMinuty;
-            polcasLabel.ForeColor = polcasColor;
-            //switch (hodnota)
-            //{
-            //    case 1:
-            //        polcasLabel.Text = preloz("1. polčas");
-            //        polcasLabel.ForeColor = polcasColor;
-            //        break;
-            //    case 2:
-            //        polcasLabel.Text = preloz("2. polčas");
-            //        polcasLabel.ForeColor = polcasColor;
-            //        break;
-            //    case 3:
-            //        polcasLabel.Text = preloz("2. polčas");
-            //        polcasLabel.ForeColor = polcasColor;
-            //        break;
-            //    case 4:
-            //        polcasLabel.Text = preloz("2. polčas");
-            //        polcasLabel.ForeColor = polcasColor;
-            //        break;
-            //    default:
-            //        polcasLabel.Text = string.Empty;
-            //        polcasLabel.ForeColor = Color.Black;
-            //        break;
-            //}
+            //polcasLabel.Text = hodnota + " " + nadstaveneMinuty;
+            //polcasLabel.ForeColor = polcasColor;
+            switch (hodnota)
+            {
+                case 1:
+                    polcasLabel.Text = preloz("1. polčas");
+                    polcasLabel.ForeColor = polcasColor;
+                    break;
+                case 2:
+                    polcasLabel.Text = preloz("2. polčas");
+                    polcasLabel.ForeColor = polcasColor;
+                    break;
+                case 3:
+                    polcasLabel.Text = preloz("2. polčas");
+                    polcasLabel.ForeColor = polcasColor;
+                    break;
+                case 4:
+                    polcasLabel.Text = preloz("2. polčas");
+                    polcasLabel.ForeColor = polcasColor;
+                    break;
+                default:
+                    polcasLabel.Text = string.Empty;
+                    polcasLabel.ForeColor = Color.Black;
+                    break;
+            }
         }
 
         public void SetCas(string text, bool riadnyHraciCas)

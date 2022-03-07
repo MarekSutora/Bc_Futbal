@@ -25,12 +25,14 @@ namespace LGR_Futbal.Forms
         private Databaza dbs;
         private FutbalovyTim aktTim = null;
         private Hrac aktHrac = null;
+        private Rozhodca aktRozhodca = null;
         private int lastFilterHraci = 0;
         private int lastTimIndex = 0;
 
         //private List<string> nazvyTimov = null;
         private List<FutbalovyTim> timy = null;
         private List<Hrac> hraci = null;
+        private List<Rozhodca> rozhodcovia = null;
         private string originalLogoCesta = string.Empty;
         private string originalFotoCesta = string.Empty;
         private string currentDirectory = null;
@@ -77,6 +79,7 @@ namespace LGR_Futbal.Forms
             dbs = d;
             currentDirectory = folder;
             FillTimyCB();
+            FillRozhodcoviaCB();
             kategoriaComboBox.Items.Add("");
             kategoriaCombobox2.Items.Add("");
             for (int i = 0; i < dbs.GetKategorie().Count; i++)
@@ -85,9 +88,17 @@ namespace LGR_Futbal.Forms
                 kategoriaCombobox2.Items.Add(dbs.GetKategorie()[i]);
 
             }
+            pohlavieComboBox.Items.Add("");
+            pohlavieComboBox.Items.Add("Muž");
+            pohlavieComboBox.Items.Add("Žena");
+            editPohlavieComboBox.Items.Add("");
+            editPohlavieComboBox.Items.Add("Muž");
+            editPohlavieComboBox.Items.Add("Žena");
             button6.Enabled = false;
             button7.Enabled = false;
             vlozHracaGroupBox.Visible = true;
+            addRozhodcuGroupBox.Visible = true;
+            editRozhodcuGroupBox.Visible = false;
             if (timy.Count > 0)
             {
                 timyListBox.SelectedIndex = 0;
@@ -96,6 +107,7 @@ namespace LGR_Futbal.Forms
                 removeButton.Enabled = true;
                 exportButton.Enabled = true;
             }
+            
         }
 
         private void FillTimyCB()
@@ -118,9 +130,14 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void FillHraci()
+        private void FillRozhodcoviaCB()
         {
 
+            if (rozhodcovia.Count > 0)
+            {
+                editRozhodcuButton.Enabled = true;
+                removeRozhodcuButton.Enabled = true;
+            }
         }
 
         private void ZrusitButton_Click(object sender, EventArgs e)
@@ -467,6 +484,7 @@ namespace LGR_Futbal.Forms
 
         private void button8_Click(object sender, EventArgs e)
         {
+            editHracGroupBox.Visible = false;
             vlozHracaGroupBox.Visible = true;
         }
 
@@ -502,6 +520,7 @@ namespace LGR_Futbal.Forms
                 editTimComboBox.SelectedIndex = index;
                 editRichTextBox.Text = aktHrac.Poznamka;
                 pictureBox.Image = aktHrac.FotkaImage;
+                editPohlavieComboBox.SelectedIndex = aktHrac.Pohlavie;
 
             }
             catch (Exception ex)
@@ -604,6 +623,14 @@ namespace LGR_Futbal.Forms
                     h.DatumNarodenia = datumPicker.Value;
                     h.Poznamka = poznamkaRichTextBox.Text;
                     h.IdFutbalovyTim = timHracCB.SelectedIndex == -1 ? 0 : timy[timHracCB.SelectedIndex].IdFutbalovyTim;
+                    if (pohlavieComboBox.SelectedIndex == 0 || pohlavieComboBox.SelectedIndex == -1)
+                    {
+                        h.Pohlavie = 0;
+                    }
+                    else
+                    {
+                        h.Pohlavie = pohlavieComboBox.SelectedIndex;
+                    }
                     dbs.InsertHrac(h);
                 }
                 catch (Exception ex)
@@ -773,6 +800,14 @@ namespace LGR_Futbal.Forms
                     aktHrac.Pozicia = editPostTextBox.Text;
                     aktHrac.DatumNarodenia = editDateTimePicker.Value;
                     aktHrac.Poznamka = editRichTextBox.Text;
+                    if (editPohlavieComboBox.SelectedIndex == 0 || editPohlavieComboBox.SelectedIndex == -1)
+                    {
+                        aktHrac.Pohlavie = 0;
+                    }
+                    else
+                    {
+                        aktHrac.Pohlavie = editPohlavieComboBox.SelectedIndex;
+                    }
                     dbs.UpdateHrac(aktHrac);
                     filtrujHracov(lastFilterHraci);
                 }
@@ -791,6 +826,110 @@ namespace LGR_Futbal.Forms
         private void hraciListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ZobrazEditHraca();
+        }
+
+        private void vlozRozhodcuButton_Click(object sender, EventArgs e)
+        {
+            addRozhodcuGroupBox.Visible = true;
+            editRozhodcuGroupBox.Visible = false;
+        }
+
+        private void editRozhdocuConfirmButton_Click(object sender, EventArgs e)
+        {
+            string Meno = editMenoTextBox.Text.Trim();
+            string Priezvisko = editPriezviskoTextBox.Text.Trim();
+            bool pokracuj = true;
+            if (Meno.Equals(string.Empty))
+            {
+                MessageBox.Show("Hráčovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pokracuj = false;
+            }
+            if (Priezvisko.Equals(string.Empty))
+            {
+                MessageBox.Show("Hráčovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pokracuj = false;
+            }
+            if (pokracuj)
+            {
+                aktRozhodca.Meno = Meno;
+                aktRozhodca.Priezvisko = Priezvisko;
+                aktRozhodca.Pohlavie = addRozhodcaComboBox.SelectedIndex;
+                if (addRozhodcaComboBox.SelectedIndex == -1 || addRozhodcaComboBox.SelectedIndex == 0)
+                {
+                    aktRozhodca.Pohlavie = 0;
+                }
+            }
+        }
+
+        private void addRozhodcuConfirmButton_Click(object sender, EventArgs e)
+        {
+            string Meno = editMenoTextBox.Text.Trim();
+            string Priezvisko = editPriezviskoTextBox.Text.Trim();
+            bool pokracuj = true;
+            if (Meno.Equals(string.Empty))
+            {
+                MessageBox.Show("Hráčovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pokracuj = false;
+            }
+            if (Priezvisko.Equals(string.Empty))
+            {
+                MessageBox.Show("Hráčovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pokracuj = false;
+            }
+            if (pokracuj)
+            {
+                Rozhodca r = new Rozhodca();
+                r.Meno = Meno;
+                r.Priezvisko = Priezvisko;
+                r.Pohlavie = addRozhodcaComboBox.SelectedIndex;
+                if (addRozhodcaComboBox.SelectedIndex == -1 || addRozhodcaComboBox.SelectedIndex == 0)
+                {
+                    r.Pohlavie = 0;
+                }
+                try
+                {
+                    dbs.InsertRozhodca(r);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } 
+                finally
+                {
+                    editRozhodcuGroupBox.Visible = false;
+                    addRozhodcuGroupBox.Visible = false;
+                }
+            }
+        }
+
+        private void editRozhodcuButton_Click(object sender, EventArgs e)
+        {
+            NastavRozhodcoveUdaje();
+        }
+
+        private void NastavRozhodcoveUdaje()
+        {
+            addRozhodcuGroupBox.Visible = false;
+            editRozhodcuGroupBox.Visible = true;
+            try
+            {
+                aktRozhodca = dbs.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
+
+                editRozhodcaMeno.Text = aktRozhodca.Meno;
+                editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
+                editRozhodcaComboBox.SelectedIndex = aktRozhodca.IdRozhodca;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void RozhodcoviaListBox_DoubleClick(object sender, EventArgs e)
+        {
+            NastavRozhodcoveUdaje();
         }
     }
 }

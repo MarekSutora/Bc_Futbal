@@ -23,7 +23,6 @@ namespace LGR_Futbal.Model
         public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
-        public DateTime DatumNarodenia { get; set; }
 
         public Hrac()
         {

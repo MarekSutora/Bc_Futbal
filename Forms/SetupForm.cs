@@ -39,10 +39,10 @@ namespace LGR_Futbal.Forms
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        private const string logaAdresar = "Databazaa\\Loga\\";
-        private const string gifyAdresar = "Databazaa\\Gify\\";
-        private const string kartyAdresar = "Databazaa\\Karty\\";
-        private const string typyZapasovSubor = "Databazaa\\Typy.xml";
+        private const string logaAdresar = "Databaza\\Loga\\";
+        private const string gifyAdresar = "Databaza\\Gify\\";
+        private const string kartyAdresar = "Databaza\\Karty\\";
+        private const string typyZapasovSubor = "Databaza\\Typy.xml";
 
         #endregion
 
@@ -65,6 +65,7 @@ namespace LGR_Futbal.Forms
         private List<ParametreZapasu> zoznamTypovZapasu = null;
         private AnimacnaKonfiguracia konfig;
         private List<string> zoznamSuborov;
+        private List<Rozhodca> rozhodcovia = null;
 
         public RozlozenieTabule rozlozenieTabule { get; set; }
         public FontyTabule Pisma { get; set; }
@@ -99,7 +100,7 @@ namespace LGR_Futbal.Forms
             string logoDom, string logoHos, string nazovDom, string nazovHos,
             Databaza databaza, FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
             FontyTabule fonty, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
-            string animZlta, string animCervena)
+            string animZlta, string animCervena, List<Rozhodca> rozhodcovia)
         {
             InitializeComponent();
 
@@ -186,15 +187,23 @@ namespace LGR_Futbal.Forms
                 skRadioButton.Checked = false;
                 czRadioButton.Checked = true;
             }
-
+            domaciT = domaciTim;
+            hostiaT = hostiaTim;
             zoznamSuborov = new List<string>();
             konfig = konfiguracia;
             originalFolder = folder;
             inicializujNastaveniaAnimacii();
             nastaveniaFarieb = schema;
-            nastavMuzstvoHostiabutton.Enabled = false;
-            nastavMuzstvoDomacibutton.Enabled = false;
-
+            nastavMuzstvoDomacibutton.Enabled = true;
+            if (domaciT == null)
+            {
+                nastavMuzstvoDomacibutton.Enabled = false;
+            }
+            nastavMuzstvoHostiabutton.Enabled = true;
+            if (hostiaT == null)
+            {
+                nastavMuzstvoHostiabutton.Enabled = false;
+            }
 
             if (zltaAnimacia.Equals(string.Empty))
                 pictureBox1.Image = null;
@@ -244,8 +253,7 @@ namespace LGR_Futbal.Forms
             ovladace.SelectedIndex = 2;
 
             databazaTimov = databaza;
-            domaciT = domaciTim;
-            hostiaT = hostiaTim;
+            
 
             if ((domaciT != null) && (hostiaT != null))
             {
@@ -1118,6 +1126,12 @@ namespace LGR_Futbal.Forms
         {
             HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
             hraciZapasForm.Show();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            RozhodcoviaForm rf = new RozhodcoviaForm(databazaTimov, rozhodcovia);
+            rf.Show();
         }
     }
 }

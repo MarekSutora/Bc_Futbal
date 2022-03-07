@@ -8,6 +8,7 @@ namespace LGR_Futbal.Model
 {
     public class Rozhodca : Osoba
     {
-        public int IdRozhodcu { get; set; }
+        public int IdRozhodca { get; set; }
+        public DateTime DatumUkoncenia { get; set; }
     }
 }
