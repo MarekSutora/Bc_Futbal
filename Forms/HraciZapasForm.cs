@@ -47,7 +47,7 @@ namespace LGR_Futbal.Forms
             hraci = t.ZoznamHracov;
             hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
             this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
-           
+
             int pocet = 0;
             foreach (Hrac h in hraci)
             {

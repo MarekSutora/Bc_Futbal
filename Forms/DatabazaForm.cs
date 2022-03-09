@@ -535,11 +535,6 @@ namespace LGR_Futbal.Forms
 
         private void ZobrazEditHraca()
         {
-            //vlozHracaGroupBox.SendToBack();
-            //vlozHracaGroupBox.Visible = false;    
-            //editHracGroupBox.Visible = true;
-
-
             vlozHracaGroupBox.Visible = true;
             editHracGroupBox.Visible = true;
             vlozHracaGroupBox.SendToBack();

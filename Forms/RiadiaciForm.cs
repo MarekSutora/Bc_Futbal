@@ -30,7 +30,6 @@ namespace LGR_Futbal
         #endregion
 
         #region Atributy
-
         // Atributy - hodnoty a objekty
         private int indexJazyka = 0;
         private bool zobrazitPozadie = false;
@@ -448,7 +447,7 @@ namespace LGR_Futbal
                                     odohraneMinuty = 0;
                                     aktMin = 0;
                                     polcas = 0;
-                                    resetKariet();
+                                    //resetKariet();
                                     formularTabule.SetPolcas(1, 0);
                                     polcasButton.Text = 2 + ". " + Translate(2) + "\nSTART";
                                 }
@@ -806,7 +805,7 @@ namespace LGR_Futbal
             aktMin = 0;
             aktSek = 0;
 
-            resetKariet();
+            //resetKariet();
 
             formularTabule.Reset();
         }
@@ -850,6 +849,22 @@ namespace LGR_Futbal
                     {
                         // Zacina sa zapas, treba inicializovat hracov (pocet zapasov,
                         // zlte a cervene karty)
+                        //if (timDomaci == null || timDomaci.ZoznamHracov.Count <= 0)
+                        //{
+                        //    domStriedanieButton.Enabled = false;
+                        //    domOffsideButton.Enabled = false;
+                        //    domKopyButton.Enabled = false;  
+                        //    domOutButton.Enabled = false;
+                        //    domUdalostButton.Enabled = false;
+                        //}
+                        //if (timHostia == null || timHostia.ZoznamHracov.Count <= 0)
+                        //{
+                        //    hosStriedanieButton.Enabled = false;
+                        //    hosOffsideButton.Enabled = false;
+                        //    hosKopyButton.Enabled = false;
+                        //    hosOutButton.Enabled = false;
+                        //    hosUdalostButton.Enabled = false;
+                        //}
                         InicializaciaHracov();
                     }
 
@@ -902,23 +917,23 @@ namespace LGR_Futbal
 
         private void InicializaciaHracov()
         {
-            if (timDomaci != null)
-            {
-                foreach(Hrac h in timDomaci.ZoznamHracov)
-                {
-                    h.ZltaKarta = false;
-                    h.CervenaKarta = false;
-                }
-            }
+            //if (timDomaci != null)
+            //{
+            //    foreach(Hrac h in timDomaci.ZoznamHracov)
+            //    {
+            //        h.ZltaKarta = false;
+            //        h.CervenaKarta = false;
+            //    }
+            //}
 
-            if (timHostia != null)
-            {
-                foreach (Hrac h in timHostia.ZoznamHracov)
-                {
-                    h.ZltaKarta = false;
-                    h.CervenaKarta = false;
-                }
-            }
+            //if (timHostia != null)
+            //{
+            //    foreach (Hrac h in timHostia.ZoznamHracov)
+            //    {
+            //        h.ZltaKarta = false;
+            //        h.CervenaKarta = false;
+            //    }
+            //}
         }
         
 
@@ -945,17 +960,60 @@ namespace LGR_Futbal
 
         private void Zksf_OnHracZltaKartaSelected(Hrac hrac)
         {
+            bool ok = false;
             if (hrac != null)
             {
                 if (!hrac.ZltaKarta)
                 {
                     hrac.ZltaKarta = true;
+                    for (int i = 0; i < timDomaci.ZoznamHracov.Count; i++)
+                    {
+                        if (timDomaci.ZoznamHracov[i].IdHrac == hrac.IdHrac)
+                        {
+                            timDomaci.ZoznamHracov[i].ZltaKarta = true;
+                            ok = true;
+                            break;
+                        }
+                    }
+                    if (!ok)
+                    {
+                        for (int i = 0; i < timHostia.ZoznamHracov.Count; i++)
+                        {
+                            if (timHostia.ZoznamHracov[i].IdHrac == hrac.IdHrac)
+                            {
+                                timHostia.ZoznamHracov[i].ZltaKarta = true;
+                            }
+                        }
+                    }
+                    
                     ZltaKartaForm zkf = new ZltaKartaForm(currentDirectory, sirkaTabule, animacnyCas, hrac, pismaPrezentacie, animaciaZltaKarta);
                     zkf.Show();
                 }
                 else
                 {
                     hrac.CervenaKarta = true;
+                    
+                    for (int i = 0; i < timDomaci.ZoznamHracov.Count; i++)
+                    {
+                        if (timDomaci.ZoznamHracov[i].IdHrac == hrac.IdHrac)
+                        {
+                            timDomaci.ZoznamHracov[i].ZltaKarta = false;
+                            timDomaci.ZoznamHracov[i].CervenaKarta = true;
+                            ok = true;
+                            break;
+                        }
+                    }
+                    if(!ok)
+                    {
+                        for (int i = 0; i < timHostia.ZoznamHracov.Count; i++)
+                        {
+                            if (timHostia.ZoznamHracov[i].IdHrac == hrac.IdHrac)
+                            {
+                                timDomaci.ZoznamHracov[i].ZltaKarta = false;
+                                timHostia.ZoznamHracov[i].CervenaKarta = true;
+                            }
+                        }
+                    }
                     CervenaKartaForm ckf = new CervenaKartaForm(currentDirectory, sirkaTabule, animacnyCas, hrac, true, pismaPrezentacie, animaciaZltaKarta, animaciaCervenaKarta);
                     ckf.Show();
                 } 
@@ -1955,6 +2013,63 @@ namespace LGR_Futbal
 
         #endregion
 
+        private void domKartyLabel_Click(object sender, EventArgs e)
+        {
+            if (timDomaci != null)
+            {
+                HraciKartyForm hkf = new HraciKartyForm(timDomaci);
+                hkf.ShowDialog();
+            }
+        }
+
+        private void hosKartyLabel_Click(object sender, EventArgs e)
+        {
+            if (timHostia != null)
+            {
+                HraciKartyForm hkf = new HraciKartyForm(timHostia);
+                hkf.ShowDialog();
+            }
+        }
+
+        private void domKopyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domOffsideButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domOutButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domUdalostButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hosKopyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hosOffsideButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hosOutButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hosUdalostButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

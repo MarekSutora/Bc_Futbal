@@ -70,6 +70,7 @@ namespace LGR_Futbal.Forms
         public RozlozenieTabule rozlozenieTabule { get; set; }
         public FontyTabule Pisma { get; set; }
 
+
         private string zltaAnimacia;
         private string cervenaAnimacia;
         private int sirkaObr;
@@ -289,7 +290,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 logoDomaci.Image = domaci;
-                domaciLogo = string.Empty;
+                //domaciLogo = string.Empty;
             }
             catch
             {
@@ -300,7 +301,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 logoHostia.Image = hostia;
-                hostiaLogo = string.Empty;
+                //hostiaLogo = string.Empty;
             }
             catch
             {
@@ -394,7 +395,25 @@ namespace LGR_Futbal.Forms
                 } 
                 else
                 {
-                    OnNazvyLogaConfirmed(dn, null, hn, null);
+                    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, logoHostia.Image);
+                    //if(logoDomaci.Image != null && logoHostia.Image != null)
+                    //{
+                    //    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, logoHostia.Image);
+                    //} 
+                    //else if(logoDomaci.Image != null && logoHostia.Image == null)
+                    //{
+                    //    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, null);
+                    //}
+                    //else if(logoDomaci.Image == null && logoHostia.Image != null)
+                    //{
+                    //    OnNazvyLogaConfirmed(dn, null, hn, logoHostia.Image);
+                    //}
+                    //else
+                    //{
+                    //    OnNazvyLogaConfirmed(dn, null, hn, null);
+                    //}
+
+
                 }
                 
             }
@@ -541,7 +560,10 @@ namespace LGR_Futbal.Forms
                 {
                     logoDomaci.Image = Image.FromFile(ofd.FileName);
                     domaciLogo = ofd.FileName;
-                    domaciT.LogoImage = Image.FromFile(ofd.FileName);
+                    if (domaciT != null)
+                    {
+                        domaciT.LogoImage = Image.FromFile(ofd.FileName);
+                    }   
                 }
             }
             catch
@@ -565,15 +587,16 @@ namespace LGR_Futbal.Forms
                 {
                     logoHostia.Image = Image.FromFile(ofd.FileName);
                     hostiaLogo = ofd.FileName;
-                    hostiaT.LogoImage = Image.FromFile(ofd.FileName); 
+                    if(hostiaT != null)
+                    {
+                        hostiaT.LogoImage = Image.FromFile(ofd.FileName);
+                    } 
                 }
             }
             catch
             {
                 logoHostia.Image = null;
                 hostiaLogo = string.Empty;
-                domaciT.LogoImage = null;
-                hostiaT.LogoImage = null;
             }
         }
 
@@ -617,7 +640,7 @@ namespace LGR_Futbal.Forms
         {
             SelectForm selectform = new SelectForm(databazaTimov, domaciT, hostiaT);
             selectform.OnTeamsSelected += Selectform_OnTeamsSelected;
-            selectform.Show();
+            selectform.ShowDialog();
         }
 
         private void Selectform_OnTeamsSelected(FutbalovyTim t1, FutbalovyTim t2)
@@ -1120,13 +1143,13 @@ namespace LGR_Futbal.Forms
         private void nastavMuzstvoDomacibutton_Click(object sender, EventArgs e)
         {
             HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
-            hraciZapasForm.Show();
+            hraciZapasForm.ShowDialog();
         }
 
         private void nastavMuzstvoHostiabutton_Click(object sender, EventArgs e)
         {
             HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT, databazaTimov);
-            hraciZapasForm.Show();
+            hraciZapasForm.ShowDialog();
         }
 
         private void button18_Click(object sender, EventArgs e)

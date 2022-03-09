@@ -156,11 +156,23 @@
     <Compile Include="Forms\HraciForm.Designer.cs">
       <DependentUpon>HraciForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HraciKartyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HraciKartyForm.Designer.cs">
+      <DependentUpon>HraciKartyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HraciZapasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\HraciZapasForm.Designer.cs">
       <DependentUpon>HraciZapasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KopySettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KopySettingsForm.Designer.cs">
+      <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\NadstavCasForm.cs">
       <SubType>Form</SubType>
@@ -281,7 +293,6 @@
     <Compile Include="Model\Gol.cs" />
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Osoba.cs" />
-    <Compile Include="Model\RealizacnyTim.cs" />
     <Compile Include="Model\Rozhodca.cs" />
     <Compile Include="Model\Striedanie.cs" />
     <Compile Include="Model\Udalost.cs" />
@@ -328,8 +339,14 @@
     <EmbeddedResource Include="Forms\HraciForm.resx">
       <DependentUpon>HraciForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HraciKartyForm.resx">
+      <DependentUpon>HraciKartyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HraciZapasForm.resx">
       <DependentUpon>HraciZapasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KopySettingsForm.resx">
+      <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NadstavCasForm.resx">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>

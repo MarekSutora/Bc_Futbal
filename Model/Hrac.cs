@@ -26,7 +26,7 @@ namespace LGR_Futbal.Model
 
         public Hrac()
         {
-
+            Poznamka = " ";
         }
 
         public int getVek()
@@ -38,7 +38,4 @@ namespace LGR_Futbal.Model
             return age;
         }
     }
-
-    
-
 }

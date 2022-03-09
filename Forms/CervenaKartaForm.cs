@@ -115,8 +115,19 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);
-                    fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);
+                    if (prezentovanyHrac.FotkaImage != null)
+                    {
+                        fotkaPictureBox.Image = prezentovanyHrac.FotkaImage;
+                        fotkaPB.Image = prezentovanyHrac.FotkaImage;
+                    }
+                    else
+                    {
+                        fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
+                        fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
+                    }
+                    //fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);     
+                    //fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);
+                    
                 }
                 catch
                 {

@@ -1183,7 +1183,7 @@
             this.databazaButton.Name = "databazaButton";
             this.databazaButton.Size = new System.Drawing.Size(173, 60);
             this.databazaButton.TabIndex = 21;
-            this.databazaButton.Text = "DATABÁZA\r\nHRÁČOV";
+            this.databazaButton.Text = "DATABÁZA\r\n";
             this.databazaButton.UseVisualStyleBackColor = false;
             this.databazaButton.Click += new System.EventHandler(this.DatabazaButton_Click);
             // 

@@ -67,7 +67,8 @@ namespace LGR_Futbal.Forms
             {
                 sekunda.Enabled = false;
                 sekunda.Value = 0;
-            } else
+            } 
+            else
             {
                 sekunda.Enabled = true;
             }
