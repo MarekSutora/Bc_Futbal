@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.ovladace = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rozlozenieButton = new System.Windows.Forms.Button();
+            this.fontyButton = new System.Windows.Forms.Button();
+            this.createColorsButton = new System.Windows.Forms.Button();
             this.rozsvietButton = new System.Windows.Forms.Button();
             this.zhasniButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
@@ -39,6 +42,7 @@
             this.pozadieCheckBox = new System.Windows.Forms.CheckBox();
             this.velkostGroupBox = new System.Windows.Forms.GroupBox();
             this.jazykGroupBox = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.czRadioButton = new System.Windows.Forms.RadioButton();
             this.skRadioButton = new System.Windows.Forms.RadioButton();
             this.animaciaNumUpDown = new System.Windows.Forms.NumericUpDown();
@@ -51,6 +55,9 @@
             this.sirkaNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.sirkaLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.vybratButton = new System.Windows.Forms.Button();
+            this.pridatTypZapasuButton = new System.Windows.Forms.Button();
+            this.odstranitTypZapasuButton = new System.Windows.Forms.Button();
             this.typyZapasovListBox = new System.Windows.Forms.ListBox();
             this.prerusenieCheckBox = new System.Windows.Forms.CheckBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -67,8 +74,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dlzkaPolcasuNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button18 = new System.Windows.Forms.Button();
             this.nastavMuzstvoHostiabutton = new System.Windows.Forms.Button();
             this.nastavMuzstvoDomacibutton = new System.Windows.Forms.Button();
+            this.nacitatDatabazaButton = new System.Windows.Forms.Button();
+            this.zrusitDatabazaButton = new System.Windows.Forms.Button();
             this.zrusitLogoHos = new System.Windows.Forms.Button();
             this.zrusitLogoDom = new System.Windows.Forms.Button();
             this.zmenaLogaHos = new System.Windows.Forms.Button();
@@ -78,6 +88,8 @@
             this.domNazov = new System.Windows.Forms.TextBox();
             this.hostiaLabel = new System.Windows.Forms.Label();
             this.domaciLabel = new System.Windows.Forms.Label();
+            this.logoHostia = new System.Windows.Forms.PictureBox();
+            this.logoDomaci = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button13 = new System.Windows.Forms.Button();
             this.animHosBox = new System.Windows.Forms.CheckedListBox();
@@ -90,9 +102,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button17 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button16 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabulaButton = new System.Windows.Forms.Button();
             this.hraButton = new System.Windows.Forms.Button();
             this.TeamyButton = new System.Windows.Forms.Button();
@@ -100,22 +114,8 @@
             this.animacieButton = new System.Windows.Forms.Button();
             this.kartyButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button18 = new System.Windows.Forms.Button();
             this.zrusitButton = new System.Windows.Forms.Button();
             this.aktivovatButton = new System.Windows.Forms.Button();
-            this.rozlozenieButton = new System.Windows.Forms.Button();
-            this.fontyButton = new System.Windows.Forms.Button();
-            this.createColorsButton = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.vybratButton = new System.Windows.Forms.Button();
-            this.pridatTypZapasuButton = new System.Windows.Forms.Button();
-            this.odstranitTypZapasuButton = new System.Windows.Forms.Button();
-            this.nacitatDatabazaButton = new System.Windows.Forms.Button();
-            this.zrusitDatabazaButton = new System.Windows.Forms.Button();
-            this.logoHostia = new System.Windows.Forms.PictureBox();
-            this.logoDomaci = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ovladace.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.velkostGroupBox.SuspendLayout();
@@ -126,13 +126,13 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dlzkaPolcasuNumUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,6 +169,48 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Výsledková tabuľa";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // rozlozenieButton
+            // 
+            this.rozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
+            this.rozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rozlozenieButton.Location = new System.Drawing.Point(11, 183);
+            this.rozlozenieButton.Margin = new System.Windows.Forms.Padding(2);
+            this.rozlozenieButton.Name = "rozlozenieButton";
+            this.rozlozenieButton.Size = new System.Drawing.Size(160, 50);
+            this.rozlozenieButton.TabIndex = 25;
+            this.rozlozenieButton.Text = "Zmeniť rozloženie   ";
+            this.rozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rozlozenieButton.UseVisualStyleBackColor = true;
+            this.rozlozenieButton.Click += new System.EventHandler(this.rozlozenieButton_Click);
+            // 
+            // fontyButton
+            // 
+            this.fontyButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.fontyButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.fontyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fontyButton.Location = new System.Drawing.Point(351, 183);
+            this.fontyButton.Margin = new System.Windows.Forms.Padding(2);
+            this.fontyButton.Name = "fontyButton";
+            this.fontyButton.Size = new System.Drawing.Size(167, 50);
+            this.fontyButton.TabIndex = 24;
+            this.fontyButton.Text = "Nastaviť fonty           \r\na veľkosti písma         ";
+            this.fontyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.fontyButton.UseVisualStyleBackColor = true;
+            this.fontyButton.Click += new System.EventHandler(this.fontyButton_Click);
+            // 
+            // createColorsButton
+            // 
+            this.createColorsButton.Image = global::LGR_Futbal.Properties.Resources.Themes_2;
+            this.createColorsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.createColorsButton.Location = new System.Drawing.Point(175, 184);
+            this.createColorsButton.Margin = new System.Windows.Forms.Padding(2);
+            this.createColorsButton.Name = "createColorsButton";
+            this.createColorsButton.Size = new System.Drawing.Size(167, 50);
+            this.createColorsButton.TabIndex = 23;
+            this.createColorsButton.Text = "               Zmeniť                                     farebné nastavenia";
+            this.createColorsButton.UseVisualStyleBackColor = true;
+            this.createColorsButton.Click += new System.EventHandler(this.createColorsButton_Click);
             // 
             // rozsvietButton
             // 
@@ -268,6 +310,20 @@
             this.jazykGroupBox.TabIndex = 18;
             this.jazykGroupBox.TabStop = false;
             this.jazykGroupBox.Text = "Jazykové nastavenia";
+            // 
+            // button12
+            // 
+            this.button12.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.Location = new System.Drawing.Point(121, 16);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(81, 35);
+            this.button12.TabIndex = 2;
+            this.button12.Text = "Zmeniť";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // czRadioButton
             // 
@@ -455,6 +511,51 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Priebeh hry";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // vybratButton
+            // 
+            this.vybratButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vybratButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.vybratButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.vybratButton.Location = new System.Drawing.Point(372, 279);
+            this.vybratButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.vybratButton.Name = "vybratButton";
+            this.vybratButton.Size = new System.Drawing.Size(149, 45);
+            this.vybratButton.TabIndex = 18;
+            this.vybratButton.Text = "Vybrať   ";
+            this.vybratButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.vybratButton.UseVisualStyleBackColor = true;
+            this.vybratButton.Click += new System.EventHandler(this.vybratButton_Click);
+            // 
+            // pridatTypZapasuButton
+            // 
+            this.pridatTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pridatTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.pridatTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pridatTypZapasuButton.Location = new System.Drawing.Point(371, 223);
+            this.pridatTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.pridatTypZapasuButton.Name = "pridatTypZapasuButton";
+            this.pridatTypZapasuButton.Size = new System.Drawing.Size(149, 45);
+            this.pridatTypZapasuButton.TabIndex = 17;
+            this.pridatTypZapasuButton.Text = "Nový typ ";
+            this.pridatTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pridatTypZapasuButton.UseVisualStyleBackColor = true;
+            this.pridatTypZapasuButton.Click += new System.EventHandler(this.pridatTypZapasuButton_Click);
+            // 
+            // odstranitTypZapasuButton
+            // 
+            this.odstranitTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.odstranitTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.odstranitTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.odstranitTypZapasuButton.Location = new System.Drawing.Point(371, 335);
+            this.odstranitTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.odstranitTypZapasuButton.Name = "odstranitTypZapasuButton";
+            this.odstranitTypZapasuButton.Size = new System.Drawing.Size(149, 45);
+            this.odstranitTypZapasuButton.TabIndex = 16;
+            this.odstranitTypZapasuButton.Text = "Odstrániť ";
+            this.odstranitTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.odstranitTypZapasuButton.UseVisualStyleBackColor = true;
+            this.odstranitTypZapasuButton.Click += new System.EventHandler(this.odstranitTypZapasuButton_Click);
             // 
             // typyZapasovListBox
             // 
@@ -663,6 +764,17 @@
             this.tabPage3.Text = "Mužstvá a logá";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button18
+            // 
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button18.Location = new System.Drawing.Point(216, 301);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(96, 28);
+            this.button18.TabIndex = 554;
+            this.button18.Text = "rozhodcovia";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // nastavMuzstvoHostiabutton
             // 
             this.nastavMuzstvoHostiabutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -684,6 +796,36 @@
             this.nastavMuzstvoDomacibutton.Text = "nastav hráčov";
             this.nastavMuzstvoDomacibutton.UseVisualStyleBackColor = true;
             this.nastavMuzstvoDomacibutton.Click += new System.EventHandler(this.nastavMuzstvoDomacibutton_Click);
+            // 
+            // nacitatDatabazaButton
+            // 
+            this.nacitatDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.nacitatDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nacitatDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Move;
+            this.nacitatDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nacitatDatabazaButton.Location = new System.Drawing.Point(7, 333);
+            this.nacitatDatabazaButton.Name = "nacitatDatabazaButton";
+            this.nacitatDatabazaButton.Size = new System.Drawing.Size(230, 56);
+            this.nacitatDatabazaButton.TabIndex = 551;
+            this.nacitatDatabazaButton.Text = "Vybrať tímy           \r\nz databázy           ";
+            this.nacitatDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nacitatDatabazaButton.UseVisualStyleBackColor = false;
+            this.nacitatDatabazaButton.Click += new System.EventHandler(this.NacitatDatabazaButton_Click);
+            // 
+            // zrusitDatabazaButton
+            // 
+            this.zrusitDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.zrusitDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zrusitDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.zrusitDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.zrusitDatabazaButton.Location = new System.Drawing.Point(293, 333);
+            this.zrusitDatabazaButton.Name = "zrusitDatabazaButton";
+            this.zrusitDatabazaButton.Size = new System.Drawing.Size(230, 56);
+            this.zrusitDatabazaButton.TabIndex = 550;
+            this.zrusitDatabazaButton.Text = "Zrušiť prepojenie     \r\ns databázou         ";
+            this.zrusitDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.zrusitDatabazaButton.UseVisualStyleBackColor = false;
+            this.zrusitDatabazaButton.Click += new System.EventHandler(this.ZrusitDatabazaButton_Click);
             // 
             // zrusitLogoHos
             // 
@@ -789,6 +931,24 @@
             this.domaciLabel.TabIndex = 541;
             this.domaciLabel.Text = "DOMÁCI";
             this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // logoHostia
+            // 
+            this.logoHostia.Location = new System.Drawing.Point(293, 49);
+            this.logoHostia.Name = "logoHostia";
+            this.logoHostia.Size = new System.Drawing.Size(230, 140);
+            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoHostia.TabIndex = 522;
+            this.logoHostia.TabStop = false;
+            // 
+            // logoDomaci
+            // 
+            this.logoDomaci.Location = new System.Drawing.Point(7, 49);
+            this.logoDomaci.Name = "logoDomaci";
+            this.logoDomaci.Size = new System.Drawing.Size(231, 140);
+            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoDomaci.TabIndex = 521;
+            this.logoDomaci.TabStop = false;
             // 
             // tabPage4
             // 
@@ -919,6 +1079,16 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(4, 16);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(217, 212);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button16);
@@ -954,6 +1124,16 @@
             this.button14.Text = "Zmeniť obrázok (animáciu)";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(4, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 212);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tabulaButton
             // 
@@ -1033,17 +1213,6 @@
             this.kartyButton.UseVisualStyleBackColor = false;
             this.kartyButton.Click += new System.EventHandler(this.kartyButton_Click);
             // 
-            // button18
-            // 
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button18.Location = new System.Drawing.Point(216, 301);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(96, 28);
-            this.button18.TabIndex = 554;
-            this.button18.Text = "rozhodcovia";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
             // zrusitButton
             // 
             this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
@@ -1072,180 +1241,11 @@
             this.aktivovatButton.UseVisualStyleBackColor = true;
             this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
             // 
-            // rozlozenieButton
-            // 
-            this.rozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
-            this.rozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rozlozenieButton.Location = new System.Drawing.Point(11, 183);
-            this.rozlozenieButton.Margin = new System.Windows.Forms.Padding(2);
-            this.rozlozenieButton.Name = "rozlozenieButton";
-            this.rozlozenieButton.Size = new System.Drawing.Size(160, 50);
-            this.rozlozenieButton.TabIndex = 25;
-            this.rozlozenieButton.Text = "Zmeniť rozloženie   ";
-            this.rozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rozlozenieButton.UseVisualStyleBackColor = true;
-            this.rozlozenieButton.Click += new System.EventHandler(this.rozlozenieButton_Click);
-            // 
-            // fontyButton
-            // 
-            this.fontyButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.fontyButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.fontyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fontyButton.Location = new System.Drawing.Point(351, 183);
-            this.fontyButton.Margin = new System.Windows.Forms.Padding(2);
-            this.fontyButton.Name = "fontyButton";
-            this.fontyButton.Size = new System.Drawing.Size(167, 50);
-            this.fontyButton.TabIndex = 24;
-            this.fontyButton.Text = "Nastaviť fonty           \r\na veľkosti písma         ";
-            this.fontyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.fontyButton.UseVisualStyleBackColor = true;
-            this.fontyButton.Click += new System.EventHandler(this.fontyButton_Click);
-            // 
-            // createColorsButton
-            // 
-            this.createColorsButton.Image = global::LGR_Futbal.Properties.Resources.Themes_2;
-            this.createColorsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.createColorsButton.Location = new System.Drawing.Point(175, 184);
-            this.createColorsButton.Margin = new System.Windows.Forms.Padding(2);
-            this.createColorsButton.Name = "createColorsButton";
-            this.createColorsButton.Size = new System.Drawing.Size(167, 50);
-            this.createColorsButton.TabIndex = 23;
-            this.createColorsButton.Text = "               Zmeniť                                     farebné nastavenia";
-            this.createColorsButton.UseVisualStyleBackColor = true;
-            this.createColorsButton.Click += new System.EventHandler(this.createColorsButton_Click);
-            // 
-            // button12
-            // 
-            this.button12.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(121, 16);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(81, 35);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "Zmeniť";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // vybratButton
-            // 
-            this.vybratButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vybratButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.vybratButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vybratButton.Location = new System.Drawing.Point(372, 279);
-            this.vybratButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.vybratButton.Name = "vybratButton";
-            this.vybratButton.Size = new System.Drawing.Size(149, 45);
-            this.vybratButton.TabIndex = 18;
-            this.vybratButton.Text = "Vybrať   ";
-            this.vybratButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.vybratButton.UseVisualStyleBackColor = true;
-            this.vybratButton.Click += new System.EventHandler(this.vybratButton_Click);
-            // 
-            // pridatTypZapasuButton
-            // 
-            this.pridatTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pridatTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.pridatTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pridatTypZapasuButton.Location = new System.Drawing.Point(371, 223);
-            this.pridatTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pridatTypZapasuButton.Name = "pridatTypZapasuButton";
-            this.pridatTypZapasuButton.Size = new System.Drawing.Size(149, 45);
-            this.pridatTypZapasuButton.TabIndex = 17;
-            this.pridatTypZapasuButton.Text = "Nový typ ";
-            this.pridatTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.pridatTypZapasuButton.UseVisualStyleBackColor = true;
-            this.pridatTypZapasuButton.Click += new System.EventHandler(this.pridatTypZapasuButton_Click);
-            // 
-            // odstranitTypZapasuButton
-            // 
-            this.odstranitTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odstranitTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.odstranitTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.odstranitTypZapasuButton.Location = new System.Drawing.Point(371, 335);
-            this.odstranitTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.odstranitTypZapasuButton.Name = "odstranitTypZapasuButton";
-            this.odstranitTypZapasuButton.Size = new System.Drawing.Size(149, 45);
-            this.odstranitTypZapasuButton.TabIndex = 16;
-            this.odstranitTypZapasuButton.Text = "Odstrániť ";
-            this.odstranitTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.odstranitTypZapasuButton.UseVisualStyleBackColor = true;
-            this.odstranitTypZapasuButton.Click += new System.EventHandler(this.odstranitTypZapasuButton_Click);
-            // 
-            // nacitatDatabazaButton
-            // 
-            this.nacitatDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.nacitatDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nacitatDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Move;
-            this.nacitatDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nacitatDatabazaButton.Location = new System.Drawing.Point(7, 333);
-            this.nacitatDatabazaButton.Name = "nacitatDatabazaButton";
-            this.nacitatDatabazaButton.Size = new System.Drawing.Size(230, 56);
-            this.nacitatDatabazaButton.TabIndex = 551;
-            this.nacitatDatabazaButton.Text = "Vybrať tímy           \r\nz databázy           ";
-            this.nacitatDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nacitatDatabazaButton.UseVisualStyleBackColor = false;
-            this.nacitatDatabazaButton.Click += new System.EventHandler(this.NacitatDatabazaButton_Click);
-            // 
-            // zrusitDatabazaButton
-            // 
-            this.zrusitDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitDatabazaButton.Location = new System.Drawing.Point(293, 333);
-            this.zrusitDatabazaButton.Name = "zrusitDatabazaButton";
-            this.zrusitDatabazaButton.Size = new System.Drawing.Size(230, 56);
-            this.zrusitDatabazaButton.TabIndex = 550;
-            this.zrusitDatabazaButton.Text = "Zrušiť prepojenie     \r\ns databázou         ";
-            this.zrusitDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitDatabazaButton.UseVisualStyleBackColor = false;
-            this.zrusitDatabazaButton.Click += new System.EventHandler(this.ZrusitDatabazaButton_Click);
-            // 
-            // logoHostia
-            // 
-            this.logoHostia.Location = new System.Drawing.Point(293, 49);
-            this.logoHostia.Name = "logoHostia";
-            this.logoHostia.Size = new System.Drawing.Size(230, 140);
-            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoHostia.TabIndex = 522;
-            this.logoHostia.TabStop = false;
-            // 
-            // logoDomaci
-            // 
-            this.logoDomaci.Location = new System.Drawing.Point(7, 49);
-            this.logoDomaci.Name = "logoDomaci";
-            this.logoDomaci.Size = new System.Drawing.Size(231, 140);
-            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoDomaci.TabIndex = 521;
-            this.logoDomaci.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(4, 16);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(217, 212);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(4, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 432);
+            this.ClientSize = new System.Drawing.Size(841, 431);
             this.Controls.Add(this.kartyButton);
             this.Controls.Add(this.animacieButton);
             this.Controls.Add(this.databazaButton);
@@ -1281,14 +1281,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dlzkaPolcasuNumUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

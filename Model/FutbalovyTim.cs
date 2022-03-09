@@ -11,7 +11,6 @@ namespace LGR_Futbal.Model
         private string logo;
         private List<Hrac> zoznamHracov;
         public string NazovTimu { get => nazov; set => nazov = value; }
-        public FutbalovyKlub FutbalovyKlub { get; set; }
         public string Logo { get => logo; set => logo = value; }
         public byte[] LogoBlob { get; set; }
         public Image LogoImage { get; set; }
@@ -22,7 +21,6 @@ namespace LGR_Futbal.Model
         public DateTime DatumZrusenia { get; set; }
         public FutbalovyTim()
         {
-            FutbalovyKlub = null;
             LogoBlob = null;
             LogoImage = null;
             zoznamHracov = new List<Hrac>();

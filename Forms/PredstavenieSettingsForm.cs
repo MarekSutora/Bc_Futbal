@@ -140,7 +140,7 @@ namespace LGR_Futbal.Forms
                 textReader1 = new StreamReader(adresar + "\\Databaza\\DomaciPrezentacia.xml");
                 farbyDom = (FarbyPrezentacieClass)deserializer.Deserialize(textReader1);
             }
-            catch (Exception ex)
+            catch
             {
                 farbyDom = new FarbyPrezentacieClass();
             }
@@ -156,7 +156,7 @@ namespace LGR_Futbal.Forms
                 textReader2 = new StreamReader(adresar + "\\Databaza\\HostiaPrezentacia.xml");
                 farbyHos = (FarbyPrezentacieClass)deserializer.Deserialize(textReader2);
             }
-            catch (Exception ex)
+            catch
             {
                 farbyHos = new FarbyPrezentacieClass();
             }

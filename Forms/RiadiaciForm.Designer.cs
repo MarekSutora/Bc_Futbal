@@ -59,6 +59,18 @@
             this.setupButton = new System.Windows.Forms.Button();
             this.obnovaHryButton = new System.Windows.Forms.Button();
             this.zmenitCasButton = new System.Windows.Forms.Button();
+            this.domKopyButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.domOffsideButton = new System.Windows.Forms.Button();
+            this.domOutButton = new System.Windows.Forms.Button();
+            this.domUdalostButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.hosUdalostButton = new System.Windows.Forms.Button();
+            this.hosOutButton = new System.Windows.Forms.Button();
+            this.hosOffsideButton = new System.Windows.Forms.Button();
+            this.hosKopyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
             this.SuspendLayout();
@@ -67,12 +79,12 @@
             // 
             this.domZltaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.domZltaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domZltaKartaButton.Location = new System.Drawing.Point(7, 8);
+            this.domZltaKartaButton.Location = new System.Drawing.Point(7, 21);
             this.domZltaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.domZltaKartaButton.Name = "domZltaKartaButton";
-            this.domZltaKartaButton.Size = new System.Drawing.Size(147, 78);
+            this.domZltaKartaButton.Size = new System.Drawing.Size(147, 36);
             this.domZltaKartaButton.TabIndex = 0;
-            this.domZltaKartaButton.Text = "ŽLTÁ\r\nKARTA";
+            this.domZltaKartaButton.Text = "ŽLTÁ\r\n";
             this.domZltaKartaButton.UseVisualStyleBackColor = false;
             this.domZltaKartaButton.Click += new System.EventHandler(this.DomZltaKartaButton_Click);
             this.domZltaKartaButton.MouseEnter += new System.EventHandler(this.domZltaKartaButton_Enter);
@@ -82,12 +94,12 @@
             // 
             this.hosZltaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.hosZltaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hosZltaKartaButton.Location = new System.Drawing.Point(684, 8);
+            this.hosZltaKartaButton.Location = new System.Drawing.Point(684, 21);
             this.hosZltaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosZltaKartaButton.Name = "hosZltaKartaButton";
-            this.hosZltaKartaButton.Size = new System.Drawing.Size(147, 78);
+            this.hosZltaKartaButton.Size = new System.Drawing.Size(147, 36);
             this.hosZltaKartaButton.TabIndex = 1;
-            this.hosZltaKartaButton.Text = "ŽLTÁ\r\nKARTA";
+            this.hosZltaKartaButton.Text = "ŽLTÁ";
             this.hosZltaKartaButton.UseVisualStyleBackColor = false;
             this.hosZltaKartaButton.Click += new System.EventHandler(this.HosZltaKartaButton_Click);
             this.hosZltaKartaButton.MouseEnter += new System.EventHandler(this.hosZltaKartaButton_Enter);
@@ -97,12 +109,12 @@
             // 
             this.domCervenaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.domCervenaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domCervenaKartaButton.Location = new System.Drawing.Point(8, 89);
+            this.domCervenaKartaButton.Location = new System.Drawing.Point(7, 61);
             this.domCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.domCervenaKartaButton.Name = "domCervenaKartaButton";
-            this.domCervenaKartaButton.Size = new System.Drawing.Size(147, 78);
+            this.domCervenaKartaButton.Size = new System.Drawing.Size(147, 36);
             this.domCervenaKartaButton.TabIndex = 2;
-            this.domCervenaKartaButton.Text = "ČERVENÁ\r\nKARTA";
+            this.domCervenaKartaButton.Text = "ČERVENÁ";
             this.domCervenaKartaButton.UseVisualStyleBackColor = false;
             this.domCervenaKartaButton.Click += new System.EventHandler(this.DomCervenaKartaButton_Click);
             this.domCervenaKartaButton.MouseEnter += new System.EventHandler(this.domCervenaKartaButton_MouseEnter);
@@ -112,12 +124,12 @@
             // 
             this.hosCervenaKartaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.hosCervenaKartaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hosCervenaKartaButton.Location = new System.Drawing.Point(684, 89);
+            this.hosCervenaKartaButton.Location = new System.Drawing.Point(684, 61);
             this.hosCervenaKartaButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosCervenaKartaButton.Name = "hosCervenaKartaButton";
-            this.hosCervenaKartaButton.Size = new System.Drawing.Size(147, 78);
+            this.hosCervenaKartaButton.Size = new System.Drawing.Size(147, 36);
             this.hosCervenaKartaButton.TabIndex = 3;
-            this.hosCervenaKartaButton.Text = "ČERVENÁ\r\nKARTA";
+            this.hosCervenaKartaButton.Text = "ČERVENÁ";
             this.hosCervenaKartaButton.UseVisualStyleBackColor = false;
             this.hosCervenaKartaButton.Click += new System.EventHandler(this.HosCervenaKartaButton_Click);
             this.hosCervenaKartaButton.MouseEnter += new System.EventHandler(this.hosCervenaKartaButton_MouseEnter);
@@ -126,13 +138,13 @@
             // domZmenaStavuButton
             // 
             this.domZmenaStavuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.domZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domZmenaStavuButton.Location = new System.Drawing.Point(8, 171);
+            this.domZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domZmenaStavuButton.Location = new System.Drawing.Point(9, 119);
             this.domZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2);
             this.domZmenaStavuButton.Name = "domZmenaStavuButton";
-            this.domZmenaStavuButton.Size = new System.Drawing.Size(147, 78);
+            this.domZmenaStavuButton.Size = new System.Drawing.Size(147, 36);
             this.domZmenaStavuButton.TabIndex = 4;
-            this.domZmenaStavuButton.Text = "ZMENA\r\nSTAVU";
+            this.domZmenaStavuButton.Text = "ZMENA STAVU";
             this.domZmenaStavuButton.UseVisualStyleBackColor = false;
             this.domZmenaStavuButton.Click += new System.EventHandler(this.DomZmenaStavuButton_Click);
             this.domZmenaStavuButton.MouseEnter += new System.EventHandler(this.domZmenaStavuButton_MouseEnter);
@@ -141,13 +153,13 @@
             // hosZmenaStavuButton
             // 
             this.hosZmenaStavuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.hosZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hosZmenaStavuButton.Location = new System.Drawing.Point(684, 171);
+            this.hosZmenaStavuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hosZmenaStavuButton.Location = new System.Drawing.Point(684, 119);
             this.hosZmenaStavuButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosZmenaStavuButton.Name = "hosZmenaStavuButton";
-            this.hosZmenaStavuButton.Size = new System.Drawing.Size(147, 78);
+            this.hosZmenaStavuButton.Size = new System.Drawing.Size(147, 36);
             this.hosZmenaStavuButton.TabIndex = 5;
-            this.hosZmenaStavuButton.Text = "ZMENA\r\nSTAVU";
+            this.hosZmenaStavuButton.Text = "ZMENA STAVU";
             this.hosZmenaStavuButton.UseVisualStyleBackColor = false;
             this.hosZmenaStavuButton.Click += new System.EventHandler(this.HosZmenaStavuButton_Click);
             this.hosZmenaStavuButton.MouseEnter += new System.EventHandler(this.hosZmenaStavuButton_MouseEnter);
@@ -155,12 +167,16 @@
             // 
             // domStriedanieButton
             // 
-            this.domStriedanieButton.BackColor = System.Drawing.SystemColors.Control;
+            this.domStriedanieButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.domStriedanieButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.domStriedanieButton.FlatAppearance.BorderSize = 2;
+            this.domStriedanieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.domStriedanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domStriedanieButton.Location = new System.Drawing.Point(8, 254);
+            this.domStriedanieButton.ForeColor = System.Drawing.Color.White;
+            this.domStriedanieButton.Location = new System.Drawing.Point(9, 159);
             this.domStriedanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.domStriedanieButton.Name = "domStriedanieButton";
-            this.domStriedanieButton.Size = new System.Drawing.Size(147, 78);
+            this.domStriedanieButton.Size = new System.Drawing.Size(147, 36);
             this.domStriedanieButton.TabIndex = 6;
             this.domStriedanieButton.Text = "STRIEDANIE";
             this.domStriedanieButton.UseVisualStyleBackColor = false;
@@ -170,12 +186,16 @@
             // 
             // hosStriedanieButton
             // 
-            this.hosStriedanieButton.BackColor = System.Drawing.SystemColors.Control;
+            this.hosStriedanieButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.hosStriedanieButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.hosStriedanieButton.FlatAppearance.BorderSize = 2;
+            this.hosStriedanieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hosStriedanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hosStriedanieButton.Location = new System.Drawing.Point(684, 254);
+            this.hosStriedanieButton.ForeColor = System.Drawing.Color.White;
+            this.hosStriedanieButton.Location = new System.Drawing.Point(684, 159);
             this.hosStriedanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.hosStriedanieButton.Name = "hosStriedanieButton";
-            this.hosStriedanieButton.Size = new System.Drawing.Size(147, 78);
+            this.hosStriedanieButton.Size = new System.Drawing.Size(147, 36);
             this.hosStriedanieButton.TabIndex = 7;
             this.hosStriedanieButton.Text = "STRIEDANIE";
             this.hosStriedanieButton.UseVisualStyleBackColor = false;
@@ -349,10 +369,10 @@
             // 
             this.testovanieButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.testovanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.testovanieButton.Location = new System.Drawing.Point(9, 346);
+            this.testovanieButton.Location = new System.Drawing.Point(9, 405);
             this.testovanieButton.Margin = new System.Windows.Forms.Padding(2);
             this.testovanieButton.Name = "testovanieButton";
-            this.testovanieButton.Size = new System.Drawing.Size(146, 78);
+            this.testovanieButton.Size = new System.Drawing.Size(146, 19);
             this.testovanieButton.TabIndex = 552;
             this.testovanieButton.Text = "Offline\r\ntestovanie";
             this.testovanieButton.UseVisualStyleBackColor = false;
@@ -364,10 +384,10 @@
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.closeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.closeButton.Location = new System.Drawing.Point(685, 346);
+            this.closeButton.Location = new System.Drawing.Point(685, 379);
             this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(146, 78);
+            this.closeButton.Size = new System.Drawing.Size(146, 45);
             this.closeButton.TabIndex = 551;
             this.closeButton.Text = "UKONČIŤ";
             this.closeButton.UseVisualStyleBackColor = false;
@@ -432,10 +452,10 @@
             this.setupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.setupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.setupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.setupButton.Location = new System.Drawing.Point(9, 346);
+            this.setupButton.Location = new System.Drawing.Point(9, 379);
             this.setupButton.Margin = new System.Windows.Forms.Padding(2);
             this.setupButton.Name = "setupButton";
-            this.setupButton.Size = new System.Drawing.Size(146, 78);
+            this.setupButton.Size = new System.Drawing.Size(146, 45);
             this.setupButton.TabIndex = 8;
             this.setupButton.Text = "SETUP";
             this.setupButton.UseVisualStyleBackColor = false;
@@ -474,12 +494,212 @@
             this.zmenitCasButton.MouseEnter += new System.EventHandler(this.zmenitCasButton_MouseEnter);
             this.zmenitCasButton.MouseLeave += new System.EventHandler(this.zmenitCasButton_MouseLeave);
             // 
+            // domKopyButton
+            // 
+            this.domKopyButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.domKopyButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.domKopyButton.FlatAppearance.BorderSize = 2;
+            this.domKopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.domKopyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domKopyButton.ForeColor = System.Drawing.Color.White;
+            this.domKopyButton.Location = new System.Drawing.Point(9, 199);
+            this.domKopyButton.Margin = new System.Windows.Forms.Padding(2);
+            this.domKopyButton.Name = "domKopyButton";
+            this.domKopyButton.Size = new System.Drawing.Size(147, 36);
+            this.domKopyButton.TabIndex = 555;
+            this.domKopyButton.Text = "KOPY";
+            this.domKopyButton.UseVisualStyleBackColor = false;
+            this.domKopyButton.MouseEnter += new System.EventHandler(this.domKopyButton_MouseEnter);
+            this.domKopyButton.MouseLeave += new System.EventHandler(this.domKopyButton_MouseLeave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(54, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.TabIndex = 557;
+            this.label1.Text = "KARTY";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(45, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 18);
+            this.label2.TabIndex = 558;
+            this.label2.Text = "OSTATNÉ";
+            // 
+            // domOffsideButton
+            // 
+            this.domOffsideButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.domOffsideButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.domOffsideButton.FlatAppearance.BorderSize = 2;
+            this.domOffsideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.domOffsideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domOffsideButton.ForeColor = System.Drawing.Color.White;
+            this.domOffsideButton.Location = new System.Drawing.Point(10, 240);
+            this.domOffsideButton.Margin = new System.Windows.Forms.Padding(2);
+            this.domOffsideButton.Name = "domOffsideButton";
+            this.domOffsideButton.Size = new System.Drawing.Size(147, 36);
+            this.domOffsideButton.TabIndex = 559;
+            this.domOffsideButton.Text = "OFFSIDE";
+            this.domOffsideButton.UseVisualStyleBackColor = false;
+            this.domOffsideButton.MouseEnter += new System.EventHandler(this.domOffsideButton_MouseEnter);
+            this.domOffsideButton.MouseLeave += new System.EventHandler(this.domOffsideButton_MouseLeave);
+            // 
+            // domOutButton
+            // 
+            this.domOutButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.domOutButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.domOutButton.FlatAppearance.BorderSize = 2;
+            this.domOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.domOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domOutButton.ForeColor = System.Drawing.Color.White;
+            this.domOutButton.Location = new System.Drawing.Point(10, 280);
+            this.domOutButton.Margin = new System.Windows.Forms.Padding(2);
+            this.domOutButton.Name = "domOutButton";
+            this.domOutButton.Size = new System.Drawing.Size(147, 36);
+            this.domOutButton.TabIndex = 560;
+            this.domOutButton.Text = "OUT";
+            this.domOutButton.UseVisualStyleBackColor = false;
+            this.domOutButton.MouseEnter += new System.EventHandler(this.domOutButton_MouseEnter);
+            this.domOutButton.MouseLeave += new System.EventHandler(this.domOutButton_MouseLeave);
+            // 
+            // domUdalostButton
+            // 
+            this.domUdalostButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.domUdalostButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.domUdalostButton.FlatAppearance.BorderSize = 2;
+            this.domUdalostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.domUdalostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domUdalostButton.ForeColor = System.Drawing.Color.White;
+            this.domUdalostButton.Location = new System.Drawing.Point(10, 320);
+            this.domUdalostButton.Margin = new System.Windows.Forms.Padding(2);
+            this.domUdalostButton.Name = "domUdalostButton";
+            this.domUdalostButton.Size = new System.Drawing.Size(147, 48);
+            this.domUdalostButton.TabIndex = 561;
+            this.domUdalostButton.Text = "INÁ UDALOSŤ";
+            this.domUdalostButton.UseVisualStyleBackColor = false;
+            this.domUdalostButton.MouseEnter += new System.EventHandler(this.domUdalostButton_MouseEnter);
+            this.domUdalostButton.MouseLeave += new System.EventHandler(this.domUdalostButton_MouseLeave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(731, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 18);
+            this.label3.TabIndex = 562;
+            this.label3.Text = "KARTY";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(720, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 18);
+            this.label4.TabIndex = 563;
+            this.label4.Text = "OSTATNÉ";
+            // 
+            // hosUdalostButton
+            // 
+            this.hosUdalostButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.hosUdalostButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.hosUdalostButton.FlatAppearance.BorderSize = 2;
+            this.hosUdalostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hosUdalostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hosUdalostButton.ForeColor = System.Drawing.Color.White;
+            this.hosUdalostButton.Location = new System.Drawing.Point(684, 319);
+            this.hosUdalostButton.Margin = new System.Windows.Forms.Padding(2);
+            this.hosUdalostButton.Name = "hosUdalostButton";
+            this.hosUdalostButton.Size = new System.Drawing.Size(147, 48);
+            this.hosUdalostButton.TabIndex = 567;
+            this.hosUdalostButton.Text = "INÁ UDALOSŤ";
+            this.hosUdalostButton.UseVisualStyleBackColor = false;
+            this.hosUdalostButton.MouseEnter += new System.EventHandler(this.hosUdalostButton_MouseEnter);
+            this.hosUdalostButton.MouseLeave += new System.EventHandler(this.hosUdalostButton_MouseLeave);
+            // 
+            // hosOutButton
+            // 
+            this.hosOutButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.hosOutButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.hosOutButton.FlatAppearance.BorderSize = 2;
+            this.hosOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hosOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hosOutButton.ForeColor = System.Drawing.Color.White;
+            this.hosOutButton.Location = new System.Drawing.Point(684, 279);
+            this.hosOutButton.Margin = new System.Windows.Forms.Padding(2);
+            this.hosOutButton.Name = "hosOutButton";
+            this.hosOutButton.Size = new System.Drawing.Size(147, 36);
+            this.hosOutButton.TabIndex = 566;
+            this.hosOutButton.Text = "OUT";
+            this.hosOutButton.UseVisualStyleBackColor = false;
+            this.hosOutButton.MouseEnter += new System.EventHandler(this.hosOutButton_MouseEnter);
+            this.hosOutButton.MouseLeave += new System.EventHandler(this.hosOutButton_MouseLeave);
+            // 
+            // hosOffsideButton
+            // 
+            this.hosOffsideButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.hosOffsideButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.hosOffsideButton.FlatAppearance.BorderSize = 2;
+            this.hosOffsideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hosOffsideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hosOffsideButton.ForeColor = System.Drawing.Color.White;
+            this.hosOffsideButton.Location = new System.Drawing.Point(684, 239);
+            this.hosOffsideButton.Margin = new System.Windows.Forms.Padding(2);
+            this.hosOffsideButton.Name = "hosOffsideButton";
+            this.hosOffsideButton.Size = new System.Drawing.Size(147, 36);
+            this.hosOffsideButton.TabIndex = 565;
+            this.hosOffsideButton.Text = "OFFSIDE";
+            this.hosOffsideButton.UseVisualStyleBackColor = false;
+            this.hosOffsideButton.MouseEnter += new System.EventHandler(this.hosOffsideButton_MouseEnter);
+            this.hosOffsideButton.MouseLeave += new System.EventHandler(this.hosOffsideButton_MouseLeave);
+            // 
+            // hosKopyButton
+            // 
+            this.hosKopyButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.hosKopyButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.hosKopyButton.FlatAppearance.BorderSize = 2;
+            this.hosKopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hosKopyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hosKopyButton.ForeColor = System.Drawing.Color.White;
+            this.hosKopyButton.Location = new System.Drawing.Point(684, 199);
+            this.hosKopyButton.Margin = new System.Windows.Forms.Padding(2);
+            this.hosKopyButton.Name = "hosKopyButton";
+            this.hosKopyButton.Size = new System.Drawing.Size(147, 36);
+            this.hosKopyButton.TabIndex = 564;
+            this.hosKopyButton.Text = "KOPY";
+            this.hosKopyButton.UseVisualStyleBackColor = false;
+            this.hosKopyButton.MouseEnter += new System.EventHandler(this.hosKopyButton_MouseEnter);
+            this.hosKopyButton.MouseLeave += new System.EventHandler(this.hosKopyButton_MouseLeave);
+            // 
             // RiadiaciForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(838, 431);
+            this.Controls.Add(this.hosUdalostButton);
+            this.Controls.Add(this.hosOutButton);
+            this.Controls.Add(this.hosOffsideButton);
+            this.Controls.Add(this.hosKopyButton);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.domUdalostButton);
+            this.Controls.Add(this.domOutButton);
+            this.Controls.Add(this.domOffsideButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.domKopyButton);
             this.Controls.Add(this.zmenitCasButton);
             this.Controls.Add(this.setupButton);
             this.Controls.Add(this.obnovaHryButton);
@@ -559,6 +779,18 @@
         private System.Windows.Forms.Button testovanieButton;
         private System.Windows.Forms.Button obnovaHryButton;
         private System.Windows.Forms.Button zmenitCasButton;
+        private System.Windows.Forms.Button domKopyButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button domOffsideButton;
+        private System.Windows.Forms.Button domOutButton;
+        private System.Windows.Forms.Button domUdalostButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button hosUdalostButton;
+        private System.Windows.Forms.Button hosOutButton;
+        private System.Windows.Forms.Button hosOffsideButton;
+        private System.Windows.Forms.Button hosKopyButton;
     }
 }
 

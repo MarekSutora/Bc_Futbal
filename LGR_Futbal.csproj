@@ -16,7 +16,7 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -277,9 +277,7 @@
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Adresa.cs" />
-    <Compile Include="Model\CasUdalosti.cs" />
     <Compile Include="Model\ClenTimu.cs" />
-    <Compile Include="Model\FutbalovyKlub.cs" />
     <Compile Include="Model\Gol.cs" />
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Osoba.cs" />

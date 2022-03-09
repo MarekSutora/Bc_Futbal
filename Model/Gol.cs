@@ -12,7 +12,7 @@ namespace LGR_Futbal.Model
         NormalnyGol
     }
 
-    public class Gol
+    public class Gol : Udalost
     {
         public int IdGol { get; set; }
         public Hrac Strielajuci { get; set; }

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using System.Linq;
+
 namespace LGR_Futbal.Forms
 {
     public partial class HraciZapasForm : Form
@@ -43,8 +45,9 @@ namespace LGR_Futbal.Forms
             this.databaza = databaza;
             aktualnyTim = t;
             hraci = t.ZoznamHracov;
+            hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
             this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
-
+           
             int pocet = 0;
             foreach (Hrac h in hraci)
             {

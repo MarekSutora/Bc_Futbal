@@ -11,6 +11,14 @@ namespace LGR_Futbal.Model
         public int IdUdalosti { get; set; }
         public string UdalostPopis { get; set; }
         public Zapas Zapas { get; set; }
-        public CasUdalosti CasUdalosti { get; set; }
+        public int IdCasUdalosti { get; set; }
+        public double Minuta { get; set; }
+        public int Polcas { get; set; }
+        public int Predlzenie { get; set; }
+
+        public Udalost()
+        {
+
+        }
     }
 }

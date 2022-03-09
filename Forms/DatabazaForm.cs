@@ -27,7 +27,6 @@ namespace LGR_Futbal.Forms
         private Hrac aktHrac = null;
         private Rozhodca aktRozhodca = null;
         private int lastFilterHraci = 0;
-        private int lastTimIndex = 0;
 
         //private List<string> nazvyTimov = null;
         private List<FutbalovyTim> timy = null;
@@ -94,11 +93,22 @@ namespace LGR_Futbal.Forms
             editPohlavieComboBox.Items.Add("");
             editPohlavieComboBox.Items.Add("Muž");
             editPohlavieComboBox.Items.Add("Žena");
+            addRozhodcaComboBox.Items.Add("");
+            addRozhodcaComboBox.Items.Add("Muž");
+            addRozhodcaComboBox.Items.Add("Žena");
+            editRozhodcaComboBox.Items.Add("");
+            editRozhodcaComboBox.Items.Add("Muž");
+            editRozhodcaComboBox.Items.Add("Žena");
+            
             button6.Enabled = false;
             button7.Enabled = false;
-            vlozHracaGroupBox.Visible = true;
-            addRozhodcuGroupBox.Visible = true;
-            editRozhodcuGroupBox.Visible = false;
+            //vlozHracaGroupBox.BringToFront();
+            //addGroupBox.BringToFront();
+            //addRozhodcuGroupBox.BringToFront();
+            //editHracGroupBox.SendToBack();
+            //editGroupBox.SendToBack();
+            //editRozhodcuGroupBox.SendToBack();
+
             if (timy.Count > 0)
             {
                 timyListBox.SelectedIndex = 0;
@@ -132,6 +142,13 @@ namespace LGR_Futbal.Forms
 
         private void FillRozhodcoviaCB()
         {
+            RozhodcoviaListBox.Items.Clear();
+            rozhodcovia = dbs.GetRozhodcovia();
+           
+            for (int i = 0; i < rozhodcovia.Count; i++)
+            {
+                RozhodcoviaListBox.Items.Add(rozhodcovia[i].Meno + " " + rozhodcovia[i].Priezvisko);
+            }
 
             if (rozhodcovia.Count > 0)
             {
@@ -150,8 +167,10 @@ namespace LGR_Futbal.Forms
             originalLogoCesta = string.Empty;
             logoPictureBox.Image = null;
             nazovTextBox.Text = string.Empty;
-            editGroupBox.Visible = false;
             addGroupBox.Visible = true;
+            editGroupBox.Visible = true;
+            editGroupBox.SendToBack();
+            addGroupBox.BringToFront();
             nazovTextBox.Focus();
         }
 
@@ -219,6 +238,9 @@ namespace LGR_Futbal.Forms
                         MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
+                    editGroupBox.Visible = true;
+                    addGroupBox.Visible = true;
+
                     editButton.Enabled = true;
                     zapasButton.Enabled = true;
                     removeButton.Enabled = true;
@@ -236,7 +258,11 @@ namespace LGR_Futbal.Forms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            addGroupBox.Visible = false;
+            addGroupBox.Visible = true;
+            editGroupBox.Visible = true;
+            addGroupBox.SendToBack();
+            editGroupBox.BringToFront();
+            
             ZobrazEdit();
             //    originalLogoCesta = string.Empty;
             //    aktTim = timy[timyListBox.SelectedIndex];
@@ -368,6 +394,7 @@ namespace LGR_Futbal.Forms
                     }
                     FillTimyCB();
                     editGroupBox.Visible = false;
+                    addGroupBox.Visible = false;
                 }
             }
         }
@@ -396,6 +423,7 @@ namespace LGR_Futbal.Forms
             //HraciForm hraciForm = new HraciForm(dbs, aktTim, currentDirectory, false);
             //hraciForm.Show();
             addGroupBox.Visible = false;
+            addGroupBox.SendToBack();
             ZobrazEdit();
         }
 
@@ -426,8 +454,14 @@ namespace LGR_Futbal.Forms
                     originalLogoCesta = string.Empty;
                     editPictureBox.Image = null;
                 }
-                editGroupBox.Visible = true;
                 addGroupBox.Visible = false;
+                addGroupBox.SendToBack();
+
+                editGroupBox.Visible = true;
+                editGroupBox.BringToFront();
+
+                
+                
                 editNazovTextBox.Focus();
             }
         }
@@ -484,8 +518,14 @@ namespace LGR_Futbal.Forms
 
         private void button8_Click(object sender, EventArgs e)
         {
-            editHracGroupBox.Visible = false;
+            originalFotoCesta = string.Empty;
+            fotkaPictureBox.Image = null;
+
             vlozHracaGroupBox.Visible = true;
+            editHracGroupBox.Visible = true;
+            editHracGroupBox.SendToBack();
+            vlozHracaGroupBox.BringToFront();
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -495,8 +535,16 @@ namespace LGR_Futbal.Forms
 
         private void ZobrazEditHraca()
         {
-            vlozHracaGroupBox.Visible = false;
+            //vlozHracaGroupBox.SendToBack();
+            //vlozHracaGroupBox.Visible = false;    
+            //editHracGroupBox.Visible = true;
+
+
+            vlozHracaGroupBox.Visible = true;
             editHracGroupBox.Visible = true;
+            vlozHracaGroupBox.SendToBack();
+            editHracGroupBox.BringToFront();
+            
             try
             {
                 int index = -1;
@@ -521,6 +569,7 @@ namespace LGR_Futbal.Forms
                 editRichTextBox.Text = aktHrac.Poznamka;
                 pictureBox.Image = aktHrac.FotkaImage;
                 editPohlavieComboBox.SelectedIndex = aktHrac.Pohlavie;
+                editDateTimePicker.Value = aktHrac.DatumNarodenia;
 
             }
             catch (Exception ex)
@@ -531,8 +580,8 @@ namespace LGR_Futbal.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-            vlozHracaGroupBox.Visible = false;
-            editHracGroupBox.Visible = false;
+            //vlozHracaGroupBox.Visible = false;
+            //editHracGroupBox.Visible = false;
 
             //FutbalovyTim t = dbs.ZoznamTimov[timyListBox.SelectedIndex];
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
@@ -552,7 +601,7 @@ namespace LGR_Futbal.Forms
 
         private void zrusitObrazokButton_Click(object sender, EventArgs e)
         {
-            pictureBox.Image = null;
+            fotkaPictureBox.Image = null;
             originalFotoCesta = string.Empty;
         }
 
@@ -570,20 +619,20 @@ namespace LGR_Futbal.Forms
                 {
                     fotkaPictureBox.Image = Image.FromFile(ofd.FileName);
                     originalFotoCesta = ofd.FileName;
-                    pictureBox.Image = Image.FromFile(ofd.FileName);
                 }
             }
             catch
             {
                 fotkaPictureBox.Image = null;
-                pictureBox.Image = null;
                 originalFotoCesta = string.Empty;
             }
         }
 
         private void vlozHracaButton_Click(object sender, EventArgs e)
         {
+            vlozHracaGroupBox.BringToFront();
             vlozHracaGroupBox.Visible = true;
+            editHracGroupBox.SendToBack();
             editHracGroupBox.Visible = false;
             Hrac h = new Hrac();
             string Meno = menoTextBox.Text.Trim();
@@ -637,6 +686,10 @@ namespace LGR_Futbal.Forms
                 {
                     MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                editHracGroupBox.Visible = false;
+                vlozHracaGroupBox.Visible = false;
+
                 button7.Enabled = true;
                 button6.Enabled = true;
                 cisloHracaTextBox.Text = string.Empty;
@@ -645,13 +698,15 @@ namespace LGR_Futbal.Forms
                 postTextBox.Text = string.Empty;
                 poznamkaRichTextBox.Text = string.Empty;
 
-                FillTimyCB();
+                FilterZobrazHracov();
             }
         }
 
         private void filterHracovbtn_Click(object sender, EventArgs e)
         {
-            vlozHracaGroupBox.Visible = false;
+            vlozHracaGroupBox.Visible = true;
+            vlozHracaGroupBox.BringToFront();
+            
             FilterZobrazHracov();
         }
         private void FilterZobrazHracov()
@@ -755,8 +810,12 @@ namespace LGR_Futbal.Forms
 
         private void timyListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            vlozHracaGroupBox.Visible = false;
-            FilterZobrazHracov();
+            addGroupBox.Visible = true;
+            editGroupBox.Visible = true;
+            addGroupBox.SendToBack();
+            editGroupBox.BringToFront();
+
+            ZobrazEdit();
         }
 
         private void editHracConfirmbutton_Click(object sender, EventArgs e)
@@ -785,7 +844,7 @@ namespace LGR_Futbal.Forms
                 if (!originalFotoCesta.Equals(string.Empty))
                 {
                     aktHrac.FotkaBlob = null;
-                    aktHrac.Fotka = originalLogoCesta;
+                    aktHrac.Fotka = originalFotoCesta;
                 }
                 else if (pictureBox.Image != null)
                 {
@@ -817,8 +876,9 @@ namespace LGR_Futbal.Forms
                 }
                 finally
                 {
-                    vlozHracaGroupBox.Visible = false;
                     editHracGroupBox.Visible = false;
+                    vlozHracaGroupBox.Visible = false;
+
                 }
             }
         }
@@ -831,13 +891,15 @@ namespace LGR_Futbal.Forms
         private void vlozRozhodcuButton_Click(object sender, EventArgs e)
         {
             addRozhodcuGroupBox.Visible = true;
-            editRozhodcuGroupBox.Visible = false;
+            editRozhodcuGroupBox.Visible = true;
+            editRozhodcuGroupBox.SendToBack();
+            addRozhodcuGroupBox.BringToFront();    
         }
 
         private void editRozhdocuConfirmButton_Click(object sender, EventArgs e)
         {
-            string Meno = editMenoTextBox.Text.Trim();
-            string Priezvisko = editPriezviskoTextBox.Text.Trim();
+            string Meno = editRozhodcaMeno.Text.Trim();
+            string Priezvisko = editRozhdocaPriezvisko.Text.Trim();
             bool pokracuj = true;
             if (Meno.Equals(string.Empty))
             {
@@ -853,18 +915,33 @@ namespace LGR_Futbal.Forms
             {
                 aktRozhodca.Meno = Meno;
                 aktRozhodca.Priezvisko = Priezvisko;
-                aktRozhodca.Pohlavie = addRozhodcaComboBox.SelectedIndex;
-                if (addRozhodcaComboBox.SelectedIndex == -1 || addRozhodcaComboBox.SelectedIndex == 0)
+                aktRozhodca.Pohlavie = editRozhodcaComboBox.SelectedIndex;
+                if (editRozhodcaComboBox.SelectedIndex == -1 || editRozhodcaComboBox.SelectedIndex == 0)
                 {
                     aktRozhodca.Pohlavie = 0;
+                }
+                try
+                {
+                    dbs.UpdateRozhodca(aktRozhodca);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                finally
+                {
+                    FillRozhodcoviaCB();
+                    editRozhodcuGroupBox.Visible = false;
+                    addRozhodcuGroupBox.Visible = false;
                 }
             }
         }
 
         private void addRozhodcuConfirmButton_Click(object sender, EventArgs e)
         {
-            string Meno = editMenoTextBox.Text.Trim();
-            string Priezvisko = editPriezviskoTextBox.Text.Trim();
+            string Meno = addRozhodcaMeno.Text.Trim();
+            string Priezvisko = addRozhdocaPriezvisko.Text.Trim();
             bool pokracuj = true;
             if (Meno.Equals(string.Empty))
             {
@@ -897,29 +974,45 @@ namespace LGR_Futbal.Forms
                 } 
                 finally
                 {
+                    FillRozhodcoviaCB();
                     editRozhodcuGroupBox.Visible = false;
                     addRozhodcuGroupBox.Visible = false;
+                    addRozhodcaMeno.Text = string.Empty;
+                    addRozhdocaPriezvisko.Text = string.Empty;
+                    addRozhodcaComboBox.SelectedIndex = 0;
                 }
             }
         }
 
         private void editRozhodcuButton_Click(object sender, EventArgs e)
         {
+             
             NastavRozhodcoveUdaje();
         }
 
         private void NastavRozhodcoveUdaje()
         {
-            addRozhodcuGroupBox.Visible = false;
+            addRozhodcuGroupBox.Visible = true;
             editRozhodcuGroupBox.Visible = true;
+            addRozhodcuGroupBox.SendToBack();
+            editRozhodcuGroupBox.BringToFront();
+            
             try
             {
-                aktRozhodca = dbs.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
+                if (RozhodcoviaListBox.SelectedIndex == -1)
+                {
+                    aktRozhodca = dbs.GetRozhodca(rozhodcovia[0].IdRozhodca);
+                }
+                else
+                {
+                    aktRozhodca = dbs.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
+                }
+                
 
                 editRozhodcaMeno.Text = aktRozhodca.Meno;
                 editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
-                editRozhodcaComboBox.SelectedIndex = aktRozhodca.IdRozhodca;
-
+                editRozhodcaComboBox.SelectedIndex = aktRozhodca.Pohlavie;
+                
             }
             catch (Exception ex)
             {
@@ -930,6 +1023,53 @@ namespace LGR_Futbal.Forms
         private void RozhodcoviaListBox_DoubleClick(object sender, EventArgs e)
         {
             NastavRozhodcoveUdaje();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+        }
+
+        private void removeRozhodcuButton_Click(object sender, EventArgs e)
+        {
+            //addRozhodcuGroupBox.Visible = false;
+            //editRozhodcuGroupBox.Visible = false;
+
+            if (MessageBox.Show(Translate(7) + RozhodcoviaListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dbs.VymazRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
+                FillRozhodcoviaCB();
+                if (rozhodcovia.Count > 0)
+                    RozhodcoviaListBox.SelectedIndex = 0;
+                else
+                {
+                    editRozhodcuButton.Enabled = false;
+                    removeRozhodcuButton.Enabled = false;
+                }
+            }
+        }
+
+        private void editVlozFotografiu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Multiselect = false;
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.FilterIndex = 1;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    originalFotoCesta = ofd.FileName;
+                    pictureBox.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+            catch
+            {
+                pictureBox.Image = null;
+                originalFotoCesta = string.Empty;
+            }
         }
     }
 }

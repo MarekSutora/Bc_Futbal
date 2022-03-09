@@ -148,8 +148,6 @@ namespace LGR_Futbal.Triedy
                                 ft.IdFutbalovyTim = reader.GetInt16(0);
                             if (!reader.IsDBNull(1))
                                 ft.Kategoria = reader.GetInt16(1);
-                            if (!reader.IsDBNull(2))
-                                ft.FutbalovyKlub.IdKlub = reader.GetInt16(3);
                             if (!reader.IsDBNull(3))
                                 ft.NazovTimu = reader.GetString(3);
                             if (!reader.IsDBNull(4))
@@ -244,8 +242,6 @@ namespace LGR_Futbal.Triedy
                     if (futbalovyTim.Kategoria != 0 && futbalovyTim.Kategoria != -1)
                         kategoria = futbalovyTim.Kategoria;
                     int? klub = null;
-                    if (futbalovyTim.FutbalovyKlub != null)
-                        klub = futbalovyTim.FutbalovyKlub.IdKlub;
                     string nazov = futbalovyTim.NazovTimu;
                     if (futbalovyTim.Logo != null)
                     {
@@ -294,11 +290,6 @@ namespace LGR_Futbal.Triedy
                     if (ft.Kategoria != 0 && ft.Kategoria != -1)
                         kategoria = ft.Kategoria;
                     int? idklub = null;
-                    if (ft.FutbalovyKlub != null && ft.FutbalovyKlub.IdKlub != 0)
-                        idklub = ft.FutbalovyKlub.IdKlub;
-                    int? klub = null;
-                    if (ft.FutbalovyKlub != null)
-                        klub = ft.FutbalovyKlub.IdKlub;
                     string nazov = ft.NazovTimu;
                     if (ft.Logo != null)
                     {
@@ -321,7 +312,7 @@ namespace LGR_Futbal.Triedy
                     param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int16);
                     param[0].Value = kategoria;
                     param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int16);
-                    param[1].Value = klub;
+                    param[1].Value = idklub;
                     param[2] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
                     param[2].Value = nazov;
                     param[3] = cmd.Parameters.Add("logo", OracleDbType.Blob);
@@ -414,7 +405,7 @@ namespace LGR_Futbal.Triedy
                     OracleParameter[] param1 = new OracleParameter[6];
 
                     int? idTimu = null;
-                    if (h.IdFutbalovyTim == 0)
+                    if (h.IdFutbalovyTim != 0)
                         idTimu = h.IdFutbalovyTim;
                     string pozicia = null;
                     if (!h.Pozicia.Equals(string.Empty))
@@ -627,6 +618,8 @@ namespace LGR_Futbal.Triedy
                             osoba.Priezvisko = reader.GetString(2);
                         if (!reader.IsDBNull(3))
                             osoba.DatumNarodenia = reader.GetDateTime(3);
+                        if (!reader.IsDBNull(4))
+                            osoba.Pohlavie = reader.GetInt16(4);
                     }
                 }
                 conn.Close();
@@ -704,10 +697,11 @@ namespace LGR_Futbal.Triedy
                     param[1].Value = h.Priezvisko;
                     param[2] = cmd.Parameters.Add("datum_narodenia", OracleDbType.Date);
                     param[2].Value = h.DatumNarodenia;
-                    param[3] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
-                    param[3].Value = h.IdOsoba;
-                    param[4] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
-                    param[4].Value = h.Pohlavie;
+                    param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
+                    param[3].Value = h.Pohlavie;
+                    param[4] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
+                    param[4].Value = h.IdOsoba;
+                    
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -860,8 +854,6 @@ namespace LGR_Futbal.Triedy
                                 rozhodca.IdRozhodca = reader.GetInt16(0);
                             if (!reader.IsDBNull(1))
                                 rozhodca.IdOsoba = reader.GetInt16(1);
-                            if (!reader.IsDBNull(2))
-                                rozhodca.DatumUkoncenia = reader.GetDateTime(2);
                             NastavOsudaje(rozhodca);
                             rozhodcovia.Add(rozhodca);
                         }
@@ -883,13 +875,15 @@ namespace LGR_Futbal.Triedy
                 try
                 {
                     conn.Open();
-                    string cmdQuery1 = "INSERT INTO osoba(meno, priezvisko) VALUES(:meno, :priezvisko)";
+                    string cmdQuery1 = "INSERT INTO osoba(meno, priezvisko, pohlavie) VALUES(:meno, :priezvisko, :pohlavie)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
-                    OracleParameter[] param = new OracleParameter[1];
+                    OracleParameter[] param = new OracleParameter[3];
                     param[0] = cmd.Parameters.Add("meno", OracleDbType.Varchar2);
                     param[0].Value = rozhodca.Meno;
                     param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
                     param[1].Value = rozhodca.Priezvisko;
+                    param[2] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
+                    param[2].Value = rozhodca.Pohlavie;
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
@@ -904,7 +898,7 @@ namespace LGR_Futbal.Triedy
                     cmd.CommandText = cmdQuery3;
                     OracleParameter param1 = new OracleParameter("id_osoba", OracleDbType.Int16);
                     param1.Value = ID;
-                   
+                    cmd.Parameters.Add(param1);
                     cmd.ExecuteNonQuery();
 
                     conn.Close();
@@ -996,6 +990,8 @@ namespace LGR_Futbal.Triedy
                             Rozhodca = new Rozhodca();
                             if (!reader.IsDBNull(0))
                                 Rozhodca.IdRozhodca = reader.GetInt16(0);
+                            if (!reader.IsDBNull(1))
+                                Rozhodca.IdOsoba = reader.GetInt16(1);
                             NastavOsudaje(Rozhodca);
                         }
 

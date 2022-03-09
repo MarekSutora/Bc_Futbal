@@ -187,6 +187,7 @@ namespace LGR_Futbal.Forms
                 skRadioButton.Checked = false;
                 czRadioButton.Checked = true;
             }
+            this.rozhodcovia = rozhodcovia;
             domaciT = domaciTim;
             hostiaT = hostiaTim;
             zoznamSuborov = new List<string>();
@@ -679,7 +680,7 @@ namespace LGR_Futbal.Forms
                     vybratButton.Enabled = true;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 typyZapasovListBox.Items.Clear();
                 zoznamTypovZapasu.Clear();
@@ -704,7 +705,7 @@ namespace LGR_Futbal.Forms
                 textWriter = new StreamWriter(originalFolder + "\\" + typyZapasovSubor);
                 serializer.Serialize(textWriter, zoznamTypovZapasu);
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -1124,7 +1125,7 @@ namespace LGR_Futbal.Forms
 
         private void nastavMuzstvoHostiabutton_Click(object sender, EventArgs e)
         {
-            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT, databazaTimov);
             hraciZapasForm.Show();
         }
 
