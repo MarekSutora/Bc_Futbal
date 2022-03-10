@@ -12,7 +12,7 @@ using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
-    public partial class KopySettingsForm : Form
+    public partial class OutSettingsForm : Form
     {
         private Zapas zapas = null;
         private FutbalovyTim futbalovyTim = null;
@@ -23,12 +23,11 @@ namespace LGR_Futbal.Forms
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
-        public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        public OutSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
-            cas = DateTime.Now;
-            this.Text = "Kop";
             this.zapas = zapas;
+            cas = DateTime.Now;
             this.futbalovyTim = tim;
             this.nadstavenaMinuta = nadstavenaMinuta;
             this.nadstavenyCas = nadstavenyCas;
@@ -70,36 +69,20 @@ namespace LGR_Futbal.Forms
                 hrac.Meno = hrajuci[lastIndex].Meno;
                 hrac.Priezvisko = hrajuci[lastIndex].Priezvisko;
             }
-            Kop kop = new Kop();
-            kop.Hrac = hrac;
-            kop.Minuta = minuta;
-            kop.NadstavenaMinuta = nadstavenaMinuta;
-            kop.Predlzenie = nadstavenyCas ? 1 : 0;
-            kop.Polcas = polcas;
-            kop.AktualnyCas = cas;
-            if (priamyRB.Checked)
-            {
-                kop.IdTypKopu = 1;
-            } 
-            else if (nepriamyRB.Checked)
-            {
-                kop.IdTypKopu = 2;
-            } 
-            else if (rohovyRB.Checked)
-            {
-                kop.IdTypKopu = 3;
-            }
-            else
-            {
-                kop.IdTypKopu = 4;
-            }
-            zapas.Udalosti.Add(kop);
+            Out _out = new Out();
+            _out.Hrac = hrac;
+            _out.Minuta = minuta;
+            _out.NadstavenaMinuta = nadstavenaMinuta;
+            _out.Predlzenie = nadstavenyCas ? 1 : 0;
+            _out.Polcas = polcas;
+            _out.AktualnyCas = cas;
+            zapas.Udalosti.Add(_out);
 
             var w = new Form() { Size = new Size(0, 0) };
             Task.Delay(TimeSpan.FromSeconds(1))
                 .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
 
-            MessageBox.Show(w, "Kop uspesne pridany", "Pridane!");
+            MessageBox.Show(w, "Offside uspesne pridany", "Pridane!");
             this.Close();
         }
 
@@ -119,7 +102,7 @@ namespace LGR_Futbal.Forms
                 hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor = Color.Green;
                 lastIndex = hrajuListView.SelectedIndices[0];
                 hrajuListView.SelectedItems.Clear();
-                
+
             }
         }
     }

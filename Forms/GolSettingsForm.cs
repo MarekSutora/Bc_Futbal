@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+
 namespace LGR_Futbal.Forms
 {
     public delegate void GoalSettingsConfirmedHandler(Hrac h, bool priznak, int novyStav);
@@ -26,12 +27,21 @@ namespace LGR_Futbal.Forms
         private FutbalovyTim t;
         private bool priznak;
         private int stav;
+        private Zapas zapas = null;
+        private FutbalovyTim futbalovyTim = null;
+        private List<Hrac> hrajuci = null;
+        private bool nadstavenyCas = false;
+        private int nadstavenaMinuta = 0;
+        private int lastIndex = -1;
+        private int minuta = -1;
+        private int polcas = -1;
+        private DateTime cas;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public GolSettingsForm(FutbalovyTim tim, bool domaciPriznak, int aktualneSkore)
+        public GolSettingsForm(FutbalovyTim tim, bool domaciPriznak, int aktualneSkore, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
             
@@ -49,6 +59,13 @@ namespace LGR_Futbal.Forms
             priznak = domaciPriznak;
             stav = aktualneSkore;
             numericUpDown1.Value = stav;
+            this.zapas = zapas;
+            futbalovyTim = tim;
+            cas = DateTime.Now;
+            this.nadstavenaMinuta = nadstavenaMinuta;
+            this.nadstavenyCas = nadstavenyCas;
+            this.minuta = minuta;
+            this.polcas = polcas;
 
             if (stav == 0)
             {
@@ -65,9 +82,15 @@ namespace LGR_Futbal.Forms
                     {
                         zoznam.Add(h);
                         if (!h.CisloDresu.Equals(string.Empty))
+                        {
                             hraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                            asistHraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        }   
                         else
+                        {
                             hraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                            asistHraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                        }         
                     }
                 }
             }
@@ -80,7 +103,7 @@ namespace LGR_Futbal.Forms
                     potvrditButton.Enabled = false;
                 else
                 {
-                    hraciLB.SelectedIndex = 0;
+                    //hraciLB.SelectedIndex = 0;
                     potvrditButton.Enabled = true;
                 }
             }
@@ -91,9 +114,34 @@ namespace LGR_Futbal.Forms
             if (OnGoalSettingsConfirmed != null)
             {
                 if (t == null)
+                {
                     OnGoalSettingsConfirmed(null, priznak, stav + 1);
+                }    
                 else
-                    OnGoalSettingsConfirmed(zoznam[hraciLB.SelectedIndex], priznak, stav + 1);
+                {
+                    if (hraciLB.SelectedIndex != -1)
+                    {
+                        Gol gol = new Gol();
+                        gol.Strielajuci = zoznam[hraciLB.SelectedIndex];
+                        if(asistHraciLB.SelectedIndex != -1)
+                        {
+                            gol.Asistujuci = zoznam[asistHraciLB.SelectedIndex];
+                        }
+                        gol.TypGolu = checkBox1.Checked ? 2 : 1;
+                        gol.Minuta = minuta;
+                        gol.NadstavenaMinuta = nadstavenaMinuta;
+                        gol.Predlzenie = nadstavenyCas ? 1 : 0;
+                        gol.Polcas = polcas;
+                        gol.AktualnyCas = cas;
+                        zapas.Udalosti.Add(gol);
+                        OnGoalSettingsConfirmed(zoznam[hraciLB.SelectedIndex], priznak, stav + 1);
+                    } 
+                    else
+                    {
+                        MessageBox.Show("Nevybrali ste strelca gólu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }      
+                }
+                    
             }
 
             this.Close();
@@ -173,5 +221,17 @@ namespace LGR_Futbal.Forms
         }
 
         #endregion
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                asistHraciLB.SelectedIndex = -1;
+                asistHraciLB.Enabled = false;
+            } else
+            {
+                asistHraciLB.Enabled = true;
+            }
+        }
     }
 }

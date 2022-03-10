@@ -148,13 +148,13 @@ namespace LGR_Futbal.Triedy
                                 ft.IdFutbalovyTim = reader.GetInt16(0);
                             if (!reader.IsDBNull(1))
                                 ft.Kategoria = reader.GetInt16(1);
+                            if (!reader.IsDBNull(2))
+                                ft.NazovTimu = reader.GetString(2);
                             if (!reader.IsDBNull(3))
-                                ft.NazovTimu = reader.GetString(3);
+                                ft.DatumVytvorenia = reader.GetDateTime(3);
                             if (!reader.IsDBNull(4))
-                                ft.DatumVytvorenia = reader.GetDateTime(4);
-                            if (!reader.IsDBNull(5))
                             {
-                                ft.LogoBlob = reader.GetOracleBlob(5).Value;
+                                ft.LogoBlob = reader.GetOracleBlob(4).Value;
                                 ft.LogoImage = byteArrayToImage(ft.LogoBlob);
                             }
                             timy.Add(ft);

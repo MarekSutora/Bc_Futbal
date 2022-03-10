@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using System.Threading.Tasks;
+using System.Drawing;
 
 namespace LGR_Futbal.Forms
 {
@@ -19,12 +21,20 @@ namespace LGR_Futbal.Forms
         private List<Hrac> odchMoznosti;
         private List<Hrac> nastMoznosti;
         private bool domaciTim;
-
+        private Zapas zapas = null;
+        private FutbalovyTim futbalovyTim = null;
+        private List<Hrac> hrajuci = null;
+        private bool nadstavenyCas = false;
+        private int nadstavenaMinuta = 0;
+        private int lastIndex = -1;
+        private int minuta = -1;
+        private int polcas = -1;
+        private DateTime cas;
         #endregion
 
         #region Konstruktor a metody
 
-        public StriedanieSettingsForm(FutbalovyTim tim, string nazovTimu, bool jeDomaci)
+        public StriedanieSettingsForm(FutbalovyTim tim, string nazovTimu, bool jeDomaci, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
 
@@ -40,7 +50,13 @@ namespace LGR_Futbal.Forms
             domaciTim = jeDomaci;
             spracovavanyTim = tim;
             nazov = nazovTimu;
-
+            this.zapas = zapas;
+            futbalovyTim = tim;
+            cas = DateTime.Now;
+            this.nadstavenaMinuta = nadstavenaMinuta;
+            this.nadstavenyCas = nadstavenyCas;
+            this.minuta = minuta;
+            this.polcas = polcas;
             odchMoznosti = new List<Hrac>();
             nastMoznosti = new List<Hrac>();
 
@@ -97,8 +113,25 @@ namespace LGR_Futbal.Forms
                 {
                     Hrac h1 = odchMoznosti[hraciLBodch.SelectedIndex];
                     Hrac h2 = nastMoznosti[hraciLBnast.SelectedIndex];
+                    Striedanie striedanie = new Striedanie(); 
+                    striedanie.Striedajuci = h2;
+                    striedanie.Striedany = h1;
+                    striedanie.Minuta = minuta;
+                    striedanie.NadstavenaMinuta = nadstavenaMinuta;
+                    striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
+                    striedanie.Polcas = polcas;
+                    striedanie.AktualnyCas = cas;
+                    zapas.Udalosti.Add(striedanie);
+
+                    var w = new Form() { Size = new Size(0, 0) };
+                    Task.Delay(TimeSpan.FromSeconds(1))
+                        .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
+
+                    MessageBox.Show(w, "Striedanie uspesne pridane", "Pridane!");
+
                     OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);
                 }
+                
             }
             this.Close();
         }

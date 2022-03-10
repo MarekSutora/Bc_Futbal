@@ -39,6 +39,7 @@ namespace LGR_Futbal
         private int vyskaTabule;
         private int dlzkaPolcasu;
         private int pocetNadstavenychMinut = 0;
+        private int nadstavenaMinuta = -1;
         private int polcas = 0;
         private bool hraBezi = false;
         private bool poPreruseni = false;
@@ -57,6 +58,7 @@ namespace LGR_Futbal
         private int skoreHostia = 0;
         private int animacnyCas = 3;
         private PriebehZapasu priebeh;
+        private Zapas zapas = null;
         private int odohraneMinuty;
         private string defaultColorScheme = string.Empty;
         private FontyTabule pisma;
@@ -91,126 +93,6 @@ namespace LGR_Futbal
         #endregion
 
         #region Konstruktor a metody
-
-        private string preloz(string povodnyText)
-        {
-            string text = povodnyText;
-
-            if (indexJazyka == 0) // SK
-            {
-                text = text.Replace("DOMÁCÍ", "DOMÁCI");
-                text = text.Replace("HOSTÉ", "HOSTIA");
-                text = text.Replace("ŽLUTÁ", "ŽLTÁ");
-                text = text.Replace("ZMĚNA", "ZMENA");
-                text = text.Replace("STŘÍDÁNÍ", "STRIEDANIE");
-                text = text.Replace("Povolit přerušení hry:", "Povoliť prerušenie hry:");
-                text = text.Replace("Délka poločasu", "Dĺžka polčasu");
-                text = text.Replace("Nastavený", "Nadstavený");
-                text = text.Replace("UKONČIŤ", "UKONČIT");
-                text = text.Replace("Změnit čas", "Zmeniť čas");
-                text = text.Replace("PREZENTACE", "PREDSTAV");
-                text = text.Replace("HRÁČŮ", "HRÁČOV");
-                text = text.Replace("poločas", "polčas");
-            }
-            else if (indexJazyka == 1) // CZ
-            {
-                text = text.Replace("DOMÁCI", "DOMÁCÍ");
-                text = text.Replace("HOSTIA", "HOSTÉ");
-                text = text.Replace("ŽLTÁ", "ŽLUTÁ");
-                text = text.Replace("ZMENA", "ZMĚNA");
-                text = text.Replace("STRIEDANIE", "STŘÍDÁNÍ");
-                text = text.Replace("Povoliť prerušenie hry:", "Povolit přerušení hry:");
-                text = text.Replace("Dĺžka polčasu", "Délka poločasu");
-                text = text.Replace("Nadstavený", "Nastavený");
-                text = text.Replace("UKONČIŤ", "UKONČIT");
-                text = text.Replace("Zmeniť čas", "Změnit čas");
-                text = text.Replace("PREDSTAV", "PREZENTACE");
-                text = text.Replace("HRÁČOV", "HRÁČŮ");
-                text = text.Replace("polčas", "poločas");
-            }
-            return text;
-        }
-
-        private void nastavJazyk(int cisloJazyka)
-        {
-            indexJazyka = cisloJazyka;
-            Settings.Default.Jazyk = indexJazyka;
-            Settings.Default.Save();
-
-            if (formularTabule != null)
-                formularTabule.prelozTabuluDoJazyka(indexJazyka);
-
-            domaciLabel.Text = preloz(domaciLabel.Text);
-            hostiaLabel.Text = preloz(hostiaLabel.Text);
-            domZltaKartaButton.Text = preloz(domZltaKartaButton.Text);
-            hosZltaKartaButton.Text = preloz(hosZltaKartaButton.Text);
-            domZmenaStavuButton.Text = preloz(domZmenaStavuButton.Text);
-            hosZmenaStavuButton.Text = preloz(hosZmenaStavuButton.Text);
-            domStriedanieButton.Text = preloz(domStriedanieButton.Text);
-            hosStriedanieButton.Text = preloz(hosStriedanieButton.Text);
-            infoLabel3.Text = preloz(infoLabel3.Text);
-            infoLabel2.Text = preloz(infoLabel2.Text);
-            infoLabel.Text = preloz(infoLabel.Text);
-            casButton.Text = preloz(casButton.Text);
-            closeButton.Text = preloz(closeButton.Text);
-            zmenitCasButton.Text = preloz(zmenitCasButton.Text);
-            predstavButton.Text = preloz(predstavButton.Text);
-            polcasButton.Text = preloz(polcasButton.Text);
-
-            this.Focus();
-        }
-
-        private FarebnaSchema dajSchemu()
-        {
-            FarebnaSchema schema = new FarebnaSchema();
-            schema.setNadpisDomFarba(domaciLabel.ForeColor);
-            schema.setNadpisHosFarba(hostiaLabel.ForeColor);
-            schema.setKoniecFarba(koniecColor);
-            schema.setCasFarba(casLabel.ForeColor);
-            schema.setSkoreFarba(skoreDomaciLabel.ForeColor);
-            schema.setPredlzenieFarba(predlzenieColor);
-            schema.setPolcasFarba(polcasColor);
-            return schema;           
-        }
-
-        private String convertFontToString(Font f)
-        {
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-            return converter.ConvertToString(f);
-        }
-
-        private Font convertStringToFont(String s)
-        {
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-            return (Font)converter.ConvertFromString(s);
-        }
-
-        public void setDefaultColors()
-        {
-            casColor = Color.Lime;
-            polcasColor = Color.Lime;
-            predlzenieColor = Color.Yellow;
-
-            domaciLabel.ForeColor = Color.Aqua;
-            hostiaLabel.ForeColor = Color.Aqua;
-            skoreDomaciLabel.ForeColor = Color.Red;
-            skoreHostiaLabel.ForeColor = Color.Red;
-        }
-
-        private void setDefaults()
-        {
-            indexJazyka = 0;
-            zobrazitPozadie = false;
-            zobrazitNastaveniaPoSpusteni = true;
-            povolitPrerusenieHry = false;
-            sirkaTabule = 1280;
-            vyskaTabule = 720;
-            dlzkaPolcasu = 45;
-            odstranovatDiakritiku = true;
-            animacnyCas = 3;
-            zobrazitNahradnikov = true;
-            zobrazitFunkcionarov = true;
-        }
 
         public RiadiaciForm()
         {
@@ -352,6 +234,126 @@ namespace LGR_Futbal
             }
         }
 
+        private string preloz(string povodnyText)
+        {
+            string text = povodnyText;
+
+            if (indexJazyka == 0) // SK
+            {
+                text = text.Replace("DOMÁCÍ", "DOMÁCI");
+                text = text.Replace("HOSTÉ", "HOSTIA");
+                text = text.Replace("ŽLUTÁ", "ŽLTÁ");
+                text = text.Replace("ZMĚNA", "ZMENA");
+                text = text.Replace("STŘÍDÁNÍ", "STRIEDANIE");
+                text = text.Replace("Povolit přerušení hry:", "Povoliť prerušenie hry:");
+                text = text.Replace("Délka poločasu", "Dĺžka polčasu");
+                text = text.Replace("Nastavený", "Nadstavený");
+                text = text.Replace("UKONČIŤ", "UKONČIT");
+                text = text.Replace("Změnit čas", "Zmeniť čas");
+                text = text.Replace("PREZENTACE", "PREDSTAV");
+                text = text.Replace("HRÁČŮ", "HRÁČOV");
+                text = text.Replace("poločas", "polčas");
+            }
+            else if (indexJazyka == 1) // CZ
+            {
+                text = text.Replace("DOMÁCI", "DOMÁCÍ");
+                text = text.Replace("HOSTIA", "HOSTÉ");
+                text = text.Replace("ŽLTÁ", "ŽLUTÁ");
+                text = text.Replace("ZMENA", "ZMĚNA");
+                text = text.Replace("STRIEDANIE", "STŘÍDÁNÍ");
+                text = text.Replace("Povoliť prerušenie hry:", "Povolit přerušení hry:");
+                text = text.Replace("Dĺžka polčasu", "Délka poločasu");
+                text = text.Replace("Nadstavený", "Nastavený");
+                text = text.Replace("UKONČIŤ", "UKONČIT");
+                text = text.Replace("Zmeniť čas", "Změnit čas");
+                text = text.Replace("PREDSTAV", "PREZENTACE");
+                text = text.Replace("HRÁČOV", "HRÁČŮ");
+                text = text.Replace("polčas", "poločas");
+            }
+            return text;
+        }
+
+        private void nastavJazyk(int cisloJazyka)
+        {
+            indexJazyka = cisloJazyka;
+            Settings.Default.Jazyk = indexJazyka;
+            Settings.Default.Save();
+
+            if (formularTabule != null)
+                formularTabule.prelozTabuluDoJazyka(indexJazyka);
+
+            domaciLabel.Text = preloz(domaciLabel.Text);
+            hostiaLabel.Text = preloz(hostiaLabel.Text);
+            domZltaKartaButton.Text = preloz(domZltaKartaButton.Text);
+            hosZltaKartaButton.Text = preloz(hosZltaKartaButton.Text);
+            domZmenaStavuButton.Text = preloz(domZmenaStavuButton.Text);
+            hosZmenaStavuButton.Text = preloz(hosZmenaStavuButton.Text);
+            domStriedanieButton.Text = preloz(domStriedanieButton.Text);
+            hosStriedanieButton.Text = preloz(hosStriedanieButton.Text);
+            infoLabel3.Text = preloz(infoLabel3.Text);
+            infoLabel2.Text = preloz(infoLabel2.Text);
+            infoLabel.Text = preloz(infoLabel.Text);
+            casButton.Text = preloz(casButton.Text);
+            closeButton.Text = preloz(closeButton.Text);
+            zmenitCasButton.Text = preloz(zmenitCasButton.Text);
+            predstavButton.Text = preloz(predstavButton.Text);
+            polcasButton.Text = preloz(polcasButton.Text);
+
+            this.Focus();
+        }
+
+        private FarebnaSchema dajSchemu()
+        {
+            FarebnaSchema schema = new FarebnaSchema();
+            schema.setNadpisDomFarba(domaciLabel.ForeColor);
+            schema.setNadpisHosFarba(hostiaLabel.ForeColor);
+            schema.setKoniecFarba(koniecColor);
+            schema.setCasFarba(casLabel.ForeColor);
+            schema.setSkoreFarba(skoreDomaciLabel.ForeColor);
+            schema.setPredlzenieFarba(predlzenieColor);
+            schema.setPolcasFarba(polcasColor);
+            return schema;
+        }
+
+        private String convertFontToString(Font f)
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+            return converter.ConvertToString(f);
+        }
+
+        private Font convertStringToFont(String s)
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+            return (Font)converter.ConvertFromString(s);
+        }
+
+        public void setDefaultColors()
+        {
+            casColor = Color.Lime;
+            polcasColor = Color.Lime;
+            predlzenieColor = Color.Yellow;
+
+            domaciLabel.ForeColor = Color.Aqua;
+            hostiaLabel.ForeColor = Color.Aqua;
+            skoreDomaciLabel.ForeColor = Color.Red;
+            skoreHostiaLabel.ForeColor = Color.Red;
+        }
+
+        private void setDefaults()
+        {
+            indexJazyka = 0;
+            zobrazitPozadie = false;
+            zobrazitNastaveniaPoSpusteni = true;
+            povolitPrerusenieHry = false;
+            sirkaTabule = 1280;
+            vyskaTabule = 720;
+            dlzkaPolcasu = 45;
+            odstranovatDiakritiku = true;
+            animacnyCas = 3;
+            zobrazitNahradnikov = true;
+            zobrazitFunkcionarov = true;
+        }
+
         private void SpracujCas()
         {
             try
@@ -491,6 +493,7 @@ namespace LGR_Futbal
                         }
                         else
                         {
+                            nadstavenaMinuta = m - (polcas * dlzkaPolcasu) + 1;
                             // Plynutie nadstaveneho casu
                             if (milis <= 500)
                                 casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
@@ -508,8 +511,11 @@ namespace LGR_Futbal
                         ulozPriebehHry();
                     }
 
-                    aktualnaMinuta = m;
-                    aktualnaSekunda = s;
+                    if (!nadstavenyCas)
+                    {
+                        aktualnaMinuta = m;
+                        aktualnaSekunda = s;
+                    }
 
                     casPodrobneLabel.Text = m.ToString("D2")
                         + ":" + s.ToString("D2")
@@ -847,24 +853,23 @@ namespace LGR_Futbal
                     // Ak to nie je po preruseni, spusta sa novy polcas
                     if (polcas == 0)
                     {
-                        // Zacina sa zapas, treba inicializovat hracov (pocet zapasov,
-                        // zlte a cervene karty)
-                        //if (timDomaci == null || timDomaci.ZoznamHracov.Count <= 0)
-                        //{
-                        //    domStriedanieButton.Enabled = false;
-                        //    domOffsideButton.Enabled = false;
-                        //    domKopyButton.Enabled = false;  
-                        //    domOutButton.Enabled = false;
-                        //    domUdalostButton.Enabled = false;
-                        //}
-                        //if (timHostia == null || timHostia.ZoznamHracov.Count <= 0)
-                        //{
-                        //    hosStriedanieButton.Enabled = false;
-                        //    hosOffsideButton.Enabled = false;
-                        //    hosKopyButton.Enabled = false;
-                        //    hosOutButton.Enabled = false;
-                        //    hosUdalostButton.Enabled = false;
-                        //}
+                        zapas = new Zapas();
+                        //Zacina sa zapas, treba inicializovat hracov(pocet zapasov,
+                        //zlte a cervene karty)
+                        if (timDomaci == null || timDomaci.ZoznamHracov.Count <= 0)
+                        {
+                            domOffsideButton.Enabled = false;
+                            domKopyButton.Enabled = false;
+                            domOutButton.Enabled = false;
+                            domUdalostButton.Enabled = false;
+                        }
+                        if (timHostia == null || timHostia.ZoznamHracov.Count <= 0)
+                        {
+                            hosOffsideButton.Enabled = false;
+                            hosKopyButton.Enabled = false;
+                            hosOutButton.Enabled = false;
+                            hosUdalostButton.Enabled = false;
+                        }
                         InicializaciaHracov();
                     }
 
@@ -999,6 +1004,7 @@ namespace LGR_Futbal
                         {
                             timDomaci.ZoznamHracov[i].ZltaKarta = false;
                             timDomaci.ZoznamHracov[i].CervenaKarta = true;
+                            //timDomaci.ZoznamHracov[i].HraAktualnyZapas = false;
                             ok = true;
                             break;
                         }
@@ -1011,6 +1017,7 @@ namespace LGR_Futbal
                             {
                                 timDomaci.ZoznamHracov[i].ZltaKarta = false;
                                 timHostia.ZoznamHracov[i].CervenaKarta = true;
+                                //timDomaci.ZoznamHracov[i].HraAktualnyZapas = false;
                             }
                         }
                     }
@@ -1075,7 +1082,7 @@ namespace LGR_Futbal
 
         private void DomZmenaStavuButton_Click(object sender, EventArgs e)
         {
-            GolSettingsForm gsf = new GolSettingsForm(timDomaci, true, skoreDomaci);
+            GolSettingsForm gsf = new GolSettingsForm(timDomaci, true, skoreDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             gsf.OnGoalSettingsConfirmed += Gsf_OnGoalSettingsConfirmed;
             gsf.OnGoalValueConfirmed += Gsf_OnGoalValueConfirmed;
             gsf.Show();
@@ -1141,7 +1148,7 @@ namespace LGR_Futbal
 
         private void HosZmenaStavuButton_Click(object sender, EventArgs e)
         {
-            GolSettingsForm gsf = new GolSettingsForm(timHostia, false, skoreHostia);
+            GolSettingsForm gsf = new GolSettingsForm(timHostia, false, skoreHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             gsf.OnGoalSettingsConfirmed += Gsf_OnGoalSettingsConfirmed;
             gsf.OnGoalValueConfirmed += Gsf_OnGoalValueConfirmed;
             gsf.Show();
@@ -1169,7 +1176,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timDomaci, domaciLabel.Text, true);
+            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timDomaci, domaciLabel.Text, true, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             ssf.OnStriedanieHraciSelected += Ssf_OnStriedanieHraciSelected;
             ssf.Show();
         }
@@ -1202,7 +1209,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timHostia, hostiaLabel.Text, false);
+            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timHostia, hostiaLabel.Text, false, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             ssf.OnStriedanieHraciSelected += Ssf_OnStriedanieHraciSelected;
             ssf.Show();
         }
@@ -2033,17 +2040,20 @@ namespace LGR_Futbal
 
         private void domKopyButton_Click(object sender, EventArgs e)
         {
-
+            KopySettingsForm kps = new KopySettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            kps.ShowDialog();
         }
 
         private void domOffsideButton_Click(object sender, EventArgs e)
         {
-
+            OffsideSettingsForm osf = new OffsideSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            osf.ShowDialog();
         }
 
         private void domOutButton_Click(object sender, EventArgs e)
         {
-
+            OutSettingsForm osf = new OutSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            osf.ShowDialog();
         }
 
         private void domUdalostButton_Click(object sender, EventArgs e)
@@ -2053,17 +2063,20 @@ namespace LGR_Futbal
 
         private void hosKopyButton_Click(object sender, EventArgs e)
         {
-
+            KopySettingsForm ksf = new KopySettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            ksf.ShowDialog();
         }
 
         private void hosOffsideButton_Click(object sender, EventArgs e)
         {
-
+            OffsideSettingsForm osf = new OffsideSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            osf.ShowDialog();
         }
 
         private void hosOutButton_Click(object sender, EventArgs e)
         {
-
+            OutSettingsForm osf = new OutSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
+            osf.ShowDialog();
         }
 
         private void hosUdalostButton_Click(object sender, EventArgs e)

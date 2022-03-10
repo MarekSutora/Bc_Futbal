@@ -15,7 +15,8 @@ namespace LGR_Futbal.Model
         public double Minuta { get; set; }
         public int Polcas { get; set; }
         public int Predlzenie { get; set; }
-
+        public int NadstavenaMinuta { get; set; }
+        public DateTime AktualnyCas { get; set; }
         public Udalost()
         {
 

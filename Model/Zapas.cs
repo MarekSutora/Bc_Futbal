@@ -18,10 +18,10 @@ namespace LGR_Futbal.Model
         public int NadstavenyCas1 { get; set; }
         public int NadstavenyCas2 { get; set; }
         public int MyProperty { get; set; }
-        public Queue<Udalost> Udalosti { get; set; }
+        public List<Udalost> Udalosti { get; set; }
         public Zapas()
         {
-            Udalosti = new Queue<Udalost>();
+            Udalosti = new List<Udalost>();
         }
     }
 }

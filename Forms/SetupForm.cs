@@ -634,6 +634,8 @@ namespace LGR_Futbal.Forms
             domaciT = null;
             hostiaT = null;
             zrusitDatabazaButton.Enabled = false;
+            nastavMuzstvoDomacibutton.Enabled = false;
+            nastavMuzstvoHostiabutton.Enabled = false;
         }
 
         private void NacitatDatabazaButton_Click(object sender, EventArgs e)

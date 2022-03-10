@@ -30,10 +30,10 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.zrusitButton = new System.Windows.Forms.Button();
-            this.aktivovatButton = new System.Windows.Forms.Button();
             this.hrajuListView = new System.Windows.Forms.ListView();
             this.nahradniciListView = new System.Windows.Forms.ListView();
+            this.zrusitButton = new System.Windows.Forms.Button();
+            this.aktivovatButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -57,34 +57,6 @@
             this.label1.Size = new System.Drawing.Size(161, 20);
             this.label1.TabIndex = 34;
             this.label1.Text = "Základná jedenástka:";
-            // 
-            // zrusitButton
-            // 
-            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(680, 64);
-            this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zrusitButton.Name = "zrusitButton";
-            this.zrusitButton.Size = new System.Drawing.Size(107, 52);
-            this.zrusitButton.TabIndex = 30;
-            this.zrusitButton.Text = "Zrušiť     ";
-            this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitButton.UseVisualStyleBackColor = true;
-            this.zrusitButton.Click += new System.EventHandler(this.zrusitButton_Click);
-            // 
-            // aktivovatButton
-            // 
-            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(680, 9);
-            this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(107, 52);
-            this.aktivovatButton.TabIndex = 29;
-            this.aktivovatButton.Text = "Uložiť     \r\nzmeny     ";
-            this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.aktivovatButton.UseVisualStyleBackColor = true;
-            this.aktivovatButton.Click += new System.EventHandler(this.aktivovatButton_Click);
             // 
             // hrajuListView
             // 
@@ -117,6 +89,34 @@
             this.nahradniciListView.UseCompatibleStateImageBehavior = false;
             this.nahradniciListView.View = System.Windows.Forms.View.Details;
             this.nahradniciListView.SelectedIndexChanged += new System.EventHandler(this.nahradniciListView_SelectedIndexChanged);
+            // 
+            // zrusitButton
+            // 
+            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.zrusitButton.Location = new System.Drawing.Point(680, 64);
+            this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.zrusitButton.Name = "zrusitButton";
+            this.zrusitButton.Size = new System.Drawing.Size(107, 52);
+            this.zrusitButton.TabIndex = 30;
+            this.zrusitButton.Text = "Zrušiť     ";
+            this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.zrusitButton.UseVisualStyleBackColor = true;
+            this.zrusitButton.Click += new System.EventHandler(this.zrusitButton_Click);
+            // 
+            // aktivovatButton
+            // 
+            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aktivovatButton.Location = new System.Drawing.Point(680, 9);
+            this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.aktivovatButton.Name = "aktivovatButton";
+            this.aktivovatButton.Size = new System.Drawing.Size(107, 52);
+            this.aktivovatButton.TabIndex = 29;
+            this.aktivovatButton.Text = "Uložiť     \r\nzmeny     ";
+            this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.aktivovatButton.UseVisualStyleBackColor = true;
+            this.aktivovatButton.Click += new System.EventHandler(this.aktivovatButton_Click);
             // 
             // HraciKartyForm
             // 

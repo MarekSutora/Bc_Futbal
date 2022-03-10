@@ -524,7 +524,7 @@
             this.domOffsideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.domOffsideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domOffsideButton.ForeColor = System.Drawing.Color.White;
-            this.domOffsideButton.Location = new System.Drawing.Point(9, 240);
+            this.domOffsideButton.Location = new System.Drawing.Point(9, 239);
             this.domOffsideButton.Margin = new System.Windows.Forms.Padding(2);
             this.domOffsideButton.Name = "domOffsideButton";
             this.domOffsideButton.Size = new System.Drawing.Size(147, 36);
@@ -543,7 +543,7 @@
             this.domOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.domOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domOutButton.ForeColor = System.Drawing.Color.White;
-            this.domOutButton.Location = new System.Drawing.Point(9, 280);
+            this.domOutButton.Location = new System.Drawing.Point(9, 279);
             this.domOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.domOutButton.Name = "domOutButton";
             this.domOutButton.Size = new System.Drawing.Size(147, 36);
@@ -562,13 +562,14 @@
             this.domUdalostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.domUdalostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domUdalostButton.ForeColor = System.Drawing.Color.White;
-            this.domUdalostButton.Location = new System.Drawing.Point(9, 320);
+            this.domUdalostButton.Location = new System.Drawing.Point(9, 319);
             this.domUdalostButton.Margin = new System.Windows.Forms.Padding(2);
             this.domUdalostButton.Name = "domUdalostButton";
             this.domUdalostButton.Size = new System.Drawing.Size(147, 48);
             this.domUdalostButton.TabIndex = 561;
             this.domUdalostButton.Text = "INÁ UDALOSŤ";
             this.domUdalostButton.UseVisualStyleBackColor = false;
+            this.domUdalostButton.Visible = false;
             this.domUdalostButton.Click += new System.EventHandler(this.domUdalostButton_Click);
             this.domUdalostButton.MouseEnter += new System.EventHandler(this.domUdalostButton_MouseEnter);
             this.domUdalostButton.MouseLeave += new System.EventHandler(this.domUdalostButton_MouseLeave);
@@ -611,6 +612,7 @@
             this.hosUdalostButton.TabIndex = 567;
             this.hosUdalostButton.Text = "INÁ UDALOSŤ";
             this.hosUdalostButton.UseVisualStyleBackColor = false;
+            this.hosUdalostButton.Visible = false;
             this.hosUdalostButton.Click += new System.EventHandler(this.hosUdalostButton_Click);
             this.hosUdalostButton.MouseEnter += new System.EventHandler(this.hosUdalostButton_MouseEnter);
             this.hosUdalostButton.MouseLeave += new System.EventHandler(this.hosUdalostButton_MouseLeave);

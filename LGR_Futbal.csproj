@@ -186,6 +186,18 @@
     <Compile Include="Forms\NezaradeniHraciForm.Designer.cs">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OffsideSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OffsideSettingsForm.Designer.cs">
+      <DependentUpon>OffsideSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OutSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OutSettingsForm.Designer.cs">
+      <DependentUpon>OutSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PozadieForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,7 +304,10 @@
     <Compile Include="Model\ClenTimu.cs" />
     <Compile Include="Model\Gol.cs" />
     <Compile Include="Model\Karta.cs" />
+    <Compile Include="Model\Kop.cs" />
+    <Compile Include="Model\Offside.cs" />
     <Compile Include="Model\Osoba.cs" />
+    <Compile Include="Model\Out.cs" />
     <Compile Include="Model\Rozhodca.cs" />
     <Compile Include="Model\Striedanie.cs" />
     <Compile Include="Model\Udalost.cs" />
@@ -353,6 +368,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NezaradeniHraciForm.resx">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OffsideSettingsForm.resx">
+      <DependentUpon>OffsideSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OutSettingsForm.resx">
+      <DependentUpon>OutSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PozadieForm.resx">
       <DependentUpon>PozadieForm.cs</DependentUpon>
