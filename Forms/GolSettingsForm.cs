@@ -28,8 +28,6 @@ namespace LGR_Futbal.Forms
         private bool priznak;
         private int stav;
         private Zapas zapas = null;
-        private FutbalovyTim futbalovyTim = null;
-        private List<Hrac> hrajuci = null;
         private bool nadstavenyCas = false;
         private int nadstavenaMinuta = 0;
         private int lastIndex = -1;
@@ -60,7 +58,6 @@ namespace LGR_Futbal.Forms
             stav = aktualneSkore;
             numericUpDown1.Value = stav;
             this.zapas = zapas;
-            futbalovyTim = tim;
             cas = DateTime.Now;
             this.nadstavenaMinuta = nadstavenaMinuta;
             this.nadstavenyCas = nadstavenyCas;
@@ -103,7 +100,7 @@ namespace LGR_Futbal.Forms
                     potvrditButton.Enabled = false;
                 else
                 {
-                    //hraciLB.SelectedIndex = 0;
+                    hraciLB.SelectedIndex = 0;
                     potvrditButton.Enabled = true;
                 }
             }

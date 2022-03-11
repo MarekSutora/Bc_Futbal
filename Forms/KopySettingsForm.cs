@@ -94,12 +94,6 @@ namespace LGR_Futbal.Forms
                 kop.IdTypKopu = 4;
             }
             zapas.Udalosti.Add(kop);
-
-            var w = new Form() { Size = new Size(0, 0) };
-            Task.Delay(TimeSpan.FromSeconds(1))
-                .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
-
-            MessageBox.Show(w, "Kop uspesne pridany", "Pridane!");
             this.Close();
         }
 

@@ -22,11 +22,8 @@ namespace LGR_Futbal.Forms
         private List<Hrac> nastMoznosti;
         private bool domaciTim;
         private Zapas zapas = null;
-        private FutbalovyTim futbalovyTim = null;
-        private List<Hrac> hrajuci = null;
         private bool nadstavenyCas = false;
         private int nadstavenaMinuta = 0;
-        private int lastIndex = -1;
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
@@ -51,7 +48,6 @@ namespace LGR_Futbal.Forms
             spracovavanyTim = tim;
             nazov = nazovTimu;
             this.zapas = zapas;
-            futbalovyTim = tim;
             cas = DateTime.Now;
             this.nadstavenaMinuta = nadstavenaMinuta;
             this.nadstavenyCas = nadstavenyCas;
@@ -122,12 +118,6 @@ namespace LGR_Futbal.Forms
                     striedanie.Polcas = polcas;
                     striedanie.AktualnyCas = cas;
                     zapas.Udalosti.Add(striedanie);
-
-                    var w = new Form() { Size = new Size(0, 0) };
-                    Task.Delay(TimeSpan.FromSeconds(1))
-                        .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
-
-                    MessageBox.Show(w, "Striedanie uspesne pridane", "Pridane!");
 
                     OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);
                 }

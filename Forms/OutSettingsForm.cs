@@ -78,11 +78,13 @@ namespace LGR_Futbal.Forms
             _out.AktualnyCas = cas;
             zapas.Udalosti.Add(_out);
 
-            var w = new Form() { Size = new Size(0, 0) };
-            Task.Delay(TimeSpan.FromSeconds(1))
-                .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
+            //var w = new Form() { Size = new Size(0, 0) };
+            //Task.Delay(TimeSpan.FromSeconds(1))
+            //    .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
 
-            MessageBox.Show(w, "Offside uspesne pridany", "Pridane!");
+            //MessageBox.Show(w, "Offside uspesne pridany", "Pridane!");
+
+
             this.Close();
         }
 

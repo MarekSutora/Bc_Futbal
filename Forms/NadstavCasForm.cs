@@ -1,6 +1,7 @@
 ﻿using LGR_Futbal.Properties;
 using System;
 using System.Windows.Forms;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -10,10 +11,14 @@ namespace LGR_Futbal.Forms
     {
         public event NadstavenyCasConfirmedHandler OnNadstavenyCasConfirmed;
 
-        public NadstavCasForm(int aktualnaHodnota)
+        private Zapas zapas = null;
+        private int polcas = -1;
+
+        public NadstavCasForm(int aktualnaHodnota, int polcas, Zapas zapas)
         {
             InitializeComponent();
-
+            this.zapas = zapas;
+            this.polcas = polcas;
             if (Settings.Default.Jazyk == 1)
             {
                 this.Text = "Nastavení času";
@@ -118,6 +123,14 @@ namespace LGR_Futbal.Forms
         private void AktivovatButton_Click(object sender, EventArgs e)
         {
             int novaHodnota = (int)dlzkaNadCasuNumUpDown.Value;
+            if (polcas == 1)
+            {
+                zapas.NadstavenyCas1 = novaHodnota;
+            } 
+            else if (polcas == 2)
+            {
+                zapas.NadstavenyCas2 = novaHodnota;
+            }
             if (OnNadstavenyCasConfirmed != null)
                 OnNadstavenyCasConfirmed(novaHodnota);
             this.Close();

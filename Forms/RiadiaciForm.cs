@@ -39,7 +39,7 @@ namespace LGR_Futbal
         private int vyskaTabule;
         private int dlzkaPolcasu;
         private int pocetNadstavenychMinut = 0;
-        private int nadstavenaMinuta = -1;
+        private int nadstavenaMinuta = 0;
         private int polcas = 0;
         private bool hraBezi = false;
         private bool poPreruseni = false;
@@ -470,6 +470,7 @@ namespace LGR_Futbal
                         {
                             nadstavenyCas = false;
                             // Koniec nadstaveneho casu
+                            nadstavenaMinuta = 0;
                             pocetNadstavenychMinut = 0;
                             casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                             formularTabule.SetCas(casLabel.Text, false);
@@ -485,7 +486,7 @@ namespace LGR_Futbal
                                 polcasButton.Text = 2 + ". " + Translate(2) + "\nSTART";
                             }
                             else
-                            {
+                            {    
                                 polcasButton.Text = 1 + ". " + Translate(2) + "\nSTART";
                             }
                             
@@ -818,7 +819,7 @@ namespace LGR_Futbal
 
         private void CasButton_Click(object sender, EventArgs e)
         {
-            NadstavCasForm formular = new NadstavCasForm(pocetNadstavenychMinut);
+            NadstavCasForm formular = new NadstavCasForm(pocetNadstavenychMinut, polcas, zapas);
             formular.OnNadstavenyCasConfirmed += Formular_OnNadstavenyCasConfirmed;
             formular.Show();
         }
@@ -854,6 +855,11 @@ namespace LGR_Futbal
                     if (polcas == 0)
                     {
                         zapas = new Zapas();
+                        zapas.Domaci = timDomaci;
+                        zapas.Hostia = timHostia;
+                        zapas.DatumZapasu = DateTime.Today;
+                        zapas.DlzkaPolcasu = dlzkaPolcasu;
+
                         //Zacina sa zapas, treba inicializovat hracov(pocet zapasov,
                         //zlte a cervene karty)
                         if (timDomaci == null || timDomaci.ZoznamHracov.Count <= 0)
@@ -863,12 +869,26 @@ namespace LGR_Futbal
                             domOutButton.Enabled = false;
                             domUdalostButton.Enabled = false;
                         }
+                        else
+                        {
+                            domOffsideButton.Enabled = true;
+                            domKopyButton.Enabled = true;
+                            domOutButton.Enabled = true;
+                            domUdalostButton.Enabled = true;
+                        }
                         if (timHostia == null || timHostia.ZoznamHracov.Count <= 0)
                         {
                             hosOffsideButton.Enabled = false;
                             hosKopyButton.Enabled = false;
                             hosOutButton.Enabled = false;
                             hosUdalostButton.Enabled = false;
+                        }
+                        else
+                        {
+                            hosOffsideButton.Enabled = true;
+                            hosKopyButton.Enabled = true;
+                            hosOutButton.Enabled = true;
+                            hosUdalostButton.Enabled = true;
                         }
                         InicializaciaHracov();
                     }
@@ -958,7 +978,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timDomaci);
+            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             zksf.OnHracZltaKartaSelected += Zksf_OnHracZltaKartaSelected;
             zksf.Show(); 
         }
@@ -1040,7 +1060,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timHostia);
+            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             zksf.OnHracZltaKartaSelected += Zksf_OnHracZltaKartaSelected;
             zksf.Show();
         }
@@ -1053,7 +1073,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timDomaci);
+            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             cksf.OnHracZltaKartaSelected += Cksf_OnHracZltaKartaSelected;
             cksf.Show();
         }
@@ -1075,7 +1095,7 @@ namespace LGR_Futbal
                 return;
             }
 
-            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timHostia);
+            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, aktualnaMinuta, polcas);
             cksf.OnHracZltaKartaSelected += Cksf_OnHracZltaKartaSelected;
             cksf.Show();
         }
@@ -2082,6 +2102,15 @@ namespace LGR_Futbal
         private void hosUdalostButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void udalostiButton_Click(object sender, EventArgs e)
+        {
+            if (zapas != null)
+            {
+                UdalostiForm uf = new UdalostiForm(zapas);
+                uf.Show();
+            }
         }
     }
 

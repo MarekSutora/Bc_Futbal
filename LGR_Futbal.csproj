@@ -282,6 +282,12 @@
     <Compile Include="Forms\TypZapasuForm.Designer.cs">
       <DependentUpon>TypZapasuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UdalostiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UdalostiForm.Designer.cs">
+      <DependentUpon>UdalostiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ZltaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypZapasuForm.resx">
       <DependentUpon>TypZapasuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UdalostiForm.resx">
+      <DependentUpon>UdalostiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ZltaKartaForm.resx">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>

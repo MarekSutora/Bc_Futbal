@@ -14,10 +14,15 @@ namespace LGR_Futbal.Forms
         public event HracZltaKartaSelectedHandler OnHracZltaKartaSelected;
         private List<Hrac> zoznam;
         private FutbalovyTim t;
-
+        private bool nadstavenyCas = false;
+        private int nadstavenaMinuta = 0;
+        private int minuta = -1;
+        private Zapas zapas = null;
+        private int polcas = -1;
+        private DateTime cas;
         #region Konstruktor a metody
 
-        public ZltaKartaSettingsForm(FutbalovyTim tim)
+        public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
             
@@ -30,6 +35,12 @@ namespace LGR_Futbal.Forms
                         
             t = tim;
             zoznam = new List<Hrac>();
+            this.zapas = zapas;
+            cas = DateTime.Now;
+            this.nadstavenaMinuta = nadstavenaMinuta;
+            this.nadstavenyCas = nadstavenyCas;
+            this.minuta = minuta;
+            this.polcas = polcas;
 
             if (tim != null)
             {
@@ -67,7 +78,21 @@ namespace LGR_Futbal.Forms
                 if (t == null)
                     OnHracZltaKartaSelected(null);
                 else
+                {
+                    Karta karta = new Karta();
+                    Hrac hrac = zoznam[hraciLB.SelectedIndex];
+                    karta.Hrac = hrac;
+                    karta.IdKarta = hrac.ZltaKarta ? 2 : 1; //2 - cervena, 1 - zlta
+                    karta.Minuta = minuta;
+                    karta.NadstavenaMinuta = nadstavenaMinuta;
+                    karta.Predlzenie = nadstavenyCas ? 1 : 0;
+                    karta.Polcas = polcas;
+                    karta.AktualnyCas = cas;
+                    zapas.Udalosti.Add(karta);
+
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);
+                }
+                    
             }
 
             this.Close();

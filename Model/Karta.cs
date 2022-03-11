@@ -9,9 +9,13 @@ namespace LGR_Futbal.Model
     public class Karta : Udalost
     {
         public int IdKarta { get; set; }
-        public int IdHraca { get; set; }
+        public Hrac Hrac { get; set; }
         public Rozhodca Rozhodca { get; set; }
         public int Typ { get; set; }
 
+        public Karta()
+        {
+            Hrac = new Hrac();
+        }
     }
 }
