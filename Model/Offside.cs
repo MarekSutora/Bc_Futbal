@@ -12,5 +12,10 @@ namespace LGR_Futbal.Model
         public int IdOut { get; set; }
         public int IdUdalost { get; set; }
         public Hrac Hrac { get; set; }
+
+        public Offside()
+        {
+            Hrac = new Hrac();
+        }
     }
 }

@@ -127,6 +127,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Striedanie - nastavenia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StriedanieSettingsForm_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StriedanieSettingsForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -14,6 +14,7 @@ namespace LGR_Futbal.Forms
 {
     public partial class KopySettingsForm : Form
     {
+        public event UdalostPridanaHandler OnUdalostPridana;
         private Zapas zapas = null;
         private FutbalovyTim futbalovyTim = null;
         private List<Hrac> hrajuci = null;
@@ -23,6 +24,7 @@ namespace LGR_Futbal.Forms
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
         public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
@@ -42,21 +44,35 @@ namespace LGR_Futbal.Forms
             hrajuListView.Columns[0].Width = 350;
 
             hrajuci = new List<Hrac>();
-
-            for (int i = 0; i < tim.ZoznamHracov.Count; i++)
+            if (futbalovyTim != null)
             {
-                Hrac h = tim.ZoznamHracov[i];
-                if (h.HraAktualnyZapas && !h.CervenaKarta)
+                for (int i = 0; i < tim.ZoznamHracov.Count; i++)
                 {
-                    hrajuci.Add(h);
-                    if (!h.CisloDresu.Equals(string.Empty))
+                    Hrac h = tim.ZoznamHracov[i];
+                    if (h.HraAktualnyZapas && !h.CervenaKarta)
                     {
-                        hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        hrajuci.Add(h);
+                        if (!h.CisloDresu.Equals(string.Empty))
+                        {
+                            hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        }
+                        else
+                        {
+                            hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                        }
                     }
-                    else
-                    {
-                        hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
-                    }
+                }
+            }
+
+            if (futbalovyTim == null)
+                potvrditButton.Enabled = true;
+            else
+            {
+                if (hrajuci.Count == 0)
+                    potvrditButton.Enabled = false;
+                else
+                {
+                    potvrditButton.Enabled = true;
                 }
             }
         }
@@ -94,6 +110,7 @@ namespace LGR_Futbal.Forms
                 kop.IdTypKopu = 4;
             }
             zapas.Udalosti.Add(kop);
+            uspech = true;
             this.Close();
         }
 
@@ -115,6 +132,12 @@ namespace LGR_Futbal.Forms
                 hrajuListView.SelectedItems.Clear();
                 
             }
+        }
+
+        private void KopySettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
         }
     }
 }

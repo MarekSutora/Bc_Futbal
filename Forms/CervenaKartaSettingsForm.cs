@@ -7,10 +7,10 @@ using LGR_Futbal.Model;
 namespace LGR_Futbal.Forms
 {
     public delegate void HracCervenaKartaSelectedHandler(Hrac hrac);
-
     public partial class CervenaKartaSettingsForm : Form
     {
         public event HracCervenaKartaSelectedHandler OnHracZltaKartaSelected;
+        public event UdalostPridanaHandler OnUdalostPridana;
         private List<Hrac> zoznam;
         private FutbalovyTim t;
         private Zapas zapas = null;
@@ -19,6 +19,7 @@ namespace LGR_Futbal.Forms
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
 
 
         #region Konstruktor a metody
@@ -89,10 +90,10 @@ namespace LGR_Futbal.Forms
                     karta.Polcas = polcas;
                     karta.AktualnyCas = cas;
                     zapas.Udalosti.Add(karta);
+                    uspech = true;
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);
                 }         
             }
-
             this.Close();
         }
 
@@ -118,6 +119,14 @@ namespace LGR_Futbal.Forms
                 this.Close();
         }
 
+        private void CervenaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("ČERVENÁ KARTA PRIDANÁ DO UDALOSTÍ");
+        }
+
         #endregion
+
+
     }
 }

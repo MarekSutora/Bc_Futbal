@@ -108,7 +108,9 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.potvrditButton);
             this.Name = "OutSettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutSettingsForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OutSettingsForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

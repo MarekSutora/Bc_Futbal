@@ -153,7 +153,9 @@
             this.Controls.Add(this.rohovyRB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "KopySettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KopySettingsForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KopySettingsForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,6 +14,7 @@ namespace LGR_Futbal.Forms
 {
     public partial class OffsideSettingsForm : Form
     {
+        public event UdalostPridanaHandler OnUdalostPridana;
         private Zapas zapas = null;
         private FutbalovyTim futbalovyTim = null;
         private List<Hrac> hrajuci = null;
@@ -23,6 +24,7 @@ namespace LGR_Futbal.Forms
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
         public OffsideSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
         {
             InitializeComponent();
@@ -42,20 +44,35 @@ namespace LGR_Futbal.Forms
 
             hrajuci = new List<Hrac>();
 
-            for (int i = 0; i < tim.ZoznamHracov.Count; i++)
+            if (futbalovyTim != null)
             {
-                Hrac h = tim.ZoznamHracov[i];
-                if (h.HraAktualnyZapas && !h.CervenaKarta)
+                for (int i = 0; i < tim.ZoznamHracov.Count; i++)
                 {
-                    hrajuci.Add(h);
-                    if (!h.CisloDresu.Equals(string.Empty))
+                    Hrac h = tim.ZoznamHracov[i];
+                    if (h.HraAktualnyZapas && !h.CervenaKarta)
                     {
-                        hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        hrajuci.Add(h);
+                        if (!h.CisloDresu.Equals(string.Empty))
+                        {
+                            hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        }
+                        else
+                        {
+                            hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                        }
                     }
-                    else
-                    {
-                        hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
-                    }
+                }
+            }
+
+            if (futbalovyTim == null)
+                potvrditButton.Enabled = true;
+            else
+            {
+                if (hrajuci.Count == 0)
+                    potvrditButton.Enabled = false;
+                else
+                {
+                    potvrditButton.Enabled = true;
                 }
             }
         }
@@ -65,9 +82,7 @@ namespace LGR_Futbal.Forms
             Hrac hrac = new Hrac();
             if (lastIndex != -1)
             {
-                hrac.IdHrac = hrajuci[lastIndex].IdHrac;
-                hrac.Meno = hrajuci[lastIndex].Meno;
-                hrac.Priezvisko = hrajuci[lastIndex].Priezvisko;
+                hrac = hrajuci[lastIndex];
             }
             Offside offside = new Offside();
             offside.Hrac = hrac;
@@ -77,12 +92,7 @@ namespace LGR_Futbal.Forms
             offside.Polcas = polcas;
             offside.AktualnyCas = cas;
             zapas.Udalosti.Add(offside);
-
-            var w = new Form() { Size = new Size(0, 0) };
-            Task.Delay(TimeSpan.FromSeconds(1))
-                .ContinueWith((t) => w.Close(), TaskScheduler.FromCurrentSynchronizationContext());
-
-            MessageBox.Show(w, "Offside uspesne pridany", "Pridane!");
+            uspech = true;
             this.Close();
         }
 
@@ -104,6 +114,12 @@ namespace LGR_Futbal.Forms
                 hrajuListView.SelectedItems.Clear();
 
             }
+        }
+
+        private void OffsideSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
         }
     }
 }

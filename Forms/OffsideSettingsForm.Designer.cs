@@ -109,7 +109,9 @@
             this.Controls.Add(this.potvrditButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OffsideSettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Offside";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OffsideSettingsForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

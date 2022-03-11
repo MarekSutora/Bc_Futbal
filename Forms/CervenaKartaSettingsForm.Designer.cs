@@ -89,6 +89,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Červená karta - nastavenia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CervenaKartaSettingsForm_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CervenaKartaSettingsForm_KeyDown);
             this.ResumeLayout(false);
 

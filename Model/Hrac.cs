@@ -27,6 +27,8 @@ namespace LGR_Futbal.Model
         public Hrac()
         {
             Poznamka = " ";
+            Meno = string.Empty;
+            Priezvisko = string.Empty;
         }
 
         public int getVek()

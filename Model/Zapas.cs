@@ -17,11 +17,14 @@ namespace LGR_Futbal.Model
         public int DlzkaPolcasu { get; set; }
         public int NadstavenyCas1 { get; set; }
         public int NadstavenyCas2 { get; set; }
-        public int MyProperty { get; set; }
         public List<Udalost> Udalosti { get; set; }
+        public string NazovDomaci { get; set; }
+        public string NazovHostia { get; set; }
+        public List<Rozhodca> Rozhodcovia { get; set; }
         public Zapas()
         {
             Udalosti = new List<Udalost>();
+            Rozhodcovia = new List<Rozhodca>();
         }
     }
 }

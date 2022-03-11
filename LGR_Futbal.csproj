@@ -288,6 +288,12 @@
     <Compile Include="Forms\UdalostiForm.Designer.cs">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UdalostPopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UdalostPopupForm.Designer.cs">
+      <DependentUpon>UdalostPopupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ZltaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForm.resx">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UdalostPopupForm.resx">
+      <DependentUpon>UdalostPopupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ZltaKartaForm.resx">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>

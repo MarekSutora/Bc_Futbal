@@ -22,6 +22,7 @@ namespace LGR_Futbal.Forms
 
         public event GoalSettingsConfirmedHandler OnGoalSettingsConfirmed;
         public event GoalValueConfirmedHandler OnGoalValueConfirmed;
+        public event UdalostPridanaHandler OnUdalostPridana;
 
         private List<Hrac> zoznam;
         private FutbalovyTim t;
@@ -30,10 +31,10 @@ namespace LGR_Futbal.Forms
         private Zapas zapas = null;
         private bool nadstavenyCas = false;
         private int nadstavenaMinuta = 0;
-        private int lastIndex = -1;
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
 
         #endregion
 
@@ -73,6 +74,7 @@ namespace LGR_Futbal.Forms
             zoznam = new List<Hrac>();
             if (tim != null)
             {
+                asistHraciLB.Items.Add("");
                 foreach (Hrac h in tim.ZoznamHracov)
                 {
                     if ((h.HraAktualnyZapas) && (!h.Nahradnik) && (!h.CervenaKarta))
@@ -112,6 +114,15 @@ namespace LGR_Futbal.Forms
             {
                 if (t == null)
                 {
+                    Gol gol = new Gol();
+                    gol.TypGolu = checkBox1.Checked ? 2 : 1;
+                    gol.Minuta = minuta;
+                    gol.NadstavenaMinuta = nadstavenaMinuta;
+                    gol.Predlzenie = nadstavenyCas ? 1 : 0;
+                    gol.Polcas = polcas;
+                    gol.AktualnyCas = cas;
+                    zapas.Udalosti.Add(gol);
+                    uspech = true;
                     OnGoalSettingsConfirmed(null, priznak, stav + 1);
                 }    
                 else
@@ -120,9 +131,9 @@ namespace LGR_Futbal.Forms
                     {
                         Gol gol = new Gol();
                         gol.Strielajuci = zoznam[hraciLB.SelectedIndex];
-                        if(asistHraciLB.SelectedIndex != -1)
+                        if(asistHraciLB.SelectedIndex != -1 && asistHraciLB.SelectedIndex != 0)
                         {
-                            gol.Asistujuci = zoznam[asistHraciLB.SelectedIndex];
+                            gol.Asistujuci = zoznam[asistHraciLB.SelectedIndex - 1];
                         }
                         gol.TypGolu = checkBox1.Checked ? 2 : 1;
                         gol.Minuta = minuta;
@@ -131,6 +142,7 @@ namespace LGR_Futbal.Forms
                         gol.Polcas = polcas;
                         gol.AktualnyCas = cas;
                         zapas.Udalosti.Add(gol);
+                        uspech = true;
                         OnGoalSettingsConfirmed(zoznam[hraciLB.SelectedIndex], priznak, stav + 1);
                     } 
                     else
@@ -229,6 +241,12 @@ namespace LGR_Futbal.Forms
             {
                 asistHraciLB.Enabled = true;
             }
+        }
+
+        private void GolSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
         }
     }
 }

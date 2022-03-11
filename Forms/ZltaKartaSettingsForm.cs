@@ -12,6 +12,7 @@ namespace LGR_Futbal.Forms
     public partial class ZltaKartaSettingsForm : Form
     {
         public event HracZltaKartaSelectedHandler OnHracZltaKartaSelected;
+        public event UdalostPridanaHandler OnUdalostPridana;
         private List<Hrac> zoznam;
         private FutbalovyTim t;
         private bool nadstavenyCas = false;
@@ -20,6 +21,7 @@ namespace LGR_Futbal.Forms
         private Zapas zapas = null;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
         #region Konstruktor a metody
 
         public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
@@ -89,7 +91,7 @@ namespace LGR_Futbal.Forms
                     karta.Polcas = polcas;
                     karta.AktualnyCas = cas;
                     zapas.Udalosti.Add(karta);
-
+                    uspech = true;
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);
                 }
                     
@@ -120,6 +122,14 @@ namespace LGR_Futbal.Forms
                 this.Close();
         }
 
+        private void ZltaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
+        }
+
         #endregion
+
+
     }
 }

@@ -211,6 +211,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gól - nastavenia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GolSettingsForm_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GolSettingsForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

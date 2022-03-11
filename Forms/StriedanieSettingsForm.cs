@@ -16,6 +16,7 @@ namespace LGR_Futbal.Forms
         #region Atributy
 
         public event StriedanieHraciSelectedHandler OnStriedanieHraciSelected;
+        public event UdalostPridanaHandler OnUdalostPridana;
         private string nazov;
         private FutbalovyTim spracovavanyTim;
         private List<Hrac> odchMoznosti;
@@ -27,6 +28,7 @@ namespace LGR_Futbal.Forms
         private int minuta = -1;
         private int polcas = -1;
         private DateTime cas;
+        private bool uspech = false;
         #endregion
 
         #region Konstruktor a metody
@@ -104,7 +106,17 @@ namespace LGR_Futbal.Forms
             if (OnStriedanieHraciSelected != null)
             {
                 if (spracovavanyTim == null)
+                {
+                    Striedanie striedanie = new Striedanie();
+                    striedanie.Minuta = minuta;
+                    striedanie.NadstavenaMinuta = nadstavenaMinuta;
+                    striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
+                    striedanie.Polcas = polcas;
+                    striedanie.AktualnyCas = cas;
+                    zapas.Udalosti.Add(striedanie);
+                    uspech = true;
                     OnStriedanieHraciSelected(nazov, null, null, domaciTim);
+                }            
                 else
                 {
                     Hrac h1 = odchMoznosti[hraciLBodch.SelectedIndex];
@@ -118,7 +130,7 @@ namespace LGR_Futbal.Forms
                     striedanie.Polcas = polcas;
                     striedanie.AktualnyCas = cas;
                     zapas.Udalosti.Add(striedanie);
-
+                    uspech = true;
                     OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);
                 }
                 
@@ -137,6 +149,14 @@ namespace LGR_Futbal.Forms
                 this.Close();
         }
 
+        private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
+        }
+
         #endregion
+
+
     }
 }

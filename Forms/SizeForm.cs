@@ -13,7 +13,7 @@ namespace LGR_Futbal.Forms
 
         private bool aktivnaZmena = true;
         public event PrenesNastaveniaHandler OnSettingsConfirmation;
-
+        private bool koniec = true;
         #endregion
 
         #region Konstruktor a metody
@@ -21,7 +21,6 @@ namespace LGR_Futbal.Forms
         public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int jazyk)
         {
             InitializeComponent();
-
             if (jazyk == 1)
             {
                 this.Text = "Nastavení velikosti zobrazovací plochy";
@@ -102,12 +101,18 @@ namespace LGR_Futbal.Forms
 
                 OnSettingsConfirmation(poz, initSet, s, v, j);
             }
-
+            koniec = false;
             this.Close();
+        }
+
+        public bool Vypnut()
+        {
+            return koniec;
         }
 
         private void ZrusitButton_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
@@ -118,5 +123,6 @@ namespace LGR_Futbal.Forms
         }
 
         #endregion
+
     }
 }
