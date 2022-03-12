@@ -12,5 +12,10 @@ namespace LGR_Futbal.Model
         public int IdUdalost { get; set; }
         public Hrac Hrac { get; set; }
         public int IdTypKopu { get; set; }
+
+        public Kop()
+        {
+            Hrac = new Hrac();
+        }
     }
 }

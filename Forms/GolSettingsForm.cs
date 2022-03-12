@@ -121,6 +121,7 @@ namespace LGR_Futbal.Forms
                     gol.Predlzenie = nadstavenyCas ? 1 : 0;
                     gol.Polcas = polcas;
                     gol.AktualnyCas = cas;
+                    gol.NazovTimu = priznak ? zapas.NazovDomaci : zapas.NazovHostia;
                     zapas.Udalosti.Add(gol);
                     uspech = true;
                     OnGoalSettingsConfirmed(null, priznak, stav + 1);
@@ -141,6 +142,7 @@ namespace LGR_Futbal.Forms
                         gol.Predlzenie = nadstavenyCas ? 1 : 0;
                         gol.Polcas = polcas;
                         gol.AktualnyCas = cas;
+                        gol.NazovTimu = priznak ? zapas.NazovDomaci : zapas.NazovHostia;
                         zapas.Udalosti.Add(gol);
                         uspech = true;
                         OnGoalSettingsConfirmed(zoznam[hraciLB.SelectedIndex], priznak, stav + 1);

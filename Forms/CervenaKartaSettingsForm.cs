@@ -20,11 +20,11 @@ namespace LGR_Futbal.Forms
         private int polcas = -1;
         private DateTime cas;
         private bool uspech = false;
-
+        private bool domaci = false;
 
         #region Konstruktor a metody
 
-        public CervenaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        public CervenaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
         {
             InitializeComponent();
 
@@ -34,7 +34,7 @@ namespace LGR_Futbal.Forms
                 potvrditButton.Text = "Potvrdit";
                 backButton.Text = "Návrat zpět";
             }
-
+            this.domaci = domaci;
             t = tim;
             zoznam = new List<Hrac>();
             this.zapas = zapas;
@@ -89,6 +89,7 @@ namespace LGR_Futbal.Forms
                     karta.Predlzenie = nadstavenyCas ? 1 : 0;
                     karta.Polcas = polcas;
                     karta.AktualnyCas = cas;
+                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);

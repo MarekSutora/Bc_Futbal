@@ -25,7 +25,9 @@ namespace LGR_Futbal.Forms
         private int polcas = -1;
         private DateTime cas;
         private bool uspech = false;
-        public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        private bool domaci = false;
+
+        public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
         {
             InitializeComponent();
             cas = DateTime.Now;
@@ -36,6 +38,7 @@ namespace LGR_Futbal.Forms
             this.nadstavenyCas = nadstavenyCas;
             this.minuta = minuta;
             this.polcas = polcas;
+            this.domaci = domaci;
             ColumnHeader header = new ColumnHeader();
             header.Text = "";
             header.Name = "";
@@ -77,14 +80,12 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void potvrditButton_Click(object sender, EventArgs e)
+        private void potvrdit()
         {
             Hrac hrac = new Hrac();
             if (lastIndex != -1)
             {
-                hrac.IdHrac = hrajuci[lastIndex].IdHrac;
-                hrac.Meno = hrajuci[lastIndex].Meno;
-                hrac.Priezvisko = hrajuci[lastIndex].Priezvisko;
+                hrac = hrajuci[lastIndex];
             }
             Kop kop = new Kop();
             kop.Hrac = hrac;
@@ -93,14 +94,15 @@ namespace LGR_Futbal.Forms
             kop.Predlzenie = nadstavenyCas ? 1 : 0;
             kop.Polcas = polcas;
             kop.AktualnyCas = cas;
+            kop.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
             if (priamyRB.Checked)
             {
                 kop.IdTypKopu = 1;
-            } 
+            }
             else if (nepriamyRB.Checked)
             {
                 kop.IdTypKopu = 2;
-            } 
+            }
             else if (rohovyRB.Checked)
             {
                 kop.IdTypKopu = 3;
@@ -112,6 +114,11 @@ namespace LGR_Futbal.Forms
             zapas.Udalosti.Add(kop);
             uspech = true;
             this.Close();
+        }
+
+        private void potvrditButton_Click(object sender, EventArgs e)
+        {
+            potvrdit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -138,6 +145,11 @@ namespace LGR_Futbal.Forms
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
+        }
+
+        private void hrajuListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            potvrdit();
         }
     }
 }

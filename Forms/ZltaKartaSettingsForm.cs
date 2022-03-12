@@ -22,9 +22,10 @@ namespace LGR_Futbal.Forms
         private int polcas = -1;
         private DateTime cas;
         private bool uspech = false;
+        private bool domaci = false;
         #region Konstruktor a metody
 
-        public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
         {
             InitializeComponent();
             
@@ -43,6 +44,7 @@ namespace LGR_Futbal.Forms
             this.nadstavenyCas = nadstavenyCas;
             this.minuta = minuta;
             this.polcas = polcas;
+            this.domaci = domaci;
 
             if (tim != null)
             {
@@ -90,6 +92,7 @@ namespace LGR_Futbal.Forms
                     karta.Predlzenie = nadstavenyCas ? 1 : 0;
                     karta.Polcas = polcas;
                     karta.AktualnyCas = cas;
+                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);

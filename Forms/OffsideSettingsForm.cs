@@ -25,7 +25,8 @@ namespace LGR_Futbal.Forms
         private int polcas = -1;
         private DateTime cas;
         private bool uspech = false;
-        public OffsideSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        private bool domaci = false;
+        public OffsideSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
         {
             InitializeComponent();
             this.zapas = zapas;
@@ -35,6 +36,7 @@ namespace LGR_Futbal.Forms
             this.nadstavenyCas = nadstavenyCas;
             this.minuta = minuta;
             this.polcas = polcas;
+            this.domaci = domaci;
             ColumnHeader header = new ColumnHeader();
             header.Text = "";
             header.Name = "";
@@ -77,7 +79,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void potvrditButton_Click(object sender, EventArgs e)
+        private void potrvdit()
         {
             Hrac hrac = new Hrac();
             if (lastIndex != -1)
@@ -91,9 +93,15 @@ namespace LGR_Futbal.Forms
             offside.Predlzenie = nadstavenyCas ? 1 : 0;
             offside.Polcas = polcas;
             offside.AktualnyCas = cas;
+            offside.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
             zapas.Udalosti.Add(offside);
             uspech = true;
             this.Close();
+        }
+
+        private void potvrditButton_Click(object sender, EventArgs e)
+        {
+            potrvdit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -120,6 +128,11 @@ namespace LGR_Futbal.Forms
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
+        }
+
+        private void hrajuListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            potrvdit();
         }
     }
 }

@@ -113,6 +113,7 @@ namespace LGR_Futbal.Forms
                     striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
                     striedanie.Polcas = polcas;
                     striedanie.AktualnyCas = cas;
+                    striedanie.NazovTimu = domaciTim ? zapas.NazovDomaci : zapas.NazovHostia;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
                     OnStriedanieHraciSelected(nazov, null, null, domaciTim);
@@ -129,6 +130,7 @@ namespace LGR_Futbal.Forms
                     striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
                     striedanie.Polcas = polcas;
                     striedanie.AktualnyCas = cas;
+                    striedanie.NazovTimu = domaciTim ? zapas.NazovDomaci : zapas.NazovHostia;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
                     OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);

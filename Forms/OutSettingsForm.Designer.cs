@@ -70,6 +70,7 @@
             this.hrajuListView.UseCompatibleStateImageBehavior = false;
             this.hrajuListView.View = System.Windows.Forms.View.Details;
             this.hrajuListView.SelectedIndexChanged += new System.EventHandler(this.hrajuListView_SelectedIndexChanged);
+            this.hrajuListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hrajuListView_MouseDoubleClick);
             // 
             // backButton
             // 

@@ -26,8 +26,9 @@ namespace LGR_Futbal.Forms
         private int polcas = -1;
         private DateTime cas;
         private bool uspech = false;
+        private bool domaci = false;
 
-        public OutSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        public OutSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
         {
             InitializeComponent();
             this.zapas = zapas;
@@ -37,6 +38,7 @@ namespace LGR_Futbal.Forms
             this.nadstavenyCas = nadstavenyCas;
             this.minuta = minuta;
             this.polcas = polcas;
+            this.domaci = domaci;
             ColumnHeader header = new ColumnHeader();
             header.Text = "";
             header.Name = "";
@@ -79,7 +81,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void potvrditButton_Click(object sender, EventArgs e)
+        private void potvrdit()
         {
             Hrac hrac = new Hrac();
             if (lastIndex != -1)
@@ -93,9 +95,15 @@ namespace LGR_Futbal.Forms
             _out.Predlzenie = nadstavenyCas ? 1 : 0;
             _out.Polcas = polcas;
             _out.AktualnyCas = cas;
+            _out.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
             zapas.Udalosti.Add(_out);
             uspech = true;
             this.Close();
+        }
+
+        private void potvrditButton_Click(object sender, EventArgs e)
+        {
+            potvrdit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -117,11 +125,15 @@ namespace LGR_Futbal.Forms
 
             }
         }
-
         private void OutSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OUT PRIDANÝ DO UDALOSTÍ");
+        }
+
+        private void hrajuListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            potvrdit();
         }
     }
 }
