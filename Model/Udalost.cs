@@ -32,10 +32,10 @@ namespace LGR_Futbal.Model
                 return false;
 
             if ((polcas1 && Polcas == 1) && !polcas2)
-                return false;
+                return true;
 
             if (!polcas1 && (polcas2 && Polcas == 2))
-                return false;
+                return true;
 
             return false;
         }

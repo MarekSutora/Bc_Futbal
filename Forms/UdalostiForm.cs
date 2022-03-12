@@ -23,6 +23,22 @@ namespace LGR_Futbal.Forms
             this.zapas = zapas;
             timCB.Text = zapas.NazovDomaci;
             tim2CB.Text = zapas.NazovHostia;
+
+            polcas1CB.Checked = true;
+            polcas2CB.Checked = true;
+            timCB.Checked = true;
+            tim2CB.Checked = true;
+            priamyKopCB.Checked = true;
+            nepriamyKopCB.Checked = true;
+            rohovyKopCB.Checked = true;
+            pokutovyKopCB.Checked = true;
+            golCB.Checked = true;
+            offsideCB.Checked = true;
+            outCB.Checked = true;
+            striedanieCB.Checked = true;
+            zltaKartaCB.Checked = true;
+            cervenaKartaCB.Checked = true;
+
             this.filePath = cd + "\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
@@ -33,7 +49,7 @@ namespace LGR_Futbal.Forms
             {
                 string meno_priezvisko = string.Empty;
                 string poznamka = string.Empty;
-                string udalost = string.Empty; 
+                string udalost = string.Empty;
                 int minuta = (udalosti[i].Polcas - 1) * zapas.DlzkaPolcasu + udalosti[i].Minuta + 1;
                 if (udalosti[i].GetType() == typeof(Gol))
                 {
@@ -160,24 +176,27 @@ namespace LGR_Futbal.Forms
         {
             //bool pridat = false;
             string aktualnyCas, polcas, nadstMin, meno_priezvisko, poznamka, udalost, minuta, nazovTimu;
-            meno_priezvisko = poznamka = udalost = string.Empty;
+
 
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-
-
+  
 
             for (int i = 0; i < udalosti.Count; i++)
             {
-                if(udalosti[i].SplnaFilter(polcas1CB.Checked, polcas2CB.Checked, timCB.Checked, tim2CB.Checked, zapas.NazovDomaci, zapas.NazovHostia))
+                bool pridat = false;
+                if (udalosti[i].SplnaFilter(polcas1CB.Checked, polcas2CB.Checked, timCB.Checked, tim2CB.Checked, zapas.NazovDomaci, zapas.NazovHostia))
                 {
+                    meno_priezvisko = poznamka = udalost = string.Empty;
                     aktualnyCas = udalosti[i].AktualnyCas.ToLongTimeString();
                     polcas = udalosti[i].Polcas.ToString();
                     nadstMin = udalosti[i].NadstavenaMinuta.ToString();
                     minuta = ((udalosti[i].Polcas - 1) * zapas.DlzkaPolcasu + udalosti[i].Minuta).ToString();
                     nazovTimu = udalosti[i].NazovTimu;
-                    if (udalosti[i].GetType() == typeof(Gol))
+
+                    if (udalosti[i].GetType() == typeof(Gol) && golCB.Checked)
                     {
+                        pridat = true;
                         Gol gol = (Gol)udalosti[i];
                         meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + gol.Strielajuci.Priezvisko : "";
                         if (!gol.Asistujuci.Meno.Equals(string.Empty))
@@ -186,51 +205,88 @@ namespace LGR_Futbal.Forms
                         udalost = "Gól";
                         poznamka = gol.TypGolu == 2 ? "Z pokutového kopu" : poznamka;
                     }
+
                     if (udalosti[i].GetType() == typeof(Karta))
                     {
                         Karta karta = (Karta)udalosti[i];
-                        meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + karta.Hrac.Priezvisko;
-                        udalost = karta.IdKarta == 2 ? "Červená karta" : "Žltá karta";
+                        meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
+                        if (karta.IdKarta == 2)
+                        {
+                            if (cervenaKartaCB.Checked)
+                            {
+                                udalost = "Červená karta";
+                                pridat = true;
+                            }         
+                        }
+                        else
+                        {
+                            if (zltaKartaCB.Checked)
+                            {
+                                udalost = "Źltá karta";
+                                pridat=true;
+                            }
+                            
+                        }
+
                     }
                     if (udalosti[i].GetType() == typeof(Kop))
                     {
                         Kop kop = (Kop)udalosti[i];
 
-                        meno_priezvisko = !kop.Hrac.Meno.Equals(string.Empty) ? kop.Hrac.CisloDresu + ". " + kop.Hrac.Meno + kop.Hrac.Priezvisko : "";
+                        meno_priezvisko = !kop.Hrac.Meno.Equals(string.Empty) ? kop.Hrac.CisloDresu + ". " + kop.Hrac.Meno + " " + kop.Hrac.Priezvisko : "";
                         switch (kop.IdTypKopu)
                         {
                             case 1:
-                                udalost = "Priamy kop";
+                                if (priamyKopCB.Checked)
+                                {
+                                    udalost = "Priamy kop";
+                                    pridat = true;
+                                }
                                 break;
-                            case 2:
-                                udalost = "Nepriamy kop";
+                            case 2:                  
+                                if (nepriamyKopCB.Checked)
+                                {
+                                    udalost = "Nepriamy kop";
+                                    pridat = true;
+                                }
                                 break;
                             case 3:
-                                udalost = "Rohový kop";
+                                if (rohovyKopCB.Checked)
+                                {
+                                    udalost = "Rohový kop";
+                                    pridat = true;
+                                }
                                 break;
                             case 4:
-                                udalost = "Pokutový kop";
+                                if (pokutovyKopCB.Checked)
+                                {
+                                    udalost = "Pokutový kop";
+                                    pridat = true;
+                                }
                                 break;
                             default:
                                 udalost = "CHYBA!";
                                 break;
                         }
                     }
-                    if (udalosti[i].GetType() == typeof(Offside))
+                    if (udalosti[i].GetType() == typeof(Offside) && offsideCB.Checked)
                     {
                         Offside offside = (Offside)udalosti[i];
-                        meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + offside.Hrac.Priezvisko : "";
+                        meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + " " + offside.Hrac.Priezvisko : "";
+                        pridat = true;
                         udalost = "Offside";
                     }
-                    if (udalosti[i].GetType() == typeof(Out))
+                    if (udalosti[i].GetType() == typeof(Out) && outCB.Checked)
                     {
                         Out _out = (Out)udalosti[i];
-                        meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + _out.Hrac.Priezvisko : "";
+                        pridat = true;
+                        meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + " " + _out.Hrac.Priezvisko : "";
                         udalost = "Outové vhadzovanie";
                     }
-                    if (udalosti[i].GetType() == typeof(Striedanie))
+                    if (udalosti[i].GetType() == typeof(Striedanie) && striedanieCB.Checked)
                     {
                         Striedanie striedanie = (Striedanie)udalosti[i];
+                        pridat = true;
                         //meno_priezvisko = striedanie.Striedany.Meno + striedanie.Striedany.Priezvisko;
                         poznamka = !striedanie.Striedany.Meno.Equals(string.Empty) ? "↓ " + striedanie.Striedany.CisloDresu + ". " + striedanie.Striedany.Priezvisko + " - " +
                             striedanie.Striedajuci.CisloDresu + ". " + striedanie.Striedajuci.Priezvisko + " ↑" : "";
@@ -248,8 +304,11 @@ namespace LGR_Futbal.Forms
                     udalost,
                     nazovTimu
                     };
-                    dataGridView1.Rows.Add(row);
-                }       
+                    if (pridat)
+                    {
+                        dataGridView1.Rows.Add(row);
+                    }   
+                }
             }
         }
     }

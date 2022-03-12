@@ -72,6 +72,7 @@
             this.udalostiButton = new System.Windows.Forms.Button();
             this.logoHostia = new System.Windows.Forms.PictureBox();
             this.logoDomaci = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
             this.SuspendLayout();
@@ -399,12 +400,12 @@
             // predstavButton
             // 
             this.predstavButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.predstavButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.predstavButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.predstavButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.predstavButton.Location = new System.Drawing.Point(219, 346);
+            this.predstavButton.Location = new System.Drawing.Point(275, 344);
             this.predstavButton.Margin = new System.Windows.Forms.Padding(2);
             this.predstavButton.Name = "predstavButton";
-            this.predstavButton.Size = new System.Drawing.Size(130, 56);
+            this.predstavButton.Size = new System.Drawing.Size(120, 40);
             this.predstavButton.TabIndex = 10;
             this.predstavButton.Text = "PREDSTAV\r\nHRÁČOV";
             this.predstavButton.UseVisualStyleBackColor = false;
@@ -415,12 +416,12 @@
             // casButton
             // 
             this.casButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.casButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.casButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.casButton.Location = new System.Drawing.Point(353, 346);
+            this.casButton.Location = new System.Drawing.Point(275, 385);
             this.casButton.Margin = new System.Windows.Forms.Padding(2);
             this.casButton.Name = "casButton";
-            this.casButton.Size = new System.Drawing.Size(141, 56);
+            this.casButton.Size = new System.Drawing.Size(120, 40);
             this.casButton.TabIndex = 9;
             this.casButton.Text = "NADSTAVENÝ\r\nČAS";
             this.casButton.UseVisualStyleBackColor = false;
@@ -678,12 +679,12 @@
             // udalostiButton
             // 
             this.udalostiButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.udalostiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.udalostiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.udalostiButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.udalostiButton.Location = new System.Drawing.Point(498, 346);
+            this.udalostiButton.Location = new System.Drawing.Point(414, 344);
             this.udalostiButton.Margin = new System.Windows.Forms.Padding(2);
             this.udalostiButton.Name = "udalostiButton";
-            this.udalostiButton.Size = new System.Drawing.Size(130, 56);
+            this.udalostiButton.Size = new System.Drawing.Size(130, 40);
             this.udalostiButton.TabIndex = 568;
             this.udalostiButton.Text = "UDALOSTI";
             this.udalostiButton.UseVisualStyleBackColor = false;
@@ -709,12 +710,26 @@
             this.logoDomaci.TabStop = false;
             this.logoDomaci.Click += new System.EventHandler(this.logoDomaci_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(414, 385);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 40);
+            this.button1.TabIndex = 569;
+            this.button1.Text = "REKLAMA";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // RiadiaciForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(838, 431);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.udalostiButton);
             this.Controls.Add(this.hosUdalostButton);
             this.Controls.Add(this.hosOutButton);
@@ -820,6 +835,7 @@
         private System.Windows.Forms.Button hosOffsideButton;
         private System.Windows.Forms.Button hosKopyButton;
         private System.Windows.Forms.Button udalostiButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
