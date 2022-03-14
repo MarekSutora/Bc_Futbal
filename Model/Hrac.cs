@@ -23,6 +23,8 @@ namespace LGR_Futbal.Model
         public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
+        public bool Hrajuci { get; set; }
+        public bool JeNahradnik { get; set; }
 
         public Hrac()
         {

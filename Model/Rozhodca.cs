@@ -10,5 +10,11 @@ namespace LGR_Futbal.Model
     {
         public int IdRozhodca { get; set; }
         public DateTime DatumUkoncenia { get; set; }
+
+        public Rozhodca()
+        {
+            Meno = string.Empty;
+            Priezvisko = string.Empty;
+        }
     }
 }

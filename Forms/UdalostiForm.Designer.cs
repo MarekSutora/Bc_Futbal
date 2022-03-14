@@ -40,13 +40,20 @@
             this.skoreLabel = new System.Windows.Forms.Label();
             this.csvGenButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPolcas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMinuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNadstMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHráč = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPoznamka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUdalost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.polcas1CB = new System.Windows.Forms.CheckBox();
             this.polcas2CB = new System.Windows.Forms.CheckBox();
             this.rohovyKopCB = new System.Windows.Forms.CheckBox();
             this.priamyKopCB = new System.Windows.Forms.CheckBox();
             this.nepriamyKopCB = new System.Windows.Forms.CheckBox();
             this.aktFilterButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pokutovyKopCB = new System.Windows.Forms.CheckBox();
             this.golCB = new System.Windows.Forms.CheckBox();
             this.offsideCB = new System.Windows.Forms.CheckBox();
@@ -56,14 +63,7 @@
             this.cervenaKartaCB = new System.Windows.Forms.CheckBox();
             this.timCB = new System.Windows.Forms.CheckBox();
             this.tim2CB = new System.Windows.Forms.CheckBox();
-            this.ColumnCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPolcas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMinuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNadstMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHráč = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPoznamka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUdalost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databazaButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +133,7 @@
             // csvGenButton
             // 
             this.csvGenButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.csvGenButton.Location = new System.Drawing.Point(842, 9);
+            this.csvGenButton.Location = new System.Drawing.Point(996, 9);
             this.csvGenButton.Name = "csvGenButton";
             this.csvGenButton.Size = new System.Drawing.Size(173, 30);
             this.csvGenButton.TabIndex = 3;
@@ -165,6 +165,54 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1157, 520);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // ColumnCas
+            // 
+            this.ColumnCas.HeaderText = "Čas";
+            this.ColumnCas.Name = "ColumnCas";
+            this.ColumnCas.Width = 130;
+            // 
+            // ColumnPolcas
+            // 
+            this.ColumnPolcas.HeaderText = "Polčas";
+            this.ColumnPolcas.Name = "ColumnPolcas";
+            this.ColumnPolcas.Width = 70;
+            // 
+            // ColumnMinuta
+            // 
+            this.ColumnMinuta.HeaderText = "Minúta";
+            this.ColumnMinuta.Name = "ColumnMinuta";
+            this.ColumnMinuta.Width = 70;
+            // 
+            // ColumnNadstMin
+            // 
+            this.ColumnNadstMin.HeaderText = "Nadstavená minúta";
+            this.ColumnNadstMin.Name = "ColumnNadstMin";
+            this.ColumnNadstMin.Width = 120;
+            // 
+            // ColumnHráč
+            // 
+            this.ColumnHráč.HeaderText = "Hráč";
+            this.ColumnHráč.Name = "ColumnHráč";
+            this.ColumnHráč.Width = 200;
+            // 
+            // ColumnPoznamka
+            // 
+            this.ColumnPoznamka.HeaderText = "Poznámka";
+            this.ColumnPoznamka.Name = "ColumnPoznamka";
+            this.ColumnPoznamka.Width = 200;
+            // 
+            // ColumnUdalost
+            // 
+            this.ColumnUdalost.HeaderText = "Udalosť";
+            this.ColumnUdalost.Name = "ColumnUdalost";
+            this.ColumnUdalost.Width = 200;
+            // 
+            // ColumnTim
+            // 
+            this.ColumnTim.HeaderText = "Tím";
+            this.ColumnTim.Name = "ColumnTim";
+            this.ColumnTim.Width = 125;
             // 
             // polcas1CB
             // 
@@ -225,15 +273,6 @@
             this.aktFilterButton.Text = "Aktivovať filter";
             this.aktFilterButton.UseVisualStyleBackColor = true;
             this.aktFilterButton.Click += new System.EventHandler(this.aktFilterButton_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1176, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // pokutovyKopCB
             // 
@@ -325,59 +364,23 @@
             this.tim2CB.Text = "tím2";
             this.tim2CB.UseVisualStyleBackColor = true;
             // 
-            // ColumnCas
+            // databazaButton
             // 
-            this.ColumnCas.HeaderText = "Čas";
-            this.ColumnCas.Name = "ColumnCas";
-            this.ColumnCas.Width = 130;
-            // 
-            // ColumnPolcas
-            // 
-            this.ColumnPolcas.HeaderText = "Polčas";
-            this.ColumnPolcas.Name = "ColumnPolcas";
-            this.ColumnPolcas.Width = 70;
-            // 
-            // ColumnMinuta
-            // 
-            this.ColumnMinuta.HeaderText = "Minúta";
-            this.ColumnMinuta.Name = "ColumnMinuta";
-            this.ColumnMinuta.Width = 70;
-            // 
-            // ColumnNadstMin
-            // 
-            this.ColumnNadstMin.HeaderText = "Nadstavená minúta";
-            this.ColumnNadstMin.Name = "ColumnNadstMin";
-            this.ColumnNadstMin.Width = 120;
-            // 
-            // ColumnHráč
-            // 
-            this.ColumnHráč.HeaderText = "Hráč";
-            this.ColumnHráč.Name = "ColumnHráč";
-            this.ColumnHráč.Width = 200;
-            // 
-            // ColumnPoznamka
-            // 
-            this.ColumnPoznamka.HeaderText = "Poznámka";
-            this.ColumnPoznamka.Name = "ColumnPoznamka";
-            this.ColumnPoznamka.Width = 200;
-            // 
-            // ColumnUdalost
-            // 
-            this.ColumnUdalost.HeaderText = "Udalosť";
-            this.ColumnUdalost.Name = "ColumnUdalost";
-            this.ColumnUdalost.Width = 200;
-            // 
-            // ColumnTim
-            // 
-            this.ColumnTim.HeaderText = "Tím";
-            this.ColumnTim.Name = "ColumnTim";
-            this.ColumnTim.Width = 125;
+            this.databazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.databazaButton.Location = new System.Drawing.Point(817, 9);
+            this.databazaButton.Name = "databazaButton";
+            this.databazaButton.Size = new System.Drawing.Size(173, 30);
+            this.databazaButton.TabIndex = 22;
+            this.databazaButton.Text = "pridať do databázy";
+            this.databazaButton.UseVisualStyleBackColor = true;
+            this.databazaButton.Click += new System.EventHandler(this.databazaButton_Click);
             // 
             // UdalostiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 577);
+            this.Controls.Add(this.databazaButton);
             this.Controls.Add(this.tim2CB);
             this.Controls.Add(this.timCB);
             this.Controls.Add(this.cervenaKartaCB);
@@ -387,7 +390,6 @@
             this.Controls.Add(this.offsideCB);
             this.Controls.Add(this.golCB);
             this.Controls.Add(this.pokutovyKopCB);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.aktFilterButton);
             this.Controls.Add(this.nepriamyKopCB);
             this.Controls.Add(this.priamyKopCB);
@@ -426,7 +428,6 @@
         private System.Windows.Forms.CheckBox priamyKopCB;
         private System.Windows.Forms.CheckBox nepriamyKopCB;
         private System.Windows.Forms.Button aktFilterButton;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox pokutovyKopCB;
         private System.Windows.Forms.CheckBox golCB;
         private System.Windows.Forms.CheckBox offsideCB;
@@ -444,5 +445,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPoznamka;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUdalost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTim;
+        private System.Windows.Forms.Button databazaButton;
     }
 }

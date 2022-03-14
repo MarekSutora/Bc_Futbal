@@ -86,6 +86,7 @@ namespace LGR_Futbal
         private TabulaForm formularTabule = null;
         private PrezentaciaForm prezentacia = null;
         private SetupForm sf = null;
+        private ReklamaForm rf = null;
 
         // Aktualny hraci cas
         private int aktualnaMinuta;
@@ -242,10 +243,8 @@ namespace LGR_Futbal
                             formularTabule.setLayout(rt);
                     }
                 }
-            }    
-            
+            }             
         }
-
         private string preloz(string povodnyText)
         {
             string text = povodnyText;
@@ -488,8 +487,7 @@ namespace LGR_Futbal
                             nadstavenyCas = false;
                             minutaPolcasu = 0;
                             // Koniec nadstaveneho casu
-                            nadstavenaMinuta = 0;
-                            pocetNadstavenychMinut = 0;
+                            
                             casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                             formularTabule.SetCas(casLabel.Text, false);
                             milis = 0;
@@ -501,13 +499,17 @@ namespace LGR_Futbal
                             //polcasButton.Text = (polcas + 1) + ". " + Translate(2) + "\nSTART";
                             if (polcas == 1)
                             {
+                                zapas.NadstavenyCas1 = pocetNadstavenychMinut;
                                 polcasButton.Text = 2 + ". " + Translate(2) + "\nSTART";
                             }
                             else
                             {
+                                zapas.NadstavenyCas2 = pocetNadstavenychMinut;
                                 polcas = 0;
                                 polcasButton.Text = 1 + ". " + Translate(2) + "\nSTART";
                             }
+                            nadstavenaMinuta = 0;
+                            pocetNadstavenychMinut = 0;
                         }
                         else
                         {
@@ -2194,9 +2196,68 @@ namespace LGR_Futbal
         {
             if (zapas != null)
             {
-                UdalostiForm uf = new UdalostiForm(zapas, currentDirectory);
+                UdalostiForm uf = new UdalostiForm(zapas, currentDirectory, databaza);
                 uf.Show();
             }
+        }
+
+        private void reklamaButton_Click_1(object sender, EventArgs e)
+        {
+            string video = string.Empty;
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Multiselect = false;
+                ofd.Filter = "(*.mp4) |*.mp4";
+                ofd.FilterIndex = 1;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    video = ofd.FileName;
+                }
+            }
+            catch
+            {
+                video = string.Empty;
+            }
+
+            if (video != string.Empty)
+            {
+                rf = new ReklamaForm(sirkaTabule, video, this);
+                rf.Show();
+                this.reklamaButton.Visible = false;
+                this.reklamaButton.Enabled = false;
+                this.vypnutVideoButton.Enabled = true;
+                this.vypnutVideoButton.Visible = true;
+            }
+        }
+
+        private void vypnutVideoButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rf.VypnutVideo();
+                this.reklamaButton.Visible = true;
+                this.reklamaButton.Enabled = true;
+                this.vypnutVideoButton.Enabled = false;
+                this.vypnutVideoButton.Visible = false;
+            }
+            catch
+            {
+                MessageBox.Show("Nepodarilo sa vypnúť video!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void KoniecVidea()
+        {
+            //rf.Close();
+            //rf = null;
+            this.reklamaButton.Visible = true;
+            this.reklamaButton.Enabled = true;
+            this.vypnutVideoButton.Enabled = false;
+            this.vypnutVideoButton.Visible = false;
+           
         }
     }
 

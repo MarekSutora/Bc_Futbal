@@ -18,6 +18,8 @@ namespace LGR_Futbal.Model
         public int NadstavenaMinuta { get; set; }
         public DateTime AktualnyCas { get; set; }
         public string NazovTimu { get; set; }
+        public int Typ { get; set; }
+
         public Udalost()
         {
 

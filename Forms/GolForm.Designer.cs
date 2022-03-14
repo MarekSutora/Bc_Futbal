@@ -38,11 +38,11 @@
             this.fotkaPictureBox = new System.Windows.Forms.PictureBox();
             this.cisloHracaLabel = new System.Windows.Forms.Label();
             this.menoHracaLabel = new System.Windows.Forms.Label();
-            this.casovac = new System.Windows.Forms.Timer(this.components);
             this.uvodnyPanel = new System.Windows.Forms.Panel();
             this.nadpisLabel1 = new System.Windows.Forms.Label();
             this.animacnyPanel = new System.Windows.Forms.Panel();
             this.animaciaPB = new System.Windows.Forms.PictureBox();
+            this.casovac = new System.Windows.Forms.Timer(this.components);
             this.prezentacnyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).BeginInit();
             this.uvodnyPanel.SuspendLayout();
@@ -162,11 +162,6 @@
             this.menoHracaLabel.Text = "DOMÁCI";
             this.menoHracaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // casovac
-            // 
-            this.casovac.Interval = 500;
-            this.casovac.Tick += new System.EventHandler(this.Casovac_Tick);
-            // 
             // uvodnyPanel
             // 
             this.uvodnyPanel.BackColor = System.Drawing.Color.Black;
@@ -209,6 +204,11 @@
             this.animaciaPB.TabIndex = 0;
             this.animaciaPB.TabStop = false;
             // 
+            // casovac
+            // 
+            this.casovac.Interval = 500;
+            this.casovac.Tick += new System.EventHandler(this.Casovac_Tick);
+            // 
             // GolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,7 +241,6 @@
         private System.Windows.Forms.PictureBox fotkaPictureBox;
         private System.Windows.Forms.Label cisloHracaLabel;
         private System.Windows.Forms.Label menoHracaLabel;
-        private System.Windows.Forms.Timer casovac;
         private System.Windows.Forms.Panel uvodnyPanel;
         private System.Windows.Forms.Label nadpisLabel1;
         private System.Windows.Forms.RichTextBox infoRichTextBox;
@@ -251,5 +250,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel animacnyPanel;
         private System.Windows.Forms.PictureBox animaciaPB;
+        private System.Windows.Forms.Timer casovac;
     }
 }

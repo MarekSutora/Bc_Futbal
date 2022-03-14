@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RiadiaciForm));
             this.domZltaKartaButton = new System.Windows.Forms.Button();
             this.hosZltaKartaButton = new System.Windows.Forms.Button();
@@ -72,7 +73,9 @@
             this.udalostiButton = new System.Windows.Forms.Button();
             this.logoHostia = new System.Windows.Forms.PictureBox();
             this.logoDomaci = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.reklamaButton = new System.Windows.Forms.Button();
+            this.vypnutVideoButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
             this.SuspendLayout();
@@ -710,18 +713,34 @@
             this.logoDomaci.TabStop = false;
             this.logoDomaci.Click += new System.EventHandler(this.logoDomaci_Click);
             // 
-            // button1
+            // reklamaButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(414, 385);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 40);
-            this.button1.TabIndex = 569;
-            this.button1.Text = "REKLAMA";
-            this.button1.UseVisualStyleBackColor = false;
+            this.reklamaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.reklamaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.reklamaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reklamaButton.Location = new System.Drawing.Point(414, 385);
+            this.reklamaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.reklamaButton.Name = "reklamaButton";
+            this.reklamaButton.Size = new System.Drawing.Size(130, 40);
+            this.reklamaButton.TabIndex = 569;
+            this.reklamaButton.Text = "REKLAMA";
+            this.reklamaButton.UseVisualStyleBackColor = false;
+            this.reklamaButton.Click += new System.EventHandler(this.reklamaButton_Click_1);
+            // 
+            // vypnutVideoButton
+            // 
+            this.vypnutVideoButton.BackColor = System.Drawing.Color.Red;
+            this.vypnutVideoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vypnutVideoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.vypnutVideoButton.Location = new System.Drawing.Point(414, 384);
+            this.vypnutVideoButton.Margin = new System.Windows.Forms.Padding(2);
+            this.vypnutVideoButton.Name = "vypnutVideoButton";
+            this.vypnutVideoButton.Size = new System.Drawing.Size(130, 40);
+            this.vypnutVideoButton.TabIndex = 570;
+            this.vypnutVideoButton.Text = "VYPNÚŤ VIDEO";
+            this.vypnutVideoButton.UseVisualStyleBackColor = false;
+            this.vypnutVideoButton.Visible = false;
+            this.vypnutVideoButton.Click += new System.EventHandler(this.vypnutVideoButton_Click);
             // 
             // RiadiaciForm
             // 
@@ -729,7 +748,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(838, 431);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.vypnutVideoButton);
+            this.Controls.Add(this.reklamaButton);
             this.Controls.Add(this.udalostiButton);
             this.Controls.Add(this.hosUdalostButton);
             this.Controls.Add(this.hosOutButton);
@@ -835,7 +855,9 @@
         private System.Windows.Forms.Button hosOffsideButton;
         private System.Windows.Forms.Button hosKopyButton;
         private System.Windows.Forms.Button udalostiButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button reklamaButton;
+        private System.Windows.Forms.Button vypnutVideoButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
