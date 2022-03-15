@@ -92,6 +92,14 @@ namespace LGR_Futbal.Forms
                 {
                     hraci[i].HraAktualnyZapas = zoznamCheckListBox.GetItemChecked(i);
                     hraci[i].Nahradnik = nahradniciCheckListBox.GetItemChecked(i);
+                    if (zoznamCheckListBox.GetItemChecked(i))
+                    {
+                        hraci[i].Priradeny = 1;
+                    } 
+                    else if (nahradniciCheckListBox.GetItemChecked(i))
+                    {
+                        hraci[i].Priradeny = 2;
+                    }
                 }
                 this.Close();
             }

@@ -1536,7 +1536,7 @@
             this.zapasyLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zapasyLB.FormattingEnabled = true;
             this.zapasyLB.ItemHeight = 20;
-            this.zapasyLB.Location = new System.Drawing.Point(0, 0);
+            this.zapasyLB.Location = new System.Drawing.Point(0, 4);
             this.zapasyLB.Name = "zapasyLB";
             this.zapasyLB.Size = new System.Drawing.Size(614, 464);
             this.zapasyLB.TabIndex = 0;

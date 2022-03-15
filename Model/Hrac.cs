@@ -23,11 +23,11 @@ namespace LGR_Futbal.Model
         public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
-        public bool Hrajuci { get; set; }
-        public bool JeNahradnik { get; set; }
 
-        public Hrac()
+        public int Priradeny { get; set; }
+        public Hrac()    
         {
+            Priradeny = 0;
             Poznamka = " ";
             Meno = string.Empty;
             Priezvisko = string.Empty;

@@ -22,9 +22,7 @@ namespace LGR_Futbal.Forms
         public UdalostiForm(Zapas zapas, string cd, Databaza databaza, bool zDatabazi)
         {
             InitializeComponent();
-            this.zapas = zapas;
-            timCB.Text = zapas.NazovDomaci;
-            tim2CB.Text = zapas.NazovHostia;
+            this.zapas = zapas;         
             this.databaza = databaza;
             polcas1CB.Checked = true;
             polcas2CB.Checked = true;
@@ -51,6 +49,17 @@ namespace LGR_Futbal.Forms
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 
+            if (zapas.Domaci != null)
+            {
+                zapas.NazovDomaci = zapas.Domaci.NazovTimu;
+                timCB.Text = zapas.NazovDomaci;
+            }               
+            if (zapas.Hostia != null)
+            {
+                zapas.NazovHostia = zapas.Hostia.NazovTimu;
+                tim2CB.Text = zapas.NazovHostia;
+            }
+
             skoreLabel.Text = zapas.NazovDomaci + " " + zapas.DomaciSkore + ":" + zapas.HostiaSkore + " " + zapas.NazovHostia;
             udalosti = zapas.Udalosti;
             for (int i = 0; i < udalosti.Count; i++)
@@ -63,7 +72,7 @@ namespace LGR_Futbal.Forms
                 {
                     Gol gol = (Gol)udalosti[i];
                     udalosti[i].Typ = 1;
-                    meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + gol.Strielajuci.Priezvisko : "";
+                    meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + " " + gol.Strielajuci.Priezvisko : "";
                     if (!gol.Asistujuci.Meno.Equals(string.Empty))
                         poznamka = "Asist: " + gol.Asistujuci.CisloDresu + ". " + gol.Asistujuci.Priezvisko;
 
@@ -74,14 +83,14 @@ namespace LGR_Futbal.Forms
                 {
                     udalosti[i].Typ = 2;
                     Karta karta = (Karta)udalosti[i];
-                    meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + karta.Hrac.Priezvisko;
+                    meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
                     udalost = karta.IdKarta == 2 ? "Červená karta" : "Žltá karta";
                 }
                 if (udalosti[i].GetType() == typeof(Kop))
                 {
                     udalosti[i].Typ = 3;
                     Kop kop = (Kop)udalosti[i];
-                    meno_priezvisko = !kop.Hrac.Meno.Equals(string.Empty) ? kop.Hrac.CisloDresu + ". " + kop.Hrac.Meno + kop.Hrac.Priezvisko : "";
+                    meno_priezvisko = !kop.Hrac.Meno.Equals(string.Empty) ? kop.Hrac.CisloDresu + ". " + kop.Hrac.Meno + " " + kop.Hrac.Priezvisko : "";
                     switch (kop.IdTypKopu)
                     {
                         case 1:
@@ -105,14 +114,14 @@ namespace LGR_Futbal.Forms
                 {
                     udalosti[i].Typ = 4;
                     Offside offside = (Offside)udalosti[i];
-                    meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + offside.Hrac.Priezvisko : "";
+                    meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + " " + offside.Hrac.Priezvisko : "";
                     udalost = "Offside";
                 }
                 if (udalosti[i].GetType() == typeof(Out))
                 {
                     udalosti[i].Typ = 5;
                     Out _out = (Out)udalosti[i];
-                    meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + _out.Hrac.Priezvisko : "";
+                    meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + " " + _out.Hrac.Priezvisko : "";
                     udalost = "Outové vhadzovanie";
                 }
                 if (udalosti[i].GetType() == typeof(Striedanie))
@@ -125,8 +134,6 @@ namespace LGR_Futbal.Forms
                         striedanie.Striedajuci.CisloDresu + ". " + striedanie.Striedajuci.Priezvisko + " ↑" : "";
                     udalost = "Striedanie";
                 }
-                udalosti[i].UdalostPopis = poznamka;
-                udalosti[i].Minuta = minuta;
                 var row = new string[]
                 {
                     udalosti[i].AktualnyCas.ToLongTimeString(),
@@ -143,6 +150,8 @@ namespace LGR_Futbal.Forms
         }
         private void csvGenButton_Click(object sender, EventArgs e)
         {
+            string meno_priezvisko = string.Empty;
+            string priradenost = string.Empty;
             bool uspech = false;
             try
             {
@@ -159,6 +168,57 @@ namespace LGR_Futbal.Forms
 
                     line = string.Format("{0};{1}", "Dĺžka polčasu:", zapas.DlzkaPolcasu);
                     sw.WriteLine(line);
+                    sw.WriteLine("");
+                    sw.WriteLine("");
+                    line = string.Format("{0}", "Hráči Tím 1:");
+                    sw.WriteLine(line);
+                    for (int i = 0; i < zapas.Domaci.ZoznamHracov.Count; i++)
+                    {
+                        
+                        if (zapas.Domaci.ZoznamHracov[i].Priradeny == 1)
+                        {
+                            meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
+                            priradenost = "Hrajúci";
+                            line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
+                            sw.WriteLine(line);
+                        } 
+                        else if (zapas.Domaci.ZoznamHracov[i].Priradeny == 2)
+                        {
+                            meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
+                            priradenost = "Nahradník";
+                            line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
+                            sw.WriteLine(line);
+                        }
+                        
+                    }
+                    line = string.Format("{0}", "Hráči Tím 2:");
+                    sw.WriteLine(line);
+                    for (int i = 0; i < zapas.Hostia.ZoznamHracov.Count; i++)
+                    {
+                        if(zapas.Hostia.ZoznamHracov[i].Priradeny == 1)
+                        {
+                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
+                            priradenost = "Hrajúci";
+                            line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
+                            sw.WriteLine(line);
+                        }
+                        else if (zapas.Hostia.ZoznamHracov[i].Priradeny == 2)
+                        {
+                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
+                            priradenost = "Nahradník";
+                            line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
+                            sw.WriteLine(line);
+                        }
+                    }
+                    line = string.Format("{0}", "Rozhodcovia:");
+                    sw.WriteLine(line);
+                    for (int i = 0; i < zapas.Rozhodcovia.Count; i++)
+                    {
+                        line = string.Format("{0}", zapas.Rozhodcovia[i].Meno +  zapas.Rozhodcovia[i].Priezvisko);
+                        
+                        sw.WriteLine(line);
+                    }
+
                     sw.WriteLine("");
                     sw.WriteLine("");
                     sw.WriteLine("");

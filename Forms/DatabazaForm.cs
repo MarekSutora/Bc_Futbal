@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using LGR_Futbal.Model;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace LGR_Futbal.Forms
 {
@@ -1084,27 +1086,28 @@ namespace LGR_Futbal.Forms
             if (zapasy == null)
             {
                 zapasy = dbs.GetZapasy();
+                for (int i = 0; i < zapasy.Count; i++)
+                {
+                    zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].Domaci.NazovTimu + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
+                        " " + zapasy[i].Hostia.NazovTimu);
+                }
             }
-            for (int i = 0; i < zapasy.Count; i++)
-            {
-                zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].NazovDomaci + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
-                    " " + zapasy[i].NazovHostia);
-            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            ZapasUdalostForm();
         }
 
         private void zapasyLB_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            ZapasUdalostForm();
         }
 
         private void ZapasUdalostForm()
         {
-            if (zapasy[zapasyLB.SelectedIndex].Udalosti == null)
+            if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
                 dbs.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
 
             UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], currentDirectory, dbs, true);

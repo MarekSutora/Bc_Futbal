@@ -1067,7 +1067,7 @@ namespace LGR_Futbal.Triedy
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Domaci.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Hrajuci ? 1 : 2;
+                        param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Priradeny;
 
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
@@ -1082,7 +1082,7 @@ namespace LGR_Futbal.Triedy
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Hostia.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Hrajuci ? 1 : 2;
+                        param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Priradeny;
 
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
@@ -1105,9 +1105,10 @@ namespace LGR_Futbal.Triedy
                     }
 
 
-                    string cmdQuery4 = "INSERT INTO udalost(id_zapas, udalost_popis, minuta, polcas, nadstavena_minuta, typ_udalosti) " +
-                        "VALUES(:id_zapas, :udalost_popis, :minuta, :polcas, :nadstavena_minuta, :typ_udalosti)";
-                    OracleParameter[] param3 = new OracleParameter[6];
+                    string cmdQuery4 = "INSERT INTO udalost(id_zapas, aktualny_cas, udalost_popis, minuta, polcas, nadstavena_minuta, nazov_timu, typ_udalosti) " +
+                        "VALUES(:id_zapas, :aktualny_cas, :udalost_popis, :minuta, :polcas, :nadstavena_minuta, :nazov_timu, :typ_udalosti)";
+                    OracleParameter[] param3 = new OracleParameter[8];
+                    
 
                     for (int i = 0; i < udalosti.Count; i++)
                     {
@@ -1115,20 +1116,25 @@ namespace LGR_Futbal.Triedy
                         {
                             int x = 5;
                         }
+                        cmd.CommandText = cmdQuery4;
                         param3[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param3[0].Value = IdZapas;
-                        param3[1] = cmd.Parameters.Add("udalost_popis", OracleDbType.Varchar2);
-                        param3[1].Value = udalosti[i].UdalostPopis;
-                        param3[2] = cmd.Parameters.Add("minuta", OracleDbType.Int32);
-                        param3[2].Value = udalosti[i].Minuta;
-                        param3[3] = cmd.Parameters.Add("polcas", OracleDbType.Int32);
-                        param3[3].Value = udalosti[i].Polcas;
-                        param3[4] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int32);
-                        param3[4].Value = udalosti[i].NadstavenaMinuta;
-                        param3[5] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
-                        param3[5].Value = udalosti[i].Typ;
+                        param3[1] = cmd.Parameters.Add("aktualny_cas", OracleDbType.Date);
+                        param3[1].Value = udalosti[i].AktualnyCas;
+                        param3[2] = cmd.Parameters.Add("udalost_popis", OracleDbType.Varchar2);
+                        param3[2].Value = udalosti[i].UdalostPopis;
+                        param3[3] = cmd.Parameters.Add("minuta", OracleDbType.Int32);
+                        param3[3].Value = udalosti[i].Minuta;
+                        param3[4] = cmd.Parameters.Add("polcas", OracleDbType.Int32);
+                        param3[4].Value = udalosti[i].Polcas;
+                        param3[5] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int32);
+                        param3[5].Value = udalosti[i].NadstavenaMinuta;
+                        param3[6] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
+                        param3[6].Value = udalosti[i].NazovTimu;
+                        param3[7] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
+                        param3[7].Value = udalosti[i].Typ;
 
-                        cmd.CommandText = cmdQuery4;
+                        
                         cmd.ExecuteNonQuery();
 
                         cmd.Parameters.Clear();
@@ -1181,24 +1187,24 @@ namespace LGR_Futbal.Triedy
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[3];
                     param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
-                    param[0].Value = striedanie.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hraca_striedany", OracleDbType.Int32);
-                    if (striedanie.Striedany.Meno.Equals(string.Empty))
+                    param[0].Value = striedanie.IdUdalosti;             
+                    param[1] = cmd.Parameters.Add("id_hraca_striedajuci", OracleDbType.Int32);
+                    if (striedanie.Striedajuci.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
                     }
                     else
                     {
-                        param[1].Value = striedanie.Striedany.IdHrac;
+                        param[1].Value = striedanie.Striedajuci.IdHrac;
                     }
-                    param[2] = cmd.Parameters.Add("id_hraca_striedajuci", OracleDbType.Int32);
-                    if (striedanie.Striedajuci.Meno.Equals(string.Empty))
+                    param[2] = cmd.Parameters.Add("id_hraca_striedany", OracleDbType.Int32);
+                    if (striedanie.Striedany.Meno.Equals(string.Empty))
                     {
                         param[2].Value = null;
                     }
                     else
                     {
-                        param[2].Value = striedanie.Striedajuci.IdHrac;
+                        param[2].Value = striedanie.Striedany.IdHrac;
                     }
 
                     cmd.Connection = conn;
@@ -1438,10 +1444,6 @@ namespace LGR_Futbal.Triedy
                             zapas = new Zapas();
                             if (!reader.IsDBNull(0))
                                 zapas.IdZapasu = reader.GetInt32(0);
-                            if (!reader.IsDBNull(1))
-                                zapas.NazovDomaci = GetNazovTimu(reader.GetInt32(1));
-                            if (!reader.IsDBNull(2))
-                                zapas.NazovHostia = GetNazovTimu(reader.GetInt32(2));
                             if (!reader.IsDBNull(3))
                                 zapas.DatumZapasu = reader.GetDateTime(3);
                             if (!reader.IsDBNull(4))
@@ -1452,6 +1454,15 @@ namespace LGR_Futbal.Triedy
                                 zapas.DlzkaPolcasu = reader.GetInt32(6);
                             zapas.NadstavenyCas1 = reader.GetInt32(7);
                             zapas.NadstavenyCas2 = reader.GetInt32(8);
+
+                            FutbalovyTim domaci = new FutbalovyTim();
+                            FutbalovyTim hostia = new FutbalovyTim();
+
+                            domaci = GetTim(reader.GetInt32(1));
+                            hostia = GetTim(reader.GetInt32(2));
+
+                            zapas.Domaci = domaci;
+                            zapas.Hostia = hostia;
 
                             zapasy.Add(zapas);
                         }
@@ -1465,6 +1476,45 @@ namespace LGR_Futbal.Triedy
             }
 
             return zapasy;
+        }
+
+        private FutbalovyTim GetTim(int id)
+        {
+            FutbalovyTim ft = new FutbalovyTim();
+
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "SELECT * FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Varchar2);
+                    param.Value = id;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add(param);
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(1))
+                                ft.Kategoria = reader.GetInt32(1);
+                            if (!reader.IsDBNull(2))
+                                ft.NazovTimu = reader.GetString(2);
+
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            return ft;
         }
 
         private string GetNazovTimu(int id)
@@ -1501,16 +1551,56 @@ namespace LGR_Futbal.Triedy
             zapas.Udalosti = udalosti;
             using (OracleConnection conn = new OracleConnection(constring))
             {
-                string cmdQuery = "SELECT id_udalosti, typ_udalosti FROM udalost WHERE id_zapas = :id_zapas";
                 try
                 {
                     conn.Open();
+                    string cmdQuery2 = "SELECT id_rozhodca FROM zapas_rozhodcovia WHERE id_zapas = :id_zapas";
                     OracleParameter param = new OracleParameter("id_zapas", zapas.IdZapasu);
                     param.OracleDbType = OracleDbType.Int32;
-                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
                     cmd.Parameters.Add(param);
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Rozhodca rozhodca = new Rozhodca();
+                            rozhodca = GetRozhodca(int.Parse(cmd.ExecuteScalar().ToString()));
+                            zapas.Rozhodcovia.Add(rozhodca);
+                        }
+                    }
+
+                    string cmdQuery3 = "SELECT * FROM zapas_hraci WHERE id_zapas = :id_zapas";
+                    cmd.CommandText = cmdQuery3;
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        Hrac hrac = new Hrac();
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(4))
+                                hrac.Priradeny = reader.GetInt32(4);
+                            if (!reader.IsDBNull(3))
+                            {
+                                if (reader.GetInt32(3) == zapas.Domaci.IdFutbalovyTim)
+                                {
+                                    zapas.Domaci.ZoznamHracov.Add(hrac);
+                                }
+                                else if(reader.GetInt32(3) == zapas.Hostia.IdFutbalovyTim)
+                                {
+                                    zapas.Hostia.ZoznamHracov.Add(hrac);
+                                }
+                            }
+                        }
+                    }
+
+                    string cmdQuery = "SELECT id_udalost, typ_udalosti FROM udalost WHERE id_zapas = :id_zapas";
+
+
+                    cmd.CommandText = cmdQuery;
+                    
 
                     using (OracleDataReader reader = cmd.ExecuteReader())
                     {
@@ -1534,27 +1624,337 @@ namespace LGR_Futbal.Triedy
             switch (typ)
             {
                 case 1:
-                    InsertGol(id, udalosti);
+                    PridajGolDoUdalosti(id, udalosti);
                     break;
                 case 2:
-                    InsertKarta(id, udalosti);
+                    PridajtKartaDoUdalosti(id, udalosti);
                     break;
                 case 3:
-                    InsertKop(id, udalosti);
+                    PridajKopDoUdalosti(id, udalosti);
                     break;
                 case 4:
-                    InsertOffside(id, udalosti);
+                    PridajOffsideDoUdalosti(id, udalosti);
                     break;
                 case 5:
-                    InsertOut(id, udalosti);
+                    PridajOutDoUdalosti(id, udalosti);
                     break;
                 case 6:
-                    InsertStriedanie(id, udalosti);
+                    PridajStriedanieDoUdalosti(id, udalosti);
                     break;
             }
 
         }
 
+        private void PridajStriedanieDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Striedanie striedanie = new Striedanie();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                
+                try
+                {
+                    NastavAtributy(striedanie, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT * FROM striedanie WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(2))
+                                striedanie.Striedajuci = getHrac(reader.GetInt32(2));
+                            if (!reader.IsDBNull(3))
+                                striedanie.Striedany = getHrac(reader.GetInt32(3));
+                        }
+                    }
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            udalosti.Add(striedanie);
+        }
+
+        private void PridajOutDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Out _out = new Out();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    NastavAtributy(_out, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT id_vhadzujuci_hrac FROM out WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+                    if (!cmd.ExecuteScalar().ToString().Equals(string.Empty))
+                        _out.Hrac = getHrac(int.Parse(cmd.ExecuteScalar().ToString()));
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            udalosti.Add(_out);
+        }
+
+        private void PridajOffsideDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Offside offside = new Offside();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    NastavAtributy(offside, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT id_hrac FROM offside WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+
+                    if (!cmd.ExecuteScalar().ToString().Equals(string.Empty))
+                        offside.Hrac = getHrac(int.Parse(cmd.ExecuteScalar().ToString()));
+                   
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            udalosti.Add(offside);
+        }
+
+        private void PridajKopDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Kop kop = new Kop();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    NastavAtributy(kop, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT * FROM kop WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(2))
+                                kop.Hrac = getHrac(reader.GetInt32(2));
+                            if (!reader.IsDBNull(3))
+                                kop.IdTypKopu = reader.GetInt32(3);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            udalosti.Add(kop);
+        }
+
+        private void PridajtKartaDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Karta karta = new Karta();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    NastavAtributy(karta, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT * FROM karta WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(2))
+                                karta.Hrac = getHrac(reader.GetInt32(2));
+                            if (!reader.IsDBNull(4))
+                                karta.IdKarta = reader.GetInt32(4);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+            udalosti.Add(karta);
+        }
+
+        private void PridajGolDoUdalosti(int id, List<Udalost> udalosti)
+        {
+            Gol gol = new Gol();
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    NastavAtributy(gol, id);
+                    conn.Open();
+
+                    string cmdQuery2 = "SELECT * FROM gol WHERE id_udalost = :id_udalost";
+                    OracleCommand cmd = new OracleCommand(cmdQuery2);
+                    cmd.CommandText = cmdQuery2;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    cmd.Parameters.Add(param);
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(2))
+                                gol.Strielajuci = getHrac(reader.GetInt32(2));
+                            if (!reader.IsDBNull(3))
+                                gol.TypGolu = reader.GetInt32(3);
+                            if (!reader.IsDBNull(4))
+                                gol.Asistujuci = getHrac(reader.GetInt32(4));
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+            udalosti.Add(gol);
+        }
+
+        private void NastavAtributy(Udalost udalost, int id)
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+
+                try
+                {
+                    conn.Open();
+                    string cmdQuery = "SELECT * FROM udalost WHERE id_udalost = :id_udalost";
+                    OracleParameter param = new OracleParameter("id_udalost", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Parameters.Add(param);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(2))
+                                udalost.AktualnyCas = reader.GetDateTime(2);
+                            if (!reader.IsDBNull(3))
+                                udalost.Minuta = reader.GetInt32(3);
+                            if (!reader.IsDBNull(4))
+                                udalost.Polcas = reader.GetInt32(4);
+                            if (!reader.IsDBNull(5))
+                                udalost.NadstavenaMinuta = reader.GetInt32(5);
+                            if (!reader.IsDBNull(6))
+                                udalost.NazovTimu = reader.GetString(6);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+        }
+
+        //private Rozhodca GetRozhodca(int id)
+        //{
+        //    Rozhodca rozhodca = null;
+        //    using (OracleConnection conn = new OracleConnection(constring))
+        //    {
+        //        string cmdQuery = "SELECT * FROM hrac WHERE id_hrac = :id_hrac";
+        //        try
+        //        {
+        //            conn.Open();
+        //            OracleCommand cmd = new OracleCommand(cmdQuery);
+        //            OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Varchar2);
+        //            param.Value = id;
+        //            cmd.Connection = conn;
+        //            cmd.CommandType = CommandType.Text;
+        //            cmd.Parameters.Add(param);
+
+        //            using (OracleDataReader reader = cmd.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    rozhodca = new Rozhodca();
+        //                    if (!reader.IsDBNull(1))
+        //                        rozhodca.IdOsoba = reader.GetInt32(1);
+        //                    NastavOsudaje(rozhodca);
+        //                }
+        //            }
+        //            conn.Close();
+        //        }
+        //        catch
+        //        {
+        //            throw new Exception("Chyba pri praci s Databazou");
+        //        }
+        //    }
+        //    return rozhodca;
+        //}
         #endregion ZAPASY
 
     }
