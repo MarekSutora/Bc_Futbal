@@ -145,9 +145,9 @@ namespace LGR_Futbal.Triedy
                         {
                             ft = new FutbalovyTim();
                             if (!reader.IsDBNull(0))
-                                ft.IdFutbalovyTim = reader.GetInt16(0);
+                                ft.IdFutbalovyTim = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                ft.Kategoria = reader.GetInt16(1);
+                                ft.Kategoria = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
                                 ft.NazovTimu = reader.GetString(2);
                             if (!reader.IsDBNull(3))
@@ -255,9 +255,9 @@ namespace LGR_Futbal.Triedy
                     OracleCommand cmd = new OracleCommand(cmdQuery);
                     OracleParameter[] param = new OracleParameter[4];
 
-                    param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int32);
                     param[0].Value = kategoria;
-                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int32);
                     param[1].Value = klub;
                     param[2] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
                     param[2].Value = nazov;
@@ -309,15 +309,15 @@ namespace LGR_Futbal.Triedy
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
                     OracleParameter[] param = new OracleParameter[5];
-                    param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int32);
                     param[0].Value = kategoria;
-                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int32);
                     param[1].Value = idklub;
                     param[2] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
                     param[2].Value = nazov;
                     param[3] = cmd.Parameters.Add("logo", OracleDbType.Blob);
                     param[3].Value = blob;
-                    param[4] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                    param[4] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                     param[4].Value = ft.IdFutbalovyTim;
 
                     cmd.Connection = conn;
@@ -343,7 +343,7 @@ namespace LGR_Futbal.Triedy
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
                     OracleParameter param = new OracleParameter();
-                    param = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                    param = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                     param.Value = ft.IdFutbalovyTim;
 
                     cmd.Connection = conn;
@@ -377,7 +377,7 @@ namespace LGR_Futbal.Triedy
                     param[1].Value = h.Priezvisko;
                     param[2] = cmd.Parameters.Add("datum_narodenia", OracleDbType.Date);
                     param[2].Value = h.DatumNarodenia;
-                    param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
+                    param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Int32);
                     param[3].Value = h.Pohlavie;
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -419,13 +419,13 @@ namespace LGR_Futbal.Triedy
 
                     string cmdQuery3 = "INSERT INTO hrac(id_futbalovy_tim, id_osoba, poznamka, cislo_dresu, fotka, post) VALUES(:id_futbalovy_tim, :id_osoba, :poznamka, :cislo_dresu, :fotka, :post)";
                     cmd.CommandText = cmdQuery3;
-                    param1[0] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                    param1[0] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                     param1[0].Value = idTimu;
-                    param1[1] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
+                    param1[1] = cmd.Parameters.Add("id_osoba", OracleDbType.Int32);
                     param1[1].Value = ID;
                     param1[2] = cmd.Parameters.Add("poznamka", OracleDbType.Varchar2);
                     param1[2].Value = poznamka;
-                    param1[3] = cmd.Parameters.Add("cislo_dresu", OracleDbType.Int16);
+                    param1[3] = cmd.Parameters.Add("cislo_dresu", OracleDbType.Int32);
                     param1[3].Value = cislo_dresu;
                     param1[4] = cmd.Parameters.Add("fotka", OracleDbType.Blob);
                     param1[4].Value = blob;
@@ -461,11 +461,11 @@ namespace LGR_Futbal.Triedy
                         {
                             hrac = new Hrac();
                             if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt16(0);
+                                hrac.IdHrac = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt16(1);
+                                hrac.IdOsoba = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
-                                hrac.IdFutbalovyTim = reader.GetInt16(2);
+                                hrac.IdFutbalovyTim = reader.GetInt32(2);
                             if (!reader.IsDBNull(3))
                                 hrac.Poznamka = reader.GetString(3);
                             if (!reader.IsDBNull(4))
@@ -513,11 +513,11 @@ namespace LGR_Futbal.Triedy
                         {
                             hrac = new Hrac();
                             if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt16(0);
+                                hrac.IdHrac = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt16(1);
+                                hrac.IdOsoba = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
-                                hrac.IdFutbalovyTim = reader.GetInt16(3);
+                                hrac.IdFutbalovyTim = reader.GetInt32(3);
                             if (!reader.IsDBNull(3))
                                 hrac.Poznamka = reader.GetString(3);
                             if (!reader.IsDBNull(4))
@@ -554,7 +554,7 @@ namespace LGR_Futbal.Triedy
                 {
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter param = new OracleParameter("id_timu", OracleDbType.Int16);
+                    OracleParameter param = new OracleParameter("id_timu", OracleDbType.Int32);
                     param.Value = idTimu;
                     cmd.Parameters.Add(param);
                     cmd.Connection = conn;
@@ -565,11 +565,11 @@ namespace LGR_Futbal.Triedy
                         {
                             hrac = new Hrac();
                             if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt16(0);
+                                hrac.IdHrac = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt16(1);
+                                hrac.IdOsoba = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
-                                hrac.IdFutbalovyTim = reader.GetInt16(2);
+                                hrac.IdFutbalovyTim = reader.GetInt32(2);
                             if (!reader.IsDBNull(3))
                                 hrac.Poznamka = reader.GetString(3);
                             if (!reader.IsDBNull(4))
@@ -619,7 +619,7 @@ namespace LGR_Futbal.Triedy
                         if (!reader.IsDBNull(3))
                             osoba.DatumNarodenia = reader.GetDateTime(3);
                         if (!reader.IsDBNull(4))
-                            osoba.Pohlavie = reader.GetInt16(4);
+                            osoba.Pohlavie = reader.GetInt32(4);
                     }
                 }
                 conn.Close();
@@ -648,11 +648,11 @@ namespace LGR_Futbal.Triedy
                         {
                             hrac = new Hrac();
                             if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt16(0);
+                                hrac.IdHrac = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt16(1);
+                                hrac.IdOsoba = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
-                                hrac.IdFutbalovyTim = reader.GetInt16(2);
+                                hrac.IdFutbalovyTim = reader.GetInt32(2);
                             if (!reader.IsDBNull(3))
                                 hrac.Poznamka = reader.GetString(3);
                             if (!reader.IsDBNull(4))
@@ -697,11 +697,11 @@ namespace LGR_Futbal.Triedy
                     param[1].Value = h.Priezvisko;
                     param[2] = cmd.Parameters.Add("datum_narodenia", OracleDbType.Date);
                     param[2].Value = h.DatumNarodenia;
-                    param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
+                    param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Int32);
                     param[3].Value = h.Pohlavie;
-                    param[4] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
+                    param[4] = cmd.Parameters.Add("id_osoba", OracleDbType.Int32);
                     param[4].Value = h.IdOsoba;
-                    
+
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -713,7 +713,7 @@ namespace LGR_Futbal.Triedy
                     {
                         if (h.FotkaBlob != null)
                         {
-                            blob = h.FotkaBlob; 
+                            blob = h.FotkaBlob;
                         }
                         else
                         {
@@ -722,7 +722,7 @@ namespace LGR_Futbal.Triedy
                             blob = new byte[fls.Length];
                             fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
                             fls.Close();
-                        }    
+                        }
                     }
 
                     int? idTimu = null;
@@ -741,17 +741,17 @@ namespace LGR_Futbal.Triedy
                     OracleCommand cmd2 = new OracleCommand(cmdQuery2);
                     OracleParameter[] param2 = new OracleParameter[6];
 
-                    param2[0] = cmd2.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                    param2[0] = cmd2.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                     param2[0].Value = idTimu;
                     param2[1] = cmd2.Parameters.Add("poznamka", OracleDbType.Varchar2);
                     param2[1].Value = poznamka;
-                    param2[2] = cmd2.Parameters.Add("cislo_dresu", OracleDbType.Int16);
+                    param2[2] = cmd2.Parameters.Add("cislo_dresu", OracleDbType.Int32);
                     param2[2].Value = cislo_dresu;
                     param2[3] = cmd2.Parameters.Add("fotka", OracleDbType.Blob);
                     param2[3].Value = blob;
                     param2[4] = cmd2.Parameters.Add("post", OracleDbType.Varchar2);
                     param2[4].Value = pozicia;
-                    param2[5] = cmd2.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param2[5] = cmd2.Parameters.Add("id_hrac", OracleDbType.Int32);
                     param2[5].Value = h.IdHrac;
 
                     cmd2.Connection = conn;
@@ -776,7 +776,7 @@ namespace LGR_Futbal.Triedy
                 {
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int16);
+                    OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int32);
                     param.Value = h.IdHrac;
                     cmd.Parameters.Add(param);
                     cmd.Connection = conn;
@@ -796,25 +796,25 @@ namespace LGR_Futbal.Triedy
         {
             using (OracleConnection conn = new OracleConnection(constring))
             {
-                
+
                 string cmdQuery = "UPDATE hrac SET id_futbalovy_tim = :id_timu WHERE id_hrac = :id_hrac";
                 OracleCommand cmd = new OracleCommand(cmdQuery);
-                
-               
+
+
                 for (int i = 0; i < hraci.Count; i++)
                 {
                     try
                     {
                         OracleParameter[] param = new OracleParameter[2];
                         cmd.Parameters.Clear();
-                        param[0] = cmd.Parameters.Add("id_timu", OracleDbType.Int16);
+                        param[0] = cmd.Parameters.Add("id_timu", OracleDbType.Int32);
                         param[0].Value = idTimu;
-                        param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                        param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                         param[1].Value = hraci[i].IdHrac;
                         conn.Open();
 
                         cmd.CommandType = CommandType.Text;
-                        cmd.Connection = conn;         
+                        cmd.Connection = conn;
                         cmd.ExecuteNonQuery();
 
                         conn.Close();
@@ -823,7 +823,7 @@ namespace LGR_Futbal.Triedy
                     {
                         throw new Exception("Chyba pri praci s Databazou");
                     }
-                }  
+                }
             }
         }
 
@@ -851,9 +851,9 @@ namespace LGR_Futbal.Triedy
                         {
                             rozhodca = new Rozhodca();
                             if (!reader.IsDBNull(0))
-                                rozhodca.IdRozhodca = reader.GetInt16(0);
+                                rozhodca.IdRozhodca = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                rozhodca.IdOsoba = reader.GetInt16(1);
+                                rozhodca.IdOsoba = reader.GetInt32(1);
                             NastavOsudaje(rozhodca);
                             rozhodcovia.Add(rozhodca);
                         }
@@ -882,7 +882,7 @@ namespace LGR_Futbal.Triedy
                     param[0].Value = rozhodca.Meno;
                     param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
                     param[1].Value = rozhodca.Priezvisko;
-                    param[2] = cmd.Parameters.Add("pohlavie", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("pohlavie", OracleDbType.Int32);
                     param[2].Value = rozhodca.Pohlavie;
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -896,7 +896,7 @@ namespace LGR_Futbal.Triedy
 
                     string cmdQuery3 = "INSERT INTO rozhodca(id_osoba) VALUES(:id_osoba)";
                     cmd.CommandText = cmdQuery3;
-                    OracleParameter param1 = new OracleParameter("id_osoba", OracleDbType.Int16);
+                    OracleParameter param1 = new OracleParameter("id_osoba", OracleDbType.Int32);
                     param1.Value = ID;
                     cmd.Parameters.Add(param1);
                     cmd.ExecuteNonQuery();
@@ -925,13 +925,13 @@ namespace LGR_Futbal.Triedy
                     param[0].Value = rozhodca.Meno;
                     param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
                     param[1].Value = rozhodca.Priezvisko;
-                    param[2] = cmd.Parameters.Add("id_osoba", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("id_osoba", OracleDbType.Int32);
                     param[2].Value = rozhodca.IdOsoba;
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
-                    
+
                     conn.Close();
                 }
                 catch
@@ -950,7 +950,7 @@ namespace LGR_Futbal.Triedy
                 {
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter param = new OracleParameter("id_rozhodca", OracleDbType.Int16);
+                    OracleParameter param = new OracleParameter("id_rozhodca", OracleDbType.Int32);
                     param.Value = rozhodca.IdRozhodca;
                     cmd.Parameters.Add(param);
                     cmd.Connection = conn;
@@ -989,9 +989,9 @@ namespace LGR_Futbal.Triedy
                         {
                             Rozhodca = new Rozhodca();
                             if (!reader.IsDBNull(0))
-                                Rozhodca.IdRozhodca = reader.GetInt16(0);
+                                Rozhodca.IdRozhodca = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
-                                Rozhodca.IdOsoba = reader.GetInt16(1);
+                                Rozhodca.IdOsoba = reader.GetInt32(1);
                             NastavOsudaje(Rozhodca);
                         }
 
@@ -1022,21 +1022,21 @@ namespace LGR_Futbal.Triedy
                         "VALUES(:id_futbalovy_tim_domaci, :id_futbalovy_tim_hostia, :datum_zapasu, :domaci_skore, :hostia_skore, :dlzka_polcasu, :nadstaveny_cas1, :nadstaveny_cas2)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[8];
-                    param[0] = cmd.Parameters.Add("id_futbalovy_tim_domaci", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_futbalovy_tim_domaci", OracleDbType.Int32);
                     param[0].Value = Zapas.Domaci.IdFutbalovyTim;
-                    param[1] = cmd.Parameters.Add("id_futbalovy_tim_hostia", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_futbalovy_tim_hostia", OracleDbType.Int32);
                     param[1].Value = Zapas.Hostia.IdFutbalovyTim;
                     param[2] = cmd.Parameters.Add("datum_zapasu", OracleDbType.Date);
                     param[2].Value = Zapas.DatumZapasu;
-                    param[3] = cmd.Parameters.Add("domaci_skore", OracleDbType.Int16);
+                    param[3] = cmd.Parameters.Add("domaci_skore", OracleDbType.Int32);
                     param[3].Value = Zapas.DomaciSkore;
-                    param[4] = cmd.Parameters.Add("hostia_skore", OracleDbType.Int16);
+                    param[4] = cmd.Parameters.Add("hostia_skore", OracleDbType.Int32);
                     param[4].Value = Zapas.HostiaSkore;
-                    param[5] = cmd.Parameters.Add("dlzka_polcasu", OracleDbType.Int16);
+                    param[5] = cmd.Parameters.Add("dlzka_polcasu", OracleDbType.Int32);
                     param[5].Value = Zapas.DlzkaPolcasu;
-                    param[6] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int16);
+                    param[6] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int32);
                     param[6].Value = Zapas.NadstavenyCas1;
-                    param[7] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int16);
+                    param[7] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int32);
                     param[7].Value = Zapas.NadstavenyCas2;
 
                     cmd.Connection = conn;
@@ -1060,13 +1060,13 @@ namespace LGR_Futbal.Triedy
                     for (int i = 0; i < Zapas.Domaci.ZoznamHracov.Count; i++)
                     {
 
-                        param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int16);
+                        param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param2[0].Value = IdZapas;
-                        param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                        param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                         param2[1].Value = Zapas.Domaci.ZoznamHracov[i].IdHrac;
-                        param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                        param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Domaci.ZoznamHracov[i].IdFutbalovyTim;
-                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int16);
+                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
                         param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Hrajuci ? 1 : 2;
 
                         cmd.ExecuteNonQuery();
@@ -1075,18 +1075,35 @@ namespace LGR_Futbal.Triedy
 
                     for (int i = 0; i < Zapas.Hostia.ZoznamHracov.Count; i++)
                     {
-                        param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int16);
+                        param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param2[0].Value = IdZapas;
-                        param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                        param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                         param2[1].Value = Zapas.Hostia.ZoznamHracov[i].IdHrac;
-                        param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int16);
+                        param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Hostia.ZoznamHracov[i].IdFutbalovyTim;
-                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int16);
+                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
                         param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Hrajuci ? 1 : 2;
 
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
                     }
+
+                    OracleParameter[] param4 = new OracleParameter[2];
+                    string cmdQuery6 = "INSERT INTO zapas_rozhodcovia(id_rozhodca, id_zapas) " +
+                        "VALUES(:id_rozhodca, :id_zapas)";
+                    cmd.CommandText = cmdQuery6;
+
+                    for (int i = 0; i < Zapas.Rozhodcovia.Count; i++)
+                    {
+                        param4[0] = cmd.Parameters.Add("id_rozhodca", OracleDbType.Int32);
+                        param4[0].Value = IdZapas;
+                        param4[1] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
+                        param4[1].Value = IdZapas;
+
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+                    }
+
 
                     string cmdQuery4 = "INSERT INTO udalost(id_zapas, udalost_popis, minuta, polcas, nadstavena_minuta, typ_udalosti) " +
                         "VALUES(:id_zapas, :udalost_popis, :minuta, :polcas, :nadstavena_minuta, :typ_udalosti)";
@@ -1094,21 +1111,21 @@ namespace LGR_Futbal.Triedy
 
                     for (int i = 0; i < udalosti.Count; i++)
                     {
-                        if(i == udalosti.Count - 2)
+                        if (i == udalosti.Count - 2)
                         {
                             int x = 5;
                         }
-                        param3[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int16);
+                        param3[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param3[0].Value = IdZapas;
                         param3[1] = cmd.Parameters.Add("udalost_popis", OracleDbType.Varchar2);
                         param3[1].Value = udalosti[i].UdalostPopis;
-                        param3[2] = cmd.Parameters.Add("minuta", OracleDbType.Int16);
+                        param3[2] = cmd.Parameters.Add("minuta", OracleDbType.Int32);
                         param3[2].Value = udalosti[i].Minuta;
-                        param3[3] = cmd.Parameters.Add("polcas", OracleDbType.Int16);
+                        param3[3] = cmd.Parameters.Add("polcas", OracleDbType.Int32);
                         param3[3].Value = udalosti[i].Polcas;
-                        param3[4] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int16);
+                        param3[4] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int32);
                         param3[4].Value = udalosti[i].NadstavenaMinuta;
-                        param3[5] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int16);
+                        param3[5] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
                         param3[5].Value = udalosti[i].Typ;
 
                         cmd.CommandText = cmdQuery4;
@@ -1160,12 +1177,12 @@ namespace LGR_Futbal.Triedy
                 try
                 {
                     conn.Open();
-                    string cmdQuery1 = "INSERT INTO striedanie(id_udalost, id_hraca_striedajuci, id_hraca_striedany) VALUES(:id_udalost, :id_hrac, :id_hraca_striedajuci, :id_hraca_striedany)";
+                    string cmdQuery1 = "INSERT INTO striedanie(id_udalost, id_hraca_striedajuci, id_hraca_striedany) VALUES(:id_udalost, :id_hraca_striedajuci, :id_hraca_striedany)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[3];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = striedanie.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hraca_striedany", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hraca_striedany", OracleDbType.Int32);
                     if (striedanie.Striedany.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1174,7 +1191,7 @@ namespace LGR_Futbal.Triedy
                     {
                         param[1].Value = striedanie.Striedany.IdHrac;
                     }
-                    param[2] = cmd.Parameters.Add("id_hraca_striedajuci", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("id_hraca_striedajuci", OracleDbType.Int32);
                     if (striedanie.Striedajuci.Meno.Equals(string.Empty))
                     {
                         param[2].Value = null;
@@ -1208,9 +1225,9 @@ namespace LGR_Futbal.Triedy
                     string cmdQuery1 = "INSERT INTO out(id_udalost, id_vhadzujuci_hrac) VALUES(:id_udalost, :id_hrac)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[2];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = _out.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                     if (_out.Hrac.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1244,9 +1261,9 @@ namespace LGR_Futbal.Triedy
                     string cmdQuery1 = "INSERT INTO offside(id_udalost, id_hrac) VALUES(:id_udalost, :id_hrac)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[2];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = offside.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                     if (offside.Hrac.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1280,9 +1297,9 @@ namespace LGR_Futbal.Triedy
                     string cmdQuery1 = "INSERT INTO karta(id_udalost, id_hrac, id_rozhodca, karta) VALUES(:id_udalost, :id_hrac, :id_rozhodca, :karta)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[4];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = karta.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                     if (karta.Hrac.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1291,7 +1308,7 @@ namespace LGR_Futbal.Triedy
                     {
                         param[1].Value = karta.Hrac.IdHrac;
                     }
-                    param[2] = cmd.Parameters.Add("id_rozhodca", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("id_rozhodca", OracleDbType.Int32);
                     if (karta.Rozhodca.Meno.Equals(string.Empty))
                     {
                         param[2].Value = null;
@@ -1300,7 +1317,7 @@ namespace LGR_Futbal.Triedy
                     {
                         param[2].Value = karta.Rozhodca.IdRozhodca;
                     }
-                    param[3] = cmd.Parameters.Add("karta", OracleDbType.Int16);
+                    param[3] = cmd.Parameters.Add("karta", OracleDbType.Int32);
                     param[3].Value = karta.IdKarta;
 
                     cmd.Connection = conn;
@@ -1327,9 +1344,9 @@ namespace LGR_Futbal.Triedy
                     string cmdQuery1 = "INSERT INTO kop(id_udalost, id_hrac, id_typ_kopu) VALUES(:id_udalost, :id_hrac, :id_typ_kopu)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[3];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = kop.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
                     if (kop.Hrac.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1338,7 +1355,7 @@ namespace LGR_Futbal.Triedy
                     {
                         param[1].Value = kop.Hrac.IdHrac;
                     }
-                    param[2] = cmd.Parameters.Add("id_typ_kopu", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("id_typ_kopu", OracleDbType.Int32);
                     param[2].Value = kop.IdTypKopu;
 
                     cmd.Connection = conn;
@@ -1365,9 +1382,9 @@ namespace LGR_Futbal.Triedy
                     string cmdQuery1 = "INSERT INTO gol(id_udalost, id_hraca_strelec, id_typ_golu, id_hraca_asistujuci) VALUES(:id_udalost, :id_hraca_strelec, :id_typ_golu, :id_hraca_asistujuci)";
                     OracleCommand cmd = new OracleCommand(cmdQuery1);
                     OracleParameter[] param = new OracleParameter[4];
-                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int16);
+                    param[0] = cmd.Parameters.Add("id_udalost", OracleDbType.Int32);
                     param[0].Value = gol.IdUdalosti;
-                    param[1] = cmd.Parameters.Add("id_hraca_strelec", OracleDbType.Int16);
+                    param[1] = cmd.Parameters.Add("id_hraca_strelec", OracleDbType.Int32);
                     if (gol.Strielajuci.Meno.Equals(string.Empty))
                     {
                         param[1].Value = null;
@@ -1376,9 +1393,9 @@ namespace LGR_Futbal.Triedy
                     {
                         param[1].Value = gol.Strielajuci.IdHrac;
                     }
-                    param[2] = cmd.Parameters.Add("id_typ_golu", OracleDbType.Int16);
+                    param[2] = cmd.Parameters.Add("id_typ_golu", OracleDbType.Int32);
                     param[2].Value = gol.TypGolu;
-                    param[3] = cmd.Parameters.Add("id_hraca_asistujuci", OracleDbType.Int16);
+                    param[3] = cmd.Parameters.Add("id_hraca_asistujuci", OracleDbType.Int32);
                     if (gol.Asistujuci.Meno.Equals(string.Empty))
                     {
                         param[3].Value = null;
@@ -1399,6 +1416,143 @@ namespace LGR_Futbal.Triedy
                     throw new Exception("Chyba pri pridavani golu!");
                 }
             }
+        }
+
+        public List<Zapas> GetZapasy()
+        {
+            List<Zapas> zapasy = new List<Zapas>();
+            Zapas zapas = null;
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "SELECT * from zapas";
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            zapas = new Zapas();
+                            if (!reader.IsDBNull(0))
+                                zapas.IdZapasu = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                                zapas.NazovDomaci = GetNazovTimu(reader.GetInt32(1));
+                            if (!reader.IsDBNull(2))
+                                zapas.NazovHostia = GetNazovTimu(reader.GetInt32(2));
+                            if (!reader.IsDBNull(3))
+                                zapas.DatumZapasu = reader.GetDateTime(3);
+                            if (!reader.IsDBNull(4))
+                                zapas.DomaciSkore = reader.GetInt32(4);
+                            if (!reader.IsDBNull(5))
+                                zapas.HostiaSkore = reader.GetInt32(5);
+                            if (!reader.IsDBNull(5))
+                                zapas.DlzkaPolcasu = reader.GetInt32(6);
+                            zapas.NadstavenyCas1 = reader.GetInt32(7);
+                            zapas.NadstavenyCas2 = reader.GetInt32(8);
+
+                            zapasy.Add(zapas);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+            return zapasy;
+        }
+
+        private string GetNazovTimu(int id)
+        {
+            string nazovTimu = string.Empty;
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = : id";
+                try
+                {
+                    conn.Open();
+                    OracleParameter param = new OracleParameter("id", id);
+                    param.OracleDbType = OracleDbType.Int32;
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Parameters.Add(param);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+
+                    nazovTimu = cmd.ExecuteScalar().ToString();
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+            return nazovTimu;
+        }
+
+        public void NastavUdalosti(Zapas zapas)
+        {
+            List<Udalost> udalosti = new List<Udalost>();
+            zapas.Udalosti = udalosti;
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "SELECT id_udalosti, typ_udalosti FROM udalost WHERE id_zapas = :id_zapas";
+                try
+                {
+                    conn.Open();
+                    OracleParameter param = new OracleParameter("id_zapas", zapas.IdZapasu);
+                    param.OracleDbType = OracleDbType.Int32;
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Parameters.Add(param);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PridajUdalost(reader.GetInt32(0), reader.GetInt32(1), zapas.Udalosti);
+                        }
+                    }
+
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+
+        }
+        private void PridajUdalost(int id, int typ, List<Udalost> udalosti)
+        {
+            switch (typ)
+            {
+                case 1:
+                    InsertGol(id, udalosti);
+                    break;
+                case 2:
+                    InsertKarta(id, udalosti);
+                    break;
+                case 3:
+                    InsertKop(id, udalosti);
+                    break;
+                case 4:
+                    InsertOffside(id, udalosti);
+                    break;
+                case 5:
+                    InsertOut(id, udalosti);
+                    break;
+                case 6:
+                    InsertStriedanie(id, udalosti);
+                    break;
+            }
+
         }
 
         #endregion ZAPASY

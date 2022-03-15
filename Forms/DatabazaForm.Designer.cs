@@ -88,7 +88,6 @@
             this.hraciListBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.exportButton = new System.Windows.Forms.Button();
-            this.importButton = new System.Windows.Forms.Button();
             this.zapasButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -138,6 +137,11 @@
             this.editRozhodcuButton = new System.Windows.Forms.Button();
             this.vlozRozhodcuButton = new System.Windows.Forms.Button();
             this.RozhodcoviaListBox = new System.Windows.Forms.ListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.zapasyLB = new System.Windows.Forms.ListBox();
+            this.zapasyButton = new System.Windows.Forms.Button();
+            this.importButton = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.editHracGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -152,6 +156,7 @@
             this.tabPage3.SuspendLayout();
             this.editRozhodcuGroupBox.SuspendLayout();
             this.addRozhodcuGroupBox.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // hracButton
@@ -881,21 +886,6 @@
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Visible = false;
             // 
-            // importButton
-            // 
-            this.importButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.importButton.Image = global::LGR_Futbal.Properties.Resources.Forward_Email;
-            this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.importButton.Location = new System.Drawing.Point(181, 271);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(113, 57);
-            this.importButton.TabIndex = 39;
-            this.importButton.Text = "Import   \r\ntímu     ";
-            this.importButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Visible = false;
-            // 
             // zapasButton
             // 
             this.zapasButton.Enabled = false;
@@ -1244,11 +1234,13 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(214, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(724, 497);
             this.tabControl1.TabIndex = 31;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -1517,11 +1509,73 @@
             this.RozhodcoviaListBox.TabIndex = 0;
             this.RozhodcoviaListBox.DoubleClick += new System.EventHandler(this.RozhodcoviaListBox_DoubleClick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.zapasyLB);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(716, 471);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "ZÁPASY";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(621, 7);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(89, 30);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Vybrať";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // zapasyLB
+            // 
+            this.zapasyLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zapasyLB.FormattingEnabled = true;
+            this.zapasyLB.ItemHeight = 20;
+            this.zapasyLB.Location = new System.Drawing.Point(0, 0);
+            this.zapasyLB.Name = "zapasyLB";
+            this.zapasyLB.Size = new System.Drawing.Size(614, 464);
+            this.zapasyLB.TabIndex = 0;
+            this.zapasyLB.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zapasyLB_MouseDoubleClick);
+            // 
+            // zapasyButton
+            // 
+            this.zapasyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.zapasyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zapasyButton.Location = new System.Drawing.Point(11, 264);
+            this.zapasyButton.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
+            this.zapasyButton.Name = "zapasyButton";
+            this.zapasyButton.Size = new System.Drawing.Size(190, 72);
+            this.zapasyButton.TabIndex = 33;
+            this.zapasyButton.Text = "ZÁPASY";
+            this.zapasyButton.UseVisualStyleBackColor = false;
+            this.zapasyButton.Click += new System.EventHandler(this.zapasyButton_Click);
+            // 
+            // importButton
+            // 
+            this.importButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.importButton.Image = global::LGR_Futbal.Properties.Resources.Forward_Email;
+            this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.importButton.Location = new System.Drawing.Point(181, 271);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(113, 57);
+            this.importButton.TabIndex = 39;
+            this.importButton.Text = "Import   \r\ntímu     ";
+            this.importButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Visible = false;
+            // 
             // DatabazaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 570);
+            this.Controls.Add(this.zapasyButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.timyButton);
@@ -1557,6 +1611,7 @@
             this.editRozhodcuGroupBox.PerformLayout();
             this.addRozhodcuGroupBox.ResumeLayout(false);
             this.addRozhodcuGroupBox.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1621,7 +1676,6 @@
         private System.Windows.Forms.ListBox hraciListBox;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.Button zapasButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editButton;
@@ -1671,5 +1725,10 @@
         private System.Windows.Forms.Button editRozhodcuButton;
         private System.Windows.Forms.Button vlozRozhodcuButton;
         private System.Windows.Forms.ListBox RozhodcoviaListBox;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button zapasyButton;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ListBox zapasyLB;
+        private System.Windows.Forms.Button importButton;
     }
 }

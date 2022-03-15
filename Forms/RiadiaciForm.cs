@@ -2196,7 +2196,7 @@ namespace LGR_Futbal
         {
             if (zapas != null)
             {
-                UdalostiForm uf = new UdalostiForm(zapas, currentDirectory, databaza);
+                UdalostiForm uf = new UdalostiForm(zapas, currentDirectory, databaza, false);
                 uf.Show();
             }
         }

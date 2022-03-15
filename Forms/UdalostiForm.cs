@@ -5,11 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using LGR_Futbal.Model;
 using LGR_Futbal.Triedy;
+using System.Threading;
 
 namespace LGR_Futbal.Forms
 {
@@ -19,7 +19,7 @@ namespace LGR_Futbal.Forms
         private List<Udalost> udalosti = null;
         private string filePath;
         private Databaza databaza = null; 
-        public UdalostiForm(Zapas zapas, string cd, Databaza databaza)
+        public UdalostiForm(Zapas zapas, string cd, Databaza databaza, bool zDatabazi)
         {
             InitializeComponent();
             this.zapas = zapas;
@@ -40,6 +40,12 @@ namespace LGR_Futbal.Forms
             striedanieCB.Checked = true;
             zltaKartaCB.Checked = true;
             cervenaKartaCB.Checked = true;
+
+            if (zapas.Domaci == null || zapas.Hostia == null || zDatabazi)
+            {
+                databazaButton.Enabled = false;
+                databazaButton.Visible = false;
+            }
 
             this.filePath = cd + "\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
@@ -340,6 +346,7 @@ namespace LGR_Futbal.Forms
             bool uspech = false;
             try
             {
+
                 databaza.PridajZapas(zapas);
                 uspech = true;
             }

@@ -31,6 +31,7 @@ namespace LGR_Futbal.Forms
         //private List<string> nazvyTimov = null;
         private List<FutbalovyTim> timy = null;
         private List<Hrac> hraci = null;
+        private List<Zapas> zapasy = null;
         private List<Rozhodca> rozhodcovia = null;
         private string originalLogoCesta = string.Empty;
         private string originalFotoCesta = string.Empty;
@@ -99,7 +100,7 @@ namespace LGR_Futbal.Forms
             editRozhodcaComboBox.Items.Add("");
             editRozhodcaComboBox.Items.Add("Muž");
             editRozhodcaComboBox.Items.Add("Žena");
-            
+
             button6.Enabled = false;
             button7.Enabled = false;
             //vlozHracaGroupBox.BringToFront();
@@ -117,7 +118,7 @@ namespace LGR_Futbal.Forms
                 removeButton.Enabled = true;
                 exportButton.Enabled = true;
             }
-            
+
         }
 
         private void FillTimyCB()
@@ -144,7 +145,7 @@ namespace LGR_Futbal.Forms
         {
             RozhodcoviaListBox.Items.Clear();
             rozhodcovia = dbs.GetRozhodcovia();
-           
+
             for (int i = 0; i < rozhodcovia.Count; i++)
             {
                 RozhodcoviaListBox.Items.Add(rozhodcovia[i].Meno + " " + rozhodcovia[i].Priezvisko);
@@ -262,7 +263,7 @@ namespace LGR_Futbal.Forms
             editGroupBox.Visible = true;
             addGroupBox.SendToBack();
             editGroupBox.BringToFront();
-            
+
             ZobrazEdit();
             //    originalLogoCesta = string.Empty;
             //    aktTim = timy[timyListBox.SelectedIndex];
@@ -413,8 +414,8 @@ namespace LGR_Futbal.Forms
         private void TimyListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        //    addGroupBox.Visible = false;
-        //    ZobrazEdit();
+            //    addGroupBox.Visible = false;
+            //    ZobrazEdit();
         }
 
         private void timyListBox_DoubleClick(object sender, EventArgs e)
@@ -460,8 +461,8 @@ namespace LGR_Futbal.Forms
                 editGroupBox.Visible = true;
                 editGroupBox.BringToFront();
 
-                
-                
+
+
                 editNazovTextBox.Focus();
             }
         }
@@ -516,6 +517,11 @@ namespace LGR_Futbal.Forms
             tabControl1.SelectedIndex = 1;
         }
 
+        private void zapasyButton_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 3;
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             originalFotoCesta = string.Empty;
@@ -525,7 +531,7 @@ namespace LGR_Futbal.Forms
             editHracGroupBox.Visible = true;
             editHracGroupBox.SendToBack();
             vlozHracaGroupBox.BringToFront();
-            
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -539,7 +545,7 @@ namespace LGR_Futbal.Forms
             editHracGroupBox.Visible = true;
             vlozHracaGroupBox.SendToBack();
             editHracGroupBox.BringToFront();
-            
+
             try
             {
                 int index = -1;
@@ -701,7 +707,7 @@ namespace LGR_Futbal.Forms
         {
             vlozHracaGroupBox.Visible = true;
             vlozHracaGroupBox.BringToFront();
-            
+
             FilterZobrazHracov();
         }
         private void FilterZobrazHracov()
@@ -888,7 +894,7 @@ namespace LGR_Futbal.Forms
             addRozhodcuGroupBox.Visible = true;
             editRozhodcuGroupBox.Visible = true;
             editRozhodcuGroupBox.SendToBack();
-            addRozhodcuGroupBox.BringToFront();    
+            addRozhodcuGroupBox.BringToFront();
         }
 
         private void editRozhdocuConfirmButton_Click(object sender, EventArgs e)
@@ -966,7 +972,7 @@ namespace LGR_Futbal.Forms
                 {
 
                     MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } 
+                }
                 finally
                 {
                     FillRozhodcoviaCB();
@@ -981,7 +987,7 @@ namespace LGR_Futbal.Forms
 
         private void editRozhodcuButton_Click(object sender, EventArgs e)
         {
-             
+
             NastavRozhodcoveUdaje();
         }
 
@@ -991,7 +997,7 @@ namespace LGR_Futbal.Forms
             editRozhodcuGroupBox.Visible = true;
             addRozhodcuGroupBox.SendToBack();
             editRozhodcuGroupBox.BringToFront();
-            
+
             try
             {
                 if (RozhodcoviaListBox.SelectedIndex == -1)
@@ -1002,12 +1008,12 @@ namespace LGR_Futbal.Forms
                 {
                     aktRozhodca = dbs.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
                 }
-                
+
 
                 editRozhodcaMeno.Text = aktRozhodca.Meno;
                 editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
                 editRozhodcaComboBox.SelectedIndex = aktRozhodca.Pohlavie;
-                
+
             }
             catch (Exception ex)
             {
@@ -1065,6 +1071,44 @@ namespace LGR_Futbal.Forms
                 pictureBox.Image = null;
                 originalFotoCesta = string.Empty;
             }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 3)
+                FillZapasyLB();
+        }
+
+        private void FillZapasyLB()
+        {
+            if (zapasy == null)
+            {
+                zapasy = dbs.GetZapasy();
+            }
+            for (int i = 0; i < zapasy.Count; i++)
+            {
+                zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].NazovDomaci + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
+                    " " + zapasy[i].NazovHostia);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zapasyLB_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void ZapasUdalostForm()
+        {
+            if (zapasy[zapasyLB.SelectedIndex].Udalosti == null)
+                dbs.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
+
+            UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], currentDirectory, dbs, true);
+            uf.Show();
         }
     }
 }
