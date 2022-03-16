@@ -19,6 +19,7 @@ namespace LGR_Futbal.Model
         public DateTime AktualnyCas { get; set; }
         public string NazovTimu { get; set; }
         public int Typ { get; set; }
+        public int IdFutbalovyTim { get; set; }
 
         public Udalost()
         {

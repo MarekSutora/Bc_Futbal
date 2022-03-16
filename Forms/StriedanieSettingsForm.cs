@@ -131,6 +131,7 @@ namespace LGR_Futbal.Forms
                     striedanie.Polcas = polcas;
                     striedanie.AktualnyCas = cas;
                     striedanie.NazovTimu = domaciTim ? zapas.NazovDomaci : zapas.NazovHostia;
+                    striedanie.IdFutbalovyTim = spracovavanyTim != null ? spracovavanyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
                     OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);

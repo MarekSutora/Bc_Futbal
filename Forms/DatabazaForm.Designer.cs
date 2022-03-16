@@ -88,6 +88,7 @@
             this.hraciListBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.exportButton = new System.Windows.Forms.Button();
+            this.importButton = new System.Windows.Forms.Button();
             this.zapasButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -141,7 +142,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.zapasyLB = new System.Windows.Forms.ListBox();
             this.zapasyButton = new System.Windows.Forms.Button();
-            this.importButton = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.editHracGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -886,6 +886,21 @@
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Visible = false;
             // 
+            // importButton
+            // 
+            this.importButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.importButton.Image = global::LGR_Futbal.Properties.Resources.Forward_Email;
+            this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.importButton.Location = new System.Drawing.Point(181, 271);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(113, 57);
+            this.importButton.TabIndex = 39;
+            this.importButton.Text = "Import   \r\ntímu     ";
+            this.importButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Visible = false;
+            // 
             // zapasButton
             // 
             this.zapasButton.Enabled = false;
@@ -987,7 +1002,7 @@
             this.addGroupBox.Controls.Add(this.nazovTextBox);
             this.addGroupBox.Controls.Add(this.infoLabel2);
             this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(298, 16);
+            this.addGroupBox.Location = new System.Drawing.Point(298, 17);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1554,21 +1569,6 @@
             this.zapasyButton.Text = "ZÁPASY";
             this.zapasyButton.UseVisualStyleBackColor = false;
             this.zapasyButton.Click += new System.EventHandler(this.zapasyButton_Click);
-            // 
-            // importButton
-            // 
-            this.importButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.importButton.Image = global::LGR_Futbal.Properties.Resources.Forward_Email;
-            this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.importButton.Location = new System.Drawing.Point(181, 271);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(113, 57);
-            this.importButton.TabIndex = 39;
-            this.importButton.Text = "Import   \r\ntímu     ";
-            this.importButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Visible = false;
             // 
             // DatabazaForm
             // 

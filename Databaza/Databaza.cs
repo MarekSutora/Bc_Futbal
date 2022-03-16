@@ -23,52 +23,6 @@ namespace LGR_Futbal.Triedy
 
             zoznamTimov = new List<FutbalovyTim>();
         }
-
-        public FutbalovyTim NajstTim(string hladanyNazov)
-        {
-            foreach (FutbalovyTim t in zoznamTimov)
-            {
-                if (t.NazovTimu.Equals(hladanyNazov))
-                    return t;
-            }
-            return null;
-        }
-
-        public void PostLoad()
-        {
-            int pocet = zoznamTimov.Count;
-            if (pocet > 0)
-            {
-                string[] pole = new string[pocet];
-                for (int i = 0; i < pocet; i++)
-                {
-                    pole[i] = zoznamTimov[i].NazovTimu;
-                }
-
-                Array.Sort(pole);
-
-                FutbalovyTim t;
-                List<FutbalovyTim> usporiadanyZoznam = new List<FutbalovyTim>();
-                for (int i = 0; i < pocet; i++)
-                {
-                    t = null;
-                    foreach (FutbalovyTim tim in zoznamTimov)
-                    {
-                        if (tim.NazovTimu.Equals(pole[i]))
-                            t = tim;
-                    }
-                    zoznamTimov.Remove(t);
-                    usporiadanyZoznam.Add(t);
-                }
-
-                zoznamTimov = usporiadanyZoznam;
-                foreach (FutbalovyTim tim in zoznamTimov)
-                {
-                    tim.PostLoad();
-                }
-            }
-        }
-
         public Image byteArrayToImage(byte[] byteArrayIn)
         {
             try
@@ -84,47 +38,7 @@ namespace LGR_Futbal.Triedy
             }
             return null;
         }
-
-        public void resetKariet()
-        {
-            foreach (FutbalovyTim t in zoznamTimov)
-            {
-                t.resetKariet();
-            }
-        }
-
         #region Timy
-
-        public List<string> GetNazvyTimov()
-        {
-            List<string> nazvyTimov = new List<string>();
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
-                string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim";
-                try
-                {
-                    conn.Open();
-                    OracleCommand cmd = new OracleCommand(cmdQuery);
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-
-                    using (OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            nazvyTimov.Add(reader.GetString(0));
-                        }
-                    }
-                    conn.Close();
-
-                }
-                catch
-                {
-                    throw new Exception("Chyba pri praci s Databazou");
-                }
-            }
-            return nazvyTimov;
-        }
 
         public List<FutbalovyTim> GetTimy()
         {
@@ -234,14 +148,13 @@ namespace LGR_Futbal.Triedy
         {
             using (OracleConnection conn = new OracleConnection(constring))
             {
-                string cmdQuery = "INSERT INTO futbalovy_tim(id_kategoria, id_klub, nazov_timu, logo, datum_vytvorenia) VALUES(:id_kategoria, :id_klub, :nazov_timu, :logo, SYSDATE)";
+                string cmdQuery = "INSERT INTO futbalovy_tim(id_kategoria, nazov_timu, logo, datum_vytvorenia) VALUES(:id_kategoria, :nazov_timu, :logo, SYSDATE)";
                 try
                 {
                     byte[] blob = null;
                     int? kategoria = null;
                     if (futbalovyTim.Kategoria != 0 && futbalovyTim.Kategoria != -1)
                         kategoria = futbalovyTim.Kategoria;
-                    int? klub = null;
                     string nazov = futbalovyTim.NazovTimu;
                     if (futbalovyTim.Logo != null)
                     {
@@ -253,16 +166,14 @@ namespace LGR_Futbal.Triedy
                     }
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter[] param = new OracleParameter[4];
+                    OracleParameter[] param = new OracleParameter[3];
 
                     param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int32);
                     param[0].Value = kategoria;
-                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int32);
-                    param[1].Value = klub;
-                    param[2] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
-                    param[2].Value = nazov;
-                    param[3] = cmd.Parameters.Add("logo", OracleDbType.Blob);
-                    param[3].Value = blob;
+                    param[1] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
+                    param[1].Value = nazov;
+                    param[2] = cmd.Parameters.Add("logo", OracleDbType.Blob);
+                    param[2].Value = blob;
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -281,7 +192,7 @@ namespace LGR_Futbal.Triedy
         {
             using (OracleConnection conn = new OracleConnection(constring))
             {
-                string cmdQuery = "UPDATE futbalovy_tim SET id_kategoria = :id_kategoria, id_klub = :id_klub, nazov_timu = :nazov_timu, logo = :logo WHERE id_futbalovy_tim = :id_futbalovy_tim";
+                string cmdQuery = "UPDATE futbalovy_tim SET id_kategoria = :id_kategoria, nazov_timu = :nazov_timu, logo = :logo WHERE id_futbalovy_tim = :id_futbalovy_tim";
                 try
                 {
 
@@ -289,7 +200,6 @@ namespace LGR_Futbal.Triedy
                     int? kategoria = null;
                     if (ft.Kategoria != 0 && ft.Kategoria != -1)
                         kategoria = ft.Kategoria;
-                    int? idklub = null;
                     string nazov = ft.NazovTimu;
                     if (ft.Logo != null)
                     {
@@ -308,17 +218,15 @@ namespace LGR_Futbal.Triedy
                     }
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter[] param = new OracleParameter[5];
+                    OracleParameter[] param = new OracleParameter[4];
                     param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int32);
                     param[0].Value = kategoria;
-                    param[1] = cmd.Parameters.Add("id_klub", OracleDbType.Int32);
-                    param[1].Value = idklub;
-                    param[2] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
-                    param[2].Value = nazov;
-                    param[3] = cmd.Parameters.Add("logo", OracleDbType.Blob);
-                    param[3].Value = blob;
-                    param[4] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
-                    param[4].Value = ft.IdFutbalovyTim;
+                    param[1] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
+                    param[1].Value = nazov;
+                    param[2] = cmd.Parameters.Add("logo", OracleDbType.Blob);
+                    param[2].Value = blob;
+                    param[3] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
+                    param[3].Value = ft.IdFutbalovyTim;
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -636,7 +544,7 @@ namespace LGR_Futbal.Triedy
                 {
                     conn.Open();
                     OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Varchar2);
+                    OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int32);
                     param.Value = idHrac;
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -1067,8 +975,15 @@ namespace LGR_Futbal.Triedy
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Domaci.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Priradeny;
-
+                        if (Zapas.Domaci.ZoznamHracov[i].Priradeny != 0)
+                        {
+                            param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Priradeny;
+                        }
+                        else
+                        {
+                            param2[3].Value = null;
+                        }
+                       
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
                     }
@@ -1082,7 +997,14 @@ namespace LGR_Futbal.Triedy
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Hostia.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Priradeny;
+                        if (Zapas.Hostia.ZoznamHracov[i].Priradeny != 0)
+                        {
+                            param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Priradeny;
+                        }
+                        else
+                        {
+                            param2[3].Value = null;
+                        }
 
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
@@ -1105,36 +1027,28 @@ namespace LGR_Futbal.Triedy
                     }
 
 
-                    string cmdQuery4 = "INSERT INTO udalost(id_zapas, aktualny_cas, udalost_popis, minuta, polcas, nadstavena_minuta, nazov_timu, typ_udalosti) " +
-                        "VALUES(:id_zapas, :aktualny_cas, :udalost_popis, :minuta, :polcas, :nadstavena_minuta, :nazov_timu, :typ_udalosti)";
-                    OracleParameter[] param3 = new OracleParameter[8];
-                    
+                    string cmdQuery4 = "INSERT INTO udalost(id_zapas, id_futbalovy_tim, aktualny_cas, minuta, polcas, nadstavena_minuta, typ_udalosti) " +
+                        "VALUES(:id_zapas, :aktualny_cas, :id_futbalovy_tim, :minuta, :polcas, :nadstavena_minuta, :typ_udalosti)";
+                    OracleParameter[] param3 = new OracleParameter[7];
 
                     for (int i = 0; i < udalosti.Count; i++)
                     {
-                        if (i == udalosti.Count - 2)
-                        {
-                            int x = 5;
-                        }
                         cmd.CommandText = cmdQuery4;
                         param3[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param3[0].Value = IdZapas;
-                        param3[1] = cmd.Parameters.Add("aktualny_cas", OracleDbType.Date);
-                        param3[1].Value = udalosti[i].AktualnyCas;
-                        param3[2] = cmd.Parameters.Add("udalost_popis", OracleDbType.Varchar2);
-                        param3[2].Value = udalosti[i].UdalostPopis;
+                        param3[1] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
+                        param3[1].Value = udalosti[i].IdFutbalovyTim;
+                        param3[2] = cmd.Parameters.Add("aktualny_cas", OracleDbType.Date);
+                        param3[2].Value = udalosti[i].AktualnyCas;
                         param3[3] = cmd.Parameters.Add("minuta", OracleDbType.Int32);
                         param3[3].Value = udalosti[i].Minuta;
                         param3[4] = cmd.Parameters.Add("polcas", OracleDbType.Int32);
                         param3[4].Value = udalosti[i].Polcas;
                         param3[5] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int32);
                         param3[5].Value = udalosti[i].NadstavenaMinuta;
-                        param3[6] = cmd.Parameters.Add("nazov_timu", OracleDbType.Varchar2);
-                        param3[6].Value = udalosti[i].NazovTimu;
-                        param3[7] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
-                        param3[7].Value = udalosti[i].Typ;
-
-                        
+                        param3[6] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
+                        param3[6].Value = udalosti[i].Typ;
+                
                         cmd.ExecuteNonQuery();
 
                         cmd.Parameters.Clear();
@@ -1174,7 +1088,6 @@ namespace LGR_Futbal.Triedy
                 }
             }
         }
-
         private void InsertStriedanie(Udalost udalost)
         {
             Striedanie striedanie = (Striedanie)udalost;
@@ -1444,6 +1357,10 @@ namespace LGR_Futbal.Triedy
                             zapas = new Zapas();
                             if (!reader.IsDBNull(0))
                                 zapas.IdZapasu = reader.GetInt32(0);
+                            //if (!reader.IsDBNull(1))
+                            //    zapas.NazovDomaci = GetNazovTimu(reader.GetInt32(1));
+                            //if (!reader.IsDBNull(2))
+                            //    zapas.NazovHostia = GetNazovTimu(reader.GetInt32(2));
                             if (!reader.IsDBNull(3))
                                 zapas.DatumZapasu = reader.GetDateTime(3);
                             if (!reader.IsDBNull(4))
@@ -1515,34 +1432,6 @@ namespace LGR_Futbal.Triedy
             }
 
             return ft;
-        }
-
-        private string GetNazovTimu(int id)
-        {
-            string nazovTimu = string.Empty;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
-                string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = : id";
-                try
-                {
-                    conn.Open();
-                    OracleParameter param = new OracleParameter("id", id);
-                    param.OracleDbType = OracleDbType.Int32;
-                    OracleCommand cmd = new OracleCommand(cmdQuery);
-                    cmd.Parameters.Add(param);
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-
-                    nazovTimu = cmd.ExecuteScalar().ToString();
-
-                    conn.Close();
-                }
-                catch
-                {
-                    throw new Exception("Chyba pri praci s Databazou");
-                }
-            }
-            return nazovTimu;
         }
 
         public void NastavUdalosti(Zapas zapas)
@@ -1882,7 +1771,6 @@ namespace LGR_Futbal.Triedy
         {
             using (OracleConnection conn = new OracleConnection(constring))
             {
-
                 try
                 {
                     conn.Open();
@@ -1900,15 +1788,16 @@ namespace LGR_Futbal.Triedy
                         while (reader.Read())
                         {
                             if (!reader.IsDBNull(2))
-                                udalost.AktualnyCas = reader.GetDateTime(2);
+                                udalost.NazovTimu = GetNazovTimu(reader.GetInt32(2));
                             if (!reader.IsDBNull(3))
-                                udalost.Minuta = reader.GetInt32(3);
+                                udalost.AktualnyCas = reader.GetDateTime(3);
                             if (!reader.IsDBNull(4))
-                                udalost.Polcas = reader.GetInt32(4);
+                                udalost.Minuta = reader.GetInt32(4);
                             if (!reader.IsDBNull(5))
-                                udalost.NadstavenaMinuta = reader.GetInt32(5);
+                                udalost.Polcas = reader.GetInt32(5);
                             if (!reader.IsDBNull(6))
-                                udalost.NazovTimu = reader.GetString(6);
+                                udalost.NadstavenaMinuta = reader.GetInt32(6);
+
                         }
                     }
                     conn.Close();
@@ -1920,41 +1809,34 @@ namespace LGR_Futbal.Triedy
             }
         }
 
-        //private Rozhodca GetRozhodca(int id)
-        //{
-        //    Rozhodca rozhodca = null;
-        //    using (OracleConnection conn = new OracleConnection(constring))
-        //    {
-        //        string cmdQuery = "SELECT * FROM hrac WHERE id_hrac = :id_hrac";
-        //        try
-        //        {
-        //            conn.Open();
-        //            OracleCommand cmd = new OracleCommand(cmdQuery);
-        //            OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Varchar2);
-        //            param.Value = id;
-        //            cmd.Connection = conn;
-        //            cmd.CommandType = CommandType.Text;
-        //            cmd.Parameters.Add(param);
+        private string GetNazovTimu(int id)
+        {
+            string nazov = string.Empty;
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Int32);
+                    param.Value = id;
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add(param);
 
-        //            using (OracleDataReader reader = cmd.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    rozhodca = new Rozhodca();
-        //                    if (!reader.IsDBNull(1))
-        //                        rozhodca.IdOsoba = reader.GetInt32(1);
-        //                    NastavOsudaje(rozhodca);
-        //                }
-        //            }
-        //            conn.Close();
-        //        }
-        //        catch
-        //        {
-        //            throw new Exception("Chyba pri praci s Databazou");
-        //        }
-        //    }
-        //    return rozhodca;
-        //}
+                    nazov = cmd.ExecuteScalar().ToString();
+                    
+                    conn.Close();
+                }
+                catch
+                {
+                    throw new Exception("Chyba pri praci s Databazou");
+                }
+            }
+            return nazov;
+        }
+
         #endregion ZAPASY
 
     }

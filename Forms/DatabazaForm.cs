@@ -1035,8 +1035,6 @@ namespace LGR_Futbal.Forms
 
         private void removeRozhodcuButton_Click(object sender, EventArgs e)
         {
-            //addRozhodcuGroupBox.Visible = false;
-            //editRozhodcuGroupBox.Visible = false;
 
             if (MessageBox.Show(Translate(7) + RozhodcoviaListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -1092,7 +1090,7 @@ namespace LGR_Futbal.Forms
                         " " + zapasy[i].Hostia.NazovTimu);
                 }
             }
-            
+         
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -1107,11 +1105,18 @@ namespace LGR_Futbal.Forms
 
         private void ZapasUdalostForm()
         {
-            if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
-                dbs.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
+            try
+            {
+                if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
+                    dbs.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
 
-            UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], currentDirectory, dbs, true);
-            uf.Show();
+                UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], currentDirectory, dbs, true);
+                uf.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+            }          
         }
     }
 }

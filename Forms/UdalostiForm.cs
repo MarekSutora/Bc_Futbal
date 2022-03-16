@@ -44,11 +44,6 @@ namespace LGR_Futbal.Forms
                 databazaButton.Enabled = false;
                 databazaButton.Visible = false;
             }
-
-            this.filePath = cd + "\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
-                + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
-                + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
-
             if (zapas.Domaci != null)
             {
                 zapas.NazovDomaci = zapas.Domaci.NazovTimu;
@@ -59,14 +54,17 @@ namespace LGR_Futbal.Forms
                 zapas.NazovHostia = zapas.Hostia.NazovTimu;
                 tim2CB.Text = zapas.NazovHostia;
             }
+            this.filePath = cd + "\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+                + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
+                + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 
             skoreLabel.Text = zapas.NazovDomaci + " " + zapas.DomaciSkore + ":" + zapas.HostiaSkore + " " + zapas.NazovHostia;
             udalosti = zapas.Udalosti;
+            string meno_priezvisko = string.Empty;
+            string poznamka = string.Empty;
+            string udalost = string.Empty;
             for (int i = 0; i < udalosti.Count; i++)
-            {
-                string meno_priezvisko = string.Empty;
-                string poznamka = string.Empty;
-                string udalost = string.Empty;
+            {              
                 int minuta = (udalosti[i].Polcas - 1) * zapas.DlzkaPolcasu + udalosti[i].Minuta + 1;
                 if (udalosti[i].GetType() == typeof(Gol))
                 {

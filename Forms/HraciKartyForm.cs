@@ -140,6 +140,11 @@ namespace LGR_Futbal.Forms
                 else if (nahradniciListView.Items[i].BackColor == Color.Red)
                 {
                     nahradnici[i].CervenaKarta = true;
+                } 
+                else if (nahradniciListView.Items[i].BackColor == Color.White)
+                {
+                    nahradnici[i].CervenaKarta = false;
+                    nahradnici[i].ZltaKarta = false;
                 }
             }
             for (int i = 0; i < hrajuci.Count; i++)
@@ -151,6 +156,11 @@ namespace LGR_Futbal.Forms
                 else if (hrajuListView.Items[i].BackColor == Color.Red)
                 {
                     hrajuci[i].CervenaKarta = true;
+                }
+                else if (hrajuListView.Items[i].BackColor == Color.White)
+                {
+                    hrajuci[i].CervenaKarta = false;
+                    hrajuci[i].ZltaKarta = false;
                 }
             }
             for (int i = 0; i < hraci.Count; i++)

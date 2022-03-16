@@ -90,6 +90,7 @@ namespace LGR_Futbal.Forms
                     karta.Polcas = polcas;
                     karta.AktualnyCas = cas;
                     karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+                    karta.IdFutbalovyTim = t != null ? t.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);

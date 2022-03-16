@@ -11,8 +11,6 @@ namespace LGR_Futbal.Model
         public DateTime DatumNastupu { get; set; }
         public int IdFutbalovyTim { get; set; }
         public string CisloDresu { get; set; }
-        public DateTime DatumUkoncenia { get; set; }
-        public int IdPozicia { get; set; }
         public byte[] FotkaBlob { get; set; }
         public Image FotkaImage { get; set; }
         public string Fotka { get; set; }
@@ -23,7 +21,6 @@ namespace LGR_Futbal.Model
         public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
-
         public int Priradeny { get; set; }
         public Hrac()    
         {

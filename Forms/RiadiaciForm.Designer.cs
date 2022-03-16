@@ -235,7 +235,6 @@
             this.hostiaLabel.TabIndex = 540;
             this.hostiaLabel.Text = "HOSTIA";
             this.hostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hostiaLabel.Click += new System.EventHandler(this.hostiaLabel_Click);
             // 
             // domaciLabel
             // 
@@ -248,7 +247,6 @@
             this.domaciLabel.TabIndex = 539;
             this.domaciLabel.Text = "DOMÁCI";
             this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.domaciLabel.Click += new System.EventHandler(this.domaciLabel_Click);
             // 
             // skoreHostiaLabel
             // 
@@ -303,7 +301,7 @@
             this.infoLabel.AutoSize = true;
             this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoLabel.ForeColor = System.Drawing.Color.Black;
-            this.infoLabel.Location = new System.Drawing.Point(327, 327);
+            this.infoLabel.Location = new System.Drawing.Point(339, 327);
             this.infoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(147, 17);
@@ -315,7 +313,7 @@
             this.nadCasLabel.AutoSize = true;
             this.nadCasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nadCasLabel.ForeColor = System.Drawing.Color.Black;
-            this.nadCasLabel.Location = new System.Drawing.Point(488, 327);
+            this.nadCasLabel.Location = new System.Drawing.Point(500, 327);
             this.nadCasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nadCasLabel.Name = "nadCasLabel";
             this.nadCasLabel.Size = new System.Drawing.Size(16, 17);
@@ -405,10 +403,10 @@
             this.predstavButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.predstavButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.predstavButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.predstavButton.Location = new System.Drawing.Point(275, 344);
+            this.predstavButton.Location = new System.Drawing.Point(287, 344);
             this.predstavButton.Margin = new System.Windows.Forms.Padding(2);
             this.predstavButton.Name = "predstavButton";
-            this.predstavButton.Size = new System.Drawing.Size(120, 40);
+            this.predstavButton.Size = new System.Drawing.Size(130, 40);
             this.predstavButton.TabIndex = 10;
             this.predstavButton.Text = "PREDSTAV\r\nHRÁČOV";
             this.predstavButton.UseVisualStyleBackColor = false;
@@ -421,10 +419,10 @@
             this.casButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.casButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.casButton.Location = new System.Drawing.Point(275, 385);
+            this.casButton.Location = new System.Drawing.Point(287, 385);
             this.casButton.Margin = new System.Windows.Forms.Padding(2);
             this.casButton.Name = "casButton";
-            this.casButton.Size = new System.Drawing.Size(120, 40);
+            this.casButton.Size = new System.Drawing.Size(130, 40);
             this.casButton.TabIndex = 9;
             this.casButton.Text = "NADSTAVENÝ\r\nČAS";
             this.casButton.UseVisualStyleBackColor = false;
@@ -684,7 +682,7 @@
             this.udalostiButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.udalostiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.udalostiButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.udalostiButton.Location = new System.Drawing.Point(414, 344);
+            this.udalostiButton.Location = new System.Drawing.Point(426, 344);
             this.udalostiButton.Margin = new System.Windows.Forms.Padding(2);
             this.udalostiButton.Name = "udalostiButton";
             this.udalostiButton.Size = new System.Drawing.Size(130, 40);
@@ -692,6 +690,8 @@
             this.udalostiButton.Text = "UDALOSTI";
             this.udalostiButton.UseVisualStyleBackColor = false;
             this.udalostiButton.Click += new System.EventHandler(this.udalostiButton_Click);
+            this.udalostiButton.MouseEnter += new System.EventHandler(this.udalostiButton_MouseEnter);
+            this.udalostiButton.MouseLeave += new System.EventHandler(this.udalostiButton_MouseLeave);
             // 
             // logoHostia
             // 
@@ -701,7 +701,6 @@
             this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoHostia.TabIndex = 521;
             this.logoHostia.TabStop = false;
-            this.logoHostia.Click += new System.EventHandler(this.logoHostia_Click);
             // 
             // logoDomaci
             // 
@@ -711,14 +710,13 @@
             this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoDomaci.TabIndex = 520;
             this.logoDomaci.TabStop = false;
-            this.logoDomaci.Click += new System.EventHandler(this.logoDomaci_Click);
             // 
             // reklamaButton
             // 
             this.reklamaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.reklamaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.reklamaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reklamaButton.Location = new System.Drawing.Point(414, 385);
+            this.reklamaButton.Location = new System.Drawing.Point(426, 385);
             this.reklamaButton.Margin = new System.Windows.Forms.Padding(2);
             this.reklamaButton.Name = "reklamaButton";
             this.reklamaButton.Size = new System.Drawing.Size(130, 40);
@@ -726,13 +724,15 @@
             this.reklamaButton.Text = "REKLAMA";
             this.reklamaButton.UseVisualStyleBackColor = false;
             this.reklamaButton.Click += new System.EventHandler(this.reklamaButton_Click_1);
+            this.reklamaButton.MouseEnter += new System.EventHandler(this.reklamaButton_MouseEnter);
+            this.reklamaButton.MouseLeave += new System.EventHandler(this.reklamaButton_MouseLeave);
             // 
             // vypnutVideoButton
             // 
-            this.vypnutVideoButton.BackColor = System.Drawing.Color.Red;
+            this.vypnutVideoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.vypnutVideoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vypnutVideoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vypnutVideoButton.Location = new System.Drawing.Point(414, 384);
+            this.vypnutVideoButton.Location = new System.Drawing.Point(426, 385);
             this.vypnutVideoButton.Margin = new System.Windows.Forms.Padding(2);
             this.vypnutVideoButton.Name = "vypnutVideoButton";
             this.vypnutVideoButton.Size = new System.Drawing.Size(130, 40);
@@ -741,6 +741,8 @@
             this.vypnutVideoButton.UseVisualStyleBackColor = false;
             this.vypnutVideoButton.Visible = false;
             this.vypnutVideoButton.Click += new System.EventHandler(this.vypnutVideoButton_Click);
+            this.vypnutVideoButton.MouseEnter += new System.EventHandler(this.vypnutVideoButton_MouseEnter);
+            this.vypnutVideoButton.MouseLeave += new System.EventHandler(this.vypnutVideoButton_MouseLeave);
             // 
             // RiadiaciForm
             // 

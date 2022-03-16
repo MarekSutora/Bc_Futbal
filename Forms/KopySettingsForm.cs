@@ -95,6 +95,7 @@ namespace LGR_Futbal.Forms
             kop.Polcas = polcas;
             kop.AktualnyCas = cas;
             kop.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+            kop.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
             if (priamyRB.Checked)
             {
                 kop.IdTypKopu = 1;

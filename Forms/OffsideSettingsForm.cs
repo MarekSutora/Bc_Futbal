@@ -94,6 +94,7 @@ namespace LGR_Futbal.Forms
             offside.Polcas = polcas;
             offside.AktualnyCas = cas;
             offside.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+            offside.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
             zapas.Udalosti.Add(offside);
             uspech = true;
             this.Close();

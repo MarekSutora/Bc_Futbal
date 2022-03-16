@@ -96,6 +96,7 @@ namespace LGR_Futbal.Forms
             _out.Polcas = polcas;
             _out.AktualnyCas = cas;
             _out.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+            _out.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
             zapas.Udalosti.Add(_out);
             uspech = true;
             this.Close();

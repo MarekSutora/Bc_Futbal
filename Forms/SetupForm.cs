@@ -27,7 +27,6 @@ namespace LGR_Futbal.Forms
     public delegate void FileSelectedHandler(string cesta);
     public delegate void FileSelectedHandlerRF2(string cesta);
     public delegate void ObnovaFontovHandler();
-    public delegate void FontPostedHandler(Font f);
     public delegate void LanguageSelectedHandler(int cislo);
     public delegate void AnimacieKarietConfirmedHandler(string s1, string s2);
     public delegate void OnLayoutChangedHandler();
@@ -88,7 +87,6 @@ namespace LGR_Futbal.Forms
         public event FileSelectedHandler OnFileSelected;
         public event FileSelectedHandlerRF2 OnFileSelectedRF;
         public event ObnovaFontovHandler OnObnovaFontov;
-        public event FontPostedHandler OnFontPosted;
         public event LanguageSelectedHandler OnLanguageSelected;
         public event AnimacieKarietConfirmedHandler OnAnimacieKarietConfirmed;
         public event OnLayoutChangedHandler OnLayoutChanged;
@@ -139,11 +137,7 @@ namespace LGR_Futbal.Forms
                 zhasniButton.Text = "ZHASNOUT";
                 rozsvietButton.Text = "ROZSVÍTIT";
 
-                //loadColorsButton.Text = loadColorsButton.Text.Replace("Načítať", "Načíst ");
-                //loadColorsButton.Text = loadColorsButton.Text.Replace("nastavenia", "nastavení");
-                //loadColorsButton.Text = loadColorsButton.Text.Replace("farieb", "barev");
                 createColorsButton.Text = "Změnit farební        \nnastavení barev       \n(změnit aktuální)       ";
-                //obnovaFariebButton.Text = "Obnovit výrobní         \nnastavení barev         ";
                 fontyButton.Text = "Nastavit fonty           \na velikosti písma         ";
 
                 label1.Text = "Délka poločasu [min]:";
@@ -260,14 +254,12 @@ namespace LGR_Futbal.Forms
             if ((domaciT != null) && (hostiaT != null))
             {
                 ZobrazLoga(hostiaT.LogoImage, hostiaT.LogoImage);
-                //ZobrazLoga(originalFolder + "\\" + logaAdresar + domaciT.Logo, originalFolder + "\\" + logaAdresar + hostiaT.Logo);
                 domNazov.Text = domaciT.NazovTimu;
                 hosNazov.Text = hostiaT.NazovTimu;
                 zrusitDatabazaButton.Enabled = true;
             }
             else
             {
-                //ZobrazLoga(Image.FromFile(logoDom), Image.FromFile(logoHos));
                 domNazov.Text = nazovDom;
                 hosNazov.Text = nazovHos;
                 zrusitDatabazaButton.Enabled = false;
@@ -290,7 +282,6 @@ namespace LGR_Futbal.Forms
             try
             {
                 logoDomaci.Image = domaci;
-                //domaciLogo = string.Empty;
             }
             catch
             {
@@ -301,7 +292,6 @@ namespace LGR_Futbal.Forms
             try
             {
                 logoHostia.Image = hostia;
-                //hostiaLogo = string.Empty;
             }
             catch
             {
@@ -396,24 +386,6 @@ namespace LGR_Futbal.Forms
                 else
                 {
                     OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, logoHostia.Image);
-                    //if(logoDomaci.Image != null && logoHostia.Image != null)
-                    //{
-                    //    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, logoHostia.Image);
-                    //} 
-                    //else if(logoDomaci.Image != null && logoHostia.Image == null)
-                    //{
-                    //    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, null);
-                    //}
-                    //else if(logoDomaci.Image == null && logoHostia.Image != null)
-                    //{
-                    //    OnNazvyLogaConfirmed(dn, null, hn, logoHostia.Image);
-                    //}
-                    //else
-                    //{
-                    //    OnNazvyLogaConfirmed(dn, null, hn, null);
-                    //}
-
-
                 }
                 
             }
@@ -882,12 +854,6 @@ namespace LGR_Futbal.Forms
             //ff.OnFontStriedaniaSelected += Ff_OnFontStriedaniaSelected;
             fontyForm.OnFontsConfirmed += Ff_OnFontsConfirmed;
             fontyForm.Show();
-        }
-
-        private void Ff_OnFontStriedaniaSelected(Font f)
-        {
-            if (OnFontPosted != null)
-                OnFontPosted(f);
         }
 
         private void Ff_OnFontsConfirmed()
