@@ -253,7 +253,7 @@ namespace LGR_Futbal.Forms
 
             if ((domaciT != null) && (hostiaT != null))
             {
-                ZobrazLoga(hostiaT.LogoImage, hostiaT.LogoImage);
+                ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
                 domNazov.Text = domaciT.NazovTimu;
                 hosNazov.Text = hostiaT.NazovTimu;
                 zrusitDatabazaButton.Enabled = true;

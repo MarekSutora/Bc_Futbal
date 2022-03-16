@@ -24,8 +24,8 @@ namespace LGR_Futbal
         private const string nazovProgramuString = "LGR Futbal";
         private string konfiguracnySubor = "Config.bin";
         //private const string databazaSubor = "Databaza\\Databaza.xml";
-        private string priebehSubor = "Databaza\\Priebeh.xml";
-        private string animacieSubor = "Databaza\\Gify\\Settings.xml";
+        private string priebehSubor = "\\Databaza\\Priebeh.xml";
+        private string animacieSubor = "\\Databaza\\Gify\\Settings.xml";
 
         #endregion
 
@@ -105,17 +105,21 @@ namespace LGR_Futbal
         {
             InitializeComponent();
             setDefaultColors();
+            pisma = new FontyTabule();
+            pismaPrezentacie = new FontyTabule();   
+            currentDirectory = Directory.GetCurrentDirectory();         
+            konfiguracnySubor = currentDirectory + "\\" + konfiguracnySubor;
+            animacieSubor = currentDirectory + "\\" + animacieSubor;
+            priebehSubor = currentDirectory + "\\" + priebehSubor;
+            LoadSettings();
 
             // Vytvorenie casovaca
             casovac = new System.Timers.Timer();
             casovac.Interval = 100;
             casovac.Elapsed += Casovac_Elapsed;
 
-            pisma = new FontyTabule();
-            pismaPrezentacie = new FontyTabule();
-
             // Nacitanie systemovej konfiguracie zo suboru
-            LoadSettings();
+            
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {
@@ -161,8 +165,10 @@ namespace LGR_Futbal
                 }
                 this.WindowState = FormWindowState.Maximized;
 
-                currentDirectory = Directory.GetCurrentDirectory();
+                
                 sw = new Stopwatch();
+
+                
 
                 // Pociatocne nastavenia
                 hraBezi = false;
@@ -193,7 +199,7 @@ namespace LGR_Futbal
 
                     try
                     {
-                        string nazovSuboru = currentDirectory + "\\" + "FarebneNastavenia\\" + Path.GetFileName(defaultColorScheme);
+                        string nazovSuboru = defaultColorScheme;
                         XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
                         textReader = new StreamReader(nazovSuboru);
                         schema = (FarebnaSchema)deserializer.Deserialize(textReader);
@@ -221,7 +227,7 @@ namespace LGR_Futbal
 
                     try
                     {
-                        string nazovSuboru = currentDirectory + "\\" + "RozlozenieNastavenia\\" + Path.GetFileName(rozlozenieCesta);
+                        string nazovSuboru = rozlozenieCesta;
                         XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
                         textReader = new StreamReader(nazovSuboru);
                         rt = (RozlozenieTabule)deserializer.Deserialize(textReader);
@@ -404,7 +410,8 @@ namespace LGR_Futbal
                                 casLabel.Text = casLabel.Text = (m + 1) + ".'";
                             else
                                 casLabel.Text = casLabel.Text = (m + 1) + " '";
-                            formularTabule.SetCas(casLabel.Text, true);
+                            formularTabule.SetCas(m.ToString("D2")
+                        + ":" + s.ToString("D2"), true);
                         }
                         else if ((m == polcas * dlzkaPolcasu) && !nadstavenyCas)
                         {
@@ -543,7 +550,7 @@ namespace LGR_Futbal
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(PriebehZapasu));
-                textWriter = new StreamWriter(currentDirectory + "\\" + priebehSubor);
+                textWriter = new StreamWriter(priebehSubor);
                 serializer.Serialize(textWriter, priebeh);
             }
             catch (Exception ex)
@@ -1444,7 +1451,7 @@ namespace LGR_Futbal
             try
             {
                 XmlSerializer deserializer = new XmlSerializer(typeof(PriebehZapasu));
-                textReader = new StreamReader(currentDirectory + "\\" + priebehSubor);
+                textReader = new StreamReader(priebehSubor);
                 priebeh = (PriebehZapasu)deserializer.Deserialize(textReader);
 
                 int cast = priebeh.Polcas;

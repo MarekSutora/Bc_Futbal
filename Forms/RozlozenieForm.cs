@@ -106,7 +106,7 @@ namespace LGR_Futbal.Forms
             numericUpDown10.Value = RozlozenieTabule.LogoHostiaX;
             numericUpDown9.Value = RozlozenieTabule.LogoHostiaY;
             numericUpDown12.Value = RozlozenieTabule.LogoHostiaSirka;
-            checkBox2.Checked = RozlozenieTabule.LogoHostiaZobrazit;
+            checkBox1.Checked = RozlozenieTabule.LogoHostiaZobrazit;
 
             numericUpDown14.Value = RozlozenieTabule.polCasX;
             numericUpDown13.Value = RozlozenieTabule.polCasY;
@@ -205,7 +205,7 @@ namespace LGR_Futbal.Forms
 
                     if (uspech && OnFileSelected != null)
                     {
-                        OnFileSelected(adresa + sfd.FileName);
+                        OnFileSelected(sfd.FileName);
                     }
                     this.Close();
                 }
@@ -250,7 +250,7 @@ namespace LGR_Futbal.Forms
                         }
                         if (OnFileSelected != null)
                         {
-                            OnFileSelected(adresa + ofd.FileName);
+                            OnFileSelected(ofd.FileName);
                         }
                     }
                 }
