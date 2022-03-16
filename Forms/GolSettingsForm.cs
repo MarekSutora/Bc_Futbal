@@ -1,5 +1,4 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

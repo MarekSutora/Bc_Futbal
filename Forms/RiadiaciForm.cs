@@ -3,7 +3,6 @@ using LGR_Futbal.Properties;
 using LGR_Futbal.Model;
 using LGR_Futbal.Triedy;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Collections.Generic;
@@ -23,10 +22,10 @@ namespace LGR_Futbal
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        private const string konfiguracnySubor = "Config.bin";
-        private const string databazaSubor = "Databaza\\Databaza.xml";
-        private const string priebehSubor = "Databaza\\Priebeh.xml";
-        private const string animacieSubor = "Databaza\\Gify\\Settings.xml";
+        private string konfiguracnySubor = "Config.bin";
+        //private const string databazaSubor = "Databaza\\Databaza.xml";
+        private string priebehSubor = "Databaza\\Priebeh.xml";
+        private string animacieSubor = "Databaza\\Gify\\Settings.xml";
 
         #endregion
 

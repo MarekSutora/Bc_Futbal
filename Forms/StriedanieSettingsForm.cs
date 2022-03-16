@@ -1,11 +1,8 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
-using System.Threading.Tasks;
-using System.Drawing;
 
 namespace LGR_Futbal.Forms
 {

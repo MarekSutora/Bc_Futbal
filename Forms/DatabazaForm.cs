@@ -4,12 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using LGR_Futbal.Model;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace LGR_Futbal.Forms
 {

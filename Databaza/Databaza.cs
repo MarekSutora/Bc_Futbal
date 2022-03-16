@@ -4,7 +4,6 @@ using System.IO;
 using System.Drawing;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Triedy

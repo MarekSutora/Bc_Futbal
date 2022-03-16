@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LGR_Futbal.Model;
 using LGR_Futbal.Triedy;
-using System.Threading;
 
 namespace LGR_Futbal.Forms
 {
@@ -54,7 +49,7 @@ namespace LGR_Futbal.Forms
                 zapas.NazovHostia = zapas.Hostia.NazovTimu;
                 tim2CB.Text = zapas.NazovHostia;
             }
-            this.filePath = cd + "\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+            this.filePath = "CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 
