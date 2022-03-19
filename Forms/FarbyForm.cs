@@ -100,7 +100,6 @@ namespace LGR_Futbal.Forms
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 TextWriter textWriter = null;
-                bool uspech = true;
 
                 try
                 {
@@ -118,19 +117,15 @@ namespace LGR_Futbal.Forms
                     serializer.Serialize(textWriter, sch);
                 }
                 catch (Exception ex)
-                {
-                    uspech = false;
+                { 
                     MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     if (textWriter != null)
                         textWriter.Close();
-
-                    if (uspech)
-                    {
-
-                    }
+                    if (OnFileSelectedFF != null)
+                        OnFileSelectedFF(sfd.FileName);
                 }
             }
         }

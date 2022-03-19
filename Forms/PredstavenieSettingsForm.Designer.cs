@@ -36,7 +36,6 @@
             this.fontyButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // domaciButton
@@ -127,22 +126,11 @@
             this.checkBox1.Text = "Zahrnúť do prezentácie náhradníkov";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 305);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(202, 17);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "Zahrnúť do prezentácie funkcionárov";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // PredstavenieSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 336);
-            this.Controls.Add(this.checkBox2);
+            this.ClientSize = new System.Drawing.Size(387, 314);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.fontyButton);
@@ -175,6 +163,5 @@
         private System.Windows.Forms.Button fontyButton;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

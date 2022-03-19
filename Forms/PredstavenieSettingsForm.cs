@@ -39,7 +39,6 @@ namespace LGR_Futbal.Forms
             {
                 this.Text = "Představení hráčů";
                 checkBox1.Text = "Zahrnout do prezentace náhradníky";
-                checkBox2.Text = "Zahrnout do prezentace funkcionáře";
 
                 domaciButton.Text = "Prezentace\ndomácího týmu";
                 hostiaButton.Text = "Prezentace\ntýmu hostí";
@@ -52,7 +51,6 @@ namespace LGR_Futbal.Forms
             }
 
             checkBox1.Checked = nahr;
-            checkBox2.Checked = funk;
 
             adresar = adr;
             pisma = fonty;
@@ -88,7 +86,7 @@ namespace LGR_Futbal.Forms
         {
             ulozFarby();
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, checkBox2.Checked);
+                OnNastaveniaConfirmed(checkBox1.Checked, false);
         }
 
         private void ulozFarby()
@@ -170,7 +168,7 @@ namespace LGR_Futbal.Forms
         private void DomaciButton_Click(object sender, EventArgs e)
         {
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, checkBox2.Checked);
+                OnNastaveniaConfirmed(checkBox1.Checked, false);
             if (OnVyberTimuNaPrezentaciu != null)
                 OnVyberTimuNaPrezentaciu(dom, farbyDom);
             this.Close();
@@ -179,7 +177,7 @@ namespace LGR_Futbal.Forms
         private void HostiaButton_Click(object sender, EventArgs e)
         {
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, checkBox2.Checked);
+                OnNastaveniaConfirmed(checkBox1.Checked, false);
             if (OnVyberTimuNaPrezentaciu != null)
                 OnVyberTimuNaPrezentaciu(hos, farbyHos);
             this.Close();

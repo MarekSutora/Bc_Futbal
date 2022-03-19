@@ -14,6 +14,7 @@ namespace LGR_Futbal.Forms
         private bool aktivnaZmena = true;
         public event PrenesNastaveniaHandler OnSettingsConfirmation;
         private bool koniec = true;
+        private int sirka, vyska;
         #endregion
 
         #region Konstruktor a metody
@@ -42,6 +43,8 @@ namespace LGR_Futbal.Forms
             int vyskaObr = screen.Bounds.Height;
             rozlisenieLabel.Text = sirkaObr.ToString() + " x " + vyskaObr.ToString();
 
+            this.sirka = sirka;
+            this.vyska = vyska;
             sirkaNumUpDown.Value = sirka;
             vyskaNumUpDown.Value = vyska;
 
@@ -92,6 +95,9 @@ namespace LGR_Futbal.Forms
                 int v = (int)vyskaNumUpDown.Value;
                 bool poz = pozadieCheckBox.Checked;
                 bool initSet = initNastaveniaCheckBox.Checked;
+
+                sirka = s;
+                vyska = v;
 
                 int j = -1;
                 if (skRadioButton.Checked)

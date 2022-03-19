@@ -26,28 +26,28 @@ namespace LGR_Futbal.Forms
             this.riadiaci = rf;
             float pomer = (float)sirka / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
-            Label l;
-            Panel p;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-                else if (item.GetType() == typeof(Panel))
-                {
-                    p = (Panel)item;
-                    foreach (object prvok in p.Controls)
-                    {
-                        if (prvok.GetType() == typeof(Label))
-                        {
-                            l = (Label)prvok;
-                            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                        }
-                    }
-                }
-            }
+            //Label l;
+            //Panel p;
+        //    foreach (object item in Controls)
+        //    {
+        //        if (item.GetType() == typeof(Label))
+        //        {
+        //            l = (Label)item;
+        //            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
+        //        }
+        //        else if (item.GetType() == typeof(Panel))
+        //        {
+        //            p = (Panel)item;
+        //            foreach (object prvok in p.Controls)
+        //            {
+        //                if (prvok.GetType() == typeof(Label))
+        //                {
+        //                    l = (Label)prvok;
+        //                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
+        //                }
+        //            }
+        //        }
+        //    }
         }
 
         private void Casovac_Elapsed(object sender, ElapsedEventArgs e)

@@ -74,7 +74,8 @@ namespace LGR_Futbal.Forms
         private string cervenaAnimacia;
         private int sirkaObr;
         private int vyskaObr;
-
+        private int sirka;
+        private int vyska;
 
         public event PrenesDataHandler OnDataConfirmed;
         public event ResetHandler OnReset;
@@ -105,6 +106,8 @@ namespace LGR_Futbal.Forms
 
             zltaAnimacia = animZlta;
             cervenaAnimacia = animCervena;
+            this.vyska = vyska;
+            this.sirka = sirka;
 
             if (jazyk == 1)
             {
@@ -1076,7 +1079,7 @@ namespace LGR_Futbal.Forms
 
         private void rozlozenieButton_Click(object sender, EventArgs e)
         {
-            rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule, sirkaObr, vyskaObr);
+            rf = new RozlozenieForm(originalFolder + "\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
             this.rozlozenieTabule = rf.RozlozenieTabule;
             rf.OnLayoutConfirmed += On_LayoutConfirmed;
             rf.OnFileSelected += Rf_OnFileSelected;
