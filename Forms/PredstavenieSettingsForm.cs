@@ -10,7 +10,7 @@ namespace LGR_Futbal.Forms
 {
     public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacieClass farby);
     public delegate void ZastavenieHandler();
-    public delegate void NastaveniaConfirmedHandler(bool n, bool f);
+    public delegate void NastaveniaConfirmedHandler(bool n);
 
     public partial class PredstavenieSettingsForm : Form
     {
@@ -31,7 +31,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PredstavenieSettingsForm(String adr, FutbalovyTim domaci, FutbalovyTim hostia, FontyTabule fonty, bool nahr, bool funk)
+        public PredstavenieSettingsForm(String adr, FutbalovyTim domaci, FutbalovyTim hostia, FontyTabule fonty, bool nahr)
         {
             InitializeComponent();
 
@@ -86,7 +86,7 @@ namespace LGR_Futbal.Forms
         {
             ulozFarby();
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, false);
+                OnNastaveniaConfirmed(checkBox1.Checked);
         }
 
         private void ulozFarby()
@@ -168,7 +168,7 @@ namespace LGR_Futbal.Forms
         private void DomaciButton_Click(object sender, EventArgs e)
         {
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, false);
+                OnNastaveniaConfirmed(checkBox1.Checked);
             if (OnVyberTimuNaPrezentaciu != null)
                 OnVyberTimuNaPrezentaciu(dom, farbyDom);
             this.Close();
@@ -177,7 +177,7 @@ namespace LGR_Futbal.Forms
         private void HostiaButton_Click(object sender, EventArgs e)
         {
             if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked, false);
+                OnNastaveniaConfirmed(checkBox1.Checked);
             if (OnVyberTimuNaPrezentaciu != null)
                 OnVyberTimuNaPrezentaciu(hos, farbyHos);
             this.Close();

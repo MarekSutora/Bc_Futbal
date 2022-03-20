@@ -69,7 +69,6 @@ namespace LGR_Futbal.Forms
                 editZmenaButton.Text = "Změnit logo";
                 editZrusButton.Text = "Zrušit logo";
                 editBackButton.Text = "Zpět    ";
-                editHraciButton.Text = "Provést změny \nseznamu hráčů";
                 editConfirmButton.Text = editConfirmButton.Text.Replace("zmeny", "změny");
                 editConfirmButton.Text = editConfirmButton.Text.Replace("Potvrdiť", "Potvrdit");
             }
@@ -398,22 +397,9 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void EditHraciButton_Click(object sender, EventArgs e)
-        {
-            HraciForm hraciForm = new HraciForm(dbs, aktTim, currentDirectory, false);
-            hraciForm.Show();
-        }
-
         private void EditBackButton_Click(object sender, EventArgs e)
         {
             editGroupBox.Visible = false;
-        }
-
-        private void TimyListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //    addGroupBox.Visible = false;
-            //    ZobrazEdit();
         }
 
         private void timyListBox_DoubleClick(object sender, EventArgs e)

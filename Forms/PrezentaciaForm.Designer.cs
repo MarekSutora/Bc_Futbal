@@ -44,13 +44,10 @@
             this.casovac = new System.Windows.Forms.Timer(this.components);
             this.nahradniciPanel = new System.Windows.Forms.Panel();
             this.nahradniciLabel = new System.Windows.Forms.Label();
-            this.funkcionariPanel = new System.Windows.Forms.Panel();
-            this.funkcionariLabel = new System.Windows.Forms.Label();
             this.uvodnyPanel.SuspendLayout();
             this.prezentacnyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).BeginInit();
             this.nahradniciPanel.SuspendLayout();
-            this.funkcionariPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // uvodnyPanel
@@ -112,7 +109,7 @@
             this.infoRichTextBox.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoRichTextBox.ForeColor = System.Drawing.Color.Yellow;
             this.infoRichTextBox.Location = new System.Drawing.Point(167, 77);
-            this.infoRichTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infoRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.infoRichTextBox.Name = "infoRichTextBox";
             this.infoRichTextBox.Size = new System.Drawing.Size(291, 95);
             this.infoRichTextBox.TabIndex = 556;
@@ -227,35 +224,12 @@
             this.nahradniciLabel.Text = "NÁHRADNÍCI";
             this.nahradniciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // funkcionariPanel
-            // 
-            this.funkcionariPanel.BackColor = System.Drawing.Color.Black;
-            this.funkcionariPanel.Controls.Add(this.funkcionariLabel);
-            this.funkcionariPanel.Location = new System.Drawing.Point(7, 7);
-            this.funkcionariPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.funkcionariPanel.Name = "funkcionariPanel";
-            this.funkcionariPanel.Size = new System.Drawing.Size(462, 273);
-            this.funkcionariPanel.TabIndex = 550;
-            // 
-            // funkcionariLabel
-            // 
-            this.funkcionariLabel.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.funkcionariLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.funkcionariLabel.Location = new System.Drawing.Point(0, 0);
-            this.funkcionariLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.funkcionariLabel.Name = "funkcionariLabel";
-            this.funkcionariLabel.Size = new System.Drawing.Size(462, 276);
-            this.funkcionariLabel.TabIndex = 544;
-            this.funkcionariLabel.Text = "FUNKCIONÁRI";
-            this.funkcionariLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PrezentaciaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(480, 292);
-            this.Controls.Add(this.funkcionariPanel);
             this.Controls.Add(this.nahradniciPanel);
             this.Controls.Add(this.prezentacnyPanel);
             this.Controls.Add(this.uvodnyPanel);
@@ -270,7 +244,6 @@
             this.prezentacnyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).EndInit();
             this.nahradniciPanel.ResumeLayout(false);
-            this.funkcionariPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,7 +265,5 @@
         private System.Windows.Forms.RichTextBox infoRichTextBox;
         private System.Windows.Forms.Panel nahradniciPanel;
         private System.Windows.Forms.Label nahradniciLabel;
-        private System.Windows.Forms.Panel funkcionariPanel;
-        private System.Windows.Forms.Label funkcionariLabel;
     }
 }

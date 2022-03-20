@@ -51,7 +51,6 @@
             this.polcasLabel = new System.Windows.Forms.Label();
             this.infoLabel3 = new System.Windows.Forms.Label();
             this.prerusenieLabel = new System.Windows.Forms.Label();
-            this.testovanieButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.predstavButton = new System.Windows.Forms.Button();
             this.casButton = new System.Windows.Forms.Button();
@@ -368,20 +367,6 @@
             this.prerusenieLabel.TabIndex = 550;
             this.prerusenieLabel.Text = "nie";
             // 
-            // testovanieButton
-            // 
-            this.testovanieButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.testovanieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.testovanieButton.Location = new System.Drawing.Point(9, 405);
-            this.testovanieButton.Margin = new System.Windows.Forms.Padding(2);
-            this.testovanieButton.Name = "testovanieButton";
-            this.testovanieButton.Size = new System.Drawing.Size(146, 19);
-            this.testovanieButton.TabIndex = 552;
-            this.testovanieButton.Text = "Offline\r\ntestovanie";
-            this.testovanieButton.UseVisualStyleBackColor = false;
-            this.testovanieButton.Visible = false;
-            this.testovanieButton.Click += new System.EventHandler(this.TestovanieButton_Click);
-            // 
             // closeButton
             // 
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -435,7 +420,7 @@
             this.setupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.setupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.setupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.setupButton.Location = new System.Drawing.Point(9, 379);
+            this.setupButton.Location = new System.Drawing.Point(11, 379);
             this.setupButton.Margin = new System.Windows.Forms.Padding(2);
             this.setupButton.Name = "setupButton";
             this.setupButton.Size = new System.Drawing.Size(146, 46);
@@ -768,7 +753,6 @@
             this.Controls.Add(this.zmenitCasButton);
             this.Controls.Add(this.setupButton);
             this.Controls.Add(this.obnovaHryButton);
-            this.Controls.Add(this.testovanieButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.prerusenieLabel);
             this.Controls.Add(this.infoLabel3);
@@ -841,7 +825,6 @@
         private System.Windows.Forms.Label infoLabel3;
         private System.Windows.Forms.Label prerusenieLabel;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button testovanieButton;
         private System.Windows.Forms.Button obnovaHryButton;
         private System.Windows.Forms.Button zmenitCasButton;
         private System.Windows.Forms.Button domKopyButton;

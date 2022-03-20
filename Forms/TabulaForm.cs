@@ -48,13 +48,12 @@ namespace LGR_Futbal.Forms
             return text;
         }
 
-        public TabulaForm(int jazyk, int sirkaPlochy, int vyskaPlochy)
+        public TabulaForm(int jazyk, int sirkaPlochy, int vyskaPlochy, RozlozenieTabule rt)
         {
             InitializeComponent();
             aktualnyJazyk = jazyk;
-            RozlozenieTabule = new RozlozenieTabule();
             setDefaultColors();
-
+            this.RozlozenieTabule = rt;
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
             float pomer = (float)sirkaPlochy / (float)this.Width;
             Scale(new SizeF(pomer, pomer));

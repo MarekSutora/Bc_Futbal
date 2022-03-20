@@ -175,12 +175,6 @@
     <Compile Include="Forms\GolSettingsForm.Designer.cs">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HraciForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\HraciForm.Designer.cs">
-      <DependentUpon>HraciForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\HraciKartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,12 +295,6 @@
     <Compile Include="Forms\TabulaForm.Designer.cs">
       <DependentUpon>TabulaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TestovaciForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TestovaciForm.Designer.cs">
-      <DependentUpon>TestovaciForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\TypZapasuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,15 +345,15 @@
     <Compile Include="Model\Zapas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Triedy\AnimacnaKonfiguracia.cs" />
+    <Compile Include="Setup\AnimacnaKonfiguracia.cs" />
     <Compile Include="Databaza\Databaza.cs" />
-    <Compile Include="Triedy\FarbyPrezentacie.cs" />
-    <Compile Include="Triedy\FarebnaSchema.cs" />
-    <Compile Include="Triedy\FontyTabule.cs" />
+    <Compile Include="Setup\FarbyPrezentacie.cs" />
+    <Compile Include="Setup\FarebnaSchema.cs" />
+    <Compile Include="Setup\FontyTabule.cs" />
     <Compile Include="Model\Hrac.cs" />
-    <Compile Include="Triedy\ParametreZapasu.cs" />
-    <Compile Include="Triedy\PriebehZapasu.cs" />
-    <Compile Include="Triedy\RozlozenieTabule.cs" />
+    <Compile Include="Setup\ParametreZapasu.cs" />
+    <Compile Include="Setup\PriebehZapasu.cs" />
+    <Compile Include="Setup\RozlozenieTabule.cs" />
     <Compile Include="Model\FutbalovyTim.cs" />
     <EmbeddedResource Include="Forms\CervenaKartaForm.resx">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
@@ -393,9 +381,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GolSettingsForm.resx">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HraciForm.resx">
-      <DependentUpon>HraciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HraciKartyForm.resx">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
@@ -456,9 +441,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TabulaForm.resx">
       <DependentUpon>TabulaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TestovaciForm.resx">
-      <DependentUpon>TestovaciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypZapasuForm.resx">
       <DependentUpon>TypZapasuForm.cs</DependentUpon>

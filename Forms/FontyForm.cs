@@ -72,11 +72,9 @@ namespace LGR_Futbal.Forms
             pisma.PolcasFont = label8.Text;
             pisma.StriedaniaFont = label9.Text;
 
-            //if (OnFontStriedaniaSelected != null)
-            //    OnFontStriedaniaSelected(striedaciFont);
             if (OnFontsConfirmed != null)
                 OnFontsConfirmed();
-            //Close();
+            Close();
         }
 
         private void zrusitButton_Click(object sender, EventArgs e)

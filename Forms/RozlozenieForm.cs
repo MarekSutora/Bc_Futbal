@@ -257,36 +257,36 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void obnovaRozlozeniaButton_Click(object sender, EventArgs e)
+        public void NativneRozlozenie()
         {
-            double pom = sirka/(1920/540.0);
-            numericUpDown1.Value = (int)(sirka / (1920/540.0));
-            numericUpDown2.Value = (int)(vyska / (1080/20.0));
+            double pom = sirka / (1920 / 540.0);
+            numericUpDown1.Value = (int)(sirka / (1920 / 540.0));
+            numericUpDown2.Value = (int)(vyska / (1080 / 20.0));
 
-            numericUpDown4.Value = (int)(sirka / (1920/20.0));
-            numericUpDown3.Value = (int)(vyska / (1080/544.0));
+            numericUpDown4.Value = (int)(sirka / (1920 / 20.0));
+            numericUpDown3.Value = (int)(vyska / (1080 / 544.0));
 
-            numericUpDown8.Value = (int)(sirka / (1920/1098.0));
-            numericUpDown7.Value = (int)(vyska / (1080/544.0));
+            numericUpDown8.Value = (int)(sirka / (1920 / 1098.0));
+            numericUpDown7.Value = (int)(vyska / (1080 / 544.0));
 
-            numericUpDown16.Value = (int)(sirka / (1920/38.0));
-            numericUpDown15.Value = (int)(vyska / (1080/674.0));
+            numericUpDown16.Value = (int)(sirka / (1920 / 38.0));
+            numericUpDown15.Value = (int)(vyska / (1080 / 674.0));
 
-            numericUpDown18.Value = (int)(sirka / (1920/1118.0));
-            numericUpDown17.Value = (int)(vyska / (1080/674.0));
+            numericUpDown18.Value = (int)(sirka / (1920 / 1118.0));
+            numericUpDown17.Value = (int)(vyska / (1080 / 674.0));
 
-            numericUpDown6.Value = (int)(sirka / (1920/20.0));
-            numericUpDown5.Value = (int)(vyska / (1080/20.0));
-            numericUpDown11.Value = (int)(sirka / (1920/510.0));
+            numericUpDown6.Value = (int)(sirka / (1920 / 20.0));
+            numericUpDown5.Value = (int)(vyska / (1080 / 20.0));
+            numericUpDown11.Value = (int)(sirka / (1920 / 510.0));
             checkBox2.Checked = true;
 
-            numericUpDown10.Value = (int)(sirka / (1920/1390.0)); ;
-            numericUpDown9.Value = (int)(vyska / (1080/20.0)); ;
-            numericUpDown12.Value = (int)(sirka / (1920/510.0)); ;
+            numericUpDown10.Value = (int)(sirka / (1920 / 1390.0)); ;
+            numericUpDown9.Value = (int)(vyska / (1080 / 20.0)); ;
+            numericUpDown12.Value = (int)(sirka / (1920 / 510.0)); ;
             checkBox2.Checked = true;
 
-            numericUpDown14.Value = (int)(sirka / (1920/550.0)); ;
-            numericUpDown13.Value = (int)(vyska / (1080/878.0)); ;
+            numericUpDown14.Value = (int)(sirka / (1920 / 550.0)); ;
+            numericUpDown13.Value = (int)(vyska / (1080 / 878.0)); ;
 
             RozlozenieTabule.CasX = (int)numericUpDown1.Value;
             RozlozenieTabule.CasY = (int)numericUpDown2.Value;
@@ -315,7 +315,15 @@ namespace LGR_Futbal.Forms
 
             RozlozenieTabule.polCasX = (int)numericUpDown14.Value;
             RozlozenieTabule.polCasY = (int)numericUpDown13.Value;
-            OnLayoutConfirmed();
+            if (adresa != null)
+            {
+                OnLayoutConfirmed();
+            }      
+        }
+
+        private void obnovaRozlozeniaButton_Click(object sender, EventArgs e)
+        {
+            NativneRozlozenie();
         }
     }
 }

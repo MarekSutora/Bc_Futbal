@@ -24,20 +24,18 @@ namespace LGR_Futbal.Forms
         private int pocetPrezentovanychHracov;
         private List<Hrac> zakladnaJedenastka;
         private List<Hrac> nahradnici;
-        private List<Hrac> funkcionari;
         private List<Hrac> aktualnyZoznam;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacieClass farby, FontyTabule fonty, bool ajNahradnici, bool ajFunkcionari)
+        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacieClass farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
 
             if (Settings.Default.Jazyk == 1)
             {
-                funkcionariLabel.Text = "Funkcionáři";
                 label1.Text = "představení hráčů";
                 label2.Text = "Věk:";
             }
@@ -48,7 +46,6 @@ namespace LGR_Futbal.Forms
 
             zakladnaJedenastka = new List<Hrac>();
             nahradnici = new List<Hrac>();
-            funkcionari = new List<Hrac>();
 
             foreach (Hrac h in prezentovanyTim.ZoznamHracov)
             {
@@ -56,15 +53,10 @@ namespace LGR_Futbal.Forms
                     zakladnaJedenastka.Add(h);
                 if ((h.Nahradnik) && (!h.CervenaKarta))
                     nahradnici.Add(h);
-                if (h.Funkcionar)
-                    funkcionari.Add(h);
             }
 
             if (!ajNahradnici)
                 nahradnici.Clear();
-
-            if (!ajFunkcionari)
-                funkcionari.Clear();
 
             aktualnyZoznam = zakladnaJedenastka;
             pocetPrezentovanychHracov = 0;
@@ -100,13 +92,11 @@ namespace LGR_Futbal.Forms
             nazovLabel.Text = tim.NazovTimu;
             prezentacnyPanel.Visible = false;
             nahradniciPanel.Visible = false;
-            funkcionariPanel.Visible = false;
             uvodnyPanel.Visible = true;
 
             // Nastavenie farieb podla volby
             nazovLabel.ForeColor = farby.NadpisFarba();
             nahradniciLabel.ForeColor = farby.NadpisFarba();
-            funkcionariLabel.ForeColor = farby.NadpisFarba();
             label1.ForeColor = farby.NadpisFarba();
             cisloHracaLabel.ForeColor = farby.CisloFarba();
             menoHracaLabel.ForeColor = farby.MenoFarba();
@@ -141,7 +131,7 @@ namespace LGR_Futbal.Forms
 
         private void Casovac_Tick(object sender, EventArgs e)
         {
-            if ((zakladnaJedenastka.Count == 0) && (nahradnici.Count == 0) && (funkcionari.Count == 0))
+            if ((zakladnaJedenastka.Count == 0) && (nahradnici.Count == 0))
             {
                 ZastavCas();
                 this.Close();
@@ -150,7 +140,6 @@ namespace LGR_Futbal.Forms
             {
                 uvodnyPanel.Visible = false;
                 nahradniciPanel.Visible = false;
-                funkcionariPanel.Visible = false;
                 prezentacnyPanel.Visible = true;
 
                 if (pocetPrezentovanychHracov < aktualnyZoznam.Count)
@@ -189,19 +178,8 @@ namespace LGR_Futbal.Forms
                 {
                     if (aktualnyZoznam == nahradnici)
                     {
-                        if (funkcionari.Count > 0)
-                        {
-                            aktualnyZoznam = funkcionari;
-                            pocetPrezentovanychHracov = 0;
-                            prezentacnyPanel.Visible = false;
-                            nahradniciPanel.Visible = false;
-                            funkcionariPanel.Visible = true;
-                        }
-                        else
-                        {
-                            ZastavCas();
-                            this.Close();
-                        }
+                        ZastavCas();
+                        this.Close();
                     }
                     else if (aktualnyZoznam == zakladnaJedenastka)
                     {
@@ -210,24 +188,7 @@ namespace LGR_Futbal.Forms
                             aktualnyZoznam = nahradnici;
                             pocetPrezentovanychHracov = 0;
                             prezentacnyPanel.Visible = false;
-                            funkcionariPanel.Visible = false;
                             nahradniciPanel.Visible = true;
-                        }
-                        else
-                        {
-                            if (funkcionari.Count > 0)
-                            {
-                                aktualnyZoznam = funkcionari;
-                                pocetPrezentovanychHracov = 0;
-                                prezentacnyPanel.Visible = false;
-                                nahradniciPanel.Visible = false;
-                                funkcionariPanel.Visible = true;
-                            }
-                            else
-                            {
-                                ZastavCas();
-                                this.Close();
-                            }
                         }
                     }
                     else

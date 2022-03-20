@@ -90,6 +90,7 @@ namespace LGR_Futbal.Forms
             {
                 OnColorsLoadedFF(fs);
             }
+            Close();
         }
 
         private void saveButton_Click(object sender, EventArgs e)

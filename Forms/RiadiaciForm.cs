@@ -71,7 +71,6 @@ namespace LGR_Futbal
         private bool koniec = true;
         //private Font fontStriedania;
         private bool zobrazitNahradnikov = true;
-        private bool zobrazitFunkcionarov = true;
         private AnimacnaKonfiguracia animaciaGolov = null;
         private List<Rozhodca> rozhodcovia = null;
         // Farby
@@ -86,6 +85,7 @@ namespace LGR_Futbal
         private PrezentaciaForm prezentacia = null;
         private SetupForm sf = null;
         private ReklamaForm rf = null;
+        private RozlozenieTabule RozlozenieTabule = null;
 
         // Aktualny hraci cas
         private int aktualnaMinuta;
@@ -111,6 +111,10 @@ namespace LGR_Futbal
             konfiguracnySubor = currentDirectory + "\\" + konfiguracnySubor;
             animacieSubor = currentDirectory + "\\" + animacieSubor;
             priebehSubor = currentDirectory + "\\" + priebehSubor;
+            RozlozenieTabule = new RozlozenieTabule();
+
+            RozlozenieForm rf = new RozlozenieForm(null, RozlozenieTabule, sirkaTabule, vyskaTabule);
+            rf.NativneRozlozenie();
             LoadSettings();
 
             // Vytvorenie casovaca
@@ -185,7 +189,7 @@ namespace LGR_Futbal
                     prerusenieLabel.Text = Translate(9);
 
                 // Vytvorenie zobrazovacej svetelnej tabule
-                formularTabule = new TabulaForm(indexJazyka, sirkaTabule, vyskaTabule);
+                formularTabule = new TabulaForm(indexJazyka, sirkaTabule, vyskaTabule, RozlozenieTabule);
                 formularTabule.prelozTabuluDoJazyka(indexJazyka);
                 formularTabule.Show();
                 formularTabule.NastavFonty(pisma);
@@ -223,14 +227,12 @@ namespace LGR_Futbal
                 {
                     TextReader textReader = null;
                     bool uspech = true;
-                    RozlozenieTabule rt = null;
-
                     try
                     {
                         string nazovSuboru = rozlozenieCesta;
                         XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
                         textReader = new StreamReader(nazovSuboru);
-                        rt = (RozlozenieTabule)deserializer.Deserialize(textReader);
+                        RozlozenieTabule = (RozlozenieTabule)deserializer.Deserialize(textReader);
                     }
                     catch (Exception ex)
                     {
@@ -243,7 +245,7 @@ namespace LGR_Futbal
                             textReader.Close();
 
                         if (uspech)
-                            formularTabule.setLayout(rt);
+                            formularTabule.setLayout(RozlozenieTabule);
                     }
                 }
             }
@@ -353,7 +355,6 @@ namespace LGR_Futbal
             odstranovatDiakritiku = true;
             animacnyCas = 3;
             zobrazitNahradnikov = true;
-            zobrazitFunkcionarov = true;
         }
 
         private void SpracujCas()
@@ -664,7 +665,6 @@ namespace LGR_Futbal
                 pismaPrezentacie.CasFont = br.ReadString();
                 pisma.StriedaniaFont = br.ReadString();
                 zobrazitNahradnikov = br.ReadBoolean();
-                zobrazitFunkcionarov = br.ReadBoolean();
                 animaciaZltaKarta = br.ReadString();
                 animaciaCervenaKarta = br.ReadString();
                 rozlozenieCesta = br.ReadString();
@@ -715,7 +715,6 @@ namespace LGR_Futbal
                 bw.Write(pismaPrezentacie.CasFont);
                 bw.Write(pisma.StriedaniaFont);
                 bw.Write(zobrazitNahradnikov);
-                bw.Write(zobrazitFunkcionarov);
                 bw.Write(animaciaZltaKarta);
                 bw.Write(animaciaCervenaKarta);
                 bw.Write(rozlozenieCesta);
@@ -1032,7 +1031,7 @@ namespace LGR_Futbal
                     {
                         setSkoreDomaci(novyStav);
 
-                        PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, null, zobrazitNahradnikov, zobrazitFunkcionarov);
+                        PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
                         FarbyPrezentacieClass farbicky = psf.GetFarbyDom();
 
                         if ((animaciaGolov.ZobrazitPreddefinovanuAnimaciuDomaci) || (animaciaGolov.AnimacieDomaci.Count > 0))
@@ -1055,7 +1054,7 @@ namespace LGR_Futbal
                     {
                         setSkoreHostia(novyStav);
 
-                        PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, null, zobrazitNahradnikov, zobrazitFunkcionarov);
+                        PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
                         FarbyPrezentacieClass farbicky = psf.GetFarbyHos();
 
                         if ((animaciaGolov.ZobrazitPreddefinovanuAnimaciuHostia) || (animaciaGolov.AnimacieHostia.Count > 0))
@@ -1123,7 +1122,7 @@ namespace LGR_Futbal
                 nastupujuci.Nahradnik = false;
             }
 
-            PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, null, zobrazitNahradnikov, zobrazitFunkcionarov);
+            PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
             FarbyPrezentacieClass farbicky = psf.GetFarbyDom();
 
             if (!jeDomaciTim)
@@ -1148,17 +1147,16 @@ namespace LGR_Futbal
 
         private void PredstavButton_Click(object sender, EventArgs e)
         {
-            PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, timDomaci, timHostia, pismaPrezentacie, zobrazitNahradnikov, zobrazitFunkcionarov);
+            PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, timDomaci, timHostia, pismaPrezentacie, zobrazitNahradnikov);
             psf.OnVyberTimuNaPrezentaciu += Psf_OnVyberTimuNaPrezentaciu;
             psf.OnZastaveniePrezentacie += Psf_OnZastaveniePrezentacie;
             psf.OnNastaveniaConfirmed += Psf_OnNastaveniaConfirmed;
             psf.Show();
         }
 
-        private void Psf_OnNastaveniaConfirmed(bool n, bool f)
+        private void Psf_OnNastaveniaConfirmed(bool n)
         {
             zobrazitNahradnikov = n;
-            zobrazitFunkcionarov = f;
         }
 
         private void Psf_OnZastaveniePrezentacie()
@@ -1168,7 +1166,7 @@ namespace LGR_Futbal
 
         private void Psf_OnVyberTimuNaPrezentaciu(FutbalovyTim tim, FarbyPrezentacieClass fp)
         {
-            PrezentaciaForm pf = new PrezentaciaForm(currentDirectory, sirkaTabule, animacnyCas, tim, fp, pismaPrezentacie, zobrazitNahradnikov, zobrazitFunkcionarov);
+            PrezentaciaForm pf = new PrezentaciaForm(currentDirectory, sirkaTabule, animacnyCas, tim, fp, pismaPrezentacie, zobrazitNahradnikov);
             pf.FormClosing += Pf_FormClosing;
             prezentacia = pf;
             pf.Show();
@@ -1199,7 +1197,7 @@ namespace LGR_Futbal
             sf.OnObnovaFontov += Sf_OnObnovaFontov;
             sf.OnLayoutChanged += Sf_OnLayoutChanged;
             sf.OnFileSelectedRF += Sf_OnFileSelectedRF;
-            sf.rozlozenieTabule = formularTabule.RozlozenieTabule;
+            sf.rozlozenieTabule = RozlozenieTabule;
             sf.Pisma = this.pisma;
             sf.Show();
         }
@@ -1433,11 +1431,6 @@ namespace LGR_Futbal
                 this.Close();
         }
 
-        private void TestovanieButton_Click(object sender, EventArgs e)
-        {
-            TestovaciForm testovaciForm = new TestovaciForm(formularTabule);
-            testovaciForm.Show();
-        }
 
         private void obnovaHryButton_Click(object sender, EventArgs e)
         {

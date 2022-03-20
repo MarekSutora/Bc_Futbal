@@ -17,7 +17,6 @@ namespace LGR_Futbal.Model
         public bool CervenaKarta { get; set; }
         public String Poznamka { get; set; }
         public bool Nahradnik { get; set; }
-        public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
         public char Priradeny { get; set; }

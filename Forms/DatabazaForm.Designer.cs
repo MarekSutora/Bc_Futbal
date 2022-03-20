@@ -108,7 +108,6 @@
             this.editGroupBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.kategoriaCombobox2 = new System.Windows.Forms.ComboBox();
-            this.editHraciButton = new System.Windows.Forms.Button();
             this.editBackButton = new System.Windows.Forms.Button();
             this.editZrusButton = new System.Windows.Forms.Button();
             this.editConfirmButton = new System.Windows.Forms.Button();
@@ -976,7 +975,6 @@
             this.timyListBox.Name = "timyListBox";
             this.timyListBox.Size = new System.Drawing.Size(168, 366);
             this.timyListBox.TabIndex = 32;
-            this.timyListBox.SelectedIndexChanged += new System.EventHandler(this.TimyListBox_SelectedIndexChanged);
             this.timyListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.timyListBox_MouseDoubleClick);
             // 
             // infoLabel1
@@ -1002,7 +1000,7 @@
             this.addGroupBox.Controls.Add(this.nazovTextBox);
             this.addGroupBox.Controls.Add(this.infoLabel2);
             this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(298, 17);
+            this.addGroupBox.Location = new System.Drawing.Point(298, 16);
             this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addGroupBox.Name = "addGroupBox";
             this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1113,7 +1111,6 @@
             // 
             this.editGroupBox.Controls.Add(this.label3);
             this.editGroupBox.Controls.Add(this.kategoriaCombobox2);
-            this.editGroupBox.Controls.Add(this.editHraciButton);
             this.editGroupBox.Controls.Add(this.editBackButton);
             this.editGroupBox.Controls.Add(this.editZrusButton);
             this.editGroupBox.Controls.Add(this.editConfirmButton);
@@ -1148,27 +1145,12 @@
             this.kategoriaCombobox2.Size = new System.Drawing.Size(121, 25);
             this.kategoriaCombobox2.TabIndex = 29;
             // 
-            // editHraciButton
-            // 
-            this.editHraciButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editHraciButton.Image = global::LGR_Futbal.Properties.Resources.Contacts;
-            this.editHraciButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editHraciButton.Location = new System.Drawing.Point(125, 181);
-            this.editHraciButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editHraciButton.Name = "editHraciButton";
-            this.editHraciButton.Size = new System.Drawing.Size(150, 52);
-            this.editHraciButton.TabIndex = 27;
-            this.editHraciButton.Text = "Vykonať zmeny \r\nzoznamu hráčov";
-            this.editHraciButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editHraciButton.UseVisualStyleBackColor = true;
-            this.editHraciButton.Click += new System.EventHandler(this.EditHraciButton_Click);
-            // 
             // editBackButton
             // 
             this.editBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editBackButton.Image = global::LGR_Futbal.Properties.Resources.Back_2;
             this.editBackButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editBackButton.Location = new System.Drawing.Point(7, 181);
+            this.editBackButton.Location = new System.Drawing.Point(162, 181);
             this.editBackButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.editBackButton.Name = "editBackButton";
             this.editBackButton.Size = new System.Drawing.Size(113, 52);
@@ -1695,7 +1677,6 @@
         private System.Windows.Forms.GroupBox editGroupBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox kategoriaCombobox2;
-        private System.Windows.Forms.Button editHraciButton;
         private System.Windows.Forms.Button editBackButton;
         private System.Windows.Forms.Button editZrusButton;
         private System.Windows.Forms.Button editConfirmButton;
