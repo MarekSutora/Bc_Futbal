@@ -94,11 +94,11 @@ namespace LGR_Futbal.Forms
                     hraci[i].Nahradnik = nahradniciCheckListBox.GetItemChecked(i);
                     if (zoznamCheckListBox.GetItemChecked(i))
                     {
-                        hraci[i].Priradeny = 1;
+                        hraci[i].Priradeny = 'Z';
                     } 
                     else if (nahradniciCheckListBox.GetItemChecked(i))
                     {
-                        hraci[i].Priradeny = 2;
+                        hraci[i].Priradeny = 'N';
                     }
                 }
                 this.Close();

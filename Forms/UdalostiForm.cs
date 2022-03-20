@@ -77,7 +77,7 @@ namespace LGR_Futbal.Forms
                     udalosti[i].Typ = 2;
                     Karta karta = (Karta)udalosti[i];
                     meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
-                    udalost = karta.IdKarta == 2 ? "Červená karta" : "Žltá karta";
+                    udalost = karta.Typ == 'C' ? "Červená karta" : "Žltá karta";
                 }
                 if (udalosti[i].GetType() == typeof(Kop))
                 {
@@ -168,14 +168,14 @@ namespace LGR_Futbal.Forms
                     for (int i = 0; i < zapas.Domaci.ZoznamHracov.Count; i++)
                     {
                         
-                        if (zapas.Domaci.ZoznamHracov[i].Priradeny == 1)
+                        if (zapas.Domaci.ZoznamHracov[i].Priradeny == 'Z')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         } 
-                        else if (zapas.Domaci.ZoznamHracov[i].Priradeny == 2)
+                        else if (zapas.Domaci.ZoznamHracov[i].Priradeny == 'N')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
                             priradenost = "Nahradník";
@@ -188,14 +188,14 @@ namespace LGR_Futbal.Forms
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Hostia.ZoznamHracov.Count; i++)
                     {
-                        if(zapas.Hostia.ZoznamHracov[i].Priradeny == 1)
+                        if(zapas.Hostia.ZoznamHracov[i].Priradeny == 'Z')
                         {
                             meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         }
-                        else if (zapas.Hostia.ZoznamHracov[i].Priradeny == 2)
+                        else if (zapas.Hostia.ZoznamHracov[i].Priradeny == 'N')
                         {
                             meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Nahradník";
@@ -292,7 +292,7 @@ namespace LGR_Futbal.Forms
                     {
                         Karta karta = (Karta)udalosti[i];
                         meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
-                        if (karta.IdKarta == 2)
+                        if (karta.TypKarty == 'C')
                         {
                             if (cervenaKartaCB.Checked)
                             {
@@ -304,7 +304,7 @@ namespace LGR_Futbal.Forms
                         {
                             if (zltaKartaCB.Checked)
                             {
-                                udalost = "Źltá karta";
+                                udalost = "Žltá karta";
                                 pridat=true;
                             }
                             

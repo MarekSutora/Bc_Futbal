@@ -85,7 +85,7 @@ namespace LGR_Futbal.Forms
                     Karta karta = new Karta();
                     Hrac hrac = zoznam[hraciLB.SelectedIndex];
                     karta.Hrac = hrac;
-                    karta.IdKarta = hrac.ZltaKarta ? 2 : 1; //2 - cervena, 1 - zlta
+                    karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z'; //2 - cervena, 1 - zlta
                     karta.Minuta = minuta;
                     karta.NadstavenaMinuta = nadstavenaMinuta;
                     karta.Predlzenie = nadstavenyCas ? 1 : 0;

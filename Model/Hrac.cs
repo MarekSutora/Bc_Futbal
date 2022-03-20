@@ -8,7 +8,6 @@ namespace LGR_Futbal.Model
     public class Hrac : Osoba
     {
         public int IdHrac { get; set; }
-        public DateTime DatumNastupu { get; set; }
         public int IdFutbalovyTim { get; set; }
         public string CisloDresu { get; set; }
         public byte[] FotkaBlob { get; set; }
@@ -21,10 +20,10 @@ namespace LGR_Futbal.Model
         public bool Funkcionar { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
-        public int Priradeny { get; set; }
+        public char Priradeny { get; set; }
         public Hrac()    
         {
-            Priradeny = 0;
+            Priradeny = 'X';
             Poznamka = " ";
             Meno = string.Empty;
             Priezvisko = string.Empty;

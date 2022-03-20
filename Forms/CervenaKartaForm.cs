@@ -125,23 +125,17 @@ namespace LGR_Futbal.Forms
                         fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                         fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                     }
-                    //fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);     
-                    //fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + prezentovanyHrac.Fotka);
                     
                 }
                 catch
                 {
                     fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                     fotkaPB.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
-                    //fotkaPictureBox.Image = null;
-                    //fotkaPB.Image = null;
                 }
 
                 cisloHracaLabel.Text = prezentovanyHrac.CisloDresu.ToString();
                 chLabel.Text = cisloHracaLabel.Text;
                 String identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
-                //if (identifikacia.Length > 15)
-                //    identifikacia = identifikacia.Replace(" ", "\n");
 
                 menoHracaLabel.Text = identifikacia;
                 mhLabel.Text = menoHracaLabel.Text;

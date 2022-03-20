@@ -973,8 +973,8 @@ namespace LGR_Futbal.Triedy
                         param2[1].Value = Zapas.Domaci.ZoznamHracov[i].IdHrac;
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Domaci.ZoznamHracov[i].IdFutbalovyTim;
-                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        if (Zapas.Domaci.ZoznamHracov[i].Priradeny != 0)
+                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Char);
+                        if (Zapas.Domaci.ZoznamHracov[i].Priradeny != 'X')
                         {
                             param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Priradeny;
                         }
@@ -995,8 +995,8 @@ namespace LGR_Futbal.Triedy
                         param2[1].Value = Zapas.Hostia.ZoznamHracov[i].IdHrac;
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
                         param2[2].Value = Zapas.Hostia.ZoznamHracov[i].IdFutbalovyTim;
-                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Int32);
-                        if (Zapas.Hostia.ZoznamHracov[i].Priradeny != 0)
+                        param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Char);
+                        if (Zapas.Hostia.ZoznamHracov[i].Priradeny != 'X')
                         {
                             param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Priradeny;
                         }
@@ -1235,8 +1235,8 @@ namespace LGR_Futbal.Triedy
                     {
                         param[2].Value = karta.Rozhodca.IdRozhodca;
                     }
-                    param[3] = cmd.Parameters.Add("karta", OracleDbType.Int32);
-                    param[3].Value = karta.IdKarta;
+                    param[3] = cmd.Parameters.Add("karta", OracleDbType.Char);
+                    param[3].Value = karta.TypKarty;
 
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
@@ -1469,7 +1469,7 @@ namespace LGR_Futbal.Triedy
                         while (reader.Read())
                         {
                             if (!reader.IsDBNull(4))
-                                hrac.Priradeny = reader.GetInt32(4);
+                                hrac.Priradeny = reader.GetChar(4);
                             if (!reader.IsDBNull(3))
                             {
                                 if (reader.GetInt32(3) == zapas.Domaci.IdFutbalovyTim)
@@ -1711,7 +1711,7 @@ namespace LGR_Futbal.Triedy
                             if (!reader.IsDBNull(2))
                                 karta.Hrac = getHrac(reader.GetInt32(2));
                             if (!reader.IsDBNull(4))
-                                karta.IdKarta = reader.GetInt32(4);
+                                karta.TypKarty = reader.GetChar(4);
                         }
                     }
                     conn.Close();
