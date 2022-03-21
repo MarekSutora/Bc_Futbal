@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
@@ -17,14 +17,14 @@ namespace LGR_Futbal.Forms
         private int IdTimu;
         private List<Hrac> hraci = null;
         private List<Hrac> hraciNaPridanie = null;
-        private Databaza dbs = null;
-        public NezaradeniHraciForm(int id, Databaza databaza)
+        private DBTimy dbtimy = null;
+        public NezaradeniHraciForm(int id, DBTimy dbtimy)
         {
             Text = "Pridanie nezaradených hráčov do tímu";
             InitializeComponent();
             IdTimu = id;
-            dbs = databaza;
-            hraci = dbs.GetNezaradeniHraci();
+            this.dbtimy = dbtimy;
+            hraci = this.dbtimy.GetNezaradeniHraci();
             hraciNaPridanie = new List<Hrac>();
             foreach (Hrac h in hraci)
             {
@@ -67,7 +67,7 @@ namespace LGR_Futbal.Forms
             }
             try
             {
-                dbs.pridajHracovDoTimu(IdTimu, hraciNaPridanie);
+                dbtimy.pridajHracovDoTimu(IdTimu, hraciNaPridanie);
             }
             catch (Exception ex)
             {

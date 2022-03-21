@@ -1,10 +1,9 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
-using System.Linq;
 
 namespace LGR_Futbal.Forms
 {
@@ -14,13 +13,11 @@ namespace LGR_Futbal.Forms
 
         private FutbalovyTim aktualnyTim = null;
         private List<Hrac> hraci;
-        private Databaza databaza = null;
-
         #endregion
 
         #region Konstruktor a metody
 
-        public HraciZapasForm(FutbalovyTim t, Databaza databaza)
+        public HraciZapasForm(FutbalovyTim ft)
         {
             InitializeComponent();
 
@@ -42,9 +39,8 @@ namespace LGR_Futbal.Forms
                 button2.Text = button2.Text.Replace("Zrušiť", "Zrušit");
                 button2.Text = button2.Text.Replace("všetko", "vše  ");
             }
-            this.databaza = databaza;
-            aktualnyTim = t;
-            hraci = t.ZoznamHracov;
+            aktualnyTim = ft;
+            hraci = ft.ZoznamHracov;
             hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
             this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
 

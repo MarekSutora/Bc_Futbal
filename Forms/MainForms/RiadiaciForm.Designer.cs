@@ -55,17 +55,14 @@
             this.predstavButton = new System.Windows.Forms.Button();
             this.casButton = new System.Windows.Forms.Button();
             this.setupButton = new System.Windows.Forms.Button();
-            this.obnovaHryButton = new System.Windows.Forms.Button();
             this.zmenitCasButton = new System.Windows.Forms.Button();
             this.domKopyButton = new System.Windows.Forms.Button();
             this.domKartyLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.domOffsideButton = new System.Windows.Forms.Button();
             this.domOutButton = new System.Windows.Forms.Button();
-            this.domUdalostButton = new System.Windows.Forms.Button();
             this.hosKartyLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.hosUdalostButton = new System.Windows.Forms.Button();
             this.hosOutButton = new System.Windows.Forms.Button();
             this.hosOffsideButton = new System.Windows.Forms.Button();
             this.hosKopyButton = new System.Windows.Forms.Button();
@@ -212,7 +209,7 @@
             this.polcasButton.BackColor = System.Drawing.Color.Black;
             this.polcasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.polcasButton.ForeColor = System.Drawing.Color.Lime;
-            this.polcasButton.Location = new System.Drawing.Point(326, 171);
+            this.polcasButton.Location = new System.Drawing.Point(325, 172);
             this.polcasButton.Margin = new System.Windows.Forms.Padding(2);
             this.polcasButton.Name = "polcasButton";
             this.polcasButton.Size = new System.Drawing.Size(187, 78);
@@ -431,27 +428,12 @@
             this.setupButton.MouseEnter += new System.EventHandler(this.setupButton_MouseEnter);
             this.setupButton.MouseLeave += new System.EventHandler(this.setupButton_MouseLeave);
             // 
-            // obnovaHryButton
-            // 
-            this.obnovaHryButton.BackColor = System.Drawing.Color.Black;
-            this.obnovaHryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.obnovaHryButton.ForeColor = System.Drawing.Color.Lime;
-            this.obnovaHryButton.Location = new System.Drawing.Point(327, 254);
-            this.obnovaHryButton.Margin = new System.Windows.Forms.Padding(2);
-            this.obnovaHryButton.Name = "obnovaHryButton";
-            this.obnovaHryButton.Size = new System.Drawing.Size(187, 39);
-            this.obnovaHryButton.TabIndex = 553;
-            this.obnovaHryButton.Text = "Obnoviť hru";
-            this.obnovaHryButton.UseVisualStyleBackColor = false;
-            this.obnovaHryButton.Visible = false;
-            this.obnovaHryButton.Click += new System.EventHandler(this.obnovaHryButton_Click);
-            // 
             // zmenitCasButton
             // 
             this.zmenitCasButton.BackColor = System.Drawing.Color.Black;
             this.zmenitCasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zmenitCasButton.ForeColor = System.Drawing.Color.Lime;
-            this.zmenitCasButton.Location = new System.Drawing.Point(326, 254);
+            this.zmenitCasButton.Location = new System.Drawing.Point(325, 254);
             this.zmenitCasButton.Margin = new System.Windows.Forms.Padding(2);
             this.zmenitCasButton.Name = "zmenitCasButton";
             this.zmenitCasButton.Size = new System.Drawing.Size(187, 39);
@@ -542,26 +524,6 @@
             this.domOutButton.MouseEnter += new System.EventHandler(this.domOutButton_MouseEnter);
             this.domOutButton.MouseLeave += new System.EventHandler(this.domOutButton_MouseLeave);
             // 
-            // domUdalostButton
-            // 
-            this.domUdalostButton.BackColor = System.Drawing.Color.MidnightBlue;
-            this.domUdalostButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.domUdalostButton.FlatAppearance.BorderSize = 2;
-            this.domUdalostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.domUdalostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.domUdalostButton.ForeColor = System.Drawing.Color.White;
-            this.domUdalostButton.Location = new System.Drawing.Point(9, 319);
-            this.domUdalostButton.Margin = new System.Windows.Forms.Padding(2);
-            this.domUdalostButton.Name = "domUdalostButton";
-            this.domUdalostButton.Size = new System.Drawing.Size(147, 48);
-            this.domUdalostButton.TabIndex = 561;
-            this.domUdalostButton.Text = "INÁ UDALOSŤ";
-            this.domUdalostButton.UseVisualStyleBackColor = false;
-            this.domUdalostButton.Visible = false;
-            this.domUdalostButton.Click += new System.EventHandler(this.domUdalostButton_Click);
-            this.domUdalostButton.MouseEnter += new System.EventHandler(this.domUdalostButton_MouseEnter);
-            this.domUdalostButton.MouseLeave += new System.EventHandler(this.domUdalostButton_MouseLeave);
-            // 
             // hosKartyLabel
             // 
             this.hosKartyLabel.AutoSize = true;
@@ -584,26 +546,6 @@
             this.label4.Size = new System.Drawing.Size(78, 18);
             this.label4.TabIndex = 563;
             this.label4.Text = "OSTATNÉ";
-            // 
-            // hosUdalostButton
-            // 
-            this.hosUdalostButton.BackColor = System.Drawing.Color.MidnightBlue;
-            this.hosUdalostButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.hosUdalostButton.FlatAppearance.BorderSize = 2;
-            this.hosUdalostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hosUdalostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hosUdalostButton.ForeColor = System.Drawing.Color.White;
-            this.hosUdalostButton.Location = new System.Drawing.Point(684, 319);
-            this.hosUdalostButton.Margin = new System.Windows.Forms.Padding(2);
-            this.hosUdalostButton.Name = "hosUdalostButton";
-            this.hosUdalostButton.Size = new System.Drawing.Size(147, 48);
-            this.hosUdalostButton.TabIndex = 567;
-            this.hosUdalostButton.Text = "INÁ UDALOSŤ";
-            this.hosUdalostButton.UseVisualStyleBackColor = false;
-            this.hosUdalostButton.Visible = false;
-            this.hosUdalostButton.Click += new System.EventHandler(this.hosUdalostButton_Click);
-            this.hosUdalostButton.MouseEnter += new System.EventHandler(this.hosUdalostButton_MouseEnter);
-            this.hosUdalostButton.MouseLeave += new System.EventHandler(this.hosUdalostButton_MouseLeave);
             // 
             // hosOutButton
             // 
@@ -738,13 +680,11 @@
             this.Controls.Add(this.vypnutVideoButton);
             this.Controls.Add(this.reklamaButton);
             this.Controls.Add(this.udalostiButton);
-            this.Controls.Add(this.hosUdalostButton);
             this.Controls.Add(this.hosOutButton);
             this.Controls.Add(this.hosOffsideButton);
             this.Controls.Add(this.hosKopyButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.hosKartyLabel);
-            this.Controls.Add(this.domUdalostButton);
             this.Controls.Add(this.domOutButton);
             this.Controls.Add(this.domOffsideButton);
             this.Controls.Add(this.label2);
@@ -752,7 +692,6 @@
             this.Controls.Add(this.domKopyButton);
             this.Controls.Add(this.zmenitCasButton);
             this.Controls.Add(this.setupButton);
-            this.Controls.Add(this.obnovaHryButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.prerusenieLabel);
             this.Controls.Add(this.infoLabel3);
@@ -825,17 +764,14 @@
         private System.Windows.Forms.Label infoLabel3;
         private System.Windows.Forms.Label prerusenieLabel;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button obnovaHryButton;
         private System.Windows.Forms.Button zmenitCasButton;
         private System.Windows.Forms.Button domKopyButton;
         private System.Windows.Forms.Label domKartyLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button domOffsideButton;
         private System.Windows.Forms.Button domOutButton;
-        private System.Windows.Forms.Button domUdalostButton;
         private System.Windows.Forms.Label hosKartyLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button hosUdalostButton;
         private System.Windows.Forms.Button hosOutButton;
         private System.Windows.Forms.Button hosOffsideButton;
         private System.Windows.Forms.Button hosKopyButton;

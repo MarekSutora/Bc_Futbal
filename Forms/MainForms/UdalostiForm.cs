@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LGR_Futbal.Model;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
@@ -13,12 +13,11 @@ namespace LGR_Futbal.Forms
         private Zapas zapas = null;
         private List<Udalost> udalosti = null;
         private string filePath;
-        private Databaza databaza = null; 
-        public UdalostiForm(Zapas zapas, string cd, Databaza databaza, bool zDatabazi)
+        private DBZapasy dbzapasy = null;
+        public UdalostiForm(Zapas zapas, bool zDatabazi)
         {
             InitializeComponent();
             this.zapas = zapas;         
-            this.databaza = databaza;
             polcas1CB.Checked = true;
             polcas2CB.Checked = true;
             timCB.Checked = true;
@@ -33,6 +32,8 @@ namespace LGR_Futbal.Forms
             striedanieCB.Checked = true;
             zltaKartaCB.Checked = true;
             cervenaKartaCB.Checked = true;
+
+            dbzapasy = new DBZapasy();
 
             if (zapas.Domaci == null || zapas.Hostia == null || zDatabazi)
             {
@@ -400,7 +401,7 @@ namespace LGR_Futbal.Forms
             try
             {
 
-                databaza.PridajZapas(zapas);
+                dbzapasy.PridajZapas(zapas);
                 uspech = true;
             }
             catch (Exception ex)

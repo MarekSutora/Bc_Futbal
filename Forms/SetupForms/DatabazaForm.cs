@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
@@ -14,13 +15,11 @@ namespace LGR_Futbal.Forms
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        //private const string logaAdresar = "Databaza\\Loga\\";
 
         #endregion
 
         #region Atributy
 
-        private Databaza dbs;
         private FutbalovyTim aktTim = null;
         private Hrac aktHrac = null;
         private Rozhodca aktRozhodca = null;
@@ -34,12 +33,16 @@ namespace LGR_Futbal.Forms
         private string originalLogoCesta = string.Empty;
         private string originalFotoCesta = string.Empty;
         private string currentDirectory = null;
+        private DBTimy dbtimy = null;
+        private DBHraci dbhraci = null;
+        private DBRozhodcovia dbrozhodcovia = null;
+        private DBZapasy dbzapasy = null;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public DatabazaForm(Databaza d, string folder)
+        public DatabazaForm(string folder)
         {
             InitializeComponent();
 
@@ -72,17 +75,22 @@ namespace LGR_Futbal.Forms
                 editConfirmButton.Text = editConfirmButton.Text.Replace("zmeny", "změny");
                 editConfirmButton.Text = editConfirmButton.Text.Replace("Potvrdiť", "Potvrdit");
             }
-            //nazvyTimov = new List<string>();
-            dbs = d;
+
+            dbtimy = new DBTimy();
+            dbhraci = new DBHraci();
+            dbrozhodcovia = new DBRozhodcovia();
+            dbzapasy = new DBZapasy();
+
             currentDirectory = folder;
+
             FillTimyCB();
             FillRozhodcoviaCB();
             kategoriaComboBox.Items.Add("");
             kategoriaCombobox2.Items.Add("");
-            for (int i = 0; i < dbs.GetKategorie().Count; i++)
+            for (int i = 0; i < dbtimy.GetKategorie().Count; i++)
             {
-                kategoriaComboBox.Items.Add(dbs.GetKategorie()[i]);
-                kategoriaCombobox2.Items.Add(dbs.GetKategorie()[i]);
+                kategoriaComboBox.Items.Add(dbtimy.GetKategorie()[i]);
+                kategoriaCombobox2.Items.Add(dbtimy.GetKategorie()[i]);
 
             }
             pohlavieComboBox.Items.Add("");
@@ -124,7 +132,7 @@ namespace LGR_Futbal.Forms
             timHracCB.Items.Clear();
             timFilterCB.Items.Clear();
             //nazvyTimov.Clear();
-            timy = dbs.GetTimy();
+            timy = dbtimy.GetTimy();
             timFilterCB.Items.Add("Všetci hráči");
             timFilterCB.Items.Add("Nezaradení");
 
@@ -141,7 +149,7 @@ namespace LGR_Futbal.Forms
         private void FillRozhodcoviaCB()
         {
             RozhodcoviaListBox.Items.Clear();
-            rozhodcovia = dbs.GetRozhodcovia();
+            rozhodcovia = dbrozhodcovia.GetRozhodcovia();
 
             for (int i = 0; i < rozhodcovia.Count; i++)
             {
@@ -178,7 +186,7 @@ namespace LGR_Futbal.Forms
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
                 ofd.FilterIndex = 1;
                 ofd.RestoreDirectory = true;
 
@@ -208,7 +216,7 @@ namespace LGR_Futbal.Forms
                 MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                if (dbs.CheckNazovTimu(novyNazov))
+                if (dbtimy.CheckNazovTimu(novyNazov))
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -229,7 +237,7 @@ namespace LGR_Futbal.Forms
                     }
                     try
                     {
-                        dbs.InsertFutbalovyTeam(t);
+                        dbtimy.InsertFutbalovyTeam(t);
                     }
                     catch (Exception ex)
                     {
@@ -292,7 +300,7 @@ namespace LGR_Futbal.Forms
         private void ZapasButton_Click(object sender, EventArgs e)
         {
 
-            NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbs);
+            NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbtimy);
             form.Show();
 
             //FutbalovyTim tim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
@@ -314,7 +322,7 @@ namespace LGR_Futbal.Forms
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
             if (MessageBox.Show(Translate(4) + timyListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbs.VymazTim(timy[timyListBox.SelectedIndex]);
+                dbtimy.VymazTim(timy[timyListBox.SelectedIndex]);
                 FillTimyCB();
                 if (timyListBox.Items.Count > 0)
                     timyListBox.SelectedIndex = 0;
@@ -334,7 +342,7 @@ namespace LGR_Futbal.Forms
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
                 ofd.FilterIndex = 1;
                 ofd.RestoreDirectory = true;
 
@@ -367,7 +375,7 @@ namespace LGR_Futbal.Forms
             else
             {
 
-                if (dbs.CheckNazovTimu(novyNazov) && aktTim.NazovTimu != novyNazov)
+                if (dbtimy.CheckNazovTimu(novyNazov) && aktTim.NazovTimu != novyNazov)
                     MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -384,7 +392,7 @@ namespace LGR_Futbal.Forms
                     try
                     {
                         aktTim.Kategoria = kategoriaCombobox2.SelectedIndex;
-                        dbs.UpdateTim(aktTim);
+                        dbtimy.UpdateTim(aktTim);
                     }
                     catch (Exception ex)
                     {
@@ -533,7 +541,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 int index = -1;
-                aktHrac = dbs.getHrac(hraci[hraciListBox.SelectedIndex].IdHrac);
+                aktHrac = dbhraci.getHrac(hraci[hraciListBox.SelectedIndex].IdHrac);
 
                 if (aktHrac.IdFutbalovyTim != 0)
                 {
@@ -572,7 +580,7 @@ namespace LGR_Futbal.Forms
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
             if (MessageBox.Show(Translate(7) + hraciListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbs.VymazHraca(hraci[hraciListBox.SelectedIndex]);
+                dbhraci.VymazHraca(hraci[hraciListBox.SelectedIndex]);
                 filtrujHracov(lastFilterHraci);
                 if (hraciListBox.Items.Count > 0)
                     hraciListBox.SelectedIndex = 0;
@@ -596,7 +604,7 @@ namespace LGR_Futbal.Forms
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
                 ofd.FilterIndex = 1;
                 ofd.RestoreDirectory = true;
 
@@ -659,13 +667,20 @@ namespace LGR_Futbal.Forms
                     h.IdFutbalovyTim = timHracCB.SelectedIndex == -1 ? 0 : timy[timHracCB.SelectedIndex].IdFutbalovyTim;
                     if (pohlavieComboBox.SelectedIndex == 0 || pohlavieComboBox.SelectedIndex == -1)
                     {
-                        h.Pohlavie = 0;
+                        h.Pohlavie = 'X';
                     }
                     else
                     {
-                        h.Pohlavie = pohlavieComboBox.SelectedIndex;
+                        if (pohlavieComboBox.SelectedIndex == 1)
+                        {
+                            h.Pohlavie = 'M';
+                        }
+                        else
+                        {
+                            h.Pohlavie = 'Z';
+                        }
                     }
-                    dbs.InsertHrac(h);
+                    dbhraci.InsertHrac(h);
                 }
                 catch (Exception ex)
                 {
@@ -703,7 +718,7 @@ namespace LGR_Futbal.Forms
                 if (timFilterCB.SelectedIndex == -1 || timFilterCB.SelectedIndex == 0)
                 {
                     lastFilterHraci = 0;
-                    hraci = dbs.GetVsetciHraci();
+                    hraci = dbhraci.GetVsetciHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -712,7 +727,7 @@ namespace LGR_Futbal.Forms
                 else if (timFilterCB.SelectedIndex == 1)
                 {
                     lastFilterHraci = 1;
-                    hraci = dbs.GetNezaradeniHraci();
+                    hraci = dbtimy.GetNezaradeniHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -721,7 +736,7 @@ namespace LGR_Futbal.Forms
                 else
                 {
                     int pom = 0;
-                    hraci = dbs.GetHraciVTime(timy[timFilterCB.SelectedIndex - 2].IdFutbalovyTim); ;
+                    hraci = dbhraci.GetHraciVTime(timy[timFilterCB.SelectedIndex - 2].IdFutbalovyTim); ;
                     foreach (var hrac in hraci)
                     {
                         pom++;
@@ -756,7 +771,7 @@ namespace LGR_Futbal.Forms
                 if (filter == 0)
                 {
                     lastFilterHraci = 0;
-                    hraci = dbs.GetVsetciHraci();
+                    hraci = dbhraci.GetVsetciHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -765,7 +780,7 @@ namespace LGR_Futbal.Forms
                 else if (filter == 1)
                 {
                     lastFilterHraci = 1;
-                    hraci = dbs.GetNezaradeniHraci();
+                    hraci = dbtimy.GetNezaradeniHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -773,7 +788,7 @@ namespace LGR_Futbal.Forms
                 }
                 else
                 {
-                    hraci = dbs.GetHraciVTime(timy[lastFilterHraci].IdFutbalovyTim); ;
+                    hraci = dbhraci.GetHraciVTime(timy[lastFilterHraci].IdFutbalovyTim); ;
                 }
                 if (hraciListBox.Items.Count > 0)
                 {
@@ -846,13 +861,20 @@ namespace LGR_Futbal.Forms
                     aktHrac.Poznamka = editRichTextBox.Text;
                     if (editPohlavieComboBox.SelectedIndex == 0 || editPohlavieComboBox.SelectedIndex == -1)
                     {
-                        aktHrac.Pohlavie = 0;
+                        aktHrac.Pohlavie = 'X';
                     }
                     else
                     {
-                        aktHrac.Pohlavie = editPohlavieComboBox.SelectedIndex;
+                        if (editPohlavieComboBox.SelectedIndex == 1)
+                        {
+                            aktHrac.Pohlavie = 'M';
+                        }
+                        else
+                        {
+                            aktHrac.Pohlavie = 'Z';
+                        }
                     }
-                    dbs.UpdateHrac(aktHrac);
+                    dbhraci.UpdateHrac(aktHrac);
                     filtrujHracov(lastFilterHraci);
                 }
                 catch (Exception ex)
@@ -900,14 +922,24 @@ namespace LGR_Futbal.Forms
             {
                 aktRozhodca.Meno = Meno;
                 aktRozhodca.Priezvisko = Priezvisko;
-                aktRozhodca.Pohlavie = editRozhodcaComboBox.SelectedIndex;
                 if (editRozhodcaComboBox.SelectedIndex == -1 || editRozhodcaComboBox.SelectedIndex == 0)
                 {
-                    aktRozhodca.Pohlavie = 0;
+                    aktRozhodca.Pohlavie = 'X';
+                }
+                else
+                {
+                    if (editRozhodcaComboBox.SelectedIndex == 1)
+                    {
+                        aktRozhodca.Pohlavie = 'M';
+                    }
+                    else
+                    {
+                        aktRozhodca.Pohlavie = 'Z';
+                    }
                 }
                 try
                 {
-                    dbs.UpdateRozhodca(aktRozhodca);
+                    dbrozhodcovia.UpdateRozhodca(aktRozhodca);
                 }
                 catch (Exception ex)
                 {
@@ -942,15 +974,24 @@ namespace LGR_Futbal.Forms
             {
                 Rozhodca r = new Rozhodca();
                 r.Meno = Meno;
-                r.Priezvisko = Priezvisko;
-                r.Pohlavie = addRozhodcaComboBox.SelectedIndex;
                 if (addRozhodcaComboBox.SelectedIndex == -1 || addRozhodcaComboBox.SelectedIndex == 0)
                 {
-                    r.Pohlavie = 0;
+                    r.Pohlavie = 'X';
+                }
+                else
+                {
+                    if (addRozhodcaComboBox.SelectedIndex == 1)
+                    {
+                        r.Pohlavie = 'M';
+                    }
+                    else
+                    {
+                        r.Pohlavie = 'Z';
+                    }
                 }
                 try
                 {
-                    dbs.InsertRozhodca(r);
+                    dbrozhodcovia.InsertRozhodca(r);
                 }
                 catch (Exception ex)
                 {
@@ -986,18 +1027,24 @@ namespace LGR_Futbal.Forms
             {
                 if (RozhodcoviaListBox.SelectedIndex == -1)
                 {
-                    aktRozhodca = dbs.GetRozhodca(rozhodcovia[0].IdRozhodca);
+                    aktRozhodca = dbrozhodcovia.GetRozhodca(rozhodcovia[0].IdRozhodca);
                 }
                 else
                 {
-                    aktRozhodca = dbs.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
+                    aktRozhodca = dbrozhodcovia.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
                 }
 
 
                 editRozhodcaMeno.Text = aktRozhodca.Meno;
                 editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
-                editRozhodcaComboBox.SelectedIndex = aktRozhodca.Pohlavie;
-
+                if (aktRozhodca.Pohlavie == 'M')
+                {
+                    editRozhodcaComboBox.SelectedIndex = 1;
+                }
+                else
+                {
+                    editRozhodcaComboBox.SelectedIndex = 2;
+                }
             }
             catch (Exception ex)
             {
@@ -1020,7 +1067,7 @@ namespace LGR_Futbal.Forms
 
             if (MessageBox.Show(Translate(7) + RozhodcoviaListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbs.VymazRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
+                dbrozhodcovia.VymazRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
                 FillRozhodcoviaCB();
                 if (rozhodcovia.Count > 0)
                     RozhodcoviaListBox.SelectedIndex = 0;
@@ -1038,7 +1085,7 @@ namespace LGR_Futbal.Forms
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
                 ofd.FilterIndex = 1;
                 ofd.RestoreDirectory = true;
 
@@ -1065,7 +1112,7 @@ namespace LGR_Futbal.Forms
         {
             if (zapasy == null)
             {
-                zapasy = dbs.GetZapasy();
+                zapasy = dbzapasy.GetZapasy();
                 for (int i = 0; i < zapasy.Count; i++)
                 {
                     zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].Domaci.NazovTimu + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
@@ -1090,9 +1137,9 @@ namespace LGR_Futbal.Forms
             try
             {
                 if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
-                    dbs.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
+                    dbzapasy.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
 
-                UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], currentDirectory, dbs, true);
+                UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], true);
                 uf.Show();
             }
             catch (Exception ex)

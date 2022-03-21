@@ -11,7 +11,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-
 namespace LGR_Futbal
 {
     public delegate void SetTextCallback();
@@ -22,10 +21,10 @@ namespace LGR_Futbal
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        private string konfiguracnySubor = "\\Databaza\\Config.bin";
-        //private const string databazaSubor = "Databaza\\Databaza.xml";
-        private string priebehSubor = "\\Databaza\\Priebeh.xml";
-        private string animacieSubor = "\\Databaza\\Gify\\Settings.xml";
+        private string konfiguracnySubor = "\\Files\\Config.bin";
+        //private const string databazaSubor = "Files\\Pripojenie.xml";
+        private string priebehSubor = "\\Files\\Priebeh.xml";
+        private string animacieSubor = "\\Files\\Gify\\Settings.xml";
 
         #endregion
 
@@ -40,7 +39,6 @@ namespace LGR_Futbal
         private int dlzkaPolcasu;
         private int pocetNadstavenychMinut = 0;
         private int nadstavenaMinuta = 0;
-        private int nadstaveneMinuty = 0;
         private int polcas = 0;
         private bool hraBezi = false;
         private bool poPreruseni = false;
@@ -53,7 +51,6 @@ namespace LGR_Futbal
         private string nazovHostia = string.Empty;
         private Stopwatch sw = null;
         private System.Timers.Timer casovac;
-        private Databaza databaza = null;
         private FutbalovyTim timDomaci = null;
         private FutbalovyTim timHostia = null;
         private string currentDirectory = null;
@@ -172,8 +169,6 @@ namespace LGR_Futbal
 
                 sw = new Stopwatch();
 
-
-
                 // Pociatocne nastavenia
                 hraBezi = false;
                 priebeh = new PriebehZapasu();
@@ -194,7 +189,6 @@ namespace LGR_Futbal
                 formularTabule.Show();
                 formularTabule.NastavFonty(pisma);
 
-                databaza = new Databaza();
                 if (!defaultColorScheme.Equals(string.Empty))
                 {
                     TextReader textReader = null;
@@ -418,7 +412,6 @@ namespace LGR_Futbal
                                 }
                                 else
                                 {
-                                    nadstaveneMinuty += pocetNadstavenychMinut;
                                     nadstavenyCas = true;
                                     casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                                     formularTabule.SetCas(m.ToString("D2") + ":" + s.ToString("D2"), false);
@@ -447,7 +440,6 @@ namespace LGR_Futbal
                                 else
                                 {
                                     nadstavenyCas = true;
-                                    nadstaveneMinuty += pocetNadstavenychMinut;
                                     casLabel.Text = m.ToString("D2") + ":" + s.ToString("D2");
                                     formularTabule.SetCas(m.ToString("D2") + ":" + s.ToString("D2"), false);
                                     odohraneMinuty = 0;
@@ -1181,7 +1173,7 @@ namespace LGR_Futbal
         {
             sf = new SetupForm(indexJazyka, zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu, povolitPrerusenieHry, odstranovatDiakritiku,
                logoDomaciFile, logoHostiaFile, domaciLabel.Text, hostiaLabel.Text,
-               databaza, timDomaci, timHostia, currentDirectory, animacnyCas, pisma, dajSchemu(),
+               timDomaci, timHostia, currentDirectory, animacnyCas, pisma, dajSchemu(),
                animaciaGolov, animaciaZltaKarta, animaciaCervenaKarta, rozhodcovia);
             sf.OnAnimacieKarietConfirmed += Sf_OnAnimacieKarietConfirmed;
             sf.OnLanguageSelected += Sf_OnLanguageSelected;
@@ -1429,80 +1421,6 @@ namespace LGR_Futbal
         {
             if (MessageBox.Show(Translate(4), nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 this.Close();
-        }
-
-
-        private void obnovaHryButton_Click(object sender, EventArgs e)
-        {
-            TextReader textReader = null;
-
-            try
-            {
-                XmlSerializer deserializer = new XmlSerializer(typeof(PriebehZapasu));
-                textReader = new StreamReader(priebehSubor);
-                priebeh = (PriebehZapasu)deserializer.Deserialize(textReader);
-
-                int cast = priebeh.Polcas;
-
-                if (cast < 1 || cast > 3)
-                    MessageBox.Show(Translate(3), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                {
-                    if (hraBezi)
-                        ZastavCas();
-
-                    odohraneMinuty = priebeh.Minuta;
-                    polcas = priebeh.Polcas;
-                    dlzkaPolcasu = priebeh.Dlzka;
-                    pocetNadstavenychMinut = priebeh.Nadstavenie;
-                    skoreDomaci = priebeh.SkoreD;
-                    skoreHostia = priebeh.SkoreH;
-
-                    hraBezi = false;
-                    poPreruseni = true;
-
-                    casPodrobneLabel.Text = ((polcas - 1) * dlzkaPolcasu + odohraneMinuty).ToString("D2") + ":00.000";
-                    casLabel.Text = (((polcas - 1) * dlzkaPolcasu) + odohraneMinuty + 1) + ".'";
-                    formularTabule.SetCas(casLabel.Text, true);
-
-                    if (polcas < 3)
-                        formularTabule.SetPolcas(polcas, 0);
-                    else
-                        formularTabule.SetPolcas(polcas, pocetNadstavenychMinut);
-
-                    polcasLabel.Text = dlzkaPolcasu.ToString();
-                    nadCasLabel.Text = pocetNadstavenychMinut.ToString();
-                    skoreDomaciLabel.Text = skoreDomaci.ToString();
-                    skoreHostiaLabel.Text = skoreHostia.ToString();
-                    formularTabule.SetSkoreDomaci(skoreDomaci);
-                    formularTabule.SetSkoreHostia(skoreHostia);
-
-                    if (polcas > 2)
-                    {
-                        casPodrobneLabel.ForeColor = predlzenieColor;
-                        casLabel.ForeColor = predlzenieColor;
-                    }
-                    else
-                    {
-                        casPodrobneLabel.ForeColor = casColor;
-                        casLabel.ForeColor = casColor;
-                    }
-
-                    if (polcas == 1)
-                        polcasButton.Text = "1. " + Translate(2) + "\nSTART";
-                    else
-                        polcasButton.Text = "2. " + Translate(2) + "\nSTART";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (textReader != null)
-                    textReader.Close();
-            }
         }
 
         private void zastavPrezentaciu()
@@ -1774,16 +1692,6 @@ namespace LGR_Futbal
             casButton.BackColor = Color.FromArgb(128, 255, 255);
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            domKopyButton.BackColor = Color.FromArgb(255, 192, 128);
-        }
-
-        private void button2_MouseEnter(object sender, EventArgs e)
-        {
-            hosUdalostButton.BackColor = Color.FromArgb(255, 128, 0);
-        }
-
         private void domStriedanieButton_MouseEnter(object sender, EventArgs e)
         {
             mouseEnter(domStriedanieButton);
@@ -1812,16 +1720,6 @@ namespace LGR_Futbal
         private void domOutButton_MouseLeave(object sender, EventArgs e)
         {
             mouseLeave(domOutButton);
-        }
-
-        private void domUdalostButton_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnter(domUdalostButton);
-        }
-
-        private void domUdalostButton_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeave(domUdalostButton);
         }
 
         private void hosKopyButton_MouseEnter(object sender, EventArgs e)
@@ -1853,17 +1751,6 @@ namespace LGR_Futbal
         {
             mouseLeave(hosOutButton);
         }
-
-        private void hosUdalostButton_MouseEnter(object sender, EventArgs e)
-        {
-            mouseEnter(hosUdalostButton);
-        }
-
-        private void hosUdalostButton_MouseLeave(object sender, EventArgs e)
-        {
-            mouseLeave(hosUdalostButton);
-        }
-
         private void hosStriedanieButton_MouseEnter(object sender, EventArgs e)
         {
             mouseEnter(hosStriedanieButton);
@@ -2043,7 +1930,7 @@ namespace LGR_Futbal
         {
             if (zapas != null)
             {
-                UdalostiForm uf = new UdalostiForm(zapas, currentDirectory, databaza, false);
+                UdalostiForm uf = new UdalostiForm(zapas, false);
                 uf.Show();
             }
         }

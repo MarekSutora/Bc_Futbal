@@ -97,7 +97,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
-                textWriter1 = new StreamWriter(adresar + "\\Databaza\\DomaciPrezentacia.xml");
+                textWriter1 = new StreamWriter(adresar + "\\Files\\DomaciPrezentacia.xml");
                 serializer.Serialize(textWriter1, farbyDom);
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
-                textWriter2 = new StreamWriter(adresar + "\\Databaza\\HostiaPrezentacia.xml");
+                textWriter2 = new StreamWriter(adresar + "\\Files\\HostiaPrezentacia.xml");
                 serializer.Serialize(textWriter2, farbyHos);
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer deserializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
-                textReader1 = new StreamReader(adresar + "\\Databaza\\DomaciPrezentacia.xml");
+                textReader1 = new StreamReader(adresar + "\\Files\\DomaciPrezentacia.xml");
                 farbyDom = (FarbyPrezentacieClass)deserializer.Deserialize(textReader1);
             }
             catch
@@ -151,7 +151,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer deserializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
-                textReader2 = new StreamReader(adresar + "\\Databaza\\HostiaPrezentacia.xml");
+                textReader2 = new StreamReader(adresar + "\\Files\\HostiaPrezentacia.xml");
                 farbyHos = (FarbyPrezentacieClass)deserializer.Deserialize(textReader2);
             }
             catch

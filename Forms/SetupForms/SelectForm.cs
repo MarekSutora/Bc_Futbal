@@ -4,6 +4,7 @@ using LGR_Futbal.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
@@ -11,14 +12,15 @@ namespace LGR_Futbal.Forms
 
     public partial class SelectForm : Form
     {
-        private Databaza databaza;
+        private DBTimy dBTimy = null;
+        private DBHraci dBHraci= null;
         private List<FutbalovyTim> timy = null;
         private FutbalovyTim domaci = null;
         private FutbalovyTim hostia = null;
 
         public event TeamsSelectedHandler OnTeamsSelected;
 
-        public SelectForm(Databaza zdrojDat, FutbalovyTim domaci, FutbalovyTim hostia)
+        public SelectForm(FutbalovyTim domaci, FutbalovyTim hostia)
         {
             InitializeComponent();
 
@@ -30,8 +32,9 @@ namespace LGR_Futbal.Forms
                 aktivovatButton.Text = aktivovatButton.Text.Replace("Vybrať", "Vybrat");
                 zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
             }
-            databaza = zdrojDat;
-            timy = databaza.GetTimy();
+            dBTimy = new DBTimy();
+            dBHraci = new DBHraci();
+            timy = dBTimy.GetTimy();
             if (timy.Count == 0)
                 aktivovatButton.Enabled = false;
             else
@@ -65,7 +68,7 @@ namespace LGR_Futbal.Forms
             else
             {
                 this.domaci = timy[domaciLB.SelectedIndex - 1];
-                this.domaci.ZoznamHracov = databaza.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
+                this.domaci.ZoznamHracov = dBHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
             }
             if (hostiaLB.SelectedIndex == 0)
             {
@@ -74,7 +77,7 @@ namespace LGR_Futbal.Forms
             else
             {
                 this.hostia = timy[hostiaLB.SelectedIndex - 1];
-                this.hostia.ZoznamHracov = databaza.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
+                this.hostia.ZoznamHracov = dBHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
             }
             if (OnTeamsSelected != null)
                 OnTeamsSelected(domaci, hostia);

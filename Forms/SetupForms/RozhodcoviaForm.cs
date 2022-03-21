@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Databaza;
 using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
     public partial class RozhodcoviaForm : Form
     {
-        private Databaza dbs = null;
         private List<Rozhodca> rozhodcovia = null;
         private List<Rozhodca> allRozhodcovia = null;
-        public RozhodcoviaForm(Databaza databaza, List<Rozhodca> rozhodcovia)
+
+        public RozhodcoviaForm(List<Rozhodca> rozhodcovia)
         {
             InitializeComponent();
-            this.dbs = databaza;
+            DBRozhodcovia dBRozhodcovia = new DBRozhodcovia();
             this.rozhodcovia = rozhodcovia;
-            allRozhodcovia = dbs.GetRozhodcovia();
+            allRozhodcovia = dBRozhodcovia.GetRozhodcovia();
             foreach (var item in allRozhodcovia)
             {
                 rozhodcoviaCheckListBox.Items.Add(item.Meno + " " + item.Priezvisko.ToUpper(), true);

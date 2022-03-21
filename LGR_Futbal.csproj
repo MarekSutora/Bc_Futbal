@@ -121,218 +121,220 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\CervenaKartaForm.cs">
+    <Compile Include="Databaza\DBHraci.cs" />
+    <Compile Include="Databaza\DBRozhodcovia.cs" />
+    <Compile Include="Databaza\DBTimy.cs" />
+    <Compile Include="Databaza\DBZapasy.cs" />
+    <Compile Include="Forms\AnimacieForms\CervenaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CervenaKartaForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\CervenaKartaForm.Designer.cs">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CervenaKartaSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\CervenaKartaSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CervenaKartaSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\CervenaKartaSettingsForm.Designer.cs">
       <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DatabazaForm.cs">
+    <Compile Include="Forms\SetupForms\DatabazaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DatabazaForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\DatabazaForm.Designer.cs">
       <DependentUpon>DatabazaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FarbyForm.cs">
+    <Compile Include="Forms\SetupForms\FarbyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FarbyForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\FarbyForm.Designer.cs">
       <DependentUpon>FarbyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FarbyPrezentacie.cs">
+    <Compile Include="Forms\SetupForms\FarbyPrezentacie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FarbyPrezentacie.Designer.cs">
+    <Compile Include="Forms\SetupForms\FarbyPrezentacie.Designer.cs">
       <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FontyForm.cs">
+    <Compile Include="Forms\SetupForms\FontyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FontyForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\FontyForm.Designer.cs">
       <DependentUpon>FontyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FontyPrezentacieForm.cs">
+    <Compile Include="Forms\SetupForms\FontyPrezentacieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FontyPrezentacieForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\FontyPrezentacieForm.Designer.cs">
       <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GolForm.cs">
+    <Compile Include="Forms\AnimacieForms\GolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GolForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\GolForm.Designer.cs">
       <DependentUpon>GolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GolSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\GolSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GolSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\GolSettingsForm.Designer.cs">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HraciKartyForm.cs">
+    <Compile Include="Forms\SetupForms\HraciKartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HraciKartyForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\HraciKartyForm.Designer.cs">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HraciZapasForm.cs">
+    <Compile Include="Forms\SetupForms\HraciZapasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HraciZapasForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\HraciZapasForm.Designer.cs">
       <DependentUpon>HraciZapasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\KopySettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\KopySettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\KopySettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\KopySettingsForm.Designer.cs">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NadstavCasForm.cs">
+    <Compile Include="Forms\SetupForms\NadstavCasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NadstavCasForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\NadstavCasForm.Designer.cs">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NezaradeniHraciForm.cs">
+    <Compile Include="Forms\SetupForms\NezaradeniHraciForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NezaradeniHraciForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\NezaradeniHraciForm.Designer.cs">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OffsideSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\OffsideSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OffsideSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\OffsideSettingsForm.Designer.cs">
       <DependentUpon>OffsideSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OutSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\OutSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OutSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\OutSettingsForm.Designer.cs">
       <DependentUpon>OutSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PozadieForm.cs">
+    <Compile Include="Forms\AnimacieForms\PozadieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PozadieForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\PozadieForm.Designer.cs">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PredstavenieSettingsForm.cs">
+    <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PredstavenieSettingsForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.Designer.cs">
       <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PrezentaciaForm.cs">
+    <Compile Include="Forms\AnimacieForms\PrezentaciaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PrezentaciaForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\PrezentaciaForm.Designer.cs">
       <DependentUpon>PrezentaciaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReklamaForm.cs">
+    <Compile Include="Forms\AnimacieForms\ReklamaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReklamaForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\ReklamaForm.Designer.cs">
       <DependentUpon>ReklamaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RiadiaciForm.cs">
+    <Compile Include="Forms\MainForms\RiadiaciForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RiadiaciForm.Designer.cs">
+    <Compile Include="Forms\MainForms\RiadiaciForm.Designer.cs">
       <DependentUpon>RiadiaciForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RozhodcoviaForm.cs">
+    <Compile Include="Forms\SetupForms\RozhodcoviaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RozhodcoviaForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\RozhodcoviaForm.Designer.cs">
       <DependentUpon>RozhodcoviaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RozlozenieForm.cs">
+    <Compile Include="Forms\SetupForms\RozlozenieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RozlozenieForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\RozlozenieForm.Designer.cs">
       <DependentUpon>RozlozenieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SelectForm.cs">
+    <Compile Include="Forms\SetupForms\SelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SelectForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\SelectForm.Designer.cs">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForm.cs">
+    <Compile Include="Forms\SetupForms\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\SetupForm.Designer.cs">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SizeForm.cs">
+    <Compile Include="Forms\MainForms\SizeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SizeForm.Designer.cs">
+    <Compile Include="Forms\MainForms\SizeForm.Designer.cs">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StriedanieForm.cs">
+    <Compile Include="Forms\AnimacieForms\StriedanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StriedanieForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\StriedanieForm.Designer.cs">
       <DependentUpon>StriedanieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StriedanieSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\StriedanieSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StriedanieSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\StriedanieSettingsForm.Designer.cs">
       <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TabulaForm.cs">
+    <Compile Include="Forms\AnimacieForms\TabulaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TabulaForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\TabulaForm.Designer.cs">
       <DependentUpon>TabulaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TypZapasuForm.cs">
+    <Compile Include="Forms\SetupForms\TypZapasuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TypZapasuForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\TypZapasuForm.Designer.cs">
       <DependentUpon>TypZapasuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UdalostiForm.cs">
+    <Compile Include="Forms\MainForms\UdalostiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UdalostiForm.Designer.cs">
+    <Compile Include="Forms\MainForms\UdalostiForm.Designer.cs">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UdalostPopupForm.cs">
+    <Compile Include="Forms\AnimacieForms\UdalostPopupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UdalostPopupForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\UdalostPopupForm.Designer.cs">
       <DependentUpon>UdalostPopupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ZltaKartaForm.cs">
+    <Compile Include="Forms\AnimacieForms\ZltaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ZltaKartaForm.Designer.cs">
+    <Compile Include="Forms\AnimacieForms\ZltaKartaForm.Designer.cs">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ZltaKartaSettingsForm.cs">
+    <Compile Include="Forms\UdalostiForms\ZltaKartaSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ZltaKartaSettingsForm.Designer.cs">
+    <Compile Include="Forms\UdalostiForms\ZltaKartaSettingsForm.Designer.cs">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ZmenaCasuForm.cs">
+    <Compile Include="Forms\SetupForms\ZmenaCasuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ZmenaCasuForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\ZmenaCasuForm.Designer.cs">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Adresa.cs" />
-    <Compile Include="Model\ClenTimu.cs" />
     <Compile Include="Model\Gol.cs" />
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Kop.cs" />
@@ -346,7 +348,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup\AnimacnaKonfiguracia.cs" />
-    <Compile Include="Databaza\Databaza.cs" />
     <Compile Include="Setup\FarbyPrezentacie.cs" />
     <Compile Include="Setup\FarebnaSchema.cs" />
     <Compile Include="Setup\FontyTabule.cs" />
@@ -355,109 +356,109 @@
     <Compile Include="Setup\PriebehZapasu.cs" />
     <Compile Include="Setup\RozlozenieTabule.cs" />
     <Compile Include="Model\FutbalovyTim.cs" />
-    <EmbeddedResource Include="Forms\CervenaKartaForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\CervenaKartaForm.resx">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CervenaKartaSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\CervenaKartaSettingsForm.resx">
       <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DatabazaForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\DatabazaForm.resx">
       <DependentUpon>DatabazaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FarbyForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\FarbyForm.resx">
       <DependentUpon>FarbyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FarbyPrezentacie.resx">
+    <EmbeddedResource Include="Forms\SetupForms\FarbyPrezentacie.resx">
       <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FontyForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\FontyForm.resx">
       <DependentUpon>FontyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FontyPrezentacieForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\FontyPrezentacieForm.resx">
       <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GolForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\GolForm.resx">
       <DependentUpon>GolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GolSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\GolSettingsForm.resx">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HraciKartyForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\HraciKartyForm.resx">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HraciZapasForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\HraciZapasForm.resx">
       <DependentUpon>HraciZapasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\KopySettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\KopySettingsForm.resx">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NadstavCasForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\NadstavCasForm.resx">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NezaradeniHraciForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\NezaradeniHraciForm.resx">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OffsideSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\OffsideSettingsForm.resx">
       <DependentUpon>OffsideSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OutSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\OutSettingsForm.resx">
       <DependentUpon>OutSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PozadieForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\PozadieForm.resx">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PredstavenieSettingsForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\PredstavenieSettingsForm.resx">
       <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PrezentaciaForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\PrezentaciaForm.resx">
       <DependentUpon>PrezentaciaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReklamaForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\ReklamaForm.resx">
       <DependentUpon>ReklamaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RiadiaciForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\RiadiaciForm.resx">
       <DependentUpon>RiadiaciForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RozhodcoviaForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\RozhodcoviaForm.resx">
       <DependentUpon>RozhodcoviaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RozlozenieForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\RozlozenieForm.resx">
       <DependentUpon>RozlozenieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SizeForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\SizeForm.resx">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StriedanieForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\StriedanieForm.resx">
       <DependentUpon>StriedanieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StriedanieSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\StriedanieSettingsForm.resx">
       <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TabulaForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\TabulaForm.resx">
       <DependentUpon>TabulaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TypZapasuForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\TypZapasuForm.resx">
       <DependentUpon>TypZapasuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UdalostiForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\UdalostiForm.resx">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UdalostPopupForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\UdalostPopupForm.resx">
       <DependentUpon>UdalostPopupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ZltaKartaForm.resx">
+    <EmbeddedResource Include="Forms\AnimacieForms\ZltaKartaForm.resx">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ZltaKartaSettingsForm.resx">
+    <EmbeddedResource Include="Forms\UdalostiForms\ZltaKartaSettingsForm.resx">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ZmenaCasuForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\ZmenaCasuForm.resx">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -622,6 +623,7 @@
   <ItemGroup>
     <Content Include="football.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

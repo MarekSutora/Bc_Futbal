@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
@@ -38,10 +39,9 @@ namespace LGR_Futbal.Forms
         #region Konstanty
 
         private const string nazovProgramuString = "LGR Futbal";
-        private const string logaAdresar = "Databaza\\Loga\\";
-        private const string gifyAdresar = "Databaza\\Gify\\";
-        private const string kartyAdresar = "Databaza\\Karty\\";
-        private const string typyZapasovSubor = "Databaza\\Typy.xml";
+        private const string gifyAdresar = "Files\\Gify\\";
+        private const string kartyAdresar = "Files\\Karty\\";
+        private const string typyZapasovSubor = "Files\\Typy.xml";
 
         #endregion
 
@@ -51,7 +51,6 @@ namespace LGR_Futbal.Forms
         private string hostiaLogo = string.Empty;
         private bool aktivnaZmena = true;
 
-        private Databaza databazaTimov = null;
         private FutbalovyTim domaciT = null;
         private FutbalovyTim hostiaT = null;
 
@@ -98,7 +97,7 @@ namespace LGR_Futbal.Forms
 
         public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string logoDom, string logoHos, string nazovDom, string nazovHos,
-            Databaza databaza, FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
+            FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
             FontyTabule fonty, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena, List<Rozhodca> rozhodcovia)
         {
@@ -249,10 +248,7 @@ namespace LGR_Futbal.Forms
             pozadieCheckBox.Checked = zobrazitPozadie;
             initNastaveniaCheckBox.Checked = zobrazitNastaveniaPoSpusteni;
 
-            ovladace.SelectedIndex = 2;
-
-            databazaTimov = databaza;
-            
+            ovladace.SelectedIndex = 2; 
 
             if ((domaciT != null) && (hostiaT != null))
             {
@@ -615,7 +611,7 @@ namespace LGR_Futbal.Forms
 
         private void NacitatDatabazaButton_Click(object sender, EventArgs e)
         {
-            SelectForm selectform = new SelectForm(databazaTimov, domaciT, hostiaT);
+            SelectForm selectform = new SelectForm(domaciT, hostiaT);
             selectform.OnTeamsSelected += Selectform_OnTeamsSelected;
             selectform.ShowDialog();
         }
@@ -656,7 +652,8 @@ namespace LGR_Futbal.Forms
 
         private void DatabazaButton_Click(object sender, EventArgs e)
         {
-            DatabazaForm df = new DatabazaForm(databazaTimov, originalFolder);
+
+            DatabazaForm df = new DatabazaForm(originalFolder);
             df.Show();
         }
 
@@ -1113,19 +1110,19 @@ namespace LGR_Futbal.Forms
 
         private void nastavMuzstvoDomacibutton_Click(object sender, EventArgs e)
         {
-            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT, databazaTimov);
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT);
             hraciZapasForm.ShowDialog();
         }
 
         private void nastavMuzstvoHostiabutton_Click(object sender, EventArgs e)
         {
-            HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT, databazaTimov);
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT);
             hraciZapasForm.ShowDialog();
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            RozhodcoviaForm rf = new RozhodcoviaForm(databazaTimov, rozhodcovia);
+            RozhodcoviaForm rf = new RozhodcoviaForm(rozhodcovia);
             rf.Show();
         }
     }

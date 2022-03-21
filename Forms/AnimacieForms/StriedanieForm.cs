@@ -13,7 +13,7 @@ namespace LGR_Futbal.Forms
     {
         #region Konstanty
 
-        private const string fotkyAdresar = "Databaza\\Fotky\\";
+        private const string fotkyAdresar = "Pripojenie\\Fotky\\";
 
         #endregion
 
