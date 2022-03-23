@@ -1,7 +1,7 @@
 ﻿using LGR_Futbal.Forms;
 using LGR_Futbal.Properties;
 using LGR_Futbal.Model;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -22,14 +22,12 @@ namespace LGR_Futbal
 
         private const string nazovProgramuString = "LGR Futbal";
         private string konfiguracnySubor = "\\Files\\Config.bin";
-        //private const string databazaSubor = "Files\\Pripojenie.xml";
         private string priebehSubor = "\\Files\\Priebeh.xml";
         private string animacieSubor = "\\Files\\Gify\\Settings.xml";
 
         #endregion
 
         #region Atributy
-        // Atributy - hodnoty a objekty
         private int indexJazyka = 0;
         private bool zobrazitPozadie = false;
         private bool zobrazitNastaveniaPoSpusteni = true;
@@ -57,7 +55,6 @@ namespace LGR_Futbal
         private int skoreDomaci = 0;
         private int skoreHostia = 0;
         private int animacnyCas = 3;
-        private PriebehZapasu priebeh;
         private Zapas zapas = null;
         private int odohraneMinuty;
         private int minutaPolcasu;
@@ -66,7 +63,6 @@ namespace LGR_Futbal
         private FontyTabule pismaPrezentacie;
         private float pomer;
         private bool koniec = true;
-        //private Font fontStriedania;
         private bool zobrazitNahradnikov = true;
         private AnimacnaKonfiguracia animaciaGolov = null;
         private List<Rozhodca> rozhodcovia = null;
@@ -75,7 +71,6 @@ namespace LGR_Futbal
         private Color polcasColor;
         private Color predlzenieColor;
         private Color koniecColor = Color.Red;
-
         // Formulare
         private PozadieForm formularPozadia = null;
         private TabulaForm formularTabule = null;
@@ -83,17 +78,14 @@ namespace LGR_Futbal
         private SetupForm sf = null;
         private ReklamaForm rf = null;
         private RozlozenieTabule RozlozenieTabule = null;
-
         // Aktualny hraci cas
         private int aktualnaMinuta;
         private int aktualnaSekunda;
         private int aktMin;
         private int aktSek;
-
         // Animacie kariet
         private string animaciaZltaKarta = string.Empty;
         private string animaciaCervenaKarta = string.Empty;
-
         #endregion
 
         #region Konstruktor a metody
@@ -124,7 +116,7 @@ namespace LGR_Futbal
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {
-                SizeForm formular = new SizeForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, indexJazyka);
+                SizeForm formular = new SizeForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, indexJazyka);
                 formular.OnSettingsConfirmation += Formular_OnSettingsConfirmation;
                 formular.ShowDialog();
                 koniec = formular.Vypnut();
@@ -171,7 +163,6 @@ namespace LGR_Futbal
 
                 // Pociatocne nastavenia
                 hraBezi = false;
-                priebeh = new PriebehZapasu();
                 odohraneMinuty = 0;
 
                 casPodrobneLabel.Text = "00:00.000";
@@ -189,59 +180,6 @@ namespace LGR_Futbal
                 formularTabule.Show();
                 formularTabule.NastavFonty(pisma);
 
-                if (!defaultColorScheme.Equals(string.Empty))
-                {
-                    TextReader textReader = null;
-                    bool uspech = true;
-                    FarebnaSchema schema = null;
-
-                    try
-                    {
-                        string nazovSuboru = defaultColorScheme;
-                        XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
-                        textReader = new StreamReader(nazovSuboru);
-                        schema = (FarebnaSchema)deserializer.Deserialize(textReader);
-                    }
-                    catch (Exception ex)
-                    {
-                        uspech = false;
-                        MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        if (textReader != null)
-                            textReader.Close();
-
-                        if (uspech)
-                            AplikujFarebnuSchemu(schema);
-                    }
-                }
-
-                if (!rozlozenieCesta.Equals(string.Empty))
-                {
-                    TextReader textReader = null;
-                    bool uspech = true;
-                    try
-                    {
-                        string nazovSuboru = rozlozenieCesta;
-                        XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
-                        textReader = new StreamReader(nazovSuboru);
-                        RozlozenieTabule = (RozlozenieTabule)deserializer.Deserialize(textReader);
-                    }
-                    catch (Exception ex)
-                    {
-                        uspech = false;
-                        MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        if (textReader != null)
-                            textReader.Close();
-
-                        if (uspech)
-                            formularTabule.setLayout(RozlozenieTabule);
-                    }
-                }
             }
         }
         private string preloz(string povodnyText)
@@ -481,14 +419,6 @@ namespace LGR_Futbal
                             // Plynutie nadstaveneho casu
                             VykresliCas(m, s, milis, false);
                         }
-
-                        priebeh.Polcas = polcas;
-                        priebeh.Minuta = m;
-                        priebeh.Dlzka = dlzkaPolcasu;
-                        priebeh.Nadstavenie = pocetNadstavenychMinut;
-                        priebeh.SkoreD = skoreDomaci;
-                        priebeh.SkoreH = skoreHostia;
-                        ulozPriebehHry();
                     }
                     if (!nadstavenyCas)
                     {
@@ -531,27 +461,6 @@ namespace LGR_Futbal
             sw.Start();
         }
 
-        private void ulozPriebehHry()
-        {
-            TextWriter textWriter = null;
-
-            try
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(PriebehZapasu));
-                textWriter = new StreamWriter(priebehSubor);
-                serializer.Serialize(textWriter, priebeh);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (textWriter != null)
-                    textWriter.Close();
-            }
-        }
-
         private void Casovac_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             SpracujCas();
@@ -587,7 +496,6 @@ namespace LGR_Futbal
         private void LoadAnimConfig()
         {
             TextReader textReader = null;
-
             try
             {
                 XmlSerializer deserializer = new XmlSerializer(typeof(AnimacnaKonfiguracia));
@@ -603,6 +511,66 @@ namespace LGR_Futbal
             {
                 if (textReader != null)
                     textReader.Close();
+            }
+        }
+
+        private void LoadRozlozenieConfig()
+        {
+            if (!rozlozenieCesta.Equals(string.Empty))
+            {
+                TextReader textReader = null;
+                bool uspech = true;
+                try
+                {
+                    string nazovSuboru = rozlozenieCesta;
+                    XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
+                    textReader = new StreamReader(nazovSuboru);
+                    RozlozenieTabule = (RozlozenieTabule)deserializer.Deserialize(textReader);
+                }
+                catch (Exception ex)
+                {
+                    uspech = false;
+                    MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (textReader != null)
+                        textReader.Close();
+
+                    if (uspech)
+                        formularTabule.setLayout(RozlozenieTabule);
+                }
+            }          
+        }
+
+        private void LoadFarebnaSchemaConfig()
+        {
+            if (!defaultColorScheme.Equals(string.Empty))
+            {
+                TextReader textReader = null;
+                bool uspech = true;
+                FarebnaSchema schema = null;
+
+                try
+                {
+                    string nazovSuboru = defaultColorScheme;
+                    XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
+                    textReader = new StreamReader(nazovSuboru);
+                    schema = (FarebnaSchema)deserializer.Deserialize(textReader);
+                }
+                catch (Exception ex)
+                {
+                    uspech = false;
+                    MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (textReader != null)
+                        textReader.Close();
+
+                    if (uspech)
+                        AplikujFarebnuSchemu(schema);
+                }
             }
         }
 
@@ -675,6 +643,8 @@ namespace LGR_Futbal
             }
 
             LoadAnimConfig();
+            LoadRozlozenieConfig();
+            LoadFarebnaSchemaConfig();    
         }
 
         private void SaveSettings()
@@ -761,7 +731,7 @@ namespace LGR_Futbal
 
         private void Formular_OnNadstavenyCasConfirmed(int hodnota)
         {
-            if (polcas != 3)
+            if (!nadstavenyCas)
             {
                 pocetNadstavenychMinut = hodnota;
                 nadCasLabel.Text = pocetNadstavenychMinut.ToString();
@@ -772,7 +742,7 @@ namespace LGR_Futbal
                 {
                     pocetNadstavenychMinut = hodnota;
                     nadCasLabel.Text = pocetNadstavenychMinut.ToString();
-                    formularTabule.SetPolcas(3, pocetNadstavenychMinut);
+                    formularTabule.SetPolcas(polcas, pocetNadstavenychMinut);
                 }
                 else
                     MessageBox.Show(Translate(18), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -818,14 +788,6 @@ namespace LGR_Futbal
                         polcasButton.Text = polcasButton.Text.Replace("START", "STOP");
                     else
                         polcasButton.Text = polcas + ". " + Translate(2);
-
-                    priebeh.Polcas = polcas;
-                    priebeh.Minuta = 0;
-                    priebeh.Dlzka = dlzkaPolcasu;
-                    priebeh.Nadstavenie = pocetNadstavenychMinut;
-                    priebeh.SkoreD = skoreDomaci;
-                    priebeh.SkoreH = skoreHostia;
-                    ulozPriebehHry();
                 }
                 else
                 {
@@ -1024,7 +986,7 @@ namespace LGR_Futbal
                         setSkoreDomaci(novyStav);
 
                         PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
-                        FarbyPrezentacieClass farbicky = psf.GetFarbyDom();
+                        FarbyPrezentacie farbicky = psf.GetFarbyDom();
 
                         if ((animaciaGolov.ZobrazitPreddefinovanuAnimaciuDomaci) || (animaciaGolov.AnimacieDomaci.Count > 0))
                         {
@@ -1047,7 +1009,7 @@ namespace LGR_Futbal
                         setSkoreHostia(novyStav);
 
                         PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
-                        FarbyPrezentacieClass farbicky = psf.GetFarbyHos();
+                        Setup.FarbyPrezentacie farbicky = psf.GetFarbyHos();
 
                         if ((animaciaGolov.ZobrazitPreddefinovanuAnimaciuHostia) || (animaciaGolov.AnimacieHostia.Count > 0))
                         {
@@ -1115,7 +1077,7 @@ namespace LGR_Futbal
             }
 
             PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
-            FarbyPrezentacieClass farbicky = psf.GetFarbyDom();
+            Setup.FarbyPrezentacie farbicky = psf.GetFarbyDom();
 
             if (!jeDomaciTim)
                 farbicky = psf.GetFarbyHos();
@@ -1156,7 +1118,7 @@ namespace LGR_Futbal
             zastavPrezentaciu();
         }
 
-        private void Psf_OnVyberTimuNaPrezentaciu(FutbalovyTim tim, FarbyPrezentacieClass fp)
+        private void Psf_OnVyberTimuNaPrezentaciu(FutbalovyTim tim, Setup.FarbyPrezentacie fp)
         {
             PrezentaciaForm pf = new PrezentaciaForm(currentDirectory, sirkaTabule, animacnyCas, tim, fp, pismaPrezentacie, zobrazitNahradnikov);
             pf.FormClosing += Pf_FormClosing;

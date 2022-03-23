@@ -125,6 +125,7 @@
     <Compile Include="Databaza\DBRozhodcovia.cs" />
     <Compile Include="Databaza\DBTimy.cs" />
     <Compile Include="Databaza\DBZapasy.cs" />
+    <Compile Include="Databaza\Pripojenie.cs" />
     <Compile Include="Forms\AnimacieForms\CervenaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,10 +138,10 @@
     <Compile Include="Forms\UdalostiForms\CervenaKartaSettingsForm.Designer.cs">
       <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\DatabazaForm.cs">
+    <Compile Include="Forms\MainForms\DatabazaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\DatabazaForm.Designer.cs">
+    <Compile Include="Forms\MainForms\DatabazaForm.Designer.cs">
       <DependentUpon>DatabazaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\FarbyForm.cs">
@@ -149,11 +150,11 @@
     <Compile Include="Forms\SetupForms\FarbyForm.Designer.cs">
       <DependentUpon>FarbyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\FarbyPrezentacie.cs">
+    <Compile Include="Forms\SetupForms\FarbyPrezentacieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\FarbyPrezentacie.Designer.cs">
-      <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
+    <Compile Include="Forms\SetupForms\FarbyPrezentacieForm.Designer.cs">
+      <DependentUpon>FarbyPrezentacieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\FontyForm.cs">
       <SubType>Form</SubType>
@@ -179,10 +180,10 @@
     <Compile Include="Forms\UdalostiForms\GolSettingsForm.Designer.cs">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\HraciKartyForm.cs">
+    <Compile Include="Forms\MainForms\HraciKartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\HraciKartyForm.Designer.cs">
+    <Compile Include="Forms\MainForms\HraciKartyForm.Designer.cs">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\HraciZapasForm.cs">
@@ -197,16 +198,16 @@
     <Compile Include="Forms\UdalostiForms\KopySettingsForm.Designer.cs">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\NadstavCasForm.cs">
+    <Compile Include="Forms\MainForms\NadstavCasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\NadstavCasForm.Designer.cs">
+    <Compile Include="Forms\MainForms\NadstavCasForm.Designer.cs">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\NezaradeniHraciForm.cs">
+    <Compile Include="Forms\MainForms\NezaradeniHraciForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\NezaradeniHraciForm.Designer.cs">
+    <Compile Include="Forms\MainForms\NezaradeniHraciForm.Designer.cs">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\OffsideSettingsForm.cs">
@@ -269,10 +270,10 @@
     <Compile Include="Forms\SetupForms\SelectForm.Designer.cs">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\SetupForm.cs">
+    <Compile Include="Forms\MainForms\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\SetupForm.Designer.cs">
+    <Compile Include="Forms\MainForms\SetupForm.Designer.cs">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForms\SizeForm.cs">
@@ -329,10 +330,10 @@
     <Compile Include="Forms\UdalostiForms\ZltaKartaSettingsForm.Designer.cs">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\ZmenaCasuForm.cs">
+    <Compile Include="Forms\MainForms\ZmenaCasuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\ZmenaCasuForm.Designer.cs">
+    <Compile Include="Forms\MainForms\ZmenaCasuForm.Designer.cs">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Gol.cs" />
@@ -353,7 +354,6 @@
     <Compile Include="Setup\FontyTabule.cs" />
     <Compile Include="Model\Hrac.cs" />
     <Compile Include="Setup\ParametreZapasu.cs" />
-    <Compile Include="Setup\PriebehZapasu.cs" />
     <Compile Include="Setup\RozlozenieTabule.cs" />
     <Compile Include="Model\FutbalovyTim.cs" />
     <EmbeddedResource Include="Forms\AnimacieForms\CervenaKartaForm.resx">
@@ -362,14 +362,14 @@
     <EmbeddedResource Include="Forms\UdalostiForms\CervenaKartaSettingsForm.resx">
       <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\DatabazaForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\DatabazaForm.resx">
       <DependentUpon>DatabazaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\FarbyForm.resx">
       <DependentUpon>FarbyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\FarbyPrezentacie.resx">
-      <DependentUpon>FarbyPrezentacie.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SetupForms\FarbyPrezentacieForm.resx">
+      <DependentUpon>FarbyPrezentacieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\FontyForm.resx">
       <DependentUpon>FontyForm.cs</DependentUpon>
@@ -383,7 +383,7 @@
     <EmbeddedResource Include="Forms\UdalostiForms\GolSettingsForm.resx">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\HraciKartyForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\HraciKartyForm.resx">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\HraciZapasForm.resx">
@@ -392,10 +392,10 @@
     <EmbeddedResource Include="Forms\UdalostiForms\KopySettingsForm.resx">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\NadstavCasForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\NadstavCasForm.resx">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\NezaradeniHraciForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\NezaradeniHraciForm.resx">
       <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\OffsideSettingsForm.resx">
@@ -428,7 +428,7 @@
     <EmbeddedResource Include="Forms\SetupForms\SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\SetupForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\SizeForm.resx">
@@ -458,7 +458,7 @@
     <EmbeddedResource Include="Forms\UdalostiForms\ZltaKartaSettingsForm.resx">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\ZmenaCasuForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\ZmenaCasuForm.resx">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -471,6 +471,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using LGR_Futbal.Model;
 using System;
 using System.Collections.Generic;

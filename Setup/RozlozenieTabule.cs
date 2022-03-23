@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LGR_Futbal.Triedy
+namespace LGR_Futbal.Setup
 {
     public class RozlozenieTabule
     {

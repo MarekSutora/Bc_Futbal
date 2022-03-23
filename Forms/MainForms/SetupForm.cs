@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using LGR_Futbal.Model;
 using System;
 using System.Collections.Generic;
@@ -55,7 +55,6 @@ namespace LGR_Futbal.Forms
         private FutbalovyTim hostiaT = null;
 
         private string originalFolder = null;
-        //private Font fontNaStriedanie;
         private FarebnaSchema nastaveniaFarieb;
         private RozlozenieForm rf = null;
         private FontyForm fontyForm = null;

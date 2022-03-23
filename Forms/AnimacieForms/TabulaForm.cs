@@ -1,4 +1,4 @@
-﻿using LGR_Futbal.Triedy;
+﻿using LGR_Futbal.Setup;
 using System;
 using System.Data;
 using System.Drawing;

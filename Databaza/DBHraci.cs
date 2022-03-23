@@ -11,16 +11,17 @@ namespace LGR_Futbal.Databaza
 
     public class DBHraci
     {
-        private const string constring = "User Id=sutora_bc;Password=bcproj84Qt;Data Source=obelix.fri.uniza.sk:1521/orcl.fri.uniza.sk";
+        private OracleConnection conn = null;
         public DBHraci()
         {
-
+            Pripojenie pripojenie = new Pripojenie();
+            conn = pripojenie.GetConnection();
         }
 
         public void InsertHrac(Hrac h)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 try
                 {
                     conn.Open();
@@ -103,15 +104,15 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public List<Hrac> GetVsetciHraci()
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL";
                 try
                 {
@@ -151,7 +152,7 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return hraci;
         }
 
@@ -160,8 +161,8 @@ namespace LGR_Futbal.Databaza
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim = :id_timu";
                 try
                 {
@@ -204,14 +205,14 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return hraci;
         }
 
         public void UpdateHrac(Hrac h)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
                 string cmdQuery2 = "UPDATE hrac SET id_futbalovy_tim = :id_futbalovy_tim, poznamka = :poznamka, cislo_dresu = :cislo_dresu, fotka = :fotka, post = :post WHERE id_hrac = :id_hrac";
                 try
@@ -301,13 +302,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void VymazHraca(Hrac h)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "UPDATE hrac SET datum_ukoncenia = SYSDATE WHERE id_hrac = :id_hrac";
                 try
                 {
@@ -326,14 +327,14 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public Hrac getHrac(int idHrac)
         {
             Hrac hrac = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM hrac WHERE id_hrac = :id_hrac";
                 try
                 {
@@ -376,15 +377,14 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return hrac;
         }
 
         public void NastavOsudaje(Osoba osoba)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
-                conn.Open();
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM osoba WHERE id_osoba = :id_osoba";
                 OracleParameter param = new OracleParameter("id_osoba", OracleDbType.Varchar2);
                 OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -407,8 +407,7 @@ namespace LGR_Futbal.Databaza
                             osoba.Pohlavie = reader.GetString(4)[0];
                     }
                 }
-                conn.Close();
-            }
+            //}
         }
 
         public Image byteArrayToImage(byte[] byteArrayIn)
@@ -422,9 +421,8 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-
+                throw new Exception("Problem pri konvertovaní z pola bytov na image");
             }
-            return null;
         }
     }
 }

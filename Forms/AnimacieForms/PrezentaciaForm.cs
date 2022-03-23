@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,7 +30,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacieClass farby, FontyTabule fonty, bool ajNahradnici)
+        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, Setup.FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
 

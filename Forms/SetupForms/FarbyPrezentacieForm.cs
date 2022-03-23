@@ -1,16 +1,16 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms
 {
-    public partial class FarbyPrezentacie : Form
+    public partial class FarbyPrezentacieForm : Form
     {
-        private FarbyPrezentacieClass d;
-        private FarbyPrezentacieClass h;
+        private FarbyPrezentacie d;
+        private FarbyPrezentacie h;
 
-        public FarbyPrezentacie(FarbyPrezentacieClass dom, FarbyPrezentacieClass hos)
+        public FarbyPrezentacieForm(FarbyPrezentacie dom, FarbyPrezentacie hos)
         {
             InitializeComponent();
 

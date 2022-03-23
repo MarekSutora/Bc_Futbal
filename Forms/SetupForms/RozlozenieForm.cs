@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System.Xml.Serialization;
 using System.IO;
 using LGR_Futbal.Properties;

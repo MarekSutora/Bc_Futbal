@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using LGR_Futbal.Model;
 using System;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacieClass farby);
+    public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, Setup.FarbyPrezentacie farby);
     public delegate void ZastavenieHandler();
     public delegate void NastaveniaConfirmedHandler(bool n);
 
@@ -22,8 +22,8 @@ namespace LGR_Futbal.Forms
 
         private FutbalovyTim dom;
         private FutbalovyTim hos;
-        private FarbyPrezentacieClass farbyDom;
-        private FarbyPrezentacieClass farbyHos;
+        private Setup.FarbyPrezentacie farbyDom;
+        private Setup.FarbyPrezentacie farbyHos;
         private string adresar;
         private FontyTabule pisma;
 
@@ -67,17 +67,17 @@ namespace LGR_Futbal.Forms
             else if (hos.ZoznamHracov.Count == 0)
                 hostiaButton.Enabled = false;
 
-            farbyDom = new FarbyPrezentacieClass();
-            farbyHos = new FarbyPrezentacieClass();
+            farbyDom = new Setup.FarbyPrezentacie();
+            farbyHos = new Setup.FarbyPrezentacie();
             nacitajFarby();
         }
 
-        public FarbyPrezentacieClass GetFarbyDom()
+        public Setup.FarbyPrezentacie GetFarbyDom()
         {
             return farbyDom;
         }
 
-        public FarbyPrezentacieClass GetFarbyHos()
+        public Setup.FarbyPrezentacie GetFarbyHos()
         {
             return farbyHos;
         }
@@ -96,7 +96,7 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
+                XmlSerializer serializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
                 textWriter1 = new StreamWriter(adresar + "\\Files\\DomaciPrezentacia.xml");
                 serializer.Serialize(textWriter1, farbyDom);
             }
@@ -112,7 +112,7 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
+                XmlSerializer serializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
                 textWriter2 = new StreamWriter(adresar + "\\Files\\HostiaPrezentacia.xml");
                 serializer.Serialize(textWriter2, farbyHos);
             }
@@ -134,13 +134,13 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
+                XmlSerializer deserializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
                 textReader1 = new StreamReader(adresar + "\\Files\\DomaciPrezentacia.xml");
-                farbyDom = (FarbyPrezentacieClass)deserializer.Deserialize(textReader1);
+                farbyDom = (Setup.FarbyPrezentacie)deserializer.Deserialize(textReader1);
             }
             catch
             {
-                farbyDom = new FarbyPrezentacieClass();
+                farbyDom = new Setup.FarbyPrezentacie();
             }
             finally
             {
@@ -150,13 +150,13 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(FarbyPrezentacieClass));
+                XmlSerializer deserializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
                 textReader2 = new StreamReader(adresar + "\\Files\\HostiaPrezentacia.xml");
-                farbyHos = (FarbyPrezentacieClass)deserializer.Deserialize(textReader2);
+                farbyHos = (Setup.FarbyPrezentacie)deserializer.Deserialize(textReader2);
             }
             catch
             {
-                farbyHos = new FarbyPrezentacieClass();
+                farbyHos = new Setup.FarbyPrezentacie();
             }
             finally
             {
@@ -190,7 +190,7 @@ namespace LGR_Futbal.Forms
 
         private void farbyButton_Click(object sender, EventArgs e)
         {
-            FarbyPrezentacie fp = new FarbyPrezentacie(farbyDom, farbyHos);
+            FarbyPrezentacieForm fp = new FarbyPrezentacieForm(farbyDom, farbyHos);
             fp.Show();
         }
 

@@ -11,20 +11,21 @@ namespace LGR_Futbal.Databaza
 {
     public class DBRozhodcovia
     {
-        private const string constring = "User Id=sutora_bc;Password=bcproj84Qt;Data Source=obelix.fri.uniza.sk:1521/orcl.fri.uniza.sk";
+        private OracleConnection conn = null;
         private DBHraci dbhraci = null;
         public DBRozhodcovia()
         {
+            Pripojenie pripojenie = new Pripojenie();
+            conn = pripojenie.GetConnection();
             dbhraci = new DBHraci();
         }
 
         public List<Rozhodca> GetRozhodcovia()
         {
             List<Rozhodca> rozhodcovia = new List<Rozhodca>();
-
             Rozhodca rozhodca = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM rozhodca WHERE datum_ukoncenia IS NULL";
                 try
                 {
@@ -51,14 +52,14 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return rozhodcovia;
         }
 
         public void InsertRozhodca(Rozhodca rozhodca)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 try
                 {
                     conn.Open();
@@ -102,13 +103,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void UpdateRozhodca(Rozhodca rozhodca)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
                 try
                 {
@@ -143,13 +144,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void VymazRozhodca(Rozhodca rozhodca)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "UPDATE rozhodca SET datum_ukoncenia = SYSDATE WHERE id_rozhodca = :id_rozhodca";
                 try
                 {
@@ -168,13 +169,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
         public Rozhodca GetRozhodca(int idRozhodca)
         {
             Rozhodca Rozhodca = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM rozhodca WHERE id_rozhodca = :id_rozhodca";
                 try
                 {
@@ -204,7 +205,7 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return Rozhodca;
         }
     }

@@ -19,7 +19,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int jazyk)
+        public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int jazyk)
         {
             InitializeComponent();
             if (jazyk == 1)
@@ -37,14 +37,11 @@ namespace LGR_Futbal.Forms
                 initNastaveniaCheckBox.Text = "Zobrazovat toto okno při spuštění aplikace";
             }
 
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-            int sirkaObr = screen.Bounds.Width;
-            int vyskaObr = screen.Bounds.Height;
-            rozlisenieLabel.Text = sirkaObr.ToString() + " x " + vyskaObr.ToString();
+            ZistiRozmery();
+            
+            rozlisenieLabel.Text = sirka.ToString() + " x " + vyska.ToString();
 
-            this.sirka = sirka;
-            this.vyska = vyska;
+
             sirkaNumUpDown.Value = sirka;
             vyskaNumUpDown.Value = vyska;
 
@@ -61,6 +58,14 @@ namespace LGR_Futbal.Forms
                 skRadioButton.Checked = false;
                 czRadioButton.Checked = true;
             }
+        }
+
+        private void ZistiRozmery()
+        {
+            Screen primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
+            sirka = screen.Bounds.Width;
+            vyska = screen.Bounds.Height;
         }
 
         private void SirkaNumUpDown_ValueChanged(object sender, EventArgs e)
@@ -110,6 +115,8 @@ namespace LGR_Futbal.Forms
             koniec = false;
             this.Close();
         }
+
+        
 
         public bool Vypnut()
         {

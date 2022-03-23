@@ -1,6 +1,6 @@
 ﻿namespace LGR_Futbal.Forms
 {
-    partial class FarbyPrezentacie
+    partial class FarbyPrezentacieForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FarbyPrezentacie));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FarbyPrezentacieForm));
             this.saveButton = new System.Windows.Forms.Button();
             this.zrusitButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();

@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LGR_Futbal.Triedy
+namespace LGR_Futbal.Setup
 {
     [Serializable]
     public class AnimacnaKonfiguracia
     {
-        private bool zobrazitPreddefinovanuAnimaciuDomaci;
-        private bool zobrazitPreddefinovanuAnimaciuHostia;
-        private List<string> animacieDomaci;
-        private List<string> animacieHostia;
 
         public AnimacnaKonfiguracia()
         {
@@ -19,12 +15,12 @@ namespace LGR_Futbal.Triedy
             AnimacieHostia = new List<string>();
         }
 
-        public bool ZobrazitPreddefinovanuAnimaciuDomaci { get => zobrazitPreddefinovanuAnimaciuDomaci; set => zobrazitPreddefinovanuAnimaciuDomaci = value; }
+        public bool ZobrazitPreddefinovanuAnimaciuDomaci { get; set; }
         
-        public bool ZobrazitPreddefinovanuAnimaciuHostia { get => zobrazitPreddefinovanuAnimaciuHostia; set => zobrazitPreddefinovanuAnimaciuHostia = value; }
+        public bool ZobrazitPreddefinovanuAnimaciuHostia { get; set; }
         
-        public List<string> AnimacieDomaci { get => animacieDomaci; set => animacieDomaci = value; }
+        public List<string> AnimacieDomaci { get; set; }
         
-        public List<string> AnimacieHostia { get => animacieHostia; set => animacieHostia = value; }
+        public List<string> AnimacieHostia { get; set; }
     }
 }

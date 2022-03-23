@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -177,8 +177,8 @@ namespace LGR_Futbal.Forms
             var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
             var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
 
-            this.Left = extendedDisplay.WorkingArea.Left + (extendedDisplay.Bounds.Size.Width / 2) - (this.Size.Width / 2);
-            this.Top = extendedDisplay.WorkingArea.Top + (extendedDisplay.Bounds.Size.Height / 2) - (this.Size.Height / 2);
+            this.Left = extendedDisplay.WorkingArea.Left;
+            this.Top = extendedDisplay.WorkingArea.Top;
 
             this.SpustiCas();
         }

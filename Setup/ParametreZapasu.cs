@@ -1,40 +1,37 @@
 ﻿using System;
 
-namespace LGR_Futbal.Triedy
+namespace LGR_Futbal.Setup
 {
     [Serializable]
     public class ParametreZapasu
     {
-        private string nazov;
-        private int minuty;
-        private bool prerusenie;
 
-        public string Nazov { get => nazov; set => nazov = value; }
+        public string Nazov { get; set; }
+       
+        public int Minuty { get; set; }
         
-        public int Minuty { get => minuty; set => minuty = value; }
-        
-        public bool Prerusenie { get => prerusenie; set => prerusenie = value; }
+        public bool Prerusenie { get; set; }
 
         public ParametreZapasu()
         {
-            nazov = "unknown";
-            minuty = 45;
-            prerusenie = false;
+            Nazov = "unknown";
+            Minuty = 45;
+            Prerusenie = false;
         }
 
         public ParametreZapasu(string n, int m, bool p)
         {
-            nazov = n;
-            minuty = m;
-            prerusenie = p;
+            Nazov = n;
+            Minuty = m;
+            Prerusenie = p;
         }
 
         public String toString()
         {
-            if (prerusenie)
-                return nazov + " - 2x" + minuty + " - P";
+            if (Prerusenie)
+                return Nazov + " - 2x" + Minuty + " - P";
             else
-                return nazov + " - 2x" + minuty + " - x";
+                return Nazov + " - 2x" + Minuty + " - x";
         }
     }
 }

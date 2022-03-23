@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Data;
 using System.Drawing;
@@ -28,7 +28,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacieClass farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
+        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, Setup.FarbyPrezentacie farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
         {
             InitializeComponent();
 

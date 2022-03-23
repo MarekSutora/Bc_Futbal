@@ -12,19 +12,21 @@ namespace LGR_Futbal.Databaza
 {
     public class DBTimy
     {
-        private const string constring = "User Id=sutora_bc;Password=bcproj84Qt;Data Source=obelix.fri.uniza.sk:1521/orcl.fri.uniza.sk";
         private DBHraci dbhraci = null;
+        private OracleConnection conn = null;
 
         public DBTimy()
         {
+            Pripojenie pripojenie = new Pripojenie();
+            conn = pripojenie.GetConnection();
             dbhraci = new DBHraci();
         }
         public List<FutbalovyTim> GetTimy()
         {
             List<FutbalovyTim> timy = new List<FutbalovyTim>();
             FutbalovyTim ft;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM futbalovy_tim WHERE datum_zrusenia IS NULL";
                 try
                 {
@@ -57,7 +59,7 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return timy;
         }
 
@@ -65,8 +67,8 @@ namespace LGR_Futbal.Databaza
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac = null;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim IS NULL";
                 try
                 {
@@ -106,15 +108,15 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return hraci;
         }
 
         public List<string> GetKategorie()
         {
             List<string> kategorie = new List<string>();
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT nazov_kategoria FROM futbal_kategoria";
                 try
                 {
@@ -137,15 +139,15 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return kategorie;
         }
 
         public bool CheckNazovTimu(string nazov)
         {
             bool returnVal = false;
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "SELECT COUNT(*) FROM futbalovy_tim WHERE nazov_timu = :nazov AND datum_zrusenia IS NULL";
                 try
                 {
@@ -165,14 +167,14 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
             return returnVal;
         }
 
         public void InsertFutbalovyTeam(FutbalovyTim futbalovyTim)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "INSERT INTO futbalovy_tim(id_kategoria, nazov_timu, logo) VALUES(:id_kategoria, :nazov_timu, :logo)";
                 try
                 {
@@ -210,13 +212,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void UpdateTim(FutbalovyTim ft)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "UPDATE futbalovy_tim SET id_kategoria = :id_kategoria, nazov_timu = :nazov_timu, logo = :logo WHERE id_futbalovy_tim = :id_futbalovy_tim";
                 try
                 {
@@ -263,13 +265,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void VymazTim(FutbalovyTim ft)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
                 string cmdQuery = "UPDATE futbalovy_tim SET datum_zrusenia = SYSDATE, logo = NULL WHERE id_futbalovy_tim = :id_futbalovy_tim";
                 try
                 {
@@ -289,13 +291,13 @@ namespace LGR_Futbal.Databaza
                 {
                     throw new Exception("Chyba pri praci s Databazou");
                 }
-            }
+            //}
         }
 
         public void pridajHracovDoTimu(int idTimu, List<Hrac> hraci)
         {
-            using (OracleConnection conn = new OracleConnection(constring))
-            {
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
 
                 string cmdQuery = "UPDATE hrac SET id_futbalovy_tim = :id_timu WHERE id_hrac = :id_hrac";
                 OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -324,7 +326,7 @@ namespace LGR_Futbal.Databaza
                         throw new Exception("Chyba pri praci s Databazou");
                     }
                 }
-            }
+            //}
         }
     }
 }

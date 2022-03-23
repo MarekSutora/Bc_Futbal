@@ -1,5 +1,5 @@
 ﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Triedy;
+using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -561,9 +561,19 @@ namespace LGR_Futbal.Forms
                 editTimComboBox.SelectedIndex = index;
                 editRichTextBox.Text = aktHrac.Poznamka;
                 pictureBox.Image = aktHrac.FotkaImage;
-                editPohlavieComboBox.SelectedIndex = aktHrac.Pohlavie;
+                if (aktHrac.Pohlavie == 'M')
+                {
+                    editPohlavieComboBox.SelectedIndex = 1;
+                } 
+                else if (aktHrac.Pohlavie == 'Z')
+                {
+                    editPohlavieComboBox.SelectedIndex = 2;
+                }
+                else
+                {
+                    editPohlavieComboBox.SelectedIndex = 0;
+                }               
                 editDateTimePicker.Value = aktHrac.DatumNarodenia;
-
             }
             catch (Exception ex)
             {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace LGR_Futbal.Triedy
+namespace LGR_Futbal.Setup
 {
     [Serializable]
     public class FarebnaSchema
