@@ -16,12 +16,11 @@ namespace LGR_Futbal.Databaza
         private OracleConnection conn = null;
         private DBHraci dbhraci = null;
         private DBRozhodcovia dbrozhodcovia = null;
-        public DBZapasy()
+        public DBZapasy(Pripojenie pripojenie, DBHraci dbhraci, DBRozhodcovia dbrozhodcovia)
         {
-            Pripojenie pripojenie = new Pripojenie();
             conn = pripojenie.GetConnection();
-            dbhraci = new DBHraci();
-            dbrozhodcovia = new DBRozhodcovia();
+            this.dbhraci = dbhraci;
+            this.dbrozhodcovia = dbrozhodcovia;
         }
 
         public void PridajZapas(Zapas Zapas)

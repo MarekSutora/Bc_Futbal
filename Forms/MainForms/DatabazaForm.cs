@@ -14,7 +14,7 @@ namespace LGR_Futbal.Forms
     {
         #region Konstanty
 
-        private const string nazovProgramuString = "LGR Futbal";
+        private const string nazovProgramuString = "FutbalApp";
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public DatabazaForm(string folder)
+        public DatabazaForm(string folder, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
         {
             InitializeComponent();
 
@@ -76,10 +76,10 @@ namespace LGR_Futbal.Forms
                 editConfirmButton.Text = editConfirmButton.Text.Replace("Potvrdiť", "Potvrdit");
             }
 
-            dbtimy = new DBTimy();
-            dbhraci = new DBHraci();
-            dbrozhodcovia = new DBRozhodcovia();
-            dbzapasy = new DBZapasy();
+            dbtimy = dbt;
+            dbhraci = dbh;
+            dbrozhodcovia = dbr;
+            dbzapasy = dbz;
 
             currentDirectory = folder;
 
@@ -1149,7 +1149,7 @@ namespace LGR_Futbal.Forms
                 if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
                     dbzapasy.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
 
-                UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], true);
+                UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], true, dbzapasy);
                 uf.Show();
             }
             catch (Exception ex)

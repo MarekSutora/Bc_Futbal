@@ -17,12 +17,11 @@ namespace LGR_Futbal.Forms
         private List<Rozhodca> rozhodcovia = null;
         private List<Rozhodca> allRozhodcovia = null;
 
-        public RozhodcoviaForm(List<Rozhodca> rozhodcovia)
+        public RozhodcoviaForm(List<Rozhodca> rozhodcovia, DBRozhodcovia dbr)
         {
             InitializeComponent();
-            DBRozhodcovia dBRozhodcovia = new DBRozhodcovia();
             this.rozhodcovia = rozhodcovia;
-            allRozhodcovia = dBRozhodcovia.GetRozhodcovia();
+            allRozhodcovia = dbr.GetRozhodcovia();
             foreach (var item in allRozhodcovia)
             {
                 rozhodcoviaCheckListBox.Items.Add(item.Meno + " " + item.Priezvisko.ToUpper(), true);

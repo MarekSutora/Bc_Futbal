@@ -13,11 +13,10 @@ namespace LGR_Futbal.Databaza
     {
         private OracleConnection conn = null;
         private DBHraci dbhraci = null;
-        public DBRozhodcovia()
+        public DBRozhodcovia(Pripojenie pripojenie, DBHraci dbhraci)
         {
-            Pripojenie pripojenie = new Pripojenie();
             conn = pripojenie.GetConnection();
-            dbhraci = new DBHraci();
+            this.dbhraci = dbhraci;
         }
 
         public List<Rozhodca> GetRozhodcovia()

@@ -14,7 +14,7 @@ namespace LGR_Futbal.Forms
         private List<Udalost> udalosti = null;
         private string filePath;
         private DBZapasy dbzapasy = null;
-        public UdalostiForm(Zapas zapas, bool zDatabazi)
+        public UdalostiForm(Zapas zapas, bool zDatabazi, DBZapasy dBZapasy)
         {
             InitializeComponent();
             this.zapas = zapas;         
@@ -33,7 +33,7 @@ namespace LGR_Futbal.Forms
             zltaKartaCB.Checked = true;
             cervenaKartaCB.Checked = true;
 
-            dbzapasy = new DBZapasy();
+            dbzapasy = dBZapasy;
 
             if (zapas.Domaci == null || zapas.Hostia == null || zDatabazi)
             {
@@ -50,7 +50,7 @@ namespace LGR_Futbal.Forms
                 zapas.NazovHostia = zapas.Hostia.NazovTimu;
                 tim2CB.Text = zapas.NazovHostia;
             }
-            this.filePath = "CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+            this.filePath = "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 

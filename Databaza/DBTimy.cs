@@ -15,11 +15,10 @@ namespace LGR_Futbal.Databaza
         private DBHraci dbhraci = null;
         private OracleConnection conn = null;
 
-        public DBTimy()
+        public DBTimy(Pripojenie pripojenie, DBHraci dbhraci)
         {
-            Pripojenie pripojenie = new Pripojenie();
             conn = pripojenie.GetConnection();
-            dbhraci = new DBHraci();
+            this.dbhraci = dbhraci;
         }
         public List<FutbalovyTim> GetTimy()
         {

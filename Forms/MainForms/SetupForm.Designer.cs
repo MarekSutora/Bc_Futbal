@@ -91,7 +91,7 @@
             this.logoHostia = new System.Windows.Forms.PictureBox();
             this.logoDomaci = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button13 = new System.Windows.Forms.Button();
+            this.importAnimacieBtn = new System.Windows.Forms.Button();
             this.animHosBox = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -100,12 +100,12 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.ZrusitCervenaKartaBtn = new System.Windows.Forms.Button();
+            this.zmenitCervenaKartaBtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.ZrusitZltaKartaBtn = new System.Windows.Forms.Button();
+            this.zmenitZltaKartaBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabulaButton = new System.Windows.Forms.Button();
             this.hraButton = new System.Windows.Forms.Button();
@@ -952,7 +952,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button13);
+            this.tabPage4.Controls.Add(this.importAnimacieBtn);
             this.tabPage4.Controls.Add(this.animHosBox);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.label3);
@@ -966,15 +966,15 @@
             this.tabPage4.Text = "Animácie gólov";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // importAnimacieBtn
             // 
-            this.button13.Location = new System.Drawing.Point(402, 12);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(122, 40);
-            this.button13.TabIndex = 6;
-            this.button13.Text = "Importovať súbor";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.importAnimacieBtn.Location = new System.Drawing.Point(402, 12);
+            this.importAnimacieBtn.Name = "importAnimacieBtn";
+            this.importAnimacieBtn.Size = new System.Drawing.Size(122, 40);
+            this.importAnimacieBtn.TabIndex = 6;
+            this.importAnimacieBtn.Text = "Importovať súbor";
+            this.importAnimacieBtn.UseVisualStyleBackColor = true;
+            this.importAnimacieBtn.Click += new System.EventHandler(this.importAnimacieBtn_Click);
             // 
             // animHosBox
             // 
@@ -1045,8 +1045,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button17);
-            this.groupBox2.Controls.Add(this.button15);
+            this.groupBox2.Controls.Add(this.ZrusitCervenaKartaBtn);
+            this.groupBox2.Controls.Add(this.zmenitCervenaKartaBtn);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Location = new System.Drawing.Point(300, 4);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -1057,27 +1057,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Červená karta";
             // 
-            // button17
+            // ZrusitCervenaKartaBtn
             // 
-            this.button17.Location = new System.Drawing.Point(4, 263);
-            this.button17.Margin = new System.Windows.Forms.Padding(2);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(217, 26);
-            this.button17.TabIndex = 3;
-            this.button17.Text = "Zrušiiť obrázok (animáciu)";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.ZrusitCervenaKartaBtn.Location = new System.Drawing.Point(4, 263);
+            this.ZrusitCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZrusitCervenaKartaBtn.Name = "ZrusitCervenaKartaBtn";
+            this.ZrusitCervenaKartaBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZrusitCervenaKartaBtn.TabIndex = 3;
+            this.ZrusitCervenaKartaBtn.Text = "Zrušiť obrázok (animáciu)";
+            this.ZrusitCervenaKartaBtn.UseVisualStyleBackColor = true;
+            this.ZrusitCervenaKartaBtn.Click += new System.EventHandler(this.ZrusitCervenaKartaBtn_Click);
             // 
-            // button15
+            // zmenitCervenaKartaBtn
             // 
-            this.button15.Location = new System.Drawing.Point(4, 232);
-            this.button15.Margin = new System.Windows.Forms.Padding(2);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(217, 26);
-            this.button15.TabIndex = 2;
-            this.button15.Text = "Zmeniť obrázok (animáciu)";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.zmenitCervenaKartaBtn.Location = new System.Drawing.Point(4, 232);
+            this.zmenitCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.zmenitCervenaKartaBtn.Name = "zmenitCervenaKartaBtn";
+            this.zmenitCervenaKartaBtn.Size = new System.Drawing.Size(217, 26);
+            this.zmenitCervenaKartaBtn.TabIndex = 2;
+            this.zmenitCervenaKartaBtn.Text = "Zmeniť obrázok (animáciu)";
+            this.zmenitCervenaKartaBtn.UseVisualStyleBackColor = true;
+            this.zmenitCervenaKartaBtn.Click += new System.EventHandler(this.zmenitCervenaKartaBtn_Click);
             // 
             // pictureBox2
             // 
@@ -1091,8 +1091,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button16);
-            this.groupBox1.Controls.Add(this.button14);
+            this.groupBox1.Controls.Add(this.ZrusitZltaKartaBtn);
+            this.groupBox1.Controls.Add(this.zmenitZltaKartaBtn);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -1103,27 +1103,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Žltá karta";
             // 
-            // button16
+            // ZrusitZltaKartaBtn
             // 
-            this.button16.Location = new System.Drawing.Point(4, 263);
-            this.button16.Margin = new System.Windows.Forms.Padding(2);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(217, 26);
-            this.button16.TabIndex = 2;
-            this.button16.Text = "Zrušiiť obrázok (animáciu)";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.ZrusitZltaKartaBtn.Location = new System.Drawing.Point(4, 263);
+            this.ZrusitZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZrusitZltaKartaBtn.Name = "ZrusitZltaKartaBtn";
+            this.ZrusitZltaKartaBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZrusitZltaKartaBtn.TabIndex = 2;
+            this.ZrusitZltaKartaBtn.Text = "Zrušiť obrázok (animáciu)";
+            this.ZrusitZltaKartaBtn.UseVisualStyleBackColor = true;
+            this.ZrusitZltaKartaBtn.Click += new System.EventHandler(this.ZrusitZltaKartaBtn_Click);
             // 
-            // button14
+            // zmenitZltaKartaBtn
             // 
-            this.button14.Location = new System.Drawing.Point(4, 232);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(217, 26);
-            this.button14.TabIndex = 1;
-            this.button14.Text = "Zmeniť obrázok (animáciu)";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.zmenitZltaKartaBtn.Location = new System.Drawing.Point(4, 232);
+            this.zmenitZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.zmenitZltaKartaBtn.Name = "zmenitZltaKartaBtn";
+            this.zmenitZltaKartaBtn.Size = new System.Drawing.Size(217, 26);
+            this.zmenitZltaKartaBtn.TabIndex = 1;
+            this.zmenitZltaKartaBtn.Text = "Zmeniť obrázok (animáciu)";
+            this.zmenitZltaKartaBtn.UseVisualStyleBackColor = true;
+            this.zmenitZltaKartaBtn.Click += new System.EventHandler(this.zmenitZltaKartaBtn_Click);
             // 
             // pictureBox1
             // 
@@ -1264,7 +1264,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LGR Futbal - nastavenia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);
-            this.Load += new System.EventHandler(this.SetupForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SetupForm_KeyDown);
             this.ovladace.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1366,17 +1365,17 @@
         private System.Windows.Forms.CheckedListBox animDomBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox animHosBox;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button importAnimacieBtn;
         private System.Windows.Forms.Button kartyButton;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button zmenitCervenaKartaBtn;
+        private System.Windows.Forms.Button zmenitZltaKartaBtn;
+        private System.Windows.Forms.Button ZrusitCervenaKartaBtn;
+        private System.Windows.Forms.Button ZrusitZltaKartaBtn;
         private System.Windows.Forms.Button rozlozenieButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button nastavMuzstvoHostiabutton;

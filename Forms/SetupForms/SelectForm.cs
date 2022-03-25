@@ -20,7 +20,7 @@ namespace LGR_Futbal.Forms
 
         public event TeamsSelectedHandler OnTeamsSelected;
 
-        public SelectForm(FutbalovyTim domaci, FutbalovyTim hostia)
+        public SelectForm(FutbalovyTim domaci, FutbalovyTim hostia, DBTimy dbt, DBHraci dbh)
         {
             InitializeComponent();
 
@@ -32,8 +32,8 @@ namespace LGR_Futbal.Forms
                 aktivovatButton.Text = aktivovatButton.Text.Replace("Vybrať", "Vybrat");
                 zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
             }
-            dBTimy = new DBTimy();
-            dBHraci = new DBHraci();
+            dBTimy = dbt;
+            dBHraci = dbh;
             timy = dBTimy.GetTimy();
             if (timy.Count == 0)
                 aktivovatButton.Enabled = false;

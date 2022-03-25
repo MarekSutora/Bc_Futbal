@@ -16,7 +16,6 @@ namespace LGR_Futbal.Forms
 {
 
     public delegate void LayoutConfirmedHandler();
-    public delegate void FileSelectedHandlerRF(string cesta);
 
     public partial class RozlozenieForm : Form
     {
@@ -24,7 +23,6 @@ namespace LGR_Futbal.Forms
         private int sirka;
         private int vyska;
         public event LayoutConfirmedHandler OnLayoutConfirmed;
-        public event FileSelectedHandlerRF OnFileSelected;
         public RozlozenieTabule RozlozenieTabule { get; set; }
 
         public RozlozenieForm(string adresa, RozlozenieTabule rt, int sirka, int vyska)
@@ -156,7 +154,6 @@ namespace LGR_Futbal.Forms
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 TextWriter textWriter = null;
-                bool uspech = true;
 
                 try
                 {
@@ -195,18 +192,13 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    uspech = false;
-                    MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     if (textWriter != null)
                         textWriter.Close();
 
-                    if (uspech && OnFileSelected != null)
-                    {
-                        OnFileSelected(sfd.FileName);
-                    }
                     this.Close();
                 }
             }
@@ -233,7 +225,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -248,10 +240,6 @@ namespace LGR_Futbal.Forms
                         {
                             OnLayoutConfirmed();
                         }
-                        if (OnFileSelected != null)
-                        {
-                            OnFileSelected(ofd.FileName);
-                        }
                     }
                 }
             }
@@ -259,62 +247,36 @@ namespace LGR_Futbal.Forms
 
         public void NativneRozlozenie()
         {
-            double pom = sirka / (1920 / 540.0);
-            numericUpDown1.Value = (int)(sirka / (1920 / 540.0));
-            numericUpDown2.Value = (int)(vyska / (1080 / 20.0));
+            RozlozenieTabule.NativneRozlozenie(sirka, vyska);
 
-            numericUpDown4.Value = (int)(sirka / (1920 / 20.0));
-            numericUpDown3.Value = (int)(vyska / (1080 / 544.0));
+            numericUpDown1.Value = RozlozenieTabule.CasX;
+            numericUpDown2.Value = RozlozenieTabule.CasY;
 
-            numericUpDown8.Value = (int)(sirka / (1920 / 1098.0));
-            numericUpDown7.Value = (int)(vyska / (1080 / 544.0));
+            numericUpDown4.Value = RozlozenieTabule.DomaciX;
+            numericUpDown3.Value = RozlozenieTabule.DomaciY;
 
-            numericUpDown16.Value = (int)(sirka / (1920 / 38.0));
-            numericUpDown15.Value = (int)(vyska / (1080 / 674.0));
+            numericUpDown8.Value = RozlozenieTabule.HostiaX;
+            numericUpDown7.Value = RozlozenieTabule.HostiaY;
 
-            numericUpDown18.Value = (int)(sirka / (1920 / 1118.0));
-            numericUpDown17.Value = (int)(vyska / (1080 / 674.0));
+            numericUpDown16.Value = RozlozenieTabule.DomaciSkoreX;
+            numericUpDown15.Value = RozlozenieTabule.DomaciSkoreY;
 
-            numericUpDown6.Value = (int)(sirka / (1920 / 20.0));
-            numericUpDown5.Value = (int)(vyska / (1080 / 20.0));
-            numericUpDown11.Value = (int)(sirka / (1920 / 510.0));
+            numericUpDown18.Value = RozlozenieTabule.HostiaSkoreX;
+            numericUpDown17.Value = RozlozenieTabule.HostiaSkoreY;
+
+            numericUpDown6.Value = RozlozenieTabule.LogoDomaciX;
+            numericUpDown5.Value = RozlozenieTabule.LogoDomaciY;
+            numericUpDown11.Value = RozlozenieTabule.LogoDomaciSirka;
             checkBox2.Checked = true;
 
-            numericUpDown10.Value = (int)(sirka / (1920 / 1390.0)); ;
-            numericUpDown9.Value = (int)(vyska / (1080 / 20.0)); ;
-            numericUpDown12.Value = (int)(sirka / (1920 / 510.0)); ;
+            numericUpDown10.Value = RozlozenieTabule.LogoHostiaX; 
+            numericUpDown9.Value = RozlozenieTabule.LogoHostiaY;
+            numericUpDown12.Value = RozlozenieTabule.LogoHostiaSirka;
             checkBox2.Checked = true;
 
-            numericUpDown14.Value = (int)(sirka / (1920 / 550.0)); ;
-            numericUpDown13.Value = (int)(vyska / (1080 / 878.0)); ;
+            numericUpDown14.Value = RozlozenieTabule.polCasX; 
+            numericUpDown13.Value = RozlozenieTabule.polCasY; 
 
-            RozlozenieTabule.CasX = (int)numericUpDown1.Value;
-            RozlozenieTabule.CasY = (int)numericUpDown2.Value;
-
-            RozlozenieTabule.DomaciX = (int)numericUpDown4.Value;
-            RozlozenieTabule.DomaciY = (int)numericUpDown3.Value;
-
-            RozlozenieTabule.HostiaX = (int)numericUpDown8.Value;
-            RozlozenieTabule.HostiaY = (int)numericUpDown7.Value;
-
-            RozlozenieTabule.DomaciSkoreX = (int)numericUpDown16.Value;
-            RozlozenieTabule.DomaciSkoreY = (int)numericUpDown15.Value;
-
-            RozlozenieTabule.HostiaSkoreX = (int)numericUpDown18.Value;
-            RozlozenieTabule.HostiaSkoreY = (int)numericUpDown17.Value;
-
-            RozlozenieTabule.LogoDomaciX = (int)numericUpDown6.Value;
-            RozlozenieTabule.LogoDomaciY = (int)numericUpDown5.Value;
-            RozlozenieTabule.LogoDomaciSirka = (int)numericUpDown11.Value;
-            RozlozenieTabule.LogoDomaciZobrazit = checkBox2.Checked;
-
-            RozlozenieTabule.LogoHostiaX = (int)numericUpDown10.Value;
-            RozlozenieTabule.LogoHostiaY = (int)numericUpDown9.Value;
-            RozlozenieTabule.LogoHostiaSirka = (int)numericUpDown12.Value;
-            RozlozenieTabule.LogoHostiaZobrazit = checkBox1.Checked;
-
-            RozlozenieTabule.polCasX = (int)numericUpDown14.Value;
-            RozlozenieTabule.polCasY = (int)numericUpDown13.Value;
             if (adresa != null)
             {
                 OnLayoutConfirmed();

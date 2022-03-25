@@ -36,9 +36,9 @@ namespace LGR_Futbal.Forms
                 pozadieCheckBox.Text = "Překrýt obrazovku černou barvou";
                 initNastaveniaCheckBox.Text = "Zobrazovat toto okno při spuštění aplikace";
             }
+            sirka = ZistiSirku();
+            vyska = ZistiVysku();
 
-            ZistiRozmery();
-            
             rozlisenieLabel.Text = sirka.ToString() + " x " + vyska.ToString();
 
 
@@ -60,12 +60,18 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void ZistiRozmery()
+        public int ZistiVysku()
         {
             Screen primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
             Screen screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-            sirka = screen.Bounds.Width;
-            vyska = screen.Bounds.Height;
+            return screen.Bounds.Height;
+        }
+
+        public int ZistiSirku()
+        {
+            Screen primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
+            return screen.Bounds.Width;
         }
 
         private void SirkaNumUpDown_ValueChanged(object sender, EventArgs e)

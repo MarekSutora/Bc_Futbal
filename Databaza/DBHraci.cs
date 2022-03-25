@@ -12,9 +12,8 @@ namespace LGR_Futbal.Databaza
     public class DBHraci
     {
         private OracleConnection conn = null;
-        public DBHraci()
+        public DBHraci(Pripojenie pripojenie)
         {
-            Pripojenie pripojenie = new Pripojenie();
             conn = pripojenie.GetConnection();
         }
 

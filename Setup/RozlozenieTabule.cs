@@ -34,5 +34,33 @@ namespace LGR_Futbal.Setup
 
         }
 
+        public void NativneRozlozenie(int sirka, int vyska)
+        {
+            CasX = (int)(sirka / (1920 / 540.0));
+            CasY = (int)(vyska / (1080 / 20.0));
+
+            DomaciX = (int)(sirka / (1920 / 20.0));
+            DomaciY = (int)(vyska / (1080 / 544.0));
+
+            HostiaX = (int)(sirka / (1920 / 1098.0));
+            HostiaY = (int)(vyska / (1080 / 544.0));
+
+            DomaciSkoreX = (int)(sirka / (1920 / 38.0));
+            DomaciSkoreY = (int)(vyska / (1080 / 674.0));
+
+            HostiaSkoreX = (int)(sirka / (1920 / 1118.0));
+            HostiaSkoreY = (int)(vyska / (1080 / 674.0));
+
+            LogoDomaciX = (int)(sirka / (1920 / 20.0));
+            LogoDomaciY = (int)(vyska / (1080 / 20.0));
+            LogoDomaciSirka = (int)(sirka / (1920 / 510.0));
+
+            LogoHostiaX = (int)(sirka / (1920 / 1390.0));
+            LogoHostiaY = (int)(vyska / (1080 / 20.0));
+            LogoHostiaSirka = (int)(sirka / (1920 / 510.0));
+
+            polCasX = (int)(sirka / (1920 / 550.0));
+            polCasY = (int)(vyska / (1080 / 878.0));
+        }
     }
 }

@@ -19,7 +19,6 @@ namespace LGR_Futbal.Forms
         //public event FileSavedHandler OnFileSaved;
         public event ObnovaFariebHandlerFF OnObnovaFariebFF;
         public event ColorsLoadedHandlerFF OnColorsLoadedFF;
-        public event FileSelectedHandlerFF OnFileSelectedFF;
         private FarebnaSchema fs = null;
 
         public FarbyForm(string cesta, FarebnaSchema fs)
@@ -110,8 +109,6 @@ namespace LGR_Futbal.Forms
                     sch.setCasFarba(label3.ForeColor);
                     sch.setSkoreFarba(label4.ForeColor);
                     sch.setPolcasFarba(label5.ForeColor);
-                    sch.setPredlzenieFarba(label5.ForeColor);
-                    sch.setKoniecFarba(label5.ForeColor);
 
                     XmlSerializer serializer = new XmlSerializer(typeof(FarebnaSchema));
                     textWriter = new StreamWriter(sfd.FileName);
@@ -125,8 +122,6 @@ namespace LGR_Futbal.Forms
                 {
                     if (textWriter != null)
                         textWriter.Close();
-                    if (OnFileSelectedFF != null)
-                        OnFileSelectedFF(sfd.FileName);
                 }
             }
         }
@@ -188,8 +183,6 @@ namespace LGR_Futbal.Forms
             {
                 if (OnObnovaFariebFF != null)
                     OnObnovaFariebFF();
-                if (OnFileSelectedFF != null)
-                    OnFileSelectedFF(string.Empty);
                 //this.Close();
             }
 
@@ -241,8 +234,6 @@ namespace LGR_Futbal.Forms
 
                     if (OnColorsLoadedFF != null)
                         OnColorsLoadedFF(schema);
-                    if (OnFileSelectedFF != null)
-                        OnFileSelectedFF(cesta);
                     
                 }
             }
