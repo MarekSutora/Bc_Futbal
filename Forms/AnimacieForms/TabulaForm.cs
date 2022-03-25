@@ -48,8 +48,9 @@ namespace LGR_Futbal.Forms
             return text;
         }
 
-        public TabulaForm(int jazyk, int sirkaPlochy, int vyskaPlochy, RozlozenieTabule rt)
+        public TabulaForm(int jazyk, int sirkaPlochy, RozlozenieTabule rt)
         {
+            
             InitializeComponent();
             aktualnyJazyk = jazyk;
             setDefaultColors();

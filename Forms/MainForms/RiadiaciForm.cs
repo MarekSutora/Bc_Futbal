@@ -1044,7 +1044,7 @@ namespace LGR_Futbal
                 dbhraci = new DBHraci(pripojenie);
                 dbrozhodcovia = new DBRozhodcovia(pripojenie, dbhraci);
                 dbtimy = new DBTimy(pripojenie, dbhraci);
-                dbzapasy = new DBZapasy(pripojenie, dbhraci, dbrozhodcovia);
+                dbzapasy = new DBZapasy(pripojenie, dbhraci, dbrozhodcovia, dbtimy);
             }
             catch (Exception ex)
             {
@@ -1081,7 +1081,7 @@ namespace LGR_Futbal
         }
         private void NastavTabulu()
         {
-            formularTabule = new TabulaForm(indexJazyka, sirkaTabule, vyskaTabule, rozlozenieTabule);
+            formularTabule = new TabulaForm(indexJazyka, sirkaTabule, rozlozenieTabule);
             formularTabule.setLayout(rozlozenieTabule);
             formularTabule.prelozTabuluDoJazyka(indexJazyka);
             formularTabule.Show();
@@ -1107,7 +1107,6 @@ namespace LGR_Futbal
             formularTabule.Show();
             this.Focus();
         }
-
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -1399,9 +1398,9 @@ namespace LGR_Futbal
         private void Gsf_OnGoalValueConfirmed(bool domPriznak, int hodnota)
         {
             if (domPriznak)
-                setSkoreDomaci(hodnota);
+                SetSkoreDomaci(hodnota);
             else
-                setSkoreHostia(hodnota);
+                SetSkoreHostia(hodnota);
         }
 
         private void Gsf_OnGoalSettingsConfirmed(Hrac h, bool priznak, int novyStav)
@@ -1409,14 +1408,14 @@ namespace LGR_Futbal
             if (priznak)
             {
                 if (novyStav <= skoreDomaci)
-                    setSkoreDomaci(novyStav);
+                    SetSkoreDomaci(novyStav);
                 else
                 {
                     if ((polcas == 0))
                         MessageBox.Show(Translate(15), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        setSkoreDomaci(novyStav);
+                        SetSkoreDomaci(novyStav);
 
                         PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
                         FarbyPrezentacie farbicky = psf.GetFarbyDom();
@@ -1432,14 +1431,14 @@ namespace LGR_Futbal
             else
             {
                 if (novyStav <= skoreHostia)
-                    setSkoreHostia(novyStav);
+                    SetSkoreHostia(novyStav);
                 else
                 {
                     if ((polcas == 0))
                         MessageBox.Show(Translate(15), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        setSkoreHostia(novyStav);
+                        SetSkoreHostia(novyStav);
 
                         PredstavenieSettingsForm psf = new PredstavenieSettingsForm(currentDirectory, null, null, pismaPrezentacie, zobrazitNahradnikov);
                         Setup.FarbyPrezentacie farbicky = psf.GetFarbyHos();
@@ -1468,7 +1467,7 @@ namespace LGR_Futbal
             gsf.Show();
         }
 
-        private void setSkoreDomaci(int novaHodnota)
+        private void SetSkoreDomaci(int novaHodnota)
         {
             skoreDomaci = novaHodnota;
             skoreDomaciLabel.Text = skoreDomaci.ToString();
@@ -1476,7 +1475,7 @@ namespace LGR_Futbal
             formularTabule.SetSkoreDomaci(skoreDomaci);
         }
 
-        private void setSkoreHostia(int novaHodnota)
+        private void SetSkoreHostia(int novaHodnota)
         {
             skoreHostia = novaHodnota;
             zapas.HostiaSkore = skoreHostia;
@@ -1706,7 +1705,7 @@ namespace LGR_Futbal
 
         #region REKLAMA
 
-        private void reklamaButton_Click_1(object sender, EventArgs e)
+        private void reklamaButton_Click(object sender, EventArgs e)
         {
             string video = string.Empty;
             try

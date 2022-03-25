@@ -26,9 +26,9 @@ namespace LGR_Futbal.Setup
         {
             setNadpis(Color.White);
             setZaklad(Color.White);
-            setUdaje(Color.White);
-            setCislo(Color.White);
-            setMeno(Color.White);
+            SetUdaje(Color.White);
+            SetCislo(Color.White);
+            SetMeno(Color.White);
         }
 
         public void setZaklad(Color f)
@@ -55,7 +55,7 @@ namespace LGR_Futbal.Setup
             return Color.FromArgb(Zaklad_r, Zaklad_g, Zaklad_b);
         }
 
-        public void setUdaje(Color f)
+        public void SetUdaje(Color f)
         {
             Udaje_r = f.R;
             Udaje_g = f.G;
@@ -67,7 +67,7 @@ namespace LGR_Futbal.Setup
             return Color.FromArgb(Udaje_r, Udaje_g, Udaje_b);
         }
 
-        public void setCislo(Color f)
+        public void SetCislo(Color f)
         {
             Cislo_r = f.R;
             Cislo_g = f.G;
@@ -79,7 +79,7 @@ namespace LGR_Futbal.Setup
             return Color.FromArgb(Cislo_r, Cislo_g, Cislo_b);
         }
 
-        public void setMeno(Color f)
+        public void SetMeno(Color f)
         {
             Meno_r = f.R;
             Meno_g = f.G;

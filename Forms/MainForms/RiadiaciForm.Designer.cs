@@ -650,7 +650,7 @@
             this.reklamaButton.TabIndex = 569;
             this.reklamaButton.Text = "REKLAMA";
             this.reklamaButton.UseVisualStyleBackColor = false;
-            this.reklamaButton.Click += new System.EventHandler(this.reklamaButton_Click_1);
+            this.reklamaButton.Click += new System.EventHandler(this.reklamaButton_Click);
             this.reklamaButton.MouseEnter += new System.EventHandler(this.reklamaButton_MouseEnter);
             this.reklamaButton.MouseLeave += new System.EventHandler(this.reklamaButton_MouseLeave);
             // 

@@ -18,13 +18,13 @@ namespace LGR_Futbal.Forms
         private List<Hrac> hraci = null;
         private List<Hrac> hraciNaPridanie = null;
         private DBTimy dbtimy = null;
-        public NezaradeniHraciForm(int id, DBTimy dbtimy)
+        public NezaradeniHraciForm(int id, DBTimy dbtimy, DBHraci dbhraci)
         {
             Text = "Pridanie nezaradených hráčov do tímu";
             InitializeComponent();
             IdTimu = id;
             this.dbtimy = dbtimy;
-            hraci = this.dbtimy.GetNezaradeniHraci();
+            hraci = dbhraci.GetNezaradeniHraci();
             hraciNaPridanie = new List<Hrac>();
             foreach (Hrac h in hraci)
             {
@@ -67,7 +67,7 @@ namespace LGR_Futbal.Forms
             }
             try
             {
-                dbtimy.pridajHracovDoTimu(IdTimu, hraciNaPridanie);
+                dbtimy.PridajHracovDoTimu(IdTimu, hraciNaPridanie);
             }
             catch (Exception ex)
             {

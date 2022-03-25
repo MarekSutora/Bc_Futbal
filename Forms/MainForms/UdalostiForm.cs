@@ -40,16 +40,24 @@ namespace LGR_Futbal.Forms
                 databazaButton.Enabled = false;
                 databazaButton.Visible = false;
             }
-            if (zapas.Domaci != null)
+            if (zDatabazi)
             {
-                zapas.NazovDomaci = zapas.Domaci.NazovTimu;
                 timCB.Text = zapas.NazovDomaci;
-            }               
-            if (zapas.Hostia != null)
-            {
-                zapas.NazovHostia = zapas.Hostia.NazovTimu;
                 tim2CB.Text = zapas.NazovHostia;
             }
+            else
+            {
+                if (zapas.Domaci != null)
+                {
+                    zapas.NazovDomaci = zapas.Domaci.NazovTimu;
+                    timCB.Text = zapas.NazovDomaci;
+                }
+                if (zapas.Hostia != null)
+                {
+                    zapas.NazovHostia = zapas.Hostia.NazovTimu;
+                    tim2CB.Text = zapas.NazovHostia;
+                }
+            }          
             this.filePath = "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";

@@ -16,11 +16,13 @@ namespace LGR_Futbal.Databaza
         private OracleConnection conn = null;
         private DBHraci dbhraci = null;
         private DBRozhodcovia dbrozhodcovia = null;
-        public DBZapasy(Pripojenie pripojenie, DBHraci dbhraci, DBRozhodcovia dbrozhodcovia)
+        private DBTimy dbtimy = null;
+        public DBZapasy(Pripojenie pripojenie, DBHraci dbhraci, DBRozhodcovia dbrozhodcovia, DBTimy dbtimy)
         {
             conn = pripojenie.GetConnection();
             this.dbhraci = dbhraci;
             this.dbrozhodcovia = dbrozhodcovia;
+            this.dbtimy = dbtimy;
         }
 
         public void PridajZapas(Zapas Zapas)
@@ -467,14 +469,14 @@ namespace LGR_Futbal.Databaza
                         zapas.NadstavenyCas1 = reader.GetInt32(7);
                         zapas.NadstavenyCas2 = reader.GetInt32(8);
 
-                        FutbalovyTim domaci = new FutbalovyTim();
-                        FutbalovyTim hostia = new FutbalovyTim();
+                        //FutbalovyTim domaci = new FutbalovyTim();
+                        //FutbalovyTim hostia = new FutbalovyTim();
 
-                        domaci = GetTim(reader.GetInt32(1));
-                        hostia = GetTim(reader.GetInt32(2));
+                        //domaci = GetTim(reader.GetInt32(1));
+                        //hostia = GetTim(reader.GetInt32(2));
 
-                        zapas.Domaci = domaci;
-                        zapas.Hostia = hostia;
+                        zapas.NazovDomaci = dbtimy.GetNazovTimu(reader.GetInt32(1));
+                        zapas.NazovHostia = dbtimy.GetNazovTimu(reader.GetInt32(2));
 
                         zapasy.Add(zapas);
                     }
@@ -490,44 +492,43 @@ namespace LGR_Futbal.Databaza
             return zapasy;
         }
 
-        private FutbalovyTim GetTim(int id)
-        {
-            FutbalovyTim ft = new FutbalovyTim();
+        //private FutbalovyTim GetTim(int id)
+        //{
+        //    FutbalovyTim ft = new FutbalovyTim();
 
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-            string cmdQuery = "SELECT * FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
-            try
-            {
-                //conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
-                OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Varchar2);
-                param.Value = id;
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add(param);
+        //    //using (OracleConnection conn = new OracleConnection(constring))
+        //    //{
+        //    string cmdQuery = "SELECT * FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
+        //    try
+        //    {
+        //        //conn.Open();
+        //        OracleCommand cmd = new OracleCommand(cmdQuery);
+        //        OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Varchar2);
+        //        param.Value = id;
+        //        cmd.Connection = conn;
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.Parameters.Add(param);
 
-                using (OracleDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        if (!reader.IsDBNull(1))
-                            ft.Kategoria = reader.GetInt32(1);
-                        if (!reader.IsDBNull(2))
-                            ft.NazovTimu = reader.GetString(2);
+        //        using (OracleDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                if (!reader.IsDBNull(1))
+        //                    ft.Kategoria = reader.GetInt32(1);
+        //                if (!reader.IsDBNull(2))
+        //                    ft.NazovTimu = reader.GetString(2);
 
-                    }
-                }
-                //conn.Close();
-            }
-            catch
-            {
-                throw new Exception("Chyba pri praci s Databazou");
-            }
-            //}
-
-            return ft;
-        }
+        //            }
+        //        }
+        //        //conn.Close();
+        //    }
+        //    catch
+        //    {
+        //        throw new Exception("Chyba pri praci s Databazou");
+        //    }
+        //    //}
+        //    return ft;
+        //}
 
         public void NastavUdalosti(Zapas zapas)
         {
@@ -653,9 +654,9 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(2))
-                            striedanie.Striedajuci = dbhraci.getHrac(reader.GetInt32(2));
+                            striedanie.Striedajuci = dbhraci.GetHrac(reader.GetInt32(2));
                         if (!reader.IsDBNull(3))
-                            striedanie.Striedany = dbhraci.getHrac(reader.GetInt32(3));
+                            striedanie.Striedany = dbhraci.GetHrac(reader.GetInt32(3));
                     }
                 }
 
@@ -690,7 +691,7 @@ namespace LGR_Futbal.Databaza
                 param.OracleDbType = OracleDbType.Int32;
                 cmd.Parameters.Add(param);
                 if (!cmd.ExecuteScalar().ToString().Equals(string.Empty))
-                    _out.Hrac = dbhraci.getHrac(int.Parse(cmd.ExecuteScalar().ToString()));
+                    _out.Hrac = dbhraci.GetHrac(int.Parse(cmd.ExecuteScalar().ToString()));
 
                 //conn.Close();
             }
@@ -724,7 +725,7 @@ namespace LGR_Futbal.Databaza
                 cmd.Parameters.Add(param);
 
                 if (!cmd.ExecuteScalar().ToString().Equals(string.Empty))
-                    offside.Hrac = dbhraci.getHrac(int.Parse(cmd.ExecuteScalar().ToString()));
+                    offside.Hrac = dbhraci.GetHrac(int.Parse(cmd.ExecuteScalar().ToString()));
 
                 //conn.Close();
             }
@@ -762,7 +763,7 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(2))
-                            kop.Hrac = dbhraci.getHrac(reader.GetInt32(2));
+                            kop.Hrac = dbhraci.GetHrac(reader.GetInt32(2));
                         if (!reader.IsDBNull(3))
                             kop.IdTypKopu = reader.GetInt32(3);
                     }
@@ -803,7 +804,7 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(2))
-                            karta.Hrac = dbhraci.getHrac(reader.GetInt32(2));
+                            karta.Hrac = dbhraci.GetHrac(reader.GetInt32(2));
                         if (!reader.IsDBNull(4))
                             karta.TypKarty = reader.GetString(4)[0];
                     }
@@ -843,11 +844,11 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(2))
-                            gol.Strielajuci = dbhraci.getHrac(reader.GetInt32(2));
+                            gol.Strielajuci = dbhraci.GetHrac(reader.GetInt32(2));
                         if (!reader.IsDBNull(3))
                             gol.TypGolu = reader.GetInt32(3);
                         if (!reader.IsDBNull(4))
-                            gol.Asistujuci = dbhraci.getHrac(reader.GetInt32(4));
+                            gol.Asistujuci = dbhraci.GetHrac(reader.GetInt32(4));
                     }
                 }
                 //conn.Close();
@@ -881,7 +882,7 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(2))
-                            udalost.NazovTimu = GetNazovTimu(reader.GetInt32(2));
+                            udalost.NazovTimu = dbtimy.GetNazovTimu(reader.GetInt32(2));
                         if (!reader.IsDBNull(3))
                             udalost.AktualnyCas = reader.GetDateTime(3);
                         if (!reader.IsDBNull(4))
@@ -900,34 +901,6 @@ namespace LGR_Futbal.Databaza
                 throw new Exception("Chyba pri praci s Databazou");
             }
             //}
-        }
-
-        private string GetNazovTimu(int id)
-        {
-            string nazov = string.Empty;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-            string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
-            try
-            {
-                //conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
-                OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Int32);
-                param.Value = id;
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add(param);
-
-                nazov = cmd.ExecuteScalar().ToString();
-
-                //conn.Close();
-            }
-            catch
-            {
-                throw new Exception("Chyba pri praci s Databazou");
-            }
-            //}
-            return nazov;
-        }
+        }      
     }
 }

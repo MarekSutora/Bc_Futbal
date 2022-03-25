@@ -26,28 +26,6 @@ namespace LGR_Futbal.Forms
             this.riadiaci = rf;
             float pomer = (float)sirka / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
-            //Label l;
-            //Panel p;
-        //    foreach (object item in Controls)
-        //    {
-        //        if (item.GetType() == typeof(Label))
-        //        {
-        //            l = (Label)item;
-        //            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-        //        }
-        //        else if (item.GetType() == typeof(Panel))
-        //        {
-        //            p = (Panel)item;
-        //            foreach (object prvok in p.Controls)
-        //            {
-        //                if (prvok.GetType() == typeof(Label))
-        //                {
-        //                    l = (Label)prvok;
-        //                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-        //                }
-        //            }
-        //        }
-        //    }
         }
 
         private void Casovac_Elapsed(object sender, ElapsedEventArgs e)
@@ -65,8 +43,8 @@ namespace LGR_Futbal.Forms
             var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
             var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
 
-            this.Left = extendedDisplay.WorkingArea.Left + (extendedDisplay.Bounds.Size.Width / 2) - (this.Size.Width / 2);
-            this.Top = extendedDisplay.WorkingArea.Top + (extendedDisplay.Bounds.Size.Height / 2) - (this.Size.Height / 2);
+            this.Left = extendedDisplay.WorkingArea.Left;
+            this.Top = extendedDisplay.WorkingArea.Top;
 
             FileInfo fi = new FileInfo(video);
             this.vlcControl1.SetMedia(fi);
@@ -75,7 +53,7 @@ namespace LGR_Futbal.Forms
 
         }
 
-        private void vlcControl1_VlcLibDirectoryNeeded_1(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
+        private void vlcControl1_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;

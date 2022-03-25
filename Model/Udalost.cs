@@ -53,9 +53,7 @@ namespace LGR_Futbal.Model
 
         public bool SplnaFilter(bool polcas1, bool polcas2, bool tim1, bool tim2, string nazovTim1, string nazovTim2)
         {
-            bool splnaPolcas = false;
-
-            splnaPolcas = FilterPolcas(polcas1, polcas2);
+            bool splnaPolcas = FilterPolcas(polcas1, polcas2);
 
             bool splnaTim = FilterTimy(tim1, tim2, nazovTim1, nazovTim2);
 

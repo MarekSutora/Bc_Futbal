@@ -60,15 +60,15 @@ namespace LGR_Futbal.Forms
         {
             d.setNadpis(label1.ForeColor);
             d.setZaklad(label2.ForeColor);
-            d.setUdaje(label3.ForeColor);
-            d.setCislo(label4.ForeColor);
-            d.setMeno(label5.ForeColor);
+            d.SetUdaje(label3.ForeColor);
+            d.SetCislo(label4.ForeColor);
+            d.SetMeno(label5.ForeColor);
 
             h.setNadpis(label10.ForeColor);
             h.setZaklad(label9.ForeColor);
-            h.setUdaje(label8.ForeColor);
-            h.setCislo(label7.ForeColor);
-            h.setMeno(label6.ForeColor);
+            h.SetUdaje(label8.ForeColor);
+            h.SetCislo(label7.ForeColor);
+            h.SetMeno(label6.ForeColor);
 
             this.Close();
         }

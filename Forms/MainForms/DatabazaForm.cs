@@ -300,7 +300,7 @@ namespace LGR_Futbal.Forms
         private void ZapasButton_Click(object sender, EventArgs e)
         {
 
-            NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbtimy);
+            NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbtimy, dbhraci);
             form.Show();
 
             //FutbalovyTim tim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
@@ -322,7 +322,7 @@ namespace LGR_Futbal.Forms
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
             if (MessageBox.Show(Translate(4) + timyListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbtimy.VymazTim(timy[timyListBox.SelectedIndex]);
+                dbtimy.OdstranTim(timy[timyListBox.SelectedIndex]);
                 FillTimyCB();
                 if (timyListBox.Items.Count > 0)
                     timyListBox.SelectedIndex = 0;
@@ -541,7 +541,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 int index = -1;
-                aktHrac = dbhraci.getHrac(hraci[hraciListBox.SelectedIndex].IdHrac);
+                aktHrac = dbhraci.GetHrac(hraci[hraciListBox.SelectedIndex].IdHrac);
 
                 if (aktHrac.IdFutbalovyTim != 0)
                 {
@@ -590,7 +590,7 @@ namespace LGR_Futbal.Forms
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
             if (MessageBox.Show(Translate(7) + hraciListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbhraci.VymazHraca(hraci[hraciListBox.SelectedIndex]);
+                dbhraci.OdstranHraca(hraci[hraciListBox.SelectedIndex]);
                 filtrujHracov(lastFilterHraci);
                 if (hraciListBox.Items.Count > 0)
                     hraciListBox.SelectedIndex = 0;
@@ -737,7 +737,7 @@ namespace LGR_Futbal.Forms
                 else if (timFilterCB.SelectedIndex == 1)
                 {
                     lastFilterHraci = 1;
-                    hraci = dbtimy.GetNezaradeniHraci();
+                    hraci = dbhraci.GetNezaradeniHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -790,7 +790,7 @@ namespace LGR_Futbal.Forms
                 else if (filter == 1)
                 {
                     lastFilterHraci = 1;
-                    hraci = dbtimy.GetNezaradeniHraci();
+                    hraci = dbhraci.GetNezaradeniHraci();
                     foreach (var hrac in hraci)
                     {
                         hraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -1077,7 +1077,7 @@ namespace LGR_Futbal.Forms
 
             if (MessageBox.Show(Translate(7) + RozhodcoviaListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbrozhodcovia.VymazRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
+                dbrozhodcovia.OdstranRozhodcu(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
                 FillRozhodcoviaCB();
                 if (rozhodcovia.Count > 0)
                     RozhodcoviaListBox.SelectedIndex = 0;
@@ -1125,8 +1125,8 @@ namespace LGR_Futbal.Forms
                 zapasy = dbzapasy.GetZapasy();
                 for (int i = 0; i < zapasy.Count; i++)
                 {
-                    zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].Domaci.NazovTimu + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
-                        " " + zapasy[i].Hostia.NazovTimu);
+                    zapasyLB.Items.Add(zapasy[i].DatumZapasu + " " + zapasy[i].NazovDomaci + " " + zapasy[i].DomaciSkore + " : " + zapasy[i].HostiaSkore +
+                        " " + zapasy[i].NazovHostia);
                 }
             }
          

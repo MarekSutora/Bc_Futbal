@@ -47,7 +47,7 @@ namespace LGR_Futbal.Databaza
                             if (!reader.IsDBNull(3))
                             {
                                 ft.LogoBlob = reader.GetOracleBlob(3).Value;
-                                ft.LogoImage = dbhraci.byteArrayToImage(ft.LogoBlob);
+                                ft.LogoImage = dbhraci.BytesToImage(ft.LogoBlob);
                             }
                             timy.Add(ft);
                         }
@@ -60,56 +60,7 @@ namespace LGR_Futbal.Databaza
                 }
             //}
             return timy;
-        }
-
-        public List<Hrac> GetNezaradeniHraci()
-        {
-            List<Hrac> hraci = new List<Hrac>();
-            Hrac hrac = null;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-                string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim IS NULL";
-                try
-                {
-                    conn.Open();
-                    OracleCommand cmd = new OracleCommand(cmdQuery);
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    using (OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            hrac = new Hrac();
-                            if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt32(0);
-                            if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt32(1);
-                            if (!reader.IsDBNull(2))
-                                hrac.IdFutbalovyTim = reader.GetInt32(3);
-                            if (!reader.IsDBNull(3))
-                                hrac.Poznamka = reader.GetString(3);
-                            if (!reader.IsDBNull(4))
-                                hrac.CisloDresu = reader.GetString(4);
-                            if (!reader.IsDBNull(6))
-                            {
-                                hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
-                                hrac.FotkaImage = dbhraci.byteArrayToImage(hrac.FotkaBlob);
-                            }
-                            if (!reader.IsDBNull(7))
-                                hrac.Pozicia = reader.GetString(7);
-                            dbhraci.NastavOsudaje(hrac);
-                            hraci.Add(hrac);
-                        }
-                    }
-                    conn.Close();
-                }
-                catch
-                {
-                    throw new Exception("Chyba pri praci s Databazou");
-                }
-            //}
-            return hraci;
-        }
+        }  
 
         public List<string> GetKategorie()
         {
@@ -170,7 +121,7 @@ namespace LGR_Futbal.Databaza
             return returnVal;
         }
 
-        public void InsertFutbalovyTeam(FutbalovyTim futbalovyTim)
+        public void InsertFutbalovyTeam(FutbalovyTim ft)
         {
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
@@ -179,13 +130,13 @@ namespace LGR_Futbal.Databaza
                 {
                     byte[] blob = null;
                     int? kategoria = null;
-                    if (futbalovyTim.Kategoria != 0 && futbalovyTim.Kategoria != -1)
-                        kategoria = futbalovyTim.Kategoria;
-                    string nazov = futbalovyTim.NazovTimu;
-                    if (futbalovyTim.Logo != null)
+                    if (ft.Kategoria != 0 && ft.Kategoria != -1)
+                        kategoria = ft.Kategoria;
+                    string nazov = ft.NazovTimu;
+                    if (ft.Logo != null)
                     {
                         FileStream fls;
-                        fls = new FileStream(@futbalovyTim.Logo, FileMode.Open, FileAccess.Read);
+                        fls = new FileStream(@ft.Logo, FileMode.Open, FileAccess.Read);
                         blob = new byte[fls.Length];
                         fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
                         fls.Close();
@@ -267,7 +218,7 @@ namespace LGR_Futbal.Databaza
             //}
         }
 
-        public void VymazTim(FutbalovyTim ft)
+        public void OdstranTim(FutbalovyTim ft)
         {
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
@@ -293,7 +244,7 @@ namespace LGR_Futbal.Databaza
             //}
         }
 
-        public void pridajHracovDoTimu(int idTimu, List<Hrac> hraci)
+        public void PridajHracovDoTimu(int idTimu, List<Hrac> hraci)
         {
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
@@ -326,6 +277,34 @@ namespace LGR_Futbal.Databaza
                     }
                 }
             //}
+        }
+
+        public string GetNazovTimu(int id)
+        {
+            string nazov = string.Empty;
+            //using (OracleConnection conn = new OracleConnection(constring))
+            //{
+            string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
+            try
+            {
+                //conn.Open();
+                OracleCommand cmd = new OracleCommand(cmdQuery);
+                OracleParameter param = new OracleParameter("id_futbalovy_tim", OracleDbType.Int32);
+                param.Value = id;
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(param);
+
+                nazov = cmd.ExecuteScalar().ToString();
+
+                //conn.Close();
+            }
+            catch
+            {
+                throw new Exception("Chyba pri praci s Databazou");
+            }
+            //}
+            return nazov;
         }
     }
 }

@@ -45,8 +45,6 @@ namespace LGR_Futbal.Forms
 
         #region Atributy
 
-        private string domaciLogo = string.Empty;
-        private string hostiaLogo = string.Empty;
         private bool aktivnaZmena = true;
 
         private FutbalovyTim domaciT = null;
@@ -291,7 +289,6 @@ namespace LGR_Futbal.Forms
             catch
             {
                 logoDomaci.Image = null;
-                domaciLogo = string.Empty;
             }
 
             try
@@ -301,7 +298,6 @@ namespace LGR_Futbal.Forms
             catch
             {
                 logoHostia.Image = null;
-                hostiaLogo = string.Empty;
             }
         }
 
@@ -536,7 +532,6 @@ namespace LGR_Futbal.Forms
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     logoDomaci.Image = Image.FromFile(ofd.FileName);
-                    domaciLogo = ofd.FileName;
                     if (domaciT != null)
                     {
                         domaciT.LogoImage = Image.FromFile(ofd.FileName);
@@ -546,7 +541,6 @@ namespace LGR_Futbal.Forms
             catch
             {
                 logoDomaci.Image = null;
-                domaciLogo = string.Empty;
             }
         }
 
@@ -563,7 +557,6 @@ namespace LGR_Futbal.Forms
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     logoHostia.Image = Image.FromFile(ofd.FileName);
-                    hostiaLogo = ofd.FileName;
                     if(hostiaT != null)
                     {
                         hostiaT.LogoImage = Image.FromFile(ofd.FileName);
@@ -573,21 +566,18 @@ namespace LGR_Futbal.Forms
             catch
             {
                 logoHostia.Image = null;
-                hostiaLogo = string.Empty;
             }
         }
 
         private void ZrusitLogoDom_Click(object sender, EventArgs e)
         {
             logoDomaci.Image = null;
-            domaciLogo = string.Empty;
             domaciT.LogoImage = null;
         }
 
         private void ZrusitLogoHos_Click(object sender, EventArgs e)
         {
             logoHostia.Image = null;
-            hostiaLogo = string.Empty;
             hostiaT.LogoImage = null;
         }
 
