@@ -87,29 +87,7 @@ namespace LGR_Futbal.Forms
             float pomer = (float)sirka / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
-            // Nastavenie velkosti fontu pre jednotlive labely
-            Label l;
-            Panel p;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-                else if (item.GetType() == typeof(Panel))
-                {
-                    p = (Panel)item;
-                    foreach (object prvok in p.Controls)
-                    {
-                        if (prvok.GetType() == typeof(Label))
-                        {
-                            l = (Label)prvok;
-                            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                        }
-                    }
-                }
-            }
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
 
             if (prezentovanyHrac != null)
             {
@@ -174,11 +152,7 @@ namespace LGR_Futbal.Forms
         {
             // Ak existuje externy monitor, svetelna tabula sa vykresli primarne nan,
             // ak nie, pouzije sa standardna obrazovka.
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-
-            this.Left = extendedDisplay.WorkingArea.Left;
-            this.Top = extendedDisplay.WorkingArea.Top;
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             this.SpustiCas();
         }

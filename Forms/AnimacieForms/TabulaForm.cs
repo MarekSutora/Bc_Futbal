@@ -59,16 +59,8 @@ namespace LGR_Futbal.Forms
             float pomer = (float)sirkaPlochy / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
-            // Nastavenie velkosti fontu pre jednotlive labely
-            Label l;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-            }
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
+
             this.RozlozenieTabule.CasX = this.casLabel.Left;
             this.RozlozenieTabule.CasY = this.casLabel.Top;
             this.RozlozenieTabule.DomaciX = this.domaciLabel.Left;
@@ -93,11 +85,7 @@ namespace LGR_Futbal.Forms
 
         private void TabulaForm_Load(object sender, EventArgs e)
         {
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-
-            this.Left = extendedDisplay.WorkingArea.Left;
-            this.Top = extendedDisplay.WorkingArea.Top;
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
         }
 
         public void setDefaultColors()

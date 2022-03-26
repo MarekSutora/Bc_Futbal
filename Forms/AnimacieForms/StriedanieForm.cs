@@ -47,32 +47,10 @@ namespace LGR_Futbal.Forms
             nazovLabel.Text = nazovMuzstva;
 
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = (float)sirka / this.Width;
             Scale(new SizeF(pomer, pomer));
 
-            // Nastavenie velkosti fontu pre jednotlive labely
-            Label l;
-            Panel p;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-                else if (item.GetType() == typeof(Panel))
-                {
-                    p = (Panel)item;
-                    foreach (object prvok in p.Controls)
-                    {
-                        if (prvok.GetType() == typeof(Label))
-                        {
-                            l = (Label)prvok;
-                            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                        }
-                    }
-                }
-            }
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
 
             if (prezentovanyHrac1 != null)
             {
@@ -136,11 +114,7 @@ namespace LGR_Futbal.Forms
         {
             // Ak existuje externy monitor, svetelna tabula sa vykresli primarne nan,
             // ak nie, pouzije sa standardna obrazovka.
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-
-            this.Left = extendedDisplay.WorkingArea.Left + (extendedDisplay.Bounds.Size.Width / 2) - (this.Size.Width / 2);
-            this.Top = extendedDisplay.WorkingArea.Top + (extendedDisplay.Bounds.Size.Height / 2) - (this.Size.Height / 2);
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             this.SpustiCas();
         }

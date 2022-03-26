@@ -22,40 +22,40 @@ namespace LGR_Futbal.Model
 
         }
 
-        private bool FilterPolcas(bool polcas1, bool polcas2)
+        private bool FilterPolcas(bool p1, bool p2)
         {
-            if (polcas1 && polcas2)
+            if (p1 && p2)
                 return true;
 
-            if (!polcas1 && !polcas2)
+            if (!p1 && !p2)
                 return false;
 
-            if ((polcas1 && Polcas == 1) && !polcas2)
+            if ((p1 && Polcas == 1) && !p2)
                 return true;
 
-            if (!polcas1 && (polcas2 && Polcas == 2))
+            if (!p1 && (p2 && Polcas == 2))
                 return true;
 
             return false;
         }
 
-        private bool FilterTimy(bool tim1, bool tim2, string nazovTim1, string nazovTim2)
+        private bool FilterTimy(bool t1, bool t2, string nazovT1, string nazovT2)
         {
-            if(tim1 && nazovTim1 == NazovTimu)
+            if(t1 && nazovT1 == NazovTimu)
                 return true;
 
-            if (tim2 && nazovTim2 == NazovTimu)
+            if (t2 && nazovT2 == NazovTimu)
                 return true;
 
             return false;
 
         }
 
-        public bool SplnaFilter(bool polcas1, bool polcas2, bool tim1, bool tim2, string nazovTim1, string nazovTim2)
+        public bool SplnaFilter(bool p1, bool p2, bool t1, bool t2, string nazovT1, string nazovT2)
         {
-            bool splnaPolcas = FilterPolcas(polcas1, polcas2);
+            bool splnaPolcas = FilterPolcas(p1, p2);
 
-            bool splnaTim = FilterTimy(tim1, tim2, nazovTim1, nazovTim2);
+            bool splnaTim = FilterTimy(t1, t2, nazovT1, nazovT2);
 
             return splnaPolcas && splnaTim;
         }

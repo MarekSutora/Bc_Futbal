@@ -26,7 +26,7 @@ namespace LGR_Futbal.Setup
             Prerusenie = p;
         }
 
-        public String toString()
+        public string toString()
         {
             if (Prerusenie)
                 return Nazov + " - 2x" + Minuty + " - P";

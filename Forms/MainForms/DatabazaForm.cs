@@ -1147,7 +1147,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 if (zapasy[zapasyLB.SelectedIndex].Udalosti.Count == 0)
-                    dbzapasy.NastavUdalosti(zapasy[zapasyLB.SelectedIndex]);
+                    dbzapasy.NastavZapas(zapasy[zapasyLB.SelectedIndex]);
 
                 UdalostiForm uf = new UdalostiForm(zapasy[zapasyLB.SelectedIndex], true, dbzapasy);
                 uf.Show();

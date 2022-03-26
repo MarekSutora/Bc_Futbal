@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+
 namespace LGR_Futbal.Forms
 {
     public partial class GolForm : Form
@@ -63,29 +64,7 @@ namespace LGR_Futbal.Forms
             float pomer = (float)sirka / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
-            // Nastavenie velkosti fontu pre jednotlive labely
-            Label l;
-            Panel p;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-                else if (item.GetType() == typeof(Panel))
-                {
-                    p = (Panel)item;
-                    foreach (object prvok in p.Controls)
-                    {
-                        if (prvok.GetType() == typeof(Label))
-                        {
-                            l = (Label)prvok;
-                            l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                        }
-                    }
-                }
-            }
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
 
             if (h != null)
             {
@@ -99,14 +78,14 @@ namespace LGR_Futbal.Forms
                 }
 
                 cisloHracaLabel.Text = h.CisloDresu.ToString();
-                String identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
+                string identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
 
                 menoHracaLabel.Text = identifikacia;
 
                 if (Settings.Default.Jazyk == 1)
-                    vekLabel.Text = h.getVek().ToString() + " let";
+                    vekLabel.Text = h.GetVek().ToString() + " let";
                 else
-                    vekLabel.Text = h.getVek().ToString() + " rokov";
+                    vekLabel.Text = h.GetVek().ToString() + " rokov";
                 postLabel.Text = h.Pozicia;
             }
 
@@ -160,11 +139,7 @@ namespace LGR_Futbal.Forms
 
         private void GolForm_Load(object sender, EventArgs e)
         {
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-
-            this.Left = extendedDisplay.WorkingArea.Left + (extendedDisplay.Bounds.Size.Width / 2) - (this.Size.Width / 2);
-            this.Top = extendedDisplay.WorkingArea.Top + (extendedDisplay.Bounds.Size.Height / 2) - (this.Size.Height / 2);
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             this.SpustiCas();
         }

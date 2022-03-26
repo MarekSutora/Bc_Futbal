@@ -74,7 +74,7 @@ namespace LGR_Futbal
         private System.Timers.Timer casovac;
         private FutbalovyTim timDomaci = null;
         private FutbalovyTim timHostia = null;
-        private Zapas zapas = null;   
+        private Zapas zapas = null;
         private FontyTabule pisma;
         private FontyTabule pismaPrezentacie;
         private AnimacnaKonfiguracia animaciaGolov = null;
@@ -118,16 +118,16 @@ namespace LGR_Futbal
             rozlozenieTabule = new RozlozenieTabule();
             rozlozenieTabule.NativneRozlozenie(formular.ZistiSirku(), formular.ZistiVysku());
             farebnaSchema = new FarebnaSchema();
-            LoadSettings();        
+            LoadSettings();
 
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {
-                
                 formular.OnSettingsConfirmation += Formular_OnSettingsConfirmation;
                 formular.ShowDialog();
                 koniec = formular.Vypnut();
             }
+            else koniec = false;
             if (!koniec)
             {
                 this.rozhodcovia = new List<Rozhodca>();
@@ -483,57 +483,57 @@ namespace LGR_Futbal
         }
 
         private void LoadRozlozenieConfig()
-        {          
-                TextReader textReader = null;
-                bool uspech = true;
-                try
-                {
-                    string nazovSuboru = rozlozenieSubor;
-                    XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
-                    textReader = new StreamReader(nazovSuboru);
-                    rozlozenieTabule = (RozlozenieTabule)deserializer.Deserialize(textReader);
-                }
-                catch 
-                {
-                    uspech = false;
-                    //MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    if (textReader != null)
-                        textReader.Close();
+        {
+            TextReader textReader = null;
+            bool uspech = true;
+            try
+            {
+                string nazovSuboru = rozlozenieSubor;
+                XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
+                textReader = new StreamReader(nazovSuboru);
+                rozlozenieTabule = (RozlozenieTabule)deserializer.Deserialize(textReader);
+            }
+            catch
+            {
+                uspech = false;
+                //MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (textReader != null)
+                    textReader.Close();
 
-                    if (uspech)
-                        formularTabule.setLayout(rozlozenieTabule);
-                }
+                if (uspech)
+                    formularTabule.setLayout(rozlozenieTabule);
+            }
         }
 
         private void LoadFarebnaSchemaConfig()
         {
-                TextReader textReader = null;
-                bool uspech = true;
+            TextReader textReader = null;
+            bool uspech = true;
 
-                try
-                {
-                    string nazovSuboru = farebnaSchemaSubor;
-                    XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
-                    textReader = new StreamReader(nazovSuboru);
-                    farebnaSchema = (FarebnaSchema)deserializer.Deserialize(textReader);
-                }
-                catch 
-                {
-                    uspech = false;
-                    //MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    if (textReader != null)
-                        textReader.Close();
+            try
+            {
+                string nazovSuboru = farebnaSchemaSubor;
+                XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
+                textReader = new StreamReader(nazovSuboru);
+                farebnaSchema = (FarebnaSchema)deserializer.Deserialize(textReader);
+            }
+            catch
+            {
+                uspech = false;
+                //MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (textReader != null)
+                    textReader.Close();
 
-                    if (uspech)
-                        AplikujFarebnuSchemu(farebnaSchema);
-                }
-           
+                if (uspech)
+                    AplikujFarebnuSchemu(farebnaSchema);
+            }
+
         }
         private void LoadSettings()
         {
@@ -580,7 +580,7 @@ namespace LGR_Futbal
                     fs.Close();
             }
 
-            LoadAnimConfig();            
+            LoadAnimConfig();
         }
 
         private void SaveSettings()
@@ -1055,28 +1055,13 @@ namespace LGR_Futbal
         private void NastavVelkosti()
         {
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            int sirkaObr = primaryDisplay.Bounds.Width;
+            Screen primarnyDisplej = Screen.AllScreens.ElementAtOrDefault(0);
+            int sirkaObr = primarnyDisplej.Bounds.Width;
             pomer = (float)sirkaObr / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
             // Nastavenie velkosti fontu pre jednotlive labely
-            Label l;
-            Button b;
-            foreach (object item in Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    l = (Label)item;
-                    l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
-                }
-
-                if (item.GetType() == typeof(Button))
-                {
-                    b = (Button)item;
-                    b.Font = new Font(b.Font.Name, (float)Math.Floor(b.Font.Size * pomer));
-                }
-            }
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
             this.WindowState = FormWindowState.Maximized;
         }
         private void NastavTabulu()

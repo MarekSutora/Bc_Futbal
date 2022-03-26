@@ -25,7 +25,7 @@ namespace LGR_Futbal.Databaza
             this.dbtimy = dbtimy;
         }
 
-        public void PridajZapas(Zapas Zapas)
+        public void PridajZapas(Zapas z)
         {
             List<Udalost> udalosti;
             //using (OracleConnection conn = new OracleConnection(constring))
@@ -38,27 +38,27 @@ namespace LGR_Futbal.Databaza
                 OracleCommand cmd = new OracleCommand(cmdQuery1);
                 OracleParameter[] param = new OracleParameter[8];
                 param[0] = cmd.Parameters.Add("id_futbalovy_tim_domaci", OracleDbType.Int32);
-                param[0].Value = Zapas.Domaci.IdFutbalovyTim;
+                param[0].Value = z.Domaci.IdFutbalovyTim;
                 param[1] = cmd.Parameters.Add("id_futbalovy_tim_hostia", OracleDbType.Int32);
-                param[1].Value = Zapas.Hostia.IdFutbalovyTim;
+                param[1].Value = z.Hostia.IdFutbalovyTim;
                 param[2] = cmd.Parameters.Add("datum_zapasu", OracleDbType.Date);
-                param[2].Value = Zapas.DatumZapasu;
+                param[2].Value = z.DatumZapasu;
                 param[3] = cmd.Parameters.Add("domaci_skore", OracleDbType.Int32);
-                param[3].Value = Zapas.DomaciSkore;
+                param[3].Value = z.DomaciSkore;
                 param[4] = cmd.Parameters.Add("hostia_skore", OracleDbType.Int32);
-                param[4].Value = Zapas.HostiaSkore;
+                param[4].Value = z.HostiaSkore;
                 param[5] = cmd.Parameters.Add("dlzka_polcasu", OracleDbType.Int32);
-                param[5].Value = Zapas.DlzkaPolcasu;
+                param[5].Value = z.DlzkaPolcasu;
                 param[6] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int32);
-                param[6].Value = Zapas.NadstavenyCas1;
+                param[6].Value = z.NadstavenyCas1;
                 param[7] = cmd.Parameters.Add("nadstaveny_cas1", OracleDbType.Int32);
-                param[7].Value = Zapas.NadstavenyCas2;
+                param[7].Value = z.NadstavenyCas2;
 
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
 
-                udalosti = Zapas.Udalosti;
+                udalosti = z.Udalosti;
 
                 cmd.Parameters.Clear();
                 string cmdQuery2 = "SELECT MAX(id_zapas) FROM zapas";
@@ -72,36 +72,36 @@ namespace LGR_Futbal.Databaza
                 cmd.CommandText = cmdQuery3;
 
 
-                for (int i = 0; i < Zapas.Domaci.ZoznamHracov.Count; i++)
+                for (int i = 0; i < z.Domaci.ZoznamHracov.Count; i++)
                 {
-                    if (Zapas.Domaci.ZoznamHracov[i].Priradeny != 'X')
+                    if (z.Domaci.ZoznamHracov[i].Priradeny != 'X')
                     {
                         param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param2[0].Value = IdZapas;
                         param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
-                        param2[1].Value = Zapas.Domaci.ZoznamHracov[i].IdHrac;
+                        param2[1].Value = z.Domaci.ZoznamHracov[i].IdHrac;
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
-                        param2[2].Value = Zapas.Domaci.ZoznamHracov[i].IdFutbalovyTim;
+                        param2[2].Value = z.Domaci.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Char);
-                        param2[3].Value = Zapas.Domaci.ZoznamHracov[i].Priradeny;
+                        param2[3].Value = z.Domaci.ZoznamHracov[i].Priradeny;
                         cmd.ExecuteNonQuery();
                     }
                     cmd.Parameters.Clear();
                 }
 
-                for (int i = 0; i < Zapas.Hostia.ZoznamHracov.Count; i++)
+                for (int i = 0; i < z.Hostia.ZoznamHracov.Count; i++)
                 {
 
-                    if (Zapas.Hostia.ZoznamHracov[i].Priradeny != 'X')
+                    if (z.Hostia.ZoznamHracov[i].Priradeny != 'X')
                     {
                         param2[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                         param2[0].Value = IdZapas;
                         param2[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
-                        param2[1].Value = Zapas.Hostia.ZoznamHracov[i].IdHrac;
+                        param2[1].Value = z.Hostia.ZoznamHracov[i].IdHrac;
                         param2[2] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
-                        param2[2].Value = Zapas.Hostia.ZoznamHracov[i].IdFutbalovyTim;
+                        param2[2].Value = z.Hostia.ZoznamHracov[i].IdFutbalovyTim;
                         param2[3] = cmd.Parameters.Add("typ_hraca", OracleDbType.Char);
-                        param2[3].Value = Zapas.Hostia.ZoznamHracov[i].Priradeny;
+                        param2[3].Value = z.Hostia.ZoznamHracov[i].Priradeny;
                         cmd.ExecuteNonQuery();
                     }
                     cmd.Parameters.Clear();
@@ -112,7 +112,7 @@ namespace LGR_Futbal.Databaza
                     "VALUES(:id_rozhodca, :id_zapas)";
                 cmd.CommandText = cmdQuery6;
 
-                for (int i = 0; i < Zapas.Rozhodcovia.Count; i++)
+                for (int i = 0; i < z.Rozhodcovia.Count; i++)
                 {
                     param4[0] = cmd.Parameters.Add("id_rozhodca", OracleDbType.Int32);
                     param4[0].Value = IdZapas;
@@ -530,17 +530,17 @@ namespace LGR_Futbal.Databaza
         //    return ft;
         //}
 
-        public void NastavUdalosti(Zapas zapas)
+        public void NastavZapas(Zapas z)
         {
             List<Udalost> udalosti = new List<Udalost>();
-            zapas.Udalosti = udalosti;
+            z.Udalosti = udalosti;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
             try
             {
                 conn.Open();
                 string cmdQuery2 = "SELECT id_rozhodca FROM zapas_rozhodcovia WHERE id_zapas = :id_zapas";
-                OracleParameter param = new OracleParameter("id_zapas", zapas.IdZapasu);
+                OracleParameter param = new OracleParameter("id_zapas", z.IdZapasu);
                 param.OracleDbType = OracleDbType.Int32;
                 OracleCommand cmd = new OracleCommand(cmdQuery2);
                 cmd.Parameters.Add(param);
@@ -553,7 +553,7 @@ namespace LGR_Futbal.Databaza
                     {
                         Rozhodca rozhodca = new Rozhodca();
                         rozhodca = dbrozhodcovia.GetRozhodca(int.Parse(cmd.ExecuteScalar().ToString()));
-                        zapas.Rozhodcovia.Add(rozhodca);
+                        z.Rozhodcovia.Add(rozhodca);
                     }
                 }
 
@@ -569,13 +569,13 @@ namespace LGR_Futbal.Databaza
                             hrac.Priradeny = reader.GetString(4)[0];
                         if (!reader.IsDBNull(3))
                         {
-                            if (reader.GetInt32(3) == zapas.Domaci.IdFutbalovyTim)
+                            if (reader.GetInt32(3) == z.Domaci.IdFutbalovyTim)
                             {
-                                zapas.Domaci.ZoznamHracov.Add(hrac);
+                                z.Domaci.ZoznamHracov.Add(hrac);
                             }
-                            else if (reader.GetInt32(3) == zapas.Hostia.IdFutbalovyTim)
+                            else if (reader.GetInt32(3) == z.Hostia.IdFutbalovyTim)
                             {
-                                zapas.Hostia.ZoznamHracov.Add(hrac);
+                                z.Hostia.ZoznamHracov.Add(hrac);
                             }
                         }
                     }
@@ -591,7 +591,7 @@ namespace LGR_Futbal.Databaza
                 {
                     while (reader.Read())
                     {
-                        PridajUdalost(reader.GetInt32(0), reader.GetInt32(1), zapas.Udalosti);
+                        PridajUdalost(reader.GetInt32(0), reader.GetInt32(1), z.Udalosti);
                     }
                 }
                 conn.Close();

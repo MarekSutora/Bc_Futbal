@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using System.Timers;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
@@ -24,8 +25,6 @@ namespace LGR_Futbal.Forms
 
             this.video = video;
             this.riadiaci = rf;
-            float pomer = (float)sirka / (float)this.Width;
-            Scale(new SizeF(pomer, pomer));
         }
 
         private void Casovac_Elapsed(object sender, ElapsedEventArgs e)
@@ -40,11 +39,7 @@ namespace LGR_Futbal.Forms
 
         private void ReklamaForm_Load(object sender, EventArgs e)
         {
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var extendedDisplay = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-
-            this.Left = extendedDisplay.WorkingArea.Left;
-            this.Top = extendedDisplay.WorkingArea.Top;
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             FileInfo fi = new FileInfo(video);
             this.vlcControl1.SetMedia(fi);

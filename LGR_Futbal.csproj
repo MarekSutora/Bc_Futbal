@@ -353,6 +353,7 @@
     <Compile Include="Setup\FarebnaSchema.cs" />
     <Compile Include="Setup\FontyTabule.cs" />
     <Compile Include="Model\Hrac.cs" />
+    <Compile Include="Setup\LayoutSetter.cs" />
     <Compile Include="Setup\ParametreZapasu.cs" />
     <Compile Include="Setup\RozlozenieTabule.cs" />
     <Compile Include="Model\FutbalovyTim.cs" />

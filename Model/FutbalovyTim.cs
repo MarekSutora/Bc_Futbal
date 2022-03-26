@@ -7,11 +7,9 @@ namespace LGR_Futbal.Model
 {
     public class FutbalovyTim
     {
-        private string nazov;
-        private string logo;
         private List<Hrac> zoznamHracov;
-        public string NazovTimu { get => nazov; set => nazov = value; }
-        public string Logo { get => logo; set => logo = value; }
+        public string NazovTimu { get; set; }
+        public string Logo { get; set; }
         public byte[] LogoBlob { get; set; }
         public Image LogoImage { get; set; }
         public List<Hrac> ZoznamHracov { get => zoznamHracov; set => zoznamHracov = value; }

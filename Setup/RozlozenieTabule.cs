@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LGR_Futbal.Setup
 {
+    [Serializable]
     public class RozlozenieTabule
     {
         public int CasX { get; set; }

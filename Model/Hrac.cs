@@ -28,7 +28,7 @@ namespace LGR_Futbal.Model
             Priezvisko = string.Empty;
         }
 
-        public int getVek()
+        public int GetVek()
         {
             var today = DateTime.Today;
             int age = today.Year - DatumNarodenia.Year;
