@@ -8,30 +8,23 @@ namespace LGR_Futbal.Setup
 
         public string Nazov { get; set; }
        
-        public int Minuty { get; set; }
+        public int DlzkaPolcasu { get; set; }
         
         public bool Prerusenie { get; set; }
 
         public ParametreZapasu()
         {
             Nazov = "unknown";
-            Minuty = 45;
+            DlzkaPolcasu = 45;
             Prerusenie = false;
         }
 
-        public ParametreZapasu(string n, int m, bool p)
-        {
-            Nazov = n;
-            Minuty = m;
-            Prerusenie = p;
-        }
-
-        public string toString()
+        public override string ToString()
         {
             if (Prerusenie)
-                return Nazov + " - 2x" + Minuty + " - P";
+                return Nazov + " - 2x" + DlzkaPolcasu + " - P";
             else
-                return Nazov + " - 2x" + Minuty + " - x";
+                return Nazov + " - 2x" + DlzkaPolcasu + " - x";
         }
     }
 }

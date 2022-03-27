@@ -24,7 +24,7 @@ namespace LGR_Futbal.Forms
     public delegate void NazvyLogaConfirmedHandler(string domNazov, Image domaciLogo, string hosNazov, Image hosLogo);
     public delegate void TimySelectedHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
     public delegate void ObnovaFariebHandler();
-    public delegate void ColorsLoadedHandler(FarebnaSchema fs);
+    public delegate void ColorsLoadedHandler(FarbyTabule fs);
     public delegate void ObnovaFontovHandler();
     public delegate void LanguageSelectedHandler(int cislo);
     public delegate void AnimacieKarietConfirmedHandler(string s1, string s2);
@@ -51,7 +51,7 @@ namespace LGR_Futbal.Forms
         private FutbalovyTim hostiaT = null;
 
         private string originalFolder = null;
-        private FarebnaSchema nastaveniaFarieb;
+        private FarbyTabule nastaveniaFarieb;
         private RozlozenieForm rf = null;
         private FontyForm fontyForm = null;
 
@@ -95,7 +95,7 @@ namespace LGR_Futbal.Forms
         public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string logoDom, string logoHos, string nazovDom, string nazovHos,
             FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
-            FontyTabule fonty, FarebnaSchema schema, AnimacnaKonfiguracia konfiguracia,
+            FontyTabule fonty, FarbyTabule schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena, List<Rozhodca> rozhodcovia,
             DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
         {
@@ -665,7 +665,7 @@ namespace LGR_Futbal.Forms
                 if (zoznamTypovZapasu.Count > 0)
                 {
                     foreach (ParametreZapasu pz in zoznamTypovZapasu)
-                        typyZapasovListBox.Items.Add(pz.toString());
+                        typyZapasovListBox.Items.Add(pz.ToString());
 
                     typyZapasovListBox.SelectedIndex = 0;
                     odstranitTypZapasuButton.Enabled = true;
@@ -718,7 +718,7 @@ namespace LGR_Futbal.Forms
         private void Tzf_onNovyTypZapasu(ParametreZapasu parZap)
         {
             zoznamTypovZapasu.Add(parZap);
-            typyZapasovListBox.Items.Add(parZap.toString());
+            typyZapasovListBox.Items.Add(parZap.ToString());
             typyZapasovListBox.SelectedIndex = 0;
 
             odstranitTypZapasuButton.Enabled = true;
@@ -731,7 +731,7 @@ namespace LGR_Futbal.Forms
             if (index >= 0)
             {
                 ParametreZapasu pz = zoznamTypovZapasu[index];
-                dlzkaPolcasuNumUpDown.Value = pz.Minuty;
+                dlzkaPolcasuNumUpDown.Value = pz.DlzkaPolcasu;
                 prerusenieCheckBox.Checked = pz.Prerusenie;
             }
         }
@@ -762,7 +762,7 @@ namespace LGR_Futbal.Forms
             ff.Show();
         }
 
-        private void Ff_OnColorsLoaded(FarebnaSchema s)
+        private void Ff_OnColorsLoaded(FarbyTabule s)
         {
             if (OnColorsLoaded != null)
             {
@@ -843,8 +843,8 @@ namespace LGR_Futbal.Forms
 
         private void InicializujNastaveniaAnimacii()
         {
-            checkBox1.Checked = konfig.ZobrazitPreddefinovanuAnimaciuDomaci;
-            checkBox2.Checked = konfig.ZobrazitPreddefinovanuAnimaciuHostia;
+            checkBox1.Checked = konfig.ZobrazitAnimaciuDomaci;
+            checkBox2.Checked = konfig.ZobrazitAnimaciuHostia;
 
             FileInfo fi;
             string nazov;
@@ -872,8 +872,8 @@ namespace LGR_Futbal.Forms
 
         private void UlozNastaveniaAnimacii()
         {
-            konfig.ZobrazitPreddefinovanuAnimaciuDomaci = checkBox1.Checked;
-            konfig.ZobrazitPreddefinovanuAnimaciuHostia = checkBox2.Checked;
+            konfig.ZobrazitAnimaciuDomaci = checkBox1.Checked;
+            konfig.ZobrazitAnimaciuHostia = checkBox2.Checked;
 
             konfig.AnimacieDomaci.Clear();
             konfig.AnimacieHostia.Clear();

@@ -31,7 +31,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, Setup.FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
+        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
 

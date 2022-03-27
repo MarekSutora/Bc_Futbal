@@ -4,36 +4,28 @@ using System.Drawing;
 namespace LGR_Futbal.Setup
 {
     [Serializable]
-    public class FarebnaSchema
+    public class FarbyTabule
     {
         public int CasFarba_r { get; set; }
         public int PolcasFarba_r { get; set; }
-        //public int PredlzenieFarba_r { get; set; }
-        //public int KoniecFarba_r { get; set; }
         public int NadpisDomFarba_r { get; set; }
         public int NadpisHosFarba_r { get; set; }
         public int SkoreFarba_r { get; set; }
         public int CasFarba_g { get; set; }
         public int PolcasFarba_g { get; set; }
-        //public int PredlzenieFarba_g { get; set; }
-        //public int KoniecFarba_g { get; set; }
         public int NadpisDomFarba_g { get; set; }
         public int NadpisHosFarba_g { get; set; }
         public int SkoreFarba_g { get; set; }
         public int CasFarba_b { get; set; }
         public int PolcasFarba_b { get; set; }
-        //public int PredlzenieFarba_b { get; set; }
-        //public int KoniecFarba_b { get; set; }
         public int NadpisDomFarba_b { get; set; }
         public int NadpisHosFarba_b { get; set; }
         public int SkoreFarba_b { get; set; }
 
-        public FarebnaSchema()
+        public FarbyTabule()
         {
             setCasFarba(Color.White);
             setPolcasFarba(Color.White);
-            //setPredlzenieFarba(Color.White);
-            //setKoniecFarba(Color.White);
             setNadpisDomFarba(Color.White);
             setNadpisHosFarba(Color.White);
             setSkoreFarba(Color.White);
@@ -52,20 +44,6 @@ namespace LGR_Futbal.Setup
             PolcasFarba_g = f.G;
             PolcasFarba_b = f.B;
         }
-
-        //public void setPredlzenieFarba(Color f)
-        //{
-        //    PredlzenieFarba_r = f.R;
-        //    PredlzenieFarba_g = f.G;
-        //    PredlzenieFarba_b = f.B;
-        //}
-
-        //public void setKoniecFarba(Color f)
-        //{
-        //    KoniecFarba_r = f.R;
-        //    KoniecFarba_g = f.G;
-        //    KoniecFarba_b = f.B;
-        //}
 
         public void setNadpisDomFarba(Color f)
         {
@@ -98,15 +76,6 @@ namespace LGR_Futbal.Setup
             return Color.FromArgb(PolcasFarba_r, PolcasFarba_g, PolcasFarba_b);
         }
 
-        //public Color PredlzenieFarba()
-        //{
-        //    return Color.FromArgb(PredlzenieFarba_r, PredlzenieFarba_g, PredlzenieFarba_b);
-        //}
-
-        //public Color KoniecFarba()
-        //{
-        //    return Color.FromArgb(KoniecFarba_r, KoniecFarba_g, KoniecFarba_b);
-        //}
 
         public Color NadpisDomFarba()
         {

@@ -28,7 +28,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, Setup.FarbyPrezentacie farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
+        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacie farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
         {
             InitializeComponent();
 

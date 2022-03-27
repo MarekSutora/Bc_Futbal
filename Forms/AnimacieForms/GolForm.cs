@@ -35,19 +35,19 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public GolForm(string folder, int sirka, int cas, Hrac h, FontyTabule fonty, Setup.FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
+        public GolForm(string folder, int sirka, int cas, Hrac h, FontyTabule fonty, FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
         {
             InitializeComponent();
             adresar = folder;
 
             if (domaci)
             {
-                zobrazitDefault = animacie.ZobrazitPreddefinovanuAnimaciuDomaci;
+                zobrazitDefault = animacie.ZobrazitAnimaciuDomaci;
                 subory = animacie.AnimacieDomaci;
             }
             else
             {
-                zobrazitDefault = animacie.ZobrazitPreddefinovanuAnimaciuHostia;
+                zobrazitDefault = animacie.ZobrazitAnimaciuHostia;
                 subory = animacie.AnimacieHostia;
             }
 

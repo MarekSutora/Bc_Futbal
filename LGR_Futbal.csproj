@@ -350,7 +350,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup\AnimacnaKonfiguracia.cs" />
     <Compile Include="Setup\FarbyPrezentacie.cs" />
-    <Compile Include="Setup\FarebnaSchema.cs" />
+    <Compile Include="Setup\FarbyTabule.cs" />
     <Compile Include="Setup\FontyTabule.cs" />
     <Compile Include="Model\Hrac.cs" />
     <Compile Include="Setup\LayoutSetter.cs" />

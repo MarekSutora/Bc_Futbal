@@ -101,7 +101,7 @@ namespace LGR_Futbal.Forms
             skoreHostiaLabel.ForeColor = Color.Red;
         }
 
-        public void setColors(FarebnaSchema fs)
+        public void setColors(FarbyTabule fs)
         {
             casColor = fs.CasFarba();
             casLabel.ForeColor = casColor;

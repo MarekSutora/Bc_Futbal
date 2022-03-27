@@ -23,6 +23,9 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
+            float pomer = (float)sirka / (float)this.Width;
+            Scale(new SizeF(pomer, pomer));
+
             this.video = video;
             this.riadiaci = rf;
         }

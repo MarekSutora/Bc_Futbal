@@ -10,7 +10,7 @@ namespace LGR_Futbal.Forms
 {
     public delegate void FileSavedHandler(string s);
     public delegate void ObnovaFariebHandlerFF();
-    public delegate void ColorsLoadedHandlerFF(FarebnaSchema fs);
+    public delegate void ColorsLoadedHandlerFF(FarbyTabule fs);
     public delegate void FileSelectedHandlerFF(string cesta);
 
     public partial class FarbyForm : Form
@@ -19,9 +19,9 @@ namespace LGR_Futbal.Forms
         //public event FileSavedHandler OnFileSaved;
         public event ObnovaFariebHandlerFF OnObnovaFariebFF;
         public event ColorsLoadedHandlerFF OnColorsLoadedFF;
-        private FarebnaSchema fs = null;
+        private FarbyTabule fs = null;
 
-        public FarbyForm(string cesta, FarebnaSchema fs)
+        public FarbyForm(string cesta, FarbyTabule fs)
         {
             InitializeComponent();
             if (Settings.Default.Jazyk == 1)
@@ -103,20 +103,20 @@ namespace LGR_Futbal.Forms
 
                 try
                 {
-                    FarebnaSchema sch = new FarebnaSchema();
+                    FarbyTabule sch = new FarbyTabule();
                     sch.setNadpisDomFarba(label1.ForeColor);
                     sch.setNadpisHosFarba(label2.ForeColor);
                     sch.setCasFarba(label3.ForeColor);
                     sch.setSkoreFarba(label4.ForeColor);
                     sch.setPolcasFarba(label5.ForeColor);
 
-                    XmlSerializer serializer = new XmlSerializer(typeof(FarebnaSchema));
+                    XmlSerializer serializer = new XmlSerializer(typeof(FarbyTabule));
                     textWriter = new StreamWriter(sfd.FileName);
                     serializer.Serialize(textWriter, sch);
                 }
                 catch (Exception ex)
                 { 
-                    MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -202,13 +202,13 @@ namespace LGR_Futbal.Forms
         {
             TextReader textReader = null;
             bool uspech = true;
-            FarebnaSchema schema = null;
+            FarbyTabule schema = null;
 
             try
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(FarebnaSchema));
+                XmlSerializer deserializer = new XmlSerializer(typeof(FarbyTabule));
                 textReader = new StreamReader(cesta);
-                schema = (FarebnaSchema)deserializer.Deserialize(textReader);
+                schema = (FarbyTabule)deserializer.Deserialize(textReader);
             }
             catch (Exception ex)
             {

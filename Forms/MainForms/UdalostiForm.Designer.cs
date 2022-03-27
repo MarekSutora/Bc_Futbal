@@ -349,9 +349,9 @@
             this.timCB.AutoSize = true;
             this.timCB.Location = new System.Drawing.Point(1175, 240);
             this.timCB.Name = "timCB";
-            this.timCB.Size = new System.Drawing.Size(47, 17);
+            this.timCB.Size = new System.Drawing.Size(60, 17);
             this.timCB.TabIndex = 20;
-            this.timCB.Text = "tím1";
+            this.timCB.Text = "domáci";
             this.timCB.UseVisualStyleBackColor = true;
             // 
             // tim2CB
@@ -359,9 +359,9 @@
             this.tim2CB.AutoSize = true;
             this.tim2CB.Location = new System.Drawing.Point(1175, 263);
             this.tim2CB.Name = "tim2CB";
-            this.tim2CB.Size = new System.Drawing.Size(47, 17);
+            this.tim2CB.Size = new System.Drawing.Size(54, 17);
             this.tim2CB.TabIndex = 21;
-            this.tim2CB.Text = "tím2";
+            this.tim2CB.Text = "hostia";
             this.tim2CB.UseVisualStyleBackColor = true;
             // 
             // databazaButton

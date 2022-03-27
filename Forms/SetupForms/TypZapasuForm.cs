@@ -41,7 +41,7 @@ namespace LGR_Futbal.Forms
             {
                 ParametreZapasu pz = new ParametreZapasu();
                 pz.Nazov = n;
-                pz.Minuty = (int)minutyNum.Value;
+                pz.DlzkaPolcasu = (int)minutyNum.Value;
                 pz.Prerusenie = prerCheckBox.Checked;
 
                 if (onNovyTypZapasu != null)
