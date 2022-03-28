@@ -95,7 +95,7 @@ namespace LGR_Futbal.Forms
         public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string logoDom, string logoHos, string nazovDom, string nazovHos,
             FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
-            FontyTabule fonty, FarbyTabule schema, AnimacnaKonfiguracia konfiguracia,
+            FarbyTabule schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena, List<Rozhodca> rozhodcovia,
             DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
         {

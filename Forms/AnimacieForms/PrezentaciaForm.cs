@@ -74,16 +74,16 @@ namespace LGR_Futbal.Forms
             uvodnyPanel.Visible = true;
 
             // Nastavenie farieb podla volby
-            nazovLabel.ForeColor = farby.NadpisFarba();
-            nahradniciLabel.ForeColor = farby.NadpisFarba();
-            label1.ForeColor = farby.NadpisFarba();
-            cisloHracaLabel.ForeColor = farby.CisloFarba();
-            menoHracaLabel.ForeColor = farby.MenoFarba();
-            label2.ForeColor = farby.ZakladFarba();
-            label5.ForeColor = farby.ZakladFarba();
-            vekLabel.ForeColor = farby.UdajeFarba();
-            infoRichTextBox.ForeColor = farby.UdajeFarba();
-            postLabel.ForeColor = farby.UdajeFarba();
+            nazovLabel.ForeColor = farby.GetNadpisFarba();
+            nahradniciLabel.ForeColor = farby.GetNadpisFarba();
+            label1.ForeColor = farby.GetNadpisFarba();
+            cisloHracaLabel.ForeColor = farby.GetCisloFarba();
+            menoHracaLabel.ForeColor = farby.GetMenoFarba();
+            label2.ForeColor = farby.GetZakladFarba();
+            label5.ForeColor = farby.GetZakladFarba();
+            vekLabel.ForeColor = farby.GetUdajeFarba();
+            infoRichTextBox.ForeColor = farby.GetUdajeFarba();
+            postLabel.ForeColor = farby.GetUdajeFarba();
 
             // Nastavenie fontov podla volby
             nazovLabel.Font = fonty.CreateNazvyFont();

@@ -28,7 +28,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacie farby, FontyTabule pismaPrezentacie, FontyTabule pisma)
+        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacie farby, FontyTabule pisma)
         {
             InitializeComponent();
 
@@ -94,12 +94,12 @@ namespace LGR_Futbal.Forms
             }
 
             // Nastavenie farieb podla volby
-            nazovLabel.ForeColor = farby.NadpisFarba();
-            label1.ForeColor = farby.NadpisFarba();
+            nazovLabel.ForeColor = farby.GetNadpisFarba();
+            label1.ForeColor = farby.GetNadpisFarba();
             
             // Nastavenie fontov podla volby
-            nazovLabel.Font = pismaPrezentacie.CreateNazvyFont();
-            label1.Font = pismaPrezentacie.CreateSkoreFont();
+            nazovLabel.Font = pisma.CreateNazvyFont();
+            label1.Font = pisma.CreateSkoreFont();
 
             cisloHraca1Label.Font = pisma.CreateStriedaniaFont();
             menoHraca1Label.Font = pisma.CreateStriedaniaFont();

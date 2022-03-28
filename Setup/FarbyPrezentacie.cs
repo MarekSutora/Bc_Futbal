@@ -6,89 +6,87 @@ namespace LGR_Futbal.Setup
     [Serializable]
     public class FarbyPrezentacie
     {
-        public int Zaklad_r { get; set; }
-        public int Zaklad_g { get; set; }
-        public int Zaklad_b { get; set; }
-        public int Udaje_r { get; set; }
-        public int Udaje_g { get; set; }
-        public int Udaje_b { get; set; }
-        public int Cislo_r { get; set; }
-        public int Cislo_g { get; set; }
-        public int Cislo_b { get; set; }
-        public int Meno_r { get; set; }
-        public int Meno_g { get; set; }
-        public int Meno_b { get; set; }
-        public int Nadpis_r { get; set; }
-        public int Nadpis_g { get; set; }
-        public int Nadpis_b { get; set; }
+        public int ZakladFarba_r { get; set; }
+        public int ZakladFarba_g { get; set; }
+        public int ZakladFarba_b { get; set; }
+        public int UdajeFarba_r { get; set; }
+        public int UdajeFarba_g { get; set; }
+        public int UdajeFarba_b { get; set; }
+        public int CisloFarba_r { get; set; }
+        public int CislFarbao_g { get; set; }
+        public int CisloFarba_b { get; set; }
+        public int MenoFarba_r { get; set; }
+        public int MenoFarba_g { get; set; }
+        public int MenoFarba_b { get; set; }
+        public int NadpisFarba_r { get; set; }
+        public int NadpisFarba_g { get; set; }
+        public int NadpisFarba_b { get; set; }
 
         public FarbyPrezentacie()
         {
-            setNadpis(Color.White);
-            setZaklad(Color.White);
-            SetUdaje(Color.White);
-            SetCislo(Color.White);
-            SetMeno(Color.White);
+            SetNadpisFarba(Color.White);
+            SetZakladFarba(Color.White);
+            SetUdajeFarba(Color.White);
+            SetCisloFarba(Color.White);
+            SetMenoFarba(Color.White);
         }
 
-        public void setZaklad(Color f)
+        public void SetZakladFarba(Color f)
         {
-            Zaklad_r = f.R;
-            Zaklad_g = f.G;
-            Zaklad_b = f.B;
+            ZakladFarba_r = f.R;
+            ZakladFarba_g = f.G;
+            ZakladFarba_b = f.B;
         }
 
-        public Color NadpisFarba()
+        public void SetNadpisFarba(Color f)
         {
-            return Color.FromArgb(Nadpis_r, Nadpis_g, Nadpis_b);
+            NadpisFarba_r = f.R;
+            NadpisFarba_g = f.G;
+            NadpisFarba_b = f.B;
         }
 
-        public void setNadpis(Color f)
+        public void SetUdajeFarba(Color f)
         {
-            Nadpis_r = f.R;
-            Nadpis_g = f.G;
-            Nadpis_b = f.B;
+            UdajeFarba_r = f.R;
+            UdajeFarba_g = f.G;
+            UdajeFarba_b = f.B;
         }
 
-        public Color ZakladFarba()
+        public void SetCisloFarba(Color f)
         {
-            return Color.FromArgb(Zaklad_r, Zaklad_g, Zaklad_b);
+            CisloFarba_r = f.R;
+            CislFarbao_g = f.G;
+            CisloFarba_b = f.B;
+        }
+        public void SetMenoFarba(Color f)
+        {
+            MenoFarba_r = f.R;
+            MenoFarba_g = f.G;
+            MenoFarba_b = f.B;
+        }
+        public Color GetZakladFarba()
+        {
+            return Color.FromArgb(ZakladFarba_r, ZakladFarba_g, ZakladFarba_b);
         }
 
-        public void SetUdaje(Color f)
+        public Color GetNadpisFarba()
         {
-            Udaje_r = f.R;
-            Udaje_g = f.G;
-            Udaje_b = f.B;
+            return Color.FromArgb(NadpisFarba_r, NadpisFarba_g, NadpisFarba_b);
+        }
+        
+        public Color GetUdajeFarba()
+        {
+            return Color.FromArgb(UdajeFarba_r, UdajeFarba_g, UdajeFarba_b);
         }
 
-        public Color UdajeFarba()
+        public Color GetCisloFarba()
         {
-            return Color.FromArgb(Udaje_r, Udaje_g, Udaje_b);
+            return Color.FromArgb(CisloFarba_r, CislFarbao_g, CisloFarba_b);
         }
 
-        public void SetCislo(Color f)
+        public Color GetMenoFarba()
         {
-            Cislo_r = f.R;
-            Cislo_g = f.G;
-            Cislo_b = f.B;
-        }
-
-        public Color CisloFarba()
-        {
-            return Color.FromArgb(Cislo_r, Cislo_g, Cislo_b);
-        }
-
-        public void SetMeno(Color f)
-        {
-            Meno_r = f.R;
-            Meno_g = f.G;
-            Meno_b = f.B;
-        }
-
-        public Color MenoFarba()
-        {
-            return Color.FromArgb(Meno_r, Meno_g, Meno_b);
+            return Color.FromArgb(MenoFarba_r, MenoFarba_g, MenoFarba_b);
         }
     }
 }

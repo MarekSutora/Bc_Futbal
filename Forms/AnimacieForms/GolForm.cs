@@ -90,22 +90,22 @@ namespace LGR_Futbal.Forms
             }
 
             // Nastavenie farieb podla volby
-            cisloHracaLabel.ForeColor = farby.CisloFarba();
-            menoHracaLabel.ForeColor = farby.MenoFarba();
-            label2.ForeColor = farby.ZakladFarba();
-            label5.ForeColor = farby.ZakladFarba();
-            vekLabel.ForeColor = farby.UdajeFarba();
-            infoRichTextBox.ForeColor = farby.UdajeFarba();
-            postLabel.ForeColor = farby.UdajeFarba();
+            cisloHracaLabel.ForeColor = farby.GetCisloFarba();
+            menoHracaLabel.ForeColor = farby.GetMenoFarba();
+            label2.ForeColor = farby.GetZakladFarba();
+            label5.ForeColor = farby.GetZakladFarba();
+            vekLabel.ForeColor = farby.GetUdajeFarba();
+            infoRichTextBox.ForeColor = farby.GetUdajeFarba();
+            postLabel.ForeColor = farby.GetUdajeFarba();
 
             // Nastavenie fontov podla volby
-            cisloHracaLabel.Font = fonty.CreatePolcasFont();
-            menoHracaLabel.Font = fonty.CreatePolcasFont();
-            label2.Font = fonty.CreateCasFont();
-            label5.Font = fonty.CreateCasFont();
-            vekLabel.Font = fonty.CreateCasFont();
-            infoRichTextBox.Font = fonty.CreateCasFont();
-            postLabel.Font = fonty.CreateCasFont();
+            cisloHracaLabel.Font = fonty.CreateCisloMenoPrezentaciaFont();
+            menoHracaLabel.Font = fonty.CreateCisloMenoPrezentaciaFont();
+            label2.Font = fonty.CreateUdajePrezentaciaFont();
+            label5.Font = fonty.CreateUdajePrezentaciaFont();
+            vekLabel.Font = fonty.CreateUdajePrezentaciaFont();
+            infoRichTextBox.Font = fonty.CreateUdajePrezentaciaFont();
+            postLabel.Font = fonty.CreateUdajePrezentaciaFont();
 
             pocetZobrazenychAnimacii = 0;
             if (subory.Count > 0)

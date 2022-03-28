@@ -61,26 +61,26 @@ namespace LGR_Futbal.Forms
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
 
-            this.RozlozenieTabule.CasX = this.casLabel.Left;
-            this.RozlozenieTabule.CasY = this.casLabel.Top;
-            this.RozlozenieTabule.DomaciX = this.domaciLabel.Left;
-            this.RozlozenieTabule.DomaciY = this.domaciLabel.Top;
-            this.RozlozenieTabule.HostiaX = this.hostiaLabel.Left;
-            this.RozlozenieTabule.HostiaY = this.hostiaLabel.Top;
-            this.RozlozenieTabule.DomaciSkoreX = this.skoreDomaciLabel.Left;
-            this.RozlozenieTabule.DomaciSkoreY = this.skoreDomaciLabel.Top;
-            this.RozlozenieTabule.HostiaSkoreX = this.skoreHostiaLabel.Left;
-            this.RozlozenieTabule.HostiaSkoreY = this.skoreHostiaLabel.Top;
-            this.RozlozenieTabule.LogoDomaciX = this.logoDomaci.Left;
-            this.RozlozenieTabule.LogoDomaciY = this.logoDomaci.Top;
+            this.RozlozenieTabule.Cas_X = this.casLabel.Left;
+            this.RozlozenieTabule.Cas_Y = this.casLabel.Top;
+            this.RozlozenieTabule.Domaci_X = this.domaciLabel.Left;
+            this.RozlozenieTabule.Domaci_Y = this.domaciLabel.Top;
+            this.RozlozenieTabule.Hostia_X = this.hostiaLabel.Left;
+            this.RozlozenieTabule.Hostia_Y = this.hostiaLabel.Top;
+            this.RozlozenieTabule.DomaciSkore_X = this.skoreDomaciLabel.Left;
+            this.RozlozenieTabule.DomaciSkore_Y = this.skoreDomaciLabel.Top;
+            this.RozlozenieTabule.HostiaSkore_X = this.skoreHostiaLabel.Left;
+            this.RozlozenieTabule.HostiaSkore_Y = this.skoreHostiaLabel.Top;
+            this.RozlozenieTabule.LogoDomaci_X = this.logoDomaci.Left;
+            this.RozlozenieTabule.LogoDomaci_Y = this.logoDomaci.Top;
             this.RozlozenieTabule.LogoDomaciZobrazit = true;
             this.RozlozenieTabule.LogoDomaciSirka = this.logoDomaci.Width;
-            this.RozlozenieTabule.LogoHostiaX = this.logoHostia.Left;
-            this.RozlozenieTabule.LogoHostiaY = this.logoHostia.Top;
+            this.RozlozenieTabule.LogoHostia_X = this.logoHostia.Left;
+            this.RozlozenieTabule.LogoHostia_Y = this.logoHostia.Top;
             this.RozlozenieTabule.LogoHostiaZobrazit = true;
             this.RozlozenieTabule.LogoHostiaSirka = this.logoHostia.Width;
-            this.RozlozenieTabule.polCasX = this.polcasLabel.Left;
-            this.RozlozenieTabule.polCasY = this.polcasLabel.Top;
+            this.RozlozenieTabule.Polcas_X = this.polcasLabel.Left;
+            this.RozlozenieTabule.Polcas_Y = this.polcasLabel.Top;
         }
 
         private void TabulaForm_Load(object sender, EventArgs e)
@@ -103,15 +103,15 @@ namespace LGR_Futbal.Forms
 
         public void setColors(FarbyTabule fs)
         {
-            casColor = fs.CasFarba();
+            casColor = fs.GetCasFarba();
             casLabel.ForeColor = casColor;
-            polcasColor = fs.PolcasFarba();
+            polcasColor = fs.GetPolcasFarba();
             polcasLabel.ForeColor = polcasColor;
 
-            domaciLabel.ForeColor = fs.NadpisDomFarba();
-            hostiaLabel.ForeColor = fs.NadpisHosFarba();
-            skoreDomaciLabel.ForeColor = fs.SkoreFarba();
-            skoreHostiaLabel.ForeColor = fs.SkoreFarba();
+            domaciLabel.ForeColor = fs.GetNadpisDomFarba();
+            hostiaLabel.ForeColor = fs.GetNadpisHosFarba();
+            skoreDomaciLabel.ForeColor = fs.GetSkoreFarba();
+            skoreHostiaLabel.ForeColor = fs.GetSkoreFarba();
         }
 
         public void ZobrazLogoDomaci(Image obrazok)
@@ -207,8 +207,8 @@ namespace LGR_Futbal.Forms
             }
             else
             {
-                this.logoDomaci.Left = rozlozenie.LogoDomaciX;
-                this.logoDomaci.Top = rozlozenie.LogoDomaciY;
+                this.logoDomaci.Left = rozlozenie.LogoDomaci_X;
+                this.logoDomaci.Top = rozlozenie.LogoDomaci_Y;
                 this.logoDomaci.Width = rozlozenie.LogoDomaciSirka;
                 this.logoDomaci.Height = (int)(pom * this.logoDomaci.Width);
                 this.logoDomaci.Visible = true;
@@ -220,30 +220,30 @@ namespace LGR_Futbal.Forms
             }
             else
             {
-                this.logoHostia.Left = rozlozenie.LogoHostiaX;
-                this.logoHostia.Top = rozlozenie.LogoHostiaY;
+                this.logoHostia.Left = rozlozenie.LogoHostia_X;
+                this.logoHostia.Top = rozlozenie.LogoHostia_Y;
                 this.logoHostia.Width = rozlozenie.LogoHostiaSirka;
                 this.logoHostia.Height = (int)(pom * this.logoHostia.Width);
                 this.logoHostia.Visible = true;
             }
 
-            this.skoreDomaciLabel.Left = rozlozenie.DomaciSkoreX;
-            this.skoreDomaciLabel.Top = rozlozenie.DomaciSkoreY;
+            this.skoreDomaciLabel.Left = rozlozenie.DomaciSkore_X;
+            this.skoreDomaciLabel.Top = rozlozenie.DomaciSkore_Y;
 
-            this.skoreHostiaLabel.Left = rozlozenie.HostiaSkoreX;
-            this.skoreHostiaLabel.Top = rozlozenie.HostiaSkoreY;
+            this.skoreHostiaLabel.Left = rozlozenie.HostiaSkore_X;
+            this.skoreHostiaLabel.Top = rozlozenie.HostiaSkore_Y;
 
-            this.hostiaLabel.Left = rozlozenie.HostiaX;
-            this.hostiaLabel.Top = rozlozenie.HostiaY;
+            this.hostiaLabel.Left = rozlozenie.Hostia_X;
+            this.hostiaLabel.Top = rozlozenie.Hostia_Y;
 
-            this.domaciLabel.Left = rozlozenie.DomaciX;
-            this.domaciLabel.Top = rozlozenie.DomaciY;
+            this.domaciLabel.Left = rozlozenie.Domaci_X;
+            this.domaciLabel.Top = rozlozenie.Domaci_Y;
 
-            this.casLabel.Left = rozlozenie.CasX;
-            this.casLabel.Top = rozlozenie.CasY;
+            this.casLabel.Left = rozlozenie.Cas_X;
+            this.casLabel.Top = rozlozenie.Cas_Y;
 
-            this.polcasLabel.Left = rozlozenie.polCasX;
-            this.polcasLabel.Top = rozlozenie.polCasY;
+            this.polcasLabel.Left = rozlozenie.Polcas_X;
+            this.polcasLabel.Top = rozlozenie.Polcas_Y;
 
         }
 

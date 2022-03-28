@@ -71,7 +71,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void potvrdKartu()
+        private void PotvrdKartu()
         {
             if (OnHracZltaKartaSelected != null)
             {
@@ -100,7 +100,7 @@ namespace LGR_Futbal.Forms
 
         private void PotvrditButton_Click(object sender, EventArgs e)
         {
-            potvrdKartu();
+            PotvrdKartu();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace LGR_Futbal.Forms
         private void hraciLB_DoubleClick(object sender, EventArgs e)
         {
             if (hraciLB.SelectedIndex >= 0)
-                potvrdKartu();
+                PotvrdKartu();
         }
 
         private void CervenaKartaSettingsForm_KeyDown(object sender, KeyEventArgs e)

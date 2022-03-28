@@ -66,10 +66,6 @@ namespace LGR_Futbal.Forms
                 hostiaButton.Enabled = false;
             else if (hos.ZoznamHracov.Count == 0)
                 hostiaButton.Enabled = false;
-
-            //farbyDom = new FarbyPrezentacie();
-            //farbyHos = new FarbyPrezentacie();
-            //nacitajFarby();
         }
 
         public Setup.FarbyPrezentacie GetFarbyDom()
@@ -84,85 +80,9 @@ namespace LGR_Futbal.Forms
 
         private void PredstavenieSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //ulozFarby();
             if (OnNastaveniaConfirmed != null)
                 OnNastaveniaConfirmed(checkBox1.Checked);
         }
-
-        //private void ulozFarby()
-        //{
-        //    TextWriter textWriter1 = null;
-        //    TextWriter textWriter2 = null;
-
-        //    try
-        //    {
-        //        XmlSerializer serializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
-        //        textWriter1 = new StreamWriter(adresar + "\\Files\\DomaciPrezentacia.xml");
-        //        serializer.Serialize(textWriter1, farbyDom);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally
-        //    {
-        //        if (textWriter1 != null)
-        //            textWriter1.Close();
-        //    }
-
-        //    try
-        //    {
-        //        XmlSerializer serializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
-        //        textWriter2 = new StreamWriter(adresar + "\\Files\\HostiaPrezentacia.xml");
-        //        serializer.Serialize(textWriter2, farbyHos);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally
-        //    {
-        //        if (textWriter2 != null)
-        //            textWriter2.Close();
-        //    }
-        //}
-
-        //private void nacitajFarby()
-        //{
-        //    TextReader textReader1 = null;
-        //    TextReader textReader2 = null;
-        //    try
-        //    {
-        //        XmlSerializer deserializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
-        //        textReader1 = new StreamReader(adresar + "\\Files\\DomaciPrezentacia.xml");
-        //        farbyDom = (Setup.FarbyPrezentacie)deserializer.Deserialize(textReader1);
-        //    }
-        //    catch
-        //    {
-        //        farbyDom = new Setup.FarbyPrezentacie();
-        //    }
-        //    finally
-        //    {
-        //        if (textReader1 != null)
-        //            textReader1.Close();
-        //    }
-
-        //    try
-        //    {
-        //        XmlSerializer deserializer = new XmlSerializer(typeof(Setup.FarbyPrezentacie));
-        //        textReader2 = new StreamReader(adresar + "\\Files\\HostiaPrezentacia.xml");
-        //        farbyHos = (Setup.FarbyPrezentacie)deserializer.Deserialize(textReader2);
-        //    }
-        //    catch
-        //    {
-        //        farbyHos = new Setup.FarbyPrezentacie();
-        //    }
-        //    finally
-        //    {
-        //        if (textReader2 != null)
-        //            textReader2.Close();
-        //    }
-        //}
 
         private void DomaciButton_Click(object sender, EventArgs e)
         {

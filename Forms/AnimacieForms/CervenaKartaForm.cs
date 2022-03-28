@@ -119,11 +119,11 @@ namespace LGR_Futbal.Forms
                 mhLabel.Text = menoHracaLabel.Text;
             }
 
-            cisloHracaLabel.Font = pisma.CreatePolcasFont();
-            menoHracaLabel.Font = pisma.CreatePolcasFont();
+            cisloHracaLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
+            menoHracaLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
             menoHracaLabel.ForeColor = Color.Black;
-            chLabel.Font = pisma.CreatePolcasFont();
-            mhLabel.Font = pisma.CreatePolcasFont();
+            chLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
+            mhLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
 
             uvodnyPanel1.Visible = false;
             uvodnyPanel2.Visible = false;

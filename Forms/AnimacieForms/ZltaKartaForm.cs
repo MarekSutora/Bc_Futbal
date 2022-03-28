@@ -97,8 +97,8 @@ namespace LGR_Futbal.Forms
                 menoHracaLabel.Text = identifikacia;
             }
 
-            cisloHracaLabel.Font = pisma.CreatePolcasFont();
-            menoHracaLabel.Font = pisma.CreatePolcasFont();
+            cisloHracaLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
+            menoHracaLabel.Font = pisma.CreateCisloMenoPrezentaciaFont();
 
             prezentacnyPanel.Visible = false;
             uvodnyPanel.Visible = true;

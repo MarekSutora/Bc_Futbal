@@ -51,11 +51,11 @@ namespace LGR_Futbal.Forms
             this.fs = fs;
             adresar = cesta;
 
-            label1.ForeColor = fs.NadpisDomFarba();
-            label2.ForeColor = fs.NadpisHosFarba();
-            label3.ForeColor = fs.CasFarba();
-            label4.ForeColor = fs.SkoreFarba();
-            label5.ForeColor = fs.PolcasFarba();
+            label1.ForeColor = fs.GetNadpisDomFarba();
+            label2.ForeColor = fs.GetNadpisHosFarba();
+            label3.ForeColor = fs.GetCasFarba();
+            label4.ForeColor = fs.GetSkoreFarba();
+            label5.ForeColor = fs.GetPolcasFarba();
         }
 
         private void zrusitButton_Click(object sender, EventArgs e)
@@ -104,11 +104,11 @@ namespace LGR_Futbal.Forms
                 try
                 {
                     FarbyTabule sch = new FarbyTabule();
-                    sch.setNadpisDomFarba(label1.ForeColor);
-                    sch.setNadpisHosFarba(label2.ForeColor);
-                    sch.setCasFarba(label3.ForeColor);
-                    sch.setSkoreFarba(label4.ForeColor);
-                    sch.setPolcasFarba(label5.ForeColor);
+                    sch.SetNadpisDomFarba(label1.ForeColor);
+                    sch.SetNadpisHosFarba(label2.ForeColor);
+                    sch.SetCasFarba(label3.ForeColor);
+                    sch.SetSkoreFarba(label4.ForeColor);
+                    sch.SetPolcasFarba(label5.ForeColor);
 
                     XmlSerializer serializer = new XmlSerializer(typeof(FarbyTabule));
                     textWriter = new StreamWriter(sfd.FileName);

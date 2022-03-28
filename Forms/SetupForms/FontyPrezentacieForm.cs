@@ -35,10 +35,10 @@ namespace LGR_Futbal.Forms
 
             pisma = fonty;
 
-            label5.Text = pisma.NazvyFont;
-            label6.Text = pisma.SkoreFont;
-            label7.Text = pisma.CasFont;
-            label8.Text = pisma.PolcasFont;
+            label5.Text = pisma.NazvyPrezentaciaFont;
+            label6.Text = pisma.PodnadpisPrezentaciaFont;
+            label7.Text = pisma.UdajePrezentaciaFont;
+            label8.Text = pisma.CisloMenoPrezentaciaFont;
         }
 
         private String convertFontToString(Font f)
@@ -87,12 +87,12 @@ namespace LGR_Futbal.Forms
 
         private void aktivovatButton_Click(object sender, EventArgs e)
         {
-            pisma.NazvyFont = label5.Text;
-            pisma.SkoreFont = label6.Text;
-            pisma.CasFont = label7.Text;
-            pisma.PolcasFont = label8.Text;
+            pisma.NazvyPrezentaciaFont = label5.Text;
+            pisma.PodnadpisPrezentaciaFont = label6.Text;
+            pisma.UdajePrezentaciaFont = label7.Text;
+            pisma.CisloMenoPrezentaciaFont = label8.Text;
 
-            Close();
+            this.Close();
         }
 
         private void zrusitButton_Click(object sender, EventArgs e)

@@ -40,35 +40,35 @@ namespace LGR_Futbal.Forms
             d = dom;
             h = hos;
 
-            label1.ForeColor = d.NadpisFarba(); 
-            label10.ForeColor = h.NadpisFarba();
+            label1.ForeColor = d.GetNadpisFarba(); 
+            label10.ForeColor = h.GetNadpisFarba();
 
-            label2.ForeColor = d.ZakladFarba();
-            label9.ForeColor = h.ZakladFarba();
+            label2.ForeColor = d.GetZakladFarba();
+            label9.ForeColor = h.GetZakladFarba();
 
-            label3.ForeColor = d.UdajeFarba();
-            label8.ForeColor = h.UdajeFarba();
+            label3.ForeColor = d.GetUdajeFarba();
+            label8.ForeColor = h.GetUdajeFarba();
 
-            label4.ForeColor = d.CisloFarba();
-            label7.ForeColor = h.CisloFarba();
+            label4.ForeColor = d.GetCisloFarba();
+            label7.ForeColor = h.GetCisloFarba();
 
-            label5.ForeColor = d.MenoFarba();
-            label6.ForeColor = h.MenoFarba();
+            label5.ForeColor = d.GetMenoFarba();
+            label6.ForeColor = h.GetMenoFarba();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            d.setNadpis(label1.ForeColor);
-            d.setZaklad(label2.ForeColor);
-            d.SetUdaje(label3.ForeColor);
-            d.SetCislo(label4.ForeColor);
-            d.SetMeno(label5.ForeColor);
+            d.SetNadpisFarba(label1.ForeColor);
+            d.SetZakladFarba(label2.ForeColor);
+            d.SetUdajeFarba(label3.ForeColor);
+            d.SetCisloFarba(label4.ForeColor);
+            d.SetMenoFarba(label5.ForeColor);
 
-            h.setNadpis(label10.ForeColor);
-            h.setZaklad(label9.ForeColor);
-            h.SetUdaje(label8.ForeColor);
-            h.SetCislo(label7.ForeColor);
-            h.SetMeno(label6.ForeColor);
+            h.SetNadpisFarba(label10.ForeColor);
+            h.SetZakladFarba(label9.ForeColor);
+            h.SetUdajeFarba(label8.ForeColor);
+            h.SetCisloFarba(label7.ForeColor);
+            h.SetMenoFarba(label6.ForeColor);
 
             this.Close();
         }
