@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace LGR_Futbal.Forms.UdalostiForms
 {
     partial class StriedanieSettingsForm
     {
@@ -29,50 +29,50 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StriedanieSettingsForm));
-            this.potvrditButton = new System.Windows.Forms.Button();
-            this.hraciLBodch = new System.Windows.Forms.ListBox();
-            this.backButton = new System.Windows.Forms.Button();
+            this.PotvrditButton = new System.Windows.Forms.Button();
+            this.HraciLBodch = new System.Windows.Forms.ListBox();
+            this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.hraciLBnast = new System.Windows.Forms.ListBox();
+            this.HraciLBnast = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // potvrditButton
+            // PotvrditButton
             // 
-            this.potvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.potvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.potvrditButton.Location = new System.Drawing.Point(571, 13);
-            this.potvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.potvrditButton.Name = "potvrditButton";
-            this.potvrditButton.Size = new System.Drawing.Size(176, 78);
-            this.potvrditButton.TabIndex = 555;
-            this.potvrditButton.Text = "Potvrdiť";
-            this.potvrditButton.UseVisualStyleBackColor = false;
-            this.potvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
+            this.PotvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PotvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditButton.Location = new System.Drawing.Point(571, 13);
+            this.PotvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PotvrditButton.Name = "PotvrditButton";
+            this.PotvrditButton.Size = new System.Drawing.Size(176, 78);
+            this.PotvrditButton.TabIndex = 555;
+            this.PotvrditButton.Text = "Potvrdiť";
+            this.PotvrditButton.UseVisualStyleBackColor = false;
+            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
             // 
-            // hraciLBodch
+            // HraciLBodch
             // 
-            this.hraciLBodch.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraciLBodch.FormattingEnabled = true;
-            this.hraciLBodch.ItemHeight = 29;
-            this.hraciLBodch.Location = new System.Drawing.Point(9, 38);
-            this.hraciLBodch.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.hraciLBodch.Name = "hraciLBodch";
-            this.hraciLBodch.Size = new System.Drawing.Size(278, 381);
-            this.hraciLBodch.TabIndex = 554;
+            this.HraciLBodch.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciLBodch.FormattingEnabled = true;
+            this.HraciLBodch.ItemHeight = 29;
+            this.HraciLBodch.Location = new System.Drawing.Point(9, 38);
+            this.HraciLBodch.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.HraciLBodch.Name = "HraciLBodch";
+            this.HraciLBodch.Size = new System.Drawing.Size(278, 381);
+            this.HraciLBodch.TabIndex = 554;
             // 
-            // backButton
+            // BackButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.backButton.Location = new System.Drawing.Point(571, 94);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(176, 78);
-            this.backButton.TabIndex = 553;
-            this.backButton.Text = "Návrat späť";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BackButton.Location = new System.Drawing.Point(571, 94);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(176, 78);
+            this.BackButton.TabIndex = 553;
+            this.BackButton.Text = "Návrat späť";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // label1
             // 
@@ -96,28 +96,28 @@
             this.label2.TabIndex = 557;
             this.label2.Text = "Nastupujúci hráč:";
             // 
-            // hraciLBnast
+            // HraciLBnast
             // 
-            this.hraciLBnast.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraciLBnast.FormattingEnabled = true;
-            this.hraciLBnast.ItemHeight = 29;
-            this.hraciLBnast.Location = new System.Drawing.Point(290, 38);
-            this.hraciLBnast.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.hraciLBnast.Name = "hraciLBnast";
-            this.hraciLBnast.Size = new System.Drawing.Size(278, 381);
-            this.hraciLBnast.TabIndex = 558;
+            this.HraciLBnast.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciLBnast.FormattingEnabled = true;
+            this.HraciLBnast.ItemHeight = 29;
+            this.HraciLBnast.Location = new System.Drawing.Point(290, 38);
+            this.HraciLBnast.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.HraciLBnast.Name = "HraciLBnast";
+            this.HraciLBnast.Size = new System.Drawing.Size(278, 381);
+            this.HraciLBnast.TabIndex = 558;
             // 
             // StriedanieSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 430);
-            this.Controls.Add(this.hraciLBnast);
+            this.Controls.Add(this.HraciLBnast);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.potvrditButton);
-            this.Controls.Add(this.hraciLBodch);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.PotvrditButton);
+            this.Controls.Add(this.HraciLBodch);
+            this.Controls.Add(this.BackButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -128,7 +128,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Striedanie - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StriedanieSettingsForm_FormClosed);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StriedanieSettingsForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,11 +135,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button potvrditButton;
-        private System.Windows.Forms.ListBox hraciLBodch;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button PotvrditButton;
+        private System.Windows.Forms.ListBox HraciLBodch;
+        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox hraciLBnast;
+        private System.Windows.Forms.ListBox HraciLBnast;
     }
 }

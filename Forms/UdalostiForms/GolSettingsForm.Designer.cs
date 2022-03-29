@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace LGR_Futbal.Forms.UdalostiForms
 {
     partial class GolSettingsForm
     {
@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GolSettingsForm));
             this.potvrditButton = new System.Windows.Forms.Button();
-            this.hraciLB = new System.Windows.Forms.ListBox();
-            this.backButton = new System.Windows.Forms.Button();
+            this.HraciLB = new System.Windows.Forms.ListBox();
+            this.BackButton = new System.Windows.Forms.Button();
             this.znizitSkoreButton = new System.Windows.Forms.Button();
             this.resetSkoreButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.asistHraciLB = new System.Windows.Forms.ListBox();
+            this.NastavitButton = new System.Windows.Forms.Button();
+            this.HodnotaLabel = new System.Windows.Forms.Label();
+            this.HodnotaNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.AsistHraciLB = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.PenaltaCheckBox = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.HodnotaNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // potvrditButton
@@ -57,30 +57,30 @@
             this.potvrditButton.UseVisualStyleBackColor = false;
             this.potvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
             // 
-            // hraciLB
+            // HraciLB
             // 
-            this.hraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraciLB.FormattingEnabled = true;
-            this.hraciLB.ItemHeight = 26;
-            this.hraciLB.Location = new System.Drawing.Point(11, 55);
-            this.hraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.hraciLB.Name = "hraciLB";
-            this.hraciLB.Size = new System.Drawing.Size(276, 368);
-            this.hraciLB.TabIndex = 551;
-            this.hraciLB.DoubleClick += new System.EventHandler(this.hraciLB_DoubleClick);
+            this.HraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciLB.FormattingEnabled = true;
+            this.HraciLB.ItemHeight = 26;
+            this.HraciLB.Location = new System.Drawing.Point(11, 55);
+            this.HraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.HraciLB.Name = "HraciLB";
+            this.HraciLB.Size = new System.Drawing.Size(276, 368);
+            this.HraciLB.TabIndex = 551;
+            this.HraciLB.DoubleClick += new System.EventHandler(this.HraciLB_DoubleClick);
             // 
-            // backButton
+            // BackButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.backButton.Location = new System.Drawing.Point(600, 345);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(175, 78);
-            this.backButton.TabIndex = 550;
-            this.backButton.Text = "Návrat späť";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BackButton.Location = new System.Drawing.Point(600, 345);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(175, 78);
+            this.BackButton.TabIndex = 550;
+            this.BackButton.Text = "Návrat späť";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // znizitSkoreButton
             // 
@@ -108,50 +108,50 @@
             this.resetSkoreButton.UseVisualStyleBackColor = false;
             this.resetSkoreButton.Click += new System.EventHandler(this.ResetSkoreButton_Click);
             // 
-            // button1
+            // NastavitButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(600, 296);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 42);
-            this.button1.TabIndex = 555;
-            this.button1.Text = "Nastaviť";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NastavitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NastavitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NastavitButton.Location = new System.Drawing.Point(600, 296);
+            this.NastavitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.NastavitButton.Name = "NastavitButton";
+            this.NastavitButton.Size = new System.Drawing.Size(174, 42);
+            this.NastavitButton.TabIndex = 555;
+            this.NastavitButton.Text = "Nastaviť";
+            this.NastavitButton.UseVisualStyleBackColor = false;
+            this.NastavitButton.Click += new System.EventHandler(this.NastavitButton_Click);
             // 
-            // label1
+            // HodnotaLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(640, 264);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 556;
-            this.label1.Text = "Hodnota:";
+            this.HodnotaLabel.AutoSize = true;
+            this.HodnotaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HodnotaLabel.Location = new System.Drawing.Point(640, 264);
+            this.HodnotaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HodnotaLabel.Name = "HodnotaLabel";
+            this.HodnotaLabel.Size = new System.Drawing.Size(75, 20);
+            this.HodnotaLabel.TabIndex = 556;
+            this.HodnotaLabel.Text = "Hodnota:";
             // 
-            // numericUpDown1
+            // HodnotaNumericUpDown
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(717, 263);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 26);
-            this.numericUpDown1.TabIndex = 557;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HodnotaNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HodnotaNumericUpDown.Location = new System.Drawing.Point(717, 263);
+            this.HodnotaNumericUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.HodnotaNumericUpDown.Name = "HodnotaNumericUpDown";
+            this.HodnotaNumericUpDown.Size = new System.Drawing.Size(57, 26);
+            this.HodnotaNumericUpDown.TabIndex = 557;
+            this.HodnotaNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // asistHraciLB
+            // AsistHraciLB
             // 
-            this.asistHraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.asistHraciLB.FormattingEnabled = true;
-            this.asistHraciLB.ItemHeight = 26;
-            this.asistHraciLB.Location = new System.Drawing.Point(300, 55);
-            this.asistHraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.asistHraciLB.Name = "asistHraciLB";
-            this.asistHraciLB.Size = new System.Drawing.Size(276, 368);
-            this.asistHraciLB.TabIndex = 558;
+            this.AsistHraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AsistHraciLB.FormattingEnabled = true;
+            this.AsistHraciLB.ItemHeight = 26;
+            this.AsistHraciLB.Location = new System.Drawing.Point(300, 55);
+            this.AsistHraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.AsistHraciLB.Name = "AsistHraciLB";
+            this.AsistHraciLB.Size = new System.Drawing.Size(276, 368);
+            this.AsistHraciLB.TabIndex = 558;
             // 
             // label2
             // 
@@ -173,35 +173,35 @@
             this.label3.TabIndex = 560;
             this.label3.Text = "Asistujúci:";
             // 
-            // checkBox1
+            // PenaltaCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(16, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(191, 24);
-            this.checkBox1.TabIndex = 561;
-            this.checkBox1.Text = "Gól z pokutového kopu";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.PenaltaCheckBox.AutoSize = true;
+            this.PenaltaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PenaltaCheckBox.Location = new System.Drawing.Point(16, 3);
+            this.PenaltaCheckBox.Name = "PenaltaCheckBox";
+            this.PenaltaCheckBox.Size = new System.Drawing.Size(191, 24);
+            this.PenaltaCheckBox.TabIndex = 561;
+            this.PenaltaCheckBox.Text = "Gól z pokutového kopu";
+            this.PenaltaCheckBox.UseVisualStyleBackColor = true;
+            this.PenaltaCheckBox.CheckedChanged += new System.EventHandler(this.PenaltaCheckBox_CheckedChanged);
             // 
             // GolSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 430);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.PenaltaCheckBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.asistHraciLB);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AsistHraciLB);
+            this.Controls.Add(this.HodnotaNumericUpDown);
+            this.Controls.Add(this.HodnotaLabel);
+            this.Controls.Add(this.NastavitButton);
             this.Controls.Add(this.resetSkoreButton);
             this.Controls.Add(this.znizitSkoreButton);
             this.Controls.Add(this.potvrditButton);
-            this.Controls.Add(this.hraciLB);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.HraciLB);
+            this.Controls.Add(this.BackButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -212,8 +212,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gól - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GolSettingsForm_FormClosed);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GolSettingsForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HodnotaNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,16 +221,16 @@
         #endregion
 
         private System.Windows.Forms.Button potvrditButton;
-        private System.Windows.Forms.ListBox hraciLB;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.ListBox HraciLB;
+        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button znizitSkoreButton;
         private System.Windows.Forms.Button resetSkoreButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ListBox asistHraciLB;
+        private System.Windows.Forms.Button NastavitButton;
+        private System.Windows.Forms.Label HodnotaLabel;
+        private System.Windows.Forms.NumericUpDown HodnotaNumericUpDown;
+        private System.Windows.Forms.ListBox AsistHraciLB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox PenaltaCheckBox;
     }
 }

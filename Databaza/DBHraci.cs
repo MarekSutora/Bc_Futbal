@@ -382,13 +382,10 @@ namespace LGR_Futbal.Databaza
         public Hrac GetHrac(int idHrac)
         {
             Hrac hrac = null;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-            string cmdQuery = "SELECT * FROM hrac WHERE id_hrac = :id_hrac";
             try
             {
                 conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
+                OracleCommand cmd = new OracleCommand("SELECT * FROM hrac WHERE id_hrac = :id_hrac");
                 OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int32);
                 param.Value = idHrac;
                 cmd.Connection = conn;
@@ -425,8 +422,7 @@ namespace LGR_Futbal.Databaza
             catch
             {
                 throw new Exception("Chyba pri praci s Databazou");
-            }
-            //}
+            }         
             return hrac;
         }
 

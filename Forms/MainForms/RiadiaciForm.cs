@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using LGR_Futbal.Databaza;
+using LGR_Futbal.Forms.UdalostiForms;
 
 namespace LGR_Futbal
 {
@@ -65,8 +66,8 @@ namespace LGR_Futbal
 
         private string logoDomaciFile = string.Empty;
         private string logoHostiaFile = string.Empty;
-        private string nazovDomaci = string.Empty;
-        private string nazovHostia = string.Empty;
+        private string nazovDomaci = "Domáci";
+        private string nazovHostia = "Hostia";
         private string currentDirectory = null;
 
         private Stopwatch sw = null;
@@ -158,10 +159,10 @@ namespace LGR_Futbal
                     prerusenieLabel.Text = Translate(9);
 
                 // Nastavenie zobrazovacej svetelnej tabule
-                
+
                 NastavTabulu();
                 LoadFarebnaSchemaConfig();
-                LoadRozlozenieConfig();               
+                LoadRozlozenieConfig();
             }
         }
 
@@ -358,6 +359,7 @@ namespace LGR_Futbal
             aktualnaSekunda = 0;
             aktMin = 0;
             aktSek = 0;
+            zapas = null;
 
             formularTabule.Reset();
         }
@@ -686,7 +688,7 @@ namespace LGR_Futbal
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(RozlozenieTabule));
-                textWriter = new StreamWriter(currentDirectory+ rozlozenieSubor);
+                textWriter = new StreamWriter(currentDirectory + rozlozenieSubor);
                 serializer.Serialize(textWriter, rozlozenieTabule);
             }
             catch (Exception ex)
@@ -1123,7 +1125,7 @@ namespace LGR_Futbal
             Scale(new SizeF(pomer, pomer));
 
             // Nastavenie velkosti fontu pre jednotlive labely
-           /LayoutSetter.NastavVelkostiElementov(this, pomer);
+            LayoutSetter.NastavVelkostiElementov(this, pomer);
             this.WindowState = FormWindowState.Maximized;
         }
         private void NastavTabulu()
@@ -1367,7 +1369,13 @@ namespace LGR_Futbal
                 return;
             }
 
-            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, true);
+            Karta karta = new Karta();
+            karta.Minuta = minutaPolcasu;
+            karta.Polcas = polcas;
+            karta.NadstavenaMinuta = nadstavenaMinuta;
+            karta.AktualnyCas = DateTime.Now;
+
+            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timDomaci, zapas, true, karta);
             zksf.OnHracZltaKartaSelected += Zksf_OnHracZltaKartaSelected;
             zksf.OnUdalostPridana += OnUdalostPridana;
             zksf.Show();
@@ -1499,7 +1507,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            GolSettingsForm gsf = new GolSettingsForm(timHostia, false, skoreHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas);
+            Gol gol = new Gol();
+            gol.Minuta = minutaPolcasu;
+            gol.Polcas = polcas;
+            gol.NadstavenaMinuta = nadstavenaMinuta;
+            gol.AktualnyCas = DateTime.Now;
+
+            GolSettingsForm gsf = new GolSettingsForm(timHostia, false, skoreHostia, zapas, gol);
             gsf.OnGoalSettingsConfirmed += Gsf_OnGoalSettingsConfirmed;
             gsf.OnGoalValueConfirmed += Gsf_OnGoalValueConfirmed;
             gsf.OnUdalostPridana += OnUdalostPridana;
@@ -1529,8 +1543,13 @@ namespace LGR_Futbal
                 MessageBox.Show(Translate(14), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Striedanie striedanie = new Striedanie();
+            striedanie.Minuta = minutaPolcasu;
+            striedanie.Polcas = polcas;
+            striedanie.NadstavenaMinuta = nadstavenaMinuta;
+            striedanie.AktualnyCas = DateTime.Now;
 
-            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timDomaci, domaciLabel.Text, true, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas);
+            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timDomaci, true, zapas, striedanie);
             ssf.OnStriedanieHraciSelected += Ssf_OnStriedanieHraciSelected;
             ssf.OnUdalostPridana += OnUdalostPridana;
             ssf.Show();
@@ -1561,8 +1580,13 @@ namespace LGR_Futbal
                 MessageBox.Show(Translate(14), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Striedanie striedanie = new Striedanie();
+            striedanie.Minuta = minutaPolcasu;
+            striedanie.Polcas = polcas;
+            striedanie.NadstavenaMinuta = nadstavenaMinuta;
+            striedanie.AktualnyCas = DateTime.Now;
 
-            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timHostia, hostiaLabel.Text, false, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas);
+            StriedanieSettingsForm ssf = new StriedanieSettingsForm(timHostia, false, zapas, striedanie);
             ssf.OnStriedanieHraciSelected += Ssf_OnStriedanieHraciSelected;
             ssf.OnUdalostPridana += OnUdalostPridana;
             ssf.Show();
@@ -1574,8 +1598,13 @@ namespace LGR_Futbal
                 MessageBox.Show(Translate(17), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Karta karta = new Karta();
+            karta.Minuta = minutaPolcasu;
+            karta.Polcas = polcas;
+            karta.NadstavenaMinuta = nadstavenaMinuta;
+            karta.AktualnyCas = DateTime.Now;
 
-            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, false);
+            ZltaKartaSettingsForm zksf = new ZltaKartaSettingsForm(timHostia, zapas, false, karta);
             zksf.OnHracZltaKartaSelected += Zksf_OnHracZltaKartaSelected;
             zksf.OnUdalostPridana += OnUdalostPridana;
             zksf.Show();
@@ -1588,14 +1617,19 @@ namespace LGR_Futbal
                 MessageBox.Show(Translate(16), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Karta karta = new Karta();
+            karta.Minuta = minutaPolcasu;
+            karta.Polcas = polcas;
+            karta.NadstavenaMinuta = nadstavenaMinuta;
+            karta.AktualnyCas = DateTime.Now;
 
-            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, true);
-            cksf.OnHracZltaKartaSelected += Cksf_OnHracZltaKartaSelected;
+            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timDomaci, zapas, true, karta);
+            cksf.OnHracCervenaKartaSelected += Cksf_OnHracCervenaKartaSelected;
             cksf.OnUdalostPridana += OnUdalostPridana;
             cksf.Show();
         }
 
-        private void Cksf_OnHracZltaKartaSelected(Hrac hrac)
+        private void Cksf_OnHracCervenaKartaSelected(Hrac hrac)
         {
             if (hrac != null)
                 hrac.CervenaKarta = true;
@@ -1611,9 +1645,14 @@ namespace LGR_Futbal
                 MessageBox.Show(Translate(16), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Karta karta = new Karta();
+            karta.Minuta = minutaPolcasu;
+            karta.Polcas = polcas;
+            karta.NadstavenaMinuta = nadstavenaMinuta;
+            karta.AktualnyCas = DateTime.Now;
 
-            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, false);
-            cksf.OnHracZltaKartaSelected += Cksf_OnHracZltaKartaSelected;
+            CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timHostia, zapas, false, karta);
+            cksf.OnHracCervenaKartaSelected += Cksf_OnHracCervenaKartaSelected;
             cksf.OnUdalostPridana += OnUdalostPridana;
             cksf.Show();
         }
@@ -1625,7 +1664,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            GolSettingsForm gsf = new GolSettingsForm(timDomaci, true, skoreDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas);
+            Gol gol = new Gol();
+            gol.Minuta = minutaPolcasu;
+            gol.Polcas = polcas;
+            gol.NadstavenaMinuta = nadstavenaMinuta;
+            gol.AktualnyCas = DateTime.Now;
+
+            GolSettingsForm gsf = new GolSettingsForm(timDomaci, true, skoreDomaci, zapas, gol);
             gsf.OnGoalSettingsConfirmed += Gsf_OnGoalSettingsConfirmed;
             gsf.OnGoalValueConfirmed += Gsf_OnGoalValueConfirmed;
             gsf.OnUdalostPridana += OnUdalostPridana;
@@ -1657,7 +1702,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            KopySettingsForm kps = new KopySettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, true);
+            Kop kop = new Kop();
+            kop.Minuta = minutaPolcasu;
+            kop.Polcas = polcas;
+            kop.NadstavenaMinuta = nadstavenaMinuta;
+            kop.AktualnyCas = DateTime.Now;
+
+            KopySettingsForm kps = new KopySettingsForm(timDomaci, zapas, true, kop);
             kps.OnUdalostPridana += OnUdalostPridana;
             kps.ShowDialog();
         }
@@ -1669,7 +1720,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            OffsideSettingsForm osf = new OffsideSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, true);
+            Offside offside = new Offside();
+            offside.Minuta = minutaPolcasu;
+            offside.Polcas = polcas;
+            offside.NadstavenaMinuta = nadstavenaMinuta;
+            offside.AktualnyCas = DateTime.Now;
+
+            OffsideSettingsForm osf = new OffsideSettingsForm(timDomaci, zapas, true, offside);
             osf.OnUdalostPridana += OnUdalostPridana;
             osf.ShowDialog();
         }
@@ -1681,7 +1738,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            OutSettingsForm osf = new OutSettingsForm(timDomaci, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, true);
+            Out _out = new Out();
+            _out.Minuta = minutaPolcasu;
+            _out.Polcas = polcas;
+            _out.NadstavenaMinuta = nadstavenaMinuta;
+            _out.AktualnyCas = DateTime.Now;
+
+            OutSettingsForm osf = new OutSettingsForm(timDomaci, zapas, true, _out);
             osf.OnUdalostPridana += OnUdalostPridana;
             osf.ShowDialog();
         }
@@ -1693,7 +1756,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            OutSettingsForm osf = new OutSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, false);
+            Out _out = new Out();
+            _out.Minuta = minutaPolcasu;
+            _out.Polcas = polcas;
+            _out.NadstavenaMinuta = nadstavenaMinuta;
+            _out.AktualnyCas = DateTime.Now;
+
+            OutSettingsForm osf = new OutSettingsForm(timHostia, zapas, false, _out);
             osf.OnUdalostPridana += OnUdalostPridana;
             osf.ShowDialog();
         }
@@ -1705,7 +1774,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            KopySettingsForm ksf = new KopySettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, false);
+            Kop kop = new Kop();
+            kop.Minuta = minutaPolcasu;
+            kop.Polcas = polcas;
+            kop.NadstavenaMinuta = nadstavenaMinuta;
+            kop.AktualnyCas = DateTime.Now;
+
+            KopySettingsForm ksf = new KopySettingsForm(timHostia, zapas, false, kop);
             ksf.OnUdalostPridana += OnUdalostPridana;
             ksf.ShowDialog();
         }
@@ -1717,7 +1792,13 @@ namespace LGR_Futbal
                 MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            OffsideSettingsForm osf = new OffsideSettingsForm(timHostia, zapas, nadstavenyCas, nadstavenaMinuta, minutaPolcasu, polcas, false);
+            Offside offside = new Offside();
+            offside.Minuta = minutaPolcasu;
+            offside.Polcas = polcas;
+            offside.NadstavenaMinuta = nadstavenaMinuta;
+            offside.AktualnyCas = DateTime.Now;
+
+            OffsideSettingsForm osf = new OffsideSettingsForm(timHostia, zapas, false, offside);
             osf.OnUdalostPridana += OnUdalostPridana;
             osf.ShowDialog();
         }

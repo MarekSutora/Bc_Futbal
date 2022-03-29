@@ -63,12 +63,12 @@ namespace LGR_Futbal.Forms
                 + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 
             skoreLabel.Text = zapas.NazovDomaci + " " + zapas.DomaciSkore + ":" + zapas.HostiaSkore + " " + zapas.NazovHostia;
-            udalosti = zapas.Udalosti;
-            string meno_priezvisko = string.Empty;
-            string poznamka = string.Empty;
-            string udalost = string.Empty;
+            udalosti = zapas.Udalosti;        
             for (int i = 0; i < udalosti.Count; i++)
-            {              
+            {
+                string meno_priezvisko = string.Empty;
+                string poznamka = string.Empty;
+                string udalost = string.Empty;
                 int minuta = (udalosti[i].Polcas - 1) * zapas.DlzkaPolcasu + udalosti[i].Minuta + 1;
                 if (udalosti[i].GetType() == typeof(Gol))
                 {
@@ -152,8 +152,7 @@ namespace LGR_Futbal.Forms
         }
         private void csvGenButton_Click(object sender, EventArgs e)
         {
-            string meno_priezvisko = string.Empty;
-            string priradenost = string.Empty;
+            
             bool uspech = false;
             try
             {
@@ -176,7 +175,8 @@ namespace LGR_Futbal.Forms
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Domaci.ZoznamHracov.Count; i++)
                     {
-                        
+                        string meno_priezvisko = string.Empty;
+                        string priradenost = string.Empty;
                         if (zapas.Domaci.ZoznamHracov[i].Priradeny == 'Z')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
@@ -197,7 +197,9 @@ namespace LGR_Futbal.Forms
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Hostia.ZoznamHracov.Count; i++)
                     {
-                        if(zapas.Hostia.ZoznamHracov[i].Priradeny == 'Z')
+                        string meno_priezvisko = string.Empty;
+                        string priradenost = string.Empty;
+                        if (zapas.Hostia.ZoznamHracov[i].Priradeny == 'Z')
                         {
                             meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";

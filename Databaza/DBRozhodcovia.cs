@@ -22,9 +22,7 @@ namespace LGR_Futbal.Databaza
         public List<Rozhodca> GetRozhodcovia()
         {
             List<Rozhodca> rozhodcovia = new List<Rozhodca>();
-            Rozhodca rozhodca = null;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
+            Rozhodca rozhodca;
             string cmdQuery = "SELECT * FROM rozhodca WHERE datum_ukoncenia IS NULL";
             try
             {
@@ -51,7 +49,6 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
             return rozhodcovia;
         }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace LGR_Futbal.Forms.UdalostiForms
 {
     public delegate void StriedanieHraciSelectedHandler(string nazovTimu, Hrac odchadzajuci, Hrac nastupujuci, bool jeDomaciTim);
 
@@ -14,23 +14,20 @@ namespace LGR_Futbal.Forms
 
         public event StriedanieHraciSelectedHandler OnStriedanieHraciSelected;
         public event UdalostPridanaHandler OnUdalostPridana;
-        private string nazov;
-        private FutbalovyTim spracovavanyTim;
-        private List<Hrac> odchMoznosti;
-        private List<Hrac> nastMoznosti;
-        private bool domaciTim;
+
+        private bool domaci = false;
+        private List<Hrac> odchMoznosti = null;
+        private List<Hrac> nastMoznosti = null;
+        private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
-        private bool nadstavenyCas = false;
-        private int nadstavenaMinuta = 0;
-        private int minuta = -1;
-        private int polcas = -1;
-        private DateTime cas;
         private bool uspech = false;
+        private Striedanie striedanie = null;
+
         #endregion
 
         #region Konstruktor a metody
 
-        public StriedanieSettingsForm(FutbalovyTim tim, string nazovTimu, bool jeDomaci, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas)
+        public StriedanieSettingsForm(FutbalovyTim tim, bool domaci, Zapas zapas, Striedanie striedanie)
         {
             InitializeComponent();
 
@@ -39,25 +36,21 @@ namespace LGR_Futbal.Forms
                 this.Text = "Střídání - nastavení";
                 label1.Text = "Odcházející hráč:";
                 label2.Text = "Nastupující hráč:";
-                potvrditButton.Text = "Potvrdit";
-                backButton.Text = "Návrat zpět";
+                PotvrditButton.Text = "Potvrdit";
+                BackButton.Text = "Návrat zpět";
             }
 
-            domaciTim = jeDomaci;
-            spracovavanyTim = tim;
-            nazov = nazovTimu;
+            this.domaci = domaci;
+            futbalovyTim = tim;
             this.zapas = zapas;
-            cas = DateTime.Now;
-            this.nadstavenaMinuta = nadstavenaMinuta;
-            this.nadstavenyCas = nadstavenyCas;
-            this.minuta = minuta;
-            this.polcas = polcas;
+            this.striedanie = striedanie;
+
             odchMoznosti = new List<Hrac>();
             nastMoznosti = new List<Hrac>();
 
-            if (spracovavanyTim != null)
+            if (futbalovyTim != null)
             {
-                foreach(Hrac h in spracovavanyTim.ZoznamHracov)
+                foreach(Hrac h in futbalovyTim.ZoznamHracov)
                 {
                     if (!h.CervenaKarta)
                     {
@@ -65,36 +58,36 @@ namespace LGR_Futbal.Forms
                         {
                             odchMoznosti.Add(h);
                             if (!h.CisloDresu.Equals(string.Empty))
-                                hraciLBodch.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                                HraciLBodch.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                             else
-                                hraciLBodch.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                                HraciLBodch.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                         }
                         else if ((!h.HraAktualnyZapas) && (h.Nahradnik))
                         {
                             nastMoznosti.Add(h);
                             if (!h.CisloDresu.Equals(string.Empty))
-                                hraciLBnast.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                                HraciLBnast.Items.Add(h.CisloDresu.ToString() + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                             else
-                                hraciLBnast.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                                HraciLBnast.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                         }
                     }
                 }
             }
 
-            if (hraciLBodch.Items.Count > 0)
-                hraciLBodch.SelectedIndex = 0;
+            if (HraciLBodch.Items.Count > 0)
+                HraciLBodch.SelectedIndex = 0;
 
-            if (hraciLBnast.Items.Count > 0)
-                hraciLBnast.SelectedIndex = 0;
+            if (HraciLBnast.Items.Count > 0)
+                HraciLBnast.SelectedIndex = 0;
 
             if (tim == null)
-                potvrditButton.Enabled = true;
+                PotvrditButton.Enabled = true;
             else
             {
                 if ((odchMoznosti.Count > 0) && (nastMoznosti.Count > 0))
-                    potvrditButton.Enabled = true;
+                    PotvrditButton.Enabled = true;
                 else
-                    potvrditButton.Enabled = false;
+                    PotvrditButton.Enabled = false;
             }
         }
 
@@ -102,36 +95,26 @@ namespace LGR_Futbal.Forms
         {
             if (OnStriedanieHraciSelected != null)
             {
-                if (spracovavanyTim == null)
+                string nazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia; 
+                if (futbalovyTim == null)
                 {
-                    Striedanie striedanie = new Striedanie();
-                    striedanie.Minuta = minuta;
-                    striedanie.NadstavenaMinuta = nadstavenaMinuta;
-                    striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
-                    striedanie.Polcas = polcas;
-                    striedanie.AktualnyCas = cas;
-                    striedanie.NazovTimu = domaciTim ? zapas.NazovDomaci : zapas.NazovHostia;
+
+                    striedanie.NazovTimu = nazovTimu;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
-                    OnStriedanieHraciSelected(nazov, null, null, domaciTim);
+                    OnStriedanieHraciSelected(nazovTimu, null, null, domaci);
                 }            
                 else
                 {
-                    Hrac h1 = odchMoznosti[hraciLBodch.SelectedIndex];
-                    Hrac h2 = nastMoznosti[hraciLBnast.SelectedIndex];
-                    Striedanie striedanie = new Striedanie(); 
+                    Hrac h1 = odchMoznosti[HraciLBodch.SelectedIndex];
+                    Hrac h2 = nastMoznosti[HraciLBnast.SelectedIndex];
                     striedanie.Striedajuci = h2;
                     striedanie.Striedany = h1;
-                    striedanie.Minuta = minuta;
-                    striedanie.NadstavenaMinuta = nadstavenaMinuta;
-                    striedanie.Predlzenie = nadstavenyCas ? 1 : 0;
-                    striedanie.Polcas = polcas;
-                    striedanie.AktualnyCas = cas;
-                    striedanie.NazovTimu = domaciTim ? zapas.NazovDomaci : zapas.NazovHostia;
-                    striedanie.IdFutbalovyTim = spracovavanyTim != null ? spracovavanyTim.IdFutbalovyTim : 0;
+                    striedanie.NazovTimu = nazovTimu;
+                    striedanie.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
-                    OnStriedanieHraciSelected(nazov, h1, h2, domaciTim);
+                    OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
                 }
                 
             }
@@ -142,13 +125,6 @@ namespace LGR_Futbal.Forms
         {
             this.Close();
         }
-
-        private void StriedanieSettingsForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-        }
-
         private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)

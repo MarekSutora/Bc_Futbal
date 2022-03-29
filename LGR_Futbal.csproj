@@ -126,10 +126,10 @@
     <Compile Include="Databaza\DBTimy.cs" />
     <Compile Include="Databaza\DBZapasy.cs" />
     <Compile Include="Databaza\Pripojenie.cs" />
-    <Compile Include="Forms\AnimacieForms\CervenaKartaForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\CervenaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\CervenaKartaForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\CervenaKartaForm.Designer.cs">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\CervenaKartaSettingsForm.cs">
@@ -168,10 +168,10 @@
     <Compile Include="Forms\SetupForms\FontyPrezentacieForm.Designer.cs">
       <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\GolForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\GolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\GolForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\GolForm.Designer.cs">
       <DependentUpon>GolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\GolSettingsForm.cs">
@@ -222,10 +222,10 @@
     <Compile Include="Forms\UdalostiForms\OutSettingsForm.Designer.cs">
       <DependentUpon>OutSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\PozadieForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\PozadieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\PozadieForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\PozadieForm.Designer.cs">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.cs">
@@ -234,16 +234,16 @@
     <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.Designer.cs">
       <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\PrezentaciaForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\PrezentaciaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\PrezentaciaForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\PrezentaciaForm.Designer.cs">
       <DependentUpon>PrezentaciaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\ReklamaForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\ReklamaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\ReklamaForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\ReklamaForm.Designer.cs">
       <DependentUpon>ReklamaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForms\RiadiaciForm.cs">
@@ -282,10 +282,10 @@
     <Compile Include="Forms\MainForms\SizeForm.Designer.cs">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\StriedanieForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\StriedanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\StriedanieForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\StriedanieForm.Designer.cs">
       <DependentUpon>StriedanieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\StriedanieSettingsForm.cs">
@@ -294,10 +294,10 @@
     <Compile Include="Forms\UdalostiForms\StriedanieSettingsForm.Designer.cs">
       <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\TabulaForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\TabulaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\TabulaForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\TabulaForm.Designer.cs">
       <DependentUpon>TabulaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\TypZapasuForm.cs">
@@ -312,16 +312,16 @@
     <Compile Include="Forms\MainForms\UdalostiForm.Designer.cs">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\UdalostPopupForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\UdalostPopupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\UdalostPopupForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\UdalostPopupForm.Designer.cs">
       <DependentUpon>UdalostPopupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\ZltaKartaForm.cs">
+    <Compile Include="Forms\ZobrazovacieForms\ZltaKartaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnimacieForms\ZltaKartaForm.Designer.cs">
+    <Compile Include="Forms\ZobrazovacieForms\ZltaKartaForm.Designer.cs">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\ZltaKartaSettingsForm.cs">
@@ -357,7 +357,7 @@
     <Compile Include="Setup\ParametreZapasu.cs" />
     <Compile Include="Setup\RozlozenieTabule.cs" />
     <Compile Include="Model\FutbalovyTim.cs" />
-    <EmbeddedResource Include="Forms\AnimacieForms\CervenaKartaForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\CervenaKartaForm.resx">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\CervenaKartaSettingsForm.resx">
@@ -378,7 +378,7 @@
     <EmbeddedResource Include="Forms\SetupForms\FontyPrezentacieForm.resx">
       <DependentUpon>FontyPrezentacieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\GolForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\GolForm.resx">
       <DependentUpon>GolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\GolSettingsForm.resx">
@@ -405,16 +405,16 @@
     <EmbeddedResource Include="Forms\UdalostiForms\OutSettingsForm.resx">
       <DependentUpon>OutSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\PozadieForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\PozadieForm.resx">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\PredstavenieSettingsForm.resx">
       <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\PrezentaciaForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\PrezentaciaForm.resx">
       <DependentUpon>PrezentaciaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\ReklamaForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\ReklamaForm.resx">
       <DependentUpon>ReklamaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\RiadiaciForm.resx">
@@ -435,13 +435,13 @@
     <EmbeddedResource Include="Forms\MainForms\SizeForm.resx">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\StriedanieForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\StriedanieForm.resx">
       <DependentUpon>StriedanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\StriedanieSettingsForm.resx">
       <DependentUpon>StriedanieSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\TabulaForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\TabulaForm.resx">
       <DependentUpon>TabulaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\TypZapasuForm.resx">
@@ -450,10 +450,10 @@
     <EmbeddedResource Include="Forms\MainForms\UdalostiForm.resx">
       <DependentUpon>UdalostiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\UdalostPopupForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\UdalostPopupForm.resx">
       <DependentUpon>UdalostPopupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnimacieForms\ZltaKartaForm.resx">
+    <EmbeddedResource Include="Forms\ZobrazovacieForms\ZltaKartaForm.resx">
       <DependentUpon>ZltaKartaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\ZltaKartaSettingsForm.resx">

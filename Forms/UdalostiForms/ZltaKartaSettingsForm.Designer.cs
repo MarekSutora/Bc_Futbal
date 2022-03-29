@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace LGR_Futbal.Forms.UdalostiForms
 {
     partial class ZltaKartaSettingsForm
     {
@@ -29,57 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZltaKartaSettingsForm));
-            this.backButton = new System.Windows.Forms.Button();
-            this.hraciLB = new System.Windows.Forms.ListBox();
-            this.potvrditButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.HraciLB = new System.Windows.Forms.ListBox();
+            this.PotvrditButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // backButton
+            // BackButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.backButton.Location = new System.Drawing.Point(291, 92);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(174, 78);
-            this.backButton.TabIndex = 9;
-            this.backButton.Text = "Návrat späť";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BackButton.Location = new System.Drawing.Point(291, 92);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(174, 78);
+            this.BackButton.TabIndex = 9;
+            this.BackButton.Text = "Návrat späť";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // hraciLB
+            // HraciLB
             // 
-            this.hraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraciLB.FormattingEnabled = true;
-            this.hraciLB.ItemHeight = 26;
-            this.hraciLB.Location = new System.Drawing.Point(11, 12);
-            this.hraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.hraciLB.Name = "hraciLB";
-            this.hraciLB.Size = new System.Drawing.Size(276, 394);
-            this.hraciLB.TabIndex = 548;
-            this.hraciLB.DoubleClick += new System.EventHandler(this.hraciLB_DoubleClick);
+            this.HraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciLB.FormattingEnabled = true;
+            this.HraciLB.ItemHeight = 26;
+            this.HraciLB.Location = new System.Drawing.Point(11, 12);
+            this.HraciLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.HraciLB.Name = "HraciLB";
+            this.HraciLB.Size = new System.Drawing.Size(276, 394);
+            this.HraciLB.TabIndex = 548;
             // 
-            // potvrditButton
+            // PotvrditButton
             // 
-            this.potvrditButton.BackColor = System.Drawing.Color.Yellow;
-            this.potvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.potvrditButton.Location = new System.Drawing.Point(291, 12);
-            this.potvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.potvrditButton.Name = "potvrditButton";
-            this.potvrditButton.Size = new System.Drawing.Size(174, 78);
-            this.potvrditButton.TabIndex = 549;
-            this.potvrditButton.Text = "Potvrdiť";
-            this.potvrditButton.UseVisualStyleBackColor = false;
-            this.potvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
+            this.PotvrditButton.BackColor = System.Drawing.Color.Yellow;
+            this.PotvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditButton.Location = new System.Drawing.Point(291, 12);
+            this.PotvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PotvrditButton.Name = "PotvrditButton";
+            this.PotvrditButton.Size = new System.Drawing.Size(174, 78);
+            this.PotvrditButton.TabIndex = 549;
+            this.PotvrditButton.Text = "Potvrdiť";
+            this.PotvrditButton.UseVisualStyleBackColor = false;
+            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
             // 
             // ZltaKartaSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 430);
-            this.Controls.Add(this.potvrditButton);
-            this.Controls.Add(this.hraciLB);
-            this.Controls.Add(this.backButton);
+            this.ClientSize = new System.Drawing.Size(474, 429);
+            this.Controls.Add(this.PotvrditButton);
+            this.Controls.Add(this.HraciLB);
+            this.Controls.Add(this.BackButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -89,15 +88,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Žltá karta - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ZltaKartaSettingsForm_FormClosed);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ZltaKartaSettingsForm_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.ListBox hraciLB;
-        private System.Windows.Forms.Button potvrditButton;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.ListBox HraciLB;
+        private System.Windows.Forms.Button PotvrditButton;
     }
 }

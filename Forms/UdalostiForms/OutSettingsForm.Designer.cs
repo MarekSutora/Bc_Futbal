@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace LGR_Futbal.Forms.UdalostiForms
 {
     partial class OutSettingsForm
     {
@@ -30,9 +30,9 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.hrajuListView = new System.Windows.Forms.ListView();
-            this.backButton = new System.Windows.Forms.Button();
-            this.potvrditButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.PotvrditButton = new System.Windows.Forms.Button();
+            this.HraciLB = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label2
@@ -55,63 +55,58 @@
             this.label1.TabIndex = 571;
             this.label1.Text = "Hráči:";
             // 
-            // hrajuListView
+            // BackButton
             // 
-            this.hrajuListView.BackColor = System.Drawing.Color.White;
-            this.hrajuListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hrajuListView.FullRowSelect = true;
-            this.hrajuListView.GridLines = true;
-            this.hrajuListView.HideSelection = false;
-            this.hrajuListView.Location = new System.Drawing.Point(19, 35);
-            this.hrajuListView.MultiSelect = false;
-            this.hrajuListView.Name = "hrajuListView";
-            this.hrajuListView.Size = new System.Drawing.Size(393, 285);
-            this.hrajuListView.TabIndex = 570;
-            this.hrajuListView.UseCompatibleStateImageBehavior = false;
-            this.hrajuListView.View = System.Windows.Forms.View.Details;
-            this.hrajuListView.SelectedIndexChanged += new System.EventHandler(this.hrajuListView_SelectedIndexChanged);
-            this.hrajuListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hrajuListView_MouseDoubleClick);
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BackButton.Location = new System.Drawing.Point(238, 361);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(174, 78);
+            this.BackButton.TabIndex = 569;
+            this.BackButton.Text = "Návrat späť";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // backButton
+            // PotvrditButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.backButton.Location = new System.Drawing.Point(238, 361);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(174, 78);
-            this.backButton.TabIndex = 569;
-            this.backButton.Text = "Návrat späť";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.PotvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PotvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditButton.Location = new System.Drawing.Point(19, 361);
+            this.PotvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PotvrditButton.Name = "PotvrditButton";
+            this.PotvrditButton.Size = new System.Drawing.Size(174, 78);
+            this.PotvrditButton.TabIndex = 568;
+            this.PotvrditButton.Text = "Potvrdiť";
+            this.PotvrditButton.UseVisualStyleBackColor = false;
+            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
             // 
-            // potvrditButton
+            // HraciLB
             // 
-            this.potvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.potvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.potvrditButton.Location = new System.Drawing.Point(19, 361);
-            this.potvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.potvrditButton.Name = "potvrditButton";
-            this.potvrditButton.Size = new System.Drawing.Size(174, 78);
-            this.potvrditButton.TabIndex = 568;
-            this.potvrditButton.Text = "Potvrdiť";
-            this.potvrditButton.UseVisualStyleBackColor = false;
-            this.potvrditButton.Click += new System.EventHandler(this.potvrditButton_Click);
+            this.HraciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciLB.FormattingEnabled = true;
+            this.HraciLB.ItemHeight = 20;
+            this.HraciLB.Location = new System.Drawing.Point(22, 36);
+            this.HraciLB.Name = "HraciLB";
+            this.HraciLB.Size = new System.Drawing.Size(390, 284);
+            this.HraciLB.TabIndex = 573;
+            this.HraciLB.DoubleClick += new System.EventHandler(this.HraciLB_DoubleClick);
             // 
             // OutSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 451);
+            this.Controls.Add(this.HraciLB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.hrajuListView);
-            this.Controls.Add(this.backButton);
-            this.Controls.Add(this.potvrditButton);
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.PotvrditButton);
             this.Name = "OutSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutSettingsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OutSettingsForm_FormClosed);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OutSettingsForm_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,8 +116,8 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView hrajuListView;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button potvrditButton;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Button PotvrditButton;
+        private System.Windows.Forms.ListBox HraciLB;
     }
 }

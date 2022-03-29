@@ -4,43 +4,29 @@ using System.Drawing;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace LGR_Futbal.Forms.UdalostiForms
 {
     public partial class KopySettingsForm : Form
     {
         public event UdalostPridanaHandler OnUdalostPridana;
-        private Zapas zapas = null;
-        private FutbalovyTim futbalovyTim = null;
-        private List<Hrac> hrajuci = null;
-        private bool nadstavenyCas = false;
-        private int nadstavenaMinuta = 0;
-        private int lastIndex = -1;
-        private int minuta = -1;
-        private int polcas = -1;
-        private DateTime cas;
-        private bool uspech = false;
-        private bool domaci = false;
 
-        public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
+        private bool domaci = false;
+        private List<Hrac> zoznamHracov = null;
+        private FutbalovyTim futbalovyTim = null;
+        private Zapas zapas = null;
+        private bool uspech = false;
+        private Kop kop = null;
+
+        public KopySettingsForm(FutbalovyTim tim, Zapas zapas,  bool domaci, Kop kop)
         {
             InitializeComponent();
-            cas = DateTime.Now;
             this.Text = "Kop";
             this.zapas = zapas;
             this.futbalovyTim = tim;
-            this.nadstavenaMinuta = nadstavenaMinuta;
-            this.nadstavenyCas = nadstavenyCas;
-            this.minuta = minuta;
-            this.polcas = polcas;
             this.domaci = domaci;
-            ColumnHeader header = new ColumnHeader();
-            header.Text = "";
-            header.Name = "";
-            hrajuListView.Columns.Add(header);
-            hrajuListView.HeaderStyle = ColumnHeaderStyle.None;
-            hrajuListView.Columns[0].Width = 350;
+            this.kop = kop;
 
-            hrajuci = new List<Hrac>();
+            zoznamHracov = new List<Hrac>();
             if (futbalovyTim != null)
             {
                 for (int i = 0; i < tim.ZoznamHracov.Count; i++)
@@ -48,57 +34,51 @@ namespace LGR_Futbal.Forms
                     Hrac h = tim.ZoznamHracov[i];
                     if (h.HraAktualnyZapas && !h.CervenaKarta)
                     {
-                        hrajuci.Add(h);
+                        zoznamHracov.Add(h);
                         if (!h.CisloDresu.Equals(string.Empty))
                         {
-                            hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                            HraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                         }
                         else
                         {
-                            hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                            HraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                         }
                     }
                 }
             }
 
             if (futbalovyTim == null)
-                potvrditButton.Enabled = true;
+                PotvrditButton.Enabled = true;
             else
             {
-                if (hrajuci.Count == 0)
-                    potvrditButton.Enabled = false;
+                if (zoznamHracov.Count == 0)
+                    PotvrditButton.Enabled = false;
                 else
                 {
-                    potvrditButton.Enabled = true;
+                    PotvrditButton.Enabled = true;
                 }
             }
         }
 
-        private void potvrdit()
+        private void PotvrdKop()
         {
             Hrac hrac = new Hrac();
-            if (lastIndex != -1)
+            if (HraciLB.SelectedIndex >= 0)
             {
-                hrac = hrajuci[lastIndex];
+                hrac = zoznamHracov[HraciLB.SelectedIndex];
             }
-            Kop kop = new Kop();
             kop.Hrac = hrac;
-            kop.Minuta = minuta;
-            kop.NadstavenaMinuta = nadstavenaMinuta;
-            kop.Predlzenie = nadstavenyCas ? 1 : 0;
-            kop.Polcas = polcas;
-            kop.AktualnyCas = cas;
             kop.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
             kop.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
-            if (priamyRB.Checked)
+            if (PriamyRB.Checked)
             {
                 kop.IdTypKopu = 1;
             }
-            else if (nepriamyRB.Checked)
+            else if (NepriamyRB.Checked)
             {
                 kop.IdTypKopu = 2;
             }
-            else if (rohovyRB.Checked)
+            else if (RohovyRB.Checked)
             {
                 kop.IdTypKopu = 3;
             }
@@ -111,40 +91,31 @@ namespace LGR_Futbal.Forms
             this.Close();
         }
 
-        private void potvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditButton_Click(object sender, EventArgs e)
         {
-            potvrdit();
+            PotvrdKop();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void hrajuListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
-            if (hrajuListView.SelectedItems.Count > 0)
-            {
-                for (int i = 0; i < hrajuListView.Items.Count; i++)
-                {
-                    hrajuListView.Items[i].BackColor = Color.White;
-                }
-                hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor = Color.Green;
-                lastIndex = hrajuListView.SelectedIndices[0];
-                hrajuListView.SelectedItems.Clear();
-                
-            }
+            if (HraciLB.SelectedIndex >= 0)
+                PotvrdKop();
         }
-
+        private void KopySettingsForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
         private void KopySettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
         }
 
-        private void hrajuListView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            potvrdit();
-        }
+        
     }
 }

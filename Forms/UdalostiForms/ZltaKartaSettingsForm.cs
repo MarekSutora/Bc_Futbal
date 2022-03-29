@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace LGR_Futbal.Forms.UdalostiForms
 {
     public delegate void HracZltaKartaSelectedHandler(Hrac hrac);
 
@@ -12,90 +12,83 @@ namespace LGR_Futbal.Forms
     {
         public event HracZltaKartaSelectedHandler OnHracZltaKartaSelected;
         public event UdalostPridanaHandler OnUdalostPridana;
-        private List<Hrac> zoznam;
-        private FutbalovyTim t;
-        private bool nadstavenyCas = false;
-        private int nadstavenaMinuta = 0;
-        private int minuta = -1;
-        private Zapas zapas = null;
-        private int polcas = -1;
-        private DateTime cas;
-        private bool uspech = false;
+        
         private bool domaci = false;
+        private List<Hrac> zoznamHracov = null;
+        private FutbalovyTim futbalovyTim = null;
+        private Zapas zapas = null;
+        private Karta karta = null;
+        private bool uspech = false;
         #region Konstruktor a metody
 
-        public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool nadstavenyCas, int nadstavenaMinuta, int minuta, int polcas, bool domaci)
+        public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Karta karta)
         {
             InitializeComponent();
             
             if (Settings.Default.Jazyk == 1)
             {
                 this.Text = "Žlutá karta - nastavení";
-                potvrditButton.Text = "Potvrdit";
-                backButton.Text = "Návrat zpět";
+                PotvrditButton.Text = "Potvrdit";
+                BackButton.Text = "Návrat zpět";
             }
-                        
-            t = tim;
-            zoznam = new List<Hrac>();
-            this.zapas = zapas;
-            cas = DateTime.Now;
-            this.nadstavenaMinuta = nadstavenaMinuta;
-            this.nadstavenyCas = nadstavenyCas;
-            this.minuta = minuta;
-            this.polcas = polcas;
-            this.domaci = domaci;
 
+            futbalovyTim = tim;
+            zoznamHracov = new List<Hrac>();
+            this.zapas = zapas;
+            this.domaci = domaci;
+            this.karta = karta;
             if (tim != null)
             {
                 foreach (Hrac h in tim.ZoznamHracov)
                 {
                     if ((h.HraAktualnyZapas) && (!h.Nahradnik) && (!h.CervenaKarta))
                     {
-                        zoznam.Add(h);
+                        zoznamHracov.Add(h);
                         if (!h.CisloDresu.Equals(string.Empty))
-                            hraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                            HraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                         else
-                            hraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                            HraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                 }
             }
 
             if (tim == null)
-                potvrditButton.Enabled = true;
+                PotvrditButton.Enabled = true;
             else
             {
-                if (zoznam.Count == 0)
-                    potvrditButton.Enabled = false;
+                if (zoznamHracov.Count == 0)
+                    PotvrditButton.Enabled = false;
                 else
                 {
-                    hraciLB.SelectedIndex = 0;
-                    potvrditButton.Enabled = true;
+                    HraciLB.SelectedIndex = 0;
+                    PotvrditButton.Enabled = true;
                 }
             }
         }
 
-        private void potvrdKartu()
+        private void PotvrdKartu()
         {
             if (OnHracZltaKartaSelected != null)
             {
-                if (t == null)
-                    OnHracZltaKartaSelected(null);
-                else
+                if (futbalovyTim == null)
                 {
-                    Karta karta = new Karta();
-                    Hrac hrac = zoznam[hraciLB.SelectedIndex];
-                    karta.Hrac = hrac;
-                    karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z'; //2 - cervena, 1 - zlta
-                    karta.Minuta = minuta;
-                    karta.NadstavenaMinuta = nadstavenaMinuta;
-                    karta.Predlzenie = nadstavenyCas ? 1 : 0;
-                    karta.Polcas = polcas;
-                    karta.AktualnyCas = cas;
+                    karta.TypKarty = 'Z'; 
                     karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    karta.IdFutbalovyTim = t != null ? t.IdFutbalovyTim : 0;
+                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(karta);
                     uspech = true;
-                    OnHracZltaKartaSelected(zoznam[hraciLB.SelectedIndex]);
+                    OnHracZltaKartaSelected(null);
+                }                  
+                else
+                {
+                    Hrac hrac = zoznamHracov[HraciLB.SelectedIndex];
+                    karta.Hrac = hrac;
+                    karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z'; 
+                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                    zapas.Udalosti.Add(karta);
+                    uspech = true;
+                    OnHracZltaKartaSelected(zoznamHracov[HraciLB.SelectedIndex]);
                 }
                     
             }
@@ -105,7 +98,7 @@ namespace LGR_Futbal.Forms
 
         private void PotvrditButton_Click(object sender, EventArgs e)
         {
-            potvrdKartu();
+            PotvrdKartu();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -113,16 +106,10 @@ namespace LGR_Futbal.Forms
             this.Close();
         }
 
-        private void hraciLB_DoubleClick(object sender, EventArgs e)
+        private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
-            if (hraciLB.SelectedIndex >= 0)
-                potvrdKartu();
-        }
-
-        private void ZltaKartaSettingsForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            if (HraciLB.SelectedIndex >= 0)
+                PotvrdKartu();
         }
 
         private void ZltaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -131,8 +118,7 @@ namespace LGR_Futbal.Forms
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
 
-        #endregion
 
-
+        #endregion 
     }
 }

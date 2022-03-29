@@ -113,7 +113,7 @@ namespace LGR_Futbal.Forms
 
                 cisloHracaLabel.Text = prezentovanyHrac.CisloDresu.ToString();
                 chLabel.Text = cisloHracaLabel.Text;
-                String identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
+                string identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
 
                 menoHracaLabel.Text = identifikacia;
                 mhLabel.Text = menoHracaLabel.Text;
@@ -150,8 +150,6 @@ namespace LGR_Futbal.Forms
 
         private void CervenaKartaForm_Load(object sender, EventArgs e)
         {
-            // Ak existuje externy monitor, svetelna tabula sa vykresli primarne nan,
-            // ak nie, pouzije sa standardna obrazovka.
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             this.SpustiCas();
