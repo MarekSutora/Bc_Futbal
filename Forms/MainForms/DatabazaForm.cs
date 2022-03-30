@@ -46,36 +46,6 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Správa databáze hráčů";
-                infoLabel1.Text = "Seznam týmů";
-                //zrusitButton.Text = "Zavřít   ";
-                addButton.Text = addButton.Text.Replace("Vložiť", "Vložit");
-                addButton.Text = addButton.Text.Replace("tím", "tým");
-                editButton.Text = editButton.Text.Replace("Zmeniť", "Změnit");
-                removeButton.Text = removeButton.Text.Replace("tím", "tým");
-                removeButton.Text = removeButton.Text.Replace("Odstrániť", "Odstranit");
-                importButton.Text = importButton.Text.Replace("tím", "tým");
-                exportButton.Text = exportButton.Text.Replace("tím", "tým");
-
-                addGroupBox.Text = "Vložení nového týmu";
-                infoLabel2.Text = "Název týmu:";
-                zmenaObrazkaButton.Text = "Změnit logo";
-                zrusitLogoButton.Text = "Zrušit logo";
-                spatButton.Text = "Zpět    ";
-                vlozitButton.Text = vlozitButton.Text.Replace("Vložiť", "Vložit");
-                vlozitButton.Text = vlozitButton.Text.Replace("tím", "tým");
-
-                editGroupBox.Text = "Změna údajů týmu";
-                label1.Text = "Název týmu:";
-                editZmenaButton.Text = "Změnit logo";
-                editZrusButton.Text = "Zrušit logo";
-                editBackButton.Text = "Zpět    ";
-                editConfirmButton.Text = editConfirmButton.Text.Replace("zmeny", "změny");
-                editConfirmButton.Text = editConfirmButton.Text.Replace("Potvrdiť", "Potvrdit");
-            }
-
             dbtimy = dbt;
             dbhraci = dbh;
             dbrozhodcovia = dbr;
@@ -108,12 +78,6 @@ namespace LGR_Futbal.Forms
 
             button6.Enabled = false;
             button7.Enabled = false;
-            //vlozHracaGroupBox.BringToFront();
-            //addGroupBox.BringToFront();
-            //addRozhodcuGroupBox.BringToFront();
-            //editHracGroupBox.SendToBack();
-            //editGroupBox.SendToBack();
-            //editRozhodcuGroupBox.SendToBack();
 
             if (timy.Count > 0)
             {
@@ -131,14 +95,12 @@ namespace LGR_Futbal.Forms
             timyListBox.Items.Clear();
             timHracCB.Items.Clear();
             timFilterCB.Items.Clear();
-            //nazvyTimov.Clear();
             timy = dbtimy.GetTimy();
             timFilterCB.Items.Add("Všetci hráči");
             timFilterCB.Items.Add("Nezaradení");
 
             for (int i = 0; i < timy.Count; i++)
             {
-                //nazvyTimov.Add(dbs.ZoznamTimov[i].NazovTimu);
                 timyListBox.Items.Add(timy[i].NazovTimu);
                 timHracCB.Items.Add(timy[i].NazovTimu);
                 timFilterCB.Items.Add(timy[i].NazovTimu);
@@ -213,11 +175,11 @@ namespace LGR_Futbal.Forms
         {
             string novyNazov = nazovTextBox.Text.Trim();
             if (novyNazov.Equals(string.Empty))
-                MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Názov tímu nesmie byť prázdny!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (dbtimy.CheckNazovTimu(novyNazov))
-                    MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     FutbalovyTim t = new FutbalovyTim();
@@ -270,31 +232,6 @@ namespace LGR_Futbal.Forms
             editGroupBox.BringToFront();
 
             ZobrazEdit();
-            //    originalLogoCesta = string.Empty;
-            //    aktTim = timy[timyListBox.SelectedIndex];
-            //    editNazovTextBox.Text = aktTim.NazovTimu;
-            //    kategoriaCombobox2.SelectedIndex = aktTim.Kategoria - 1;
-            //    try
-            //    {
-            //        //originalLogoCesta = currentDirectory + "\\" + logaAdresar + aktTim.Logo;
-            //        //editPictureBox.Image = Image.FromFile(originalLogoCesta);
-            //        if (aktTim != null && aktTim.LogoBlob != null)
-            //        {
-            //            editPictureBox.Image = aktTim.LogoImage;
-            //        }
-            //        else
-            //        {
-            //            editPictureBox.Image = null;
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        originalLogoCesta = string.Empty;
-            //        editPictureBox.Image = null;
-            //    }
-            //    editGroupBox.Visible = true;
-            //    addGroupBox.Visible = false;
-            //    editNazovTextBox.Focus();
         }
 
         private void ZapasButton_Click(object sender, EventArgs e)
@@ -302,15 +239,6 @@ namespace LGR_Futbal.Forms
 
             NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbtimy, dbhraci);
             form.Show();
-
-            //FutbalovyTim tim = dbs.ZoznamTimov[timyListBox.SelectedIndex];
-            //if (tim.ZoznamHracov.Count == 0)
-            //    MessageBox.Show(Translate(3), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //else
-            //{
-            //    HraciZapasForm formular = new HraciZapasForm(tim);
-            //    formular.Show();
-            //}
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -320,7 +248,8 @@ namespace LGR_Futbal.Forms
 
             //FutbalovyTim t = dbs.ZoznamTimov[timyListBox.SelectedIndex];
             //var i = timyListBox.Items[timyListBox.SelectedIndex];
-            if (MessageBox.Show(Translate(4) + timyListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete odstrániť z databázy hráča " + timyListBox.SelectedItem.ToString() + "?", 
+                nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbtimy.OdstranTim(timy[timyListBox.SelectedIndex]);
                 FillTimyCB();
@@ -357,7 +286,6 @@ namespace LGR_Futbal.Forms
             {
                 editPictureBox.Image = null;
                 originalLogoCesta = string.Empty;
-                //aktTim.LogoImage = null;
             }
         }
 
@@ -371,12 +299,12 @@ namespace LGR_Futbal.Forms
         {
             string novyNazov = editNazovTextBox.Text.Trim();
             if (novyNazov.Equals(string.Empty))
-                MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Názov tímu nesmie byť prázdny!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
 
                 if (dbtimy.CheckNazovTimu(novyNazov) && aktTim.NazovTimu != novyNazov)
-                    MessageBox.Show(Translate(2), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     aktTim.NazovTimu = novyNazov;
@@ -457,38 +385,6 @@ namespace LGR_Futbal.Forms
 
                 editNazovTextBox.Focus();
             }
-        }
-
-        private string Translate(int cisloVety)
-        {
-            if (Settings.Default.Jazyk == 0)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Názov tímu nesmie byť prázdny!";
-                    case 2: return "V databáze sa už nachádza tím s týmto názvom!";
-                    case 3: return "Tím neobsahuje žiadneho hráča!";
-                    case 4: return "Naozaj chcete odstrániť z databázy tím ";
-                    case 5: return "Tím ";
-                    case 6: return " bol úspešne exportovaný.";
-                    case 7: return "Naozaj chcete odstrániť z databázy hráča ";
-                }
-            }
-            else if (Settings.Default.Jazyk == 1)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Název týmu nesmí být prázdný!";
-                    case 2: return "V databázi se již nachází tým s tímto názvem!";
-                    case 3: return "Tým neobsahuje žádného hráče!";
-                    case 4: return "Opravdu chcete odebrat z databáze tým ";
-                    case 5: return "Tým ";
-                    case 6: return " byl úspěšně exportován.";
-                    case 7: return "Opravdu chcete odebrat z databáze hráče ";
-                }
-            }
-
-            return string.Empty;
         }
 
         private void DatabazaForm_KeyDown(object sender, KeyEventArgs e)
@@ -583,12 +479,8 @@ namespace LGR_Futbal.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //vlozHracaGroupBox.Visible = false;
-            //editHracGroupBox.Visible = false;
-
-            //FutbalovyTim t = dbs.ZoznamTimov[timyListBox.SelectedIndex];
-            //var i = timyListBox.Items[timyListBox.SelectedIndex];
-            if (MessageBox.Show(Translate(7) + hraciListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete odstrániť z databázy hráča " + hraciListBox.SelectedItem.ToString() + "?"
+                , nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbhraci.OdstranHraca(hraci[hraciListBox.SelectedIndex]);
                 filtrujHracov(lastFilterHraci);
@@ -1075,7 +967,8 @@ namespace LGR_Futbal.Forms
         private void removeRozhodcuButton_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show(Translate(7) + RozhodcoviaListBox.SelectedItem.ToString() + "?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete odstrániť z databázy rozhodcu " + RozhodcoviaListBox.SelectedItem.ToString() + "?"
+                , nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbrozhodcovia.OdstranRozhodcu(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
                 FillRozhodcoviaCB();

@@ -20,30 +20,17 @@ namespace LGR_Futbal.Forms
 
         #region Atributy
 
-        private string adresar;
-        private Hrac prezentovanyHrac;
+        private Hrac prezentovanyHrac = null;
         private bool prezentaciaSkoncila;
 
         #endregion
         
         #region Konstruktor a metody
 
-        public ZltaKartaForm(string folder, int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
+        public ZltaKartaForm(string adresar, int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 0)
-            {
-                nadpisLabel1.Text = "ŽLTÁ\nKARTA";
-                label2.Text = "1. žltá karta";
-            }
-            else
-            {
-                nadpisLabel1.Text = "ŽLUTÁ\nKARTA";
-                label2.Text = "1. žlutá karta";
-            }
-
-            adresar = folder;
             casovac.Interval = 1000 * cas;
 
             prezentovanyHrac = hrac;
@@ -85,14 +72,11 @@ namespace LGR_Futbal.Forms
                 catch
                 {
                     fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
-                    //fotkaPictureBox.Image = null;
                 }
 
                 cisloHracaLabel.Text = prezentovanyHrac.CisloDresu.ToString();
                 
-                String identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
-                //if (identifikacia.Length > 15)
-                //    identifikacia = identifikacia.Replace(" ", "\n");
+                string identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
 
                 menoHracaLabel.Text = identifikacia;
             }

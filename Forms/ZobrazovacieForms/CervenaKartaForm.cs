@@ -21,34 +21,19 @@ namespace LGR_Futbal.Forms
 
         #region Atributy
 
-        private string adresar;
-        private Hrac prezentovanyHrac;
+        private Hrac prezentovanyHrac = null;
         private int pocetZobrazenychPanelov;
-        private List<Panel> zobrazovane;
+        private List<Panel> zobrazovane = null;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public CervenaKartaForm(string folder, int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
+        public CervenaKartaForm(string adresar, int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
             string animZ, string animC)
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 0)
-            {
-                label3.Text = "vylúčený";
-                label2.Text = "2. žltá karta";
-                nadpisLabel1.Text = "ŽLTÁ\nKARTA";
-            }
-            else
-            {
-                label3.Text = "vyloučen";
-                label2.Text = "2. žlutá karta";
-                nadpisLabel1.Text = "ŽLUTÁ\nKARTA";
-            }
-
-            adresar = folder;
             casovac.Interval = 1000 * cas;
 
             if (animZ.Equals(string.Empty))

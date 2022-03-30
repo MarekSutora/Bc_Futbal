@@ -16,15 +16,6 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Změna aktuálního času";
-                label1.Text = "Minuta:";
-                label2.Text = "Vteřina:";
-                potvrditButton.Text = "Potvrdit";
-                backButton.Text = "Návrat zpět";
-            }
-
             minuta.Minimum = 0;
             minuta.Maximum = 2 * dlzka;
             minuta.Value = m;

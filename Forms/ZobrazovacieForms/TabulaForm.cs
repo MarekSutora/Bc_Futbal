@@ -9,105 +9,32 @@ namespace LGR_Futbal.Forms
 {
     public partial class TabulaForm : Form
     {
-        #region Atributy
-
-        private Color casColor;
-        private Color polcasColor;
-        private int aktualnyJazyk;
-        #endregion
-        public RozlozenieTabule RozlozenieTabule { get; set; }
-        public FontyTabule fontyTabule { get; set; }
-        #region Kontruktor a metody
-
-        public void prelozTabuluDoJazyka(int jazyk)
+        public TabulaForm(int sirkaPlochy)
         {
-            aktualnyJazyk = jazyk;
 
-            domaciLabel.Text = preloz(domaciLabel.Text);
-            hostiaLabel.Text = preloz(hostiaLabel.Text);
-            polcasLabel.Text = preloz(polcasLabel.Text);
-        }
-
-        private string preloz(string povodnyText)
-        {
-            string text = povodnyText;
-
-            if (aktualnyJazyk == 0) // SK
-            {
-                text = text.Replace("poločas", "polčas");
-                text = text.Replace("DOMÁCÍ", "DOMÁCI");
-                text = text.Replace("HOSTÉ", "HOSTIA");
-            }
-            else if (aktualnyJazyk == 1) // CZ
-            {
-                text = text.Replace("polčas", "poločas");
-                text = text.Replace("DOMÁCI", "DOMÁCÍ");
-                text = text.Replace("HOSTIA", "HOSTÉ");
-            }
-
-            return text;
-        }
-
-        public TabulaForm(int jazyk, int sirkaPlochy, RozlozenieTabule rt)
-        {
-            
             InitializeComponent();
-            aktualnyJazyk = jazyk;
-            setDefaultColors();
-            this.RozlozenieTabule = rt;
+            SetDefaultFarby();
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
             float pomer = (float)sirkaPlochy / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
-
-            this.RozlozenieTabule.Cas_X = this.casLabel.Left;
-            this.RozlozenieTabule.Cas_Y = this.casLabel.Top;
-            this.RozlozenieTabule.Domaci_X = this.domaciLabel.Left;
-            this.RozlozenieTabule.Domaci_Y = this.domaciLabel.Top;
-            this.RozlozenieTabule.Hostia_X = this.hostiaLabel.Left;
-            this.RozlozenieTabule.Hostia_Y = this.hostiaLabel.Top;
-            this.RozlozenieTabule.DomaciSkore_X = this.skoreDomaciLabel.Left;
-            this.RozlozenieTabule.DomaciSkore_Y = this.skoreDomaciLabel.Top;
-            this.RozlozenieTabule.HostiaSkore_X = this.skoreHostiaLabel.Left;
-            this.RozlozenieTabule.HostiaSkore_Y = this.skoreHostiaLabel.Top;
-            this.RozlozenieTabule.LogoDomaci_X = this.logoDomaci.Left;
-            this.RozlozenieTabule.LogoDomaci_Y = this.logoDomaci.Top;
-            this.RozlozenieTabule.LogoDomaciZobrazit = true;
-            this.RozlozenieTabule.LogoDomaciSirka = this.logoDomaci.Width;
-            this.RozlozenieTabule.LogoHostia_X = this.logoHostia.Left;
-            this.RozlozenieTabule.LogoHostia_Y = this.logoHostia.Top;
-            this.RozlozenieTabule.LogoHostiaZobrazit = true;
-            this.RozlozenieTabule.LogoHostiaSirka = this.logoHostia.Width;
-            this.RozlozenieTabule.Polcas_X = this.polcasLabel.Left;
-            this.RozlozenieTabule.Polcas_Y = this.polcasLabel.Top;
         }
 
-        private void TabulaForm_Load(object sender, EventArgs e)
+        public void SetDefaultFarby()
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
-        }
-
-        public void setDefaultColors()
-        {
-            casColor = Color.Lime;
-            polcasColor = Color.Lime;
-            casLabel.ForeColor = casColor;
-            polcasLabel.ForeColor = polcasColor;
-
+            casLabel.ForeColor = Color.Lime;
+            polcasLabel.ForeColor = Color.Lime;
             domaciLabel.ForeColor = Color.Aqua;
             hostiaLabel.ForeColor = Color.Aqua;
             skoreDomaciLabel.ForeColor = Color.Red;
             skoreHostiaLabel.ForeColor = Color.Red;
         }
 
-        public void setColors(FarbyTabule fs)
+        public void SetFarby(FarbyTabule fs)
         {
-            casColor = fs.GetCasFarba();
-            casLabel.ForeColor = casColor;
-            polcasColor = fs.GetPolcasFarba();
-            polcasLabel.ForeColor = polcasColor;
-
+            casLabel.ForeColor = fs.GetCasFarba();
+            polcasLabel.ForeColor = fs.GetPolcasFarba();
             domaciLabel.ForeColor = fs.GetNadpisDomFarba();
             hostiaLabel.ForeColor = fs.GetNadpisHosFarba();
             skoreDomaciLabel.ForeColor = fs.GetSkoreFarba();
@@ -140,51 +67,35 @@ namespace LGR_Futbal.Forms
             skoreHostiaLabel.Text = hodnota.ToString();
         }
 
-        public void SetPolcas(int hodnota, int nadstaveneMinuty)
+        public void SetPolcas(int hodnota, int nadstaveneMinuty, bool nadstavenyCas)
         {
-
-            //polcasLabel.Text = hodnota + " " + nadstaveneMinuty;
-            //polcasLabel.ForeColor = polcasColor;
-            switch (hodnota)
+            if (nadstavenyCas)
             {
-                case 1:
-                    polcasLabel.Text = preloz("1. polčas");
-                    polcasLabel.ForeColor = polcasColor;
-                    break;
-                case 2:
-                    polcasLabel.Text = preloz("2. polčas");
-                    polcasLabel.ForeColor = polcasColor;
-                    break;
-                case 3:
-                    polcasLabel.Text = preloz("2. polčas");
-                    polcasLabel.ForeColor = polcasColor;
-                    break;
-                case 4:
-                    polcasLabel.Text = preloz("2. polčas");
-                    polcasLabel.ForeColor = polcasColor;
-                    break;
-                default:
-                    polcasLabel.Text = string.Empty;
-                    polcasLabel.ForeColor = Color.Black;
-                    break;
+                polcasLabel.Text = hodnota + ". polčas + " + nadstaveneMinuty + " !";
+                polcasLabel.ForeColor = Color.OrangeRed;
             }
+            else
+            {
+                polcasLabel.Text = hodnota + ". polčas";
+                polcasLabel.ForeColor = Color.Lime;
+            }
+            
         }
 
-        public void SetCas(string text, bool riadnyHraciCas)
+        public void SetCas(string text)
         {
             casLabel.Text = text;
-            casLabel.ForeColor = casColor;
         }
 
         public void Reset()
         {
             SetSkoreDomaci(0);
             SetSkoreHostia(0);
-            SetPolcas(0, 0);
-            SetCas("00:00", true);
+            SetPolcas(0, 0, false);
+            SetCas("00:00");
         }
 
-        public void NastavFonty(FontyTabule fonty)
+        public void SetFonty(FontyTabule fonty)
         {
             skoreDomaciLabel.Font = fonty.CreateSkoreFont();
             skoreHostiaLabel.Font = fonty.CreateSkoreFont();
@@ -194,13 +105,12 @@ namespace LGR_Futbal.Forms
 
             casLabel.Font = fonty.CreateCasFont();
             polcasLabel.Font = fonty.CreatePolcasFont();
-            
+
         }
 
-        public void setLayout(RozlozenieTabule rozlozenie)
+        public void SetLayout(RozlozenieTabule rozlozenie)
         {
             double pom = this.logoDomaci.Width / this.logoDomaci.Height;
-            this.RozlozenieTabule = rozlozenie;
             if (!rozlozenie.LogoDomaciZobrazit)
             {
                 this.logoDomaci.Visible = false;
@@ -213,7 +123,7 @@ namespace LGR_Futbal.Forms
                 this.logoDomaci.Height = (int)(pom * this.logoDomaci.Width);
                 this.logoDomaci.Visible = true;
             }
-                
+
             if (!rozlozenie.LogoHostiaZobrazit)
             {
                 this.logoHostia.Visible = false;
@@ -247,6 +157,9 @@ namespace LGR_Futbal.Forms
 
         }
 
-        #endregion
+        private void TabulaForm_Load(object sender, EventArgs e)
+        {
+            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+        }
     }
 }

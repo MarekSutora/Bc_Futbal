@@ -68,10 +68,10 @@
             // 
             this.skoreHostiaLabel.Font = new System.Drawing.Font("Arial", 100.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreHostiaLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreHostiaLabel.Location = new System.Drawing.Point(559, 337);
+            this.skoreHostiaLabel.Location = new System.Drawing.Point(694, 337);
             this.skoreHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreHostiaLabel.Name = "skoreHostiaLabel";
-            this.skoreHostiaLabel.Size = new System.Drawing.Size(391, 220);
+            this.skoreHostiaLabel.Size = new System.Drawing.Size(256, 220);
             this.skoreHostiaLabel.TabIndex = 546;
             this.skoreHostiaLabel.Text = "0";
             this.skoreHostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,7 +83,7 @@
             this.skoreDomaciLabel.Location = new System.Drawing.Point(19, 337);
             this.skoreDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreDomaciLabel.Name = "skoreDomaciLabel";
-            this.skoreDomaciLabel.Size = new System.Drawing.Size(391, 220);
+            this.skoreDomaciLabel.Size = new System.Drawing.Size(256, 220);
             this.skoreDomaciLabel.TabIndex = 545;
             this.skoreDomaciLabel.Text = "0";
             this.skoreDomaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,10 +92,10 @@
             // 
             this.polcasLabel.Font = new System.Drawing.Font("Arial", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.polcasLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.polcasLabel.Location = new System.Drawing.Point(275, 439);
+            this.polcasLabel.Location = new System.Drawing.Point(270, 439);
             this.polcasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.polcasLabel.Name = "polcasLabel";
-            this.polcasLabel.Size = new System.Drawing.Size(415, 81);
+            this.polcasLabel.Size = new System.Drawing.Size(420, 81);
             this.polcasLabel.TabIndex = 547;
             this.polcasLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

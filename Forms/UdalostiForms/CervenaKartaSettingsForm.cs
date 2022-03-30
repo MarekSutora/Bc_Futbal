@@ -25,12 +25,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Červená karta - nastavení";
-                PotvrditButton.Text = "Potvrdit";
-                BackButton.Text = "Návrat zpět";
-            }
             this.domaci = domaci;
             futbalovyTim = tim;
             zoznamHracov = new List<Hrac>();

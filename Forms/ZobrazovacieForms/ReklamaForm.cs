@@ -11,15 +11,14 @@ using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void SafeCallDelegate();
+    public delegate void ReklamaKoniecHandler();
     public partial class ReklamaForm : Form
     {
 
+        public event ReklamaKoniecHandler OnReklamaKoniec;
         private string video = string.Empty;
-        private int tiky = 0;
-        private RiadiaciForm riadiaci;
 
-        public ReklamaForm(int sirka, string video, RiadiaciForm rf)
+        public ReklamaForm(int sirka, string video)
         {
             InitializeComponent();
 
@@ -27,17 +26,6 @@ namespace LGR_Futbal.Forms
             Scale(new SizeF(pomer, pomer));
 
             this.video = video;
-            this.riadiaci = rf;
-        }
-
-        private void Casovac_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            tiky++;
-            if (tiky == 2)
-            {
-                vlcControl1.Stop();
-                this.Close();
-            }
         }
 
         private void ReklamaForm_Load(object sender, EventArgs e)
@@ -45,13 +33,13 @@ namespace LGR_Futbal.Forms
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             FileInfo fi = new FileInfo(video);
-            this.vlcControl1.SetMedia(fi);
-            this.vlcControl1.Play();
+            VlcControl.SetMedia(fi);
+            VlcControl.Play();
 
 
         }
 
-        private void vlcControl1_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
+        private void VlcControl_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
@@ -60,11 +48,11 @@ namespace LGR_Futbal.Forms
 
         public void VypnutVideo()
         {
-            vlcControl1.Stop();
-            this.Close();
+            VlcControl.Stop();
+            Close();
         }
 
-        private void vlcControl1_EndReached(object sender, Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs e)
+        private void VlcControl_EndReached(object sender, Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs e)
         {
 
             Action act = new Action(() =>
@@ -83,7 +71,8 @@ namespace LGR_Futbal.Forms
 
         private void ReklamaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            riadiaci.KoniecVidea();
+            if (OnReklamaKoniec != null)
+                OnReklamaKoniec();
         }
     }
 }

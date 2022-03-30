@@ -239,7 +239,6 @@
             this.MinimizeBox = false;
             this.Name = "PrezentaciaForm";
             this.Load += new System.EventHandler(this.PrezentaciaForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PrezentaciaForm_KeyDown);
             this.uvodnyPanel.ResumeLayout(false);
             this.prezentacnyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).EndInit();

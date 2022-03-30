@@ -24,14 +24,6 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Výběr týmů z databáze";
-                domaciLabel.Text = "DOMÁCÍ";
-                hostiaLabel.Text = "HOSTÉ";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Vybrať", "Vybrat");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-            }
             dBTimy = dbt;
             dBHraci = dbh;
             timy = dBTimy.GetTimy();

@@ -34,21 +34,6 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Představení hráčů";
-                checkBox1.Text = "Zahrnout do prezentace náhradníky";
-
-                domaciButton.Text = "Prezentace\ndomácího týmu";
-                hostiaButton.Text = "Prezentace\ntýmu hostí";
-
-                farbyButton.Text = "Nastavení\nbarev";
-                fontyButton.Text = "Nastavení\nfontů";
-
-                stopButton.Text = "Zastavit\nprezentaci";
-                backButton.Text = "Návrat\nzpět";
-            }
-
             checkBox1.Checked = nahr;
 
             pisma = fonty;

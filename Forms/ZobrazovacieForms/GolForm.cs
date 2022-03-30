@@ -51,9 +51,6 @@ namespace LGR_Futbal.Forms
                 subory = animacie.AnimacieHostia;
             }
 
-            if (Settings.Default.Jazyk == 1)
-                label2.Text = "Věk:";
-
             casovac.Interval = 500;
             prezentovanyHrac = h;
             koniec = false;
@@ -82,10 +79,6 @@ namespace LGR_Futbal.Forms
 
                 menoHracaLabel.Text = identifikacia;
 
-                if (Settings.Default.Jazyk == 1)
-                    vekLabel.Text = h.GetVek().ToString() + " let";
-                else
-                    vekLabel.Text = h.GetVek().ToString() + " rokov";
                 postLabel.Text = h.Pozicia;
             }
 

@@ -26,7 +26,6 @@ namespace LGR_Futbal.Forms
     public delegate void ObnovaFariebHandler();
     public delegate void ColorsLoadedHandler(FarbyTabule fs);
     public delegate void ObnovaFontovHandler();
-    public delegate void LanguageSelectedHandler(int cislo);
     public delegate void AnimacieKarietConfirmedHandler(string s1, string s2);
     public delegate void OnLayoutChangedHandler();
 
@@ -84,7 +83,6 @@ namespace LGR_Futbal.Forms
         public event ObnovaFariebHandler OnObnovaFarieb;
         public event ColorsLoadedHandler OnColorsLoaded;
         public event ObnovaFontovHandler OnObnovaFontov;
-        public event LanguageSelectedHandler OnLanguageSelected;
         public event AnimacieKarietConfirmedHandler OnAnimacieKarietConfirmed;
         public event OnLayoutChangedHandler OnLayoutChanged;
 
@@ -92,8 +90,8 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public SetupForm(int jazyk, bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
-            string logoDom, string logoHos, string nazovDom, string nazovHos,
+        public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
+            string nazovDom, string nazovHos,
             FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
             FarbyTabule schema, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena, List<Rozhodca> rozhodcovia,
@@ -104,84 +102,7 @@ namespace LGR_Futbal.Forms
             zltaAnimacia = animZlta;
             cervenaAnimacia = animCervena;
             this.vyska = vyska;
-            this.sirka = sirka;
-
-            if (jazyk == 1)
-            {
-                this.Text = "LGR Fotbal - nastavení";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Uložiť", "Uložit");
-                aktivovatButton.Text = aktivovatButton.Text.Replace("zmeny", "změny");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-                tabulaButton.Text = tabulaButton.Text.Replace("TABUĽA", "TABULE");
-                hraButton.Text = "PRŮBĚH\nHRY";
-                TeamyButton.Text = "TÝMY\na LOGA";
-                animacieButton.Text = "ANIMACE\nBRANEK";
-                databazaButton.Text = "DATABÁZE\nHRÁČŮ";
-                kartyButton.Text = "ANIMACE\nKARET";
-
-                ovladace.TabPages[0].Text = "Výsledková tabule";
-                ovladace.TabPages[1].Text = "Průběh hry";
-                ovladace.TabPages[2].Text = "Týmy a loga";
-                ovladace.TabPages[3].Text = "Animace branek";
-                ovladace.TabPages[4].Text = "Animace karet";
-
-                velkostGroupBox.Text = "Velikost zobrazovací plochy a jazyk";
-                sirkaLabel.Text = "Šířka:";
-                infoLabel.Text = "Poznámka: Poměr stran je fixován na 16:9!";
-                aktLabel.Text = "Aktuální rozlišení obrazovky je:";
-                label2.Text = "Animační čas [sec]:";
-                jazykGroupBox.Text = "Jazykové nastavení";
-                button12.Text = button12.Text.Replace("Zmeniť", "Změnit");
-                pozadieCheckBox.Text = "Překrýt obrazovku černou barvou";
-                initNastaveniaCheckBox.Text = "Zobrazovat nastavovací okno při spuštění aplikace";
-                zhasniButton.Text = "ZHASNOUT";
-                rozsvietButton.Text = "ROZSVÍTIT";
-
-                createColorsButton.Text = "Změnit farební        \nnastavení barev       \n(změnit aktuální)       ";
-                fontyButton.Text = "Nastavit fonty           \na velikosti písma         ";
-
-                label1.Text = "Délka poločasu [min]:";
-                prerusenieCheckBox.Text = "Povolit přerušení hry";
-                vybratButton.Text = vybratButton.Text.Replace("Vybrať", "Vybrat");
-                odstranitTypZapasuButton.Text = odstranitTypZapasuButton.Text.Replace("Odstrániť", "Odstranit");
-
-                domaciLabel.Text = "DOMÁCÍ";
-                hostiaLabel.Text = "HOSTÉ";
-
-                diakritikaCheckBox.Text = "Odstranit diakritiku z názvů";
-                zmenaLogaDom.Text = zmenaLogaDom.Text.Replace("Zmeniť", "Změnit");
-                zmenaLogaHos.Text = zmenaLogaHos.Text.Replace("Zmeniť", "Změnit");
-                zrusitLogoDom.Text = zrusitLogoDom.Text.Replace("Zrušiť", "Zrušit");
-                zrusitLogoHos.Text = zrusitLogoHos.Text.Replace("Zrušiť", "Zrušit");
-                nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("Vybrať", "Vybrat");
-                nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("tímy", "týmy");
-                nacitatDatabazaButton.Text = nacitatDatabazaButton.Text.Replace("z databázy", "z databáze");
-                rozlozenieButton.Text = "Změnit rozložení";
-                zrusitDatabazaButton.Text = "Zrušit propojení      \ns databází           ";
-
-                checkBox1.Text = "Domácí - zobrazovat předdefinovanou animaci (góóól)";
-                checkBox2.Text = "Hosté - zobrazovat předdefinovanou animaci (góóól)";
-                label3.Text = "Animace pro gól domácích";
-                label4.Text = "Animace pro gól hosty";
-                importAnimacieBtn.Text = "Importovat soubor";
-
-                groupBox1.Text = "Žlutá karta";
-                zmenitZltaKartaBtn.Text = "Změnit obrázek (animaci)";
-                zmenitCervenaKartaBtn.Text = "Změnit obrázek (animaci)";
-                ZrusitZltaKartaBtn.Text = "Zrušit obrázek (animaci)";
-                ZrusitCervenaKartaBtn.Text = "Zrušit obrázek (animaci)";
-            }
-
-            if (jazyk == 0)
-            {
-                skRadioButton.Checked = true;
-                czRadioButton.Checked = false;
-            }
-            else
-            {
-                skRadioButton.Checked = false;
-                czRadioButton.Checked = true;
-            }
+            this.sirka = sirka;  
 
             dbtimy = dbt;
             dbhraci = dbh;
@@ -359,14 +280,15 @@ namespace LGR_Futbal.Forms
 
             if (OnDataConfirmed != null)
             {
-                int s = (int)sirkaNumUpDown.Value;
-                int v = (int)vyskaNumUpDown.Value;
                 bool poz = pozadieCheckBox.Checked;
                 bool initSet = initNastaveniaCheckBox.Checked;
+                int s = (int)sirkaNumUpDown.Value;
+                int v = (int)vyskaNumUpDown.Value;              
                 int d = (int)dlzkaPolcasuNumUpDown.Value;
                 bool p = prerusenieCheckBox.Checked;
                 bool diak = diakritikaCheckBox.Checked;
                 int animCas = (int)animaciaNumUpDown.Value;
+
                 OnDataConfirmed(poz, initSet, s, v, d, p, diak, animCas);
             }
 
@@ -491,7 +413,7 @@ namespace LGR_Futbal.Forms
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Translate(1), nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete resetovať výsledkovú tabuľu?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (OnReset != null)
                 {
@@ -793,52 +715,10 @@ namespace LGR_Futbal.Forms
                 OnObnovaFontov();
             }
         }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            if (OnLanguageSelected != null)
-            {
-                int j = -1;
-                if (skRadioButton.Checked)
-                    j = 0;
-                else if (czRadioButton.Checked)
-                    j = 1;
-
-                OnLanguageSelected(j);
-            }
-            this.Close();
-        }
-
         private void SetupForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-        }
-
-        private string Translate(int cisloVety)
-        {
-            if (Settings.Default.Jazyk == 0)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Naozaj chcete resetovať výsledkovú tabuľu?";
-                    case 2: return "Naozaj chcete obnoviť výrobné nastavenia farieb?";
-                    case 3: return "V databáze sa už nachádza súbor s rovnakým názvom!";
-                    case 4: return "Naozaj chcete zrušiť obrázok (animáciu)?";
-                }
-            }
-            else if (Settings.Default.Jazyk == 1)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Opravdu chcete resetovat výsledkovou tabuli?";
-                    case 2: return "Opravdu chcete obnovit výrobní nastavení barev?";
-                    case 3: return "V databázi se již nachází soubor se stejným názvem!";
-                    case 4: return "Opravdu chcete zrušit obrázek (animaci)?";
-                }
-            }
-
-            return string.Empty;
         }
 
         private void InicializujNastaveniaAnimacii()
@@ -910,7 +790,7 @@ namespace LGR_Futbal.Forms
                 string nazov = fi.Name;
                 string novyNazov = originalFolder + "\\" + gifyAdresar + "\\" + nazov;
                 if (File.Exists(novyNazov))
-                    MessageBox.Show(Translate(3), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Súbor s takýmto názvon už existuje!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     File.Copy(ofd.FileName, novyNazov);
@@ -985,7 +865,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitZltaKartaBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Translate(4), nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 pictureBox1.Image = null;
                 zltaAnimacia = string.Empty;
@@ -994,7 +874,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitCervenaKartaBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Translate(4), nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 pictureBox2.Image = null;
                 cervenaAnimacia = string.Empty;

@@ -16,74 +16,45 @@ namespace LGR_Futbal.Forms
     public partial class FarbyForm : Form
     {
         private string adresar;
-        //public event FileSavedHandler OnFileSaved;
         public event ObnovaFariebHandlerFF OnObnovaFariebFF;
         public event ColorsLoadedHandlerFF OnColorsLoadedFF;
         private FarbyTabule fs = null;
 
-        public FarbyForm(string cesta, FarbyTabule fs)
+        public FarbyForm(string adresar, FarbyTabule fs)
         {
             InitializeComponent();
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Vytvoření vlastní barevné konfigurace";
-                saveButton.Text = "Uložit   ";
-                zrusitButton.Text = "Zavřít   ";
-                obnovaFariebButton.Text = "Obnovit výrobní \nnastavení barev         ";
-                loadColorsButton.Text = loadColorsButton.Text.Replace("Načítať", "Načíst ");
-                loadColorsButton.Text = loadColorsButton.Text.Replace("nastavenia", "nastavení");
-                loadColorsButton.Text = loadColorsButton.Text.Replace("farieb", "barev");
-                aktivovatFarby.Text = "Aktivovat změny";
 
-
-
-                button1.Text = "Změnit";
-                button3.Text = "Změnit";
-                button4.Text = "Změnit";
-                button6.Text = "Změnit";
-                button7.Text = "Změnit";
-
-                label5.Text = "POLOČAS";
-                label2.Text = "HOSTÉ";
-                label1.Text = "DOMÁCÍ";
-                
-            }
             this.fs = fs;
-            adresar = cesta;
+            this.adresar = adresar;
 
-            label1.ForeColor = fs.GetNadpisDomFarba();
-            label2.ForeColor = fs.GetNadpisHosFarba();
-            label3.ForeColor = fs.GetCasFarba();
-            label4.ForeColor = fs.GetSkoreFarba();
-            label5.ForeColor = fs.GetPolcasFarba();
+            DomaciLabel.ForeColor = fs.GetNadpisDomFarba();
+            HostiaLabel.ForeColor = fs.GetNadpisHosFarba();
+            CasLabel.ForeColor = fs.GetCasFarba();
+            SkoreLabel.ForeColor = fs.GetSkoreFarba();
+            PolcasLabel.ForeColor = fs.GetPolcasFarba();
         }
 
-        private void zrusitButton_Click(object sender, EventArgs e)
+        private void AktivovatFarbyButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            fs.CasFarba_r = CasLabel.ForeColor.R;
+            fs.CasFarba_g = CasLabel.ForeColor.G;
+            fs.CasFarba_b = CasLabel.ForeColor.B;
 
-        private void aktivovatFarby_Click(object sender, EventArgs e)
-        {
-            fs.CasFarba_r = label3.ForeColor.R;
-            fs.CasFarba_g = label3.ForeColor.G;
-            fs.CasFarba_b = label3.ForeColor.B;
+            fs.NadpisDomFarba_r = DomaciLabel.ForeColor.R;
+            fs.NadpisDomFarba_g = DomaciLabel.ForeColor.G;
+            fs.NadpisDomFarba_b = DomaciLabel.ForeColor.B;
 
-            fs.NadpisDomFarba_r = label1.ForeColor.R;
-            fs.NadpisDomFarba_g = label1.ForeColor.G;
-            fs.NadpisDomFarba_b = label1.ForeColor.B;
+            fs.NadpisHosFarba_r = HostiaLabel.ForeColor.R;
+            fs.NadpisHosFarba_g = HostiaLabel.ForeColor.G;
+            fs.NadpisHosFarba_b = HostiaLabel.ForeColor.B;
 
-            fs.NadpisHosFarba_r = label2.ForeColor.R;
-            fs.NadpisHosFarba_g = label2.ForeColor.G;
-            fs.NadpisHosFarba_b = label2.ForeColor.B;
+            fs.SkoreFarba_r = SkoreLabel.ForeColor.R;
+            fs.SkoreFarba_g = SkoreLabel.ForeColor.G;
+            fs.SkoreFarba_b = SkoreLabel.ForeColor.B;
 
-            fs.SkoreFarba_r = label4.ForeColor.R;
-            fs.SkoreFarba_g = label4.ForeColor.G;
-            fs.SkoreFarba_b = label4.ForeColor.B;
-
-            fs.PolcasFarba_r = label5.ForeColor.R;
-            fs.PolcasFarba_g = label5.ForeColor.G;
-            fs.PolcasFarba_b = label5.ForeColor.B;
+            fs.PolcasFarba_r = PolcasLabel.ForeColor.R;
+            fs.PolcasFarba_g = PolcasLabel.ForeColor.G;
+            fs.PolcasFarba_b = PolcasLabel.ForeColor.B;
 
             if (OnColorsLoadedFF != null)
             {
@@ -92,7 +63,7 @@ namespace LGR_Futbal.Forms
             Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void UlozitFarbyButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = adresar;
@@ -104,18 +75,18 @@ namespace LGR_Futbal.Forms
                 try
                 {
                     FarbyTabule sch = new FarbyTabule();
-                    sch.SetNadpisDomFarba(label1.ForeColor);
-                    sch.SetNadpisHosFarba(label2.ForeColor);
-                    sch.SetCasFarba(label3.ForeColor);
-                    sch.SetSkoreFarba(label4.ForeColor);
-                    sch.SetPolcasFarba(label5.ForeColor);
+                    sch.SetNadpisDomFarba(DomaciLabel.ForeColor);
+                    sch.SetNadpisHosFarba(HostiaLabel.ForeColor);
+                    sch.SetCasFarba(CasLabel.ForeColor);
+                    sch.SetSkoreFarba(SkoreLabel.ForeColor);
+                    sch.SetPolcasFarba(PolcasLabel.ForeColor);
 
                     XmlSerializer serializer = new XmlSerializer(typeof(FarbyTabule));
                     textWriter = new StreamWriter(sfd.FileName);
                     serializer.Serialize(textWriter, sch);
                 }
                 catch (Exception ex)
-                { 
+                {
                     MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
@@ -126,39 +97,69 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NacitatFarbyButton_Click(object sender, EventArgs e)
         {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == DialogResult.OK)
-                label1.ForeColor = cd.Color;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = false;
+            ofd.InitialDirectory = adresar;
+            ofd.Filter = "xml files (*.xml)|*.xml";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                NacitajFarby(ofd.FileName);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ObnovitFarbyButton_Click(object sender, EventArgs e)
         {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == DialogResult.OK)
-                label2.ForeColor = cd.Color;
+            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia farieb?", "LGR Futbal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (OnObnovaFariebFF != null)
+                    OnObnovaFariebFF();
+                //this.Close();
+            }
+
+            CasLabel.ForeColor = Color.Lime;
+
+            DomaciLabel.ForeColor = Color.Aqua;
+
+            HostiaLabel.ForeColor = Color.Aqua;
+
+            SkoreLabel.ForeColor = Color.Red;
+
+            PolcasLabel.ForeColor = Color.Lime;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ZmenitFarbaDomaciBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label3.ForeColor = cd.Color;
+                DomaciLabel.ForeColor = cd.Color;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void ZmenitFarbaHostiaBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label4.ForeColor = cd.Color;
+                HostiaLabel.ForeColor = cd.Color;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ZmenitFarbaCasBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label5.ForeColor = cd.Color;
+                CasLabel.ForeColor = cd.Color;
+        }
+
+        private void ZmenitFarbaSkoreBtn_Click(object sender, EventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            if (cd.ShowDialog() == DialogResult.OK)
+                SkoreLabel.ForeColor = cd.Color;
+        }
+
+        private void ZmenitFarbaPolcasBtn_Click(object sender, EventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            if (cd.ShowDialog() == DialogResult.OK)
+                PolcasLabel.ForeColor = cd.Color;
         }
 
         private void FarbyForm_KeyDown(object sender, KeyEventArgs e)
@@ -166,39 +167,7 @@ namespace LGR_Futbal.Forms
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
-
-        private void loadColorsButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = false;
-            ofd.InitialDirectory = adresar;
-            ofd.Filter = "xml files (*.xml)|*.xml";
-            if (ofd.ShowDialog() == DialogResult.OK)
-                nacitajFarby(ofd.FileName);
-        }
-
-        private void obnovaFariebButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(Translate(2), "LGR Futbal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (OnObnovaFariebFF != null)
-                    OnObnovaFariebFF();
-                //this.Close();
-            }
-
-            label3.ForeColor = Color.Lime;
-
-            label1.ForeColor = Color.Aqua;
-
-            label2.ForeColor = Color.Aqua;
-
-            label4.ForeColor = Color.Red;
-
-            label5.ForeColor = Color.Lime;
-        }
-
-
-        private void nacitajFarby(string cesta)
+        private void NacitajFarby(string cesta)
         {
             TextReader textReader = null;
             bool uspech = true;
@@ -222,49 +191,21 @@ namespace LGR_Futbal.Forms
 
                 if (uspech)
                 {
-                     label3.ForeColor = Color.FromArgb(schema.CasFarba_r, schema.CasFarba_g, schema.CasFarba_b);
+                    CasLabel.ForeColor = Color.FromArgb(schema.CasFarba_r, schema.CasFarba_g, schema.CasFarba_b);
 
-                     label1.ForeColor = Color.FromArgb(schema.NadpisDomFarba_r, schema.NadpisDomFarba_g, schema.NadpisDomFarba_b);
+                    DomaciLabel.ForeColor = Color.FromArgb(schema.NadpisDomFarba_r, schema.NadpisDomFarba_g, schema.NadpisDomFarba_b);
 
-                     label2.ForeColor = Color.FromArgb(schema.NadpisHosFarba_r, schema.NadpisHosFarba_g, schema.NadpisHosFarba_b);
+                    HostiaLabel.ForeColor = Color.FromArgb(schema.NadpisHosFarba_r, schema.NadpisHosFarba_g, schema.NadpisHosFarba_b);
 
-                     label4.ForeColor = Color.FromArgb(schema.SkoreFarba_r, schema.SkoreFarba_g, schema.SkoreFarba_b);
+                    SkoreLabel.ForeColor = Color.FromArgb(schema.SkoreFarba_r, schema.SkoreFarba_g, schema.SkoreFarba_b);
 
-                     label5.ForeColor = Color.FromArgb(schema.PolcasFarba_r, schema.PolcasFarba_g, schema.PolcasFarba_b);
+                    PolcasLabel.ForeColor = Color.FromArgb(schema.PolcasFarba_r, schema.PolcasFarba_g, schema.PolcasFarba_b);
 
                     if (OnColorsLoadedFF != null)
                         OnColorsLoadedFF(schema);
-                    
+
                 }
             }
         }
-
-        private string Translate(int cisloVety)
-        {
-            if (Settings.Default.Jazyk == 0)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Naozaj chcete resetovať výsledkovú tabuľu?";
-                    case 2: return "Naozaj chcete obnoviť výrobné nastavenia farieb?";
-                    case 3: return "V databáze sa už nachádza súbor s rovnakým názvom!";
-                    case 4: return "Naozaj chcete zrušiť obrázok (animáciu)?";
-                }
-            }
-            else if (Settings.Default.Jazyk == 1)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Opravdu chcete resetovat výsledkovou tabuli?";
-                    case 2: return "Opravdu chcete obnovit výrobní nastavení barev?";
-                    case 3: return "V databázi se již nachází soubor se stejným názvem!";
-                    case 4: return "Opravdu chcete zrušit obrázek (animaci)?";
-                }
-            }
-
-            return string.Empty;
-        }
-
-        
     }
 }

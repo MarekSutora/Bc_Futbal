@@ -19,16 +19,6 @@ namespace LGR_Futbal.Forms
             InitializeComponent();
             this.zapas = zapas;
             this.polcas = polcas;
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Nastavení času";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Uložiť", "Uložit");
-                aktivovatButton.Text = aktivovatButton.Text.Replace("zmeny", "změny");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-
-                label1.Text = "Nastavený čas [min]:";
-                label2.Text = "Aktuální nastavený čas se přepíše, nepřipočítává se !!!";
-            }
 
             dlzkaNadCasuNumUpDown.Value = aktualnaHodnota;
         }

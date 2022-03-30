@@ -31,15 +31,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Střídání - nastavení";
-                label1.Text = "Odcházející hráč:";
-                label2.Text = "Nastupující hráč:";
-                PotvrditButton.Text = "Potvrdit";
-                BackButton.Text = "Návrat zpět";
-            }
-
             this.domaci = domaci;
             futbalovyTim = tim;
             this.zapas = zapas;

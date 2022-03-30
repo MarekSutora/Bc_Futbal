@@ -28,27 +28,7 @@ namespace LGR_Futbal.Forms
         public RozlozenieForm(string adresa, RozlozenieTabule rt, int sirka, int vyska)
         {
             InitializeComponent();
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Rozložení tabule";
-                label1.Text = "Čas:";
-                label20.Text = "Poločas:";
-                label23.Text = "Skóre domáci:";
-                label26.Text = "Skóre hosté:";
-                label6.Text = "Domáci:";
-                label12.Text = "Hosté:";
-                label9.Text = "Logo Domáci:";
 
-                checkBox2.Text = "Zobrazit logo:";
-                checkBox1.Text = "Zobrazit logo:";
-
-                this.aktivovatRozlozenieButton.Text = "Aktivovat zmeny";
-                ulozitRozlozenie.Text = "Uložit rozložení:";
-                nacitatRozlozenieButton.Text = "Načíst rozložení";
-                obnovaRozlozeniaButton.Text = "Obnovit výrobní        nastavení";
-
-
-            }
             toolTip1.SetToolTip(numericUpDown1, "Zvyšovanie - doprava \nZnižovanie - doľava");
             toolTip1.SetToolTip(numericUpDown14, "Zvyšovanie - doprava \nZnižovanie - doľava");
             toolTip1.SetToolTip(numericUpDown16, "Zvyšovanie - doprava \nZnižovanie - doľava");
@@ -74,10 +54,6 @@ namespace LGR_Futbal.Forms
             nastavRozlozenie();
         }
 
-        private void RozlozenieForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void nastavRozlozenie()
         {
@@ -277,7 +253,7 @@ namespace LGR_Futbal.Forms
             numericUpDown14.Value = RozlozenieTabule.Polcas_X; 
             numericUpDown13.Value = RozlozenieTabule.Polcas_Y; 
 
-            if (adresa != null)
+            if (OnLayoutConfirmed != null)
             {
                 OnLayoutConfirmed();
             }      

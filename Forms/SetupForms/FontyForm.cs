@@ -25,24 +25,6 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Nastavení fontů";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Uložiť", "Uložit");
-                aktivovatButton.Text = aktivovatButton.Text.Replace("zmeny", "změny");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-
-                button1.Text = "Změnit";
-                button2.Text = "Změnit";
-                button3.Text = "Změnit";
-                button4.Text = "Změnit";
-                button5.Text = "Změnit";
-
-                label1.Text = "Názvy týmů:";
-                label4.Text = "Poločas:";
-                label11.Text = "Střídání hráčů:";
-            }
-
             pisma = fonts;
             this.adresa = adresa;
             label5.Text = pisma.NazvyFont;

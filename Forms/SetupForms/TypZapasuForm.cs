@@ -16,15 +16,6 @@ namespace LGR_Futbal.Forms
         public TypZapasuForm()
         {
             InitializeComponent();
-
-            if (Settings.Default.Jazyk == 1)
-            {
-                label1.Text = "Název:";
-                label2.Text = "Délka poločasu [min]:";
-                prerCheckBox.Text = "Povolit přerušení";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Pridať", "Přidat");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-            }
         }
 
         private void aktivovatButton_Click(object sender, EventArgs e)
@@ -32,10 +23,7 @@ namespace LGR_Futbal.Forms
             string n = nazovTextBox.Text.Trim();
             if (n.Equals(string.Empty))
             {
-                if (Settings.Default.Jazyk == 0)
-                    MessageBox.Show("Nezadali ste názov!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (Settings.Default.Jazyk == 1)
-                    MessageBox.Show("Nezadali jste název!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nezadali ste názov!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

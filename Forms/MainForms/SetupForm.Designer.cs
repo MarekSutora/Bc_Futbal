@@ -41,10 +41,6 @@
             this.initNastaveniaCheckBox = new System.Windows.Forms.CheckBox();
             this.pozadieCheckBox = new System.Windows.Forms.CheckBox();
             this.velkostGroupBox = new System.Windows.Forms.GroupBox();
-            this.jazykGroupBox = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.czRadioButton = new System.Windows.Forms.RadioButton();
-            this.skRadioButton = new System.Windows.Forms.RadioButton();
             this.animaciaNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.rozlisenieLabel = new System.Windows.Forms.Label();
@@ -119,7 +115,6 @@
             this.ovladace.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.velkostGroupBox.SuspendLayout();
-            this.jazykGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animaciaNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vyskaNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sirkaNumUpDown)).BeginInit();
@@ -278,7 +273,6 @@
             // velkostGroupBox
             // 
             this.velkostGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.velkostGroupBox.Controls.Add(this.jazykGroupBox);
             this.velkostGroupBox.Controls.Add(this.animaciaNumUpDown);
             this.velkostGroupBox.Controls.Add(this.label2);
             this.velkostGroupBox.Controls.Add(this.rozlisenieLabel);
@@ -296,58 +290,6 @@
             this.velkostGroupBox.TabIndex = 15;
             this.velkostGroupBox.TabStop = false;
             this.velkostGroupBox.Text = "Veľkosť zobrazovacej plochy a jazyk";
-            // 
-            // jazykGroupBox
-            // 
-            this.jazykGroupBox.Controls.Add(this.button12);
-            this.jazykGroupBox.Controls.Add(this.czRadioButton);
-            this.jazykGroupBox.Controls.Add(this.skRadioButton);
-            this.jazykGroupBox.Location = new System.Drawing.Point(312, 62);
-            this.jazykGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.jazykGroupBox.Name = "jazykGroupBox";
-            this.jazykGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.jazykGroupBox.Size = new System.Drawing.Size(206, 58);
-            this.jazykGroupBox.TabIndex = 18;
-            this.jazykGroupBox.TabStop = false;
-            this.jazykGroupBox.Text = "Jazykové nastavenia";
-            // 
-            // button12
-            // 
-            this.button12.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(121, 16);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(81, 35);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "Zmeniť";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // czRadioButton
-            // 
-            this.czRadioButton.AutoSize = true;
-            this.czRadioButton.Location = new System.Drawing.Point(7, 36);
-            this.czRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.czRadioButton.Name = "czRadioButton";
-            this.czRadioButton.Size = new System.Drawing.Size(77, 17);
-            this.czRadioButton.TabIndex = 1;
-            this.czRadioButton.TabStop = true;
-            this.czRadioButton.Text = "české (CZ)";
-            this.czRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // skRadioButton
-            // 
-            this.skRadioButton.AutoSize = true;
-            this.skRadioButton.Location = new System.Drawing.Point(7, 16);
-            this.skRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.skRadioButton.Name = "skRadioButton";
-            this.skRadioButton.Size = new System.Drawing.Size(96, 17);
-            this.skRadioButton.TabIndex = 0;
-            this.skRadioButton.TabStop = true;
-            this.skRadioButton.Text = "slovenské (SK)";
-            this.skRadioButton.UseVisualStyleBackColor = true;
             // 
             // animaciaNumUpDown
             // 
@@ -1270,8 +1212,6 @@
             this.tabPage1.PerformLayout();
             this.velkostGroupBox.ResumeLayout(false);
             this.velkostGroupBox.PerformLayout();
-            this.jazykGroupBox.ResumeLayout(false);
-            this.jazykGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animaciaNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vyskaNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sirkaNumUpDown)).EndInit();
@@ -1353,10 +1293,6 @@
         private System.Windows.Forms.Button vybratButton;
         private System.Windows.Forms.Button createColorsButton;
         private System.Windows.Forms.Button fontyButton;
-        private System.Windows.Forms.GroupBox jazykGroupBox;
-        private System.Windows.Forms.RadioButton czRadioButton;
-        private System.Windows.Forms.RadioButton skRadioButton;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button animacieButton;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.CheckBox checkBox2;

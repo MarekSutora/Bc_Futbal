@@ -728,7 +728,6 @@
             this.Controls.Add(this.label1);
             this.Name = "RozlozenieForm";
             this.Text = "Rozloženie tabule";
-            this.Load += new System.EventHandler(this.RozlozenieForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();

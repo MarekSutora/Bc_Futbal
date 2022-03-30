@@ -24,13 +24,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
         public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Karta karta)
         {
             InitializeComponent();
-            
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Žlutá karta - nastavení";
-                PotvrditButton.Text = "Potvrdit";
-                BackButton.Text = "Návrat zpět";
-            }
 
             futbalovyTim = tim;
             zoznamHracov = new List<Hrac>();

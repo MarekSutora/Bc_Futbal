@@ -21,11 +21,11 @@ namespace LGR_Futbal.Forms
         #region Atributy
 
         private string adresar;
-        private FutbalovyTim prezentovanyTim;
+        private FutbalovyTim prezentovanyTim = null;
         private int pocetPrezentovanychHracov;
-        private List<Hrac> zakladnaJedenastka;
-        private List<Hrac> nahradnici;
-        private List<Hrac> aktualnyZoznam;
+        private List<Hrac> zakladnaJedenastka = null;
+        private List<Hrac> nahradnici = null;
+        private List<Hrac> aktualnyZoznam = null;
 
         #endregion
 
@@ -34,12 +34,6 @@ namespace LGR_Futbal.Forms
         public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
-
-            if (Settings.Default.Jazyk == 1)
-            {
-                label1.Text = "představení hráčů";
-                label2.Text = "Věk:";
-            }
 
             adresar = folder;
             casovac.Interval = 2 * 1000 * cas;
@@ -86,7 +80,7 @@ namespace LGR_Futbal.Forms
             postLabel.ForeColor = farby.GetUdajeFarba();
 
             // Nastavenie fontov podla volby
-            nazovLabel.Font = fonty.CreateNazvyFont();
+            nazovLabel.Font = fonty.CreateNazvyPrezentaciaFont();
             label1.Font = fonty.CreateSkoreFont();
             cisloHracaLabel.Font = fonty.CreatePolcasFont();
             menoHracaLabel.Font = fonty.CreatePolcasFont();
@@ -133,10 +127,6 @@ namespace LGR_Futbal.Forms
                     
                     String identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
                     menoHracaLabel.Text = identifikacia;
-                    if (Settings.Default.Jazyk == 0)
-                        vekLabel.Text = h.GetVek().ToString() + " rokov";
-                    else
-                        vekLabel.Text = h.GetVek().ToString() + " let";
                     
                     if (h.Poznamka.Equals(string.Empty))
                         infoRichTextBox.Visible = false;
@@ -184,13 +174,6 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-
-        private void PrezentaciaForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                Close();
-        }
-
         #endregion
     }
 }

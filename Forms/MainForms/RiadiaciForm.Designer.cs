@@ -45,8 +45,6 @@
             this.skoreDomaciLabel = new System.Windows.Forms.Label();
             this.casLabel = new System.Windows.Forms.Label();
             this.casPodrobneLabel = new System.Windows.Forms.Label();
-            this.infoLabel = new System.Windows.Forms.Label();
-            this.nadCasLabel = new System.Windows.Forms.Label();
             this.infoLabel2 = new System.Windows.Forms.Label();
             this.polcasLabel = new System.Windows.Forms.Label();
             this.infoLabel3 = new System.Windows.Forms.Label();
@@ -291,30 +289,6 @@
             this.casPodrobneLabel.TabIndex = 544;
             this.casPodrobneLabel.Text = "00:00";
             this.casPodrobneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // infoLabel
-            // 
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.infoLabel.ForeColor = System.Drawing.Color.Black;
-            this.infoLabel.Location = new System.Drawing.Point(339, 327);
-            this.infoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(147, 17);
-            this.infoLabel.TabIndex = 545;
-            this.infoLabel.Text = "Nadstavený čas [min]:";
-            // 
-            // nadCasLabel
-            // 
-            this.nadCasLabel.AutoSize = true;
-            this.nadCasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nadCasLabel.ForeColor = System.Drawing.Color.Black;
-            this.nadCasLabel.Location = new System.Drawing.Point(500, 327);
-            this.nadCasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.nadCasLabel.Name = "nadCasLabel";
-            this.nadCasLabel.Size = new System.Drawing.Size(16, 17);
-            this.nadCasLabel.TabIndex = 546;
-            this.nadCasLabel.Text = "0";
             // 
             // infoLabel2
             // 
@@ -697,8 +671,6 @@
             this.Controls.Add(this.infoLabel3);
             this.Controls.Add(this.polcasLabel);
             this.Controls.Add(this.infoLabel2);
-            this.Controls.Add(this.nadCasLabel);
-            this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.casPodrobneLabel);
             this.Controls.Add(this.casLabel);
             this.Controls.Add(this.skoreHostiaLabel);
@@ -757,8 +729,6 @@
         private System.Windows.Forms.Label skoreDomaciLabel;
         private System.Windows.Forms.Label casLabel;
         private System.Windows.Forms.Label casPodrobneLabel;
-        private System.Windows.Forms.Label infoLabel;
-        private System.Windows.Forms.Label nadCasLabel;
         private System.Windows.Forms.Label infoLabel2;
         private System.Windows.Forms.Label polcasLabel;
         private System.Windows.Forms.Label infoLabel3;

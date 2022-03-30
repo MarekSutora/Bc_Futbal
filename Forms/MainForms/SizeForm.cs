@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void PrenesNastaveniaHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int vyberJazyka);
+    public delegate void PrenesNastaveniaHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska);
     
     public partial class SizeForm : Form
     {
@@ -19,23 +19,10 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int jazyk)
+        public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni)
         {
             InitializeComponent();
-            if (jazyk == 1)
-            {
-                this.Text = "Nastavení velikosti zobrazovací plochy";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Aktivovať", "Aktivovat");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-                velkostGroupBox.Text = "Velikost zobrazovací plochy";
-                sirkaLabel.Text = "Šířka:";
-                vyskaLabel.Text = "Výška:";
-                infoLabel.Text = "Poznámka: Poměr stran je fixován na 16:9!";
-                aktLabel.Text = "Aktuálně rozlišení obrazovky je:";
-                jazykGroupBox.Text = "Jazykové nastavení";
-                pozadieCheckBox.Text = "Překrýt obrazovku černou barvou";
-                initNastaveniaCheckBox.Text = "Zobrazovat toto okno při spuštění aplikace";
-            }
+
             sirka = ZistiSirku();
             vyska = ZistiVysku();
 
@@ -47,17 +34,6 @@ namespace LGR_Futbal.Forms
 
             pozadieCheckBox.Checked = zobrazitPozadie;
             initNastaveniaCheckBox.Checked = zobrazitNastaveniaPoSpusteni;
-
-            if (jazyk == 0)
-            {
-                skRadioButton.Checked = true;
-                czRadioButton.Checked = false;
-            }
-            else
-            {
-                skRadioButton.Checked = false;
-                czRadioButton.Checked = true;
-            }
         }
 
         public int ZistiVysku()
@@ -110,13 +86,8 @@ namespace LGR_Futbal.Forms
                 sirka = s;
                 vyska = v;
 
-                int j = -1;
-                if (skRadioButton.Checked)
-                    j = 0;
-                else if(czRadioButton.Checked)
-                    j = 1;
 
-                OnSettingsConfirmation(poz, initSet, s, v, j);
+                OnSettingsConfirmation(poz, initSet, s, v);
             }
             koniec = false;
             this.Close();

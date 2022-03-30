@@ -33,15 +33,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
         public GolSettingsForm(FutbalovyTim tim, bool domaci, int aktualneSkore, Zapas zapas, Gol gol)
         {
             InitializeComponent();            
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Gól - nastavení";
-                potvrditButton.Text = "Potvrdit gól";
-                znizitSkoreButton.Text = "Snížit skóre";
-                resetSkoreButton.Text = "Resetovat skóre";
-                NastavitButton.Text = "Nastavit";
-                BackButton.Text = "Návrat zpět";
-            }
+
             futbalovyTim = tim;
             this.domaci = domaci;
             stav = aktualneSkore;
@@ -151,7 +143,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             if (stav > 0)
             {
-                if (MessageBox.Show(Translate(1), "Úprava skóre", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Naozaj chcete resetovať skóre?", "Úprava skóre", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (OnGoalSettingsConfirmed != null)
                         OnGoalSettingsConfirmed(null, domaci, 0);
@@ -196,26 +188,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
-        }
-
-        private string Translate(int cisloVety)
-        {
-            if (Settings.Default.Jazyk == 0)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Naozaj chcete resetovať skóre?";
-                }
-            }
-            else if (Settings.Default.Jazyk == 1)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return "Opravdu chcete resetovat skóre?";
-                }
-            }
-
-            return string.Empty;
         }
 
         #endregion    

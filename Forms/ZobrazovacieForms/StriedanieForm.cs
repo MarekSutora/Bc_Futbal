@@ -19,29 +19,22 @@ namespace LGR_Futbal.Forms
 
         #region Atributy
 
-        private string adresar;
-        private Hrac prezentovanyHrac1;
-        private Hrac prezentovanyHrac2;
+        private Hrac striedanyHrac = null;
+        private Hrac striedajuciHrac = null;
         private bool prezentaciaSkoncila;
 
         #endregion
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string folder, int sirka, int cas, string nazovMuzstva, Hrac hracOdch, Hrac hracNast, FarbyPrezentacie farby, FontyTabule pisma)
+        public StriedanieForm(string adresar, int sirka, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 0)
-                label1.Text = "STRIEDANIE";
-            else
-                label1.Text = "STŘÍDÁNÍ";
-
-            adresar = folder;
             casovac.Interval = 1000 * cas;
 
-            prezentovanyHrac1 = hracOdch;
-            prezentovanyHrac2 = hracNast;
+            striedanyHrac = striedany;
+            striedajuciHrac = striedajuci;
             prezentaciaSkoncila = false;
 
             nazovLabel.Text = nazovMuzstva;
@@ -52,43 +45,37 @@ namespace LGR_Futbal.Forms
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
 
-            if (prezentovanyHrac1 != null)
+            if (striedanyHrac != null)
             {
                 try
                 {
-                    fotka1PictureBox.Image = prezentovanyHrac1.FotkaImage;
+                    fotka1PictureBox.Image = striedanyHrac.FotkaImage;
                 }
                 catch
                 {
                     fotka1PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
-                    //fotka1PictureBox.Image = null;
                 }
 
-                cisloHraca1Label.Text = prezentovanyHrac1.CisloDresu.ToString();
+                cisloHraca1Label.Text = striedanyHrac.CisloDresu.ToString();
                
-                String identifikacia = prezentovanyHrac1.Meno + " " + prezentovanyHrac1.Priezvisko.ToUpper();
-                //if (identifikacia.Length > 15)
-                //    identifikacia = identifikacia.Replace(" ", "\n");
+                string identifikacia = striedanyHrac.Meno + " " + striedanyHrac.Priezvisko.ToUpper();
 
                 menoHraca1Label.Text = identifikacia;
             }
 
-            if (prezentovanyHrac2 != null)
+            if (striedajuciHrac != null)
             {
                 try
                 {
-                    fotka2PictureBox.Image = prezentovanyHrac2.FotkaImage;
+                    fotka2PictureBox.Image = striedajuciHrac.FotkaImage;
                 }
                 catch
                 {
                     fotka2PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
-                    //fotka2PictureBox.Image = null;
                 }
 
-                cisloHraca2Label.Text = prezentovanyHrac2.CisloDresu.ToString();
-                String identifikacia = prezentovanyHrac2.Meno + " " + prezentovanyHrac2.Priezvisko.ToUpper();
-                //if (identifikacia.Length > 15)
-                //    identifikacia = identifikacia.Replace(" ", "\n");
+                cisloHraca2Label.Text = striedajuciHrac.CisloDresu.ToString();
+                string identifikacia = striedajuciHrac.Meno + " " + striedajuciHrac.Priezvisko.ToUpper();
 
                 menoHraca2Label.Text = identifikacia;
             }
@@ -112,8 +99,6 @@ namespace LGR_Futbal.Forms
 
         private void StriedanieForm_Load(object sender, EventArgs e)
         {
-            // Ak existuje externy monitor, svetelna tabula sa vykresli primarne nan,
-            // ak nie, pouzije sa standardna obrazovka.
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             this.SpustiCas();
@@ -121,7 +106,7 @@ namespace LGR_Futbal.Forms
 
         private void Casovac_Tick(object sender, EventArgs e)
         {
-            if ((prezentovanyHrac1 == null) || (prezentovanyHrac2 == null))
+            if ((striedanyHrac == null) || (striedajuciHrac == null))
             {
                 ZastavCas();
                 this.Close();

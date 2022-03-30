@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.Casovac = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -41,6 +43,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Casovac
+            // 
+            this.Casovac.Tick += new System.EventHandler(this.Casovac_Tick);
             // 
             // UdalostPopupForm
             // 
@@ -56,7 +62,6 @@
             this.ShowInTaskbar = false;
             this.Text = "UdalostPopupForm";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.UdalostPopupForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -64,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer Casovac;
     }
 }

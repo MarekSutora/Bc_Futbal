@@ -21,28 +21,10 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Výběr hráčů na zápas";
-                label1.Text = "Základní jedenáctka:";
-                aktivovatButton.Text = aktivovatButton.Text.Replace("Uložiť", "Uložit");
-                aktivovatButton.Text = aktivovatButton.Text.Replace("zmeny", "změny");
-                zrusitButton.Text = zrusitButton.Text.Replace("Zrušiť", "Zrušit");
-
-                oznacitVsetkoButton.Text = oznacitVsetkoButton.Text.Replace("Označiť", "Označit");
-                oznacitVsetkoButton.Text = oznacitVsetkoButton.Text.Replace("všetko", "vše  ");
-                button1.Text = button1.Text.Replace("Označiť", "Označit");
-                button1.Text = button1.Text.Replace("všetko", "vše  ");
-
-                zrusOznaceniaButton.Text = zrusOznaceniaButton.Text.Replace("Zrušiť", "Zrušit");
-                zrusOznaceniaButton.Text = zrusOznaceniaButton.Text.Replace("všetko", "vše  ");
-                button2.Text = button2.Text.Replace("Zrušiť", "Zrušit");
-                button2.Text = button2.Text.Replace("všetko", "vše  ");
-            }
             aktualnyTim = ft;
             hraci = ft.ZoznamHracov;
             hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
-            this.Text = this.Text + Translate(1) + aktualnyTim.NazovTimu;
+            this.Text = this.Text + " - tím " + aktualnyTim.NazovTimu;
 
             int pocet = 0;
             foreach (Hrac h in hraci)
@@ -100,7 +82,7 @@ namespace LGR_Futbal.Forms
                 this.Close();
             }
             else
-                MessageBox.Show(Translate(2), "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void ZrusitButton_Click(object sender, EventArgs e)
@@ -144,28 +126,6 @@ namespace LGR_Futbal.Forms
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-        }
-
-        private string Translate(int cisloVety)
-        {
-            if (Settings.Default.Jazyk == 0)
-            {
-                switch(cisloVety)
-                {
-                    case 1: return " - tím ";
-                    case 2: return "Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!";
-                }
-            }
-            else if (Settings.Default.Jazyk == 1)
-            {
-                switch (cisloVety)
-                {
-                    case 1: return " - tým ";
-                    case 2: return "Jeden nebo více hráčů nemá korektně nastaveny atributy!\nNemôže být současně na hřišti i náhradník!";
-                }
-            }
-
-            return string.Empty;
         }
 
         #endregion

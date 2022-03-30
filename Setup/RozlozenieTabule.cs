@@ -49,7 +49,7 @@ namespace LGR_Futbal.Setup
             DomaciSkore_X = (int)(sirka / (1920 / 38.0));
             DomaciSkore_Y = (int)(vyska / (1080 / 674.0));
 
-            HostiaSkore_X = (int)(sirka / (1920 / 1118.0));
+            HostiaSkore_X = (int)(sirka / (1920 / 1388.0));
             HostiaSkore_Y = (int)(vyska / (1080 / 674.0));
 
             LogoDomaci_X = (int)(sirka / (1920 / 20.0));

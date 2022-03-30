@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
+            this.VlcControl = new Vlc.DotNet.Forms.VlcControl();
+            ((System.ComponentModel.ISupportInitialize)(this.VlcControl)).BeginInit();
             this.SuspendLayout();
             // 
-            // vlcControl1
+            // VlcControl
             // 
-            this.vlcControl1.BackColor = System.Drawing.Color.Black;
-            this.vlcControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vlcControl1.Location = new System.Drawing.Point(0, 0);
-            this.vlcControl1.Name = "vlcControl1";
-            this.vlcControl1.Size = new System.Drawing.Size(800, 450);
-            this.vlcControl1.Spu = -1;
-            this.vlcControl1.TabIndex = 0;
-            this.vlcControl1.Text = "vlcControl1";
-            this.vlcControl1.VlcLibDirectory = null;
-            this.vlcControl1.VlcMediaplayerOptions = null;
-            this.vlcControl1.VlcLibDirectoryNeeded += new System.EventHandler<Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs>(this.vlcControl1_VlcLibDirectoryNeeded);
-            this.vlcControl1.EndReached += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs>(this.vlcControl1_EndReached);
+            this.VlcControl.BackColor = System.Drawing.Color.Black;
+            this.VlcControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VlcControl.Location = new System.Drawing.Point(0, 0);
+            this.VlcControl.Name = "VlcControl";
+            this.VlcControl.Size = new System.Drawing.Size(800, 450);
+            this.VlcControl.Spu = -1;
+            this.VlcControl.TabIndex = 0;
+            this.VlcControl.Text = "vlcControl1";
+            this.VlcControl.VlcLibDirectory = null;
+            this.VlcControl.VlcMediaplayerOptions = null;
+            this.VlcControl.VlcLibDirectoryNeeded += new System.EventHandler<Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs>(this.VlcControl_VlcLibDirectoryNeeded);
+            this.VlcControl.EndReached += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs>(this.VlcControl_EndReached);
             // 
             // ReklamaForm
             // 
@@ -53,7 +53,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.vlcControl1);
+            this.Controls.Add(this.VlcControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReklamaForm";
             this.ShowInTaskbar = false;
@@ -61,13 +61,13 @@
             this.Text = "ReklamaForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReklamaForm_FormClosed);
             this.Load += new System.EventHandler(this.ReklamaForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VlcControl)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Vlc.DotNet.Forms.VlcControl vlcControl1;
+        private Vlc.DotNet.Forms.VlcControl VlcControl;
     }
 }

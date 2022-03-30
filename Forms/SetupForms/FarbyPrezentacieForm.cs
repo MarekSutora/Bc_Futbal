@@ -14,33 +14,10 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            if (Settings.Default.Jazyk == 1)
-            {
-                this.Text = "Barvy prezentace";
-                saveButton.Text = "Uložit   ";
-                zrusitButton.Text = "Zavřít   ";
-
-                button1.Text = "Změnit";
-                button2.Text = "Změnit";
-                button3.Text = "Změnit";
-                button4.Text = "Změnit";
-                button5.Text = "Změnit";
-                button6.Text = "Změnit";
-                button7.Text = "Změnit";
-                button8.Text = "Změnit";
-                button9.Text = "Změnit";
-                button10.Text = "Změnit";
-
-                label4.Text = "Číslo hráče:";
-                label7.Text = "Číslo hráče:";
-                label5.Text = "Jméno hráče:";
-                label6.Text = "Jméno hráče:";
-            }
-
             d = dom;
             h = hos;
 
-            label1.ForeColor = d.GetNadpisFarba(); 
+            NadpisDomaciLabel.ForeColor = d.GetNadpisFarba(); 
             label10.ForeColor = h.GetNadpisFarba();
 
             label2.ForeColor = d.GetZakladFarba();
@@ -58,7 +35,7 @@ namespace LGR_Futbal.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            d.SetNadpisFarba(label1.ForeColor);
+            d.SetNadpisFarba(NadpisDomaciLabel.ForeColor);
             d.SetZakladFarba(label2.ForeColor);
             d.SetUdajeFarba(label3.ForeColor);
             d.SetCisloFarba(label4.ForeColor);
@@ -82,7 +59,7 @@ namespace LGR_Futbal.Forms
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label1.ForeColor = cd.Color;
+                NadpisDomaciLabel.ForeColor = cd.Color;
         }
 
         private void button3_Click(object sender, EventArgs e)
