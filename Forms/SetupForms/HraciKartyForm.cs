@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -16,7 +11,7 @@ namespace LGR_Futbal.Forms
         private List<Hrac> hraci = null;
         private List<Hrac> nahradnici = null;
         private List<Hrac> hrajuci = null;
-        
+
         public HraciKartyForm(FutbalovyTim ft)
         {
             InitializeComponent();
@@ -46,7 +41,7 @@ namespace LGR_Futbal.Forms
                 {
                     hrajuci.Add(h);
                     if (!h.CisloDresu.Equals(string.Empty))
-                    {                       
+                    {
                         HrajuciListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                     else
@@ -84,7 +79,61 @@ namespace LGR_Futbal.Forms
                 }
             }
         }
-
+        private void UlozitBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < nahradnici.Count; i++)
+            {
+                if (NahradniciListView.Items[i].BackColor == Color.Yellow)
+                {
+                    nahradnici[i].ZltaKarta = true;
+                }
+                else if (NahradniciListView.Items[i].BackColor == Color.Red)
+                {
+                    nahradnici[i].CervenaKarta = true;
+                }
+                else if (NahradniciListView.Items[i].BackColor == Color.White)
+                {
+                    nahradnici[i].CervenaKarta = false;
+                    nahradnici[i].ZltaKarta = false;
+                }
+            }
+            for (int i = 0; i < hrajuci.Count; i++)
+            {
+                if (HrajuciListView.Items[i].BackColor == Color.Yellow)
+                {
+                    hrajuci[i].ZltaKarta = true;
+                }
+                else if (HrajuciListView.Items[i].BackColor == Color.Red)
+                {
+                    hrajuci[i].CervenaKarta = true;
+                }
+                else if (HrajuciListView.Items[i].BackColor == Color.White)
+                {
+                    hrajuci[i].CervenaKarta = false;
+                    hrajuci[i].ZltaKarta = false;
+                }
+            }
+            for (int i = 0; i < hraci.Count; i++)
+            {
+                for (int j = 0; j < nahradnici.Count; j++)
+                {
+                    if (hraci[i].IdHrac == nahradnici[j].IdHrac)
+                    {
+                        hraci[i].ZltaKarta = nahradnici[j].ZltaKarta;
+                        hraci[i].CervenaKarta = nahradnici[j].CervenaKarta;
+                    }
+                }
+                for (int j = 0; j < hrajuci.Count; j++)
+                {
+                    if (hraci[i].IdHrac == hrajuci[j].IdHrac)
+                    {
+                        hraci[i].ZltaKarta = hrajuci[j].ZltaKarta;
+                        hraci[i].CervenaKarta = hrajuci[j].CervenaKarta;
+                    }
+                }
+            }
+            Close();
+        }
         private void HrajuciListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (HrajuciListView.SelectedItems.Count > 0)
@@ -123,63 +172,5 @@ namespace LGR_Futbal.Forms
                 NahradniciListView.SelectedItems.Clear();
             }
         }
-
-        private void UlozitBtn_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < nahradnici.Count; i++)
-            {
-                if(NahradniciListView.Items[i].BackColor == Color.Yellow)
-                {
-                    nahradnici[i].ZltaKarta = true;
-                } 
-                else if (NahradniciListView.Items[i].BackColor == Color.Red)
-                {
-                    nahradnici[i].CervenaKarta = true;
-                } 
-                else if (NahradniciListView.Items[i].BackColor == Color.White)
-                {
-                    nahradnici[i].CervenaKarta = false;
-                    nahradnici[i].ZltaKarta = false;
-                }
-            }
-            for (int i = 0; i < hrajuci.Count; i++)
-            {
-                if (HrajuciListView.Items[i].BackColor == Color.Yellow)
-                {
-                    hrajuci[i].ZltaKarta = true;
-                }
-                else if (HrajuciListView.Items[i].BackColor == Color.Red)
-                {
-                    hrajuci[i].CervenaKarta = true;
-                }
-                else if (HrajuciListView.Items[i].BackColor == Color.White)
-                {
-                    hrajuci[i].CervenaKarta = false;
-                    hrajuci[i].ZltaKarta = false;
-                }
-            }
-            for (int i = 0; i < hraci.Count; i++)
-            {
-                for (int j = 0; j < nahradnici.Count; j++)
-                {
-                    if(hraci[i].IdHrac == nahradnici[j].IdHrac)
-                    {
-                        hraci[i].ZltaKarta = nahradnici[j].ZltaKarta;
-                        hraci[i].CervenaKarta = nahradnici[j].CervenaKarta;
-                    }
-                }
-                for (int j = 0; j < hrajuci.Count; j++)
-                {
-                    if(hraci[i].IdHrac == hrajuci[j].IdHrac)
-                    {
-                        hraci[i].ZltaKarta = hrajuci[j].ZltaKarta;
-                        hraci[i].CervenaKarta = hrajuci[j].CervenaKarta;
-                    }      
-                }
-            }
-            this.Close();
-        }
-
-        
     }
 }

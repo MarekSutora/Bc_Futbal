@@ -8,11 +8,11 @@ using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void TeamsSelectedHandler(FutbalovyTim t1, FutbalovyTim t2);
+    public delegate void TimyVybraneHandler(FutbalovyTim t1, FutbalovyTim t2);
 
-    public partial class SelectForm : Form
+    public partial class TimyForm : Form
     {
-        public event TeamsSelectedHandler OnTeamsSelected;
+        public event TimyVybraneHandler OnTimyVybrane;
 
         private DBTimy dbTimy = null;
         private DBHraci dbHraci= null;
@@ -20,7 +20,7 @@ namespace LGR_Futbal.Forms
         private FutbalovyTim domaci = null;
         private FutbalovyTim hostia = null;
 
-        public SelectForm(FutbalovyTim domaci, FutbalovyTim hostia, DBTimy dbt, DBHraci dbh)
+        public TimyForm(FutbalovyTim domaci, FutbalovyTim hostia, DBTimy dbt, DBHraci dbh)
         {
             InitializeComponent();
 
@@ -28,7 +28,7 @@ namespace LGR_Futbal.Forms
             dbHraci = dbh;
             timy = dbTimy.GetTimy();
             if (timy.Count == 0)
-                aktivovatButton.Enabled = false;
+                AktivovatBtn.Enabled = false;
             else
             {
                 domaciLB.Items.Add("    ");
@@ -46,33 +46,28 @@ namespace LGR_Futbal.Forms
             this.hostia = hostia;
         }
 
-        private void AktivovatButton_Click(object sender, EventArgs e)
+        private void AktivovatBtn_Click(object sender, EventArgs e)
         {
             if (domaciLB.SelectedIndex == 0 )
             {
-                this.domaci = null;
+                domaci = null;
             }
             else
             {
-                this.domaci = timy[domaciLB.SelectedIndex - 1];
-                this.domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
+                domaci = timy[domaciLB.SelectedIndex - 1];
+                domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
             }
             if (hostiaLB.SelectedIndex == 0)
             {
-                this.hostia = null;
+                hostia = null;
             }
             else
             {
-                this.hostia = timy[hostiaLB.SelectedIndex - 1];
-                this.hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
+                hostia = timy[hostiaLB.SelectedIndex - 1];
+                hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
             }
-            OnTeamsSelected?.Invoke(domaci, hostia);
-            this.Close();
-        }
-
-        private void ZrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            OnTimyVybrane?.Invoke(domaci, hostia);
+            Close();
         }
     }
 }

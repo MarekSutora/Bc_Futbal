@@ -222,11 +222,11 @@
     <Compile Include="Forms\ZobrazovacieForms\PozadieForm.Designer.cs">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.cs">
+    <Compile Include="Forms\SetupForms\PrezentaciaSetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\PredstavenieSettingsForm.Designer.cs">
-      <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
+    <Compile Include="Forms\SetupForms\PrezentaciaSetupForm.Designer.cs">
+      <DependentUpon>PrezentaciaSetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ZobrazovacieForms\PrezentaciaForm.cs">
       <SubType>Form</SubType>
@@ -258,11 +258,11 @@
     <Compile Include="Forms\SetupForms\RozlozenieForm.Designer.cs">
       <DependentUpon>RozlozenieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetupForms\SelectForm.cs">
+    <Compile Include="Forms\SetupForms\TimyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetupForms\SelectForm.Designer.cs">
-      <DependentUpon>SelectForm.cs</DependentUpon>
+    <Compile Include="Forms\SetupForms\TimyForm.Designer.cs">
+      <DependentUpon>TimyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForms\SetupForm.cs">
       <SubType>Form</SubType>
@@ -404,8 +404,8 @@
     <EmbeddedResource Include="Forms\ZobrazovacieForms\PozadieForm.resx">
       <DependentUpon>PozadieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\PredstavenieSettingsForm.resx">
-      <DependentUpon>PredstavenieSettingsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SetupForms\PrezentaciaSetupForm.resx">
+      <DependentUpon>PrezentaciaSetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ZobrazovacieForms\PrezentaciaForm.resx">
       <DependentUpon>PrezentaciaForm.cs</DependentUpon>
@@ -422,8 +422,8 @@
     <EmbeddedResource Include="Forms\SetupForms\RozlozenieForm.resx">
       <DependentUpon>RozlozenieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetupForms\SelectForm.resx">
-      <DependentUpon>SelectForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SetupForms\TimyForm.resx">
+      <DependentUpon>TimyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>

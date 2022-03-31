@@ -9,14 +9,14 @@ using System.Xml.Serialization;
 namespace LGR_Futbal.Forms
 {
     public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacie farby);
-    public delegate void ZastavenieHandler();
-    public delegate void NastaveniaConfirmedHandler(bool n);
+    public delegate void ZastavenieHandlerPrezentacie();
+    public delegate void NastaveniaPotvrdeneHandler(bool n);
 
-    public partial class PredstavenieSettingsForm : Form
+    public partial class PrezentaciaSetupForm : Form
     {
         public event VyberTimuNaPrezentaciuHandler OnVyberTimuNaPrezentaciu;
-        public event ZastavenieHandler OnZastaveniePrezentacie;
-        public event NastaveniaConfirmedHandler OnNastaveniaConfirmed;
+        public event ZastavenieHandlerPrezentacie OnZastaveniePrezentacie;
+        public event NastaveniaPotvrdeneHandler OnNastaveniaPotvrdene;
 
         private FutbalovyTim domaci = null;
         private FutbalovyTim hostia = null;
@@ -24,7 +24,7 @@ namespace LGR_Futbal.Forms
         private FarbyPrezentacie farbyHostia = null;
         private FontyTabule fontyTabule = null;
 
-        public PredstavenieSettingsForm(FutbalovyTim dom, FutbalovyTim host, FontyTabule fonty, bool nahr, FarbyPrezentacie farbyPrezDomaci, FarbyPrezentacie farbyPrezHostia)
+        public PrezentaciaSetupForm(FutbalovyTim dom, FutbalovyTim host, FontyTabule fonty, bool nahr, FarbyPrezentacie farbyPrezDomaci, FarbyPrezentacie farbyPrezHostia)
         {
             InitializeComponent();
 
@@ -46,21 +46,18 @@ namespace LGR_Futbal.Forms
             else if (hostia.ZoznamHracov.Count == 0)
                 HostiaPrezentaciaBtn.Enabled = false;
         }
-
         private void DomaciPrezentaciaBtn_Click(object sender, EventArgs e)
         {
-            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
+            OnNastaveniaPotvrdene?.Invoke(nahradniciCheckBox.Checked);
             OnVyberTimuNaPrezentaciu?.Invoke(domaci, farbyDomaci);
-            this.Close();
+            Close();
         }
-
         private void HostiaPrezentaciaBtn_Click(object sender, EventArgs e)
         {
-            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
+            OnNastaveniaPotvrdene?.Invoke(nahradniciCheckBox.Checked);
             OnVyberTimuNaPrezentaciu?.Invoke(hostia, farbyHostia);
-            this.Close();
+            Close();
         }
-
         private void FarbyBtn_Click(object sender, EventArgs e)
         {
             FarbyPrezentacieForm fp = new FarbyPrezentacieForm(farbyDomaci, farbyHostia);
@@ -72,21 +69,18 @@ namespace LGR_Futbal.Forms
             FontyPrezentacieForm fpf = new FontyPrezentacieForm(fontyTabule);
             fpf.Show();
         }
-
         private void ZastavitPrezentaciuBtn_Click(object sender, EventArgs e)
         {
             OnZastaveniePrezentacie?.Invoke();
-            this.Close();
+            Close();
         }
-
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-
         private void PredstavenieSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
+            OnNastaveniaPotvrdene?.Invoke(nahradniciCheckBox.Checked);
         }
     }
 }

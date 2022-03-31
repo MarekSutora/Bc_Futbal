@@ -22,7 +22,7 @@ namespace LGR_Futbal.Forms
             sekunda.Value = s;
             
         }
-        private void potvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             int nm = (int)minuta.Value;
             int ns = (int)sekunda.Value;
@@ -30,12 +30,11 @@ namespace LGR_Futbal.Forms
             {
                 ns = 0;
             }
-            if (OnZmenaCasu != null)
-                OnZmenaCasu(nm, ns);
-            this.Close();
+            OnZmenaCasu?.Invoke(nm, ns);
+            Close();
         }
 
-        private void minuta_ValueChanged(object sender, EventArgs e)
+        private void Minuta_ValueChanged(object sender, EventArgs e)
         {
             if (minuta.Value == minuta.Maximum)
             {
@@ -47,8 +46,7 @@ namespace LGR_Futbal.Forms
                 sekunda.Enabled = true;
             }
         }
-
-        private void backButton_Click(object sender, EventArgs e)
+        private void SpatBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -1,5 +1,4 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
 using System.Windows.Forms;
 

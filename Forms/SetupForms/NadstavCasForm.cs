@@ -9,11 +9,11 @@ namespace LGR_Futbal.Forms
 
     public partial class NadstavCasForm : Form
     {
-        public event NadstavenyCasConfirmedHandler OnNadstavenyCasConfirmed;
+        public event NadstavenyCasConfirmedHandler OnNadstavenyCasPotvrdeny;
 
-        private Zapas zapas = null;
         private int polcas = -1;
-
+        private Zapas zapas = null;
+        
         public NadstavCasForm(int aktualnaHodnota, int polcas, Zapas zapas)
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace LGR_Futbal.Forms
             dlzkaNadCasuNumUpDown.Value = aktualnaHodnota;
         }
 
-        private void AktivovatButton_Click(object sender, EventArgs e)
+        private void AktivovatBtn_Click(object sender, EventArgs e)
         {
             int novaHodnota = (int)dlzkaNadCasuNumUpDown.Value;
             if (polcas == 1)
@@ -34,8 +34,8 @@ namespace LGR_Futbal.Forms
             {
                 zapas.NadstavenyCas2 = novaHodnota;
             }
-            OnNadstavenyCasConfirmed?.Invoke(novaHodnota);
-            this.Close();
+            OnNadstavenyCasPotvrdeny?.Invoke(novaHodnota);
+            Close();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace LGR_Futbal.Forms
                 dlzkaNadCasuNumUpDown.Value = hodnota;
         }
 
-        private void ZmazatButton_Click(object sender, EventArgs e)
+        private void ZmazatBtn_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaNadCasuNumUpDown.Value;
             hodnota = hodnota / 10;

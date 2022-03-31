@@ -331,11 +331,11 @@ namespace LGR_Futbal
         private void CasButton_Click(object sender, EventArgs e)
         {
             NadstavCasForm formular = new NadstavCasForm(pocetNadstavenychMinut, polcas, zapas);
-            formular.OnNadstavenyCasConfirmed += Formular_OnNadstavenyCasConfirmed;
+            formular.OnNadstavenyCasPotvrdeny += Formular_OnNadstavenyCasPotvrdeny;
             formular.Show();
         }
 
-        private void Formular_OnNadstavenyCasConfirmed(int hodnota)
+        private void Formular_OnNadstavenyCasPotvrdeny(int hodnota)
         {
             if (!nadstavenyCas)
             {
@@ -719,18 +719,16 @@ namespace LGR_Futbal
         #region PREDSTAVENIE
         private void PredstavButton_Click(object sender, EventArgs e)
         {
-            PredstavenieSettingsForm psf = new PredstavenieSettingsForm(timDomaci, timHostia, fontyTabule, zobrazitNahradnikov, farbyPrezDomaci, farbyPrezHostia);
+            PrezentaciaSetupForm psf = new PrezentaciaSetupForm(timDomaci, timHostia, fontyTabule, zobrazitNahradnikov, farbyPrezDomaci, farbyPrezHostia);
             psf.OnVyberTimuNaPrezentaciu += Psf_OnVyberTimuNaPrezentaciu;
             psf.OnZastaveniePrezentacie += Psf_OnZastaveniePrezentacie;
-            psf.OnNastaveniaConfirmed += Psf_OnNastaveniaConfirmed;
+            psf.OnNastaveniaPotvrdene += n => zobrazitNahradnikov = n;
             psf.Show();
         }
-
-
-        private void Psf_OnNastaveniaConfirmed(bool n)
-        {
-            zobrazitNahradnikov = n;
-        }
+        //private void Psf_OnNastaveniaConfirmed(bool n)
+        //{
+        //    zobrazitNahradnikov = n;
+        //}
 
         private void Psf_OnZastaveniePrezentacie()
         {

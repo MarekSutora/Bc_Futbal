@@ -18,10 +18,10 @@ namespace LGR_Futbal.Forms
     {
         public event ZmenaRozlozeniaHandler OnZmenaRozlozenia;
 
-        private readonly string adresar;
-        private readonly int sirka;
-        private readonly int vyska;
-        private RozlozenieTabule rozlozenieTabule;
+        private string adresar;
+        private int sirka;
+        private int vyska;
+        private RozlozenieTabule rozlozenieTabule = null;
 
         public RozlozenieForm(string adresar, RozlozenieTabule rt, int sirka, int vyska)
         {
@@ -83,7 +83,7 @@ namespace LGR_Futbal.Forms
             PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
         }
 
-        private void AktivovatRozlozenieBtn_Click(object sender, EventArgs e)
+        private void AktivovatBtn_Click(object sender, EventArgs e)
         {
             if (OnZmenaRozlozenia != null)
             {
@@ -119,7 +119,7 @@ namespace LGR_Futbal.Forms
                
         }
 
-        private void UlozitRozlozenieBtn_Click(object sender, EventArgs e)
+        private void UlozitBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = adresar;
@@ -177,7 +177,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void NacitatRozlozenieBtn_Click(object sender, EventArgs e)
+        private void NacitatBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
@@ -215,7 +215,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void ObnovitRozlozenieBtn_Click(object sender, EventArgs e)
+        private void ObnovitBtn_Click(object sender, EventArgs e)
         {
             rozlozenieTabule.NativneRozlozenie(sirka, vyska);
 

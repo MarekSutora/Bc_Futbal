@@ -43,13 +43,12 @@
             this.PridatTypBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PridatTypBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.PridatTypBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PridatTypBtn.Location = new System.Drawing.Point(365, 10);
+            this.PridatTypBtn.Location = new System.Drawing.Point(365, 12);
             this.PridatTypBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PridatTypBtn.Name = "PridatTypBtn";
-            this.PridatTypBtn.Size = new System.Drawing.Size(109, 66);
+            this.PridatTypBtn.Size = new System.Drawing.Size(109, 46);
             this.PridatTypBtn.TabIndex = 547;
-            this.PridatTypBtn.Text = "Pridať      ";
-            this.PridatTypBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.PridatTypBtn.Text = "  Pridať";
             this.PridatTypBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PridatTypBtn.UseVisualStyleBackColor = true;
             this.PridatTypBtn.Click += new System.EventHandler(this.PridatTypBtn_Click);

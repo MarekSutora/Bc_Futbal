@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HraciZapasForm));
-            this.zoznamCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.zakladCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nahradniciCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.OznacitNahradniciBtn = new System.Windows.Forms.Button();
             this.ZrusitNahradniciBtn = new System.Windows.Forms.Button();
-            this.ZrusitZakladniBtn = new System.Windows.Forms.Button();
-            this.aktivovatButton = new System.Windows.Forms.Button();
-            this.OznacitZakladniBtn = new System.Windows.Forms.Button();
+            this.ZrusitZakladBtn = new System.Windows.Forms.Button();
+            this.AktivovatBtn = new System.Windows.Forms.Button();
+            this.OznacitZakladBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // zoznamCheckListBox
+            // zakladCheckListBox
             // 
-            this.zoznamCheckListBox.CheckOnClick = true;
-            this.zoznamCheckListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zoznamCheckListBox.FormattingEnabled = true;
-            this.zoznamCheckListBox.Location = new System.Drawing.Point(8, 42);
-            this.zoznamCheckListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.zoznamCheckListBox.Name = "zoznamCheckListBox";
-            this.zoznamCheckListBox.Size = new System.Drawing.Size(279, 361);
-            this.zoznamCheckListBox.TabIndex = 21;
+            this.zakladCheckListBox.CheckOnClick = true;
+            this.zakladCheckListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zakladCheckListBox.FormattingEnabled = true;
+            this.zakladCheckListBox.Location = new System.Drawing.Point(8, 42);
+            this.zakladCheckListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.zakladCheckListBox.Name = "zakladCheckListBox";
+            this.zakladCheckListBox.Size = new System.Drawing.Size(279, 361);
+            this.zakladCheckListBox.TabIndex = 21;
             // 
             // label1
             // 
@@ -112,47 +112,47 @@
             this.ZrusitNahradniciBtn.UseVisualStyleBackColor = true;
             this.ZrusitNahradniciBtn.Click += new System.EventHandler(this.ZrusitNahradniciBtn_Click);
             // 
-            // ZrusitZakladniBtn
+            // ZrusitZakladBtn
             // 
-            this.ZrusitZakladniBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.ZrusitZakladniBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZrusitZakladniBtn.Location = new System.Drawing.Point(291, 367);
-            this.ZrusitZakladniBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.ZrusitZakladniBtn.Name = "ZrusitZakladniBtn";
-            this.ZrusitZakladniBtn.Size = new System.Drawing.Size(107, 52);
-            this.ZrusitZakladniBtn.TabIndex = 22;
-            this.ZrusitZakladniBtn.Text = "Zrušiť     \r\nvšetko    ";
-            this.ZrusitZakladniBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ZrusitZakladniBtn.UseVisualStyleBackColor = true;
-            this.ZrusitZakladniBtn.Click += new System.EventHandler(this.ZrusitZakladniBtn_Click);
+            this.ZrusitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZrusitZakladBtn.Location = new System.Drawing.Point(291, 367);
+            this.ZrusitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZrusitZakladBtn.Name = "ZrusitZakladBtn";
+            this.ZrusitZakladBtn.Size = new System.Drawing.Size(107, 52);
+            this.ZrusitZakladBtn.TabIndex = 22;
+            this.ZrusitZakladBtn.Text = "Zrušiť     \r\nvšetko    ";
+            this.ZrusitZakladBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZrusitZakladBtn.UseVisualStyleBackColor = true;
+            this.ZrusitZakladBtn.Click += new System.EventHandler(this.ZrusitZakladBtn_Click);
             // 
-            // aktivovatButton
+            // AktivovatBtn
             // 
-            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(694, 9);
-            this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(107, 52);
-            this.aktivovatButton.TabIndex = 19;
-            this.aktivovatButton.Text = "Uložiť     \r\nzmeny     ";
-            this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.aktivovatButton.UseVisualStyleBackColor = true;
-            this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
+            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AktivovatBtn.Location = new System.Drawing.Point(694, 9);
+            this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.AktivovatBtn.Name = "AktivovatBtn";
+            this.AktivovatBtn.Size = new System.Drawing.Size(107, 52);
+            this.AktivovatBtn.TabIndex = 19;
+            this.AktivovatBtn.Text = "Uložiť     \r\nzmeny     ";
+            this.AktivovatBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AktivovatBtn.UseVisualStyleBackColor = true;
+            this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
-            // OznacitZakladniBtn
+            // OznacitZakladBtn
             // 
-            this.OznacitZakladniBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
-            this.OznacitZakladniBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OznacitZakladniBtn.Location = new System.Drawing.Point(291, 311);
-            this.OznacitZakladniBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.OznacitZakladniBtn.Name = "OznacitZakladniBtn";
-            this.OznacitZakladniBtn.Size = new System.Drawing.Size(107, 52);
-            this.OznacitZakladniBtn.TabIndex = 23;
-            this.OznacitZakladniBtn.Text = "Označiť   \r\nvšetko    ";
-            this.OznacitZakladniBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.OznacitZakladniBtn.UseVisualStyleBackColor = true;
-            this.OznacitZakladniBtn.Click += new System.EventHandler(this.OznacitZakladniBtn_Click);
+            this.OznacitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.OznacitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 311);
+            this.OznacitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.OznacitZakladBtn.Name = "OznacitZakladBtn";
+            this.OznacitZakladBtn.Size = new System.Drawing.Size(107, 52);
+            this.OznacitZakladBtn.TabIndex = 23;
+            this.OznacitZakladBtn.Text = "Označiť   \r\nvšetko    ";
+            this.OznacitZakladBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OznacitZakladBtn.UseVisualStyleBackColor = true;
+            this.OznacitZakladBtn.Click += new System.EventHandler(this.OznacitZakladBtn_Click);
             // 
             // HraciZapasForm
             // 
@@ -164,10 +164,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nahradniciCheckListBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.OznacitZakladniBtn);
-            this.Controls.Add(this.ZrusitZakladniBtn);
-            this.Controls.Add(this.zoznamCheckListBox);
-            this.Controls.Add(this.aktivovatButton);
+            this.Controls.Add(this.OznacitZakladBtn);
+            this.Controls.Add(this.ZrusitZakladBtn);
+            this.Controls.Add(this.zakladCheckListBox);
+            this.Controls.Add(this.AktivovatBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -183,14 +183,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button aktivovatButton;
-        private System.Windows.Forms.CheckedListBox zoznamCheckListBox;
-        private System.Windows.Forms.Button ZrusitZakladniBtn;
+        private System.Windows.Forms.Button AktivovatBtn;
+        private System.Windows.Forms.CheckedListBox zakladCheckListBox;
+        private System.Windows.Forms.Button ZrusitZakladBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox nahradniciCheckListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button OznacitNahradniciBtn;
         private System.Windows.Forms.Button ZrusitNahradniciBtn;
-        private System.Windows.Forms.Button OznacitZakladniBtn;
+        private System.Windows.Forms.Button OznacitZakladBtn;
     }
 }

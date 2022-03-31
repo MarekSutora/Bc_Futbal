@@ -65,9 +65,9 @@
             this.label19 = new System.Windows.Forms.Label();
             this.PolcasXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.NacitatRozlozenieBtn = new System.Windows.Forms.Button();
-            this.UlozitRozlozenieBtn = new System.Windows.Forms.Button();
-            this.AktivovatRozlozenieBtn = new System.Windows.Forms.Button();
+            this.NacitatBtn = new System.Windows.Forms.Button();
+            this.UlozitBtn = new System.Windows.Forms.Button();
+            this.AktivovatBtn = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.SkoreDomaciYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.SkoreHostiaXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
-            this.ObnovitRozlozenieBtn = new System.Windows.Forms.Button();
+            this.ObnovitBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CasXNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CasYNumeric)).BeginInit();
@@ -502,47 +502,47 @@
             this.label20.TabIndex = 31;
             this.label20.Text = "Polčas:";
             // 
-            // NacitatRozlozenieBtn
+            // NacitatBtn
             // 
-            this.NacitatRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
-            this.NacitatRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NacitatRozlozenieBtn.Location = new System.Drawing.Point(320, 303);
-            this.NacitatRozlozenieBtn.Name = "NacitatRozlozenieBtn";
-            this.NacitatRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
-            this.NacitatRozlozenieBtn.TabIndex = 38;
-            this.NacitatRozlozenieBtn.Text = "Načítať konfiguráciu";
-            this.NacitatRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.NacitatRozlozenieBtn.UseCompatibleTextRendering = true;
-            this.NacitatRozlozenieBtn.UseVisualStyleBackColor = true;
-            this.NacitatRozlozenieBtn.Click += new System.EventHandler(this.NacitatRozlozenieBtn_Click);
+            this.NacitatBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
+            this.NacitatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NacitatBtn.Location = new System.Drawing.Point(320, 303);
+            this.NacitatBtn.Name = "NacitatBtn";
+            this.NacitatBtn.Size = new System.Drawing.Size(148, 51);
+            this.NacitatBtn.TabIndex = 38;
+            this.NacitatBtn.Text = "Načítať konfiguráciu";
+            this.NacitatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.NacitatBtn.UseCompatibleTextRendering = true;
+            this.NacitatBtn.UseVisualStyleBackColor = true;
+            this.NacitatBtn.Click += new System.EventHandler(this.NacitatBtn_Click);
             // 
-            // UlozitRozlozenieBtn
+            // UlozitBtn
             // 
-            this.UlozitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
-            this.UlozitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UlozitRozlozenieBtn.Location = new System.Drawing.Point(166, 303);
-            this.UlozitRozlozenieBtn.Name = "UlozitRozlozenieBtn";
-            this.UlozitRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
-            this.UlozitRozlozenieBtn.TabIndex = 37;
-            this.UlozitRozlozenieBtn.Text = "Uložiť konfiguráciu";
-            this.UlozitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UlozitRozlozenieBtn.UseCompatibleTextRendering = true;
-            this.UlozitRozlozenieBtn.UseVisualStyleBackColor = true;
-            this.UlozitRozlozenieBtn.Click += new System.EventHandler(this.UlozitRozlozenieBtn_Click);
+            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
+            this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitBtn.Location = new System.Drawing.Point(166, 303);
+            this.UlozitBtn.Name = "UlozitBtn";
+            this.UlozitBtn.Size = new System.Drawing.Size(148, 51);
+            this.UlozitBtn.TabIndex = 37;
+            this.UlozitBtn.Text = "Uložiť konfiguráciu";
+            this.UlozitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UlozitBtn.UseCompatibleTextRendering = true;
+            this.UlozitBtn.UseVisualStyleBackColor = true;
+            this.UlozitBtn.Click += new System.EventHandler(this.UlozitBtn_Click);
             // 
-            // AktivovatRozlozenieBtn
+            // AktivovatBtn
             // 
-            this.AktivovatRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.AktivovatRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AktivovatRozlozenieBtn.Location = new System.Drawing.Point(12, 302);
-            this.AktivovatRozlozenieBtn.Name = "AktivovatRozlozenieBtn";
-            this.AktivovatRozlozenieBtn.Size = new System.Drawing.Size(148, 52);
-            this.AktivovatRozlozenieBtn.TabIndex = 36;
-            this.AktivovatRozlozenieBtn.Text = "Aktivovať zmeny";
-            this.AktivovatRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AktivovatRozlozenieBtn.UseCompatibleTextRendering = true;
-            this.AktivovatRozlozenieBtn.UseVisualStyleBackColor = true;
-            this.AktivovatRozlozenieBtn.Click += new System.EventHandler(this.AktivovatRozlozenieBtn_Click);
+            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AktivovatBtn.Location = new System.Drawing.Point(12, 302);
+            this.AktivovatBtn.Name = "AktivovatBtn";
+            this.AktivovatBtn.Size = new System.Drawing.Size(148, 52);
+            this.AktivovatBtn.TabIndex = 36;
+            this.AktivovatBtn.Text = "Aktivovať zmeny";
+            this.AktivovatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AktivovatBtn.UseCompatibleTextRendering = true;
+            this.AktivovatBtn.UseVisualStyleBackColor = true;
+            this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
             // label21
             // 
@@ -656,27 +656,27 @@
             this.label26.TabIndex = 44;
             this.label26.Text = "Skóre hostia:";
             // 
-            // ObnovitRozlozenieBtn
+            // ObnovitBtn
             // 
-            this.ObnovitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
-            this.ObnovitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ObnovitRozlozenieBtn.Location = new System.Drawing.Point(473, 302);
-            this.ObnovitRozlozenieBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ObnovitRozlozenieBtn.Name = "ObnovitRozlozenieBtn";
-            this.ObnovitRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
-            this.ObnovitRozlozenieBtn.TabIndex = 49;
-            this.ObnovitRozlozenieBtn.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
-            this.ObnovitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ObnovitRozlozenieBtn.UseCompatibleTextRendering = true;
-            this.ObnovitRozlozenieBtn.UseVisualStyleBackColor = true;
-            this.ObnovitRozlozenieBtn.Click += new System.EventHandler(this.ObnovitRozlozenieBtn_Click);
+            this.ObnovitBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.ObnovitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ObnovitBtn.Location = new System.Drawing.Point(473, 302);
+            this.ObnovitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ObnovitBtn.Name = "ObnovitBtn";
+            this.ObnovitBtn.Size = new System.Drawing.Size(148, 51);
+            this.ObnovitBtn.TabIndex = 49;
+            this.ObnovitBtn.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
+            this.ObnovitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ObnovitBtn.UseCompatibleTextRendering = true;
+            this.ObnovitBtn.UseVisualStyleBackColor = true;
+            this.ObnovitBtn.Click += new System.EventHandler(this.ObnovitBtn_Click);
             // 
             // RozlozenieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 361);
-            this.Controls.Add(this.ObnovitRozlozenieBtn);
+            this.Controls.Add(this.ObnovitBtn);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.SkoreHostiaYNumeric);
             this.Controls.Add(this.label25);
@@ -687,9 +687,9 @@
             this.Controls.Add(this.label22);
             this.Controls.Add(this.SkoreDomaciXNumeric);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.NacitatRozlozenieBtn);
-            this.Controls.Add(this.UlozitRozlozenieBtn);
-            this.Controls.Add(this.AktivovatRozlozenieBtn);
+            this.Controls.Add(this.NacitatBtn);
+            this.Controls.Add(this.UlozitBtn);
+            this.Controls.Add(this.AktivovatBtn);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.PolcasYNumeric);
             this.Controls.Add(this.label19);
@@ -789,9 +789,9 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.NumericUpDown PolcasXNumeric;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button AktivovatRozlozenieBtn;
-        private System.Windows.Forms.Button UlozitRozlozenieBtn;
-        private System.Windows.Forms.Button NacitatRozlozenieBtn;
+        private System.Windows.Forms.Button AktivovatBtn;
+        private System.Windows.Forms.Button UlozitBtn;
+        private System.Windows.Forms.Button NacitatBtn;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.NumericUpDown SkoreDomaciYNumeric;
         private System.Windows.Forms.Label label22;
@@ -802,7 +802,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.NumericUpDown SkoreHostiaXNumeric;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button ObnovitRozlozenieBtn;
+        private System.Windows.Forms.Button ObnovitBtn;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

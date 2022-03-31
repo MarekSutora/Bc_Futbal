@@ -1,6 +1,6 @@
 ﻿namespace LGR_Futbal.Forms
 {
-    partial class PredstavenieSettingsForm
+    partial class PrezentaciaSetupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PredstavenieSettingsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrezentaciaSetupForm));
             this.DomaciPrezentaciaBtn = new System.Windows.Forms.Button();
             this.HostiaPrezentaciaBtn = new System.Windows.Forms.Button();
             this.BackBtn = new System.Windows.Forms.Button();

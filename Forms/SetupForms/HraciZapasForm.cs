@@ -1,5 +1,4 @@
-﻿using LGR_Futbal.Properties;
-using System.Linq;
+﻿using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,18 +8,16 @@ namespace LGR_Futbal.Forms
 {
     public partial class HraciZapasForm : Form
     {
-
-        private FutbalovyTim aktualnyTim = null;
+        private FutbalovyTim futbalovyTim = null;
         private List<Hrac> hraci = null;
-
         public HraciZapasForm(FutbalovyTim ft)
         {
             InitializeComponent();
 
-            aktualnyTim = ft;
+            futbalovyTim = ft;
             hraci = ft.ZoznamHracov;
             hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
-            this.Text = this.Text + " - tím " + aktualnyTim.NazovTimu;
+            this.Text = this.Text + " - tím " + futbalovyTim.NazovTimu;
 
             int pocet = 0;
             foreach (Hrac h in hraci)
@@ -28,31 +25,31 @@ namespace LGR_Futbal.Forms
                 pocet++;
                 if (!h.CisloDresu.Equals(string.Empty))
                 {
-                    zoznamCheckListBox.Items.Add(h.CisloDresu + ". "
+                    zakladCheckListBox.Items.Add(h.CisloDresu + ". "
                         + h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
                     nahradniciCheckListBox.Items.Add(h.CisloDresu + ". "
                         + h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
                 }
                 else
                 {
-                    zoznamCheckListBox.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
+                    zakladCheckListBox.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
                     nahradniciCheckListBox.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper(), h.HraAktualnyZapas);
                 }
             }
 
             for (int i = 0; i < pocet; i++)
             {
-                zoznamCheckListBox.SetItemChecked(i, hraci[i].HraAktualnyZapas);
+                zakladCheckListBox.SetItemChecked(i, hraci[i].HraAktualnyZapas);
                 nahradniciCheckListBox.SetItemChecked(i, hraci[i].Nahradnik);
             }
         }
 
-        private void AktivovatButton_Click(object sender, EventArgs e)
+        private void AktivovatBtn_Click(object sender, EventArgs e)
         {
             bool vsetkoVporiadku = true;
             for (int i = 0; i < hraci.Count; i++)
             {
-                if ((zoznamCheckListBox.GetItemChecked(i)) && (nahradniciCheckListBox.GetItemChecked(i)))
+                if ((zakladCheckListBox.GetItemChecked(i)) && (nahradniciCheckListBox.GetItemChecked(i)))
                 {
                     vsetkoVporiadku = false;
                     break;
@@ -62,9 +59,9 @@ namespace LGR_Futbal.Forms
             {
                 for (int i = 0; i < hraci.Count; i++)
                 {
-                    hraci[i].HraAktualnyZapas = zoznamCheckListBox.GetItemChecked(i);
+                    hraci[i].HraAktualnyZapas = zakladCheckListBox.GetItemChecked(i);
                     hraci[i].Nahradnik = nahradniciCheckListBox.GetItemChecked(i);
-                    if (zoznamCheckListBox.GetItemChecked(i))
+                    if (zakladCheckListBox.GetItemChecked(i))
                     {
                         hraci[i].Priradeny = 'Z';
                     } 
@@ -76,27 +73,27 @@ namespace LGR_Futbal.Forms
                 this.Close();
             }
             else
-                MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void OznacitZakladniBtn_Click(object sender, EventArgs e)
+        private void OznacitZakladBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
+            for (int i = 0; i < zakladCheckListBox.Items.Count; i++)
             {
-                zoznamCheckListBox.SetItemChecked(i, true);
+                zakladCheckListBox.SetItemChecked(i, true);
             }
         }
 
-        private void ZrusitZakladniBtn_Click(object sender, EventArgs e)
+        private void ZrusitZakladBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
+            for (int i = 0; i < zakladCheckListBox.Items.Count; i++)
             {
-                zoznamCheckListBox.SetItemChecked(i, false);
+                zakladCheckListBox.SetItemChecked(i, false);
             }
         }
 
         private void OznacitNahradniciBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
+            for (int i = 0; i < zakladCheckListBox.Items.Count; i++)
             {
                 nahradniciCheckListBox.SetItemChecked(i, true);
             }
@@ -104,7 +101,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitNahradniciBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
+            for (int i = 0; i < zakladCheckListBox.Items.Count; i++)
             {
                 nahradniciCheckListBox.SetItemChecked(i, false);
             }

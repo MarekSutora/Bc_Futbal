@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NadstavCasForm));
-            this.aktivovatButton = new System.Windows.Forms.Button();
-            this.ZmazatButton = new System.Windows.Forms.Button();
+            this.AktivovatBtn = new System.Windows.Forms.Button();
+            this.ZmazatBtn = new System.Windows.Forms.Button();
             this.Button0 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -47,33 +47,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.dlzkaNadCasuNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // aktivovatButton
+            // AktivovatBtn
             // 
-            this.aktivovatButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(462, 16);
-            this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2);
-            this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(106, 52);
-            this.aktivovatButton.TabIndex = 19;
-            this.aktivovatButton.Text = " Uložiť       zmeny      ";
-            this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.aktivovatButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.aktivovatButton.UseVisualStyleBackColor = true;
-            this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
+            this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AktivovatBtn.Location = new System.Drawing.Point(462, 16);
+            this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.AktivovatBtn.Name = "AktivovatBtn";
+            this.AktivovatBtn.Size = new System.Drawing.Size(106, 52);
+            this.AktivovatBtn.TabIndex = 19;
+            this.AktivovatBtn.Text = " Uložiť       zmeny      ";
+            this.AktivovatBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AktivovatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AktivovatBtn.UseVisualStyleBackColor = true;
+            this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
-            // ZmazatButton
+            // ZmazatBtn
             // 
-            this.ZmazatButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZmazatButton.Location = new System.Drawing.Point(413, 164);
-            this.ZmazatButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmazatButton.Name = "ZmazatButton";
-            this.ZmazatButton.Size = new System.Drawing.Size(46, 46);
-            this.ZmazatButton.TabIndex = 33;
-            this.ZmazatButton.Text = "<";
-            this.ZmazatButton.UseVisualStyleBackColor = true;
-            this.ZmazatButton.Click += new System.EventHandler(this.ZmazatButton_Click);
+            this.ZmazatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZmazatBtn.Location = new System.Drawing.Point(413, 164);
+            this.ZmazatBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmazatBtn.Name = "ZmazatBtn";
+            this.ZmazatBtn.Size = new System.Drawing.Size(46, 46);
+            this.ZmazatBtn.TabIndex = 33;
+            this.ZmazatBtn.Text = "<";
+            this.ZmazatBtn.UseVisualStyleBackColor = true;
+            this.ZmazatBtn.Click += new System.EventHandler(this.ZmazatBtn_Click);
             // 
             // Button0
             // 
@@ -238,7 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 216);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ZmazatButton);
+            this.Controls.Add(this.ZmazatBtn);
             this.Controls.Add(this.Button0);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -251,7 +251,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dlzkaNadCasuNumUpDown);
-            this.Controls.Add(this.aktivovatButton);
+            this.Controls.Add(this.AktivovatBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -268,8 +268,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button aktivovatButton;
-        private System.Windows.Forms.Button ZmazatButton;
+        private System.Windows.Forms.Button AktivovatBtn;
+        private System.Windows.Forms.Button ZmazatBtn;
         private System.Windows.Forms.Button Button0;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;

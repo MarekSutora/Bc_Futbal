@@ -518,7 +518,7 @@ namespace LGR_Futbal.Forms
 
         private void NacitatDatabazaButton_Click(object sender, EventArgs e)
         {
-            SelectForm selectform = new SelectForm(domaciT, hostiaT, dbtimy, dbhraci);
+            TimyForm selectform = new TimyForm(domaciT, hostiaT, dbtimy, dbhraci);
             selectform.OnTeamsSelected += Selectform_OnTeamsSelected;
             selectform.ShowDialog();
         }
