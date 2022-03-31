@@ -29,318 +29,301 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FarbyPrezentacieForm));
-            this.saveButton = new System.Windows.Forms.Button();
-            this.zrusitButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.NadpisDomaciLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.UlozitFarbyBtn = new System.Windows.Forms.Button();
+            this.menoDomaciLabel = new System.Windows.Forms.Label();
+            this.ZmenitDomaciMenoBtn = new System.Windows.Forms.Button();
+            this.cisloDomaciLabel = new System.Windows.Forms.Label();
+            this.ZmenitDomaciCisloBtn = new System.Windows.Forms.Button();
+            this.udajeDomaciLabel = new System.Windows.Forms.Label();
+            this.ZmenitDomaciUdajeBtn = new System.Windows.Forms.Button();
+            this.podnadpisDomaciLabel = new System.Windows.Forms.Label();
+            this.ZmenitDomaciPodnadpisBtn = new System.Windows.Forms.Button();
+            this.ZmenitDomaciNadpisBtn = new System.Windows.Forms.Button();
+            this.nadpisDomaciLabel = new System.Windows.Forms.Label();
+            this.menoHostiaLabel = new System.Windows.Forms.Label();
+            this.ZmenitHostiaMenoBtn = new System.Windows.Forms.Button();
+            this.cisloHostiaLabel = new System.Windows.Forms.Label();
+            this.ZmenitHostiaCisloBtn = new System.Windows.Forms.Button();
+            this.udajeHostiaLabel = new System.Windows.Forms.Label();
+            this.ZmenitHostiaUdajeBtn = new System.Windows.Forms.Button();
+            this.podnadpisHostiaLabel = new System.Windows.Forms.Label();
+            this.ZmenitHostiaPodnadpisBtn = new System.Windows.Forms.Button();
+            this.ZmenitHostiaNadpisBtn = new System.Windows.Forms.Button();
+            this.nadpisHostiaLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // saveButton
+            // UlozitFarbyBtn
             // 
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.saveButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(640, 8);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(114, 57);
-            this.saveButton.TabIndex = 26;
-            this.saveButton.Text = "Uložiť   ";
-            this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.UlozitFarbyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UlozitFarbyBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.UlozitFarbyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitFarbyBtn.Location = new System.Drawing.Point(613, 8);
+            this.UlozitFarbyBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitFarbyBtn.Name = "UlozitFarbyBtn";
+            this.UlozitFarbyBtn.Size = new System.Drawing.Size(114, 72);
+            this.UlozitFarbyBtn.TabIndex = 26;
+            this.UlozitFarbyBtn.Text = "Uložiť   ";
+            this.UlozitFarbyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitFarbyBtn.UseVisualStyleBackColor = true;
+            this.UlozitFarbyBtn.Click += new System.EventHandler(this.UlozitFarbyBtn_Click);
             // 
-            // zrusitButton
+            // menoDomaciLabel
             // 
-            this.zrusitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(640, 70);
-            this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zrusitButton.Name = "zrusitButton";
-            this.zrusitButton.Size = new System.Drawing.Size(114, 52);
-            this.zrusitButton.TabIndex = 25;
-            this.zrusitButton.Text = "Zatvoriť  ";
-            this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitButton.UseVisualStyleBackColor = true;
-            this.zrusitButton.Click += new System.EventHandler(this.zrusitButton_Click);
+            this.menoDomaciLabel.AutoSize = true;
+            this.menoDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.menoDomaciLabel.ForeColor = System.Drawing.Color.Lime;
+            this.menoDomaciLabel.Location = new System.Drawing.Point(8, 188);
+            this.menoDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.menoDomaciLabel.Name = "menoDomaciLabel";
+            this.menoDomaciLabel.Size = new System.Drawing.Size(143, 26);
+            this.menoDomaciLabel.TabIndex = 48;
+            this.menoDomaciLabel.Text = "Meno hráča:";
             // 
-            // label5
+            // ZmenitDomaciMenoBtn
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.Lime;
-            this.label5.Location = new System.Drawing.Point(8, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 26);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "Meno hráča:";
+            this.ZmenitDomaciMenoBtn.Location = new System.Drawing.Point(202, 185);
+            this.ZmenitDomaciMenoBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciMenoBtn.Name = "ZmenitDomaciMenoBtn";
+            this.ZmenitDomaciMenoBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciMenoBtn.TabIndex = 47;
+            this.ZmenitDomaciMenoBtn.Text = "Zmeniť";
+            this.ZmenitDomaciMenoBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciMenoBtn.Click += new System.EventHandler(this.ZmenitDomaciMenoBtn_Click);
             // 
-            // button7
+            // cisloDomaciLabel
             // 
-            this.button7.Location = new System.Drawing.Point(202, 185);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(83, 27);
-            this.button7.TabIndex = 47;
-            this.button7.Text = "Zmeniť";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.cisloDomaciLabel.AutoSize = true;
+            this.cisloDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cisloDomaciLabel.ForeColor = System.Drawing.Color.Red;
+            this.cisloDomaciLabel.Location = new System.Drawing.Point(8, 144);
+            this.cisloDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cisloDomaciLabel.Name = "cisloDomaciLabel";
+            this.cisloDomaciLabel.Size = new System.Drawing.Size(139, 26);
+            this.cisloDomaciLabel.TabIndex = 46;
+            this.cisloDomaciLabel.Text = "Číslo hráča:";
             // 
-            // label4
+            // ZmenitDomaciCisloBtn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(8, 144);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 26);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Číslo hráča:";
+            this.ZmenitDomaciCisloBtn.Location = new System.Drawing.Point(202, 141);
+            this.ZmenitDomaciCisloBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciCisloBtn.Name = "ZmenitDomaciCisloBtn";
+            this.ZmenitDomaciCisloBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciCisloBtn.TabIndex = 45;
+            this.ZmenitDomaciCisloBtn.Text = "Zmeniť";
+            this.ZmenitDomaciCisloBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciCisloBtn.Click += new System.EventHandler(this.ZmenitDomaciCisloBtn_Click);
             // 
-            // button6
+            // udajeDomaciLabel
             // 
-            this.button6.Location = new System.Drawing.Point(202, 141);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(83, 27);
-            this.button6.TabIndex = 45;
-            this.button6.Text = "Zmeniť";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.udajeDomaciLabel.AutoSize = true;
+            this.udajeDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.udajeDomaciLabel.ForeColor = System.Drawing.Color.Lime;
+            this.udajeDomaciLabel.Location = new System.Drawing.Point(8, 99);
+            this.udajeDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.udajeDomaciLabel.Name = "udajeDomaciLabel";
+            this.udajeDomaciLabel.Size = new System.Drawing.Size(81, 26);
+            this.udajeDomaciLabel.TabIndex = 44;
+            this.udajeDomaciLabel.Text = "Údaje:";
             // 
-            // label3
+            // ZmenitDomaciUdajeBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(8, 99);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 26);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Údaje:";
+            this.ZmenitDomaciUdajeBtn.Location = new System.Drawing.Point(202, 97);
+            this.ZmenitDomaciUdajeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciUdajeBtn.Name = "ZmenitDomaciUdajeBtn";
+            this.ZmenitDomaciUdajeBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciUdajeBtn.TabIndex = 43;
+            this.ZmenitDomaciUdajeBtn.Text = "Zmeniť";
+            this.ZmenitDomaciUdajeBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciUdajeBtn.Click += new System.EventHandler(this.ZmenitDomaciUdajeBtn_Click);
             // 
-            // button4
+            // podnadpisDomaciLabel
             // 
-            this.button4.Location = new System.Drawing.Point(202, 97);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 27);
-            this.button4.TabIndex = 43;
-            this.button4.Text = "Zmeniť";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.podnadpisDomaciLabel.AutoSize = true;
+            this.podnadpisDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.podnadpisDomaciLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.podnadpisDomaciLabel.Location = new System.Drawing.Point(8, 55);
+            this.podnadpisDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.podnadpisDomaciLabel.Name = "podnadpisDomaciLabel";
+            this.podnadpisDomaciLabel.Size = new System.Drawing.Size(131, 26);
+            this.podnadpisDomaciLabel.TabIndex = 42;
+            this.podnadpisDomaciLabel.Text = "Podnadpis:";
             // 
-            // label2
+            // ZmenitDomaciPodnadpisBtn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.Aqua;
-            this.label2.Location = new System.Drawing.Point(8, 55);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 26);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Titulky:";
+            this.ZmenitDomaciPodnadpisBtn.Location = new System.Drawing.Point(202, 53);
+            this.ZmenitDomaciPodnadpisBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciPodnadpisBtn.Name = "ZmenitDomaciPodnadpisBtn";
+            this.ZmenitDomaciPodnadpisBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciPodnadpisBtn.TabIndex = 41;
+            this.ZmenitDomaciPodnadpisBtn.Text = "Zmeniť";
+            this.ZmenitDomaciPodnadpisBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciPodnadpisBtn.Click += new System.EventHandler(this.ZmenitDomaciPodnadpisBtn_Click);
             // 
-            // button3
+            // ZmenitDomaciNadpisBtn
             // 
-            this.button3.Location = new System.Drawing.Point(202, 53);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(83, 27);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Zmeniť";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ZmenitDomaciNadpisBtn.Location = new System.Drawing.Point(202, 8);
+            this.ZmenitDomaciNadpisBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciNadpisBtn.Name = "ZmenitDomaciNadpisBtn";
+            this.ZmenitDomaciNadpisBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciNadpisBtn.TabIndex = 40;
+            this.ZmenitDomaciNadpisBtn.Text = "Zmeniť";
+            this.ZmenitDomaciNadpisBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciNadpisBtn.Click += new System.EventHandler(this.ZmenitDomaciNadpisBtn_Click);
             // 
-            // button1
+            // nadpisDomaciLabel
             // 
-            this.button1.Location = new System.Drawing.Point(202, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 27);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Zmeniť";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.nadpisDomaciLabel.AutoSize = true;
+            this.nadpisDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nadpisDomaciLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.nadpisDomaciLabel.Location = new System.Drawing.Point(8, 11);
+            this.nadpisDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nadpisDomaciLabel.Name = "nadpisDomaciLabel";
+            this.nadpisDomaciLabel.Size = new System.Drawing.Size(93, 26);
+            this.nadpisDomaciLabel.TabIndex = 39;
+            this.nadpisDomaciLabel.Text = "Nadpis:";
             // 
-            // NadpisDomaciLabel
+            // menoHostiaLabel
             // 
-            this.NadpisDomaciLabel.AutoSize = true;
-            this.NadpisDomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NadpisDomaciLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.NadpisDomaciLabel.Location = new System.Drawing.Point(8, 11);
-            this.NadpisDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.NadpisDomaciLabel.Name = "NadpisDomaciLabel";
-            this.NadpisDomaciLabel.Size = new System.Drawing.Size(93, 26);
-            this.NadpisDomaciLabel.TabIndex = 39;
-            this.NadpisDomaciLabel.Text = "Nadpis:";
+            this.menoHostiaLabel.AutoSize = true;
+            this.menoHostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.menoHostiaLabel.ForeColor = System.Drawing.Color.Lime;
+            this.menoHostiaLabel.Location = new System.Drawing.Point(322, 188);
+            this.menoHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.menoHostiaLabel.Name = "menoHostiaLabel";
+            this.menoHostiaLabel.Size = new System.Drawing.Size(143, 26);
+            this.menoHostiaLabel.TabIndex = 58;
+            this.menoHostiaLabel.Text = "Meno hráča:";
             // 
-            // label6
+            // ZmenitHostiaMenoBtn
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.Lime;
-            this.label6.Location = new System.Drawing.Point(322, 188);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 26);
-            this.label6.TabIndex = 58;
-            this.label6.Text = "Meno hráča:";
+            this.ZmenitHostiaMenoBtn.Location = new System.Drawing.Point(516, 185);
+            this.ZmenitHostiaMenoBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaMenoBtn.Name = "ZmenitHostiaMenoBtn";
+            this.ZmenitHostiaMenoBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaMenoBtn.TabIndex = 57;
+            this.ZmenitHostiaMenoBtn.Text = "Zmeniť";
+            this.ZmenitHostiaMenoBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaMenoBtn.Click += new System.EventHandler(this.ZmenitHostiaMenoBtn_Click);
             // 
-            // button2
+            // cisloHostiaLabel
             // 
-            this.button2.Location = new System.Drawing.Point(516, 185);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 27);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Zmeniť";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cisloHostiaLabel.AutoSize = true;
+            this.cisloHostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cisloHostiaLabel.ForeColor = System.Drawing.Color.Red;
+            this.cisloHostiaLabel.Location = new System.Drawing.Point(322, 144);
+            this.cisloHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cisloHostiaLabel.Name = "cisloHostiaLabel";
+            this.cisloHostiaLabel.Size = new System.Drawing.Size(139, 26);
+            this.cisloHostiaLabel.TabIndex = 56;
+            this.cisloHostiaLabel.Text = "Číslo hráča:";
             // 
-            // label7
+            // ZmenitHostiaCisloBtn
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(322, 144);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 26);
-            this.label7.TabIndex = 56;
-            this.label7.Text = "Číslo hráča:";
+            this.ZmenitHostiaCisloBtn.Location = new System.Drawing.Point(516, 141);
+            this.ZmenitHostiaCisloBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaCisloBtn.Name = "ZmenitHostiaCisloBtn";
+            this.ZmenitHostiaCisloBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaCisloBtn.TabIndex = 55;
+            this.ZmenitHostiaCisloBtn.Text = "Zmeniť";
+            this.ZmenitHostiaCisloBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaCisloBtn.Click += new System.EventHandler(this.ZmenitHostiaCisloBtn_Click);
             // 
-            // button5
+            // udajeHostiaLabel
             // 
-            this.button5.Location = new System.Drawing.Point(516, 141);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(83, 27);
-            this.button5.TabIndex = 55;
-            this.button5.Text = "Zmeniť";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.udajeHostiaLabel.AutoSize = true;
+            this.udajeHostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.udajeHostiaLabel.ForeColor = System.Drawing.Color.Lime;
+            this.udajeHostiaLabel.Location = new System.Drawing.Point(322, 99);
+            this.udajeHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.udajeHostiaLabel.Name = "udajeHostiaLabel";
+            this.udajeHostiaLabel.Size = new System.Drawing.Size(81, 26);
+            this.udajeHostiaLabel.TabIndex = 54;
+            this.udajeHostiaLabel.Text = "Údaje:";
             // 
-            // label8
+            // ZmenitHostiaUdajeBtn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.Lime;
-            this.label8.Location = new System.Drawing.Point(322, 99);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 26);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Údaje:";
+            this.ZmenitHostiaUdajeBtn.Location = new System.Drawing.Point(516, 97);
+            this.ZmenitHostiaUdajeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaUdajeBtn.Name = "ZmenitHostiaUdajeBtn";
+            this.ZmenitHostiaUdajeBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaUdajeBtn.TabIndex = 53;
+            this.ZmenitHostiaUdajeBtn.Text = "Zmeniť";
+            this.ZmenitHostiaUdajeBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaUdajeBtn.Click += new System.EventHandler(this.ZmenitHostiaUdajeBtn_Click);
             // 
-            // button8
+            // podnadpisHostiaLabel
             // 
-            this.button8.Location = new System.Drawing.Point(516, 97);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(83, 27);
-            this.button8.TabIndex = 53;
-            this.button8.Text = "Zmeniť";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.podnadpisHostiaLabel.AutoSize = true;
+            this.podnadpisHostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.podnadpisHostiaLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.podnadpisHostiaLabel.Location = new System.Drawing.Point(322, 55);
+            this.podnadpisHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.podnadpisHostiaLabel.Name = "podnadpisHostiaLabel";
+            this.podnadpisHostiaLabel.Size = new System.Drawing.Size(131, 26);
+            this.podnadpisHostiaLabel.TabIndex = 52;
+            this.podnadpisHostiaLabel.Text = "Podnadpis:";
             // 
-            // label9
+            // ZmenitHostiaPodnadpisBtn
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.Aqua;
-            this.label9.Location = new System.Drawing.Point(322, 55);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 26);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Titulky:";
+            this.ZmenitHostiaPodnadpisBtn.Location = new System.Drawing.Point(516, 53);
+            this.ZmenitHostiaPodnadpisBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaPodnadpisBtn.Name = "ZmenitHostiaPodnadpisBtn";
+            this.ZmenitHostiaPodnadpisBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaPodnadpisBtn.TabIndex = 51;
+            this.ZmenitHostiaPodnadpisBtn.Text = "Zmeniť";
+            this.ZmenitHostiaPodnadpisBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaPodnadpisBtn.Click += new System.EventHandler(this.ZmenitHostiaPodnadpisBtn_Click);
             // 
-            // button9
+            // ZmenitHostiaNadpisBtn
             // 
-            this.button9.Location = new System.Drawing.Point(516, 53);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(83, 27);
-            this.button9.TabIndex = 51;
-            this.button9.Text = "Zmeniť";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.ZmenitHostiaNadpisBtn.Location = new System.Drawing.Point(516, 8);
+            this.ZmenitHostiaNadpisBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaNadpisBtn.Name = "ZmenitHostiaNadpisBtn";
+            this.ZmenitHostiaNadpisBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaNadpisBtn.TabIndex = 50;
+            this.ZmenitHostiaNadpisBtn.Text = "Zmeniť";
+            this.ZmenitHostiaNadpisBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaNadpisBtn.Click += new System.EventHandler(this.ZmenitHostiaNadpisBtn_Click);
             // 
-            // button10
+            // nadpisHostiaLabel
             // 
-            this.button10.Location = new System.Drawing.Point(516, 8);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(83, 27);
-            this.button10.TabIndex = 50;
-            this.button10.Text = "Zmeniť";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.Aqua;
-            this.label10.Location = new System.Drawing.Point(322, 11);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 26);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Nadpis:";
+            this.nadpisHostiaLabel.AutoSize = true;
+            this.nadpisHostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nadpisHostiaLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.nadpisHostiaLabel.Location = new System.Drawing.Point(322, 11);
+            this.nadpisHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nadpisHostiaLabel.Name = "nadpisHostiaLabel";
+            this.nadpisHostiaLabel.Size = new System.Drawing.Size(93, 26);
+            this.nadpisHostiaLabel.TabIndex = 49;
+            this.nadpisHostiaLabel.Text = "Nadpis:";
             // 
             // FarbyPrezentacieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(762, 230);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.NadpisDomaciLabel);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.zrusitButton);
+            this.ClientSize = new System.Drawing.Size(735, 230);
+            this.Controls.Add(this.menoHostiaLabel);
+            this.Controls.Add(this.ZmenitHostiaMenoBtn);
+            this.Controls.Add(this.cisloHostiaLabel);
+            this.Controls.Add(this.ZmenitHostiaCisloBtn);
+            this.Controls.Add(this.udajeHostiaLabel);
+            this.Controls.Add(this.ZmenitHostiaUdajeBtn);
+            this.Controls.Add(this.podnadpisHostiaLabel);
+            this.Controls.Add(this.ZmenitHostiaPodnadpisBtn);
+            this.Controls.Add(this.ZmenitHostiaNadpisBtn);
+            this.Controls.Add(this.nadpisHostiaLabel);
+            this.Controls.Add(this.menoDomaciLabel);
+            this.Controls.Add(this.ZmenitDomaciMenoBtn);
+            this.Controls.Add(this.cisloDomaciLabel);
+            this.Controls.Add(this.ZmenitDomaciCisloBtn);
+            this.Controls.Add(this.udajeDomaciLabel);
+            this.Controls.Add(this.ZmenitDomaciUdajeBtn);
+            this.Controls.Add(this.podnadpisDomaciLabel);
+            this.Controls.Add(this.ZmenitDomaciPodnadpisBtn);
+            this.Controls.Add(this.ZmenitDomaciNadpisBtn);
+            this.Controls.Add(this.nadpisDomaciLabel);
+            this.Controls.Add(this.UlozitFarbyBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -350,7 +333,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Farby prezentácie";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FarbyPrezentacieForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,27 +340,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button zrusitButton;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label NadpisDomaciLabel;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button UlozitFarbyBtn;
+        private System.Windows.Forms.Label menoDomaciLabel;
+        private System.Windows.Forms.Button ZmenitDomaciMenoBtn;
+        private System.Windows.Forms.Label cisloDomaciLabel;
+        private System.Windows.Forms.Button ZmenitDomaciCisloBtn;
+        private System.Windows.Forms.Label udajeDomaciLabel;
+        private System.Windows.Forms.Button ZmenitDomaciUdajeBtn;
+        private System.Windows.Forms.Label podnadpisDomaciLabel;
+        private System.Windows.Forms.Button ZmenitDomaciPodnadpisBtn;
+        private System.Windows.Forms.Button ZmenitDomaciNadpisBtn;
+        private System.Windows.Forms.Label nadpisDomaciLabel;
+        private System.Windows.Forms.Label menoHostiaLabel;
+        private System.Windows.Forms.Button ZmenitHostiaMenoBtn;
+        private System.Windows.Forms.Label cisloHostiaLabel;
+        private System.Windows.Forms.Button ZmenitHostiaCisloBtn;
+        private System.Windows.Forms.Label udajeHostiaLabel;
+        private System.Windows.Forms.Button ZmenitHostiaUdajeBtn;
+        private System.Windows.Forms.Label podnadpisHostiaLabel;
+        private System.Windows.Forms.Button ZmenitHostiaPodnadpisBtn;
+        private System.Windows.Forms.Button ZmenitHostiaNadpisBtn;
+        private System.Windows.Forms.Label nadpisHostiaLabel;
     }
 }

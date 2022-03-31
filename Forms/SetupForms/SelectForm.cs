@@ -12,21 +12,21 @@ namespace LGR_Futbal.Forms
 
     public partial class SelectForm : Form
     {
-        private DBTimy dBTimy = null;
-        private DBHraci dBHraci= null;
+        public event TeamsSelectedHandler OnTeamsSelected;
+
+        private DBTimy dbTimy = null;
+        private DBHraci dbHraci= null;
         private List<FutbalovyTim> timy = null;
         private FutbalovyTim domaci = null;
         private FutbalovyTim hostia = null;
-
-        public event TeamsSelectedHandler OnTeamsSelected;
 
         public SelectForm(FutbalovyTim domaci, FutbalovyTim hostia, DBTimy dbt, DBHraci dbh)
         {
             InitializeComponent();
 
-            dBTimy = dbt;
-            dBHraci = dbh;
-            timy = dBTimy.GetTimy();
+            dbTimy = dbt;
+            dbHraci = dbh;
+            timy = dbTimy.GetTimy();
             if (timy.Count == 0)
                 aktivovatButton.Enabled = false;
             else
@@ -46,11 +46,6 @@ namespace LGR_Futbal.Forms
             this.hostia = hostia;
         }
 
-        private void ZrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void AktivovatButton_Click(object sender, EventArgs e)
         {
             if (domaciLB.SelectedIndex == 0 )
@@ -60,7 +55,7 @@ namespace LGR_Futbal.Forms
             else
             {
                 this.domaci = timy[domaciLB.SelectedIndex - 1];
-                this.domaci.ZoznamHracov = dBHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
+                this.domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
             }
             if (hostiaLB.SelectedIndex == 0)
             {
@@ -69,17 +64,15 @@ namespace LGR_Futbal.Forms
             else
             {
                 this.hostia = timy[hostiaLB.SelectedIndex - 1];
-                this.hostia.ZoznamHracov = dBHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
+                this.hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
             }
-            if (OnTeamsSelected != null)
-                OnTeamsSelected(domaci, hostia);
+            OnTeamsSelected?.Invoke(domaci, hostia);
             this.Close();
         }
 
-        private void SelectForm_KeyDown(object sender, KeyEventArgs e)
+        private void ZrusitButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            this.Close();
         }
     }
 }

@@ -222,63 +222,27 @@ namespace LGR_Futbal.Databaza
         {
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
-                string cmdQuery = "UPDATE futbalovy_tim SET datum_zrusenia = SYSDATE, logo = NULL WHERE id_futbalovy_tim = :id_futbalovy_tim";
-                try
-                {
-                    conn.Open();
-                    OracleCommand cmd = new OracleCommand(cmdQuery);
-                    OracleParameter param = new OracleParameter();
-                    param = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
-                    param.Value = ft.IdFutbalovyTim;
-
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
-
-                    conn.Close();
-                }
-                catch
-                {
-                    throw new Exception("Chyba pri praci s Databazou");
-                }
-            //}
-        }
-
-        public void PridajHracovDoTimu(int idTimu, List<Hrac> hraci)
-        {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-
-                string cmdQuery = "UPDATE hrac SET id_futbalovy_tim = :id_timu WHERE id_hrac = :id_hrac";
+            string cmdQuery = "UPDATE futbalovy_tim SET datum_zrusenia = SYSDATE, logo = NULL WHERE id_futbalovy_tim = :id_futbalovy_tim";
+            try
+            {
+                conn.Open();
                 OracleCommand cmd = new OracleCommand(cmdQuery);
+                OracleParameter param = new OracleParameter();
+                param = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
+                param.Value = ft.IdFutbalovyTim;
 
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
 
-                for (int i = 0; i < hraci.Count; i++)
-                {
-                    try
-                    {
-                        OracleParameter[] param = new OracleParameter[2];
-                        cmd.Parameters.Clear();
-                        param[0] = cmd.Parameters.Add("id_timu", OracleDbType.Int32);
-                        param[0].Value = idTimu;
-                        param[1] = cmd.Parameters.Add("id_hrac", OracleDbType.Int32);
-                        param[1].Value = hraci[i].IdHrac;
-                        conn.Open();
-
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = conn;
-                        cmd.ExecuteNonQuery();
-
-                        conn.Close();
-                    }
-                    catch
-                    {
-                        throw new Exception("Chyba pri praci s Databazou");
-                    }
-                }
+                conn.Close();
+            }
+            catch
+            {
+                throw new Exception("Chyba pri praci s Databazou");
+            }
             //}
         }
-
         public string GetNazovTimu(int id)
         {
             string nazov = string.Empty;

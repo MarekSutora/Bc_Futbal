@@ -32,7 +32,6 @@ namespace LGR_Futbal.Forms
         private List<Rozhodca> rozhodcovia = null;
         private string originalLogoCesta = string.Empty;
         private string originalFotoCesta = string.Empty;
-        private string currentDirectory = null;
         private DBTimy dbtimy = null;
         private DBHraci dbhraci = null;
         private DBRozhodcovia dbrozhodcovia = null;
@@ -42,7 +41,7 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public DatabazaForm(string folder, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
+        public DatabazaForm(DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
         {
             InitializeComponent();
 
@@ -50,8 +49,6 @@ namespace LGR_Futbal.Forms
             dbhraci = dbh;
             dbrozhodcovia = dbr;
             dbzapasy = dbz;
-
-            currentDirectory = folder;
 
             FillTimyCB();
             FillRozhodcoviaCB();
@@ -83,9 +80,7 @@ namespace LGR_Futbal.Forms
             {
                 timyListBox.SelectedIndex = 0;
                 editButton.Enabled = true;
-                zapasButton.Enabled = true;
                 removeButton.Enabled = true;
-                exportButton.Enabled = true;
             }
 
         }
@@ -210,9 +205,7 @@ namespace LGR_Futbal.Forms
                     addGroupBox.Visible = true;
 
                     editButton.Enabled = true;
-                    zapasButton.Enabled = true;
                     removeButton.Enabled = true;
-                    exportButton.Enabled = true;
                     addGroupBox.Visible = false;
                     FillTimyCB();
                 }
@@ -234,13 +227,6 @@ namespace LGR_Futbal.Forms
             ZobrazEdit();
         }
 
-        private void ZapasButton_Click(object sender, EventArgs e)
-        {
-
-            NezaradeniHraciForm form = new NezaradeniHraciForm(timy[timyListBox.SelectedIndex].IdFutbalovyTim, dbtimy, dbhraci);
-            form.Show();
-        }
-
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             addGroupBox.Visible = false;
@@ -258,9 +244,7 @@ namespace LGR_Futbal.Forms
                 else
                 {
                     editButton.Enabled = false;
-                    zapasButton.Enabled = false;
                     removeButton.Enabled = false;
-                    exportButton.Enabled = false;
                 }
             }
         }

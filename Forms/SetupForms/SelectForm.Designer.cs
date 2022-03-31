@@ -131,7 +131,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Výber tímov z databázy";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectForm_KeyDown);
             this.ResumeLayout(false);
 
         }

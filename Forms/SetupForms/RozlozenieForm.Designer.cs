@@ -30,74 +30,74 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.CasXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.CasYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.DomaciYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.DomaciXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.LogoDomaciYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.LogoDomaciXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.HostiaYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.HostiaXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.LogoHostiaYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.LogoHostiaXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.hostiaLogoCB = new System.Windows.Forms.CheckBox();
+            this.domaciLogoCB = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.LogoDomaciSirkaNumeric = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.LogoHostiaSirkaNumeric = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.PolcasYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
+            this.PolcasXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.nacitatRozlozenieButton = new System.Windows.Forms.Button();
-            this.ulozitRozlozenie = new System.Windows.Forms.Button();
-            this.aktivovatRozlozenieButton = new System.Windows.Forms.Button();
+            this.NacitatRozlozenieBtn = new System.Windows.Forms.Button();
+            this.UlozitRozlozenieBtn = new System.Windows.Forms.Button();
+            this.AktivovatRozlozenieBtn = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
+            this.SkoreDomaciYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
+            this.SkoreDomaciXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
+            this.SkoreHostiaYNumeric = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
-            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
+            this.SkoreHostiaXNumeric = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
-            this.obnovaRozlozeniaButton = new System.Windows.Forms.Button();
+            this.ObnovitRozlozenieBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DomaciYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DomaciXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HostiaYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HostiaXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciSirkaNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaSirkaNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PolcasYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PolcasXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreDomaciYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreDomaciXNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreHostiaYNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreHostiaXNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,18 +110,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Čas:";
             // 
-            // numericUpDown1
+            // CasXNumeric
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown1.Location = new System.Drawing.Point(153, 12);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.CasXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CasXNumeric.Location = new System.Drawing.Point(153, 12);
+            this.CasXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown1.TabIndex = 1;
+            this.CasXNumeric.Name = "CasXNumeric";
+            this.CasXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.CasXNumeric.TabIndex = 1;
             // 
             // label2
             // 
@@ -143,18 +143,18 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Y:";
             // 
-            // numericUpDown2
+            // CasYNumeric
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown2.Location = new System.Drawing.Point(314, 12);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.CasYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CasYNumeric.Location = new System.Drawing.Point(314, 12);
+            this.CasYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown2.TabIndex = 3;
+            this.CasYNumeric.Name = "CasYNumeric";
+            this.CasYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.CasYNumeric.TabIndex = 3;
             // 
             // label4
             // 
@@ -166,18 +166,18 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Y:";
             // 
-            // numericUpDown3
+            // DomaciYNumeric
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown3.Location = new System.Drawing.Point(314, 132);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.DomaciYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.DomaciYNumeric.Location = new System.Drawing.Point(314, 132);
+            this.DomaciYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown3.TabIndex = 8;
+            this.DomaciYNumeric.Name = "DomaciYNumeric";
+            this.DomaciYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.DomaciYNumeric.TabIndex = 8;
             // 
             // label5
             // 
@@ -189,18 +189,18 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "X:";
             // 
-            // numericUpDown4
+            // DomaciXNumeric
             // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown4.Location = new System.Drawing.Point(153, 132);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.DomaciXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.DomaciXNumeric.Location = new System.Drawing.Point(153, 132);
+            this.DomaciXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown4.TabIndex = 6;
+            this.DomaciXNumeric.Name = "DomaciXNumeric";
+            this.DomaciXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.DomaciXNumeric.TabIndex = 6;
             // 
             // label6
             // 
@@ -222,18 +222,18 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Y:";
             // 
-            // numericUpDown5
+            // LogoDomaciYNumeric
             // 
-            this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown5.Location = new System.Drawing.Point(314, 193);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.LogoDomaciYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoDomaciYNumeric.Location = new System.Drawing.Point(314, 193);
+            this.LogoDomaciYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown5.TabIndex = 18;
+            this.LogoDomaciYNumeric.Name = "LogoDomaciYNumeric";
+            this.LogoDomaciYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoDomaciYNumeric.TabIndex = 18;
             // 
             // label8
             // 
@@ -245,18 +245,18 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "X:";
             // 
-            // numericUpDown6
+            // LogoDomaciXNumeric
             // 
-            this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown6.Location = new System.Drawing.Point(151, 192);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+            this.LogoDomaciXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoDomaciXNumeric.Location = new System.Drawing.Point(151, 192);
+            this.LogoDomaciXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown6.TabIndex = 16;
+            this.LogoDomaciXNumeric.Name = "LogoDomaciXNumeric";
+            this.LogoDomaciXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoDomaciXNumeric.TabIndex = 16;
             // 
             // label9
             // 
@@ -278,18 +278,18 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Y:";
             // 
-            // numericUpDown7
+            // HostiaYNumeric
             // 
-            this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown7.Location = new System.Drawing.Point(314, 162);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
+            this.HostiaYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HostiaYNumeric.Location = new System.Drawing.Point(314, 162);
+            this.HostiaYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown7.TabIndex = 13;
+            this.HostiaYNumeric.Name = "HostiaYNumeric";
+            this.HostiaYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.HostiaYNumeric.TabIndex = 13;
             // 
             // label11
             // 
@@ -301,18 +301,18 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "X:";
             // 
-            // numericUpDown8
+            // HostiaXNumeric
             // 
-            this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown8.Location = new System.Drawing.Point(153, 162);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
+            this.HostiaXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HostiaXNumeric.Location = new System.Drawing.Point(153, 162);
+            this.HostiaXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown8.TabIndex = 11;
+            this.HostiaXNumeric.Name = "HostiaXNumeric";
+            this.HostiaXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.HostiaXNumeric.TabIndex = 11;
             // 
             // label12
             // 
@@ -334,18 +334,18 @@
             this.label13.TabIndex = 24;
             this.label13.Text = "Y:";
             // 
-            // numericUpDown9
+            // LogoHostiaYNumeric
             // 
-            this.numericUpDown9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown9.Location = new System.Drawing.Point(314, 248);
-            this.numericUpDown9.Maximum = new decimal(new int[] {
+            this.LogoHostiaYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoHostiaYNumeric.Location = new System.Drawing.Point(314, 248);
+            this.LogoHostiaYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown9.TabIndex = 23;
+            this.LogoHostiaYNumeric.Name = "LogoHostiaYNumeric";
+            this.LogoHostiaYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoHostiaYNumeric.TabIndex = 23;
             // 
             // label14
             // 
@@ -357,18 +357,18 @@
             this.label14.TabIndex = 22;
             this.label14.Text = "X:";
             // 
-            // numericUpDown10
+            // LogoHostiaXNumeric
             // 
-            this.numericUpDown10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown10.Location = new System.Drawing.Point(151, 246);
-            this.numericUpDown10.Maximum = new decimal(new int[] {
+            this.LogoHostiaXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoHostiaXNumeric.Location = new System.Drawing.Point(151, 246);
+            this.LogoHostiaXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown10.TabIndex = 21;
+            this.LogoHostiaXNumeric.Name = "LogoHostiaXNumeric";
+            this.LogoHostiaXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoHostiaXNumeric.TabIndex = 21;
             // 
             // label15
             // 
@@ -380,25 +380,25 @@
             this.label15.TabIndex = 20;
             this.label15.Text = "Logo Hostia:";
             // 
-            // checkBox1
+            // hostiaLogoCB
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 279);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
-            this.checkBox1.TabIndex = 25;
-            this.checkBox1.Text = "Zobraziť logo";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.hostiaLogoCB.AutoSize = true;
+            this.hostiaLogoCB.Location = new System.Drawing.Point(15, 279);
+            this.hostiaLogoCB.Name = "hostiaLogoCB";
+            this.hostiaLogoCB.Size = new System.Drawing.Size(88, 17);
+            this.hostiaLogoCB.TabIndex = 25;
+            this.hostiaLogoCB.Text = "Zobraziť logo";
+            this.hostiaLogoCB.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // domaciLogoCB
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(15, 225);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(88, 17);
-            this.checkBox2.TabIndex = 26;
-            this.checkBox2.Text = "Zobraziť logo";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.domaciLogoCB.AutoSize = true;
+            this.domaciLogoCB.Location = new System.Drawing.Point(15, 225);
+            this.domaciLogoCB.Name = "domaciLogoCB";
+            this.domaciLogoCB.Size = new System.Drawing.Size(88, 17);
+            this.domaciLogoCB.TabIndex = 26;
+            this.domaciLogoCB.Text = "Zobraziť logo";
+            this.domaciLogoCB.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -410,18 +410,18 @@
             this.label16.TabIndex = 28;
             this.label16.Text = "Šírka:";
             // 
-            // numericUpDown11
+            // LogoDomaciSirkaNumeric
             // 
-            this.numericUpDown11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown11.Location = new System.Drawing.Point(490, 192);
-            this.numericUpDown11.Maximum = new decimal(new int[] {
+            this.LogoDomaciSirkaNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoDomaciSirkaNumeric.Location = new System.Drawing.Point(490, 192);
+            this.LogoDomaciSirkaNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown11.TabIndex = 27;
+            this.LogoDomaciSirkaNumeric.Name = "LogoDomaciSirkaNumeric";
+            this.LogoDomaciSirkaNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoDomaciSirkaNumeric.TabIndex = 27;
             // 
             // label17
             // 
@@ -433,18 +433,18 @@
             this.label17.TabIndex = 30;
             this.label17.Text = "Šírka:";
             // 
-            // numericUpDown12
+            // LogoHostiaSirkaNumeric
             // 
-            this.numericUpDown12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown12.Location = new System.Drawing.Point(490, 248);
-            this.numericUpDown12.Maximum = new decimal(new int[] {
+            this.LogoHostiaSirkaNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LogoHostiaSirkaNumeric.Location = new System.Drawing.Point(490, 248);
+            this.LogoHostiaSirkaNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown12.TabIndex = 29;
+            this.LogoHostiaSirkaNumeric.Name = "LogoHostiaSirkaNumeric";
+            this.LogoHostiaSirkaNumeric.Size = new System.Drawing.Size(120, 24);
+            this.LogoHostiaSirkaNumeric.TabIndex = 29;
             // 
             // label18
             // 
@@ -456,18 +456,18 @@
             this.label18.TabIndex = 35;
             this.label18.Text = "Y:";
             // 
-            // numericUpDown13
+            // PolcasYNumeric
             // 
-            this.numericUpDown13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown13.Location = new System.Drawing.Point(314, 42);
-            this.numericUpDown13.Maximum = new decimal(new int[] {
+            this.PolcasYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.PolcasYNumeric.Location = new System.Drawing.Point(314, 42);
+            this.PolcasYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown13.TabIndex = 34;
+            this.PolcasYNumeric.Name = "PolcasYNumeric";
+            this.PolcasYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.PolcasYNumeric.TabIndex = 34;
             // 
             // label19
             // 
@@ -479,18 +479,18 @@
             this.label19.TabIndex = 33;
             this.label19.Text = "X:";
             // 
-            // numericUpDown14
+            // PolcasXNumeric
             // 
-            this.numericUpDown14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown14.Location = new System.Drawing.Point(153, 42);
-            this.numericUpDown14.Maximum = new decimal(new int[] {
+            this.PolcasXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.PolcasXNumeric.Location = new System.Drawing.Point(153, 42);
+            this.PolcasXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown14.TabIndex = 32;
+            this.PolcasXNumeric.Name = "PolcasXNumeric";
+            this.PolcasXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.PolcasXNumeric.TabIndex = 32;
             // 
             // label20
             // 
@@ -502,47 +502,47 @@
             this.label20.TabIndex = 31;
             this.label20.Text = "Polčas:";
             // 
-            // nacitatRozlozenieButton
+            // NacitatRozlozenieBtn
             // 
-            this.nacitatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
-            this.nacitatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nacitatRozlozenieButton.Location = new System.Drawing.Point(308, 312);
-            this.nacitatRozlozenieButton.Name = "nacitatRozlozenieButton";
-            this.nacitatRozlozenieButton.Size = new System.Drawing.Size(149, 41);
-            this.nacitatRozlozenieButton.TabIndex = 38;
-            this.nacitatRozlozenieButton.Text = "Načítať konfiguráciu";
-            this.nacitatRozlozenieButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.nacitatRozlozenieButton.UseCompatibleTextRendering = true;
-            this.nacitatRozlozenieButton.UseVisualStyleBackColor = true;
-            this.nacitatRozlozenieButton.Click += new System.EventHandler(this.nacitatRozlozenieButton_Click);
+            this.NacitatRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
+            this.NacitatRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NacitatRozlozenieBtn.Location = new System.Drawing.Point(320, 303);
+            this.NacitatRozlozenieBtn.Name = "NacitatRozlozenieBtn";
+            this.NacitatRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
+            this.NacitatRozlozenieBtn.TabIndex = 38;
+            this.NacitatRozlozenieBtn.Text = "Načítať konfiguráciu";
+            this.NacitatRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.NacitatRozlozenieBtn.UseCompatibleTextRendering = true;
+            this.NacitatRozlozenieBtn.UseVisualStyleBackColor = true;
+            this.NacitatRozlozenieBtn.Click += new System.EventHandler(this.NacitatRozlozenieBtn_Click);
             // 
-            // ulozitRozlozenie
+            // UlozitRozlozenieBtn
             // 
-            this.ulozitRozlozenie.Image = global::LGR_Futbal.Properties.Resources.Save;
-            this.ulozitRozlozenie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ulozitRozlozenie.Location = new System.Drawing.Point(151, 312);
-            this.ulozitRozlozenie.Name = "ulozitRozlozenie";
-            this.ulozitRozlozenie.Size = new System.Drawing.Size(149, 41);
-            this.ulozitRozlozenie.TabIndex = 37;
-            this.ulozitRozlozenie.Text = "Uložiť konfiguráciu";
-            this.ulozitRozlozenie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ulozitRozlozenie.UseCompatibleTextRendering = true;
-            this.ulozitRozlozenie.UseVisualStyleBackColor = true;
-            this.ulozitRozlozenie.Click += new System.EventHandler(this.ulozitRozlozenie_Click);
+            this.UlozitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
+            this.UlozitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitRozlozenieBtn.Location = new System.Drawing.Point(166, 303);
+            this.UlozitRozlozenieBtn.Name = "UlozitRozlozenieBtn";
+            this.UlozitRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
+            this.UlozitRozlozenieBtn.TabIndex = 37;
+            this.UlozitRozlozenieBtn.Text = "Uložiť konfiguráciu";
+            this.UlozitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UlozitRozlozenieBtn.UseCompatibleTextRendering = true;
+            this.UlozitRozlozenieBtn.UseVisualStyleBackColor = true;
+            this.UlozitRozlozenieBtn.Click += new System.EventHandler(this.UlozitRozlozenieBtn_Click);
             // 
-            // aktivovatRozlozenieButton
+            // AktivovatRozlozenieBtn
             // 
-            this.aktivovatRozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.aktivovatRozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatRozlozenieButton.Location = new System.Drawing.Point(15, 312);
-            this.aktivovatRozlozenieButton.Name = "aktivovatRozlozenieButton";
-            this.aktivovatRozlozenieButton.Size = new System.Drawing.Size(132, 41);
-            this.aktivovatRozlozenieButton.TabIndex = 36;
-            this.aktivovatRozlozenieButton.Text = "Aktivovať zmeny";
-            this.aktivovatRozlozenieButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.aktivovatRozlozenieButton.UseCompatibleTextRendering = true;
-            this.aktivovatRozlozenieButton.UseVisualStyleBackColor = true;
-            this.aktivovatRozlozenieButton.Click += new System.EventHandler(this.aktivovatRozlozenieButton_Click);
+            this.AktivovatRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AktivovatRozlozenieBtn.Location = new System.Drawing.Point(12, 302);
+            this.AktivovatRozlozenieBtn.Name = "AktivovatRozlozenieBtn";
+            this.AktivovatRozlozenieBtn.Size = new System.Drawing.Size(148, 52);
+            this.AktivovatRozlozenieBtn.TabIndex = 36;
+            this.AktivovatRozlozenieBtn.Text = "Aktivovať zmeny";
+            this.AktivovatRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AktivovatRozlozenieBtn.UseCompatibleTextRendering = true;
+            this.AktivovatRozlozenieBtn.UseVisualStyleBackColor = true;
+            this.AktivovatRozlozenieBtn.Click += new System.EventHandler(this.AktivovatRozlozenieBtn_Click);
             // 
             // label21
             // 
@@ -554,18 +554,18 @@
             this.label21.TabIndex = 43;
             this.label21.Text = "Y:";
             // 
-            // numericUpDown15
+            // SkoreDomaciYNumeric
             // 
-            this.numericUpDown15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown15.Location = new System.Drawing.Point(314, 72);
-            this.numericUpDown15.Maximum = new decimal(new int[] {
+            this.SkoreDomaciYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SkoreDomaciYNumeric.Location = new System.Drawing.Point(314, 72);
+            this.SkoreDomaciYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown15.TabIndex = 42;
+            this.SkoreDomaciYNumeric.Name = "SkoreDomaciYNumeric";
+            this.SkoreDomaciYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.SkoreDomaciYNumeric.TabIndex = 42;
             // 
             // label22
             // 
@@ -577,18 +577,18 @@
             this.label22.TabIndex = 41;
             this.label22.Text = "X:";
             // 
-            // numericUpDown16
+            // SkoreDomaciXNumeric
             // 
-            this.numericUpDown16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown16.Location = new System.Drawing.Point(153, 72);
-            this.numericUpDown16.Maximum = new decimal(new int[] {
+            this.SkoreDomaciXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SkoreDomaciXNumeric.Location = new System.Drawing.Point(153, 72);
+            this.SkoreDomaciXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown16.TabIndex = 40;
+            this.SkoreDomaciXNumeric.Name = "SkoreDomaciXNumeric";
+            this.SkoreDomaciXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.SkoreDomaciXNumeric.TabIndex = 40;
             // 
             // label23
             // 
@@ -610,18 +610,18 @@
             this.label24.TabIndex = 48;
             this.label24.Text = "Y:";
             // 
-            // numericUpDown17
+            // SkoreHostiaYNumeric
             // 
-            this.numericUpDown17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown17.Location = new System.Drawing.Point(314, 102);
-            this.numericUpDown17.Maximum = new decimal(new int[] {
+            this.SkoreHostiaYNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SkoreHostiaYNumeric.Location = new System.Drawing.Point(314, 102);
+            this.SkoreHostiaYNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown17.TabIndex = 47;
+            this.SkoreHostiaYNumeric.Name = "SkoreHostiaYNumeric";
+            this.SkoreHostiaYNumeric.Size = new System.Drawing.Size(120, 24);
+            this.SkoreHostiaYNumeric.TabIndex = 47;
             // 
             // label25
             // 
@@ -633,18 +633,18 @@
             this.label25.TabIndex = 46;
             this.label25.Text = "X:";
             // 
-            // numericUpDown18
+            // SkoreHostiaXNumeric
             // 
-            this.numericUpDown18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.numericUpDown18.Location = new System.Drawing.Point(153, 102);
-            this.numericUpDown18.Maximum = new decimal(new int[] {
+            this.SkoreHostiaXNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SkoreHostiaXNumeric.Location = new System.Drawing.Point(153, 102);
+            this.SkoreHostiaXNumeric.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(120, 24);
-            this.numericUpDown18.TabIndex = 45;
+            this.SkoreHostiaXNumeric.Name = "SkoreHostiaXNumeric";
+            this.SkoreHostiaXNumeric.Size = new System.Drawing.Size(120, 24);
+            this.SkoreHostiaXNumeric.TabIndex = 45;
             // 
             // label26
             // 
@@ -656,96 +656,96 @@
             this.label26.TabIndex = 44;
             this.label26.Text = "Skóre hostia:";
             // 
-            // obnovaRozlozeniaButton
+            // ObnovitRozlozenieBtn
             // 
-            this.obnovaRozlozeniaButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
-            this.obnovaRozlozeniaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.obnovaRozlozeniaButton.Location = new System.Drawing.Point(462, 312);
-            this.obnovaRozlozeniaButton.Margin = new System.Windows.Forms.Padding(2);
-            this.obnovaRozlozeniaButton.Name = "obnovaRozlozeniaButton";
-            this.obnovaRozlozeniaButton.Size = new System.Drawing.Size(167, 41);
-            this.obnovaRozlozeniaButton.TabIndex = 49;
-            this.obnovaRozlozeniaButton.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
-            this.obnovaRozlozeniaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.obnovaRozlozeniaButton.UseCompatibleTextRendering = true;
-            this.obnovaRozlozeniaButton.UseVisualStyleBackColor = true;
-            this.obnovaRozlozeniaButton.Click += new System.EventHandler(this.obnovaRozlozeniaButton_Click);
+            this.ObnovitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.ObnovitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ObnovitRozlozenieBtn.Location = new System.Drawing.Point(473, 302);
+            this.ObnovitRozlozenieBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ObnovitRozlozenieBtn.Name = "ObnovitRozlozenieBtn";
+            this.ObnovitRozlozenieBtn.Size = new System.Drawing.Size(148, 51);
+            this.ObnovitRozlozenieBtn.TabIndex = 49;
+            this.ObnovitRozlozenieBtn.Text = "   Obnoviť výrobné                nastavenia rozlozenia        ";
+            this.ObnovitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ObnovitRozlozenieBtn.UseCompatibleTextRendering = true;
+            this.ObnovitRozlozenieBtn.UseVisualStyleBackColor = true;
+            this.ObnovitRozlozenieBtn.Click += new System.EventHandler(this.ObnovitRozlozenieBtn_Click);
             // 
             // RozlozenieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 366);
-            this.Controls.Add(this.obnovaRozlozeniaButton);
+            this.ClientSize = new System.Drawing.Size(631, 361);
+            this.Controls.Add(this.ObnovitRozlozenieBtn);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.numericUpDown17);
+            this.Controls.Add(this.SkoreHostiaYNumeric);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.numericUpDown18);
+            this.Controls.Add(this.SkoreHostiaXNumeric);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.numericUpDown15);
+            this.Controls.Add(this.SkoreDomaciYNumeric);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.numericUpDown16);
+            this.Controls.Add(this.SkoreDomaciXNumeric);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.nacitatRozlozenieButton);
-            this.Controls.Add(this.ulozitRozlozenie);
-            this.Controls.Add(this.aktivovatRozlozenieButton);
+            this.Controls.Add(this.NacitatRozlozenieBtn);
+            this.Controls.Add(this.UlozitRozlozenieBtn);
+            this.Controls.Add(this.AktivovatRozlozenieBtn);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.numericUpDown13);
+            this.Controls.Add(this.PolcasYNumeric);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.numericUpDown14);
+            this.Controls.Add(this.PolcasXNumeric);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.numericUpDown12);
+            this.Controls.Add(this.LogoHostiaSirkaNumeric);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.numericUpDown11);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.LogoDomaciSirkaNumeric);
+            this.Controls.Add(this.domaciLogoCB);
+            this.Controls.Add(this.hostiaLogoCB);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.numericUpDown9);
+            this.Controls.Add(this.LogoHostiaYNumeric);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.numericUpDown10);
+            this.Controls.Add(this.LogoHostiaXNumeric);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown5);
+            this.Controls.Add(this.LogoDomaciYNumeric);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown6);
+            this.Controls.Add(this.LogoDomaciXNumeric);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.numericUpDown7);
+            this.Controls.Add(this.HostiaYNumeric);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.numericUpDown8);
+            this.Controls.Add(this.HostiaXNumeric);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.DomaciYNumeric);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.DomaciXNumeric);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.CasYNumeric);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.CasXNumeric);
             this.Controls.Add(this.label1);
             this.Name = "RozlozenieForm";
             this.Text = "Rozloženie tabule";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DomaciYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DomaciXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HostiaYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HostiaXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoDomaciSirkaNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHostiaSirkaNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PolcasYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PolcasXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreDomaciYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreDomaciXNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreHostiaYNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkoreHostiaXNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -754,55 +754,55 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown CasXNumeric;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown CasYNumeric;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown DomaciYNumeric;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown DomaciXNumeric;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown LogoDomaciYNumeric;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown LogoDomaciXNumeric;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown HostiaYNumeric;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown HostiaXNumeric;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.NumericUpDown LogoHostiaYNumeric;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown LogoHostiaXNumeric;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox hostiaLogoCB;
+        private System.Windows.Forms.CheckBox domaciLogoCB;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
+        private System.Windows.Forms.NumericUpDown LogoDomaciSirkaNumeric;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
+        private System.Windows.Forms.NumericUpDown LogoHostiaSirkaNumeric;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private System.Windows.Forms.NumericUpDown PolcasYNumeric;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown14;
+        private System.Windows.Forms.NumericUpDown PolcasXNumeric;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button aktivovatRozlozenieButton;
-        private System.Windows.Forms.Button ulozitRozlozenie;
-        private System.Windows.Forms.Button nacitatRozlozenieButton;
+        private System.Windows.Forms.Button AktivovatRozlozenieBtn;
+        private System.Windows.Forms.Button UlozitRozlozenieBtn;
+        private System.Windows.Forms.Button NacitatRozlozenieBtn;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.NumericUpDown numericUpDown15;
+        private System.Windows.Forms.NumericUpDown SkoreDomaciYNumeric;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
+        private System.Windows.Forms.NumericUpDown SkoreDomaciXNumeric;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.NumericUpDown numericUpDown17;
+        private System.Windows.Forms.NumericUpDown SkoreHostiaYNumeric;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.NumericUpDown numericUpDown18;
+        private System.Windows.Forms.NumericUpDown SkoreHostiaXNumeric;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button obnovaRozlozeniaButton;
+        private System.Windows.Forms.Button ObnovitRozlozenieBtn;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

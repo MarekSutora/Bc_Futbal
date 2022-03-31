@@ -7,128 +7,108 @@ namespace LGR_Futbal.Forms
 {
     public partial class FarbyPrezentacieForm : Form
     {
-        private FarbyPrezentacie d;
-        private FarbyPrezentacie h;
+        private FarbyPrezentacie domaciFarby = null;
+        private FarbyPrezentacie hostiaFarby = null;
 
         public FarbyPrezentacieForm(FarbyPrezentacie dom, FarbyPrezentacie hos)
         {
             InitializeComponent();
 
-            d = dom;
-            h = hos;
+            domaciFarby = dom;
+            hostiaFarby = hos;
 
-            NadpisDomaciLabel.ForeColor = d.GetNadpisFarba(); 
-            label10.ForeColor = h.GetNadpisFarba();
+            nadpisDomaciLabel.ForeColor = domaciFarby.GetNadpisFarba(); 
+            nadpisHostiaLabel.ForeColor = hostiaFarby.GetNadpisFarba();
 
-            label2.ForeColor = d.GetZakladFarba();
-            label9.ForeColor = h.GetZakladFarba();
+            podnadpisDomaciLabel.ForeColor = domaciFarby.GetZakladFarba();
+            podnadpisHostiaLabel.ForeColor = hostiaFarby.GetZakladFarba();
 
-            label3.ForeColor = d.GetUdajeFarba();
-            label8.ForeColor = h.GetUdajeFarba();
+            udajeDomaciLabel.ForeColor = domaciFarby.GetUdajeFarba();
+            udajeHostiaLabel.ForeColor = hostiaFarby.GetUdajeFarba();
 
-            label4.ForeColor = d.GetCisloFarba();
-            label7.ForeColor = h.GetCisloFarba();
+            cisloDomaciLabel.ForeColor = domaciFarby.GetCisloFarba();
+            cisloHostiaLabel.ForeColor = hostiaFarby.GetCisloFarba();
 
-            label5.ForeColor = d.GetMenoFarba();
-            label6.ForeColor = h.GetMenoFarba();
+            menoDomaciLabel.ForeColor = domaciFarby.GetMenoFarba();
+            menoHostiaLabel.ForeColor = hostiaFarby.GetMenoFarba();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void UlozitFarbyBtn_Click(object sender, EventArgs e)
         {
-            d.SetNadpisFarba(NadpisDomaciLabel.ForeColor);
-            d.SetZakladFarba(label2.ForeColor);
-            d.SetUdajeFarba(label3.ForeColor);
-            d.SetCisloFarba(label4.ForeColor);
-            d.SetMenoFarba(label5.ForeColor);
+            domaciFarby.SetNadpisFarba(nadpisDomaciLabel.ForeColor);
+            domaciFarby.SetZakladFarba(podnadpisDomaciLabel.ForeColor);
+            domaciFarby.SetUdajeFarba(udajeDomaciLabel.ForeColor);
+            domaciFarby.SetCisloFarba(cisloDomaciLabel.ForeColor);
+            domaciFarby.SetMenoFarba(menoDomaciLabel.ForeColor);
 
-            h.SetNadpisFarba(label10.ForeColor);
-            h.SetZakladFarba(label9.ForeColor);
-            h.SetUdajeFarba(label8.ForeColor);
-            h.SetCisloFarba(label7.ForeColor);
-            h.SetMenoFarba(label6.ForeColor);
+            hostiaFarby.SetNadpisFarba(nadpisHostiaLabel.ForeColor);
+            hostiaFarby.SetZakladFarba(podnadpisHostiaLabel.ForeColor);
+            hostiaFarby.SetUdajeFarba(udajeHostiaLabel.ForeColor);
+            hostiaFarby.SetCisloFarba(cisloHostiaLabel.ForeColor);
+            hostiaFarby.SetMenoFarba(menoHostiaLabel.ForeColor);
 
-            this.Close();
+            Close();
         }
 
-        private void zrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ZmenitDomaciNadpisBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                NadpisDomaciLabel.ForeColor = cd.Color;
+                nadpisDomaciLabel.ForeColor = cd.Color;
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void ZmenitDomaciPodnadpisBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label2.ForeColor = cd.Color;
+                podnadpisDomaciLabel.ForeColor = cd.Color;
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void ZmenitDomaciUdajeBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label3.ForeColor = cd.Color;
+                udajeDomaciLabel.ForeColor = cd.Color;
         }
-
-        private void button6_Click(object sender, EventArgs e)
+        private void ZmenitDomaciCisloBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label4.ForeColor = cd.Color;
+                cisloDomaciLabel.ForeColor = cd.Color;
         }
-
-        private void button7_Click(object sender, EventArgs e)
+        private void ZmenitDomaciMenoBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label5.ForeColor = cd.Color;
+                menoDomaciLabel.ForeColor = cd.Color;
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ZmenitHostiaNadpisBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label6.ForeColor = cd.Color;
+                nadpisHostiaLabel.ForeColor = cd.Color;
         }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void ZmenitHostiaPodnadpisBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label7.ForeColor = cd.Color;
+                podnadpisHostiaLabel.ForeColor = cd.Color;
         }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void ZmenitHostiaUdajeBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label8.ForeColor = cd.Color;
+                udajeHostiaLabel.ForeColor = cd.Color;
         }
-
-        private void button9_Click(object sender, EventArgs e)
+        private void ZmenitHostiaCisloBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label9.ForeColor = cd.Color;
+                cisloHostiaLabel.ForeColor = cd.Color;
         }
-
-        private void button10_Click(object sender, EventArgs e)
+        private void ZmenitHostiaMenoBtn_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
-                label10.ForeColor = cd.Color;
-        }
-
-        private void FarbyPrezentacieForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-        }
+                menoHostiaLabel.ForeColor = cd.Color;
+        }        
     }
 }

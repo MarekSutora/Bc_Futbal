@@ -15,8 +15,6 @@ using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
-    #region Delegates 
-
     public delegate void PrenesDataHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, bool diakritika, int animacia);
     public delegate void ResetHandler();
     public delegate void ZhasniHandler();
@@ -24,33 +22,38 @@ namespace LGR_Futbal.Forms
     public delegate void NazvyLogaConfirmedHandler(string domNazov, Image domaciLogo, string hosNazov, Image hosLogo);
     public delegate void TimySelectedHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
     public delegate void ObnovaFariebHandler();
-    public delegate void ColorsLoadedHandler(FarbyTabule fs);
-    public delegate void ObnovaFontovHandler();
+    public delegate void ZmenaFariebHandler();
+    public delegate void ZmenaFontovHandler();
     public delegate void AnimacieKarietConfirmedHandler(string s1, string s2);
-    public delegate void OnLayoutChangedHandler();
-
-    #endregion
+    public delegate void ZmenaRozlozeniaHandler();
 
     public partial class SetupForm : Form
     {
-        #region Konstanty
+        #region Atributy
+        public event PrenesDataHandler OnDataConfirmed;
+        public event ResetHandler OnReset;
+        public event ZhasniHandler OnZhasnut;
+        public event RozsvietHandler OnRozsvietit;
+        public event NazvyLogaConfirmedHandler OnNazvyLogaConfirmed;
+        public event TimySelectedHandler OnTimySelected;
+        public event ObnovaFariebHandler OnObnovaFarieb;
+        public event ZmenaFariebHandler OnZmenaFarieb;
+        public event ZmenaFontovHandler OnZmenaFontov;
+        public event AnimacieKarietConfirmedHandler OnAnimacieKarietConfirmed;
+        public event ZmenaRozlozeniaHandler OnZmenaRozlozenia;
 
         private const string nazovProgramuString = "FutbalApp";
         private const string gifyAdresar = "Files\\Gify\\";
         private const string kartyAdresar = "Files\\Karty\\";
         private const string typyZapasovSubor = "Files\\Typy.xml";
 
-        #endregion
-
-        #region Atributy
-
         private bool aktivnaZmena = true;
 
         private FutbalovyTim domaciT = null;
         private FutbalovyTim hostiaT = null;
 
-        private string originalFolder = null;
-        private FarbyTabule nastaveniaFarieb;
+        private string adresar = null;
+        private FarbyTabule farbyTabule;
         private RozlozenieForm rf = null;
         private FontyForm fontyForm = null;
 
@@ -59,8 +62,8 @@ namespace LGR_Futbal.Forms
         private List<string> zoznamSuborov;
         private List<Rozhodca> rozhodcovia = null;
 
-        public RozlozenieTabule rozlozenieTabule { get; set; }
-        public FontyTabule Pisma { get; set; }
+        private RozlozenieTabule rozlozenieTabule = null;
+        private FontyTabule fontyTabule = null;
 
         private DBTimy dbtimy = null;
         private DBHraci dbhraci = null;
@@ -73,50 +76,36 @@ namespace LGR_Futbal.Forms
         private int vyskaObr;
         private int sirka;
         private int vyska;
-
-        public event PrenesDataHandler OnDataConfirmed;
-        public event ResetHandler OnReset;
-        public event ZhasniHandler OnZhasnut;
-        public event RozsvietHandler OnRozsvietit;
-        public event NazvyLogaConfirmedHandler OnNazvyLogaConfirmed;
-        public event TimySelectedHandler OnTimySelected;
-        public event ObnovaFariebHandler OnObnovaFarieb;
-        public event ColorsLoadedHandler OnColorsLoaded;
-        public event ObnovaFontovHandler OnObnovaFontov;
-        public event AnimacieKarietConfirmedHandler OnAnimacieKarietConfirmed;
-        public event OnLayoutChangedHandler OnLayoutChanged;
-
         #endregion
 
         #region Konstruktor a metody
-
         public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
             string nazovDom, string nazovHos,
-            FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string folder, int animacia,
-            FarbyTabule schema, AnimacnaKonfiguracia konfiguracia,
+            FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string adresar, int animacia,
+            FarbyTabule farby, AnimacnaKonfiguracia konfiguracia,
             string animZlta, string animCervena, List<Rozhodca> rozhodcovia,
-            DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz)
+            DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule fonty, RozlozenieTabule rozlozenie)
         {
             InitializeComponent();
 
             zltaAnimacia = animZlta;
             cervenaAnimacia = animCervena;
             this.vyska = vyska;
-            this.sirka = sirka;  
-
+            this.sirka = sirka;
+            rozlozenieTabule = rozlozenie;
             dbtimy = dbt;
             dbhraci = dbh;
             dbrozhodcovia = dbr;
             dbzapasy = dbz;
-
+            fontyTabule = fonty;
             this.rozhodcovia = rozhodcovia;
             domaciT = domaciTim;
             hostiaT = hostiaTim;
             zoznamSuborov = new List<string>();
             konfig = konfiguracia;
-            originalFolder = folder;
+            this.adresar = adresar;
             InicializujNastaveniaAnimacii();
-            nastaveniaFarieb = schema;
+            farbyTabule = farby;
             nastavMuzstvoDomacibutton.Enabled = true;
             if (domaciT == null)
             {
@@ -134,7 +123,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(originalFolder + "\\" + kartyAdresar + zltaAnimacia);
+                    pictureBox1.Image = Image.FromFile(adresar + "\\" + kartyAdresar + zltaAnimacia);
                 }
                 catch
                 {
@@ -149,7 +138,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    pictureBox2.Image = Image.FromFile(originalFolder + "\\" + kartyAdresar + cervenaAnimacia);
+                    pictureBox2.Image = Image.FromFile(adresar + "\\" + kartyAdresar + cervenaAnimacia);
                 }
                 catch
                 {
@@ -570,7 +559,7 @@ namespace LGR_Futbal.Forms
         private void DatabazaButton_Click(object sender, EventArgs e)
         {
 
-            DatabazaForm df = new DatabazaForm(originalFolder, dbtimy, dbhraci, dbrozhodcovia, dbzapasy);
+            DatabazaForm df = new DatabazaForm(dbtimy, dbhraci, dbrozhodcovia, dbzapasy);
             df.Show();
         }
 
@@ -581,7 +570,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer deserializer = new XmlSerializer(typeof(List<ParametreZapasu>));
-                textReader = new StreamReader(originalFolder + "\\" + typyZapasovSubor);
+                textReader = new StreamReader(adresar + "\\" + typyZapasovSubor);
                 zoznamTypovZapasu = (List<ParametreZapasu>)deserializer.Deserialize(textReader);
 
                 if (zoznamTypovZapasu.Count > 0)
@@ -616,7 +605,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<ParametreZapasu>));
-                textWriter = new StreamWriter(originalFolder + "\\" + typyZapasovSubor);
+                textWriter = new StreamWriter(adresar + "\\" + typyZapasovSubor);
                 serializer.Serialize(textWriter, zoznamTypovZapasu);
             }
             catch
@@ -633,11 +622,11 @@ namespace LGR_Futbal.Forms
         private void pridatTypZapasuButton_Click(object sender, EventArgs e)
         {
             TypZapasuForm tzf = new TypZapasuForm();
-            tzf.onNovyTypZapasu += Tzf_onNovyTypZapasu;
+            tzf.OnNovyTypZapasu += Tzf_OnNovyTypZapasu;
             tzf.Show();
         }
 
-        private void Tzf_onNovyTypZapasu(ParametreZapasu parZap)
+        private void Tzf_OnNovyTypZapasu(ParametreZapasu parZap)
         {
             zoznamTypovZapasu.Add(parZap);
             typyZapasovListBox.Items.Add(parZap.ToString());
@@ -678,43 +667,19 @@ namespace LGR_Futbal.Forms
 
         private void createColorsButton_Click(object sender, EventArgs e)
         {
-            FarbyForm ff = new FarbyForm(originalFolder + "\\Files\\FarebneNastavenia", nastaveniaFarieb);
-            ff.OnColorsLoadedFF += Ff_OnColorsLoaded;
-            ff.OnObnovaFariebFF += Ff_OnObnovaFarieb;
+            FarbyForm ff = new FarbyForm(adresar + "\\Files\\FarebneNastavenia", farbyTabule);
+            ff.OnZmenaFarieb += () => this.OnZmenaFarieb?.Invoke();
+            ff.OnObnovaFarieb += () => this.OnObnovaFarieb?.Invoke();
             ff.Show();
-        }
-
-        private void Ff_OnColorsLoaded(FarbyTabule s)
-        {
-            if (OnColorsLoaded != null)
-            {
-                OnColorsLoaded(s);
-            }
-        }
-
-        private void Ff_OnObnovaFarieb()
-        {
-            if (OnObnovaFarieb != null)
-            {
-                OnObnovaFarieb();
-            }
         }
 
         private void fontyButton_Click(object sender, EventArgs e)
         {
-            fontyForm = new FontyForm(originalFolder + "\\Files\\FontyNastavenia", Pisma);
-            fontyForm.OnFontsConfirmed += Ff_OnFontsConfirmed;
+            fontyForm = new FontyForm(adresar + "\\Files\\FontyNastavenia", fontyTabule);
+            fontyForm.OnZmenaFontov += () => this.OnZmenaFontov?.Invoke();
             fontyForm.Show();
         }
 
-        private void Ff_OnFontsConfirmed()
-        {
-            if (OnObnovaFontov != null)
-            {
-                this.Pisma = fontyForm.pisma;
-                OnObnovaFontov();
-            }
-        }
         private void SetupForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -728,7 +693,7 @@ namespace LGR_Futbal.Forms
 
             FileInfo fi;
             string nazov;
-            string[] pole = Directory.GetFiles(originalFolder + "\\" + gifyAdresar);
+            string[] pole = Directory.GetFiles(adresar + "\\" + gifyAdresar);
             for (int i = 0; i < pole.Length; i++)
             {
                 if (pole[i].EndsWith(".gif"))
@@ -782,13 +747,13 @@ namespace LGR_Futbal.Forms
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
-            ofd.InitialDirectory = originalFolder;
+            ofd.InitialDirectory = adresar;
             ofd.Filter = "gif files (*.gif)|*.gif";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fi = new FileInfo(ofd.FileName);
                 string nazov = fi.Name;
-                string novyNazov = originalFolder + "\\" + gifyAdresar + "\\" + nazov;
+                string novyNazov = adresar + "\\" + gifyAdresar + "\\" + nazov;
                 if (File.Exists(novyNazov))
                     MessageBox.Show("Súbor s takýmto názvon už existuje!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
@@ -804,7 +769,7 @@ namespace LGR_Futbal.Forms
         private void zmenitZltaKartaBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = originalFolder + "\\" + kartyAdresar;
+            ofd.InitialDirectory = adresar + "\\" + kartyAdresar;
             ofd.Multiselect = false;
             ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
             ofd.FilterIndex = 1;
@@ -815,7 +780,7 @@ namespace LGR_Futbal.Forms
                 string povodnySubor = ofd.FileName;
                 FileInfo fi = new FileInfo(povodnySubor);
                 string nazov = fi.Name;
-                string novyNazov = originalFolder + "\\" + kartyAdresar + nazov;
+                string novyNazov = adresar + "\\" + kartyAdresar + nazov;
                 if (!File.Exists(novyNazov))
                     File.Copy(povodnySubor, novyNazov);
 
@@ -835,7 +800,7 @@ namespace LGR_Futbal.Forms
         private void zmenitCervenaKartaBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = originalFolder + "\\" + kartyAdresar;
+            ofd.InitialDirectory = adresar + "\\" + kartyAdresar;
             ofd.Multiselect = false;
             ofd.Filter = "jpeg files (*.jpg)|*.jpg|gif files (*.gif)|*.gif|png files (*.png)|*.png|All files (*.*)|*.*";
             ofd.FilterIndex = 1;
@@ -846,7 +811,7 @@ namespace LGR_Futbal.Forms
                 string povodnySubor = ofd.FileName;
                 FileInfo fi = new FileInfo(povodnySubor);
                 string nazov = fi.Name;
-                string novyNazov = originalFolder + "\\" + kartyAdresar + nazov;
+                string novyNazov = adresar + "\\" + kartyAdresar + nazov;
                 if (!File.Exists(novyNazov))
                     File.Copy(povodnySubor, novyNazov);
 
@@ -883,20 +848,14 @@ namespace LGR_Futbal.Forms
 
         private void rozlozenieButton_Click(object sender, EventArgs e)
         {
-            rf = new RozlozenieForm(originalFolder + "\\Files\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
-            this.rozlozenieTabule = rf.RozlozenieTabule;
-            rf.OnLayoutConfirmed += On_LayoutConfirmed;
+            rf = new RozlozenieForm(adresar + "\\Files\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
+            rf.OnZmenaRozlozenia += RF_OnZmenaRozlozenia;
             rf.Show();
         }
 
-        private void On_LayoutConfirmed()
+        private void RF_OnZmenaRozlozenia()
         {
-            if (rf != null)
-            {
-                this.rozlozenieTabule = rf.RozlozenieTabule;
-                OnLayoutChanged?.Invoke();
-            }
-
+            OnZmenaRozlozenia?.Invoke();
         }
 
         #endregion

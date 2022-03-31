@@ -29,221 +29,221 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FarbyForm));
-            this.UlozitFarbyButton = new System.Windows.Forms.Button();
-            this.DomaciLabel = new System.Windows.Forms.Label();
-            this.ZmenitFarbaDomaciBtn = new System.Windows.Forms.Button();
-            this.ZmenitFarbaHostiaBtn = new System.Windows.Forms.Button();
-            this.HostiaLabel = new System.Windows.Forms.Label();
-            this.ZmenitFarbaCasBtn = new System.Windows.Forms.Button();
-            this.CasLabel = new System.Windows.Forms.Label();
-            this.ZmenitFarbaSkoreBtn = new System.Windows.Forms.Button();
-            this.SkoreLabel = new System.Windows.Forms.Label();
-            this.ZmenitFarbaPolcasBtn = new System.Windows.Forms.Button();
-            this.PolcasLabel = new System.Windows.Forms.Label();
-            this.NacitatFarbyButton = new System.Windows.Forms.Button();
-            this.ObnovitFarbyButton = new System.Windows.Forms.Button();
-            this.AktivovatFarbyButton = new System.Windows.Forms.Button();
+            this.domaciLabel = new System.Windows.Forms.Label();
+            this.ZmenitDomaciBtn = new System.Windows.Forms.Button();
+            this.ZmenitHostiaBtn = new System.Windows.Forms.Button();
+            this.hostiaLabel = new System.Windows.Forms.Label();
+            this.ZmenitCasBtn = new System.Windows.Forms.Button();
+            this.casLabel = new System.Windows.Forms.Label();
+            this.ZmenitSkoreBtn = new System.Windows.Forms.Button();
+            this.skoreLabel = new System.Windows.Forms.Label();
+            this.ZmenitPolcasBtn = new System.Windows.Forms.Button();
+            this.polcasLabel = new System.Windows.Forms.Label();
+            this.AktivovatBtn = new System.Windows.Forms.Button();
+            this.ObnovitBtn = new System.Windows.Forms.Button();
+            this.NacitatBtn = new System.Windows.Forms.Button();
+            this.UlozitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // UlozitFarbyButton
+            // domaciLabel
             // 
-            this.UlozitFarbyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.UlozitFarbyButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.UlozitFarbyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UlozitFarbyButton.Location = new System.Drawing.Point(321, 123);
-            this.UlozitFarbyButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.UlozitFarbyButton.Name = "UlozitFarbyButton";
-            this.UlozitFarbyButton.Size = new System.Drawing.Size(146, 51);
-            this.UlozitFarbyButton.TabIndex = 24;
-            this.UlozitFarbyButton.Text = "   Uložiť nastavenia farieb";
-            this.UlozitFarbyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UlozitFarbyButton.UseCompatibleTextRendering = true;
-            this.UlozitFarbyButton.UseVisualStyleBackColor = true;
-            this.UlozitFarbyButton.Click += new System.EventHandler(this.UlozitFarbyButton_Click);
+            this.domaciLabel.AutoSize = true;
+            this.domaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domaciLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.domaciLabel.Location = new System.Drawing.Point(8, 16);
+            this.domaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.domaciLabel.Name = "domaciLabel";
+            this.domaciLabel.Size = new System.Drawing.Size(106, 26);
+            this.domaciLabel.TabIndex = 25;
+            this.domaciLabel.Text = "DOMÁCI";
             // 
-            // DomaciLabel
+            // ZmenitDomaciBtn
             // 
-            this.DomaciLabel.AutoSize = true;
-            this.DomaciLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DomaciLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.DomaciLabel.Location = new System.Drawing.Point(8, 16);
-            this.DomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.DomaciLabel.Name = "DomaciLabel";
-            this.DomaciLabel.Size = new System.Drawing.Size(106, 26);
-            this.DomaciLabel.TabIndex = 25;
-            this.DomaciLabel.Text = "DOMÁCI";
+            this.ZmenitDomaciBtn.Location = new System.Drawing.Point(202, 13);
+            this.ZmenitDomaciBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitDomaciBtn.Name = "ZmenitDomaciBtn";
+            this.ZmenitDomaciBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitDomaciBtn.TabIndex = 26;
+            this.ZmenitDomaciBtn.Text = "Zmeniť";
+            this.ZmenitDomaciBtn.UseVisualStyleBackColor = true;
+            this.ZmenitDomaciBtn.Click += new System.EventHandler(this.ZmenitDomaciBtn_Click);
             // 
-            // ZmenitFarbaDomaciBtn
+            // ZmenitHostiaBtn
             // 
-            this.ZmenitFarbaDomaciBtn.Location = new System.Drawing.Point(202, 13);
-            this.ZmenitFarbaDomaciBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmenitFarbaDomaciBtn.Name = "ZmenitFarbaDomaciBtn";
-            this.ZmenitFarbaDomaciBtn.Size = new System.Drawing.Size(83, 27);
-            this.ZmenitFarbaDomaciBtn.TabIndex = 26;
-            this.ZmenitFarbaDomaciBtn.Text = "Zmeniť";
-            this.ZmenitFarbaDomaciBtn.UseVisualStyleBackColor = true;
-            this.ZmenitFarbaDomaciBtn.Click += new System.EventHandler(this.ZmenitFarbaDomaciBtn_Click);
+            this.ZmenitHostiaBtn.Location = new System.Drawing.Point(202, 62);
+            this.ZmenitHostiaBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitHostiaBtn.Name = "ZmenitHostiaBtn";
+            this.ZmenitHostiaBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitHostiaBtn.TabIndex = 28;
+            this.ZmenitHostiaBtn.Text = "Zmeniť";
+            this.ZmenitHostiaBtn.UseVisualStyleBackColor = true;
+            this.ZmenitHostiaBtn.Click += new System.EventHandler(this.ZmenitHostiaBtn_Click);
             // 
-            // ZmenitFarbaHostiaBtn
+            // hostiaLabel
             // 
-            this.ZmenitFarbaHostiaBtn.Location = new System.Drawing.Point(202, 58);
-            this.ZmenitFarbaHostiaBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmenitFarbaHostiaBtn.Name = "ZmenitFarbaHostiaBtn";
-            this.ZmenitFarbaHostiaBtn.Size = new System.Drawing.Size(83, 27);
-            this.ZmenitFarbaHostiaBtn.TabIndex = 28;
-            this.ZmenitFarbaHostiaBtn.Text = "Zmeniť";
-            this.ZmenitFarbaHostiaBtn.UseVisualStyleBackColor = true;
-            this.ZmenitFarbaHostiaBtn.Click += new System.EventHandler(this.ZmenitFarbaHostiaBtn_Click);
+            this.hostiaLabel.AutoSize = true;
+            this.hostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hostiaLabel.ForeColor = System.Drawing.Color.Aqua;
+            this.hostiaLabel.Location = new System.Drawing.Point(8, 60);
+            this.hostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.hostiaLabel.Name = "hostiaLabel";
+            this.hostiaLabel.Size = new System.Drawing.Size(99, 26);
+            this.hostiaLabel.TabIndex = 29;
+            this.hostiaLabel.Text = "HOSTIA";
             // 
-            // HostiaLabel
+            // ZmenitCasBtn
             // 
-            this.HostiaLabel.AutoSize = true;
-            this.HostiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HostiaLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.HostiaLabel.Location = new System.Drawing.Point(8, 60);
-            this.HostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.HostiaLabel.Name = "HostiaLabel";
-            this.HostiaLabel.Size = new System.Drawing.Size(99, 26);
-            this.HostiaLabel.TabIndex = 29;
-            this.HostiaLabel.Text = "HOSTIA";
+            this.ZmenitCasBtn.Location = new System.Drawing.Point(202, 108);
+            this.ZmenitCasBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitCasBtn.Name = "ZmenitCasBtn";
+            this.ZmenitCasBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitCasBtn.TabIndex = 31;
+            this.ZmenitCasBtn.Text = "Zmeniť";
+            this.ZmenitCasBtn.UseVisualStyleBackColor = true;
+            this.ZmenitCasBtn.Click += new System.EventHandler(this.ZmenitCasBtn_Click);
             // 
-            // ZmenitFarbaCasBtn
+            // casLabel
             // 
-            this.ZmenitFarbaCasBtn.Location = new System.Drawing.Point(202, 102);
-            this.ZmenitFarbaCasBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmenitFarbaCasBtn.Name = "ZmenitFarbaCasBtn";
-            this.ZmenitFarbaCasBtn.Size = new System.Drawing.Size(83, 27);
-            this.ZmenitFarbaCasBtn.TabIndex = 31;
-            this.ZmenitFarbaCasBtn.Text = "Zmeniť";
-            this.ZmenitFarbaCasBtn.UseVisualStyleBackColor = true;
-            this.ZmenitFarbaCasBtn.Click += new System.EventHandler(this.ZmenitFarbaCasBtn_Click);
+            this.casLabel.AutoSize = true;
+            this.casLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.casLabel.ForeColor = System.Drawing.Color.Lime;
+            this.casLabel.Location = new System.Drawing.Point(8, 106);
+            this.casLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.casLabel.Name = "casLabel";
+            this.casLabel.Size = new System.Drawing.Size(127, 26);
+            this.casLabel.TabIndex = 32;
+            this.casLabel.Text = "ČAS 00:00";
             // 
-            // CasLabel
+            // ZmenitSkoreBtn
             // 
-            this.CasLabel.AutoSize = true;
-            this.CasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CasLabel.ForeColor = System.Drawing.Color.Lime;
-            this.CasLabel.Location = new System.Drawing.Point(8, 104);
-            this.CasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.CasLabel.Name = "CasLabel";
-            this.CasLabel.Size = new System.Drawing.Size(127, 26);
-            this.CasLabel.TabIndex = 32;
-            this.CasLabel.Text = "ČAS 00:00";
+            this.ZmenitSkoreBtn.Location = new System.Drawing.Point(202, 154);
+            this.ZmenitSkoreBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitSkoreBtn.Name = "ZmenitSkoreBtn";
+            this.ZmenitSkoreBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitSkoreBtn.TabIndex = 35;
+            this.ZmenitSkoreBtn.Text = "Zmeniť";
+            this.ZmenitSkoreBtn.UseVisualStyleBackColor = true;
+            this.ZmenitSkoreBtn.Click += new System.EventHandler(this.ZmenitSkoreBtn_Click);
             // 
-            // ZmenitFarbaSkoreBtn
+            // skoreLabel
             // 
-            this.ZmenitFarbaSkoreBtn.Location = new System.Drawing.Point(202, 146);
-            this.ZmenitFarbaSkoreBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmenitFarbaSkoreBtn.Name = "ZmenitFarbaSkoreBtn";
-            this.ZmenitFarbaSkoreBtn.Size = new System.Drawing.Size(83, 27);
-            this.ZmenitFarbaSkoreBtn.TabIndex = 35;
-            this.ZmenitFarbaSkoreBtn.Text = "Zmeniť";
-            this.ZmenitFarbaSkoreBtn.UseVisualStyleBackColor = true;
-            this.ZmenitFarbaSkoreBtn.Click += new System.EventHandler(this.ZmenitFarbaSkoreBtn_Click);
+            this.skoreLabel.AutoSize = true;
+            this.skoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.skoreLabel.ForeColor = System.Drawing.Color.Red;
+            this.skoreLabel.Location = new System.Drawing.Point(8, 152);
+            this.skoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.skoreLabel.Name = "skoreLabel";
+            this.skoreLabel.Size = new System.Drawing.Size(95, 26);
+            this.skoreLabel.TabIndex = 36;
+            this.skoreLabel.Text = "SKÓRE";
             // 
-            // SkoreLabel
+            // ZmenitPolcasBtn
             // 
-            this.SkoreLabel.AutoSize = true;
-            this.SkoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SkoreLabel.ForeColor = System.Drawing.Color.Red;
-            this.SkoreLabel.Location = new System.Drawing.Point(8, 149);
-            this.SkoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SkoreLabel.Name = "SkoreLabel";
-            this.SkoreLabel.Size = new System.Drawing.Size(95, 26);
-            this.SkoreLabel.TabIndex = 36;
-            this.SkoreLabel.Text = "SKÓRE";
+            this.ZmenitPolcasBtn.Location = new System.Drawing.Point(202, 201);
+            this.ZmenitPolcasBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitPolcasBtn.Name = "ZmenitPolcasBtn";
+            this.ZmenitPolcasBtn.Size = new System.Drawing.Size(83, 27);
+            this.ZmenitPolcasBtn.TabIndex = 37;
+            this.ZmenitPolcasBtn.Text = "Zmeniť";
+            this.ZmenitPolcasBtn.UseVisualStyleBackColor = true;
+            this.ZmenitPolcasBtn.Click += new System.EventHandler(this.ZmenitPolcasBtn_Click);
             // 
-            // ZmenitFarbaPolcasBtn
+            // polcasLabel
             // 
-            this.ZmenitFarbaPolcasBtn.Location = new System.Drawing.Point(202, 190);
-            this.ZmenitFarbaPolcasBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmenitFarbaPolcasBtn.Name = "ZmenitFarbaPolcasBtn";
-            this.ZmenitFarbaPolcasBtn.Size = new System.Drawing.Size(83, 27);
-            this.ZmenitFarbaPolcasBtn.TabIndex = 37;
-            this.ZmenitFarbaPolcasBtn.Text = "Zmeniť";
-            this.ZmenitFarbaPolcasBtn.UseVisualStyleBackColor = true;
-            this.ZmenitFarbaPolcasBtn.Click += new System.EventHandler(this.ZmenitFarbaPolcasBtn_Click);
+            this.polcasLabel.AutoSize = true;
+            this.polcasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.polcasLabel.ForeColor = System.Drawing.Color.Lime;
+            this.polcasLabel.Location = new System.Drawing.Point(8, 196);
+            this.polcasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polcasLabel.Name = "polcasLabel";
+            this.polcasLabel.Size = new System.Drawing.Size(108, 26);
+            this.polcasLabel.TabIndex = 38;
+            this.polcasLabel.Text = "POLČAS";
             // 
-            // PolcasLabel
+            // AktivovatBtn
             // 
-            this.PolcasLabel.AutoSize = true;
-            this.PolcasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PolcasLabel.ForeColor = System.Drawing.Color.Lime;
-            this.PolcasLabel.Location = new System.Drawing.Point(8, 193);
-            this.PolcasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.PolcasLabel.Name = "PolcasLabel";
-            this.PolcasLabel.Size = new System.Drawing.Size(108, 26);
-            this.PolcasLabel.TabIndex = 38;
-            this.PolcasLabel.Text = "POLČAS";
+            this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AktivovatBtn.Location = new System.Drawing.Point(321, 12);
+            this.AktivovatBtn.Name = "AktivovatBtn";
+            this.AktivovatBtn.Size = new System.Drawing.Size(146, 50);
+            this.AktivovatBtn.TabIndex = 41;
+            this.AktivovatBtn.Text = "  Aktivovať zmeny";
+            this.AktivovatBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AktivovatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AktivovatBtn.UseCompatibleTextRendering = true;
+            this.AktivovatBtn.UseVisualStyleBackColor = true;
+            this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
-            // NacitatFarbyButton
+            // ObnovitBtn
             // 
-            this.NacitatFarbyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.NacitatFarbyButton.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
-            this.NacitatFarbyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NacitatFarbyButton.Location = new System.Drawing.Point(321, 67);
-            this.NacitatFarbyButton.Margin = new System.Windows.Forms.Padding(2);
-            this.NacitatFarbyButton.Name = "NacitatFarbyButton";
-            this.NacitatFarbyButton.Size = new System.Drawing.Size(146, 51);
-            this.NacitatFarbyButton.TabIndex = 39;
-            this.NacitatFarbyButton.Text = "Načítať nastavenia farieb";
-            this.NacitatFarbyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.NacitatFarbyButton.UseCompatibleTextRendering = true;
-            this.NacitatFarbyButton.UseVisualStyleBackColor = true;
-            this.NacitatFarbyButton.Click += new System.EventHandler(this.NacitatFarbyButton_Click);
+            this.ObnovitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.ObnovitBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.ObnovitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ObnovitBtn.Location = new System.Drawing.Point(321, 179);
+            this.ObnovitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ObnovitBtn.Name = "ObnovitBtn";
+            this.ObnovitBtn.Size = new System.Drawing.Size(146, 49);
+            this.ObnovitBtn.TabIndex = 40;
+            this.ObnovitBtn.Text = "Obnoviť výrobné \r\nnastavenia farieb ";
+            this.ObnovitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ObnovitBtn.UseCompatibleTextRendering = true;
+            this.ObnovitBtn.UseVisualStyleBackColor = true;
+            this.ObnovitBtn.Click += new System.EventHandler(this.ObnovitBtn_Click);
             // 
-            // ObnovitFarbyButton
+            // NacitatBtn
             // 
-            this.ObnovitFarbyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.ObnovitFarbyButton.Image = global::LGR_Futbal.Properties.Resources.Refresh;
-            this.ObnovitFarbyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ObnovitFarbyButton.Location = new System.Drawing.Point(321, 179);
-            this.ObnovitFarbyButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ObnovitFarbyButton.Name = "ObnovitFarbyButton";
-            this.ObnovitFarbyButton.Size = new System.Drawing.Size(146, 49);
-            this.ObnovitFarbyButton.TabIndex = 40;
-            this.ObnovitFarbyButton.Text = "Obnoviť výrobné \r\nnastavenia farieb ";
-            this.ObnovitFarbyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ObnovitFarbyButton.UseCompatibleTextRendering = true;
-            this.ObnovitFarbyButton.UseVisualStyleBackColor = true;
-            this.ObnovitFarbyButton.Click += new System.EventHandler(this.ObnovitFarbyButton_Click);
+            this.NacitatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.NacitatBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
+            this.NacitatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NacitatBtn.Location = new System.Drawing.Point(321, 67);
+            this.NacitatBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.NacitatBtn.Name = "NacitatBtn";
+            this.NacitatBtn.Size = new System.Drawing.Size(146, 51);
+            this.NacitatBtn.TabIndex = 39;
+            this.NacitatBtn.Text = "Načítať nastavenia farieb";
+            this.NacitatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.NacitatBtn.UseCompatibleTextRendering = true;
+            this.NacitatBtn.UseVisualStyleBackColor = true;
+            this.NacitatBtn.Click += new System.EventHandler(this.NacitatBtn_Click);
             // 
-            // AktivovatFarbyButton
+            // UlozitBtn
             // 
-            this.AktivovatFarbyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.AktivovatFarbyButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.AktivovatFarbyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AktivovatFarbyButton.Location = new System.Drawing.Point(321, 12);
-            this.AktivovatFarbyButton.Name = "AktivovatFarbyButton";
-            this.AktivovatFarbyButton.Size = new System.Drawing.Size(146, 50);
-            this.AktivovatFarbyButton.TabIndex = 41;
-            this.AktivovatFarbyButton.Text = "  Aktivovať zmeny";
-            this.AktivovatFarbyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AktivovatFarbyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AktivovatFarbyButton.UseCompatibleTextRendering = true;
-            this.AktivovatFarbyButton.UseVisualStyleBackColor = true;
-            this.AktivovatFarbyButton.Click += new System.EventHandler(this.AktivovatFarbyButton_Click);
+            this.UlozitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
+            this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitBtn.Location = new System.Drawing.Point(321, 123);
+            this.UlozitBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitBtn.Name = "UlozitBtn";
+            this.UlozitBtn.Size = new System.Drawing.Size(146, 51);
+            this.UlozitBtn.TabIndex = 24;
+            this.UlozitBtn.Text = "   Uložiť nastavenia farieb";
+            this.UlozitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UlozitBtn.UseCompatibleTextRendering = true;
+            this.UlozitBtn.UseVisualStyleBackColor = true;
+            this.UlozitBtn.Click += new System.EventHandler(this.UlozitBtn_Click);
             // 
             // FarbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(500, 240);
-            this.Controls.Add(this.AktivovatFarbyButton);
-            this.Controls.Add(this.ObnovitFarbyButton);
-            this.Controls.Add(this.NacitatFarbyButton);
-            this.Controls.Add(this.PolcasLabel);
-            this.Controls.Add(this.ZmenitFarbaPolcasBtn);
-            this.Controls.Add(this.SkoreLabel);
-            this.Controls.Add(this.ZmenitFarbaSkoreBtn);
-            this.Controls.Add(this.CasLabel);
-            this.Controls.Add(this.ZmenitFarbaCasBtn);
-            this.Controls.Add(this.HostiaLabel);
-            this.Controls.Add(this.ZmenitFarbaHostiaBtn);
-            this.Controls.Add(this.ZmenitFarbaDomaciBtn);
-            this.Controls.Add(this.DomaciLabel);
-            this.Controls.Add(this.UlozitFarbyButton);
+            this.ClientSize = new System.Drawing.Size(494, 240);
+            this.Controls.Add(this.AktivovatBtn);
+            this.Controls.Add(this.ObnovitBtn);
+            this.Controls.Add(this.NacitatBtn);
+            this.Controls.Add(this.polcasLabel);
+            this.Controls.Add(this.ZmenitPolcasBtn);
+            this.Controls.Add(this.skoreLabel);
+            this.Controls.Add(this.ZmenitSkoreBtn);
+            this.Controls.Add(this.casLabel);
+            this.Controls.Add(this.ZmenitCasBtn);
+            this.Controls.Add(this.hostiaLabel);
+            this.Controls.Add(this.ZmenitHostiaBtn);
+            this.Controls.Add(this.ZmenitDomaciBtn);
+            this.Controls.Add(this.domaciLabel);
+            this.Controls.Add(this.UlozitBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -253,26 +253,25 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vytvorenie vlastnej farebnej konfigurácie";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FarbyForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button UlozitFarbyButton;
-        private System.Windows.Forms.Label DomaciLabel;
-        private System.Windows.Forms.Button ZmenitFarbaDomaciBtn;
-        private System.Windows.Forms.Button ZmenitFarbaHostiaBtn;
-        private System.Windows.Forms.Label HostiaLabel;
-        private System.Windows.Forms.Button ZmenitFarbaCasBtn;
-        private System.Windows.Forms.Label CasLabel;
-        private System.Windows.Forms.Button ZmenitFarbaSkoreBtn;
-        private System.Windows.Forms.Label SkoreLabel;
-        private System.Windows.Forms.Button ZmenitFarbaPolcasBtn;
-        private System.Windows.Forms.Label PolcasLabel;
-        private System.Windows.Forms.Button NacitatFarbyButton;
-        private System.Windows.Forms.Button ObnovitFarbyButton;
-        private System.Windows.Forms.Button AktivovatFarbyButton;
+        private System.Windows.Forms.Button UlozitBtn;
+        private System.Windows.Forms.Label domaciLabel;
+        private System.Windows.Forms.Button ZmenitDomaciBtn;
+        private System.Windows.Forms.Button ZmenitHostiaBtn;
+        private System.Windows.Forms.Label hostiaLabel;
+        private System.Windows.Forms.Button ZmenitCasBtn;
+        private System.Windows.Forms.Label casLabel;
+        private System.Windows.Forms.Button ZmenitSkoreBtn;
+        private System.Windows.Forms.Label skoreLabel;
+        private System.Windows.Forms.Button ZmenitPolcasBtn;
+        private System.Windows.Forms.Label polcasLabel;
+        private System.Windows.Forms.Button NacitatBtn;
+        private System.Windows.Forms.Button ObnovitBtn;
+        private System.Windows.Forms.Button AktivovatBtn;
     }
 }

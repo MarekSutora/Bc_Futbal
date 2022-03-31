@@ -20,21 +20,21 @@ namespace LGR_Futbal.Forms
         public HraciKartyForm(FutbalovyTim ft)
         {
             InitializeComponent();
-            this.Text = "Nastavenie kariet hráčov";
-            this.hraci = ft.ZoznamHracov;
+            Text = "Nastavenie kariet hráčov";
+            hraci = ft.ZoznamHracov;
             ColumnHeader header = new ColumnHeader();
             header.Text = "";
             header.Name = "";
-            hrajuListView.Columns.Add(header);
-            hrajuListView.HeaderStyle = ColumnHeaderStyle.None;
-            hrajuListView.Columns[0].Width = 350;
+            HrajuciListView.Columns.Add(header);
+            HrajuciListView.HeaderStyle = ColumnHeaderStyle.None;
+            HrajuciListView.Columns[0].Width = 350;
 
             ColumnHeader header2 = new ColumnHeader();
             header.Text = "";
             header.Name = "";
-            nahradniciListView.Columns.Add(header2);
-            nahradniciListView.HeaderStyle = ColumnHeaderStyle.None;
-            nahradniciListView.Columns[0].Width = 350;
+            NahradniciListView.Columns.Add(header2);
+            NahradniciListView.HeaderStyle = ColumnHeaderStyle.None;
+            NahradniciListView.Columns[0].Width = 350;
 
             nahradnici = new List<Hrac>();
             hrajuci = new List<Hrac>();
@@ -47,19 +47,19 @@ namespace LGR_Futbal.Forms
                     hrajuci.Add(h);
                     if (!h.CisloDresu.Equals(string.Empty))
                     {                       
-                        hrajuListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        HrajuciListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                     else
                     {
-                        hrajuListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                        HrajuciListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                     if (h.ZltaKarta)
                     {
-                        hrajuListView.Items[hrajuci.Count - 1].BackColor = Color.Yellow;
+                        HrajuciListView.Items[hrajuci.Count - 1].BackColor = Color.Yellow;
                     }
                     else if (h.CervenaKarta)
                     {
-                        hrajuListView.Items[hrajuci.Count - 1].BackColor = Color.Red;
+                        HrajuciListView.Items[hrajuci.Count - 1].BackColor = Color.Red;
                     }
                 }
                 else if (h.Nahradnik)
@@ -67,81 +67,76 @@ namespace LGR_Futbal.Forms
                     nahradnici.Add(h);
                     if (!h.CisloDresu.Equals(string.Empty))
                     {
-                        nahradniciListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
+                        NahradniciListView.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                     else
                     {
-                        nahradniciListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
+                        NahradniciListView.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                     }
                     if (h.ZltaKarta)
                     {
-                        nahradniciListView.Items[nahradnici.Count - 1].BackColor = Color.Yellow;
+                        NahradniciListView.Items[nahradnici.Count - 1].BackColor = Color.Yellow;
                     }
                     else if (h.CervenaKarta)
                     {
-                        nahradniciListView.Items[nahradnici.Count - 1].BackColor = Color.Red;
+                        NahradniciListView.Items[nahradnici.Count - 1].BackColor = Color.Red;
                     }
                 }
             }
         }
 
-        private void hrajuListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void HrajuciListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (hrajuListView.SelectedItems.Count > 0)
+            if (HrajuciListView.SelectedItems.Count > 0)
             {
-                if (hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor == Color.White)
+                if (HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor == Color.White)
                 {
-                    hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor = Color.Yellow;
+                    HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor = Color.Yellow;
                 }
-                else if (hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor == Color.Yellow)
+                else if (HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor == Color.Yellow)
                 {
-                    hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor = Color.Red;
+                    HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor = Color.Red;
                 }
-                else if (hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor == Color.Red)
+                else if (HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor == Color.Red)
                 {
-                    hrajuListView.Items[hrajuListView.SelectedIndices[0]].BackColor = Color.White;
+                    HrajuciListView.Items[HrajuciListView.SelectedIndices[0]].BackColor = Color.White;
                 }
-                hrajuListView.SelectedItems.Clear();
+                HrajuciListView.SelectedItems.Clear();
             }
         }
-        private void nahradniciListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void NahradniciListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (nahradniciListView.SelectedItems.Count > 0)
+            if (NahradniciListView.SelectedItems.Count > 0)
             {
-                if (nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor == Color.White)
+                if (NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor == Color.White)
                 {
-                    nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor = Color.Yellow;
+                    NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor = Color.Yellow;
                 }
-                else if (nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor == Color.Yellow)
+                else if (NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor == Color.Yellow)
                 {
-                    nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor = Color.Red;
+                    NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor = Color.Red;
                 }
-                else if (nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor == Color.Red)
+                else if (NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor == Color.Red)
                 {
-                    nahradniciListView.Items[nahradniciListView.SelectedIndices[0]].BackColor = Color.White;
+                    NahradniciListView.Items[NahradniciListView.SelectedIndices[0]].BackColor = Color.White;
                 }
-                nahradniciListView.SelectedItems.Clear();
+                NahradniciListView.SelectedItems.Clear();
             }
         }
 
-        private void zrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void aktivovatButton_Click(object sender, EventArgs e)
+        private void UlozitBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < nahradnici.Count; i++)
             {
-                if(nahradniciListView.Items[i].BackColor == Color.Yellow)
+                if(NahradniciListView.Items[i].BackColor == Color.Yellow)
                 {
                     nahradnici[i].ZltaKarta = true;
                 } 
-                else if (nahradniciListView.Items[i].BackColor == Color.Red)
+                else if (NahradniciListView.Items[i].BackColor == Color.Red)
                 {
                     nahradnici[i].CervenaKarta = true;
                 } 
-                else if (nahradniciListView.Items[i].BackColor == Color.White)
+                else if (NahradniciListView.Items[i].BackColor == Color.White)
                 {
                     nahradnici[i].CervenaKarta = false;
                     nahradnici[i].ZltaKarta = false;
@@ -149,15 +144,15 @@ namespace LGR_Futbal.Forms
             }
             for (int i = 0; i < hrajuci.Count; i++)
             {
-                if (hrajuListView.Items[i].BackColor == Color.Yellow)
+                if (HrajuciListView.Items[i].BackColor == Color.Yellow)
                 {
                     hrajuci[i].ZltaKarta = true;
                 }
-                else if (hrajuListView.Items[i].BackColor == Color.Red)
+                else if (HrajuciListView.Items[i].BackColor == Color.Red)
                 {
                     hrajuci[i].CervenaKarta = true;
                 }
-                else if (hrajuListView.Items[i].BackColor == Color.White)
+                else if (HrajuciListView.Items[i].BackColor == Color.White)
                 {
                     hrajuci[i].CervenaKarta = false;
                     hrajuci[i].ZltaKarta = false;

@@ -73,9 +73,29 @@ namespace LGR_Futbal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _13898481211537356036_321 {
+            get {
+                object obj = ResourceManager.GetObject("13898481211537356036-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _18552593841537356147_128 {
             get {
                 object obj = ResourceManager.GetObject("18552593841537356147-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _18552593841537356147_1281 {
+            get {
+                object obj = ResourceManager.GetObject("18552593841537356147-1281", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,29 @@ namespace LGR_Futbal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _18552593841537356147_321 {
+            get {
+                object obj = ResourceManager.GetObject("18552593841537356147-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _4214982731537355855_32 {
             get {
                 object obj = ResourceManager.GetObject("4214982731537355855-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4214982731537355855_321 {
+            get {
+                object obj = ResourceManager.GetObject("4214982731537355855-321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

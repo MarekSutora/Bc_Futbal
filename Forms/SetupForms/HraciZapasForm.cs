@@ -9,13 +9,9 @@ namespace LGR_Futbal.Forms
 {
     public partial class HraciZapasForm : Form
     {
-        #region Atributy
 
         private FutbalovyTim aktualnyTim = null;
-        private List<Hrac> hraci;
-        #endregion
-
-        #region Konstruktor a metody
+        private List<Hrac> hraci = null;
 
         public HraciZapasForm(FutbalovyTim ft)
         {
@@ -53,7 +49,6 @@ namespace LGR_Futbal.Forms
 
         private void AktivovatButton_Click(object sender, EventArgs e)
         {
-            // Kontrola spravnosti nastavenia udajov
             bool vsetkoVporiadku = true;
             for (int i = 0; i < hraci.Count; i++)
             {
@@ -63,7 +58,6 @@ namespace LGR_Futbal.Forms
                     break;
                 }
             }
-
             if (vsetkoVporiadku)
             {
                 for (int i = 0; i < hraci.Count; i++)
@@ -84,13 +78,7 @@ namespace LGR_Futbal.Forms
             else
                 MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void ZrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void OznacitVsetkoButton_Click(object sender, EventArgs e)
+        private void OznacitZakladniBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
             {
@@ -98,7 +86,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void ZrusOznaceniaButton_Click(object sender, EventArgs e)
+        private void ZrusitZakladniBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
             {
@@ -106,7 +94,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OznacitNahradniciBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
             {
@@ -114,20 +102,12 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ZrusitNahradniciBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < zoznamCheckListBox.Items.Count; i++)
             {
                 nahradniciCheckListBox.SetItemChecked(i, false);
             }
         }
-
-        private void HraciZapasForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-        }
-
-        #endregion
     }
 }

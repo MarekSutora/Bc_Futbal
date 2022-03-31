@@ -180,10 +180,10 @@
     <Compile Include="Forms\UdalostiForms\GolSettingsForm.Designer.cs">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForms\HraciKartyForm.cs">
+    <Compile Include="Forms\SetupForms\HraciKartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForms\HraciKartyForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\HraciKartyForm.Designer.cs">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForms\HraciZapasForm.cs">
@@ -198,17 +198,11 @@
     <Compile Include="Forms\UdalostiForms\KopySettingsForm.Designer.cs">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForms\NadstavCasForm.cs">
+    <Compile Include="Forms\SetupForms\NadstavCasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForms\NadstavCasForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\NadstavCasForm.Designer.cs">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainForms\NezaradeniHraciForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForms\NezaradeniHraciForm.Designer.cs">
-      <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UdalostiForms\OffsideSettingsForm.cs">
       <SubType>Form</SubType>
@@ -330,10 +324,10 @@
     <Compile Include="Forms\UdalostiForms\ZltaKartaSettingsForm.Designer.cs">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForms\ZmenaCasuForm.cs">
+    <Compile Include="Forms\SetupForms\ZmenaCasuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForms\ZmenaCasuForm.Designer.cs">
+    <Compile Include="Forms\SetupForms\ZmenaCasuForm.Designer.cs">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Gol.cs" />
@@ -348,6 +342,11 @@
     <Compile Include="Model\Zapas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Setup\AnimacnaKonfiguracia.cs" />
     <Compile Include="Setup\FarbyPrezentacie.cs" />
     <Compile Include="Setup\FarbyTabule.cs" />
@@ -384,7 +383,7 @@
     <EmbeddedResource Include="Forms\UdalostiForms\GolSettingsForm.resx">
       <DependentUpon>GolSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\HraciKartyForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\HraciKartyForm.resx">
       <DependentUpon>HraciKartyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForms\HraciZapasForm.resx">
@@ -393,11 +392,8 @@
     <EmbeddedResource Include="Forms\UdalostiForms\KopySettingsForm.resx">
       <DependentUpon>KopySettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\NadstavCasForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\NadstavCasForm.resx">
       <DependentUpon>NadstavCasForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\NezaradeniHraciForm.resx">
-      <DependentUpon>NezaradeniHraciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\OffsideSettingsForm.resx">
       <DependentUpon>OffsideSettingsForm.cs</DependentUpon>
@@ -459,19 +455,14 @@
     <EmbeddedResource Include="Forms\UdalostiForms\ZltaKartaSettingsForm.resx">
       <DependentUpon>ZltaKartaSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\ZmenaCasuForm.resx">
+    <EmbeddedResource Include="Forms\SetupForms\ZmenaCasuForm.resx">
       <DependentUpon>ZmenaCasuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
@@ -599,18 +590,6 @@
     <None Include="Resources\success.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\18552593841537356147-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\18552593841537356147-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4214982731537355855-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13898481211537356036-32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
@@ -624,6 +603,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="football.ico" />
+    <Content Include="Resources\13898481211537356036-32.png" />
+    <Content Include="Resources\18552593841537356147-128.png" />
+    <Content Include="Resources\18552593841537356147-32.png" />
+    <Content Include="Resources\4214982731537355855-32.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

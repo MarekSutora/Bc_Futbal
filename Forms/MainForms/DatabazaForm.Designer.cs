@@ -87,9 +87,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.hraciListBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.exportButton = new System.Windows.Forms.Button();
-            this.importButton = new System.Windows.Forms.Button();
-            this.zapasButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -851,9 +848,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.exportButton);
-            this.tabPage1.Controls.Add(this.importButton);
-            this.tabPage1.Controls.Add(this.zapasButton);
             this.tabPage1.Controls.Add(this.removeButton);
             this.tabPage1.Controls.Add(this.editButton);
             this.tabPage1.Controls.Add(this.addButton);
@@ -869,61 +863,13 @@
             this.tabPage1.Text = "TÍMY";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // exportButton
-            // 
-            this.exportButton.Enabled = false;
-            this.exportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exportButton.Image = global::LGR_Futbal.Properties.Resources.Save;
-            this.exportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exportButton.Location = new System.Drawing.Point(181, 334);
-            this.exportButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(113, 57);
-            this.exportButton.TabIndex = 40;
-            this.exportButton.Text = "Export   \r\ntímu     ";
-            this.exportButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Visible = false;
-            // 
-            // importButton
-            // 
-            this.importButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.importButton.Image = global::LGR_Futbal.Properties.Resources.Forward_Email;
-            this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.importButton.Location = new System.Drawing.Point(181, 271);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(113, 57);
-            this.importButton.TabIndex = 39;
-            this.importButton.Text = "Import   \r\ntímu     ";
-            this.importButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Visible = false;
-            // 
-            // zapasButton
-            // 
-            this.zapasButton.Enabled = false;
-            this.zapasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zapasButton.Image = global::LGR_Futbal.Properties.Resources.Properties;
-            this.zapasButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zapasButton.Location = new System.Drawing.Point(181, 146);
-            this.zapasButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.zapasButton.Name = "zapasButton";
-            this.zapasButton.Size = new System.Drawing.Size(113, 57);
-            this.zapasButton.TabIndex = 37;
-            this.zapasButton.Text = "  Pridať   hráčov";
-            this.zapasButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zapasButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.zapasButton.UseVisualStyleBackColor = true;
-            this.zapasButton.Click += new System.EventHandler(this.ZapasButton_Click);
-            // 
             // removeButton
             // 
             this.removeButton.Enabled = false;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.removeButton.Image = global::LGR_Futbal.Properties.Resources.Delete;
             this.removeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeButton.Location = new System.Drawing.Point(181, 208);
+            this.removeButton.Location = new System.Drawing.Point(181, 150);
             this.removeButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(113, 57);
@@ -939,7 +885,7 @@
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(181, 85);
+            this.editButton.Location = new System.Drawing.Point(181, 87);
             this.editButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(113, 57);
@@ -954,7 +900,7 @@
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.addButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(181, 22);
+            this.addButton.Location = new System.Drawing.Point(181, 24);
             this.addButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(113, 57);
@@ -1556,7 +1502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 570);
+            this.ClientSize = new System.Drawing.Size(955, 517);
             this.Controls.Add(this.zapasyButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
@@ -1657,8 +1603,6 @@
         private System.Windows.Forms.ComboBox timFilterCB;
         private System.Windows.Forms.ListBox hraciListBox;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.Button zapasButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
@@ -1710,6 +1654,5 @@
         private System.Windows.Forms.Button zapasyButton;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListBox zapasyLB;
-        private System.Windows.Forms.Button importButton;
     }
 }

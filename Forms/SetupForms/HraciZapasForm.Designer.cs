@@ -33,12 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nahradniciCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.zrusOznaceniaButton = new System.Windows.Forms.Button();
-            this.zrusitButton = new System.Windows.Forms.Button();
+            this.OznacitNahradniciBtn = new System.Windows.Forms.Button();
+            this.ZrusitNahradniciBtn = new System.Windows.Forms.Button();
+            this.ZrusitZakladniBtn = new System.Windows.Forms.Button();
             this.aktivovatButton = new System.Windows.Forms.Button();
-            this.oznacitVsetkoButton = new System.Windows.Forms.Button();
+            this.OznacitZakladniBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // zoznamCheckListBox
@@ -85,61 +84,47 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Náhradníci:";
             // 
-            // button1
+            // OznacitNahradniciBtn
             // 
-            this.button1.Image = global::LGR_Futbal.Properties.Resources.Spell;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(694, 311);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 52);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Označiť   \r\nvšetko    ";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OznacitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.OznacitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OznacitNahradniciBtn.Location = new System.Drawing.Point(694, 311);
+            this.OznacitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.OznacitNahradniciBtn.Name = "OznacitNahradniciBtn";
+            this.OznacitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
+            this.OznacitNahradniciBtn.TabIndex = 28;
+            this.OznacitNahradniciBtn.Text = "Označiť   \r\nvšetko    ";
+            this.OznacitNahradniciBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OznacitNahradniciBtn.UseVisualStyleBackColor = true;
+            this.OznacitNahradniciBtn.Click += new System.EventHandler(this.OznacitNahradniciBtn_Click);
             // 
-            // button2
+            // ZrusitNahradniciBtn
             // 
-            this.button2.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(694, 367);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 52);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Zrušiť     \r\nvšetko    ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ZrusitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(694, 367);
+            this.ZrusitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZrusitNahradniciBtn.Name = "ZrusitNahradniciBtn";
+            this.ZrusitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
+            this.ZrusitNahradniciBtn.TabIndex = 27;
+            this.ZrusitNahradniciBtn.Text = "Zrušiť     \r\nvšetko    ";
+            this.ZrusitNahradniciBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZrusitNahradniciBtn.UseVisualStyleBackColor = true;
+            this.ZrusitNahradniciBtn.Click += new System.EventHandler(this.ZrusitNahradniciBtn_Click);
             // 
-            // zrusOznaceniaButton
+            // ZrusitZakladniBtn
             // 
-            this.zrusOznaceniaButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusOznaceniaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusOznaceniaButton.Location = new System.Drawing.Point(291, 367);
-            this.zrusOznaceniaButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zrusOznaceniaButton.Name = "zrusOznaceniaButton";
-            this.zrusOznaceniaButton.Size = new System.Drawing.Size(107, 52);
-            this.zrusOznaceniaButton.TabIndex = 22;
-            this.zrusOznaceniaButton.Text = "Zrušiť     \r\nvšetko    ";
-            this.zrusOznaceniaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusOznaceniaButton.UseVisualStyleBackColor = true;
-            this.zrusOznaceniaButton.Click += new System.EventHandler(this.ZrusOznaceniaButton_Click);
-            // 
-            // zrusitButton
-            // 
-            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(694, 64);
-            this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zrusitButton.Name = "zrusitButton";
-            this.zrusitButton.Size = new System.Drawing.Size(107, 52);
-            this.zrusitButton.TabIndex = 20;
-            this.zrusitButton.Text = "Zrušiť     ";
-            this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitButton.UseVisualStyleBackColor = true;
-            this.zrusitButton.Click += new System.EventHandler(this.ZrusitButton_Click);
+            this.ZrusitZakladniBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitZakladniBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZrusitZakladniBtn.Location = new System.Drawing.Point(291, 367);
+            this.ZrusitZakladniBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZrusitZakladniBtn.Name = "ZrusitZakladniBtn";
+            this.ZrusitZakladniBtn.Size = new System.Drawing.Size(107, 52);
+            this.ZrusitZakladniBtn.TabIndex = 22;
+            this.ZrusitZakladniBtn.Text = "Zrušiť     \r\nvšetko    ";
+            this.ZrusitZakladniBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZrusitZakladniBtn.UseVisualStyleBackColor = true;
+            this.ZrusitZakladniBtn.Click += new System.EventHandler(this.ZrusitZakladniBtn_Click);
             // 
             // aktivovatButton
             // 
@@ -155,34 +140,33 @@
             this.aktivovatButton.UseVisualStyleBackColor = true;
             this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
             // 
-            // oznacitVsetkoButton
+            // OznacitZakladniBtn
             // 
-            this.oznacitVsetkoButton.Image = global::LGR_Futbal.Properties.Resources.Spell;
-            this.oznacitVsetkoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.oznacitVsetkoButton.Location = new System.Drawing.Point(291, 311);
-            this.oznacitVsetkoButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.oznacitVsetkoButton.Name = "oznacitVsetkoButton";
-            this.oznacitVsetkoButton.Size = new System.Drawing.Size(107, 52);
-            this.oznacitVsetkoButton.TabIndex = 23;
-            this.oznacitVsetkoButton.Text = "Označiť   \r\nvšetko    ";
-            this.oznacitVsetkoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.oznacitVsetkoButton.UseVisualStyleBackColor = true;
-            this.oznacitVsetkoButton.Click += new System.EventHandler(this.OznacitVsetkoButton_Click);
+            this.OznacitZakladniBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.OznacitZakladniBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OznacitZakladniBtn.Location = new System.Drawing.Point(291, 311);
+            this.OznacitZakladniBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.OznacitZakladniBtn.Name = "OznacitZakladniBtn";
+            this.OznacitZakladniBtn.Size = new System.Drawing.Size(107, 52);
+            this.OznacitZakladniBtn.TabIndex = 23;
+            this.OznacitZakladniBtn.Text = "Označiť   \r\nvšetko    ";
+            this.OznacitZakladniBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OznacitZakladniBtn.UseVisualStyleBackColor = true;
+            this.OznacitZakladniBtn.Click += new System.EventHandler(this.OznacitZakladniBtn_Click);
             // 
             // HraciZapasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 432);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.OznacitNahradniciBtn);
+            this.Controls.Add(this.ZrusitNahradniciBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nahradniciCheckListBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.oznacitVsetkoButton);
-            this.Controls.Add(this.zrusOznaceniaButton);
+            this.Controls.Add(this.OznacitZakladniBtn);
+            this.Controls.Add(this.ZrusitZakladniBtn);
             this.Controls.Add(this.zoznamCheckListBox);
-            this.Controls.Add(this.zrusitButton);
             this.Controls.Add(this.aktivovatButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -193,23 +177,20 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Výber hráčov na zápas";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HraciZapasForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button zrusitButton;
         private System.Windows.Forms.Button aktivovatButton;
         private System.Windows.Forms.CheckedListBox zoznamCheckListBox;
-        private System.Windows.Forms.Button zrusOznaceniaButton;
+        private System.Windows.Forms.Button ZrusitZakladniBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox nahradniciCheckListBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button oznacitVsetkoButton;
+        private System.Windows.Forms.Button OznacitNahradniciBtn;
+        private System.Windows.Forms.Button ZrusitNahradniciBtn;
+        private System.Windows.Forms.Button OznacitZakladniBtn;
     }
 }

@@ -23,6 +23,21 @@ namespace LGR_Futbal.Forms
             dlzkaNadCasuNumUpDown.Value = aktualnaHodnota;
         }
 
+        private void AktivovatButton_Click(object sender, EventArgs e)
+        {
+            int novaHodnota = (int)dlzkaNadCasuNumUpDown.Value;
+            if (polcas == 1)
+            {
+                zapas.NadstavenyCas1 = novaHodnota;
+            }
+            else if (polcas == 2)
+            {
+                zapas.NadstavenyCas2 = novaHodnota;
+            }
+            OnNadstavenyCasConfirmed?.Invoke(novaHodnota);
+            this.Close();
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaNadCasuNumUpDown.Value;
@@ -95,7 +110,7 @@ namespace LGR_Futbal.Forms
                 dlzkaNadCasuNumUpDown.Value = hodnota;
         }
 
-        private void Button10_Click(object sender, EventArgs e)
+        private void Button0_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaNadCasuNumUpDown.Value;
             hodnota = (hodnota * 10);
@@ -103,38 +118,11 @@ namespace LGR_Futbal.Forms
                 dlzkaNadCasuNumUpDown.Value = hodnota;
         }
 
-        private void Button11_Click(object sender, EventArgs e)
+        private void ZmazatButton_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaNadCasuNumUpDown.Value;
             hodnota = hodnota / 10;
             dlzkaNadCasuNumUpDown.Value = hodnota;
-        }
-
-        private void AktivovatButton_Click(object sender, EventArgs e)
-        {
-            int novaHodnota = (int)dlzkaNadCasuNumUpDown.Value;
-            if (polcas == 1)
-            {
-                zapas.NadstavenyCas1 = novaHodnota;
-            } 
-            else if (polcas == 2)
-            {
-                zapas.NadstavenyCas2 = novaHodnota;
-            }
-            if (OnNadstavenyCasConfirmed != null)
-                OnNadstavenyCasConfirmed(novaHodnota);
-            this.Close();
-        }
-
-        private void ZrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void NadstavCasForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
         }
     }
 }

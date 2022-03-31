@@ -123,7 +123,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zmena aktuálneho času";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ZmenaCasuForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.minuta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sekunda)).EndInit();
             this.ResumeLayout(false);

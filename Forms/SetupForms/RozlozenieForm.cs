@@ -14,118 +14,115 @@ using LGR_Futbal.Properties;
 
 namespace LGR_Futbal.Forms
 {
-
-    public delegate void LayoutConfirmedHandler();
-
     public partial class RozlozenieForm : Form
     {
-        private string adresa;
-        private int sirka;
-        private int vyska;
-        public event LayoutConfirmedHandler OnLayoutConfirmed;
-        public RozlozenieTabule RozlozenieTabule { get; set; }
+        public event ZmenaRozlozeniaHandler OnZmenaRozlozenia;
 
-        public RozlozenieForm(string adresa, RozlozenieTabule rt, int sirka, int vyska)
+        private readonly string adresar;
+        private readonly int sirka;
+        private readonly int vyska;
+        private RozlozenieTabule rozlozenieTabule;
+
+        public RozlozenieForm(string adresar, RozlozenieTabule rt, int sirka, int vyska)
         {
             InitializeComponent();
 
-            toolTip1.SetToolTip(numericUpDown1, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown14, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown16, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown18, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown4, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown8, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown6, "Zvyšovanie - doprava \nZnižovanie - doľava");
-            toolTip1.SetToolTip(numericUpDown10, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(CasXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(PolcasXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(SkoreDomaciXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(SkoreHostiaXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(DomaciXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(HostiaXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(LogoDomaciXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
+            toolTip1.SetToolTip(LogoHostiaXNumeric, "Zvyšovanie - doprava \nZnižovanie - doľava");
 
-            toolTip1.SetToolTip(numericUpDown2, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown13, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown15, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown17, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown3, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown7, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown5, "Zvyšovanie - dole \nZnižovanie - hore");
-            toolTip1.SetToolTip(numericUpDown9, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(CasYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(PolcasYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(SkoreDomaciYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(SkoreHostiaYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(DomaciYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(HostiaYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(LogoDomaciYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
+            toolTip1.SetToolTip(LogoHostiaYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
 
-            this.adresa = adresa;
+            this.adresar = adresar;
             this.sirka = sirka;
             this.vyska = vyska;
-            RozlozenieTabule = rt;
-            nastavRozlozenie();
+            rozlozenieTabule = rt;
+            NastavRozlozenie();
         }
 
-
-        private void nastavRozlozenie()
+        private void NastavRozlozenie()
         {
-            numericUpDown1.Value = RozlozenieTabule.Cas_X;
-            numericUpDown2.Value = RozlozenieTabule.Cas_Y;
+            CasXNumeric.Value = rozlozenieTabule.Cas_X;
+            CasYNumeric.Value = rozlozenieTabule.Cas_Y;
 
-            numericUpDown4.Value = RozlozenieTabule.Domaci_X;
-            numericUpDown3.Value = RozlozenieTabule.Domaci_Y;
+            DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
+            DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
 
-            numericUpDown8.Value = RozlozenieTabule.Hostia_X;
-            numericUpDown7.Value = RozlozenieTabule.Hostia_Y;
+            HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
+            HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
 
-            numericUpDown16.Value = RozlozenieTabule.DomaciSkore_X;
-            numericUpDown15.Value = RozlozenieTabule.DomaciSkore_Y;
+            SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
+            SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
 
-            numericUpDown18.Value = RozlozenieTabule.HostiaSkore_X;
-            numericUpDown17.Value = RozlozenieTabule.HostiaSkore_Y;
+            SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
+            SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
 
-            numericUpDown6.Value = RozlozenieTabule.LogoDomaci_X;
-            numericUpDown5.Value = RozlozenieTabule.LogoDomaci_Y;
-            numericUpDown11.Value = RozlozenieTabule.LogoDomaciSirka;
-            checkBox2.Checked = RozlozenieTabule.LogoDomaciZobrazit;
+            LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
+            LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
+            LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
+            domaciLogoCB.Checked = rozlozenieTabule.LogoDomaciZobrazit;
 
-            numericUpDown10.Value = RozlozenieTabule.LogoHostia_X;
-            numericUpDown9.Value = RozlozenieTabule.LogoHostia_Y;
-            numericUpDown12.Value = RozlozenieTabule.LogoHostiaSirka;
-            checkBox1.Checked = RozlozenieTabule.LogoHostiaZobrazit;
+            LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
+            LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
+            LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
+            hostiaLogoCB.Checked = rozlozenieTabule.LogoHostiaZobrazit;
 
-            numericUpDown14.Value = RozlozenieTabule.Polcas_X;
-            numericUpDown13.Value = RozlozenieTabule.Polcas_Y;
+            PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
+            PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
         }
 
-        private void aktivovatRozlozenieButton_Click(object sender, EventArgs e)
+        private void AktivovatRozlozenieBtn_Click(object sender, EventArgs e)
         {
-            if (OnLayoutConfirmed != null)
+            if (OnZmenaRozlozenia != null)
             {
-                RozlozenieTabule.Cas_X = (int)numericUpDown1.Value;
-                RozlozenieTabule.Cas_Y = (int)numericUpDown2.Value;
+                rozlozenieTabule.Cas_X = (int)CasXNumeric.Value;
+                rozlozenieTabule.Cas_Y = (int)CasYNumeric.Value;
 
-                RozlozenieTabule.Domaci_X = (int)numericUpDown4.Value;
-                RozlozenieTabule.Domaci_Y = (int)numericUpDown3.Value;
+                rozlozenieTabule.Domaci_X = (int)DomaciXNumeric.Value;
+                rozlozenieTabule.Domaci_Y = (int)DomaciYNumeric.Value;
 
-                RozlozenieTabule.Hostia_X = (int)numericUpDown8.Value;
-                RozlozenieTabule.Hostia_Y = (int)numericUpDown7.Value;
+                rozlozenieTabule.Hostia_X = (int)HostiaXNumeric.Value;
+                rozlozenieTabule.Hostia_Y = (int)HostiaYNumeric.Value;
 
-                RozlozenieTabule.DomaciSkore_X = (int)numericUpDown16.Value;
-                RozlozenieTabule.DomaciSkore_Y = (int)numericUpDown15.Value;
+                rozlozenieTabule.DomaciSkore_X = (int)SkoreDomaciXNumeric.Value;
+                rozlozenieTabule.DomaciSkore_Y = (int)SkoreDomaciYNumeric.Value;
 
-                RozlozenieTabule.HostiaSkore_X = (int)numericUpDown18.Value;
-                RozlozenieTabule.HostiaSkore_Y = (int)numericUpDown17.Value;
+                rozlozenieTabule.HostiaSkore_X = (int)SkoreHostiaXNumeric.Value;
+                rozlozenieTabule.HostiaSkore_Y = (int)SkoreHostiaYNumeric.Value;
 
-                RozlozenieTabule.LogoDomaci_X = (int)numericUpDown6.Value;
-                RozlozenieTabule.LogoDomaci_Y = (int)numericUpDown5.Value;
-                RozlozenieTabule.LogoDomaciSirka = (int)numericUpDown11.Value;
-                RozlozenieTabule.LogoDomaciZobrazit = checkBox2.Checked;
+                rozlozenieTabule.LogoDomaci_X = (int)LogoDomaciXNumeric.Value;
+                rozlozenieTabule.LogoDomaci_Y = (int)LogoDomaciYNumeric.Value;
+                rozlozenieTabule.LogoDomaciSirka = (int)LogoDomaciSirkaNumeric.Value;
+                rozlozenieTabule.LogoDomaciZobrazit = domaciLogoCB.Checked;
 
-                RozlozenieTabule.LogoHostia_X = (int)numericUpDown10.Value;
-                RozlozenieTabule.LogoHostia_Y = (int)numericUpDown9.Value;
-                RozlozenieTabule.LogoHostiaSirka = (int)numericUpDown12.Value;
-                RozlozenieTabule.LogoHostiaZobrazit = checkBox1.Checked;
+                rozlozenieTabule.LogoHostia_X = (int)LogoHostiaXNumeric.Value;
+                rozlozenieTabule.LogoHostia_Y = (int)LogoHostiaYNumeric.Value;
+                rozlozenieTabule.LogoHostiaSirka = (int)LogoHostiaSirkaNumeric.Value;
+                rozlozenieTabule.LogoHostiaZobrazit = hostiaLogoCB.Checked;
 
-                RozlozenieTabule.Polcas_X = (int)numericUpDown14.Value;
-                RozlozenieTabule.Polcas_Y = (int)numericUpDown13.Value;
-                OnLayoutConfirmed();
+                rozlozenieTabule.Polcas_X = (int)PolcasXNumeric.Value;
+                rozlozenieTabule.Polcas_Y = (int)PolcasYNumeric.Value;
+                OnZmenaRozlozenia?.Invoke();
             }
                
         }
 
-        private void ulozitRozlozenie_Click(object sender, EventArgs e)
+        private void UlozitRozlozenieBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.InitialDirectory = adresa;
+            sfd.InitialDirectory = adresar;
             sfd.Filter = "xml files (*.xml)|*.xml";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -134,33 +131,33 @@ namespace LGR_Futbal.Forms
                 try
                 {
                     RozlozenieTabule rt = new RozlozenieTabule();
-                    rt.Cas_X = (int)numericUpDown1.Value;
-                    rt.Cas_Y = (int)numericUpDown2.Value;
+                    rt.Cas_X = (int)CasXNumeric.Value;
+                    rt.Cas_Y = (int)CasYNumeric.Value;
 
-                    rt.Domaci_X = (int)numericUpDown4.Value;
-                    rt.Domaci_Y = (int)numericUpDown3.Value;
+                    rt.Domaci_X = (int)DomaciXNumeric.Value;
+                    rt.Domaci_Y = (int)DomaciYNumeric.Value;
 
-                    rt.Hostia_X = (int)numericUpDown8.Value;
-                    rt.Hostia_Y = (int)numericUpDown7.Value;
+                    rt.Hostia_X = (int)HostiaXNumeric.Value;
+                    rt.Hostia_Y = (int)HostiaYNumeric.Value;
 
-                    rt.DomaciSkore_X = (int)numericUpDown16.Value;
-                    rt.DomaciSkore_Y = (int)numericUpDown15.Value;
+                    rt.DomaciSkore_X = (int)SkoreDomaciXNumeric.Value;
+                    rt.DomaciSkore_Y = (int)SkoreDomaciYNumeric.Value;
 
-                    rt.HostiaSkore_X = (int)numericUpDown18.Value;
-                    rt.HostiaSkore_Y = (int)numericUpDown17.Value;
+                    rt.HostiaSkore_X = (int)SkoreHostiaXNumeric.Value;
+                    rt.HostiaSkore_Y = (int)SkoreHostiaYNumeric.Value;
 
-                    rt.LogoDomaci_X = (int)numericUpDown6.Value;
-                    rt.LogoDomaci_Y = (int)numericUpDown5.Value;
-                    rt.LogoDomaciSirka = (int)numericUpDown11.Value;
-                    rt.LogoDomaciZobrazit = checkBox2.Checked;
+                    rt.LogoDomaci_X = (int)LogoDomaciXNumeric.Value;
+                    rt.LogoDomaci_Y = (int)LogoDomaciYNumeric.Value;
+                    rt.LogoDomaciSirka = (int)LogoDomaciSirkaNumeric.Value;
+                    rt.LogoDomaciZobrazit = domaciLogoCB.Checked;
 
-                    rt.LogoHostia_X = (int)numericUpDown10.Value;
-                    rt.LogoHostia_Y = (int)numericUpDown9.Value;
-                    rt.LogoHostiaSirka = (int)numericUpDown12.Value;
-                    rt.LogoHostiaZobrazit = checkBox2.Checked;
+                    rt.LogoHostia_X = (int)LogoHostiaXNumeric.Value;
+                    rt.LogoHostia_Y = (int)LogoHostiaYNumeric.Value;
+                    rt.LogoHostiaSirka = (int)LogoHostiaSirkaNumeric.Value;
+                    rt.LogoHostiaZobrazit = hostiaLogoCB.Checked;
 
-                    rt.Polcas_X = (int)numericUpDown14.Value;
-                    rt.Polcas_Y = (int)numericUpDown13.Value;
+                    rt.Polcas_X = (int)PolcasXNumeric.Value;
+                    rt.Polcas_Y = (int)PolcasYNumeric.Value;
 
                     XmlSerializer serializer = new XmlSerializer(typeof(RozlozenieTabule));
                     textWriter = new StreamWriter(sfd.FileName);
@@ -168,23 +165,23 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     if (textWriter != null)
                         textWriter.Close();
 
-                    this.Close();
+                    Close();
                 }
             }
         }
 
-        private void nacitatRozlozenieButton_Click(object sender, EventArgs e)
+        private void NacitatRozlozenieBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
-            ofd.InitialDirectory = adresa;
+            ofd.InitialDirectory = adresar;
             ofd.Filter = "xml files (*.xml)|*.xml";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -193,7 +190,7 @@ namespace LGR_Futbal.Forms
                 bool uspech = true;
                 try
                 {
-                    
+
                     XmlSerializer deserializer = new XmlSerializer(typeof(RozlozenieTabule));
                     textReader = new StreamReader(ofd.FileName);
                     rt = (RozlozenieTabule)deserializer.Deserialize(textReader);
@@ -201,7 +198,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -210,58 +207,47 @@ namespace LGR_Futbal.Forms
 
                     if (uspech)
                     {
-                        RozlozenieTabule = rt;
-                        nastavRozlozenie();
-                        if (OnLayoutConfirmed != null)
-                        {
-                            OnLayoutConfirmed();
-                        }
+                        rozlozenieTabule = rt;
+                        NastavRozlozenie();
+                        OnZmenaRozlozenia?.Invoke();
                     }
                 }
             }
         }
 
-        public void NativneRozlozenie()
+        private void ObnovitRozlozenieBtn_Click(object sender, EventArgs e)
         {
-            RozlozenieTabule.NativneRozlozenie(sirka, vyska);
+            rozlozenieTabule.NativneRozlozenie(sirka, vyska);
 
-            numericUpDown1.Value = RozlozenieTabule.Cas_X;
-            numericUpDown2.Value = RozlozenieTabule.Cas_Y;
+            CasXNumeric.Value = rozlozenieTabule.Cas_X;
+            CasYNumeric.Value = rozlozenieTabule.Cas_Y;
 
-            numericUpDown4.Value = RozlozenieTabule.Domaci_X;
-            numericUpDown3.Value = RozlozenieTabule.Domaci_Y;
+            DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
+            DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
 
-            numericUpDown8.Value = RozlozenieTabule.Hostia_X;
-            numericUpDown7.Value = RozlozenieTabule.Hostia_Y;
+            HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
+            HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
 
-            numericUpDown16.Value = RozlozenieTabule.DomaciSkore_X;
-            numericUpDown15.Value = RozlozenieTabule.DomaciSkore_Y;
+            SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
+            SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
 
-            numericUpDown18.Value = RozlozenieTabule.HostiaSkore_X;
-            numericUpDown17.Value = RozlozenieTabule.HostiaSkore_Y;
+            SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
+            SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
 
-            numericUpDown6.Value = RozlozenieTabule.LogoDomaci_X;
-            numericUpDown5.Value = RozlozenieTabule.LogoDomaci_Y;
-            numericUpDown11.Value = RozlozenieTabule.LogoDomaciSirka;
-            checkBox2.Checked = true;
+            LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
+            LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
+            LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
+            domaciLogoCB.Checked = true;
 
-            numericUpDown10.Value = RozlozenieTabule.LogoHostia_X; 
-            numericUpDown9.Value = RozlozenieTabule.LogoHostia_Y;
-            numericUpDown12.Value = RozlozenieTabule.LogoHostiaSirka;
-            checkBox2.Checked = true;
+            LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
+            LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
+            LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
+            domaciLogoCB.Checked = true;
 
-            numericUpDown14.Value = RozlozenieTabule.Polcas_X; 
-            numericUpDown13.Value = RozlozenieTabule.Polcas_Y; 
+            PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
+            PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
 
-            if (OnLayoutConfirmed != null)
-            {
-                OnLayoutConfirmed();
-            }      
-        }
-
-        private void obnovaRozlozeniaButton_Click(object sender, EventArgs e)
-        {
-            NativneRozlozenie();
+            OnZmenaRozlozenia?.Invoke();
         }
     }
 }

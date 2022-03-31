@@ -9,9 +9,6 @@ namespace LGR_Futbal.Forms
     public partial class ZmenaCasuForm : Form
     {
         public event ZmenaCasuHandler OnZmenaCasu;
-
-        #region Konstruktor a metody
-
         public ZmenaCasuForm(int m, int s, int dlzka)
         {
             InitializeComponent();
@@ -25,12 +22,6 @@ namespace LGR_Futbal.Forms
             sekunda.Value = s;
             
         }
-
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void potvrditButton_Click(object sender, EventArgs e)
         {
             int nm = (int)minuta.Value;
@@ -44,14 +35,6 @@ namespace LGR_Futbal.Forms
             this.Close();
         }
 
-        private void ZmenaCasuForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-        }
-
-        #endregion
-
         private void minuta_ValueChanged(object sender, EventArgs e)
         {
             if (minuta.Value == minuta.Maximum)
@@ -63,6 +46,11 @@ namespace LGR_Futbal.Forms
             {
                 sekunda.Enabled = true;
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

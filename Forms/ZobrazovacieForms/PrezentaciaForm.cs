@@ -31,11 +31,11 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public PrezentaciaForm(string folder, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
+        public PrezentaciaForm(string adresar, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
 
-            adresar = folder;
+            this.adresar = adresar;
             casovac.Interval = 2 * 1000 * cas;
             prezentovanyTim = tim;
 
@@ -56,7 +56,6 @@ namespace LGR_Futbal.Forms
             aktualnyZoznam = zakladnaJedenastka;
             pocetPrezentovanychHracov = 0;
 
-            // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
             float pomer = (float)sirka / (float)this.Width;
             Scale(new SizeF(pomer, pomer));
 
@@ -70,25 +69,25 @@ namespace LGR_Futbal.Forms
             // Nastavenie farieb podla volby
             nazovLabel.ForeColor = farby.GetNadpisFarba();
             nahradniciLabel.ForeColor = farby.GetNadpisFarba();
-            label1.ForeColor = farby.GetNadpisFarba();
+            podnadpisLabel.ForeColor = farby.GetNadpisFarba();
             cisloHracaLabel.ForeColor = farby.GetCisloFarba();
             menoHracaLabel.ForeColor = farby.GetMenoFarba();
-            label2.ForeColor = farby.GetZakladFarba();
-            label5.ForeColor = farby.GetZakladFarba();
+            vekTextLabel.ForeColor = farby.GetZakladFarba();
+            postTextLabel.ForeColor = farby.GetZakladFarba();
             vekLabel.ForeColor = farby.GetUdajeFarba();
             infoRichTextBox.ForeColor = farby.GetUdajeFarba();
             postLabel.ForeColor = farby.GetUdajeFarba();
 
             // Nastavenie fontov podla volby
             nazovLabel.Font = fonty.CreateNazvyPrezentaciaFont();
-            label1.Font = fonty.CreateSkoreFont();
-            cisloHracaLabel.Font = fonty.CreatePolcasFont();
-            menoHracaLabel.Font = fonty.CreatePolcasFont();
-            label2.Font = fonty.CreateCasFont();
-            label5.Font = fonty.CreateCasFont();
-            vekLabel.Font = fonty.CreateCasFont();
-            infoRichTextBox.Font = fonty.CreateCasFont();
-            postLabel.Font = fonty.CreateCasFont();
+            podnadpisLabel.Font = fonty.CreatePodnadpisPrezentaciaFont();
+            cisloHracaLabel.Font = fonty.CreateCisloMenoPrezentaciaFont();
+            menoHracaLabel.Font = fonty.CreateCisloMenoPrezentaciaFont();
+            vekTextLabel.Font = fonty.CreateUdajePrezentaciaFont();
+            postTextLabel.Font = fonty.CreateUdajePrezentaciaFont();
+            vekLabel.Font = fonty.CreateUdajePrezentaciaFont();
+            infoRichTextBox.Font = fonty.CreateUdajePrezentaciaFont();
+            postLabel.Font = fonty.CreateUdajePrezentaciaFont();
         }
 
         private void PrezentaciaForm_Load(object sender, EventArgs e)

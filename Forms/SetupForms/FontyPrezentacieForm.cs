@@ -9,83 +9,64 @@ namespace LGR_Futbal.Forms
 {
     public partial class FontyPrezentacieForm : Form
     {
-        private FontyTabule pisma;
-
+        private FontyTabule fontyTabule = null;
         public FontyPrezentacieForm(FontyTabule fonty)
         {
             InitializeComponent();
 
-            pisma = fonty;
+            fontyTabule = fonty;
 
-            label5.Text = pisma.NazvyPrezentaciaFont;
-            label6.Text = pisma.PodnadpisPrezentaciaFont;
-            label7.Text = pisma.UdajePrezentaciaFont;
-            label8.Text = pisma.CisloMenoPrezentaciaFont;
+            nazvyFontLabel.Text = fontyTabule.NazvyPrezentaciaFont;
+            podnadpisFontLabel.Text = fontyTabule.PodnadpisPrezentaciaFont;
+            udajeFontLabel.Text = fontyTabule.UdajePrezentaciaFont;
+            cisloMenoFontLabel.Text = fontyTabule.CisloMenoPrezentaciaFont;
         }
+        private void AktivovatBtn_Click(object sender, EventArgs e)
+        {
+            fontyTabule.NazvyPrezentaciaFont = nazvyFontLabel.Text;
+            fontyTabule.PodnadpisPrezentaciaFont = podnadpisFontLabel.Text;
+            fontyTabule.UdajePrezentaciaFont = udajeFontLabel.Text;
+            fontyTabule.CisloMenoPrezentaciaFont = cisloMenoFontLabel.Text;
 
+            Close();
+        }
         private string ConvertFontToString(Font f)
         {
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
             return converter.ConvertToString(f);
         }
-
         private Font ConvertStringToFont(string s)
         {
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
             return (Font)converter.ConvertFromString(s);
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ZmenitNazvyBtn_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
-            fd.Font = ConvertStringToFont(label5.Text);
+            fd.Font = ConvertStringToFont(nazvyFontLabel.Text);
             if (fd.ShowDialog() == DialogResult.OK)
-                label5.Text = ConvertFontToString(fd.Font);
+                nazvyFontLabel.Text = ConvertFontToString(fd.Font);
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void ZmenitPodnadpisBtn_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
-            fd.Font = ConvertStringToFont(label6.Text);
+            fd.Font = ConvertStringToFont(podnadpisFontLabel.Text);
             if (fd.ShowDialog() == DialogResult.OK)
-                label6.Text = ConvertFontToString(fd.Font);
+                podnadpisFontLabel.Text = ConvertFontToString(fd.Font);
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void ZmenitUdajeBtn_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
-            fd.Font = ConvertStringToFont(label7.Text);
+            fd.Font = ConvertStringToFont(udajeFontLabel.Text);
             if (fd.ShowDialog() == DialogResult.OK)
-                label7.Text = ConvertFontToString(fd.Font);
+                udajeFontLabel.Text = ConvertFontToString(fd.Font);
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ZmenitCisloMenoBtn_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
-            fd.Font = ConvertStringToFont(label8.Text);
+            fd.Font = ConvertStringToFont(cisloMenoFontLabel.Text);
             if (fd.ShowDialog() == DialogResult.OK)
-                label8.Text = ConvertFontToString(fd.Font);
-        }
-
-        private void aktivovatButton_Click(object sender, EventArgs e)
-        {
-            pisma.NazvyPrezentaciaFont = label5.Text;
-            pisma.PodnadpisPrezentaciaFont = label6.Text;
-            pisma.UdajePrezentaciaFont = label7.Text;
-            pisma.CisloMenoPrezentaciaFont = label8.Text;
-
-            this.Close();
-        }
-
-        private void zrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FontyPrezentacieForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-        }
+                cisloMenoFontLabel.Text = ConvertFontToString(fd.Font);
+        }       
     }
 }

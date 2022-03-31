@@ -80,13 +80,11 @@ namespace LGR_Futbal.Forms
                 menoHraca2Label.Text = identifikacia;
             }
 
-            // Nastavenie farieb podla volby
             nazovLabel.ForeColor = farby.GetNadpisFarba();
             label1.ForeColor = farby.GetNadpisFarba();
             
-            // Nastavenie fontov podla volby
-            nazovLabel.Font = pisma.CreateNazvyFont();
-            label1.Font = pisma.CreateSkoreFont();
+            nazovLabel.Font = pisma.CreateNazvyPrezentaciaFont();
+            label1.Font = pisma.CreatePodnadpisPrezentaciaFont();
 
             cisloHraca1Label.Font = pisma.CreateStriedaniaFont();
             menoHraca1Label.Font = pisma.CreateStriedaniaFont();

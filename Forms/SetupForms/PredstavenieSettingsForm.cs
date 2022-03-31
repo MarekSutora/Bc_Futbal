@@ -8,120 +8,85 @@ using System.Xml.Serialization;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, Setup.FarbyPrezentacie farby);
+    public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacie farby);
     public delegate void ZastavenieHandler();
     public delegate void NastaveniaConfirmedHandler(bool n);
 
     public partial class PredstavenieSettingsForm : Form
     {
-        #region Atributy
-
         public event VyberTimuNaPrezentaciuHandler OnVyberTimuNaPrezentaciu;
         public event ZastavenieHandler OnZastaveniePrezentacie;
         public event NastaveniaConfirmedHandler OnNastaveniaConfirmed;
 
-        private FutbalovyTim dom;
-        private FutbalovyTim hos;
-        private FarbyPrezentacie farbyDom;
-        private FarbyPrezentacie farbyHos;
-        private FontyTabule pisma;
+        private FutbalovyTim domaci = null;
+        private FutbalovyTim hostia = null;
+        private FarbyPrezentacie farbyDomaci = null;
+        private FarbyPrezentacie farbyHostia = null;
+        private FontyTabule fontyTabule = null;
 
-        #endregion
-
-        #region Konstruktor a metody
-
-        public PredstavenieSettingsForm(string adr, FutbalovyTim domaci, FutbalovyTim hostia, FontyTabule fonty, bool nahr, FarbyPrezentacie farbyPrezDomaci, FarbyPrezentacie farbyPrezHostia)
+        public PredstavenieSettingsForm(FutbalovyTim dom, FutbalovyTim host, FontyTabule fonty, bool nahr, FarbyPrezentacie farbyPrezDomaci, FarbyPrezentacie farbyPrezHostia)
         {
             InitializeComponent();
 
-            checkBox1.Checked = nahr;
+            nahradniciCheckBox.Checked = nahr;
 
-            pisma = fonty;
-            dom = domaci;
-            hos = hostia;
-            farbyDom = farbyPrezDomaci;
-            farbyHos = farbyPrezHostia;
+            fontyTabule = fonty;
+            domaci = dom;
+            hostia = host;
+            farbyDomaci = farbyPrezDomaci;
+            farbyHostia = farbyPrezHostia;
 
-            if (dom == null)
-                domaciButton.Enabled = false;
-            else if (dom.ZoznamHracov.Count == 0)
-                domaciButton.Enabled = false;
+            if (domaci == null)
+                DomaciPrezentaciaBtn.Enabled = false;
+            else if (domaci.ZoznamHracov.Count == 0)
+                DomaciPrezentaciaBtn.Enabled = false;
 
-            if (hos == null)
-                hostiaButton.Enabled = false;
-            else if (hos.ZoznamHracov.Count == 0)
-                hostiaButton.Enabled = false;
+            if (hostia == null)
+                HostiaPrezentaciaBtn.Enabled = false;
+            else if (hostia.ZoznamHracov.Count == 0)
+                HostiaPrezentaciaBtn.Enabled = false;
         }
 
-        public Setup.FarbyPrezentacie GetFarbyDom()
+        private void DomaciPrezentaciaBtn_Click(object sender, EventArgs e)
         {
-            return farbyDom;
+            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
+            OnVyberTimuNaPrezentaciu?.Invoke(domaci, farbyDomaci);
+            this.Close();
         }
 
-        public Setup.FarbyPrezentacie GetFarbyHos()
+        private void HostiaPrezentaciaBtn_Click(object sender, EventArgs e)
         {
-            return farbyHos;
+            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
+            OnVyberTimuNaPrezentaciu?.Invoke(hostia, farbyHostia);
+            this.Close();
+        }
+
+        private void FarbyBtn_Click(object sender, EventArgs e)
+        {
+            FarbyPrezentacieForm fp = new FarbyPrezentacieForm(farbyDomaci, farbyHostia);
+            fp.Show();
+        }
+
+        private void FontyBtn_Click(object sender, EventArgs e)
+        {
+            FontyPrezentacieForm fpf = new FontyPrezentacieForm(fontyTabule);
+            fpf.Show();
+        }
+
+        private void ZastavitPrezentaciuBtn_Click(object sender, EventArgs e)
+        {
+            OnZastaveniePrezentacie?.Invoke();
+            this.Close();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void PredstavenieSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked);
+            OnNastaveniaConfirmed?.Invoke(nahradniciCheckBox.Checked);
         }
-
-        private void DomaciButton_Click(object sender, EventArgs e)
-        {
-            if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked);
-            if (OnVyberTimuNaPrezentaciu != null)
-                OnVyberTimuNaPrezentaciu(dom, farbyDom);
-            this.Close();
-        }
-
-        private void HostiaButton_Click(object sender, EventArgs e)
-        {
-            if (OnNastaveniaConfirmed != null)
-                OnNastaveniaConfirmed(checkBox1.Checked);
-            if (OnVyberTimuNaPrezentaciu != null)
-                OnVyberTimuNaPrezentaciu(hos, farbyHos);
-            this.Close();
-        }
-
-        private void BackButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void farbyButton_Click(object sender, EventArgs e)
-        {
-            FarbyPrezentacieForm fp = new FarbyPrezentacieForm(farbyDom, farbyHos);
-            fp.Show();
-        }
-
-        private void fontyButton_Click(object sender, EventArgs e)
-        {
-            FontyPrezentacieForm fpf = new FontyPrezentacieForm(pisma);
-            fpf.Show();
-        }
-
-        private void stopButton_Click(object sender, EventArgs e)
-        {
-            zastavPrezentaciu();
-        }
-
-        private void PredstavenieSettingsForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                zastavPrezentaciu();
-        }
-
-        private void zastavPrezentaciu()
-        {
-            if (OnZastaveniePrezentacie != null)
-                OnZastaveniePrezentacie();
-            this.Close();
-        }
-
-        #endregion
     }
 }

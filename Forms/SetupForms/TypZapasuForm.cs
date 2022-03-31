@@ -9,21 +9,20 @@ namespace LGR_Futbal.Forms
 
     public partial class TypZapasuForm : Form
     {
-        private const string nazovProgramuString = "LGR Futbal";
-
-        public event NovyTypZapasuHandler onNovyTypZapasu;
+        
+        public event NovyTypZapasuHandler OnNovyTypZapasu;
 
         public TypZapasuForm()
         {
             InitializeComponent();
         }
 
-        private void aktivovatButton_Click(object sender, EventArgs e)
+        private void PridatTypBtn_Click(object sender, EventArgs e)
         {
             string n = nazovTextBox.Text.Trim();
             if (n.Equals(string.Empty))
             {
-                MessageBox.Show("Nezadali ste názov!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nezadali ste názov!", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -32,22 +31,10 @@ namespace LGR_Futbal.Forms
                 pz.DlzkaPolcasu = (int)minutyNum.Value;
                 pz.Prerusenie = prerCheckBox.Checked;
 
-                if (onNovyTypZapasu != null)
-                    onNovyTypZapasu(pz);
+                OnNovyTypZapasu?.Invoke(pz);
 
                 this.Close();
             }
-        }
-
-        private void zrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void TypZapasuForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
         }
     }
 }
