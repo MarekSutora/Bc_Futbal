@@ -38,8 +38,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.skoreLabel = new System.Windows.Forms.Label();
-            this.csvGenButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GenerovatCsvBtn = new System.Windows.Forms.Button();
+            this.ZapasUdalostiDataGrid = new System.Windows.Forms.DataGridView();
             this.ColumnCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPolcas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMinuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.rohovyKopCB = new System.Windows.Forms.CheckBox();
             this.priamyKopCB = new System.Windows.Forms.CheckBox();
             this.nepriamyKopCB = new System.Windows.Forms.CheckBox();
-            this.aktFilterButton = new System.Windows.Forms.Button();
+            this.AktivovatFilterBtn = new System.Windows.Forms.Button();
             this.pokutovyKopCB = new System.Windows.Forms.CheckBox();
             this.golCB = new System.Windows.Forms.CheckBox();
             this.offsideCB = new System.Windows.Forms.CheckBox();
@@ -63,8 +63,8 @@
             this.cervenaKartaCB = new System.Windows.Forms.CheckBox();
             this.timCB = new System.Windows.Forms.CheckBox();
             this.tim2CB = new System.Windows.Forms.CheckBox();
-            this.databazaButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.PridatDoDatabazyBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ZapasUdalostiDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -130,18 +130,18 @@
             this.skoreLabel.TabIndex = 2;
             this.skoreLabel.Text = "label2";
             // 
-            // csvGenButton
+            // GenerovatCsvBtn
             // 
-            this.csvGenButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.csvGenButton.Location = new System.Drawing.Point(996, 9);
-            this.csvGenButton.Name = "csvGenButton";
-            this.csvGenButton.Size = new System.Drawing.Size(173, 30);
-            this.csvGenButton.TabIndex = 3;
-            this.csvGenButton.Text = "vygenerovať súbor";
-            this.csvGenButton.UseVisualStyleBackColor = true;
-            this.csvGenButton.Click += new System.EventHandler(this.csvGenButton_Click);
+            this.GenerovatCsvBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GenerovatCsvBtn.Location = new System.Drawing.Point(996, 9);
+            this.GenerovatCsvBtn.Name = "GenerovatCsvBtn";
+            this.GenerovatCsvBtn.Size = new System.Drawing.Size(173, 30);
+            this.GenerovatCsvBtn.TabIndex = 3;
+            this.GenerovatCsvBtn.Text = "vygenerovať súbor";
+            this.GenerovatCsvBtn.UseVisualStyleBackColor = true;
+            this.GenerovatCsvBtn.Click += new System.EventHandler(this.GenerovatCsvBtn_Click);
             // 
-            // dataGridView1
+            // ZapasUdalostiDataGrid
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -150,9 +150,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ZapasUdalostiDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.ZapasUdalostiDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ZapasUdalostiDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCas,
             this.ColumnPolcas,
             this.ColumnMinuta,
@@ -161,10 +161,10 @@
             this.ColumnPoznamka,
             this.ColumnUdalost,
             this.ColumnTim});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1157, 520);
-            this.dataGridView1.TabIndex = 4;
+            this.ZapasUdalostiDataGrid.Location = new System.Drawing.Point(12, 45);
+            this.ZapasUdalostiDataGrid.Name = "ZapasUdalostiDataGrid";
+            this.ZapasUdalostiDataGrid.Size = new System.Drawing.Size(1157, 520);
+            this.ZapasUdalostiDataGrid.TabIndex = 4;
             // 
             // ColumnCas
             // 
@@ -264,15 +264,15 @@
             this.nepriamyKopCB.Text = "nepriamy kop";
             this.nepriamyKopCB.UseVisualStyleBackColor = true;
             // 
-            // aktFilterButton
+            // AktivovatFilterBtn
             // 
-            this.aktFilterButton.Location = new System.Drawing.Point(1176, 161);
-            this.aktFilterButton.Name = "aktFilterButton";
-            this.aktFilterButton.Size = new System.Drawing.Size(104, 23);
-            this.aktFilterButton.TabIndex = 11;
-            this.aktFilterButton.Text = "Aktivovať filter";
-            this.aktFilterButton.UseVisualStyleBackColor = true;
-            this.aktFilterButton.Click += new System.EventHandler(this.aktFilterButton_Click);
+            this.AktivovatFilterBtn.Location = new System.Drawing.Point(1176, 161);
+            this.AktivovatFilterBtn.Name = "AktivovatFilterBtn";
+            this.AktivovatFilterBtn.Size = new System.Drawing.Size(104, 23);
+            this.AktivovatFilterBtn.TabIndex = 11;
+            this.AktivovatFilterBtn.Text = "Aktivovať filter";
+            this.AktivovatFilterBtn.UseVisualStyleBackColor = true;
+            this.AktivovatFilterBtn.Click += new System.EventHandler(this.AktivovatFilterBtn_Click);
             // 
             // pokutovyKopCB
             // 
@@ -364,23 +364,23 @@
             this.tim2CB.Text = "hostia";
             this.tim2CB.UseVisualStyleBackColor = true;
             // 
-            // databazaButton
+            // PridatDoDatabazyBtn
             // 
-            this.databazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.databazaButton.Location = new System.Drawing.Point(817, 9);
-            this.databazaButton.Name = "databazaButton";
-            this.databazaButton.Size = new System.Drawing.Size(173, 30);
-            this.databazaButton.TabIndex = 22;
-            this.databazaButton.Text = "pridať do databázy";
-            this.databazaButton.UseVisualStyleBackColor = true;
-            this.databazaButton.Click += new System.EventHandler(this.databazaButton_Click);
+            this.PridatDoDatabazyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PridatDoDatabazyBtn.Location = new System.Drawing.Point(817, 9);
+            this.PridatDoDatabazyBtn.Name = "PridatDoDatabazyBtn";
+            this.PridatDoDatabazyBtn.Size = new System.Drawing.Size(173, 30);
+            this.PridatDoDatabazyBtn.TabIndex = 22;
+            this.PridatDoDatabazyBtn.Text = "pridať do databázy";
+            this.PridatDoDatabazyBtn.UseVisualStyleBackColor = true;
+            this.PridatDoDatabazyBtn.Click += new System.EventHandler(this.databazaButton_Click);
             // 
             // UdalostiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 577);
-            this.Controls.Add(this.databazaButton);
+            this.Controls.Add(this.PridatDoDatabazyBtn);
             this.Controls.Add(this.tim2CB);
             this.Controls.Add(this.timCB);
             this.Controls.Add(this.cervenaKartaCB);
@@ -390,20 +390,20 @@
             this.Controls.Add(this.offsideCB);
             this.Controls.Add(this.golCB);
             this.Controls.Add(this.pokutovyKopCB);
-            this.Controls.Add(this.aktFilterButton);
+            this.Controls.Add(this.AktivovatFilterBtn);
             this.Controls.Add(this.nepriamyKopCB);
             this.Controls.Add(this.priamyKopCB);
             this.Controls.Add(this.rohovyKopCB);
             this.Controls.Add(this.polcas2CB);
             this.Controls.Add(this.polcas1CB);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.csvGenButton);
+            this.Controls.Add(this.ZapasUdalostiDataGrid);
+            this.Controls.Add(this.GenerovatCsvBtn);
             this.Controls.Add(this.skoreLabel);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UdalostiForm";
             this.Text = "Udalosti";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZapasUdalostiDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,14 +420,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Label skoreLabel;
-        private System.Windows.Forms.Button csvGenButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button GenerovatCsvBtn;
+        private System.Windows.Forms.DataGridView ZapasUdalostiDataGrid;
         private System.Windows.Forms.CheckBox polcas1CB;
         private System.Windows.Forms.CheckBox polcas2CB;
         private System.Windows.Forms.CheckBox rohovyKopCB;
         private System.Windows.Forms.CheckBox priamyKopCB;
         private System.Windows.Forms.CheckBox nepriamyKopCB;
-        private System.Windows.Forms.Button aktFilterButton;
+        private System.Windows.Forms.Button AktivovatFilterBtn;
         private System.Windows.Forms.CheckBox pokutovyKopCB;
         private System.Windows.Forms.CheckBox golCB;
         private System.Windows.Forms.CheckBox offsideCB;
@@ -445,6 +445,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPoznamka;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUdalost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTim;
-        private System.Windows.Forms.Button databazaButton;
+        private System.Windows.Forms.Button PridatDoDatabazyBtn;
     }
 }

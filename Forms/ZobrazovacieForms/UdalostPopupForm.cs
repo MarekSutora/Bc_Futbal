@@ -26,7 +26,6 @@ namespace LGR_Futbal.Forms
         private void Casovac_Tick(object sender, EventArgs e)
         {
             this.Close();
-        }
-        
+        }       
     }
 }

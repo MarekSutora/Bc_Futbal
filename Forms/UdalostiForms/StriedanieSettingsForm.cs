@@ -10,23 +10,18 @@ namespace LGR_Futbal.Forms.UdalostiForms
 
     public partial class StriedanieSettingsForm : Form
     {
-        #region Atributy
-
         public event StriedanieHraciSelectedHandler OnStriedanieHraciSelected;
         public event UdalostPridanaHandler OnUdalostPridana;
 
         private bool domaci = false;
+        private bool uspech = false;
         private List<Hrac> odchMoznosti = null;
         private List<Hrac> nastMoznosti = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
-        private bool uspech = false;
         private Striedanie striedanie = null;
 
-        #endregion
-
         #region Konstruktor a metody
-
         public StriedanieSettingsForm(FutbalovyTim tim, bool domaci, Zapas zapas, Striedanie striedanie)
         {
             InitializeComponent();
@@ -81,8 +76,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     PotvrditButton.Enabled = false;
             }
         }
-
-        private void PotvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             if (OnStriedanieHraciSelected != null)
             {
@@ -109,21 +103,17 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
                 
             }
-            this.Close();
+            Close();
         }
-
-        private void BackButton_Click(object sender, EventArgs e)
+        private void SpatBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
-
         #endregion
-
-
     }
 }

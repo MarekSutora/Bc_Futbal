@@ -11,25 +11,19 @@ namespace LGR_Futbal.Forms.UdalostiForms
 
     public partial class GolSettingsForm : Form
     {
-
-        #region Atributy
-
         public event GoalSettingsConfirmedHandler OnGoalSettingsConfirmed;
         public event GoalValueConfirmedHandler OnGoalValueConfirmed;
         public event UdalostPridanaHandler OnUdalostPridana;
 
         private bool domaci = false;
         private int stav;
+        private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
-        private bool uspech = false;
         private Gol gol = null;
 
-        #endregion
-
         #region Konstruktor a metody
-
         public GolSettingsForm(FutbalovyTim tim, bool domaci, int aktualneSkore, Zapas zapas, Gol gol)
         {
             InitializeComponent();            
@@ -43,8 +37,8 @@ namespace LGR_Futbal.Forms.UdalostiForms
 
             if (stav == 0)
             {
-                znizitSkoreButton.Enabled = false;
-                resetSkoreButton.Enabled = false;
+                ZnizitSkoreBtn.Enabled = false;
+                ResetSkoreBtn.Enabled = false;
             }
 
             zoznamHracov = new List<Hrac>();
@@ -71,15 +65,15 @@ namespace LGR_Futbal.Forms.UdalostiForms
             }
 
             if (tim == null)
-                potvrditButton.Enabled = true;
+                PotvrditBtn.Enabled = true;
             else
             {
                 if (zoznamHracov.Count == 0)
-                    potvrditButton.Enabled = false;
+                    PotvrditBtn.Enabled = false;
                 else
                 {
                     HraciLB.SelectedIndex = 0;
-                    potvrditButton.Enabled = true;
+                    PotvrditBtn.Enabled = true;
                 }
             }
         }
@@ -120,26 +114,21 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
                     
             }
-
-            this.Close();
+            Close();
         }
-
-        private void PotvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             PotvrdGol();
         }
-
-        private void ZnizitSkoreButton_Click(object sender, EventArgs e)
+        private void ZnizitSkoreBtn_Click(object sender, EventArgs e)
         {
             if (stav > 0)
             {
-                if (OnGoalSettingsConfirmed != null)
-                    OnGoalSettingsConfirmed(null, domaci, stav - 1);
+                OnGoalSettingsConfirmed?.Invoke(null, domaci, stav - 1);
             }
-            this.Close();
+            Close();
         }
-
-        private void ResetSkoreButton_Click(object sender, EventArgs e)
+        private void ResetSkoreBtn_Click(object sender, EventArgs e)
         {
             if (stav > 0)
             {
@@ -149,28 +138,24 @@ namespace LGR_Futbal.Forms.UdalostiForms
                         OnGoalSettingsConfirmed(null, domaci, 0);
                 }
             }
-            this.Close();
+            Close();
         }
-
-        private void BackButton_Click(object sender, EventArgs e)
+        private void SpatBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-
         private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
             if (HraciLB.SelectedIndex >= 0)
                 PotvrdGol();
         }
-
-        private void NastavitButton_Click(object sender, EventArgs e)
+        private void NastavitBtn_Click(object sender, EventArgs e)
         {
             int hodnota = (int)HodnotaNumericUpDown.Value;
             if (OnGoalValueConfirmed != null)
                 OnGoalValueConfirmed(domaci, hodnota);
-            this.Close();
+            Close();
         }
-
         private void PenaltaCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (PenaltaCheckBox.Checked)
@@ -183,13 +168,11 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 AsistHraciLB.Enabled = true;
             }
         }
-
         private void GolSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
         }
-
         #endregion    
     }
 }

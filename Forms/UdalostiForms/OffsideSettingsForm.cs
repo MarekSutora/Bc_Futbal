@@ -11,11 +11,12 @@ namespace LGR_Futbal.Forms.UdalostiForms
         public event UdalostPridanaHandler OnUdalostPridana;
 
         private bool domaci = false;
+        private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
-        private bool uspech = false;
         private Offside offside = null;
+
         public OffsideSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Offside offside)
         {
             InitializeComponent();
@@ -47,18 +48,17 @@ namespace LGR_Futbal.Forms.UdalostiForms
             }
 
             if (futbalovyTim == null)
-                PotvrditButton.Enabled = true;
+                PotvrditBtn.Enabled = true;
             else
             {
                 if (zoznamHracov.Count == 0)
-                    PotvrditButton.Enabled = false;
+                    PotvrditBtn.Enabled = false;
                 else
                 {
-                    PotvrditButton.Enabled = true;
+                    PotvrditBtn.Enabled = true;
                 }
             }
         }
-
         private void PotvrdOffside()
         {
             if (HraciLB.SelectedIndex >= 0)
@@ -69,32 +69,27 @@ namespace LGR_Futbal.Forms.UdalostiForms
             offside.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
             zapas.Udalosti.Add(offside);
             uspech = true;
-            this.Close();
+            Close();
         }
-
-        private void PotvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             PotvrdOffside();
         }
-
-        private void BackButton_Click(object sender, EventArgs e)
+        private void SpatBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-
         private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
 
             if (HraciLB.SelectedIndex >= 0)
                 PotvrdOffside();
         }
-
         private void OffsideSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
         }
-
         private void OffsideSettingsForm_MouseClick(object sender, MouseEventArgs e)
         {
             HraciLB.ClearSelected();

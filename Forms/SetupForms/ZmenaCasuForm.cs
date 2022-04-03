@@ -48,7 +48,7 @@ namespace LGR_Futbal.Forms
         }
         private void SpatBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

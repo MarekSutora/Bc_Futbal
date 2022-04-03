@@ -73,11 +73,13 @@ namespace LGR_Futbal.Forms
             {
                 polcasLabel.Text = hodnota + ". polčas + " + nadstaveneMinuty + " !";
                 polcasLabel.ForeColor = Color.OrangeRed;
+                casLabel.ForeColor = Color.OrangeRed;
             }
             else
             {
                 polcasLabel.Text = hodnota + ". polčas";
                 polcasLabel.ForeColor = Color.Lime;
+                casLabel.ForeColor = Color.Lime;
             }
             
         }
@@ -105,7 +107,6 @@ namespace LGR_Futbal.Forms
 
             casLabel.Font = fonty.CreateCasFont();
             polcasLabel.Font = fonty.CreatePolcasFont();
-
         }
 
         public void SetLayout(RozlozenieTabule rozlozenie)

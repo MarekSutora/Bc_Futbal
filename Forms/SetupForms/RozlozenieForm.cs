@@ -217,37 +217,40 @@ namespace LGR_Futbal.Forms
 
         private void ObnovitBtn_Click(object sender, EventArgs e)
         {
-            rozlozenieTabule.NativneRozlozenie(sirka, vyska);
+            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia rozloženia?", "FutbalApp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                rozlozenieTabule.NativneRozlozenie(sirka, vyska);
 
-            CasXNumeric.Value = rozlozenieTabule.Cas_X;
-            CasYNumeric.Value = rozlozenieTabule.Cas_Y;
+                CasXNumeric.Value = rozlozenieTabule.Cas_X;
+                CasYNumeric.Value = rozlozenieTabule.Cas_Y;
 
-            DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
-            DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
+                DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
+                DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
 
-            HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
-            HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
+                HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
+                HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
 
-            SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
-            SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
+                SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
+                SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
 
-            SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
-            SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
+                SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
+                SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
 
-            LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
-            LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
-            LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
-            domaciLogoCB.Checked = true;
+                LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
+                LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
+                LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
+                domaciLogoCB.Checked = true;
 
-            LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
-            LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
-            LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
-            domaciLogoCB.Checked = true;
+                LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
+                LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
+                LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
+                domaciLogoCB.Checked = true;
 
-            PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
-            PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
+                PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
+                PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
 
-            OnZmenaRozlozenia?.Invoke();
+                OnZmenaRozlozenia?.Invoke();
+            } 
         }
     }
 }

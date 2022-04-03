@@ -30,8 +30,8 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.PotvrditButton = new System.Windows.Forms.Button();
+            this.SpatBtn = new System.Windows.Forms.Button();
+            this.PotvrditBtn = new System.Windows.Forms.Button();
             this.HraciLB = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -55,31 +55,31 @@
             this.label1.TabIndex = 571;
             this.label1.Text = "Hráči:";
             // 
-            // BackButton
+            // SpatBtn
             // 
-            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BackButton.Location = new System.Drawing.Point(238, 361);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(174, 78);
-            this.BackButton.TabIndex = 569;
-            this.BackButton.Text = "Návrat späť";
-            this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.SpatBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.SpatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpatBtn.Location = new System.Drawing.Point(238, 361);
+            this.SpatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.SpatBtn.Name = "SpatBtn";
+            this.SpatBtn.Size = new System.Drawing.Size(174, 78);
+            this.SpatBtn.TabIndex = 569;
+            this.SpatBtn.Text = "Návrat späť";
+            this.SpatBtn.UseVisualStyleBackColor = false;
+            this.SpatBtn.Click += new System.EventHandler(this.SpatBtn_Click);
             // 
-            // PotvrditButton
+            // PotvrditBtn
             // 
-            this.PotvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.PotvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PotvrditButton.Location = new System.Drawing.Point(19, 361);
-            this.PotvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.PotvrditButton.Name = "PotvrditButton";
-            this.PotvrditButton.Size = new System.Drawing.Size(174, 78);
-            this.PotvrditButton.TabIndex = 568;
-            this.PotvrditButton.Text = "Potvrdiť";
-            this.PotvrditButton.UseVisualStyleBackColor = false;
-            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
+            this.PotvrditBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PotvrditBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditBtn.Location = new System.Drawing.Point(19, 361);
+            this.PotvrditBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PotvrditBtn.Name = "PotvrditBtn";
+            this.PotvrditBtn.Size = new System.Drawing.Size(174, 78);
+            this.PotvrditBtn.TabIndex = 568;
+            this.PotvrditBtn.Text = "Potvrdiť";
+            this.PotvrditBtn.UseVisualStyleBackColor = false;
+            this.PotvrditBtn.Click += new System.EventHandler(this.PotvrditBtn_Click);
             // 
             // HraciLB
             // 
@@ -100,8 +100,8 @@
             this.Controls.Add(this.HraciLB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BackButton);
-            this.Controls.Add(this.PotvrditButton);
+            this.Controls.Add(this.SpatBtn);
+            this.Controls.Add(this.PotvrditBtn);
             this.Name = "OutSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutSettingsForm";
@@ -116,8 +116,8 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.Button PotvrditButton;
+        private System.Windows.Forms.Button SpatBtn;
+        private System.Windows.Forms.Button PotvrditBtn;
         private System.Windows.Forms.ListBox HraciLB;
     }
 }

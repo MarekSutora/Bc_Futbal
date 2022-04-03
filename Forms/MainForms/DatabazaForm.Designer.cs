@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabazaForm));
-            this.hracButton = new System.Windows.Forms.Button();
-            this.timyButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HraciBtn = new System.Windows.Forms.Button();
+            this.TimyBtn = new System.Windows.Forms.Button();
+            this.RozhodcoviaBtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.editHracGroupBox = new System.Windows.Forms.GroupBox();
-            this.editPohlavieComboBox = new System.Windows.Forms.ComboBox();
+            this.UpravaHracaGroupBox = new System.Windows.Forms.GroupBox();
+            this.upravaPohlavieCB = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.editTimComboBox = new System.Windows.Forms.ComboBox();
+            this.upravaHracaTimCB = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.editCisloTextBox = new System.Windows.Forms.TextBox();
-            this.editHracConfirmbutton = new System.Windows.Forms.Button();
+            this.UlozitUpravaHracaBtn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.editRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.upravaHracaRTextBox = new System.Windows.Forms.RichTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.editDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -53,18 +53,18 @@
             this.editMenoTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.editZrusFotografiu = new System.Windows.Forms.Button();
-            this.editVlozFotografiu = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.vlozHracaGroupBox = new System.Windows.Forms.GroupBox();
-            this.pohlavieComboBox = new System.Windows.Forms.ComboBox();
+            this.UpravaZrusFotoBtn = new System.Windows.Forms.Button();
+            this.UpravaVlozFotoBtn = new System.Windows.Forms.Button();
+            this.upravaFotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.VlozitHracaGroupBox = new System.Windows.Forms.GroupBox();
+            this.hracPohlavieCB = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.timHracCB = new System.Windows.Forms.ComboBox();
+            this.hracTimCB = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cisloHracaTextBox = new System.Windows.Forms.TextBox();
-            this.vlozHracaButton = new System.Windows.Forms.Button();
+            this.UlozitHracaBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.poznamkaRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.hracaRTextBox = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.datumPicker = new System.Windows.Forms.DateTimePicker();
@@ -76,78 +76,77 @@
             this.menoTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.zrusitObrazokButton = new System.Windows.Forms.Button();
-            this.vlozFotobtn = new System.Windows.Forms.Button();
-            this.fotkaPictureBox = new System.Windows.Forms.PictureBox();
-            this.filterHracovbtn = new System.Windows.Forms.Button();
+            this.ZrusitFotoBtn = new System.Windows.Forms.Button();
+            this.VlozitFotoBtn = new System.Windows.Forms.Button();
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.FiltrujHracovBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.timFilterCB = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.hraciListBox = new System.Windows.Forms.ListBox();
+            this.timyFilterCB = new System.Windows.Forms.ComboBox();
+            this.OdstranitHracaBtn = new System.Windows.Forms.Button();
+            this.UpravitHracaBtn = new System.Windows.Forms.Button();
+            this.VlozitHracaBtn = new System.Windows.Forms.Button();
+            this.HraciListBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.removeButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.timyListBox = new System.Windows.Forms.ListBox();
+            this.OdstranitTimBtn = new System.Windows.Forms.Button();
+            this.ZmenitTimBtn = new System.Windows.Forms.Button();
+            this.VlozitTimBtn = new System.Windows.Forms.Button();
+            this.TimyListBox = new System.Windows.Forms.ListBox();
             this.infoLabel1 = new System.Windows.Forms.Label();
-            this.addGroupBox = new System.Windows.Forms.GroupBox();
+            this.pridatTimGroupBox = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.kategoriaComboBox = new System.Windows.Forms.ComboBox();
-            this.spatButton = new System.Windows.Forms.Button();
-            this.zrusitLogoButton = new System.Windows.Forms.Button();
-            this.vlozitButton = new System.Windows.Forms.Button();
-            this.zmenaObrazkaButton = new System.Windows.Forms.Button();
+            this.ZrusitLogoBtn = new System.Windows.Forms.Button();
+            this.UlozitTimBtn = new System.Windows.Forms.Button();
+            this.VlozitLogoBtn = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.nazovTextBox = new System.Windows.Forms.TextBox();
             this.infoLabel2 = new System.Windows.Forms.Label();
-            this.editGroupBox = new System.Windows.Forms.GroupBox();
+            this.upravitTimGroupBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.kategoriaCombobox2 = new System.Windows.Forms.ComboBox();
-            this.editBackButton = new System.Windows.Forms.Button();
-            this.editZrusButton = new System.Windows.Forms.Button();
-            this.editConfirmButton = new System.Windows.Forms.Button();
-            this.editZmenaButton = new System.Windows.Forms.Button();
-            this.editPictureBox = new System.Windows.Forms.PictureBox();
+            this.UpravaZrusitLogoBtn = new System.Windows.Forms.Button();
+            this.PotvrditUpravuTimBtn = new System.Windows.Forms.Button();
+            this.UpravaZmenitLogoBtn = new System.Windows.Forms.Button();
+            this.upravaLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.editNazovTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
             this.editRozhodcuGroupBox = new System.Windows.Forms.GroupBox();
-            this.editRozhodcaComboBox = new System.Windows.Forms.ComboBox();
+            this.upravaRozhodcaPohlavieCB = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.editRozhdocuConfirmButton = new System.Windows.Forms.Button();
+            this.PotrvditUpravuRozhodcuBtn = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.editRozhdocaPriezvisko = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.editRozhodcaMeno = new System.Windows.Forms.TextBox();
             this.addRozhodcuGroupBox = new System.Windows.Forms.GroupBox();
-            this.addRozhodcaComboBox = new System.Windows.Forms.ComboBox();
+            this.rozhodcaPohlavieCB = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.addRozhodcuConfirmButton = new System.Windows.Forms.Button();
+            this.UlozitRozhodcuBtn = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.addRozhdocaPriezvisko = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.addRozhodcaMeno = new System.Windows.Forms.TextBox();
-            this.removeRozhodcuButton = new System.Windows.Forms.Button();
-            this.editRozhodcuButton = new System.Windows.Forms.Button();
-            this.vlozRozhodcuButton = new System.Windows.Forms.Button();
+            this.OdstranitRozhodcuBtn = new System.Windows.Forms.Button();
+            this.UpravaRozhodcuBtn = new System.Windows.Forms.Button();
+            this.VlozitRozhodcuBtn = new System.Windows.Forms.Button();
             this.RozhodcoviaListBox = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.zapasyLB = new System.Windows.Forms.ListBox();
-            this.zapasyButton = new System.Windows.Forms.Button();
+            this.VybratZapasBtn = new System.Windows.Forms.Button();
+            this.ZapasyListBox = new System.Windows.Forms.ListBox();
+            this.ZapasyBtn = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
-            this.editHracGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.vlozHracaGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).BeginInit();
+            this.UpravaHracaGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upravaFotoPictureBox)).BeginInit();
+            this.VlozitHracaGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             this.tabPage1.SuspendLayout();
-            this.addGroupBox.SuspendLayout();
+            this.pridatTimGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
-            this.editGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).BeginInit();
+            this.upravitTimGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upravaLogoPictureBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.editRozhodcuGroupBox.SuspendLayout();
@@ -155,108 +154,108 @@
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // hracButton
+            // HraciBtn
             // 
-            this.hracButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.hracButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hracButton.Location = new System.Drawing.Point(11, 94);
-            this.hracButton.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.hracButton.Name = "hracButton";
-            this.hracButton.Size = new System.Drawing.Size(190, 72);
-            this.hracButton.TabIndex = 25;
-            this.hracButton.Text = "HRÁČI";
-            this.hracButton.UseVisualStyleBackColor = false;
-            this.hracButton.Click += new System.EventHandler(this.hracButton_Click);
+            this.HraciBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.HraciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciBtn.Location = new System.Drawing.Point(11, 123);
+            this.HraciBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
+            this.HraciBtn.Name = "HraciBtn";
+            this.HraciBtn.Size = new System.Drawing.Size(190, 72);
+            this.HraciBtn.TabIndex = 25;
+            this.HraciBtn.Text = "HRÁČI";
+            this.HraciBtn.UseVisualStyleBackColor = false;
+            this.HraciBtn.Click += new System.EventHandler(this.HraciBtn_Click);
             // 
-            // timyButton
+            // TimyBtn
             // 
-            this.timyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.timyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.timyButton.Location = new System.Drawing.Point(11, 10);
-            this.timyButton.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.timyButton.Name = "timyButton";
-            this.timyButton.Size = new System.Drawing.Size(190, 72);
-            this.timyButton.TabIndex = 24;
-            this.timyButton.Text = "TÍMY";
-            this.timyButton.UseVisualStyleBackColor = false;
-            this.timyButton.Click += new System.EventHandler(this.timyButton_Click);
+            this.TimyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.TimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TimyBtn.Location = new System.Drawing.Point(11, 10);
+            this.TimyBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
+            this.TimyBtn.Name = "TimyBtn";
+            this.TimyBtn.Size = new System.Drawing.Size(190, 72);
+            this.TimyBtn.TabIndex = 24;
+            this.TimyBtn.Text = "TÍMY";
+            this.TimyBtn.UseVisualStyleBackColor = false;
+            this.TimyBtn.Click += new System.EventHandler(this.TimyBtn_Click);
             // 
-            // button1
+            // RozhodcoviaBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(11, 178);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 72);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "ROZHODCOVIA";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.RozhodcoviaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.RozhodcoviaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.RozhodcoviaBtn.Location = new System.Drawing.Point(11, 239);
+            this.RozhodcoviaBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
+            this.RozhodcoviaBtn.Name = "RozhodcoviaBtn";
+            this.RozhodcoviaBtn.Size = new System.Drawing.Size(190, 72);
+            this.RozhodcoviaBtn.TabIndex = 32;
+            this.RozhodcoviaBtn.Text = "ROZHODCOVIA";
+            this.RozhodcoviaBtn.UseVisualStyleBackColor = false;
+            this.RozhodcoviaBtn.Click += new System.EventHandler(this.RozhodcoviaBtn_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.editHracGroupBox);
-            this.tabPage2.Controls.Add(this.vlozHracaGroupBox);
-            this.tabPage2.Controls.Add(this.filterHracovbtn);
+            this.tabPage2.Controls.Add(this.UpravaHracaGroupBox);
+            this.tabPage2.Controls.Add(this.VlozitHracaGroupBox);
+            this.tabPage2.Controls.Add(this.FiltrujHracovBtn);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.timFilterCB);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.hraciListBox);
+            this.tabPage2.Controls.Add(this.timyFilterCB);
+            this.tabPage2.Controls.Add(this.OdstranitHracaBtn);
+            this.tabPage2.Controls.Add(this.UpravitHracaBtn);
+            this.tabPage2.Controls.Add(this.VlozitHracaBtn);
+            this.tabPage2.Controls.Add(this.HraciListBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(716, 471);
+            this.tabPage2.Size = new System.Drawing.Size(825, 402);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "HRÁČI";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // editHracGroupBox
+            // UpravaHracaGroupBox
             // 
-            this.editHracGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.editHracGroupBox.Controls.Add(this.editPohlavieComboBox);
-            this.editHracGroupBox.Controls.Add(this.label5);
-            this.editHracGroupBox.Controls.Add(this.editTimComboBox);
-            this.editHracGroupBox.Controls.Add(this.label14);
-            this.editHracGroupBox.Controls.Add(this.editCisloTextBox);
-            this.editHracGroupBox.Controls.Add(this.editHracConfirmbutton);
-            this.editHracGroupBox.Controls.Add(this.label15);
-            this.editHracGroupBox.Controls.Add(this.editRichTextBox);
-            this.editHracGroupBox.Controls.Add(this.label16);
-            this.editHracGroupBox.Controls.Add(this.label17);
-            this.editHracGroupBox.Controls.Add(this.editDateTimePicker);
-            this.editHracGroupBox.Controls.Add(this.editPostTextBox);
-            this.editHracGroupBox.Controls.Add(this.label18);
-            this.editHracGroupBox.Controls.Add(this.label19);
-            this.editHracGroupBox.Controls.Add(this.editPriezviskoTextBox);
-            this.editHracGroupBox.Controls.Add(this.label20);
-            this.editHracGroupBox.Controls.Add(this.editMenoTextBox);
-            this.editHracGroupBox.Controls.Add(this.label21);
-            this.editHracGroupBox.Controls.Add(this.button3);
-            this.editHracGroupBox.Controls.Add(this.editZrusFotografiu);
-            this.editHracGroupBox.Controls.Add(this.editVlozFotografiu);
-            this.editHracGroupBox.Controls.Add(this.pictureBox);
-            this.editHracGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.editHracGroupBox.Location = new System.Drawing.Point(310, 31);
-            this.editHracGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editHracGroupBox.Name = "editHracGroupBox";
-            this.editHracGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editHracGroupBox.Size = new System.Drawing.Size(401, 393);
-            this.editHracGroupBox.TabIndex = 72;
-            this.editHracGroupBox.TabStop = false;
-            this.editHracGroupBox.Text = "Úprava hráča";
-            this.editHracGroupBox.Visible = false;
+            this.UpravaHracaGroupBox.BackColor = System.Drawing.SystemColors.Control;
+            this.UpravaHracaGroupBox.Controls.Add(this.upravaPohlavieCB);
+            this.UpravaHracaGroupBox.Controls.Add(this.label5);
+            this.UpravaHracaGroupBox.Controls.Add(this.upravaHracaTimCB);
+            this.UpravaHracaGroupBox.Controls.Add(this.label14);
+            this.UpravaHracaGroupBox.Controls.Add(this.editCisloTextBox);
+            this.UpravaHracaGroupBox.Controls.Add(this.UlozitUpravaHracaBtn);
+            this.UpravaHracaGroupBox.Controls.Add(this.label15);
+            this.UpravaHracaGroupBox.Controls.Add(this.upravaHracaRTextBox);
+            this.UpravaHracaGroupBox.Controls.Add(this.label16);
+            this.UpravaHracaGroupBox.Controls.Add(this.label17);
+            this.UpravaHracaGroupBox.Controls.Add(this.editDateTimePicker);
+            this.UpravaHracaGroupBox.Controls.Add(this.editPostTextBox);
+            this.UpravaHracaGroupBox.Controls.Add(this.label18);
+            this.UpravaHracaGroupBox.Controls.Add(this.label19);
+            this.UpravaHracaGroupBox.Controls.Add(this.editPriezviskoTextBox);
+            this.UpravaHracaGroupBox.Controls.Add(this.label20);
+            this.UpravaHracaGroupBox.Controls.Add(this.editMenoTextBox);
+            this.UpravaHracaGroupBox.Controls.Add(this.label21);
+            this.UpravaHracaGroupBox.Controls.Add(this.button3);
+            this.UpravaHracaGroupBox.Controls.Add(this.UpravaZrusFotoBtn);
+            this.UpravaHracaGroupBox.Controls.Add(this.UpravaVlozFotoBtn);
+            this.UpravaHracaGroupBox.Controls.Add(this.upravaFotoPictureBox);
+            this.UpravaHracaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.UpravaHracaGroupBox.Location = new System.Drawing.Point(415, 6);
+            this.UpravaHracaGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaHracaGroupBox.Name = "UpravaHracaGroupBox";
+            this.UpravaHracaGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaHracaGroupBox.Size = new System.Drawing.Size(401, 393);
+            this.UpravaHracaGroupBox.TabIndex = 72;
+            this.UpravaHracaGroupBox.TabStop = false;
+            this.UpravaHracaGroupBox.Text = "Úprava hráča";
+            this.UpravaHracaGroupBox.Visible = false;
             // 
-            // editPohlavieComboBox
+            // upravaPohlavieCB
             // 
-            this.editPohlavieComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.editPohlavieComboBox.FormattingEnabled = true;
-            this.editPohlavieComboBox.Location = new System.Drawing.Point(132, 186);
-            this.editPohlavieComboBox.Name = "editPohlavieComboBox";
-            this.editPohlavieComboBox.Size = new System.Drawing.Size(132, 25);
-            this.editPohlavieComboBox.TabIndex = 72;
+            this.upravaPohlavieCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.upravaPohlavieCB.FormattingEnabled = true;
+            this.upravaPohlavieCB.Location = new System.Drawing.Point(132, 186);
+            this.upravaPohlavieCB.Name = "upravaPohlavieCB";
+            this.upravaPohlavieCB.Size = new System.Drawing.Size(132, 25);
+            this.upravaPohlavieCB.TabIndex = 72;
             // 
             // label5
             // 
@@ -269,14 +268,14 @@
             this.label5.TabIndex = 73;
             this.label5.Text = "Pohlavie:";
             // 
-            // editTimComboBox
+            // upravaHracaTimCB
             // 
-            this.editTimComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.editTimComboBox.FormattingEnabled = true;
-            this.editTimComboBox.Location = new System.Drawing.Point(132, 125);
-            this.editTimComboBox.Name = "editTimComboBox";
-            this.editTimComboBox.Size = new System.Drawing.Size(132, 25);
-            this.editTimComboBox.TabIndex = 42;
+            this.upravaHracaTimCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.upravaHracaTimCB.FormattingEnabled = true;
+            this.upravaHracaTimCB.Location = new System.Drawing.Point(132, 125);
+            this.upravaHracaTimCB.Name = "upravaHracaTimCB";
+            this.upravaHracaTimCB.Size = new System.Drawing.Size(132, 25);
+            this.upravaHracaTimCB.TabIndex = 42;
             // 
             // label14
             // 
@@ -298,20 +297,20 @@
             this.editCisloTextBox.Size = new System.Drawing.Size(134, 23);
             this.editCisloTextBox.TabIndex = 70;
             // 
-            // editHracConfirmbutton
+            // UlozitUpravaHracaBtn
             // 
-            this.editHracConfirmbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editHracConfirmbutton.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
-            this.editHracConfirmbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editHracConfirmbutton.Location = new System.Drawing.Point(269, 335);
-            this.editHracConfirmbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editHracConfirmbutton.Name = "editHracConfirmbutton";
-            this.editHracConfirmbutton.Size = new System.Drawing.Size(118, 52);
-            this.editHracConfirmbutton.TabIndex = 69;
-            this.editHracConfirmbutton.Text = "Uložiť     \r\nzmeny    ";
-            this.editHracConfirmbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editHracConfirmbutton.UseVisualStyleBackColor = true;
-            this.editHracConfirmbutton.Click += new System.EventHandler(this.editHracConfirmbutton_Click);
+            this.UlozitUpravaHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UlozitUpravaHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitUpravaHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitUpravaHracaBtn.Location = new System.Drawing.Point(269, 335);
+            this.UlozitUpravaHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitUpravaHracaBtn.Name = "UlozitUpravaHracaBtn";
+            this.UlozitUpravaHracaBtn.Size = new System.Drawing.Size(118, 52);
+            this.UlozitUpravaHracaBtn.TabIndex = 69;
+            this.UlozitUpravaHracaBtn.Text = "Uložiť     \r\nzmeny    ";
+            this.UlozitUpravaHracaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitUpravaHracaBtn.UseVisualStyleBackColor = true;
+            this.UlozitUpravaHracaBtn.Click += new System.EventHandler(this.UlozitUpravaHracaBtn_Click);
             // 
             // label15
             // 
@@ -324,14 +323,14 @@
             this.label15.TabIndex = 63;
             this.label15.Text = "* povinné údaje";
             // 
-            // editRichTextBox
+            // upravaHracaRTextBox
             // 
-            this.editRichTextBox.Location = new System.Drawing.Point(130, 216);
-            this.editRichTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editRichTextBox.Name = "editRichTextBox";
-            this.editRichTextBox.Size = new System.Drawing.Size(134, 171);
-            this.editRichTextBox.TabIndex = 51;
-            this.editRichTextBox.Text = "";
+            this.upravaHracaRTextBox.Location = new System.Drawing.Point(130, 216);
+            this.upravaHracaRTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.upravaHracaRTextBox.Name = "upravaHracaRTextBox";
+            this.upravaHracaRTextBox.Size = new System.Drawing.Size(134, 171);
+            this.upravaHracaRTextBox.TabIndex = 51;
+            this.upravaHracaRTextBox.Text = "";
             // 
             // label16
             // 
@@ -451,82 +450,82 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // editZrusFotografiu
+            // UpravaZrusFotoBtn
             // 
-            this.editZrusFotografiu.Location = new System.Drawing.Point(269, 188);
-            this.editZrusFotografiu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editZrusFotografiu.Name = "editZrusFotografiu";
-            this.editZrusFotografiu.Size = new System.Drawing.Size(118, 30);
-            this.editZrusFotografiu.TabIndex = 28;
-            this.editZrusFotografiu.Text = "Zrušiť fotografiu";
-            this.editZrusFotografiu.UseVisualStyleBackColor = true;
-            this.editZrusFotografiu.Click += new System.EventHandler(this.zrusitObrazokButton_Click);
+            this.UpravaZrusFotoBtn.Location = new System.Drawing.Point(269, 188);
+            this.UpravaZrusFotoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaZrusFotoBtn.Name = "UpravaZrusFotoBtn";
+            this.UpravaZrusFotoBtn.Size = new System.Drawing.Size(118, 30);
+            this.UpravaZrusFotoBtn.TabIndex = 28;
+            this.UpravaZrusFotoBtn.Text = "Zrušiť fotografiu";
+            this.UpravaZrusFotoBtn.UseVisualStyleBackColor = true;
+            this.UpravaZrusFotoBtn.Click += new System.EventHandler(this.UpravaZrusFotoBtn_Click);
             // 
-            // editVlozFotografiu
+            // UpravaVlozFotoBtn
             // 
-            this.editVlozFotografiu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.editVlozFotografiu.Location = new System.Drawing.Point(269, 153);
-            this.editVlozFotografiu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editVlozFotografiu.Name = "editVlozFotografiu";
-            this.editVlozFotografiu.Size = new System.Drawing.Size(118, 30);
-            this.editVlozFotografiu.TabIndex = 27;
-            this.editVlozFotografiu.Text = "Zmeň fotografiu";
-            this.editVlozFotografiu.UseVisualStyleBackColor = true;
-            this.editVlozFotografiu.Click += new System.EventHandler(this.editVlozFotografiu_Click);
+            this.UpravaVlozFotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.UpravaVlozFotoBtn.Location = new System.Drawing.Point(269, 153);
+            this.UpravaVlozFotoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaVlozFotoBtn.Name = "UpravaVlozFotoBtn";
+            this.UpravaVlozFotoBtn.Size = new System.Drawing.Size(118, 30);
+            this.UpravaVlozFotoBtn.TabIndex = 27;
+            this.UpravaVlozFotoBtn.Text = "Zmeň fotografiu";
+            this.UpravaVlozFotoBtn.UseVisualStyleBackColor = true;
+            this.UpravaVlozFotoBtn.Click += new System.EventHandler(this.UpravaVlozitFotoBtn_Click);
             // 
-            // pictureBox
+            // upravaFotoPictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(269, 20);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(118, 127);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 26;
-            this.pictureBox.TabStop = false;
+            this.upravaFotoPictureBox.Location = new System.Drawing.Point(269, 20);
+            this.upravaFotoPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.upravaFotoPictureBox.Name = "upravaFotoPictureBox";
+            this.upravaFotoPictureBox.Size = new System.Drawing.Size(118, 127);
+            this.upravaFotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.upravaFotoPictureBox.TabIndex = 26;
+            this.upravaFotoPictureBox.TabStop = false;
             // 
-            // vlozHracaGroupBox
+            // VlozitHracaGroupBox
             // 
-            this.vlozHracaGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.vlozHracaGroupBox.Controls.Add(this.pohlavieComboBox);
-            this.vlozHracaGroupBox.Controls.Add(this.label22);
-            this.vlozHracaGroupBox.Controls.Add(this.timHracCB);
-            this.vlozHracaGroupBox.Controls.Add(this.label13);
-            this.vlozHracaGroupBox.Controls.Add(this.cisloHracaTextBox);
-            this.vlozHracaGroupBox.Controls.Add(this.vlozHracaButton);
-            this.vlozHracaGroupBox.Controls.Add(this.label9);
-            this.vlozHracaGroupBox.Controls.Add(this.poznamkaRichTextBox);
-            this.vlozHracaGroupBox.Controls.Add(this.label8);
-            this.vlozHracaGroupBox.Controls.Add(this.label6);
-            this.vlozHracaGroupBox.Controls.Add(this.datumPicker);
-            this.vlozHracaGroupBox.Controls.Add(this.postTextBox);
-            this.vlozHracaGroupBox.Controls.Add(this.label7);
-            this.vlozHracaGroupBox.Controls.Add(this.label10);
-            this.vlozHracaGroupBox.Controls.Add(this.priezviskoTextBox);
-            this.vlozHracaGroupBox.Controls.Add(this.label11);
-            this.vlozHracaGroupBox.Controls.Add(this.menoTextBox);
-            this.vlozHracaGroupBox.Controls.Add(this.label12);
-            this.vlozHracaGroupBox.Controls.Add(this.button2);
-            this.vlozHracaGroupBox.Controls.Add(this.zrusitObrazokButton);
-            this.vlozHracaGroupBox.Controls.Add(this.vlozFotobtn);
-            this.vlozHracaGroupBox.Controls.Add(this.fotkaPictureBox);
-            this.vlozHracaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.vlozHracaGroupBox.Location = new System.Drawing.Point(310, 31);
-            this.vlozHracaGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozHracaGroupBox.Name = "vlozHracaGroupBox";
-            this.vlozHracaGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozHracaGroupBox.Size = new System.Drawing.Size(401, 393);
-            this.vlozHracaGroupBox.TabIndex = 33;
-            this.vlozHracaGroupBox.TabStop = false;
-            this.vlozHracaGroupBox.Text = "Vloženie nového hráča";
+            this.VlozitHracaGroupBox.BackColor = System.Drawing.SystemColors.Control;
+            this.VlozitHracaGroupBox.Controls.Add(this.hracPohlavieCB);
+            this.VlozitHracaGroupBox.Controls.Add(this.label22);
+            this.VlozitHracaGroupBox.Controls.Add(this.hracTimCB);
+            this.VlozitHracaGroupBox.Controls.Add(this.label13);
+            this.VlozitHracaGroupBox.Controls.Add(this.cisloHracaTextBox);
+            this.VlozitHracaGroupBox.Controls.Add(this.UlozitHracaBtn);
+            this.VlozitHracaGroupBox.Controls.Add(this.label9);
+            this.VlozitHracaGroupBox.Controls.Add(this.hracaRTextBox);
+            this.VlozitHracaGroupBox.Controls.Add(this.label8);
+            this.VlozitHracaGroupBox.Controls.Add(this.label6);
+            this.VlozitHracaGroupBox.Controls.Add(this.datumPicker);
+            this.VlozitHracaGroupBox.Controls.Add(this.postTextBox);
+            this.VlozitHracaGroupBox.Controls.Add(this.label7);
+            this.VlozitHracaGroupBox.Controls.Add(this.label10);
+            this.VlozitHracaGroupBox.Controls.Add(this.priezviskoTextBox);
+            this.VlozitHracaGroupBox.Controls.Add(this.label11);
+            this.VlozitHracaGroupBox.Controls.Add(this.menoTextBox);
+            this.VlozitHracaGroupBox.Controls.Add(this.label12);
+            this.VlozitHracaGroupBox.Controls.Add(this.button2);
+            this.VlozitHracaGroupBox.Controls.Add(this.ZrusitFotoBtn);
+            this.VlozitHracaGroupBox.Controls.Add(this.VlozitFotoBtn);
+            this.VlozitHracaGroupBox.Controls.Add(this.fotoPictureBox);
+            this.VlozitHracaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.VlozitHracaGroupBox.Location = new System.Drawing.Point(419, 6);
+            this.VlozitHracaGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitHracaGroupBox.Name = "VlozitHracaGroupBox";
+            this.VlozitHracaGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitHracaGroupBox.Size = new System.Drawing.Size(401, 393);
+            this.VlozitHracaGroupBox.TabIndex = 33;
+            this.VlozitHracaGroupBox.TabStop = false;
+            this.VlozitHracaGroupBox.Text = "Vloženie nového hráča";
             // 
-            // pohlavieComboBox
+            // hracPohlavieCB
             // 
-            this.pohlavieComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pohlavieComboBox.FormattingEnabled = true;
-            this.pohlavieComboBox.Location = new System.Drawing.Point(132, 186);
-            this.pohlavieComboBox.Name = "pohlavieComboBox";
-            this.pohlavieComboBox.Size = new System.Drawing.Size(132, 25);
-            this.pohlavieComboBox.TabIndex = 72;
+            this.hracPohlavieCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hracPohlavieCB.FormattingEnabled = true;
+            this.hracPohlavieCB.Location = new System.Drawing.Point(132, 186);
+            this.hracPohlavieCB.Name = "hracPohlavieCB";
+            this.hracPohlavieCB.Size = new System.Drawing.Size(132, 25);
+            this.hracPohlavieCB.TabIndex = 72;
             // 
             // label22
             // 
@@ -539,14 +538,14 @@
             this.label22.TabIndex = 73;
             this.label22.Text = "Pohlavie:";
             // 
-            // timHracCB
+            // hracTimCB
             // 
-            this.timHracCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timHracCB.FormattingEnabled = true;
-            this.timHracCB.Location = new System.Drawing.Point(132, 125);
-            this.timHracCB.Name = "timHracCB";
-            this.timHracCB.Size = new System.Drawing.Size(132, 25);
-            this.timHracCB.TabIndex = 42;
+            this.hracTimCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hracTimCB.FormattingEnabled = true;
+            this.hracTimCB.Location = new System.Drawing.Point(132, 125);
+            this.hracTimCB.Name = "hracTimCB";
+            this.hracTimCB.Size = new System.Drawing.Size(132, 25);
+            this.hracTimCB.TabIndex = 42;
             // 
             // label13
             // 
@@ -568,20 +567,20 @@
             this.cisloHracaTextBox.Size = new System.Drawing.Size(134, 23);
             this.cisloHracaTextBox.TabIndex = 70;
             // 
-            // vlozHracaButton
+            // UlozitHracaBtn
             // 
-            this.vlozHracaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vlozHracaButton.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
-            this.vlozHracaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vlozHracaButton.Location = new System.Drawing.Point(269, 335);
-            this.vlozHracaButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozHracaButton.Name = "vlozHracaButton";
-            this.vlozHracaButton.Size = new System.Drawing.Size(118, 52);
-            this.vlozHracaButton.TabIndex = 69;
-            this.vlozHracaButton.Text = "Uložiť     \r\nhráča    ";
-            this.vlozHracaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.vlozHracaButton.UseVisualStyleBackColor = true;
-            this.vlozHracaButton.Click += new System.EventHandler(this.vlozHracaButton_Click);
+            this.UlozitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UlozitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitHracaBtn.Location = new System.Drawing.Point(269, 335);
+            this.UlozitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitHracaBtn.Name = "UlozitHracaBtn";
+            this.UlozitHracaBtn.Size = new System.Drawing.Size(118, 52);
+            this.UlozitHracaBtn.TabIndex = 69;
+            this.UlozitHracaBtn.Text = "Vložiť     \r\nhráča    ";
+            this.UlozitHracaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitHracaBtn.UseVisualStyleBackColor = true;
+            this.UlozitHracaBtn.Click += new System.EventHandler(this.UlozitHracaBtn_Click);
             // 
             // label9
             // 
@@ -594,14 +593,14 @@
             this.label9.TabIndex = 63;
             this.label9.Text = "* povinné údaje";
             // 
-            // poznamkaRichTextBox
+            // hracaRTextBox
             // 
-            this.poznamkaRichTextBox.Location = new System.Drawing.Point(130, 216);
-            this.poznamkaRichTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.poznamkaRichTextBox.Name = "poznamkaRichTextBox";
-            this.poznamkaRichTextBox.Size = new System.Drawing.Size(134, 171);
-            this.poznamkaRichTextBox.TabIndex = 51;
-            this.poznamkaRichTextBox.Text = "";
+            this.hracaRTextBox.Location = new System.Drawing.Point(130, 216);
+            this.hracaRTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.hracaRTextBox.Name = "hracaRTextBox";
+            this.hracaRTextBox.Size = new System.Drawing.Size(134, 171);
+            this.hracaRTextBox.TabIndex = 51;
+            this.hracaRTextBox.Text = "";
             // 
             // label8
             // 
@@ -721,239 +720,238 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // zrusitObrazokButton
+            // ZrusitFotoBtn
             // 
-            this.zrusitObrazokButton.Location = new System.Drawing.Point(269, 188);
-            this.zrusitObrazokButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.zrusitObrazokButton.Name = "zrusitObrazokButton";
-            this.zrusitObrazokButton.Size = new System.Drawing.Size(118, 30);
-            this.zrusitObrazokButton.TabIndex = 28;
-            this.zrusitObrazokButton.Text = "Zrušiť fotografiu";
-            this.zrusitObrazokButton.UseVisualStyleBackColor = true;
-            this.zrusitObrazokButton.Click += new System.EventHandler(this.zrusitObrazokButton_Click);
+            this.ZrusitFotoBtn.Location = new System.Drawing.Point(269, 188);
+            this.ZrusitFotoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ZrusitFotoBtn.Name = "ZrusitFotoBtn";
+            this.ZrusitFotoBtn.Size = new System.Drawing.Size(118, 30);
+            this.ZrusitFotoBtn.TabIndex = 28;
+            this.ZrusitFotoBtn.Text = "Zrušiť fotografiu";
+            this.ZrusitFotoBtn.UseVisualStyleBackColor = true;
+            this.ZrusitFotoBtn.Click += new System.EventHandler(this.ZrusitFotoBtn_Click);
             // 
-            // vlozFotobtn
+            // VlozitFotoBtn
             // 
-            this.vlozFotobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.vlozFotobtn.Location = new System.Drawing.Point(269, 153);
-            this.vlozFotobtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozFotobtn.Name = "vlozFotobtn";
-            this.vlozFotobtn.Size = new System.Drawing.Size(118, 30);
-            this.vlozFotobtn.TabIndex = 27;
-            this.vlozFotobtn.Text = "Vlož fotografiu";
-            this.vlozFotobtn.UseVisualStyleBackColor = true;
-            this.vlozFotobtn.Click += new System.EventHandler(this.vlozFotobtn_Click);
+            this.VlozitFotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.VlozitFotoBtn.Location = new System.Drawing.Point(269, 153);
+            this.VlozitFotoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitFotoBtn.Name = "VlozitFotoBtn";
+            this.VlozitFotoBtn.Size = new System.Drawing.Size(118, 30);
+            this.VlozitFotoBtn.TabIndex = 27;
+            this.VlozitFotoBtn.Text = "Vlož fotografiu";
+            this.VlozitFotoBtn.UseVisualStyleBackColor = true;
+            this.VlozitFotoBtn.Click += new System.EventHandler(this.VlozitFotoBtn_Click);
             // 
-            // fotkaPictureBox
+            // fotoPictureBox
             // 
-            this.fotkaPictureBox.Location = new System.Drawing.Point(269, 20);
-            this.fotkaPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.fotkaPictureBox.Name = "fotkaPictureBox";
-            this.fotkaPictureBox.Size = new System.Drawing.Size(118, 127);
-            this.fotkaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fotkaPictureBox.TabIndex = 26;
-            this.fotkaPictureBox.TabStop = false;
+            this.fotoPictureBox.Location = new System.Drawing.Point(269, 20);
+            this.fotoPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(118, 127);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fotoPictureBox.TabIndex = 26;
+            this.fotoPictureBox.TabStop = false;
             // 
-            // filterHracovbtn
+            // FiltrujHracovBtn
             // 
-            this.filterHracovbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.filterHracovbtn.Location = new System.Drawing.Point(24, 64);
-            this.filterHracovbtn.Name = "filterHracovbtn";
-            this.filterHracovbtn.Size = new System.Drawing.Size(130, 23);
-            this.filterHracovbtn.TabIndex = 4;
-            this.filterHracovbtn.Text = "Filtruj";
-            this.filterHracovbtn.UseVisualStyleBackColor = true;
-            this.filterHracovbtn.Click += new System.EventHandler(this.filterHracovbtn_Click);
+            this.FiltrujHracovBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FiltrujHracovBtn.Location = new System.Drawing.Point(6, 64);
+            this.FiltrujHracovBtn.Name = "FiltrujHracovBtn";
+            this.FiltrujHracovBtn.Size = new System.Drawing.Size(162, 23);
+            this.FiltrujHracovBtn.TabIndex = 4;
+            this.FiltrujHracovBtn.Text = "Filtruj";
+            this.FiltrujHracovBtn.UseVisualStyleBackColor = true;
+            this.FiltrujHracovBtn.Click += new System.EventHandler(this.FiltrujHracovBtn_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.label4.Location = new System.Drawing.Point(30, 7);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(6, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 17);
+            this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Zoznam hráčov";
             // 
-            // timFilterCB
+            // timyFilterCB
             // 
-            this.timFilterCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.timFilterCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.timFilterCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.timFilterCB.FormattingEnabled = true;
-            this.timFilterCB.Location = new System.Drawing.Point(6, 31);
-            this.timFilterCB.Name = "timFilterCB";
-            this.timFilterCB.Size = new System.Drawing.Size(162, 25);
-            this.timFilterCB.TabIndex = 1;
+            this.timyFilterCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.timyFilterCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.timyFilterCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.timyFilterCB.FormattingEnabled = true;
+            this.timyFilterCB.Location = new System.Drawing.Point(6, 31);
+            this.timyFilterCB.Name = "timyFilterCB";
+            this.timyFilterCB.Size = new System.Drawing.Size(162, 25);
+            this.timyFilterCB.TabIndex = 1;
             // 
-            // button6
+            // OdstranitHracaBtn
             // 
-            this.button6.Enabled = false;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.button6.Image = global::LGR_Futbal.Properties.Resources.Delete;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(173, 219);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 57);
-            this.button6.TabIndex = 40;
-            this.button6.Text = "Odstrániť \rhráča     ";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.OdstranitHracaBtn.Enabled = false;
+            this.OdstranitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OdstranitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OdstranitHracaBtn.Location = new System.Drawing.Point(278, 164);
+            this.OdstranitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.OdstranitHracaBtn.Name = "OdstranitHracaBtn";
+            this.OdstranitHracaBtn.Size = new System.Drawing.Size(133, 57);
+            this.OdstranitHracaBtn.TabIndex = 40;
+            this.OdstranitHracaBtn.Text = "Odstrániť \rhráča     ";
+            this.OdstranitHracaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OdstranitHracaBtn.UseVisualStyleBackColor = true;
+            this.OdstranitHracaBtn.Click += new System.EventHandler(this.OdstranitHracaBtn_Click);
             // 
-            // button7
+            // UpravitHracaBtn
             // 
-            this.button7.Enabled = false;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.button7.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(173, 156);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(133, 57);
-            this.button7.TabIndex = 39;
-            this.button7.Text = "Zmeniť   \r\núdaje    ";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.UpravitHracaBtn.Enabled = false;
+            this.UpravitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UpravitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.UpravitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpravitHracaBtn.Location = new System.Drawing.Point(278, 101);
+            this.UpravitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravitHracaBtn.Name = "UpravitHracaBtn";
+            this.UpravitHracaBtn.Size = new System.Drawing.Size(133, 57);
+            this.UpravitHracaBtn.TabIndex = 39;
+            this.UpravitHracaBtn.Text = "Zmeniť   \r\núdaje    ";
+            this.UpravitHracaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpravitHracaBtn.UseVisualStyleBackColor = true;
+            this.UpravitHracaBtn.Click += new System.EventHandler(this.UpravitHracaBtn_Click);
             // 
-            // button8
+            // VlozitHracaBtn
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.button8.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(173, 96);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button8.Name = "button8";
-            this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button8.Size = new System.Drawing.Size(133, 57);
-            this.button8.TabIndex = 38;
-            this.button8.Text = "Vložiť nového hráča";
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.VlozitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VlozitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VlozitHracaBtn.Location = new System.Drawing.Point(278, 38);
+            this.VlozitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitHracaBtn.Name = "VlozitHracaBtn";
+            this.VlozitHracaBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.VlozitHracaBtn.Size = new System.Drawing.Size(133, 57);
+            this.VlozitHracaBtn.TabIndex = 38;
+            this.VlozitHracaBtn.Text = "Vložiť nového hráča";
+            this.VlozitHracaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.VlozitHracaBtn.UseVisualStyleBackColor = true;
+            this.VlozitHracaBtn.Click += new System.EventHandler(this.VlozitHracaBtn_Click);
             // 
-            // hraciListBox
+            // HraciListBox
             // 
-            this.hraciListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraciListBox.FormattingEnabled = true;
-            this.hraciListBox.IntegralHeight = false;
-            this.hraciListBox.ItemHeight = 18;
-            this.hraciListBox.Location = new System.Drawing.Point(6, 93);
-            this.hraciListBox.Name = "hraciListBox";
-            this.hraciListBox.Size = new System.Drawing.Size(162, 378);
-            this.hraciListBox.TabIndex = 0;
-            this.hraciListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hraciListBox_MouseDoubleClick);
+            this.HraciListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciListBox.FormattingEnabled = true;
+            this.HraciListBox.IntegralHeight = false;
+            this.HraciListBox.ItemHeight = 18;
+            this.HraciListBox.Location = new System.Drawing.Point(6, 93);
+            this.HraciListBox.Name = "HraciListBox";
+            this.HraciListBox.Size = new System.Drawing.Size(267, 303);
+            this.HraciListBox.TabIndex = 0;
+            this.HraciListBox.DoubleClick += new System.EventHandler(this.HraciListBox_DoubleClick);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.removeButton);
-            this.tabPage1.Controls.Add(this.editButton);
-            this.tabPage1.Controls.Add(this.addButton);
-            this.tabPage1.Controls.Add(this.timyListBox);
+            this.tabPage1.Controls.Add(this.OdstranitTimBtn);
+            this.tabPage1.Controls.Add(this.ZmenitTimBtn);
+            this.tabPage1.Controls.Add(this.VlozitTimBtn);
+            this.tabPage1.Controls.Add(this.TimyListBox);
             this.tabPage1.Controls.Add(this.infoLabel1);
-            this.tabPage1.Controls.Add(this.addGroupBox);
-            this.tabPage1.Controls.Add(this.editGroupBox);
+            this.tabPage1.Controls.Add(this.pridatTimGroupBox);
+            this.tabPage1.Controls.Add(this.upravitTimGroupBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(716, 471);
+            this.tabPage1.Size = new System.Drawing.Size(825, 402);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TÍMY";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // removeButton
+            // OdstranitTimBtn
             // 
-            this.removeButton.Enabled = false;
-            this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeButton.Image = global::LGR_Futbal.Properties.Resources.Delete;
-            this.removeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeButton.Location = new System.Drawing.Point(181, 150);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(113, 57);
-            this.removeButton.TabIndex = 35;
-            this.removeButton.Text = "Odstrániť \r\ntím      ";
-            this.removeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeButton.UseVisualStyleBackColor = true;
-            this.removeButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            this.OdstranitTimBtn.Enabled = false;
+            this.OdstranitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OdstranitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OdstranitTimBtn.Location = new System.Drawing.Point(277, 142);
+            this.OdstranitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.OdstranitTimBtn.Name = "OdstranitTimBtn";
+            this.OdstranitTimBtn.Size = new System.Drawing.Size(138, 57);
+            this.OdstranitTimBtn.TabIndex = 35;
+            this.OdstranitTimBtn.Text = "Odstrániť \r\ntím      ";
+            this.OdstranitTimBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OdstranitTimBtn.UseVisualStyleBackColor = true;
+            this.OdstranitTimBtn.Click += new System.EventHandler(this.OdstranitTimBtn_Click);
             // 
-            // editButton
+            // ZmenitTimBtn
             // 
-            this.editButton.Enabled = false;
-            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(181, 87);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(113, 57);
-            this.editButton.TabIndex = 34;
-            this.editButton.Text = "Zmeniť   \r\núdaje    ";
-            this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.ZmenitTimBtn.Enabled = false;
+            this.ZmenitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZmenitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.ZmenitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZmenitTimBtn.Location = new System.Drawing.Point(277, 79);
+            this.ZmenitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ZmenitTimBtn.Name = "ZmenitTimBtn";
+            this.ZmenitTimBtn.Size = new System.Drawing.Size(138, 57);
+            this.ZmenitTimBtn.TabIndex = 34;
+            this.ZmenitTimBtn.Text = "Zmeniť   \r\núdaje    ";
+            this.ZmenitTimBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZmenitTimBtn.UseVisualStyleBackColor = true;
+            this.ZmenitTimBtn.Click += new System.EventHandler(this.ZmenitTimBtn_Click);
             // 
-            // addButton
+            // VlozitTimBtn
             // 
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(181, 24);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(113, 57);
-            this.addButton.TabIndex = 33;
-            this.addButton.Text = "Vložiť    \r\nnový tím  ";
-            this.addButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.VlozitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VlozitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VlozitTimBtn.Location = new System.Drawing.Point(277, 16);
+            this.VlozitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitTimBtn.Name = "VlozitTimBtn";
+            this.VlozitTimBtn.Size = new System.Drawing.Size(138, 57);
+            this.VlozitTimBtn.TabIndex = 33;
+            this.VlozitTimBtn.Text = "Vložiť    \r\nnový tím  ";
+            this.VlozitTimBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.VlozitTimBtn.UseVisualStyleBackColor = true;
+            this.VlozitTimBtn.Click += new System.EventHandler(this.VlozitTimBtn_Click);
             // 
-            // timyListBox
+            // TimyListBox
             // 
-            this.timyListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.timyListBox.FormattingEnabled = true;
-            this.timyListBox.IntegralHeight = false;
-            this.timyListBox.ItemHeight = 17;
-            this.timyListBox.Location = new System.Drawing.Point(9, 24);
-            this.timyListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.timyListBox.Name = "timyListBox";
-            this.timyListBox.Size = new System.Drawing.Size(168, 366);
-            this.timyListBox.TabIndex = 32;
-            this.timyListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.timyListBox_MouseDoubleClick);
+            this.TimyListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TimyListBox.FormattingEnabled = true;
+            this.TimyListBox.IntegralHeight = false;
+            this.TimyListBox.ItemHeight = 17;
+            this.TimyListBox.Location = new System.Drawing.Point(5, 27);
+            this.TimyListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.TimyListBox.Name = "TimyListBox";
+            this.TimyListBox.Size = new System.Drawing.Size(268, 367);
+            this.TimyListBox.TabIndex = 32;
+            this.TimyListBox.DoubleClick += new System.EventHandler(this.TimyListBox_DoubleClick);
             // 
             // infoLabel1
             // 
             this.infoLabel1.AutoSize = true;
-            this.infoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.infoLabel1.Location = new System.Drawing.Point(6, 4);
+            this.infoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoLabel1.Location = new System.Drawing.Point(5, 6);
             this.infoLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel1.Name = "infoLabel1";
-            this.infoLabel1.Size = new System.Drawing.Size(96, 17);
+            this.infoLabel1.Size = new System.Drawing.Size(108, 20);
             this.infoLabel1.TabIndex = 31;
             this.infoLabel1.Text = "Zoznam tímov";
             // 
-            // addGroupBox
+            // pridatTimGroupBox
             // 
-            this.addGroupBox.Controls.Add(this.label2);
-            this.addGroupBox.Controls.Add(this.kategoriaComboBox);
-            this.addGroupBox.Controls.Add(this.spatButton);
-            this.addGroupBox.Controls.Add(this.zrusitLogoButton);
-            this.addGroupBox.Controls.Add(this.vlozitButton);
-            this.addGroupBox.Controls.Add(this.zmenaObrazkaButton);
-            this.addGroupBox.Controls.Add(this.logoPictureBox);
-            this.addGroupBox.Controls.Add(this.nazovTextBox);
-            this.addGroupBox.Controls.Add(this.infoLabel2);
-            this.addGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addGroupBox.Location = new System.Drawing.Point(298, 16);
-            this.addGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.addGroupBox.Name = "addGroupBox";
-            this.addGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.addGroupBox.Size = new System.Drawing.Size(401, 248);
-            this.addGroupBox.TabIndex = 36;
-            this.addGroupBox.TabStop = false;
-            this.addGroupBox.Text = "Vloženie nového tímu";
+            this.pridatTimGroupBox.Controls.Add(this.label2);
+            this.pridatTimGroupBox.Controls.Add(this.kategoriaComboBox);
+            this.pridatTimGroupBox.Controls.Add(this.ZrusitLogoBtn);
+            this.pridatTimGroupBox.Controls.Add(this.UlozitTimBtn);
+            this.pridatTimGroupBox.Controls.Add(this.VlozitLogoBtn);
+            this.pridatTimGroupBox.Controls.Add(this.logoPictureBox);
+            this.pridatTimGroupBox.Controls.Add(this.nazovTextBox);
+            this.pridatTimGroupBox.Controls.Add(this.infoLabel2);
+            this.pridatTimGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pridatTimGroupBox.Location = new System.Drawing.Point(419, 6);
+            this.pridatTimGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pridatTimGroupBox.Name = "pridatTimGroupBox";
+            this.pridatTimGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pridatTimGroupBox.Size = new System.Drawing.Size(401, 248);
+            this.pridatTimGroupBox.TabIndex = 36;
+            this.pridatTimGroupBox.TabStop = false;
+            this.pridatTimGroupBox.Text = "Vloženie nového tímu";
             // 
             // label2
             // 
@@ -972,57 +970,42 @@
             this.kategoriaComboBox.Size = new System.Drawing.Size(121, 25);
             this.kategoriaComboBox.TabIndex = 27;
             // 
-            // spatButton
+            // ZrusitLogoBtn
             // 
-            this.spatButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.spatButton.Image = global::LGR_Futbal.Properties.Resources.Back_2;
-            this.spatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.spatButton.Location = new System.Drawing.Point(162, 181);
-            this.spatButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.spatButton.Name = "spatButton";
-            this.spatButton.Size = new System.Drawing.Size(113, 52);
-            this.spatButton.TabIndex = 26;
-            this.spatButton.Text = "Späť    ";
-            this.spatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.spatButton.UseVisualStyleBackColor = true;
-            this.spatButton.Click += new System.EventHandler(this.SpatButton_Click);
+            this.ZrusitLogoBtn.Location = new System.Drawing.Point(162, 83);
+            this.ZrusitLogoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ZrusitLogoBtn.Name = "ZrusitLogoBtn";
+            this.ZrusitLogoBtn.Size = new System.Drawing.Size(113, 30);
+            this.ZrusitLogoBtn.TabIndex = 25;
+            this.ZrusitLogoBtn.Text = "Zrušiť logo";
+            this.ZrusitLogoBtn.UseVisualStyleBackColor = true;
+            this.ZrusitLogoBtn.Click += new System.EventHandler(this.ZrusitLogoBtn_Click);
             // 
-            // zrusitLogoButton
+            // UlozitTimBtn
             // 
-            this.zrusitLogoButton.Location = new System.Drawing.Point(162, 83);
-            this.zrusitLogoButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.zrusitLogoButton.Name = "zrusitLogoButton";
-            this.zrusitLogoButton.Size = new System.Drawing.Size(113, 30);
-            this.zrusitLogoButton.TabIndex = 25;
-            this.zrusitLogoButton.Text = "Zrušiť logo";
-            this.zrusitLogoButton.UseVisualStyleBackColor = true;
-            this.zrusitLogoButton.Click += new System.EventHandler(this.ZrusitLogoButton_Click);
+            this.UlozitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UlozitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.UlozitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitTimBtn.Location = new System.Drawing.Point(279, 181);
+            this.UlozitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitTimBtn.Name = "UlozitTimBtn";
+            this.UlozitTimBtn.Size = new System.Drawing.Size(118, 52);
+            this.UlozitTimBtn.TabIndex = 24;
+            this.UlozitTimBtn.Text = "Vložiť    \r\nnový tím  ";
+            this.UlozitTimBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitTimBtn.UseVisualStyleBackColor = true;
+            this.UlozitTimBtn.Click += new System.EventHandler(this.UlozitTimBtn_Click);
             // 
-            // vlozitButton
+            // VlozitLogoBtn
             // 
-            this.vlozitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vlozitButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.vlozitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vlozitButton.Location = new System.Drawing.Point(279, 181);
-            this.vlozitButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozitButton.Name = "vlozitButton";
-            this.vlozitButton.Size = new System.Drawing.Size(118, 52);
-            this.vlozitButton.TabIndex = 24;
-            this.vlozitButton.Text = "Vložiť    \r\nnový tím  ";
-            this.vlozitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.vlozitButton.UseVisualStyleBackColor = true;
-            this.vlozitButton.Click += new System.EventHandler(this.VlozitButton_Click);
-            // 
-            // zmenaObrazkaButton
-            // 
-            this.zmenaObrazkaButton.Location = new System.Drawing.Point(162, 48);
-            this.zmenaObrazkaButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.zmenaObrazkaButton.Name = "zmenaObrazkaButton";
-            this.zmenaObrazkaButton.Size = new System.Drawing.Size(113, 30);
-            this.zmenaObrazkaButton.TabIndex = 4;
-            this.zmenaObrazkaButton.Text = "Vložiť logo";
-            this.zmenaObrazkaButton.UseVisualStyleBackColor = true;
-            this.zmenaObrazkaButton.Click += new System.EventHandler(this.ZmenaObrazkaButton_Click);
+            this.VlozitLogoBtn.Location = new System.Drawing.Point(162, 48);
+            this.VlozitLogoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitLogoBtn.Name = "VlozitLogoBtn";
+            this.VlozitLogoBtn.Size = new System.Drawing.Size(113, 30);
+            this.VlozitLogoBtn.TabIndex = 4;
+            this.VlozitLogoBtn.Text = "Vložiť logo";
+            this.VlozitLogoBtn.UseVisualStyleBackColor = true;
+            this.VlozitLogoBtn.Click += new System.EventHandler(this.VlozitLogoBtn_Click);
             // 
             // logoPictureBox
             // 
@@ -1053,26 +1036,25 @@
             this.infoLabel2.TabIndex = 0;
             this.infoLabel2.Text = "Názov tímu:";
             // 
-            // editGroupBox
+            // upravitTimGroupBox
             // 
-            this.editGroupBox.Controls.Add(this.label3);
-            this.editGroupBox.Controls.Add(this.kategoriaCombobox2);
-            this.editGroupBox.Controls.Add(this.editBackButton);
-            this.editGroupBox.Controls.Add(this.editZrusButton);
-            this.editGroupBox.Controls.Add(this.editConfirmButton);
-            this.editGroupBox.Controls.Add(this.editZmenaButton);
-            this.editGroupBox.Controls.Add(this.editPictureBox);
-            this.editGroupBox.Controls.Add(this.editNazovTextBox);
-            this.editGroupBox.Controls.Add(this.label1);
-            this.editGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editGroupBox.Location = new System.Drawing.Point(298, 22);
-            this.editGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editGroupBox.Name = "editGroupBox";
-            this.editGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editGroupBox.Size = new System.Drawing.Size(401, 242);
-            this.editGroupBox.TabIndex = 38;
-            this.editGroupBox.TabStop = false;
-            this.editGroupBox.Text = "Zmena údajov tímu";
+            this.upravitTimGroupBox.Controls.Add(this.label3);
+            this.upravitTimGroupBox.Controls.Add(this.kategoriaCombobox2);
+            this.upravitTimGroupBox.Controls.Add(this.UpravaZrusitLogoBtn);
+            this.upravitTimGroupBox.Controls.Add(this.PotvrditUpravuTimBtn);
+            this.upravitTimGroupBox.Controls.Add(this.UpravaZmenitLogoBtn);
+            this.upravitTimGroupBox.Controls.Add(this.upravaLogoPictureBox);
+            this.upravitTimGroupBox.Controls.Add(this.editNazovTextBox);
+            this.upravitTimGroupBox.Controls.Add(this.label1);
+            this.upravitTimGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.upravitTimGroupBox.Location = new System.Drawing.Point(419, 12);
+            this.upravitTimGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.upravitTimGroupBox.Name = "upravitTimGroupBox";
+            this.upravitTimGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.upravitTimGroupBox.Size = new System.Drawing.Size(401, 242);
+            this.upravitTimGroupBox.TabIndex = 38;
+            this.upravitTimGroupBox.TabStop = false;
+            this.upravitTimGroupBox.Text = "Zmena údajov tímu";
             // 
             // label3
             // 
@@ -1091,67 +1073,52 @@
             this.kategoriaCombobox2.Size = new System.Drawing.Size(121, 25);
             this.kategoriaCombobox2.TabIndex = 29;
             // 
-            // editBackButton
+            // UpravaZrusitLogoBtn
             // 
-            this.editBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editBackButton.Image = global::LGR_Futbal.Properties.Resources.Back_2;
-            this.editBackButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editBackButton.Location = new System.Drawing.Point(162, 181);
-            this.editBackButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editBackButton.Name = "editBackButton";
-            this.editBackButton.Size = new System.Drawing.Size(113, 52);
-            this.editBackButton.TabIndex = 26;
-            this.editBackButton.Text = "Späť    ";
-            this.editBackButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editBackButton.UseVisualStyleBackColor = true;
-            this.editBackButton.Click += new System.EventHandler(this.EditBackButton_Click);
+            this.UpravaZrusitLogoBtn.Location = new System.Drawing.Point(162, 83);
+            this.UpravaZrusitLogoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaZrusitLogoBtn.Name = "UpravaZrusitLogoBtn";
+            this.UpravaZrusitLogoBtn.Size = new System.Drawing.Size(113, 30);
+            this.UpravaZrusitLogoBtn.TabIndex = 25;
+            this.UpravaZrusitLogoBtn.Text = "Zrušiť logo";
+            this.UpravaZrusitLogoBtn.UseVisualStyleBackColor = true;
+            this.UpravaZrusitLogoBtn.Click += new System.EventHandler(this.UpravaZrusitLogoBtn_Click);
             // 
-            // editZrusButton
+            // PotvrditUpravuTimBtn
             // 
-            this.editZrusButton.Location = new System.Drawing.Point(162, 83);
-            this.editZrusButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editZrusButton.Name = "editZrusButton";
-            this.editZrusButton.Size = new System.Drawing.Size(113, 30);
-            this.editZrusButton.TabIndex = 25;
-            this.editZrusButton.Text = "Zrušiť logo";
-            this.editZrusButton.UseVisualStyleBackColor = true;
-            this.editZrusButton.Click += new System.EventHandler(this.EditZrusButton_Click);
+            this.PotvrditUpravuTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditUpravuTimBtn.Image = global::LGR_Futbal.Properties.Resources.Write;
+            this.PotvrditUpravuTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PotvrditUpravuTimBtn.Location = new System.Drawing.Point(279, 181);
+            this.PotvrditUpravuTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.PotvrditUpravuTimBtn.Name = "PotvrditUpravuTimBtn";
+            this.PotvrditUpravuTimBtn.Size = new System.Drawing.Size(118, 52);
+            this.PotvrditUpravuTimBtn.TabIndex = 24;
+            this.PotvrditUpravuTimBtn.Text = "Potvrdiť   \r\nzmeny    ";
+            this.PotvrditUpravuTimBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PotvrditUpravuTimBtn.UseVisualStyleBackColor = true;
+            this.PotvrditUpravuTimBtn.Click += new System.EventHandler(this.PotvrditUpravuTimBtn_Click);
             // 
-            // editConfirmButton
+            // UpravaZmenitLogoBtn
             // 
-            this.editConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editConfirmButton.Image = global::LGR_Futbal.Properties.Resources.Write;
-            this.editConfirmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editConfirmButton.Location = new System.Drawing.Point(279, 181);
-            this.editConfirmButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editConfirmButton.Name = "editConfirmButton";
-            this.editConfirmButton.Size = new System.Drawing.Size(118, 52);
-            this.editConfirmButton.TabIndex = 24;
-            this.editConfirmButton.Text = "Potvrdiť   \r\nzmeny    ";
-            this.editConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editConfirmButton.UseVisualStyleBackColor = true;
-            this.editConfirmButton.Click += new System.EventHandler(this.EditConfirmButton_Click);
+            this.UpravaZmenitLogoBtn.Location = new System.Drawing.Point(162, 48);
+            this.UpravaZmenitLogoBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaZmenitLogoBtn.Name = "UpravaZmenitLogoBtn";
+            this.UpravaZmenitLogoBtn.Size = new System.Drawing.Size(113, 30);
+            this.UpravaZmenitLogoBtn.TabIndex = 4;
+            this.UpravaZmenitLogoBtn.Text = "Zmeniť logo";
+            this.UpravaZmenitLogoBtn.UseVisualStyleBackColor = true;
+            this.UpravaZmenitLogoBtn.Click += new System.EventHandler(this.UpravaZmenitLogoBtn_Click);
             // 
-            // editZmenaButton
+            // upravaLogoPictureBox
             // 
-            this.editZmenaButton.Location = new System.Drawing.Point(162, 48);
-            this.editZmenaButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editZmenaButton.Name = "editZmenaButton";
-            this.editZmenaButton.Size = new System.Drawing.Size(113, 30);
-            this.editZmenaButton.TabIndex = 4;
-            this.editZmenaButton.Text = "Zmeniť logo";
-            this.editZmenaButton.UseVisualStyleBackColor = true;
-            this.editZmenaButton.Click += new System.EventHandler(this.EditZmenaButton_Click);
-            // 
-            // editPictureBox
-            // 
-            this.editPictureBox.Location = new System.Drawing.Point(279, 48);
-            this.editPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editPictureBox.Name = "editPictureBox";
-            this.editPictureBox.Size = new System.Drawing.Size(118, 127);
-            this.editPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editPictureBox.TabIndex = 3;
-            this.editPictureBox.TabStop = false;
+            this.upravaLogoPictureBox.Location = new System.Drawing.Point(279, 48);
+            this.upravaLogoPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.upravaLogoPictureBox.Name = "upravaLogoPictureBox";
+            this.upravaLogoPictureBox.Size = new System.Drawing.Size(118, 127);
+            this.upravaLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.upravaLogoPictureBox.TabIndex = 3;
+            this.upravaLogoPictureBox.TabStop = false;
             // 
             // editNazovTextBox
             // 
@@ -1181,38 +1148,49 @@
             this.tabControl1.Location = new System.Drawing.Point(214, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(724, 497);
+            this.tabControl1.Size = new System.Drawing.Size(833, 428);
             this.tabControl1.TabIndex = 31;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label27);
             this.tabPage3.Controls.Add(this.editRozhodcuGroupBox);
             this.tabPage3.Controls.Add(this.addRozhodcuGroupBox);
-            this.tabPage3.Controls.Add(this.removeRozhodcuButton);
-            this.tabPage3.Controls.Add(this.editRozhodcuButton);
-            this.tabPage3.Controls.Add(this.vlozRozhodcuButton);
+            this.tabPage3.Controls.Add(this.OdstranitRozhodcuBtn);
+            this.tabPage3.Controls.Add(this.UpravaRozhodcuBtn);
+            this.tabPage3.Controls.Add(this.VlozitRozhodcuBtn);
             this.tabPage3.Controls.Add(this.RozhodcoviaListBox);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(716, 471);
+            this.tabPage3.Size = new System.Drawing.Size(825, 402);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ROZHODCOVIA";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.Location = new System.Drawing.Point(6, 6);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(144, 20);
+            this.label27.TabIndex = 75;
+            this.label27.Text = "Zoznam rozhodcov";
+            // 
             // editRozhodcuGroupBox
             // 
             this.editRozhodcuGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.editRozhodcuGroupBox.Controls.Add(this.editRozhodcaComboBox);
+            this.editRozhodcuGroupBox.Controls.Add(this.upravaRozhodcaPohlavieCB);
             this.editRozhodcuGroupBox.Controls.Add(this.label24);
-            this.editRozhodcuGroupBox.Controls.Add(this.editRozhdocuConfirmButton);
+            this.editRozhodcuGroupBox.Controls.Add(this.PotrvditUpravuRozhodcuBtn);
             this.editRozhodcuGroupBox.Controls.Add(this.label25);
             this.editRozhodcuGroupBox.Controls.Add(this.editRozhdocaPriezvisko);
             this.editRozhodcuGroupBox.Controls.Add(this.label26);
             this.editRozhodcuGroupBox.Controls.Add(this.editRozhodcaMeno);
             this.editRozhodcuGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.editRozhodcuGroupBox.Location = new System.Drawing.Point(306, 60);
+            this.editRozhodcuGroupBox.Location = new System.Drawing.Point(419, 26);
             this.editRozhodcuGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.editRozhodcuGroupBox.Name = "editRozhodcuGroupBox";
             this.editRozhodcuGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1222,14 +1200,14 @@
             this.editRozhodcuGroupBox.Text = "Úprava rozhodcu";
             this.editRozhodcuGroupBox.Visible = false;
             // 
-            // editRozhodcaComboBox
+            // upravaRozhodcaPohlavieCB
             // 
-            this.editRozhodcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.editRozhodcaComboBox.FormattingEnabled = true;
-            this.editRozhodcaComboBox.Location = new System.Drawing.Point(132, 104);
-            this.editRozhodcaComboBox.Name = "editRozhodcaComboBox";
-            this.editRozhodcaComboBox.Size = new System.Drawing.Size(134, 25);
-            this.editRozhodcaComboBox.TabIndex = 72;
+            this.upravaRozhodcaPohlavieCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.upravaRozhodcaPohlavieCB.FormattingEnabled = true;
+            this.upravaRozhodcaPohlavieCB.Location = new System.Drawing.Point(132, 104);
+            this.upravaRozhodcaPohlavieCB.Name = "upravaRozhodcaPohlavieCB";
+            this.upravaRozhodcaPohlavieCB.Size = new System.Drawing.Size(134, 25);
+            this.upravaRozhodcaPohlavieCB.TabIndex = 72;
             // 
             // label24
             // 
@@ -1242,20 +1220,20 @@
             this.label24.TabIndex = 73;
             this.label24.Text = "Pohlavie:";
             // 
-            // editRozhdocuConfirmButton
+            // PotrvditUpravuRozhodcuBtn
             // 
-            this.editRozhdocuConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editRozhdocuConfirmButton.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
-            this.editRozhdocuConfirmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editRozhdocuConfirmButton.Location = new System.Drawing.Point(132, 134);
-            this.editRozhdocuConfirmButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editRozhdocuConfirmButton.Name = "editRozhdocuConfirmButton";
-            this.editRozhdocuConfirmButton.Size = new System.Drawing.Size(134, 52);
-            this.editRozhdocuConfirmButton.TabIndex = 69;
-            this.editRozhdocuConfirmButton.Text = "Uložiť     \r\nzmeny    ";
-            this.editRozhdocuConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editRozhdocuConfirmButton.UseVisualStyleBackColor = true;
-            this.editRozhdocuConfirmButton.Click += new System.EventHandler(this.editRozhdocuConfirmButton_Click);
+            this.PotrvditUpravuRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotrvditUpravuRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.PotrvditUpravuRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PotrvditUpravuRozhodcuBtn.Location = new System.Drawing.Point(132, 134);
+            this.PotrvditUpravuRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.PotrvditUpravuRozhodcuBtn.Name = "PotrvditUpravuRozhodcuBtn";
+            this.PotrvditUpravuRozhodcuBtn.Size = new System.Drawing.Size(134, 52);
+            this.PotrvditUpravuRozhodcuBtn.TabIndex = 69;
+            this.PotrvditUpravuRozhodcuBtn.Text = "Uložiť     \r\nzmeny    ";
+            this.PotrvditUpravuRozhodcuBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PotrvditUpravuRozhodcuBtn.UseVisualStyleBackColor = true;
+            this.PotrvditUpravuRozhodcuBtn.Click += new System.EventHandler(this.PotrvditUpravuRozhodcuBtn_Click);
             // 
             // label25
             // 
@@ -1300,15 +1278,15 @@
             // addRozhodcuGroupBox
             // 
             this.addRozhodcuGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.addRozhodcuGroupBox.Controls.Add(this.addRozhodcaComboBox);
+            this.addRozhodcuGroupBox.Controls.Add(this.rozhodcaPohlavieCB);
             this.addRozhodcuGroupBox.Controls.Add(this.label23);
-            this.addRozhodcuGroupBox.Controls.Add(this.addRozhodcuConfirmButton);
+            this.addRozhodcuGroupBox.Controls.Add(this.UlozitRozhodcuBtn);
             this.addRozhodcuGroupBox.Controls.Add(this.label29);
             this.addRozhodcuGroupBox.Controls.Add(this.addRozhdocaPriezvisko);
             this.addRozhodcuGroupBox.Controls.Add(this.label30);
             this.addRozhodcuGroupBox.Controls.Add(this.addRozhodcaMeno);
             this.addRozhodcuGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.addRozhodcuGroupBox.Location = new System.Drawing.Point(306, 60);
+            this.addRozhodcuGroupBox.Location = new System.Drawing.Point(419, 26);
             this.addRozhodcuGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addRozhodcuGroupBox.Name = "addRozhodcuGroupBox";
             this.addRozhodcuGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1317,14 +1295,14 @@
             this.addRozhodcuGroupBox.TabStop = false;
             this.addRozhodcuGroupBox.Text = "Vlož rozhodcu";
             // 
-            // addRozhodcaComboBox
+            // rozhodcaPohlavieCB
             // 
-            this.addRozhodcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.addRozhodcaComboBox.FormattingEnabled = true;
-            this.addRozhodcaComboBox.Location = new System.Drawing.Point(132, 104);
-            this.addRozhodcaComboBox.Name = "addRozhodcaComboBox";
-            this.addRozhodcaComboBox.Size = new System.Drawing.Size(134, 25);
-            this.addRozhodcaComboBox.TabIndex = 72;
+            this.rozhodcaPohlavieCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rozhodcaPohlavieCB.FormattingEnabled = true;
+            this.rozhodcaPohlavieCB.Location = new System.Drawing.Point(132, 104);
+            this.rozhodcaPohlavieCB.Name = "rozhodcaPohlavieCB";
+            this.rozhodcaPohlavieCB.Size = new System.Drawing.Size(134, 25);
+            this.rozhodcaPohlavieCB.TabIndex = 72;
             // 
             // label23
             // 
@@ -1337,20 +1315,20 @@
             this.label23.TabIndex = 73;
             this.label23.Text = "Pohlavie:";
             // 
-            // addRozhodcuConfirmButton
+            // UlozitRozhodcuBtn
             // 
-            this.addRozhodcuConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.addRozhodcuConfirmButton.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
-            this.addRozhodcuConfirmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addRozhodcuConfirmButton.Location = new System.Drawing.Point(132, 134);
-            this.addRozhodcuConfirmButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.addRozhodcuConfirmButton.Name = "addRozhodcuConfirmButton";
-            this.addRozhodcuConfirmButton.Size = new System.Drawing.Size(134, 52);
-            this.addRozhodcuConfirmButton.TabIndex = 69;
-            this.addRozhodcuConfirmButton.Text = " Vložiť       rozhodcu";
-            this.addRozhodcuConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addRozhodcuConfirmButton.UseVisualStyleBackColor = true;
-            this.addRozhodcuConfirmButton.Click += new System.EventHandler(this.addRozhodcuConfirmButton_Click);
+            this.UlozitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.UlozitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitRozhodcuBtn.Location = new System.Drawing.Point(132, 134);
+            this.UlozitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UlozitRozhodcuBtn.Name = "UlozitRozhodcuBtn";
+            this.UlozitRozhodcuBtn.Size = new System.Drawing.Size(134, 52);
+            this.UlozitRozhodcuBtn.TabIndex = 69;
+            this.UlozitRozhodcuBtn.Text = " Vložiť       rozhodcu";
+            this.UlozitRozhodcuBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitRozhodcuBtn.UseVisualStyleBackColor = true;
+            this.UlozitRozhodcuBtn.Click += new System.EventHandler(this.UlozitRozhodcuBtn_Click);
             // 
             // label29
             // 
@@ -1392,53 +1370,55 @@
             this.addRozhodcaMeno.Size = new System.Drawing.Size(134, 23);
             this.addRozhodcaMeno.TabIndex = 33;
             // 
-            // removeRozhodcuButton
+            // OdstranitRozhodcuBtn
             // 
-            this.removeRozhodcuButton.Enabled = false;
-            this.removeRozhodcuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.removeRozhodcuButton.Image = global::LGR_Futbal.Properties.Resources.Delete;
-            this.removeRozhodcuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeRozhodcuButton.Location = new System.Drawing.Point(173, 219);
-            this.removeRozhodcuButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.removeRozhodcuButton.Name = "removeRozhodcuButton";
-            this.removeRozhodcuButton.Size = new System.Drawing.Size(133, 57);
-            this.removeRozhodcuButton.TabIndex = 40;
-            this.removeRozhodcuButton.Text = "Odstrániť      rozhodcu     ";
-            this.removeRozhodcuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeRozhodcuButton.UseVisualStyleBackColor = true;
-            this.removeRozhodcuButton.Click += new System.EventHandler(this.removeRozhodcuButton_Click);
+            this.OdstranitRozhodcuBtn.Enabled = false;
+            this.OdstranitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.OdstranitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OdstranitRozhodcuBtn.Location = new System.Drawing.Point(272, 157);
+            this.OdstranitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.OdstranitRozhodcuBtn.Name = "OdstranitRozhodcuBtn";
+            this.OdstranitRozhodcuBtn.Size = new System.Drawing.Size(143, 57);
+            this.OdstranitRozhodcuBtn.TabIndex = 40;
+            this.OdstranitRozhodcuBtn.Text = "     Odstrániť       rozhodcu     ";
+            this.OdstranitRozhodcuBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OdstranitRozhodcuBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OdstranitRozhodcuBtn.UseVisualStyleBackColor = true;
+            this.OdstranitRozhodcuBtn.Click += new System.EventHandler(this.OdstranitRozhodcuBtn_Click);
             // 
-            // editRozhodcuButton
+            // UpravaRozhodcuBtn
             // 
-            this.editRozhodcuButton.Enabled = false;
-            this.editRozhodcuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.editRozhodcuButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.editRozhodcuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editRozhodcuButton.Location = new System.Drawing.Point(173, 156);
-            this.editRozhodcuButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.editRozhodcuButton.Name = "editRozhodcuButton";
-            this.editRozhodcuButton.Size = new System.Drawing.Size(133, 57);
-            this.editRozhodcuButton.TabIndex = 39;
-            this.editRozhodcuButton.Text = "Zmeniť   \r\núdaje    ";
-            this.editRozhodcuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editRozhodcuButton.UseVisualStyleBackColor = true;
-            this.editRozhodcuButton.Click += new System.EventHandler(this.editRozhodcuButton_Click);
+            this.UpravaRozhodcuBtn.Enabled = false;
+            this.UpravaRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.UpravaRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.UpravaRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpravaRozhodcuBtn.Location = new System.Drawing.Point(272, 94);
+            this.UpravaRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UpravaRozhodcuBtn.Name = "UpravaRozhodcuBtn";
+            this.UpravaRozhodcuBtn.Size = new System.Drawing.Size(143, 57);
+            this.UpravaRozhodcuBtn.TabIndex = 39;
+            this.UpravaRozhodcuBtn.Text = "      Zmeniť   \r\núdaje    ";
+            this.UpravaRozhodcuBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpravaRozhodcuBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpravaRozhodcuBtn.UseVisualStyleBackColor = true;
+            this.UpravaRozhodcuBtn.Click += new System.EventHandler(this.UpravaRozhodcuBtn_Click);
             // 
-            // vlozRozhodcuButton
+            // VlozitRozhodcuBtn
             // 
-            this.vlozRozhodcuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.vlozRozhodcuButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.vlozRozhodcuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vlozRozhodcuButton.Location = new System.Drawing.Point(173, 96);
-            this.vlozRozhodcuButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.vlozRozhodcuButton.Name = "vlozRozhodcuButton";
-            this.vlozRozhodcuButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.vlozRozhodcuButton.Size = new System.Drawing.Size(133, 57);
-            this.vlozRozhodcuButton.TabIndex = 38;
-            this.vlozRozhodcuButton.Text = "Vložiť nového rozhodcu";
-            this.vlozRozhodcuButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.vlozRozhodcuButton.UseVisualStyleBackColor = true;
-            this.vlozRozhodcuButton.Click += new System.EventHandler(this.vlozRozhodcuButton_Click);
+            this.VlozitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.VlozitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VlozitRozhodcuBtn.Location = new System.Drawing.Point(272, 34);
+            this.VlozitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.VlozitRozhodcuBtn.Name = "VlozitRozhodcuBtn";
+            this.VlozitRozhodcuBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.VlozitRozhodcuBtn.Size = new System.Drawing.Size(143, 57);
+            this.VlozitRozhodcuBtn.TabIndex = 38;
+            this.VlozitRozhodcuBtn.Text = "   Vložiť nového rozhodcu";
+            this.VlozitRozhodcuBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.VlozitRozhodcuBtn.UseVisualStyleBackColor = true;
+            this.VlozitRozhodcuBtn.Click += new System.EventHandler(this.VlozitRozhodcuBtn_Click);
             // 
             // RozhodcoviaListBox
             // 
@@ -1446,68 +1426,69 @@
             this.RozhodcoviaListBox.FormattingEnabled = true;
             this.RozhodcoviaListBox.IntegralHeight = false;
             this.RozhodcoviaListBox.ItemHeight = 18;
-            this.RozhodcoviaListBox.Location = new System.Drawing.Point(6, 6);
+            this.RozhodcoviaListBox.Location = new System.Drawing.Point(6, 26);
             this.RozhodcoviaListBox.Name = "RozhodcoviaListBox";
-            this.RozhodcoviaListBox.Size = new System.Drawing.Size(162, 465);
+            this.RozhodcoviaListBox.Size = new System.Drawing.Size(261, 370);
             this.RozhodcoviaListBox.TabIndex = 0;
             this.RozhodcoviaListBox.DoubleClick += new System.EventHandler(this.RozhodcoviaListBox_DoubleClick);
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.zapasyLB);
+            this.tabPage4.Controls.Add(this.VybratZapasBtn);
+            this.tabPage4.Controls.Add(this.ZapasyListBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(716, 471);
+            this.tabPage4.Size = new System.Drawing.Size(825, 402);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ZÁPASY";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // VybratZapasBtn
             // 
-            this.button5.Location = new System.Drawing.Point(621, 7);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 30);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Vybrať";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.VybratZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VybratZapasBtn.Location = new System.Drawing.Point(730, 12);
+            this.VybratZapasBtn.Name = "VybratZapasBtn";
+            this.VybratZapasBtn.Size = new System.Drawing.Size(89, 30);
+            this.VybratZapasBtn.TabIndex = 1;
+            this.VybratZapasBtn.Text = "Vybrať";
+            this.VybratZapasBtn.UseVisualStyleBackColor = true;
+            this.VybratZapasBtn.Click += new System.EventHandler(this.VybratZapasBtn_Click);
             // 
-            // zapasyLB
+            // ZapasyListBox
             // 
-            this.zapasyLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zapasyLB.FormattingEnabled = true;
-            this.zapasyLB.ItemHeight = 20;
-            this.zapasyLB.Location = new System.Drawing.Point(0, 4);
-            this.zapasyLB.Name = "zapasyLB";
-            this.zapasyLB.Size = new System.Drawing.Size(614, 464);
-            this.zapasyLB.TabIndex = 0;
-            this.zapasyLB.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zapasyLB_MouseDoubleClick);
+            this.ZapasyListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZapasyListBox.FormattingEnabled = true;
+            this.ZapasyListBox.ItemHeight = 20;
+            this.ZapasyListBox.Location = new System.Drawing.Point(6, 12);
+            this.ZapasyListBox.Name = "ZapasyListBox";
+            this.ZapasyListBox.Size = new System.Drawing.Size(718, 384);
+            this.ZapasyListBox.TabIndex = 0;
+            this.ZapasyListBox.DoubleClick += new System.EventHandler(this.ZapasyListBox_DoubleClick);
             // 
-            // zapasyButton
+            // ZapasyBtn
             // 
-            this.zapasyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.zapasyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zapasyButton.Location = new System.Drawing.Point(11, 264);
-            this.zapasyButton.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.zapasyButton.Name = "zapasyButton";
-            this.zapasyButton.Size = new System.Drawing.Size(190, 72);
-            this.zapasyButton.TabIndex = 33;
-            this.zapasyButton.Text = "ZÁPASY";
-            this.zapasyButton.UseVisualStyleBackColor = false;
-            this.zapasyButton.Click += new System.EventHandler(this.zapasyButton_Click);
+            this.ZapasyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ZapasyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZapasyBtn.Location = new System.Drawing.Point(11, 358);
+            this.ZapasyBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
+            this.ZapasyBtn.Name = "ZapasyBtn";
+            this.ZapasyBtn.Size = new System.Drawing.Size(190, 72);
+            this.ZapasyBtn.TabIndex = 33;
+            this.ZapasyBtn.Text = "ZÁPASY";
+            this.ZapasyBtn.UseVisualStyleBackColor = false;
+            this.ZapasyBtn.Click += new System.EventHandler(this.ZapasyBtn_Click);
             // 
             // DatabazaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 517);
-            this.Controls.Add(this.zapasyButton);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1059, 451);
+            this.Controls.Add(this.ZapasyBtn);
+            this.Controls.Add(this.RozhodcoviaBtn);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.timyButton);
-            this.Controls.Add(this.hracButton);
+            this.Controls.Add(this.TimyBtn);
+            this.Controls.Add(this.HraciBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1515,26 +1496,26 @@
             this.MinimizeBox = false;
             this.Name = "DatabazaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Správa databázy hráčov";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DatabazaForm_KeyDown);
+            this.Text = "Databáza";
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.editHracGroupBox.ResumeLayout(false);
-            this.editHracGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.vlozHracaGroupBox.ResumeLayout(false);
-            this.vlozHracaGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).EndInit();
+            this.UpravaHracaGroupBox.ResumeLayout(false);
+            this.UpravaHracaGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upravaFotoPictureBox)).EndInit();
+            this.VlozitHracaGroupBox.ResumeLayout(false);
+            this.VlozitHracaGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.addGroupBox.ResumeLayout(false);
-            this.addGroupBox.PerformLayout();
+            this.pridatTimGroupBox.ResumeLayout(false);
+            this.pridatTimGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
-            this.editGroupBox.ResumeLayout(false);
-            this.editGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).EndInit();
+            this.upravitTimGroupBox.ResumeLayout(false);
+            this.upravitTimGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upravaLogoPictureBox)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.editRozhodcuGroupBox.ResumeLayout(false);
             this.editRozhodcuGroupBox.PerformLayout();
             this.addRozhodcuGroupBox.ResumeLayout(false);
@@ -1545,19 +1526,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button hracButton;
-        private System.Windows.Forms.Button timyButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button HraciBtn;
+        private System.Windows.Forms.Button TimyBtn;
+        private System.Windows.Forms.Button RozhodcoviaBtn;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox editHracGroupBox;
-        private System.Windows.Forms.ComboBox editPohlavieComboBox;
+        private System.Windows.Forms.GroupBox UpravaHracaGroupBox;
+        private System.Windows.Forms.ComboBox upravaPohlavieCB;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox editTimComboBox;
+        private System.Windows.Forms.ComboBox upravaHracaTimCB;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox editCisloTextBox;
-        private System.Windows.Forms.Button editHracConfirmbutton;
+        private System.Windows.Forms.Button UlozitUpravaHracaBtn;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.RichTextBox editRichTextBox;
+        private System.Windows.Forms.RichTextBox upravaHracaRTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker editDateTimePicker;
@@ -1569,21 +1549,21 @@
         private System.Windows.Forms.TextBox editMenoTextBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button editZrusFotografiu;
-        private System.Windows.Forms.Button editVlozFotografiu;
-        private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.GroupBox vlozHracaGroupBox;
-        private System.Windows.Forms.ComboBox pohlavieComboBox;
+        private System.Windows.Forms.Button UpravaZrusFotoBtn;
+        private System.Windows.Forms.Button UpravaVlozFotoBtn;
+        private System.Windows.Forms.PictureBox upravaFotoPictureBox;
+        private System.Windows.Forms.Button OdstranitHracaBtn;
+        private System.Windows.Forms.Button UpravitHracaBtn;
+        private System.Windows.Forms.Button VlozitHracaBtn;
+        private System.Windows.Forms.GroupBox VlozitHracaGroupBox;
+        private System.Windows.Forms.ComboBox hracPohlavieCB;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox timHracCB;
+        private System.Windows.Forms.ComboBox hracTimCB;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox cisloHracaTextBox;
-        private System.Windows.Forms.Button vlozHracaButton;
+        private System.Windows.Forms.Button UlozitHracaBtn;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox poznamkaRichTextBox;
+        private System.Windows.Forms.RichTextBox hracaRTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker datumPicker;
@@ -1595,64 +1575,64 @@
         private System.Windows.Forms.TextBox menoTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button zrusitObrazokButton;
-        private System.Windows.Forms.Button vlozFotobtn;
-        private System.Windows.Forms.PictureBox fotkaPictureBox;
-        private System.Windows.Forms.Button filterHracovbtn;
+        private System.Windows.Forms.Button ZrusitFotoBtn;
+        private System.Windows.Forms.Button VlozitFotoBtn;
+        private System.Windows.Forms.PictureBox fotoPictureBox;
+        private System.Windows.Forms.Button FiltrujHracovBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox timFilterCB;
-        private System.Windows.Forms.ListBox hraciListBox;
+        private System.Windows.Forms.ComboBox timyFilterCB;
+        private System.Windows.Forms.ListBox HraciListBox;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button removeButton;
-        private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.ListBox timyListBox;
+        private System.Windows.Forms.Button OdstranitTimBtn;
+        private System.Windows.Forms.Button ZmenitTimBtn;
+        private System.Windows.Forms.Button VlozitTimBtn;
+        private System.Windows.Forms.ListBox TimyListBox;
         private System.Windows.Forms.Label infoLabel1;
-        private System.Windows.Forms.GroupBox addGroupBox;
+        private System.Windows.Forms.GroupBox pridatTimGroupBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox kategoriaComboBox;
-        private System.Windows.Forms.Button spatButton;
-        private System.Windows.Forms.Button zrusitLogoButton;
-        private System.Windows.Forms.Button vlozitButton;
-        private System.Windows.Forms.Button zmenaObrazkaButton;
+        private System.Windows.Forms.Button ZrusitLogoBtn;
+        private System.Windows.Forms.Button UlozitTimBtn;
+        private System.Windows.Forms.Button VlozitLogoBtn;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.TextBox nazovTextBox;
         private System.Windows.Forms.Label infoLabel2;
-        private System.Windows.Forms.GroupBox editGroupBox;
+        private System.Windows.Forms.GroupBox upravitTimGroupBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox kategoriaCombobox2;
-        private System.Windows.Forms.Button editBackButton;
-        private System.Windows.Forms.Button editZrusButton;
-        private System.Windows.Forms.Button editConfirmButton;
-        private System.Windows.Forms.Button editZmenaButton;
-        private System.Windows.Forms.PictureBox editPictureBox;
+        private System.Windows.Forms.Button UpravaZrusitLogoBtn;
+        private System.Windows.Forms.Button PotvrditUpravuTimBtn;
+        private System.Windows.Forms.Button UpravaZmenitLogoBtn;
+        private System.Windows.Forms.PictureBox upravaLogoPictureBox;
         private System.Windows.Forms.TextBox editNazovTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox addRozhodcuGroupBox;
         private System.Windows.Forms.GroupBox editRozhodcuGroupBox;
-        private System.Windows.Forms.ComboBox editRozhodcaComboBox;
+        private System.Windows.Forms.ComboBox upravaRozhodcaPohlavieCB;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button editRozhdocuConfirmButton;
+        private System.Windows.Forms.Button PotrvditUpravuRozhodcuBtn;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox editRozhdocaPriezvisko;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox editRozhodcaMeno;
-        private System.Windows.Forms.ComboBox addRozhodcaComboBox;
+        private System.Windows.Forms.ComboBox rozhodcaPohlavieCB;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button addRozhodcuConfirmButton;
+        private System.Windows.Forms.Button UlozitRozhodcuBtn;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox addRozhdocaPriezvisko;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox addRozhodcaMeno;
-        private System.Windows.Forms.Button removeRozhodcuButton;
-        private System.Windows.Forms.Button editRozhodcuButton;
-        private System.Windows.Forms.Button vlozRozhodcuButton;
+        private System.Windows.Forms.Button OdstranitRozhodcuBtn;
+        private System.Windows.Forms.Button UpravaRozhodcuBtn;
+        private System.Windows.Forms.Button VlozitRozhodcuBtn;
         private System.Windows.Forms.ListBox RozhodcoviaListBox;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button zapasyButton;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ListBox zapasyLB;
+        private System.Windows.Forms.Button ZapasyBtn;
+        private System.Windows.Forms.Button VybratZapasBtn;
+        private System.Windows.Forms.ListBox ZapasyListBox;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox editCisloTextBox;
     }
 }

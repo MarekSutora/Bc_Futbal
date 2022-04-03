@@ -59,7 +59,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -103,7 +103,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "LGR Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -120,19 +120,22 @@ namespace LGR_Futbal.Forms
         }
         private void ObnovitBtn_Click(object sender, EventArgs e)
         {
-            nazvyFontLabel.Text = "Arial; 53,25pt; style=Bold";
-            skoreFontLabel.Text = "Arial; 147pt; style=Bold";
-            casFontLabel.Text = "Arial; 147pt; style=Bold";
-            polcasFontLabel.Text = "Arial; 66pt";
-            striedanieFontLabel.Text = "Arial; 48pt";
+            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia rozloženia?", "FutbalApp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                nazvyFontLabel.Text = "Arial; 53,25pt; style=Bold";
+                skoreFontLabel.Text = "Arial; 147pt; style=Bold";
+                casFontLabel.Text = "Arial; 147pt; style=Bold";
+                polcasFontLabel.Text = "Arial; 66pt";
+                striedanieFontLabel.Text = "Arial; 48pt";
 
-            fontyTabule.NazvyFont = nazvyFontLabel.Text;
-            fontyTabule.SkoreFont = skoreFontLabel.Text;
-            fontyTabule.CasFont = casFontLabel.Text;
-            fontyTabule.PolcasFont = polcasFontLabel.Text;
-            fontyTabule.StriedaniaFont = striedanieFontLabel.Text;
+                fontyTabule.NazvyFont = nazvyFontLabel.Text;
+                fontyTabule.SkoreFont = skoreFontLabel.Text;
+                fontyTabule.CasFont = casFontLabel.Text;
+                fontyTabule.PolcasFont = polcasFontLabel.Text;
+                fontyTabule.StriedaniaFont = striedanieFontLabel.Text;
 
-            OnZmenaFontov?.Invoke();
+                OnZmenaFontov?.Invoke();
+            }
         }
         private string ConvertFontToString(Font f)
         {

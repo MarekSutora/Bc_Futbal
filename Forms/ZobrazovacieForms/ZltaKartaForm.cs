@@ -13,8 +13,8 @@ namespace LGR_Futbal.Forms
     {
         #region Konstanty
 
-        private const string fotkyAdresar = "Pripojenie\\Fotky\\";
-        private const string kartyAdresar = "Pripojenie\\Karty\\";
+        private const string fotkyAdresar = "\\Files\\Fotky\\";
+        private const string kartyAdresar = "\\Files\\Karty\\";
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(adresar + "\\Files\\" + kartyAdresar + animZ);
+                    pictureBox1.Image = Image.FromFile(adresar + kartyAdresar + animZ);
                 }
                 catch
                 {
@@ -66,7 +66,7 @@ namespace LGR_Futbal.Forms
                     }
                     else
                     {
-                        fotkaPictureBox.Image = Image.FromFile(adresar + "\\Files\\" + fotkyAdresar + "Default.png");
+                        fotkaPictureBox.Image = Image.FromFile(adresar + fotkyAdresar + "Default.png");
                     }          
                 }
                 catch

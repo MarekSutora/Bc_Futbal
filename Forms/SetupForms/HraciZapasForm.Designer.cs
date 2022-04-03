@@ -54,11 +54,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(5, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(4, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.Size = new System.Drawing.Size(187, 24);
             this.label1.TabIndex = 24;
             this.label1.Text = "Základná jedenástka:";
             // 
@@ -76,19 +76,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(398, 9);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(397, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 20);
+            this.label2.Size = new System.Drawing.Size(106, 24);
             this.label2.TabIndex = 26;
             this.label2.Text = "Náhradníci:";
             // 
             // OznacitNahradniciBtn
             // 
+            this.OznacitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OznacitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
             this.OznacitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OznacitNahradniciBtn.Location = new System.Drawing.Point(694, 311);
+            this.OznacitNahradniciBtn.Location = new System.Drawing.Point(684, 295);
             this.OznacitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.OznacitNahradniciBtn.Name = "OznacitNahradniciBtn";
             this.OznacitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
@@ -100,9 +101,10 @@
             // 
             // ZrusitNahradniciBtn
             // 
+            this.ZrusitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZrusitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.ZrusitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(694, 367);
+            this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(684, 351);
             this.ZrusitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ZrusitNahradniciBtn.Name = "ZrusitNahradniciBtn";
             this.ZrusitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
@@ -114,9 +116,10 @@
             // 
             // ZrusitZakladBtn
             // 
+            this.ZrusitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZrusitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.ZrusitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZrusitZakladBtn.Location = new System.Drawing.Point(291, 367);
+            this.ZrusitZakladBtn.Location = new System.Drawing.Point(291, 351);
             this.ZrusitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ZrusitZakladBtn.Name = "ZrusitZakladBtn";
             this.ZrusitZakladBtn.Size = new System.Drawing.Size(107, 52);
@@ -128,23 +131,26 @@
             // 
             // AktivovatBtn
             // 
+            this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AktivovatBtn.Location = new System.Drawing.Point(694, 9);
+            this.AktivovatBtn.Location = new System.Drawing.Point(684, 42);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.AktivovatBtn.Name = "AktivovatBtn";
             this.AktivovatBtn.Size = new System.Drawing.Size(107, 52);
             this.AktivovatBtn.TabIndex = 19;
-            this.AktivovatBtn.Text = "Uložiť     \r\nzmeny     ";
+            this.AktivovatBtn.Text = "  Uložiť      zmeny     ";
             this.AktivovatBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AktivovatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AktivovatBtn.UseVisualStyleBackColor = true;
             this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
             // OznacitZakladBtn
             // 
+            this.OznacitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OznacitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
             this.OznacitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 311);
+            this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 295);
             this.OznacitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.OznacitZakladBtn.Name = "OznacitZakladBtn";
             this.OznacitZakladBtn.Size = new System.Drawing.Size(107, 52);
@@ -158,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 432);
+            this.ClientSize = new System.Drawing.Size(803, 411);
             this.Controls.Add(this.OznacitNahradniciBtn);
             this.Controls.Add(this.ZrusitNahradniciBtn);
             this.Controls.Add(this.label2);

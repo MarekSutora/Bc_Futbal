@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.ovladace = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.rozlozenieButton = new System.Windows.Forms.Button();
-            this.fontyButton = new System.Windows.Forms.Button();
-            this.createColorsButton = new System.Windows.Forms.Button();
-            this.rozsvietButton = new System.Windows.Forms.Button();
-            this.zhasniButton = new System.Windows.Forms.Button();
-            this.resetButton = new System.Windows.Forms.Button();
+            this.ZmenitRozlozenieBtn = new System.Windows.Forms.Button();
+            this.ZmenitFontyBtn = new System.Windows.Forms.Button();
+            this.ZmenitFarbyBtn = new System.Windows.Forms.Button();
+            this.RozsvietitBtn = new System.Windows.Forms.Button();
+            this.ZhasnutBtn = new System.Windows.Forms.Button();
+            this.ResetBtn = new System.Windows.Forms.Button();
             this.initNastaveniaCheckBox = new System.Windows.Forms.CheckBox();
             this.pozadieCheckBox = new System.Windows.Forms.CheckBox();
             this.velkostGroupBox = new System.Windows.Forms.GroupBox();
@@ -51,67 +51,67 @@
             this.sirkaNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.sirkaLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.vybratButton = new System.Windows.Forms.Button();
-            this.pridatTypZapasuButton = new System.Windows.Forms.Button();
-            this.odstranitTypZapasuButton = new System.Windows.Forms.Button();
-            this.typyZapasovListBox = new System.Windows.Forms.ListBox();
+            this.VybratTypBtn = new System.Windows.Forms.Button();
+            this.PridatTypBtn = new System.Windows.Forms.Button();
+            this.OdstranitTypBtn = new System.Windows.Forms.Button();
+            this.TypyZapasovListBox = new System.Windows.Forms.ListBox();
             this.prerusenieCheckBox = new System.Windows.Forms.CheckBox();
             this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button0 = new System.Windows.Forms.Button();
+            this.Button9 = new System.Windows.Forms.Button();
+            this.Button8 = new System.Windows.Forms.Button();
+            this.Button7 = new System.Windows.Forms.Button();
+            this.Button6 = new System.Windows.Forms.Button();
+            this.Button5 = new System.Windows.Forms.Button();
+            this.Button4 = new System.Windows.Forms.Button();
+            this.Button3 = new System.Windows.Forms.Button();
+            this.Button2 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dlzkaPolcasuNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button18 = new System.Windows.Forms.Button();
-            this.nastavMuzstvoHostiabutton = new System.Windows.Forms.Button();
-            this.nastavMuzstvoDomacibutton = new System.Windows.Forms.Button();
-            this.nacitatDatabazaButton = new System.Windows.Forms.Button();
-            this.zrusitDatabazaButton = new System.Windows.Forms.Button();
-            this.zrusitLogoHos = new System.Windows.Forms.Button();
-            this.zrusitLogoDom = new System.Windows.Forms.Button();
-            this.zmenaLogaHos = new System.Windows.Forms.Button();
-            this.zmenaLogaDom = new System.Windows.Forms.Button();
+            this.RozhodcoviaZapasBtn = new System.Windows.Forms.Button();
+            this.NastavHracovHosBtn = new System.Windows.Forms.Button();
+            this.NastavHracovDomBtn = new System.Windows.Forms.Button();
+            this.NacitatTimyBtn = new System.Windows.Forms.Button();
+            this.ZrusitTimyBtn = new System.Windows.Forms.Button();
+            this.ZrusitLogoHosBtn = new System.Windows.Forms.Button();
+            this.ZrusitLogoDomBtn = new System.Windows.Forms.Button();
+            this.ZmenitLogoHosBtn = new System.Windows.Forms.Button();
+            this.ZmenitLogoDomBtn = new System.Windows.Forms.Button();
             this.diakritikaCheckBox = new System.Windows.Forms.CheckBox();
             this.hosNazov = new System.Windows.Forms.TextBox();
             this.domNazov = new System.Windows.Forms.TextBox();
             this.hostiaLabel = new System.Windows.Forms.Label();
             this.domaciLabel = new System.Windows.Forms.Label();
-            this.logoHostia = new System.Windows.Forms.PictureBox();
-            this.logoDomaci = new System.Windows.Forms.PictureBox();
+            this.logoHostiaPictureBox = new System.Windows.Forms.PictureBox();
+            this.logoDomaciPictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.importAnimacieBtn = new System.Windows.Forms.Button();
+            this.ImportAnimacieGolBtn = new System.Windows.Forms.Button();
             this.animHosBox = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.animDomBox = new System.Windows.Forms.CheckedListBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.hostiaGooolCheckBox = new System.Windows.Forms.CheckBox();
+            this.domaciGooolCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ZrusitCervenaKartaBtn = new System.Windows.Forms.Button();
-            this.zmenitCervenaKartaBtn = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ZrusitCervenaAnimBtn = new System.Windows.Forms.Button();
+            this.ZmenitCervenaAnimBtn = new System.Windows.Forms.Button();
+            this.cervenaKartaPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ZrusitZltaKartaBtn = new System.Windows.Forms.Button();
-            this.zmenitZltaKartaBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabulaButton = new System.Windows.Forms.Button();
-            this.hraButton = new System.Windows.Forms.Button();
-            this.TeamyButton = new System.Windows.Forms.Button();
-            this.databazaButton = new System.Windows.Forms.Button();
-            this.animacieButton = new System.Windows.Forms.Button();
-            this.kartyButton = new System.Windows.Forms.Button();
+            this.ZrusitZltaAnimBtn = new System.Windows.Forms.Button();
+            this.ZmenitZltaAnimBtn = new System.Windows.Forms.Button();
+            this.zltaKartaPictureBox = new System.Windows.Forms.PictureBox();
+            this.TabulaBtn = new System.Windows.Forms.Button();
+            this.HraBtn = new System.Windows.Forms.Button();
+            this.TimyBtn = new System.Windows.Forms.Button();
+            this.DatabazaBtn = new System.Windows.Forms.Button();
+            this.GolyAnimacieBtn = new System.Windows.Forms.Button();
+            this.KartyAnimacieBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.zrusitButton = new System.Windows.Forms.Button();
-            this.aktivovatButton = new System.Windows.Forms.Button();
+            this.ZrusitBtn = new System.Windows.Forms.Button();
+            this.UlozitBtn = new System.Windows.Forms.Button();
             this.ovladace.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.velkostGroupBox.SuspendLayout();
@@ -121,14 +121,14 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dlzkaPolcasuNumUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoHostiaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoDomaciPictureBox)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cervenaKartaPictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zltaKartaPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ovladace
@@ -138,6 +138,7 @@
             this.ovladace.Controls.Add(this.tabPage3);
             this.ovladace.Controls.Add(this.tabPage4);
             this.ovladace.Controls.Add(this.tabPage5);
+            this.ovladace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ovladace.Location = new System.Drawing.Point(185, 8);
             this.ovladace.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ovladace.Name = "ovladace";
@@ -147,104 +148,104 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.rozlozenieButton);
-            this.tabPage1.Controls.Add(this.fontyButton);
-            this.tabPage1.Controls.Add(this.createColorsButton);
-            this.tabPage1.Controls.Add(this.rozsvietButton);
-            this.tabPage1.Controls.Add(this.zhasniButton);
-            this.tabPage1.Controls.Add(this.resetButton);
+            this.tabPage1.Controls.Add(this.ZmenitRozlozenieBtn);
+            this.tabPage1.Controls.Add(this.ZmenitFontyBtn);
+            this.tabPage1.Controls.Add(this.ZmenitFarbyBtn);
+            this.tabPage1.Controls.Add(this.RozsvietitBtn);
+            this.tabPage1.Controls.Add(this.ZhasnutBtn);
+            this.tabPage1.Controls.Add(this.ResetBtn);
             this.tabPage1.Controls.Add(this.initNastaveniaCheckBox);
             this.tabPage1.Controls.Add(this.pozadieCheckBox);
             this.tabPage1.Controls.Add(this.velkostGroupBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage1.Size = new System.Drawing.Size(527, 390);
+            this.tabPage1.Size = new System.Drawing.Size(527, 387);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Výsledková tabuľa";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // rozlozenieButton
+            // ZmenitRozlozenieBtn
             // 
-            this.rozlozenieButton.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
-            this.rozlozenieButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rozlozenieButton.Location = new System.Drawing.Point(11, 183);
-            this.rozlozenieButton.Margin = new System.Windows.Forms.Padding(2);
-            this.rozlozenieButton.Name = "rozlozenieButton";
-            this.rozlozenieButton.Size = new System.Drawing.Size(160, 50);
-            this.rozlozenieButton.TabIndex = 25;
-            this.rozlozenieButton.Text = "Zmeniť rozloženie   ";
-            this.rozlozenieButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rozlozenieButton.UseVisualStyleBackColor = true;
-            this.rozlozenieButton.Click += new System.EventHandler(this.rozlozenieButton_Click);
+            this.ZmenitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
+            this.ZmenitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZmenitRozlozenieBtn.Location = new System.Drawing.Point(11, 183);
+            this.ZmenitRozlozenieBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitRozlozenieBtn.Name = "ZmenitRozlozenieBtn";
+            this.ZmenitRozlozenieBtn.Size = new System.Drawing.Size(160, 50);
+            this.ZmenitRozlozenieBtn.TabIndex = 25;
+            this.ZmenitRozlozenieBtn.Text = "Zmeniť rozloženie   ";
+            this.ZmenitRozlozenieBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZmenitRozlozenieBtn.UseVisualStyleBackColor = true;
+            this.ZmenitRozlozenieBtn.Click += new System.EventHandler(this.ZmenitRozlozenieBtn_Click);
             // 
-            // fontyButton
+            // ZmenitFontyBtn
             // 
-            this.fontyButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.fontyButton.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
-            this.fontyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fontyButton.Location = new System.Drawing.Point(351, 183);
-            this.fontyButton.Margin = new System.Windows.Forms.Padding(2);
-            this.fontyButton.Name = "fontyButton";
-            this.fontyButton.Size = new System.Drawing.Size(167, 50);
-            this.fontyButton.TabIndex = 24;
-            this.fontyButton.Text = "Nastaviť fonty           \r\na veľkosti písma         ";
-            this.fontyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.fontyButton.UseVisualStyleBackColor = true;
-            this.fontyButton.Click += new System.EventHandler(this.fontyButton_Click);
+            this.ZmenitFontyBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.ZmenitFontyBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.ZmenitFontyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZmenitFontyBtn.Location = new System.Drawing.Point(351, 183);
+            this.ZmenitFontyBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitFontyBtn.Name = "ZmenitFontyBtn";
+            this.ZmenitFontyBtn.Size = new System.Drawing.Size(167, 50);
+            this.ZmenitFontyBtn.TabIndex = 24;
+            this.ZmenitFontyBtn.Text = "Zmeniť fonty           \r\na veľkosti písma         ";
+            this.ZmenitFontyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZmenitFontyBtn.UseVisualStyleBackColor = true;
+            this.ZmenitFontyBtn.Click += new System.EventHandler(this.ZmenitFontyBtn_Click);
             // 
-            // createColorsButton
+            // ZmenitFarbyBtn
             // 
-            this.createColorsButton.Image = global::LGR_Futbal.Properties.Resources.Themes_2;
-            this.createColorsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.createColorsButton.Location = new System.Drawing.Point(175, 184);
-            this.createColorsButton.Margin = new System.Windows.Forms.Padding(2);
-            this.createColorsButton.Name = "createColorsButton";
-            this.createColorsButton.Size = new System.Drawing.Size(167, 50);
-            this.createColorsButton.TabIndex = 23;
-            this.createColorsButton.Text = "               Zmeniť                                     farebné nastavenia";
-            this.createColorsButton.UseVisualStyleBackColor = true;
-            this.createColorsButton.Click += new System.EventHandler(this.createColorsButton_Click);
+            this.ZmenitFarbyBtn.Image = global::LGR_Futbal.Properties.Resources.Themes_2;
+            this.ZmenitFarbyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZmenitFarbyBtn.Location = new System.Drawing.Point(175, 184);
+            this.ZmenitFarbyBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitFarbyBtn.Name = "ZmenitFarbyBtn";
+            this.ZmenitFarbyBtn.Size = new System.Drawing.Size(167, 50);
+            this.ZmenitFarbyBtn.TabIndex = 23;
+            this.ZmenitFarbyBtn.Text = "               Zmeniť                                     farebné nastavenia";
+            this.ZmenitFarbyBtn.UseVisualStyleBackColor = true;
+            this.ZmenitFarbyBtn.Click += new System.EventHandler(this.ZmenitFarbyBtn_Click);
             // 
-            // rozsvietButton
+            // RozsvietitBtn
             // 
-            this.rozsvietButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.rozsvietButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rozsvietButton.Location = new System.Drawing.Point(345, 320);
-            this.rozsvietButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.rozsvietButton.Name = "rozsvietButton";
-            this.rozsvietButton.Size = new System.Drawing.Size(181, 65);
-            this.rozsvietButton.TabIndex = 20;
-            this.rozsvietButton.Text = "ROZSVIETIŤ";
-            this.rozsvietButton.UseVisualStyleBackColor = false;
-            this.rozsvietButton.Click += new System.EventHandler(this.RozsvietButton_Click);
+            this.RozsvietitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.RozsvietitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RozsvietitBtn.Location = new System.Drawing.Point(345, 320);
+            this.RozsvietitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.RozsvietitBtn.Name = "RozsvietitBtn";
+            this.RozsvietitBtn.Size = new System.Drawing.Size(181, 65);
+            this.RozsvietitBtn.TabIndex = 20;
+            this.RozsvietitBtn.Text = "ROZSVIETIŤ";
+            this.RozsvietitBtn.UseVisualStyleBackColor = false;
+            this.RozsvietitBtn.Click += new System.EventHandler(this.RozsvietitBtn_Click);
             // 
-            // zhasniButton
+            // ZhasnutBtn
             // 
-            this.zhasniButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.zhasniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zhasniButton.Location = new System.Drawing.Point(175, 320);
-            this.zhasniButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zhasniButton.Name = "zhasniButton";
-            this.zhasniButton.Size = new System.Drawing.Size(167, 65);
-            this.zhasniButton.TabIndex = 19;
-            this.zhasniButton.Text = "ZHASNÚŤ";
-            this.zhasniButton.UseVisualStyleBackColor = false;
-            this.zhasniButton.Click += new System.EventHandler(this.ZhasniButton_Click);
+            this.ZhasnutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ZhasnutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZhasnutBtn.Location = new System.Drawing.Point(175, 320);
+            this.ZhasnutBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZhasnutBtn.Name = "ZhasnutBtn";
+            this.ZhasnutBtn.Size = new System.Drawing.Size(167, 65);
+            this.ZhasnutBtn.TabIndex = 19;
+            this.ZhasnutBtn.Text = "ZHASNÚŤ";
+            this.ZhasnutBtn.UseVisualStyleBackColor = false;
+            this.ZhasnutBtn.Click += new System.EventHandler(this.ZhasnutBtn_Click);
             // 
-            // resetButton
+            // ResetBtn
             // 
-            this.resetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.resetButton.Location = new System.Drawing.Point(11, 320);
-            this.resetButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(160, 65);
-            this.resetButton.TabIndex = 18;
-            this.resetButton.Text = "RESET";
-            this.resetButton.UseVisualStyleBackColor = false;
-            this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            this.ResetBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ResetBtn.Location = new System.Drawing.Point(11, 320);
+            this.ResetBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ResetBtn.Name = "ResetBtn";
+            this.ResetBtn.Size = new System.Drawing.Size(160, 65);
+            this.ResetBtn.TabIndex = 18;
+            this.ResetBtn.Text = "RESET";
+            this.ResetBtn.UseVisualStyleBackColor = false;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // initNastaveniaCheckBox
             // 
@@ -253,7 +254,7 @@
             this.initNastaveniaCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.initNastaveniaCheckBox.Location = new System.Drawing.Point(11, 161);
             this.initNastaveniaCheckBox.Name = "initNastaveniaCheckBox";
-            this.initNastaveniaCheckBox.Size = new System.Drawing.Size(278, 17);
+            this.initNastaveniaCheckBox.Size = new System.Drawing.Size(341, 20);
             this.initNastaveniaCheckBox.TabIndex = 17;
             this.initNastaveniaCheckBox.Text = "Zobrazovať nastavovacie okno pri spustení aplikácie";
             this.initNastaveniaCheckBox.UseVisualStyleBackColor = true;
@@ -265,7 +266,7 @@
             this.pozadieCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pozadieCheckBox.Location = new System.Drawing.Point(11, 139);
             this.pozadieCheckBox.Name = "pozadieCheckBox";
-            this.pozadieCheckBox.Size = new System.Drawing.Size(184, 17);
+            this.pozadieCheckBox.Size = new System.Drawing.Size(223, 20);
             this.pozadieCheckBox.TabIndex = 16;
             this.pozadieCheckBox.Text = "Prekryť obrazovku čiernou farbou";
             this.pozadieCheckBox.UseVisualStyleBackColor = true;
@@ -306,7 +307,7 @@
             0,
             0});
             this.animaciaNumUpDown.Name = "animaciaNumUpDown";
-            this.animaciaNumUpDown.Size = new System.Drawing.Size(53, 20);
+            this.animaciaNumUpDown.Size = new System.Drawing.Size(53, 22);
             this.animaciaNumUpDown.TabIndex = 9;
             this.animaciaNumUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.animaciaNumUpDown.Value = new decimal(new int[] {
@@ -321,17 +322,17 @@
             this.label2.Location = new System.Drawing.Point(329, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.Size = new System.Drawing.Size(127, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "Animačný čas [sec]:";
             // 
             // rozlisenieLabel
             // 
             this.rozlisenieLabel.AutoSize = true;
-            this.rozlisenieLabel.Location = new System.Drawing.Point(166, 108);
+            this.rozlisenieLabel.Location = new System.Drawing.Point(210, 108);
             this.rozlisenieLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rozlisenieLabel.Name = "rozlisenieLabel";
-            this.rozlisenieLabel.Size = new System.Drawing.Size(25, 13);
+            this.rozlisenieLabel.Size = new System.Drawing.Size(28, 16);
             this.rozlisenieLabel.TabIndex = 7;
             this.rozlisenieLabel.Text = "???";
             // 
@@ -341,7 +342,7 @@
             this.aktLabel.Location = new System.Drawing.Point(4, 108);
             this.aktLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.aktLabel.Name = "aktLabel";
-            this.aktLabel.Size = new System.Drawing.Size(163, 13);
+            this.aktLabel.Size = new System.Drawing.Size(202, 16);
             this.aktLabel.TabIndex = 6;
             this.aktLabel.Text = "Aktuálne rozlíšenie obrazovky je:";
             // 
@@ -351,7 +352,7 @@
             this.infoLabel.Location = new System.Drawing.Point(4, 82);
             this.infoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(214, 13);
+            this.infoLabel.Size = new System.Drawing.Size(263, 16);
             this.infoLabel.TabIndex = 4;
             this.infoLabel.Text = "Poznámka: Pomer strán je fixovaný na 16:9!";
             // 
@@ -361,7 +362,7 @@
             this.vyskaLabel.Location = new System.Drawing.Point(4, 51);
             this.vyskaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.vyskaLabel.Name = "vyskaLabel";
-            this.vyskaLabel.Size = new System.Drawing.Size(39, 13);
+            this.vyskaLabel.Size = new System.Drawing.Size(48, 16);
             this.vyskaLabel.TabIndex = 3;
             this.vyskaLabel.Text = "Výška:";
             // 
@@ -380,7 +381,7 @@
             0,
             0});
             this.vyskaNumUpDown.Name = "vyskaNumUpDown";
-            this.vyskaNumUpDown.Size = new System.Drawing.Size(53, 20);
+            this.vyskaNumUpDown.Size = new System.Drawing.Size(53, 22);
             this.vyskaNumUpDown.TabIndex = 2;
             this.vyskaNumUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.vyskaNumUpDown.Value = new decimal(new int[] {
@@ -405,7 +406,7 @@
             0,
             0});
             this.sirkaNumUpDown.Name = "sirkaNumUpDown";
-            this.sirkaNumUpDown.Size = new System.Drawing.Size(53, 20);
+            this.sirkaNumUpDown.Size = new System.Drawing.Size(53, 22);
             this.sirkaNumUpDown.TabIndex = 1;
             this.sirkaNumUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.sirkaNumUpDown.Value = new decimal(new int[] {
@@ -421,94 +422,95 @@
             this.sirkaLabel.Location = new System.Drawing.Point(4, 18);
             this.sirkaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sirkaLabel.Name = "sirkaLabel";
-            this.sirkaLabel.Size = new System.Drawing.Size(36, 13);
+            this.sirkaLabel.Size = new System.Drawing.Size(41, 16);
             this.sirkaLabel.TabIndex = 0;
             this.sirkaLabel.Text = "Šírka:";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.vybratButton);
-            this.tabPage2.Controls.Add(this.pridatTypZapasuButton);
-            this.tabPage2.Controls.Add(this.odstranitTypZapasuButton);
-            this.tabPage2.Controls.Add(this.typyZapasovListBox);
+            this.tabPage2.Controls.Add(this.VybratTypBtn);
+            this.tabPage2.Controls.Add(this.PridatTypBtn);
+            this.tabPage2.Controls.Add(this.OdstranitTypBtn);
+            this.tabPage2.Controls.Add(this.TypyZapasovListBox);
             this.tabPage2.Controls.Add(this.prerusenieCheckBox);
             this.tabPage2.Controls.Add(this.button11);
-            this.tabPage2.Controls.Add(this.button10);
-            this.tabPage2.Controls.Add(this.button9);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.Button0);
+            this.tabPage2.Controls.Add(this.Button9);
+            this.tabPage2.Controls.Add(this.Button8);
+            this.tabPage2.Controls.Add(this.Button7);
+            this.tabPage2.Controls.Add(this.Button6);
+            this.tabPage2.Controls.Add(this.Button5);
+            this.tabPage2.Controls.Add(this.Button4);
+            this.tabPage2.Controls.Add(this.Button3);
+            this.tabPage2.Controls.Add(this.Button2);
+            this.tabPage2.Controls.Add(this.Button1);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.dlzkaPolcasuNumUpDown);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage2.Size = new System.Drawing.Size(527, 390);
+            this.tabPage2.Size = new System.Drawing.Size(527, 387);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Priebeh hry";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // vybratButton
+            // VybratTypBtn
             // 
-            this.vybratButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vybratButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.vybratButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vybratButton.Location = new System.Drawing.Point(372, 279);
-            this.vybratButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.vybratButton.Name = "vybratButton";
-            this.vybratButton.Size = new System.Drawing.Size(149, 45);
-            this.vybratButton.TabIndex = 18;
-            this.vybratButton.Text = "Vybrať   ";
-            this.vybratButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.vybratButton.UseVisualStyleBackColor = true;
-            this.vybratButton.Click += new System.EventHandler(this.vybratButton_Click);
+            this.VybratTypBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VybratTypBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.VybratTypBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VybratTypBtn.Location = new System.Drawing.Point(372, 279);
+            this.VybratTypBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.VybratTypBtn.Name = "VybratTypBtn";
+            this.VybratTypBtn.Size = new System.Drawing.Size(149, 45);
+            this.VybratTypBtn.TabIndex = 18;
+            this.VybratTypBtn.Text = "Vybrať   ";
+            this.VybratTypBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.VybratTypBtn.UseVisualStyleBackColor = true;
+            this.VybratTypBtn.Click += new System.EventHandler(this.VybratTypBtn_Click);
             // 
-            // pridatTypZapasuButton
+            // PridatTypBtn
             // 
-            this.pridatTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pridatTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
-            this.pridatTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pridatTypZapasuButton.Location = new System.Drawing.Point(371, 223);
-            this.pridatTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pridatTypZapasuButton.Name = "pridatTypZapasuButton";
-            this.pridatTypZapasuButton.Size = new System.Drawing.Size(149, 45);
-            this.pridatTypZapasuButton.TabIndex = 17;
-            this.pridatTypZapasuButton.Text = "Nový typ ";
-            this.pridatTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.pridatTypZapasuButton.UseVisualStyleBackColor = true;
-            this.pridatTypZapasuButton.Click += new System.EventHandler(this.pridatTypZapasuButton_Click);
+            this.PridatTypBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PridatTypBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.PridatTypBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PridatTypBtn.Location = new System.Drawing.Point(371, 223);
+            this.PridatTypBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PridatTypBtn.Name = "PridatTypBtn";
+            this.PridatTypBtn.Size = new System.Drawing.Size(149, 45);
+            this.PridatTypBtn.TabIndex = 17;
+            this.PridatTypBtn.Text = "Nový typ ";
+            this.PridatTypBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PridatTypBtn.UseVisualStyleBackColor = true;
+            this.PridatTypBtn.Click += new System.EventHandler(this.PridatTypBtn_Click);
             // 
-            // odstranitTypZapasuButton
+            // OdstranitTypBtn
             // 
-            this.odstranitTypZapasuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odstranitTypZapasuButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.odstranitTypZapasuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.odstranitTypZapasuButton.Location = new System.Drawing.Point(371, 335);
-            this.odstranitTypZapasuButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.odstranitTypZapasuButton.Name = "odstranitTypZapasuButton";
-            this.odstranitTypZapasuButton.Size = new System.Drawing.Size(149, 45);
-            this.odstranitTypZapasuButton.TabIndex = 16;
-            this.odstranitTypZapasuButton.Text = "Odstrániť ";
-            this.odstranitTypZapasuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.odstranitTypZapasuButton.UseVisualStyleBackColor = true;
-            this.odstranitTypZapasuButton.Click += new System.EventHandler(this.odstranitTypZapasuButton_Click);
+            this.OdstranitTypBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OdstranitTypBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.OdstranitTypBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OdstranitTypBtn.Location = new System.Drawing.Point(371, 335);
+            this.OdstranitTypBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.OdstranitTypBtn.Name = "OdstranitTypBtn";
+            this.OdstranitTypBtn.Size = new System.Drawing.Size(149, 45);
+            this.OdstranitTypBtn.TabIndex = 16;
+            this.OdstranitTypBtn.Text = "Odstrániť ";
+            this.OdstranitTypBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OdstranitTypBtn.UseVisualStyleBackColor = true;
+            this.OdstranitTypBtn.Click += new System.EventHandler(this.OdstranitTypBtn_Click);
             // 
-            // typyZapasovListBox
+            // TypyZapasovListBox
             // 
-            this.typyZapasovListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.typyZapasovListBox.FormattingEnabled = true;
-            this.typyZapasovListBox.ItemHeight = 25;
-            this.typyZapasovListBox.Location = new System.Drawing.Point(9, 101);
-            this.typyZapasovListBox.Margin = new System.Windows.Forms.Padding(2);
-            this.typyZapasovListBox.Name = "typyZapasovListBox";
-            this.typyZapasovListBox.Size = new System.Drawing.Size(359, 254);
-            this.typyZapasovListBox.TabIndex = 14;
+            this.TypyZapasovListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TypyZapasovListBox.FormattingEnabled = true;
+            this.TypyZapasovListBox.ItemHeight = 25;
+            this.TypyZapasovListBox.Location = new System.Drawing.Point(9, 101);
+            this.TypyZapasovListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.TypyZapasovListBox.Name = "TypyZapasovListBox";
+            this.TypyZapasovListBox.Size = new System.Drawing.Size(359, 279);
+            this.TypyZapasovListBox.TabIndex = 14;
+            this.TypyZapasovListBox.DoubleClick += new System.EventHandler(this.TypyZapasovListBox_DoubleClick);
             // 
             // prerusenieCheckBox
             // 
@@ -532,127 +534,127 @@
             this.button11.TabIndex = 12;
             this.button11.Text = "<";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click);
+            this.button11.Click += new System.EventHandler(this.ZmazatBtn_Click);
             // 
-            // button10
+            // Button0
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button10.Location = new System.Drawing.Point(371, 156);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(97, 45);
-            this.button10.TabIndex = 11;
-            this.button10.Text = "0";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.Button10_Click);
+            this.Button0.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button0.Location = new System.Drawing.Point(371, 156);
+            this.Button0.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button0.Name = "Button0";
+            this.Button0.Size = new System.Drawing.Size(97, 45);
+            this.Button0.TabIndex = 11;
+            this.Button0.Text = "0";
+            this.Button0.UseVisualStyleBackColor = true;
+            this.Button0.Click += new System.EventHandler(this.Button0_Click);
             // 
-            // button9
+            // Button9
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button9.Location = new System.Drawing.Point(473, 8);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(47, 45);
-            this.button9.TabIndex = 10;
-            this.button9.Text = "9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button9_Click);
+            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button9.Location = new System.Drawing.Point(473, 8);
+            this.Button9.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button9.Name = "Button9";
+            this.Button9.Size = new System.Drawing.Size(47, 45);
+            this.Button9.TabIndex = 10;
+            this.Button9.Text = "9";
+            this.Button9.UseVisualStyleBackColor = true;
+            this.Button9.Click += new System.EventHandler(this.Button9_Click);
             // 
-            // button8
+            // Button8
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button8.Location = new System.Drawing.Point(422, 8);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(47, 45);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button8_Click);
+            this.Button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button8.Location = new System.Drawing.Point(422, 8);
+            this.Button8.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button8.Name = "Button8";
+            this.Button8.Size = new System.Drawing.Size(47, 45);
+            this.Button8.TabIndex = 9;
+            this.Button8.Text = "8";
+            this.Button8.UseVisualStyleBackColor = true;
+            this.Button8.Click += new System.EventHandler(this.Button8_Click);
             // 
-            // button7
+            // Button7
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button7.Location = new System.Drawing.Point(371, 8);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(47, 45);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
+            this.Button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button7.Location = new System.Drawing.Point(371, 8);
+            this.Button7.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button7.Name = "Button7";
+            this.Button7.Size = new System.Drawing.Size(47, 45);
+            this.Button7.TabIndex = 8;
+            this.Button7.Text = "7";
+            this.Button7.UseVisualStyleBackColor = true;
+            this.Button7.Click += new System.EventHandler(this.Button7_Click);
             // 
-            // button6
+            // Button6
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Location = new System.Drawing.Point(473, 57);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(47, 45);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            this.Button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button6.Location = new System.Drawing.Point(473, 57);
+            this.Button6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button6.Name = "Button6";
+            this.Button6.Size = new System.Drawing.Size(47, 45);
+            this.Button6.TabIndex = 7;
+            this.Button6.Text = "6";
+            this.Button6.UseVisualStyleBackColor = true;
+            this.Button6.Click += new System.EventHandler(this.Button6_Click);
             // 
-            // button5
+            // Button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Location = new System.Drawing.Point(422, 57);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(47, 45);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            this.Button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button5.Location = new System.Drawing.Point(422, 57);
+            this.Button5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button5.Name = "Button5";
+            this.Button5.Size = new System.Drawing.Size(47, 45);
+            this.Button5.TabIndex = 6;
+            this.Button5.Text = "5";
+            this.Button5.UseVisualStyleBackColor = true;
+            this.Button5.Click += new System.EventHandler(this.Button5_Click);
             // 
-            // button4
+            // Button4
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(371, 57);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(47, 45);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            this.Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button4.Location = new System.Drawing.Point(371, 57);
+            this.Button4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button4.Name = "Button4";
+            this.Button4.Size = new System.Drawing.Size(47, 45);
+            this.Button4.TabIndex = 5;
+            this.Button4.Text = "4";
+            this.Button4.UseVisualStyleBackColor = true;
+            this.Button4.Click += new System.EventHandler(this.Button4_Click);
             // 
-            // button3
+            // Button3
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(473, 107);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button3.Location = new System.Drawing.Point(473, 107);
+            this.Button3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(47, 45);
+            this.Button3.TabIndex = 4;
+            this.Button3.Text = "3";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // button2
+            // Button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(422, 107);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(47, 45);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button2.Location = new System.Drawing.Point(422, 107);
+            this.Button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button2.Name = "Button2";
+            this.Button2.Size = new System.Drawing.Size(47, 45);
+            this.Button2.TabIndex = 3;
+            this.Button2.Text = "2";
+            this.Button2.UseVisualStyleBackColor = true;
+            this.Button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button1
+            // Button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(371, 107);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button1.Location = new System.Drawing.Point(371, 107);
+            this.Button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(47, 45);
+            this.Button1.TabIndex = 2;
+            this.Button1.Text = "1";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -682,140 +684,141 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button18);
-            this.tabPage3.Controls.Add(this.nastavMuzstvoHostiabutton);
-            this.tabPage3.Controls.Add(this.nastavMuzstvoDomacibutton);
-            this.tabPage3.Controls.Add(this.nacitatDatabazaButton);
-            this.tabPage3.Controls.Add(this.zrusitDatabazaButton);
-            this.tabPage3.Controls.Add(this.zrusitLogoHos);
-            this.tabPage3.Controls.Add(this.zrusitLogoDom);
-            this.tabPage3.Controls.Add(this.zmenaLogaHos);
-            this.tabPage3.Controls.Add(this.zmenaLogaDom);
+            this.tabPage3.Controls.Add(this.RozhodcoviaZapasBtn);
+            this.tabPage3.Controls.Add(this.NastavHracovHosBtn);
+            this.tabPage3.Controls.Add(this.NastavHracovDomBtn);
+            this.tabPage3.Controls.Add(this.NacitatTimyBtn);
+            this.tabPage3.Controls.Add(this.ZrusitTimyBtn);
+            this.tabPage3.Controls.Add(this.ZrusitLogoHosBtn);
+            this.tabPage3.Controls.Add(this.ZrusitLogoDomBtn);
+            this.tabPage3.Controls.Add(this.ZmenitLogoHosBtn);
+            this.tabPage3.Controls.Add(this.ZmenitLogoDomBtn);
             this.tabPage3.Controls.Add(this.diakritikaCheckBox);
             this.tabPage3.Controls.Add(this.hosNazov);
             this.tabPage3.Controls.Add(this.domNazov);
             this.tabPage3.Controls.Add(this.hostiaLabel);
             this.tabPage3.Controls.Add(this.domaciLabel);
-            this.tabPage3.Controls.Add(this.logoHostia);
-            this.tabPage3.Controls.Add(this.logoDomaci);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Controls.Add(this.logoHostiaPictureBox);
+            this.tabPage3.Controls.Add(this.logoDomaciPictureBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(527, 390);
+            this.tabPage3.Size = new System.Drawing.Size(527, 387);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mužstvá a logá";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // RozhodcoviaZapasBtn
             // 
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button18.Location = new System.Drawing.Point(216, 301);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(96, 28);
-            this.button18.TabIndex = 554;
-            this.button18.Text = "rozhodcovia";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.RozhodcoviaZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RozhodcoviaZapasBtn.Location = new System.Drawing.Point(216, 301);
+            this.RozhodcoviaZapasBtn.Name = "RozhodcoviaZapasBtn";
+            this.RozhodcoviaZapasBtn.Size = new System.Drawing.Size(96, 28);
+            this.RozhodcoviaZapasBtn.TabIndex = 554;
+            this.RozhodcoviaZapasBtn.Text = "rozhodcovia";
+            this.RozhodcoviaZapasBtn.UseVisualStyleBackColor = true;
+            this.RozhodcoviaZapasBtn.Click += new System.EventHandler(this.RozhodcoviaZapasBtn_Click);
             // 
-            // nastavMuzstvoHostiabutton
+            // NastavHracovHosBtn
             // 
-            this.nastavMuzstvoHostiabutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.nastavMuzstvoHostiabutton.Location = new System.Drawing.Point(318, 301);
-            this.nastavMuzstvoHostiabutton.Name = "nastavMuzstvoHostiabutton";
-            this.nastavMuzstvoHostiabutton.Size = new System.Drawing.Size(175, 28);
-            this.nastavMuzstvoHostiabutton.TabIndex = 553;
-            this.nastavMuzstvoHostiabutton.Text = "nastav hráčov";
-            this.nastavMuzstvoHostiabutton.UseVisualStyleBackColor = true;
-            this.nastavMuzstvoHostiabutton.Click += new System.EventHandler(this.nastavMuzstvoHostiabutton_Click);
+            this.NastavHracovHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.NastavHracovHosBtn.Location = new System.Drawing.Point(318, 301);
+            this.NastavHracovHosBtn.Name = "NastavHracovHosBtn";
+            this.NastavHracovHosBtn.Size = new System.Drawing.Size(175, 28);
+            this.NastavHracovHosBtn.TabIndex = 553;
+            this.NastavHracovHosBtn.Text = "nastav hráčov";
+            this.NastavHracovHosBtn.UseVisualStyleBackColor = true;
+            this.NastavHracovHosBtn.Click += new System.EventHandler(this.NastavHracovHosBtn_Click);
             // 
-            // nastavMuzstvoDomacibutton
+            // NastavHracovDomBtn
             // 
-            this.nastavMuzstvoDomacibutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.nastavMuzstvoDomacibutton.Location = new System.Drawing.Point(35, 301);
-            this.nastavMuzstvoDomacibutton.Name = "nastavMuzstvoDomacibutton";
-            this.nastavMuzstvoDomacibutton.Size = new System.Drawing.Size(175, 28);
-            this.nastavMuzstvoDomacibutton.TabIndex = 552;
-            this.nastavMuzstvoDomacibutton.Text = "nastav hráčov";
-            this.nastavMuzstvoDomacibutton.UseVisualStyleBackColor = true;
-            this.nastavMuzstvoDomacibutton.Click += new System.EventHandler(this.nastavMuzstvoDomacibutton_Click);
+            this.NastavHracovDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.NastavHracovDomBtn.Location = new System.Drawing.Point(35, 301);
+            this.NastavHracovDomBtn.Name = "NastavHracovDomBtn";
+            this.NastavHracovDomBtn.Size = new System.Drawing.Size(175, 28);
+            this.NastavHracovDomBtn.TabIndex = 552;
+            this.NastavHracovDomBtn.Text = "nastav hráčov";
+            this.NastavHracovDomBtn.UseVisualStyleBackColor = true;
+            this.NastavHracovDomBtn.Click += new System.EventHandler(this.NastavHracovDomBtn_Click);
             // 
-            // nacitatDatabazaButton
+            // NacitatTimyBtn
             // 
-            this.nacitatDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.nacitatDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nacitatDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Move;
-            this.nacitatDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nacitatDatabazaButton.Location = new System.Drawing.Point(7, 333);
-            this.nacitatDatabazaButton.Name = "nacitatDatabazaButton";
-            this.nacitatDatabazaButton.Size = new System.Drawing.Size(230, 56);
-            this.nacitatDatabazaButton.TabIndex = 551;
-            this.nacitatDatabazaButton.Text = "Vybrať tímy           \r\nz databázy           ";
-            this.nacitatDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nacitatDatabazaButton.UseVisualStyleBackColor = false;
-            this.nacitatDatabazaButton.Click += new System.EventHandler(this.NacitatDatabazaButton_Click);
+            this.NacitatTimyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NacitatTimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NacitatTimyBtn.Image = global::LGR_Futbal.Properties.Resources.Move;
+            this.NacitatTimyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NacitatTimyBtn.Location = new System.Drawing.Point(7, 333);
+            this.NacitatTimyBtn.Name = "NacitatTimyBtn";
+            this.NacitatTimyBtn.Size = new System.Drawing.Size(230, 56);
+            this.NacitatTimyBtn.TabIndex = 551;
+            this.NacitatTimyBtn.Text = "Vybrať tímy           \r\nz databázy           ";
+            this.NacitatTimyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NacitatTimyBtn.UseVisualStyleBackColor = false;
+            this.NacitatTimyBtn.Click += new System.EventHandler(this.NacitatTimyBtn_Click);
             // 
-            // zrusitDatabazaButton
+            // ZrusitTimyBtn
             // 
-            this.zrusitDatabazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitDatabazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitDatabazaButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitDatabazaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitDatabazaButton.Location = new System.Drawing.Point(293, 333);
-            this.zrusitDatabazaButton.Name = "zrusitDatabazaButton";
-            this.zrusitDatabazaButton.Size = new System.Drawing.Size(230, 56);
-            this.zrusitDatabazaButton.TabIndex = 550;
-            this.zrusitDatabazaButton.Text = "Zrušiť prepojenie     \r\ns databázou         ";
-            this.zrusitDatabazaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitDatabazaButton.UseVisualStyleBackColor = false;
-            this.zrusitDatabazaButton.Click += new System.EventHandler(this.ZrusitDatabazaButton_Click);
+            this.ZrusitTimyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ZrusitTimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZrusitTimyBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitTimyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZrusitTimyBtn.Location = new System.Drawing.Point(293, 333);
+            this.ZrusitTimyBtn.Name = "ZrusitTimyBtn";
+            this.ZrusitTimyBtn.Size = new System.Drawing.Size(230, 56);
+            this.ZrusitTimyBtn.TabIndex = 550;
+            this.ZrusitTimyBtn.Text = "     Zrušiť vybrané tímy         ";
+            this.ZrusitTimyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZrusitTimyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ZrusitTimyBtn.UseVisualStyleBackColor = false;
+            this.ZrusitTimyBtn.Click += new System.EventHandler(this.ZrusitTimyBtn_Click);
             // 
-            // zrusitLogoHos
+            // ZrusitLogoHosBtn
             // 
-            this.zrusitLogoHos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitLogoHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitLogoHos.Location = new System.Drawing.Point(409, 257);
-            this.zrusitLogoHos.Name = "zrusitLogoHos";
-            this.zrusitLogoHos.Size = new System.Drawing.Size(115, 40);
-            this.zrusitLogoHos.TabIndex = 549;
-            this.zrusitLogoHos.Text = "Zrušiť\r\nlogo";
-            this.zrusitLogoHos.UseVisualStyleBackColor = false;
-            this.zrusitLogoHos.Click += new System.EventHandler(this.ZrusitLogoHos_Click);
+            this.ZrusitLogoHosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ZrusitLogoHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZrusitLogoHosBtn.Location = new System.Drawing.Point(409, 257);
+            this.ZrusitLogoHosBtn.Name = "ZrusitLogoHosBtn";
+            this.ZrusitLogoHosBtn.Size = new System.Drawing.Size(115, 40);
+            this.ZrusitLogoHosBtn.TabIndex = 549;
+            this.ZrusitLogoHosBtn.Text = "Zrušiť\r\nlogo";
+            this.ZrusitLogoHosBtn.UseVisualStyleBackColor = false;
+            this.ZrusitLogoHosBtn.Click += new System.EventHandler(this.ZrusitLogoHosBtn_Click);
             // 
-            // zrusitLogoDom
+            // ZrusitLogoDomBtn
             // 
-            this.zrusitLogoDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.zrusitLogoDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zrusitLogoDom.Location = new System.Drawing.Point(124, 257);
-            this.zrusitLogoDom.Name = "zrusitLogoDom";
-            this.zrusitLogoDom.Size = new System.Drawing.Size(115, 40);
-            this.zrusitLogoDom.TabIndex = 548;
-            this.zrusitLogoDom.Text = "Zrušiť\r\nlogo";
-            this.zrusitLogoDom.UseVisualStyleBackColor = false;
-            this.zrusitLogoDom.Click += new System.EventHandler(this.ZrusitLogoDom_Click);
+            this.ZrusitLogoDomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ZrusitLogoDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZrusitLogoDomBtn.Location = new System.Drawing.Point(124, 257);
+            this.ZrusitLogoDomBtn.Name = "ZrusitLogoDomBtn";
+            this.ZrusitLogoDomBtn.Size = new System.Drawing.Size(115, 40);
+            this.ZrusitLogoDomBtn.TabIndex = 548;
+            this.ZrusitLogoDomBtn.Text = "Zrušiť\r\nlogo";
+            this.ZrusitLogoDomBtn.UseVisualStyleBackColor = false;
+            this.ZrusitLogoDomBtn.Click += new System.EventHandler(this.ZrusitLogoDomBtn_Click);
             // 
-            // zmenaLogaHos
+            // ZmenitLogoHosBtn
             // 
-            this.zmenaLogaHos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.zmenaLogaHos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zmenaLogaHos.Location = new System.Drawing.Point(293, 257);
-            this.zmenaLogaHos.Name = "zmenaLogaHos";
-            this.zmenaLogaHos.Size = new System.Drawing.Size(115, 40);
-            this.zmenaLogaHos.TabIndex = 547;
-            this.zmenaLogaHos.Text = "Zmeniť\r\nlogo";
-            this.zmenaLogaHos.UseVisualStyleBackColor = false;
-            this.zmenaLogaHos.Click += new System.EventHandler(this.ZmenaLogaHos_Click);
+            this.ZmenitLogoHosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ZmenitLogoHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZmenitLogoHosBtn.Location = new System.Drawing.Point(293, 257);
+            this.ZmenitLogoHosBtn.Name = "ZmenitLogoHosBtn";
+            this.ZmenitLogoHosBtn.Size = new System.Drawing.Size(115, 40);
+            this.ZmenitLogoHosBtn.TabIndex = 547;
+            this.ZmenitLogoHosBtn.Text = "Zmeniť\r\nlogo";
+            this.ZmenitLogoHosBtn.UseVisualStyleBackColor = false;
+            this.ZmenitLogoHosBtn.Click += new System.EventHandler(this.ZmenitLogoHosBtn_Click);
             // 
-            // zmenaLogaDom
+            // ZmenitLogoDomBtn
             // 
-            this.zmenaLogaDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.zmenaLogaDom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zmenaLogaDom.Location = new System.Drawing.Point(7, 257);
-            this.zmenaLogaDom.Name = "zmenaLogaDom";
-            this.zmenaLogaDom.Size = new System.Drawing.Size(115, 40);
-            this.zmenaLogaDom.TabIndex = 546;
-            this.zmenaLogaDom.Text = "Zmeniť \nlogo";
-            this.zmenaLogaDom.UseVisualStyleBackColor = false;
-            this.zmenaLogaDom.Click += new System.EventHandler(this.ZmenaLogaDom_Click);
+            this.ZmenitLogoDomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ZmenitLogoDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZmenitLogoDomBtn.Location = new System.Drawing.Point(7, 257);
+            this.ZmenitLogoDomBtn.Name = "ZmenitLogoDomBtn";
+            this.ZmenitLogoDomBtn.Size = new System.Drawing.Size(115, 40);
+            this.ZmenitLogoDomBtn.TabIndex = 546;
+            this.ZmenitLogoDomBtn.Text = "Zmeniť \nlogo";
+            this.ZmenitLogoDomBtn.UseVisualStyleBackColor = false;
+            this.ZmenitLogoDomBtn.Click += new System.EventHandler(this.ZmenitLogoDomBtn_Click);
             // 
             // diakritikaCheckBox
             // 
@@ -874,49 +877,49 @@
             this.domaciLabel.Text = "DOMÁCI";
             this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // logoHostia
+            // logoHostiaPictureBox
             // 
-            this.logoHostia.Location = new System.Drawing.Point(293, 49);
-            this.logoHostia.Name = "logoHostia";
-            this.logoHostia.Size = new System.Drawing.Size(230, 140);
-            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoHostia.TabIndex = 522;
-            this.logoHostia.TabStop = false;
+            this.logoHostiaPictureBox.Location = new System.Drawing.Point(293, 49);
+            this.logoHostiaPictureBox.Name = "logoHostiaPictureBox";
+            this.logoHostiaPictureBox.Size = new System.Drawing.Size(230, 140);
+            this.logoHostiaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoHostiaPictureBox.TabIndex = 522;
+            this.logoHostiaPictureBox.TabStop = false;
             // 
-            // logoDomaci
+            // logoDomaciPictureBox
             // 
-            this.logoDomaci.Location = new System.Drawing.Point(7, 49);
-            this.logoDomaci.Name = "logoDomaci";
-            this.logoDomaci.Size = new System.Drawing.Size(231, 140);
-            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoDomaci.TabIndex = 521;
-            this.logoDomaci.TabStop = false;
+            this.logoDomaciPictureBox.Location = new System.Drawing.Point(7, 49);
+            this.logoDomaciPictureBox.Name = "logoDomaciPictureBox";
+            this.logoDomaciPictureBox.Size = new System.Drawing.Size(231, 140);
+            this.logoDomaciPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoDomaciPictureBox.TabIndex = 521;
+            this.logoDomaciPictureBox.TabStop = false;
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.importAnimacieBtn);
+            this.tabPage4.Controls.Add(this.ImportAnimacieGolBtn);
             this.tabPage4.Controls.Add(this.animHosBox);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.animDomBox);
-            this.tabPage4.Controls.Add(this.checkBox2);
-            this.tabPage4.Controls.Add(this.checkBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Controls.Add(this.hostiaGooolCheckBox);
+            this.tabPage4.Controls.Add(this.domaciGooolCheckBox);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(527, 390);
+            this.tabPage4.Size = new System.Drawing.Size(527, 387);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Animácie gólov";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // importAnimacieBtn
+            // ImportAnimacieGolBtn
             // 
-            this.importAnimacieBtn.Location = new System.Drawing.Point(402, 12);
-            this.importAnimacieBtn.Name = "importAnimacieBtn";
-            this.importAnimacieBtn.Size = new System.Drawing.Size(122, 40);
-            this.importAnimacieBtn.TabIndex = 6;
-            this.importAnimacieBtn.Text = "Importovať súbor";
-            this.importAnimacieBtn.UseVisualStyleBackColor = true;
-            this.importAnimacieBtn.Click += new System.EventHandler(this.importAnimacieBtn_Click);
+            this.ImportAnimacieGolBtn.Location = new System.Drawing.Point(402, 12);
+            this.ImportAnimacieGolBtn.Name = "ImportAnimacieGolBtn";
+            this.ImportAnimacieGolBtn.Size = new System.Drawing.Size(122, 40);
+            this.ImportAnimacieGolBtn.TabIndex = 6;
+            this.ImportAnimacieGolBtn.Text = "Importovať súbor";
+            this.ImportAnimacieGolBtn.UseVisualStyleBackColor = true;
+            this.ImportAnimacieGolBtn.Click += new System.EventHandler(this.ImportAnimacieGolBtn_Click);
             // 
             // animHosBox
             // 
@@ -931,7 +934,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(291, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
+            this.label4.Size = new System.Drawing.Size(139, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Animácie pre gól hostí";
             // 
@@ -940,7 +943,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.Size = new System.Drawing.Size(170, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Animácie pre gól domácich";
             // 
@@ -952,44 +955,44 @@
             this.animDomBox.Size = new System.Drawing.Size(230, 289);
             this.animDomBox.TabIndex = 2;
             // 
-            // checkBox2
+            // hostiaGooolCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 35);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(275, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Hostia - zobrazovať preddefinovanú animáciu (góóól)";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.hostiaGooolCheckBox.AutoSize = true;
+            this.hostiaGooolCheckBox.Location = new System.Drawing.Point(6, 35);
+            this.hostiaGooolCheckBox.Name = "hostiaGooolCheckBox";
+            this.hostiaGooolCheckBox.Size = new System.Drawing.Size(342, 20);
+            this.hostiaGooolCheckBox.TabIndex = 1;
+            this.hostiaGooolCheckBox.Text = "Hostia - zobrazovať preddefinovanú animáciu (góóól)";
+            this.hostiaGooolCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // domaciGooolCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(281, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Domáci - zobrazovať preddefinovanú animáciu (góóól)";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.domaciGooolCheckBox.AutoSize = true;
+            this.domaciGooolCheckBox.Location = new System.Drawing.Point(6, 12);
+            this.domaciGooolCheckBox.Name = "domaciGooolCheckBox";
+            this.domaciGooolCheckBox.Size = new System.Drawing.Size(350, 20);
+            this.domaciGooolCheckBox.TabIndex = 0;
+            this.domaciGooolCheckBox.Text = "Domáci - zobrazovať preddefinovanú animáciu (góóól)";
+            this.domaciGooolCheckBox.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.groupBox1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(527, 390);
+            this.tabPage5.Size = new System.Drawing.Size(527, 387);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Animácia kariet";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ZrusitCervenaKartaBtn);
-            this.groupBox2.Controls.Add(this.zmenitCervenaKartaBtn);
-            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.ZrusitCervenaAnimBtn);
+            this.groupBox2.Controls.Add(this.ZmenitCervenaAnimBtn);
+            this.groupBox2.Controls.Add(this.cervenaKartaPictureBox);
             this.groupBox2.Location = new System.Drawing.Point(300, 4);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
@@ -999,43 +1002,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Červená karta";
             // 
-            // ZrusitCervenaKartaBtn
+            // ZrusitCervenaAnimBtn
             // 
-            this.ZrusitCervenaKartaBtn.Location = new System.Drawing.Point(4, 263);
-            this.ZrusitCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZrusitCervenaKartaBtn.Name = "ZrusitCervenaKartaBtn";
-            this.ZrusitCervenaKartaBtn.Size = new System.Drawing.Size(217, 26);
-            this.ZrusitCervenaKartaBtn.TabIndex = 3;
-            this.ZrusitCervenaKartaBtn.Text = "Zrušiť obrázok (animáciu)";
-            this.ZrusitCervenaKartaBtn.UseVisualStyleBackColor = true;
-            this.ZrusitCervenaKartaBtn.Click += new System.EventHandler(this.ZrusitCervenaKartaBtn_Click);
+            this.ZrusitCervenaAnimBtn.Location = new System.Drawing.Point(4, 263);
+            this.ZrusitCervenaAnimBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZrusitCervenaAnimBtn.Name = "ZrusitCervenaAnimBtn";
+            this.ZrusitCervenaAnimBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZrusitCervenaAnimBtn.TabIndex = 3;
+            this.ZrusitCervenaAnimBtn.Text = "Zrušiť obrázok (animáciu)";
+            this.ZrusitCervenaAnimBtn.UseVisualStyleBackColor = true;
+            this.ZrusitCervenaAnimBtn.Click += new System.EventHandler(this.ZrusitCervenaAnimBtn_Click);
             // 
-            // zmenitCervenaKartaBtn
+            // ZmenitCervenaAnimBtn
             // 
-            this.zmenitCervenaKartaBtn.Location = new System.Drawing.Point(4, 232);
-            this.zmenitCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.zmenitCervenaKartaBtn.Name = "zmenitCervenaKartaBtn";
-            this.zmenitCervenaKartaBtn.Size = new System.Drawing.Size(217, 26);
-            this.zmenitCervenaKartaBtn.TabIndex = 2;
-            this.zmenitCervenaKartaBtn.Text = "Zmeniť obrázok (animáciu)";
-            this.zmenitCervenaKartaBtn.UseVisualStyleBackColor = true;
-            this.zmenitCervenaKartaBtn.Click += new System.EventHandler(this.zmenitCervenaKartaBtn_Click);
+            this.ZmenitCervenaAnimBtn.Location = new System.Drawing.Point(4, 232);
+            this.ZmenitCervenaAnimBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitCervenaAnimBtn.Name = "ZmenitCervenaAnimBtn";
+            this.ZmenitCervenaAnimBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZmenitCervenaAnimBtn.TabIndex = 2;
+            this.ZmenitCervenaAnimBtn.Text = "Zmeniť obrázok (animáciu)";
+            this.ZmenitCervenaAnimBtn.UseVisualStyleBackColor = true;
+            this.ZmenitCervenaAnimBtn.Click += new System.EventHandler(this.ZmenitCervenaAnimBtn_Click);
             // 
-            // pictureBox2
+            // cervenaKartaPictureBox
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(4, 16);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(217, 212);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.cervenaKartaPictureBox.Location = new System.Drawing.Point(4, 16);
+            this.cervenaKartaPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.cervenaKartaPictureBox.Name = "cervenaKartaPictureBox";
+            this.cervenaKartaPictureBox.Size = new System.Drawing.Size(217, 212);
+            this.cervenaKartaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cervenaKartaPictureBox.TabIndex = 1;
+            this.cervenaKartaPictureBox.TabStop = false;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.ZrusitZltaKartaBtn);
-            this.groupBox1.Controls.Add(this.zmenitZltaKartaBtn);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.ZrusitZltaAnimBtn);
+            this.groupBox1.Controls.Add(this.ZmenitZltaAnimBtn);
+            this.groupBox1.Controls.Add(this.zltaKartaPictureBox);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -1045,157 +1048,159 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Žltá karta";
             // 
-            // ZrusitZltaKartaBtn
+            // ZrusitZltaAnimBtn
             // 
-            this.ZrusitZltaKartaBtn.Location = new System.Drawing.Point(4, 263);
-            this.ZrusitZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ZrusitZltaKartaBtn.Name = "ZrusitZltaKartaBtn";
-            this.ZrusitZltaKartaBtn.Size = new System.Drawing.Size(217, 26);
-            this.ZrusitZltaKartaBtn.TabIndex = 2;
-            this.ZrusitZltaKartaBtn.Text = "Zrušiť obrázok (animáciu)";
-            this.ZrusitZltaKartaBtn.UseVisualStyleBackColor = true;
-            this.ZrusitZltaKartaBtn.Click += new System.EventHandler(this.ZrusitZltaKartaBtn_Click);
+            this.ZrusitZltaAnimBtn.Location = new System.Drawing.Point(4, 263);
+            this.ZrusitZltaAnimBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZrusitZltaAnimBtn.Name = "ZrusitZltaAnimBtn";
+            this.ZrusitZltaAnimBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZrusitZltaAnimBtn.TabIndex = 2;
+            this.ZrusitZltaAnimBtn.Text = "Zrušiť obrázok (animáciu)";
+            this.ZrusitZltaAnimBtn.UseVisualStyleBackColor = true;
+            this.ZrusitZltaAnimBtn.Click += new System.EventHandler(this.ZrusitZltaAnimBtn_Click);
             // 
-            // zmenitZltaKartaBtn
+            // ZmenitZltaAnimBtn
             // 
-            this.zmenitZltaKartaBtn.Location = new System.Drawing.Point(4, 232);
-            this.zmenitZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.zmenitZltaKartaBtn.Name = "zmenitZltaKartaBtn";
-            this.zmenitZltaKartaBtn.Size = new System.Drawing.Size(217, 26);
-            this.zmenitZltaKartaBtn.TabIndex = 1;
-            this.zmenitZltaKartaBtn.Text = "Zmeniť obrázok (animáciu)";
-            this.zmenitZltaKartaBtn.UseVisualStyleBackColor = true;
-            this.zmenitZltaKartaBtn.Click += new System.EventHandler(this.zmenitZltaKartaBtn_Click);
+            this.ZmenitZltaAnimBtn.Location = new System.Drawing.Point(4, 232);
+            this.ZmenitZltaAnimBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmenitZltaAnimBtn.Name = "ZmenitZltaAnimBtn";
+            this.ZmenitZltaAnimBtn.Size = new System.Drawing.Size(217, 26);
+            this.ZmenitZltaAnimBtn.TabIndex = 1;
+            this.ZmenitZltaAnimBtn.Text = "Zmeniť obrázok (animáciu)";
+            this.ZmenitZltaAnimBtn.UseVisualStyleBackColor = true;
+            this.ZmenitZltaAnimBtn.Click += new System.EventHandler(this.ZmenitZltaAnimBtn_Click);
             // 
-            // pictureBox1
+            // zltaKartaPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(4, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.zltaKartaPictureBox.Location = new System.Drawing.Point(4, 16);
+            this.zltaKartaPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.zltaKartaPictureBox.Name = "zltaKartaPictureBox";
+            this.zltaKartaPictureBox.Size = new System.Drawing.Size(217, 212);
+            this.zltaKartaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.zltaKartaPictureBox.TabIndex = 0;
+            this.zltaKartaPictureBox.TabStop = false;
             // 
-            // tabulaButton
+            // TabulaBtn
             // 
-            this.tabulaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tabulaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tabulaButton.Location = new System.Drawing.Point(8, 8);
-            this.tabulaButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabulaButton.Name = "tabulaButton";
-            this.tabulaButton.Size = new System.Drawing.Size(173, 60);
-            this.tabulaButton.TabIndex = 5;
-            this.tabulaButton.Text = "VÝSLEDKOVÁ\r\nTABUĽA";
-            this.tabulaButton.UseVisualStyleBackColor = false;
-            this.tabulaButton.Click += new System.EventHandler(this.TabulaButton_Click);
+            this.TabulaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.TabulaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TabulaBtn.Location = new System.Drawing.Point(8, 8);
+            this.TabulaBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.TabulaBtn.Name = "TabulaBtn";
+            this.TabulaBtn.Size = new System.Drawing.Size(173, 60);
+            this.TabulaBtn.TabIndex = 5;
+            this.TabulaBtn.Text = "VÝSLEDKOVÁ\r\nTABUĽA";
+            this.TabulaBtn.UseVisualStyleBackColor = false;
+            this.TabulaBtn.Click += new System.EventHandler(this.TabulaBtn_Click);
             // 
-            // hraButton
+            // HraBtn
             // 
-            this.hraButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.hraButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hraButton.Location = new System.Drawing.Point(8, 79);
-            this.hraButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.hraButton.Name = "hraButton";
-            this.hraButton.Size = new System.Drawing.Size(173, 60);
-            this.hraButton.TabIndex = 19;
-            this.hraButton.Text = "PRIEBEH\r\nHRY";
-            this.hraButton.UseVisualStyleBackColor = false;
-            this.hraButton.Click += new System.EventHandler(this.HraButton_Click);
+            this.HraBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.HraBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraBtn.Location = new System.Drawing.Point(8, 79);
+            this.HraBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.HraBtn.Name = "HraBtn";
+            this.HraBtn.Size = new System.Drawing.Size(173, 60);
+            this.HraBtn.TabIndex = 19;
+            this.HraBtn.Text = "PRIEBEH\r\nHRY";
+            this.HraBtn.UseVisualStyleBackColor = false;
+            this.HraBtn.Click += new System.EventHandler(this.HraBtn_Click);
             // 
-            // TeamyButton
+            // TimyBtn
             // 
-            this.TeamyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.TeamyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TeamyButton.Location = new System.Drawing.Point(8, 151);
-            this.TeamyButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.TeamyButton.Name = "TeamyButton";
-            this.TeamyButton.Size = new System.Drawing.Size(173, 60);
-            this.TeamyButton.TabIndex = 20;
-            this.TeamyButton.Text = "MUŽSTVÁ\r\na LOGÁ";
-            this.TeamyButton.UseVisualStyleBackColor = false;
-            this.TeamyButton.Click += new System.EventHandler(this.TeamyButton_Click);
+            this.TimyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.TimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TimyBtn.Location = new System.Drawing.Point(8, 151);
+            this.TimyBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.TimyBtn.Name = "TimyBtn";
+            this.TimyBtn.Size = new System.Drawing.Size(173, 60);
+            this.TimyBtn.TabIndex = 20;
+            this.TimyBtn.Text = "MUŽSTVÁ\r\nA LOGÁ";
+            this.TimyBtn.UseVisualStyleBackColor = false;
+            this.TimyBtn.Click += new System.EventHandler(this.TimyBtn_Click);
             // 
-            // databazaButton
+            // DatabazaBtn
             // 
-            this.databazaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.databazaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.databazaButton.Location = new System.Drawing.Point(8, 365);
-            this.databazaButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.databazaButton.Name = "databazaButton";
-            this.databazaButton.Size = new System.Drawing.Size(173, 60);
-            this.databazaButton.TabIndex = 21;
-            this.databazaButton.Text = "DATABÁZA\r\n";
-            this.databazaButton.UseVisualStyleBackColor = false;
-            this.databazaButton.Click += new System.EventHandler(this.DatabazaButton_Click);
+            this.DatabazaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DatabazaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DatabazaBtn.Location = new System.Drawing.Point(8, 365);
+            this.DatabazaBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.DatabazaBtn.Name = "DatabazaBtn";
+            this.DatabazaBtn.Size = new System.Drawing.Size(173, 60);
+            this.DatabazaBtn.TabIndex = 21;
+            this.DatabazaBtn.Text = "DATABÁZA\r\n";
+            this.DatabazaBtn.UseVisualStyleBackColor = false;
+            this.DatabazaBtn.Click += new System.EventHandler(this.DatabazaBtn_Click);
             // 
-            // animacieButton
+            // GolyAnimacieBtn
             // 
-            this.animacieButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.animacieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.animacieButton.Location = new System.Drawing.Point(8, 222);
-            this.animacieButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.animacieButton.Name = "animacieButton";
-            this.animacieButton.Size = new System.Drawing.Size(173, 60);
-            this.animacieButton.TabIndex = 22;
-            this.animacieButton.Text = "ANIMÁCIE\r\nGÓLOV";
-            this.animacieButton.UseVisualStyleBackColor = false;
-            this.animacieButton.Click += new System.EventHandler(this.animacieButton_Click);
+            this.GolyAnimacieBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.GolyAnimacieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GolyAnimacieBtn.Location = new System.Drawing.Point(8, 222);
+            this.GolyAnimacieBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.GolyAnimacieBtn.Name = "GolyAnimacieBtn";
+            this.GolyAnimacieBtn.Size = new System.Drawing.Size(173, 60);
+            this.GolyAnimacieBtn.TabIndex = 22;
+            this.GolyAnimacieBtn.Text = "ANIMÁCIE\r\nGÓLOV";
+            this.GolyAnimacieBtn.UseVisualStyleBackColor = false;
+            this.GolyAnimacieBtn.Click += new System.EventHandler(this.GolyAnimacieBtn_Click);
             // 
-            // kartyButton
+            // KartyAnimacieBtn
             // 
-            this.kartyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kartyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.kartyButton.Location = new System.Drawing.Point(8, 294);
-            this.kartyButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.kartyButton.Name = "kartyButton";
-            this.kartyButton.Size = new System.Drawing.Size(173, 60);
-            this.kartyButton.TabIndex = 23;
-            this.kartyButton.Text = "ANIMÁCIE\r\nKARIET";
-            this.kartyButton.UseVisualStyleBackColor = false;
-            this.kartyButton.Click += new System.EventHandler(this.kartyButton_Click);
+            this.KartyAnimacieBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.KartyAnimacieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.KartyAnimacieBtn.Location = new System.Drawing.Point(8, 294);
+            this.KartyAnimacieBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.KartyAnimacieBtn.Name = "KartyAnimacieBtn";
+            this.KartyAnimacieBtn.Size = new System.Drawing.Size(173, 60);
+            this.KartyAnimacieBtn.TabIndex = 23;
+            this.KartyAnimacieBtn.Text = "ANIMÁCIE\r\nKARIET";
+            this.KartyAnimacieBtn.UseVisualStyleBackColor = false;
+            this.KartyAnimacieBtn.Click += new System.EventHandler(this.KartyAnimacieBtn_Click);
             // 
-            // zrusitButton
+            // ZrusitBtn
             // 
-            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
-            this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.zrusitButton.Location = new System.Drawing.Point(725, 64);
-            this.zrusitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.zrusitButton.Name = "zrusitButton";
-            this.zrusitButton.Size = new System.Drawing.Size(106, 52);
-            this.zrusitButton.TabIndex = 18;
-            this.zrusitButton.Text = "Zrušiť      ";
-            this.zrusitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.zrusitButton.UseVisualStyleBackColor = true;
-            this.zrusitButton.Click += new System.EventHandler(this.ZrusitButton_Click);
+            this.ZrusitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZrusitBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ZrusitBtn.Location = new System.Drawing.Point(724, 87);
+            this.ZrusitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZrusitBtn.Name = "ZrusitBtn";
+            this.ZrusitBtn.Size = new System.Drawing.Size(106, 52);
+            this.ZrusitBtn.TabIndex = 18;
+            this.ZrusitBtn.Text = "Zrušiť      ";
+            this.ZrusitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZrusitBtn.UseVisualStyleBackColor = true;
+            this.ZrusitBtn.Click += new System.EventHandler(this.ZrusitBtn_Click);
             // 
-            // aktivovatButton
+            // UlozitBtn
             // 
-            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
-            this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(725, 8);
-            this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.aktivovatButton.Name = "aktivovatButton";
-            this.aktivovatButton.Size = new System.Drawing.Size(106, 52);
-            this.aktivovatButton.TabIndex = 17;
-            this.aktivovatButton.Text = "Uložiť      \r\nzmeny      ";
-            this.aktivovatButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.aktivovatButton.UseVisualStyleBackColor = true;
-            this.aktivovatButton.Click += new System.EventHandler(this.AktivovatButton_Click);
+            this.UlozitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UlozitBtn.Location = new System.Drawing.Point(724, 30);
+            this.UlozitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.UlozitBtn.Name = "UlozitBtn";
+            this.UlozitBtn.Size = new System.Drawing.Size(106, 52);
+            this.UlozitBtn.TabIndex = 17;
+            this.UlozitBtn.Text = "Uložiť      \r\nzmeny      ";
+            this.UlozitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UlozitBtn.UseVisualStyleBackColor = true;
+            this.UlozitBtn.Click += new System.EventHandler(this.UlozitBtn_Click);
             // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 431);
-            this.Controls.Add(this.kartyButton);
-            this.Controls.Add(this.animacieButton);
-            this.Controls.Add(this.databazaButton);
-            this.Controls.Add(this.TeamyButton);
-            this.Controls.Add(this.hraButton);
-            this.Controls.Add(this.zrusitButton);
-            this.Controls.Add(this.aktivovatButton);
-            this.Controls.Add(this.tabulaButton);
+            this.Controls.Add(this.KartyAnimacieBtn);
+            this.Controls.Add(this.GolyAnimacieBtn);
+            this.Controls.Add(this.DatabazaBtn);
+            this.Controls.Add(this.TimyBtn);
+            this.Controls.Add(this.HraBtn);
+            this.Controls.Add(this.ZrusitBtn);
+            this.Controls.Add(this.UlozitBtn);
+            this.Controls.Add(this.TabulaBtn);
             this.Controls.Add(this.ovladace);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1206,7 +1211,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LGR Futbal - nastavenia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SetupForm_KeyDown);
             this.ovladace.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1220,15 +1224,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dlzkaPolcasuNumUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoHostiaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoDomaciPictureBox)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cervenaKartaPictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zltaKartaPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1238,9 +1242,9 @@
         private System.Windows.Forms.TabControl ovladace;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button tabulaButton;
-        private System.Windows.Forms.Button zrusitButton;
-        private System.Windows.Forms.Button aktivovatButton;
+        private System.Windows.Forms.Button TabulaBtn;
+        private System.Windows.Forms.Button ZrusitBtn;
+        private System.Windows.Forms.Button UlozitBtn;
         private System.Windows.Forms.CheckBox initNastaveniaCheckBox;
         private System.Windows.Forms.CheckBox pozadieCheckBox;
         private System.Windows.Forms.GroupBox velkostGroupBox;
@@ -1251,71 +1255,71 @@
         private System.Windows.Forms.NumericUpDown vyskaNumUpDown;
         private System.Windows.Forms.NumericUpDown sirkaNumUpDown;
         private System.Windows.Forms.Label sirkaLabel;
-        private System.Windows.Forms.Button hraButton;
+        private System.Windows.Forms.Button HraBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown dlzkaPolcasuNumUpDown;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Button2;
+        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Button0;
+        private System.Windows.Forms.Button Button9;
+        private System.Windows.Forms.Button Button8;
+        private System.Windows.Forms.Button Button7;
+        private System.Windows.Forms.Button Button6;
+        private System.Windows.Forms.Button Button5;
+        private System.Windows.Forms.Button Button4;
+        private System.Windows.Forms.Button Button3;
         private System.Windows.Forms.CheckBox prerusenieCheckBox;
-        private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button rozsvietButton;
-        private System.Windows.Forms.Button zhasniButton;
+        private System.Windows.Forms.Button ResetBtn;
+        private System.Windows.Forms.Button RozsvietitBtn;
+        private System.Windows.Forms.Button ZhasnutBtn;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button TeamyButton;
-        private System.Windows.Forms.PictureBox logoHostia;
-        private System.Windows.Forms.PictureBox logoDomaci;
+        private System.Windows.Forms.Button TimyBtn;
+        private System.Windows.Forms.PictureBox logoHostiaPictureBox;
+        private System.Windows.Forms.PictureBox logoDomaciPictureBox;
         private System.Windows.Forms.Label hostiaLabel;
         private System.Windows.Forms.Label domaciLabel;
         private System.Windows.Forms.CheckBox diakritikaCheckBox;
         private System.Windows.Forms.TextBox hosNazov;
         private System.Windows.Forms.TextBox domNazov;
-        private System.Windows.Forms.Button zmenaLogaHos;
-        private System.Windows.Forms.Button zmenaLogaDom;
-        private System.Windows.Forms.Button zrusitLogoHos;
-        private System.Windows.Forms.Button zrusitLogoDom;
-        private System.Windows.Forms.Button zrusitDatabazaButton;
-        private System.Windows.Forms.Button nacitatDatabazaButton;
-        private System.Windows.Forms.Button databazaButton;
+        private System.Windows.Forms.Button ZmenitLogoHosBtn;
+        private System.Windows.Forms.Button ZmenitLogoDomBtn;
+        private System.Windows.Forms.Button ZrusitLogoHosBtn;
+        private System.Windows.Forms.Button ZrusitLogoDomBtn;
+        private System.Windows.Forms.Button ZrusitTimyBtn;
+        private System.Windows.Forms.Button NacitatTimyBtn;
+        private System.Windows.Forms.Button DatabazaBtn;
         private System.Windows.Forms.NumericUpDown animaciaNumUpDown;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button pridatTypZapasuButton;
-        private System.Windows.Forms.Button odstranitTypZapasuButton;
-        private System.Windows.Forms.ListBox typyZapasovListBox;
-        private System.Windows.Forms.Button vybratButton;
-        private System.Windows.Forms.Button createColorsButton;
-        private System.Windows.Forms.Button fontyButton;
-        private System.Windows.Forms.Button animacieButton;
+        private System.Windows.Forms.Button PridatTypBtn;
+        private System.Windows.Forms.Button OdstranitTypBtn;
+        private System.Windows.Forms.ListBox TypyZapasovListBox;
+        private System.Windows.Forms.Button VybratTypBtn;
+        private System.Windows.Forms.Button ZmenitFarbyBtn;
+        private System.Windows.Forms.Button ZmenitFontyBtn;
+        private System.Windows.Forms.Button GolyAnimacieBtn;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox hostiaGooolCheckBox;
+        private System.Windows.Forms.CheckBox domaciGooolCheckBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckedListBox animDomBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox animHosBox;
-        private System.Windows.Forms.Button importAnimacieBtn;
-        private System.Windows.Forms.Button kartyButton;
+        private System.Windows.Forms.Button ImportAnimacieGolBtn;
+        private System.Windows.Forms.Button KartyAnimacieBtn;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button zmenitCervenaKartaBtn;
-        private System.Windows.Forms.Button zmenitZltaKartaBtn;
-        private System.Windows.Forms.Button ZrusitCervenaKartaBtn;
-        private System.Windows.Forms.Button ZrusitZltaKartaBtn;
-        private System.Windows.Forms.Button rozlozenieButton;
+        private System.Windows.Forms.PictureBox cervenaKartaPictureBox;
+        private System.Windows.Forms.PictureBox zltaKartaPictureBox;
+        private System.Windows.Forms.Button ZmenitCervenaAnimBtn;
+        private System.Windows.Forms.Button ZmenitZltaAnimBtn;
+        private System.Windows.Forms.Button ZrusitCervenaAnimBtn;
+        private System.Windows.Forms.Button ZrusitZltaAnimBtn;
+        private System.Windows.Forms.Button ZmenitRozlozenieBtn;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button nastavMuzstvoHostiabutton;
-        private System.Windows.Forms.Button nastavMuzstvoDomacibutton;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button NastavHracovHosBtn;
+        private System.Windows.Forms.Button NastavHracovDomBtn;
+        private System.Windows.Forms.Button RozhodcoviaZapasBtn;
     }
 }

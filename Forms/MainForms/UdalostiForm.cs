@@ -37,8 +37,8 @@ namespace LGR_Futbal.Forms
 
             if (zapas.Domaci == null || zapas.Hostia == null || zDatabazi)
             {
-                databazaButton.Enabled = false;
-                databazaButton.Visible = false;
+                PridatDoDatabazyBtn.Enabled = false;
+                PridatDoDatabazyBtn.Visible = false;
             }
             if (zDatabazi)
             {
@@ -70,10 +70,9 @@ namespace LGR_Futbal.Forms
                 string poznamka = string.Empty;
                 string udalost = string.Empty;
                 int minuta = (udalosti[i].Polcas - 1) * zapas.DlzkaPolcasu + udalosti[i].Minuta + 1;
-                if (udalosti[i].GetType() == typeof(Gol))
+                if (udalosti[i].Typ == 1)
                 {
                     Gol gol = (Gol)udalosti[i];
-                    udalosti[i].Typ = 1;
                     meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + " " + gol.Strielajuci.Priezvisko : "";
                     if (!gol.Asistujuci.Meno.Equals(string.Empty))
                         poznamka = "Asist: " + gol.Asistujuci.CisloDresu + ". " + gol.Asistujuci.Priezvisko;
@@ -81,16 +80,14 @@ namespace LGR_Futbal.Forms
                     udalost = "Gól";
                     poznamka = gol.TypGolu == 2 ? "Z pokutového kopu" : poznamka;
                 }
-                if (udalosti[i].GetType() == typeof(Karta))
+                if (udalosti[i].Typ == 2)
                 {
-                    udalosti[i].Typ = 2;
                     Karta karta = (Karta)udalosti[i];
                     meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
-                    udalost = karta.Typ == 'C' ? "Červená karta" : "Žltá karta";
+                    udalost = karta.TypKarty == 'C' ? "Červená karta" : "Žltá karta";
                 }
-                if (udalosti[i].GetType() == typeof(Kop))
+                if (udalosti[i].Typ == 3)
                 {
-                    udalosti[i].Typ = 3;
                     Kop kop = (Kop)udalosti[i];
                     meno_priezvisko = !kop.Hrac.Meno.Equals(string.Empty) ? kop.Hrac.CisloDresu + ". " + kop.Hrac.Meno + " " + kop.Hrac.Priezvisko : "";
                     switch (kop.IdTypKopu)
@@ -112,26 +109,22 @@ namespace LGR_Futbal.Forms
                             break;
                     }
                 }
-                if (udalosti[i].GetType() == typeof(Offside))
+                if (udalosti[i].Typ == 4)
                 {
-                    udalosti[i].Typ = 4;
                     Offside offside = (Offside)udalosti[i];
                     meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + " " + offside.Hrac.Priezvisko : "";
                     udalost = "Offside";
                 }
-                if (udalosti[i].GetType() == typeof(Out))
+                if (udalosti[i].Typ == 5)
                 {
-                    udalosti[i].Typ = 5;
                     Out _out = (Out)udalosti[i];
                     meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + " " + _out.Hrac.Priezvisko : "";
                     udalost = "Outové vhadzovanie";
                 }
-                if (udalosti[i].GetType() == typeof(Striedanie))
+                if (udalosti[i].Typ == 6)
                 {
-                    udalosti[i].Typ = 6;
                     Striedanie striedanie = (Striedanie)udalosti[i];
-                    //meno_priezvisko = striedanie.Striedany.Meno + striedanie.Striedany.Priezvisko;
-                    
+
                     poznamka = !striedanie.Striedany.Meno.Equals(string.Empty) ? "↓ " + striedanie.Striedany.CisloDresu + ". " + striedanie.Striedany.Priezvisko + " - " +
                         striedanie.Striedajuci.CisloDresu + ". " + striedanie.Striedajuci.Priezvisko + " ↑" : "";
                     udalost = "Striedanie";
@@ -147,10 +140,10 @@ namespace LGR_Futbal.Forms
                     udalost,
                     udalosti[i].NazovTimu
                 };
-                dataGridView1.Rows.Add(row);
+                ZapasUdalostiDataGrid.Rows.Add(row);
             }
         }
-        private void csvGenButton_Click(object sender, EventArgs e)
+        private void GenerovatCsvBtn_Click(object sender, EventArgs e)
         {
             
             bool uspech = false;
@@ -238,16 +231,16 @@ namespace LGR_Futbal.Forms
                     string udalost = string.Empty;
                     string tim = string.Empty;
 
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    for (int i = 0; i < ZapasUdalostiDataGrid.Rows.Count; i++)
                     {
-                        cas = (string)dataGridView1.Rows[i].Cells[0].Value;
-                        polcas = (string)dataGridView1.Rows[i].Cells[1].Value;
-                        minuta = (string)dataGridView1.Rows[i].Cells[2].Value;
-                        nadst_min = (string)dataGridView1.Rows[i].Cells[3].Value;
-                        hrac = (string)dataGridView1.Rows[i].Cells[4].Value;
-                        poznamka = (string)dataGridView1.Rows[i].Cells[5].Value;
-                        udalost = (string)dataGridView1.Rows[i].Cells[6].Value;
-                        tim = (string)dataGridView1.Rows[i].Cells[7].Value;
+                        cas = (string)ZapasUdalostiDataGrid.Rows[i].Cells[0].Value;
+                        polcas = (string)ZapasUdalostiDataGrid.Rows[i].Cells[1].Value;
+                        minuta = (string)ZapasUdalostiDataGrid.Rows[i].Cells[2].Value;
+                        nadst_min = (string)ZapasUdalostiDataGrid.Rows[i].Cells[3].Value;
+                        hrac = (string)ZapasUdalostiDataGrid.Rows[i].Cells[4].Value;
+                        poznamka = (string)ZapasUdalostiDataGrid.Rows[i].Cells[5].Value;
+                        udalost = (string)ZapasUdalostiDataGrid.Rows[i].Cells[6].Value;
+                        tim = (string)ZapasUdalostiDataGrid.Rows[i].Cells[7].Value;
 
                         var newLine = string.Format("{0};{1};{2};{3};{4};{5};{6};{7}", cas, polcas, minuta, nadst_min, hrac, poznamka, udalost, tim);
                         sw.WriteLine(newLine);
@@ -257,23 +250,22 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Súbor sa nepodarilo vygenerovať", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Súbor sa nepodarilo vygenerovať", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
                 if (uspech)
-                    MessageBox.Show("Súbor úspešne vygenerovaný", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Súbor úspešne vygenerovaný", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
-        private void aktFilterButton_Click(object sender, EventArgs e)
+        private void AktivovatFilterBtn_Click(object sender, EventArgs e)
         {
 
             string aktualnyCas, polcas, nadstMin, meno_priezvisko, poznamka, udalost, minuta, nazovTimu;
 
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
+            ZapasUdalostiDataGrid.Rows.Clear();
+            ZapasUdalostiDataGrid.Refresh();
   
             for (int i = 0; i < udalosti.Count; i++)
             {
@@ -320,7 +312,6 @@ namespace LGR_Futbal.Forms
                             }
                             
                         }
-
                     }
                     if (udalosti[i].GetType() == typeof(Kop))
                     {
@@ -399,7 +390,7 @@ namespace LGR_Futbal.Forms
                     };
                     if (pridat)
                     {
-                        dataGridView1.Rows.Add(row);
+                        ZapasUdalostiDataGrid.Rows.Add(row);
                     }   
                 }
             }

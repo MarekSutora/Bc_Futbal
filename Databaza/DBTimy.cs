@@ -189,7 +189,7 @@ namespace LGR_Futbal.Databaza
                             FileStream fls;
                             fls = new FileStream(ft.Logo, FileMode.Open, FileAccess.Read);
                             blob = new byte[fls.Length];
-                            fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
+                            fls.Read(blob, 0, Convert.ToInt32(fls.Length));
                             fls.Close();
                         }
                     }

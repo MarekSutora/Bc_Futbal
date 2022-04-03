@@ -15,31 +15,31 @@ using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void PrenesDataHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, bool diakritika, int animacia);
+    public delegate void DataPotvrdeneHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, bool diakritika, int animacia);
     public delegate void ResetHandler();
     public delegate void ZhasniHandler();
     public delegate void RozsvietHandler();
-    public delegate void NazvyLogaConfirmedHandler(string domNazov, Image domaciLogo, string hosNazov, Image hosLogo);
-    public delegate void TimySelectedHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
+    public delegate void NazvyLogaPotvrdeneHandler(string domNazov, Image domaciLogo, string hosNazov, Image hosLogo);
+    public delegate void TimyVybraneHandler(FutbalovyTim domTim, FutbalovyTim hosTim);
     public delegate void ObnovaFariebHandler();
     public delegate void ZmenaFariebHandler();
     public delegate void ZmenaFontovHandler();
-    public delegate void AnimacieKarietConfirmedHandler(string s1, string s2);
+    public delegate void AnimacieKarietPotvrdeneHandler(string s1, string s2);
     public delegate void ZmenaRozlozeniaHandler();
 
     public partial class SetupForm : Form
     {
-        #region Atributy
-        public event PrenesDataHandler OnDataConfirmed;
+        #region ATRIBUTY
+        public event DataPotvrdeneHandler OnDataPotvrdene;
         public event ResetHandler OnReset;
         public event ZhasniHandler OnZhasnut;
         public event RozsvietHandler OnRozsvietit;
-        public event NazvyLogaConfirmedHandler OnNazvyLogaConfirmed;
-        public event TimySelectedHandler OnTimySelected;
+        public event NazvyLogaPotvrdeneHandler OnNazvyLogaPotvrdene;
+        public event TimyVybraneHandler OnTimyVybrane;
         public event ObnovaFariebHandler OnObnovaFarieb;
         public event ZmenaFariebHandler OnZmenaFarieb;
         public event ZmenaFontovHandler OnZmenaFontov;
-        public event AnimacieKarietConfirmedHandler OnAnimacieKarietConfirmed;
+        public event AnimacieKarietPotvrdeneHandler OnAnimacieKarietPotvrdene;
         public event ZmenaRozlozeniaHandler OnZmenaRozlozenia;
 
         private const string nazovProgramuString = "FutbalApp";
@@ -47,21 +47,19 @@ namespace LGR_Futbal.Forms
         private const string kartyAdresar = "Files\\Karty\\";
         private const string typyZapasovSubor = "Files\\Typy.xml";
 
+        private int sirka;
+        private int vyska;
         private bool aktivnaZmena = true;
+        private string adresar;
 
         private FutbalovyTim domaciT = null;
         private FutbalovyTim hostiaT = null;
 
-        private string adresar = null;
-        private FarbyTabule farbyTabule;
-        private RozlozenieForm rf = null;
-        private FontyForm fontyForm = null;
-
+        private FarbyTabule farbyTabule = null;
         private List<ParametreZapasu> zoznamTypovZapasu = null;
-        private AnimacnaKonfiguracia konfig;
-        private List<string> zoznamSuborov;
+        private AnimacnaKonfiguracia animKonfig = null;
+        private List<string> zoznamSuborov = null;
         private List<Rozhodca> rozhodcovia = null;
-
         private RozlozenieTabule rozlozenieTabule = null;
         private FontyTabule fontyTabule = null;
 
@@ -70,145 +68,128 @@ namespace LGR_Futbal.Forms
         private DBRozhodcovia dbrozhodcovia = null;
         private DBZapasy dbzapasy = null;
 
-        private string zltaAnimacia;
-        private string cervenaAnimacia;
-        private int sirkaObr;
-        private int vyskaObr;
-        private int sirka;
-        private int vyska;
-        #endregion
+        #endregion ATRIBUTY
 
-        #region Konstruktor a metody
-        public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int sirka, int vyska, int dlzkaPolcasu, bool preruseniePovolene, bool diakritika,
-            string nazovDom, string nazovHos,
-            FutbalovyTim domaciTim, FutbalovyTim hostiaTim, string adresar, int animacia,
-            FarbyTabule farby, AnimacnaKonfiguracia konfiguracia,
-            string animZlta, string animCervena, List<Rozhodca> rozhodcovia,
-            DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule fonty, RozlozenieTabule rozlozenie)
+
+        public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int si, int vy, int dlzkaPolcasu, bool prerusenie, bool diakritika,
+            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, string adr, int animacia, FarbyTabule farby, 
+            AnimacnaKonfiguracia konfiguracia, List<Rozhodca> roz, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule f, RozlozenieTabule r)
         {
             InitializeComponent();
 
-            zltaAnimacia = animZlta;
-            cervenaAnimacia = animCervena;
-            this.vyska = vyska;
-            this.sirka = sirka;
-            rozlozenieTabule = rozlozenie;
+            sirka = si;
+            vyska = vy;
+            rozlozenieTabule = r;
             dbtimy = dbt;
             dbhraci = dbh;
             dbrozhodcovia = dbr;
             dbzapasy = dbz;
-            fontyTabule = fonty;
-            this.rozhodcovia = rozhodcovia;
-            domaciT = domaciTim;
-            hostiaT = hostiaTim;
+            fontyTabule = f;
+            rozhodcovia = roz;
+            domaciT = domaci;
+            hostiaT = hostia;
             zoznamSuborov = new List<string>();
-            konfig = konfiguracia;
-            this.adresar = adresar;
-            InicializujNastaveniaAnimacii();
+            animKonfig = konfiguracia;
+            adresar = adr;
+            InicializujNastaveniaAnimaciiGolov();
             farbyTabule = farby;
-            nastavMuzstvoDomacibutton.Enabled = true;
+            NastavHracovDomBtn.Enabled = true;
             if (domaciT == null)
             {
-                nastavMuzstvoDomacibutton.Enabled = false;
+                NastavHracovDomBtn.Enabled = false;
             }
-            nastavMuzstvoHostiabutton.Enabled = true;
+            NastavHracovHosBtn.Enabled = true;
             if (hostiaT == null)
             {
-                nastavMuzstvoHostiabutton.Enabled = false;
+                NastavHracovHosBtn.Enabled = false;
             }
 
-            if (zltaAnimacia.Equals(string.Empty))
-                pictureBox1.Image = null;
+            if (animKonfig.ZltaKartaAnimacia.Equals(string.Empty))
+                zltaKartaPictureBox.Image = null;
             else
             {
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(adresar + "\\" + kartyAdresar + zltaAnimacia);
+                    zltaKartaPictureBox.Image = Image.FromFile(adresar + "\\" + kartyAdresar + animKonfig.ZltaKartaAnimacia);
                 }
                 catch
                 {
-                    pictureBox1.Image = null;
-                    zltaAnimacia = string.Empty;
+                    zltaKartaPictureBox.Image = null;
+                    animKonfig.ZltaKartaAnimacia = string.Empty;
                 }
             }
 
-            if (cervenaAnimacia.Equals(string.Empty))
-                pictureBox2.Image = null;
+            if (animKonfig.CervenaKartaAnimacia.Equals(string.Empty))
+                cervenaKartaPictureBox.Image = null;
             else
             {
                 try
                 {
-                    pictureBox2.Image = Image.FromFile(adresar + "\\" + kartyAdresar + cervenaAnimacia);
+                    cervenaKartaPictureBox.Image = Image.FromFile(adresar + "\\" + kartyAdresar + animKonfig.CervenaKartaAnimacia);
                 }
                 catch
                 {
-                    pictureBox2.Image = null;
-                    cervenaAnimacia = string.Empty;
+                    cervenaKartaPictureBox.Image = null;
+                    animKonfig.CervenaKartaAnimacia = string.Empty;
                 }
             }
 
-            var primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
-            var screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
-            sirkaObr = screen.Bounds.Width;
-            vyskaObr = screen.Bounds.Height;
-            rozlisenieLabel.Text = sirkaObr.ToString() + " x " + vyskaObr.ToString();
+            Screen pd = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen sd = Screen.AllScreens.FirstOrDefault(s => s != pd) ?? pd;
+            rozlisenieLabel.Text = sd.Bounds.Width.ToString() + " x " + sd.Bounds.Height.ToString();
 
             sirkaNumUpDown.Value = sirka;
             vyskaNumUpDown.Value = vyska;
             dlzkaPolcasuNumUpDown.Value = dlzkaPolcasu;
-            prerusenieCheckBox.Checked = preruseniePovolene;
+            prerusenieCheckBox.Checked = prerusenie;
             diakritikaCheckBox.Checked = diakritika;
 
             pozadieCheckBox.Checked = zobrazitPozadie;
             initNastaveniaCheckBox.Checked = zobrazitNastaveniaPoSpusteni;
 
-            ovladace.SelectedIndex = 2; 
+            ovladace.SelectedIndex = 2;
 
             if ((domaciT != null) && (hostiaT != null))
             {
                 ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
                 domNazov.Text = domaciT.NazovTimu;
                 hosNazov.Text = hostiaT.NazovTimu;
-                zrusitDatabazaButton.Enabled = true;
+                ZrusitTimyBtn.Enabled = true;
             }
             else
             {
                 domNazov.Text = nazovDom;
                 hosNazov.Text = nazovHos;
-                zrusitDatabazaButton.Enabled = false;
+                ZrusitTimyBtn.Enabled = false;
             }
 
             animaciaNumUpDown.Value = animacia;
 
             zoznamTypovZapasu = new List<ParametreZapasu>();
-            typyZapasovListBox.Items.Clear();
-            loadList();
+            TypyZapasovListBox.Items.Clear();
+            NacitajTypyZapasov();
         }
 
-        private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
+        #region VYSLEDKOVA TABULA
+
+        private void ResetBtn_Click(object sender, EventArgs e)
         {
-            saveList();
+            if (MessageBox.Show("Naozaj chcete resetovať výsledkovú tabuľu?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                OnReset?.Invoke();
+
+            Close();
         }
 
-        private void ZobrazLoga(Image domaci, Image hostia)
+        private void ZhasnutBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                logoDomaci.Image = domaci;
-            }
-            catch
-            {
-                logoDomaci.Image = null;
-            }
+            OnZhasnut?.Invoke();
+            Close();
+        }
 
-            try
-            {
-                logoHostia.Image = hostia;
-            }
-            catch
-            {
-                logoHostia.Image = null;
-            }
+        private void RozsvietitBtn_Click(object sender, EventArgs e)
+        {
+            OnRozsvietit?.Invoke();
+            Close();
         }
 
         private void SirkaNumUpDown_ValueChanged(object sender, EventArgs e)
@@ -235,83 +216,31 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void TabulaButton_Click(object sender, EventArgs e)
+        private void ZmenitFarbyBtn_Click(object sender, EventArgs e)
         {
-            ovladace.SelectedIndex = 0;
+            FarbyForm ff = new FarbyForm(adresar + "\\Files\\FarebneNastavenia", farbyTabule);
+            ff.OnZmenaFarieb += () => this.OnZmenaFarieb?.Invoke();
+            ff.OnObnovaFarieb += () => this.OnObnovaFarieb?.Invoke();
+            ff.Show();
         }
 
-        private void HraButton_Click(object sender, EventArgs e)
+        private void ZmenitFontyBtn_Click(object sender, EventArgs e)
         {
-            ovladace.SelectedIndex = 1;
+            FontyForm fontyForm = new FontyForm(adresar + "\\Files\\FontyNastavenia", fontyTabule);
+            fontyForm.OnZmenaFontov += () => this.OnZmenaFontov?.Invoke();
+            fontyForm.Show();
         }
 
-        private void TeamyButton_Click(object sender, EventArgs e)
+        private void ZmenitRozlozenieBtn_Click(object sender, EventArgs e)
         {
-            ovladace.SelectedIndex = 2;
+            RozlozenieForm rf = new RozlozenieForm(adresar + "\\Files\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
+            rf.OnZmenaRozlozenia += () => this.OnZmenaRozlozenia?.Invoke();
+            rf.Show();
         }
 
-        private void animacieButton_Click(object sender, EventArgs e)
-        {
-            ovladace.SelectedIndex = 3;
-        }
+        #endregion VYSLEDKOVA TABULA
 
-        private void kartyButton_Click(object sender, EventArgs e)
-        {
-            ovladace.SelectedIndex = 4;
-        }
-
-        private void AktivovatButton_Click(object sender, EventArgs e)
-        {
-            UlozNastaveniaAnimacii();
-
-            if (OnAnimacieKarietConfirmed != null)
-                OnAnimacieKarietConfirmed(zltaAnimacia, cervenaAnimacia);
-
-            if (OnDataConfirmed != null)
-            {
-                bool poz = pozadieCheckBox.Checked;
-                bool initSet = initNastaveniaCheckBox.Checked;
-                int s = (int)sirkaNumUpDown.Value;
-                int v = (int)vyskaNumUpDown.Value;              
-                int d = (int)dlzkaPolcasuNumUpDown.Value;
-                bool p = prerusenieCheckBox.Checked;
-                bool diak = diakritikaCheckBox.Checked;
-                int animCas = (int)animaciaNumUpDown.Value;
-
-                OnDataConfirmed(poz, initSet, s, v, d, p, diak, animCas);
-            }
-
-            if (OnNazvyLogaConfirmed != null)
-            {
-                string dn = domNazov.Text;
-                string hn = hosNazov.Text;
-
-                if (diakritikaCheckBox.Checked)
-                {
-                    dn = OdstranDiakritiku(dn);
-                    hn = OdstranDiakritiku(hn);
-                }
-                if(domaciT != null && hostiaT != null)
-                {
-                    OnNazvyLogaConfirmed(dn, domaciT.LogoImage, hn, hostiaT.LogoImage);
-                } 
-                else
-                {
-                    OnNazvyLogaConfirmed(dn, logoDomaci.Image, hn, logoHostia.Image);
-                }
-                
-            }
-
-            if (OnTimySelected != null)
-                OnTimySelected(domaciT, hostiaT);
-
-            this.Close();
-        }
-
-        private void ZrusitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #region PRIEBEH HRY
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -385,7 +314,7 @@ namespace LGR_Futbal.Forms
                 dlzkaPolcasuNumUpDown.Value = hodnota;
         }
 
-        private void Button10_Click(object sender, EventArgs e)
+        private void Button0_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaPolcasuNumUpDown.Value;
             hodnota = (hodnota * 10);
@@ -393,177 +322,14 @@ namespace LGR_Futbal.Forms
                 dlzkaPolcasuNumUpDown.Value = hodnota;
         }
 
-        private void Button11_Click(object sender, EventArgs e)
+        private void ZmazatBtn_Click(object sender, EventArgs e)
         {
             int hodnota = (int)dlzkaPolcasuNumUpDown.Value;
             hodnota = hodnota / 10;
             dlzkaPolcasuNumUpDown.Value = hodnota;
         }
 
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Naozaj chcete resetovať výsledkovú tabuľu?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (OnReset != null)
-                {
-                    OnReset();
-                    this.Close();
-                }
-            }
-        }
-
-        private void ZhasniButton_Click(object sender, EventArgs e)
-        {
-            if (OnZhasnut != null)
-            {
-                OnZhasnut();
-                this.Close();
-            }
-        }
-
-        private void RozsvietButton_Click(object sender, EventArgs e)
-        {
-            if (OnRozsvietit != null)
-            {
-                OnRozsvietit();
-                this.Close();
-            }
-        }
-
-        private void ZmenaLogaDom_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
-                ofd.FilterIndex = 1;
-                ofd.RestoreDirectory = true;
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    logoDomaci.Image = Image.FromFile(ofd.FileName);
-                    if (domaciT != null)
-                    {
-                        domaciT.LogoImage = Image.FromFile(ofd.FileName);
-                    }   
-                }
-            }
-            catch
-            {
-                logoDomaci.Image = null;
-            }
-        }
-
-        private void ZmenaLogaHos_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Multiselect = false;
-                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
-                ofd.FilterIndex = 1;
-                ofd.RestoreDirectory = true;
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    logoHostia.Image = Image.FromFile(ofd.FileName);
-                    if(hostiaT != null)
-                    {
-                        hostiaT.LogoImage = Image.FromFile(ofd.FileName);
-                    } 
-                }
-            }
-            catch
-            {
-                logoHostia.Image = null;
-            }
-        }
-
-        private void ZrusitLogoDom_Click(object sender, EventArgs e)
-        {
-            logoDomaci.Image = null;
-            domaciT.LogoImage = null;
-        }
-
-        private void ZrusitLogoHos_Click(object sender, EventArgs e)
-        {
-            logoHostia.Image = null;
-            hostiaT.LogoImage = null;
-        }
-
-        private string OdstranDiakritiku(string vstup)
-        {
-            // Pomocna metoda na odstranenie diakritiky z retazca
-            vstup = vstup.Normalize(NormalizationForm.FormD);
-
-            StringBuilder stb = new StringBuilder();
-            for (int i = 0; i < vstup.Length; i++)
-            {
-                if (CharUnicodeInfo.GetUnicodeCategory(vstup[i]) != UnicodeCategory.NonSpacingMark)
-                    stb.Append(vstup[i]);
-            }
-
-            return stb.ToString();
-        }
-
-        private void ZrusitDatabazaButton_Click(object sender, EventArgs e)
-        {
-            domaciT = null;
-            hostiaT = null;
-            zrusitDatabazaButton.Enabled = false;
-            nastavMuzstvoDomacibutton.Enabled = false;
-            nastavMuzstvoHostiabutton.Enabled = false;
-        }
-
-        private void NacitatDatabazaButton_Click(object sender, EventArgs e)
-        {
-            TimyForm selectform = new TimyForm(domaciT, hostiaT, dbtimy, dbhraci);
-            selectform.OnTeamsSelected += Selectform_OnTeamsSelected;
-            selectform.ShowDialog();
-        }
-
-        private void Selectform_OnTeamsSelected(FutbalovyTim t1, FutbalovyTim t2)
-        {
-            domaciT = t1;
-            hostiaT = t2;
-            if (domaciT != null && hostiaT != null)
-            {
-                ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
-                domNazov.Text = domaciT.NazovTimu;
-                hosNazov.Text = hostiaT.NazovTimu;
-                nastavMuzstvoDomacibutton.Enabled = true;
-                nastavMuzstvoHostiabutton.Enabled = true;
-            } 
-            else if (domaciT != null && hostiaT == null)
-            {
-                ZobrazLoga(domaciT.LogoImage, null);
-                domNazov.Text = domaciT.NazovTimu;
-                hosNazov.Text = "Hostia";
-                nastavMuzstvoDomacibutton.Enabled = true;
-                nastavMuzstvoHostiabutton.Enabled = false;
-            }
-            else if (domaciT == null && hostiaT != null)
-            {
-                ZobrazLoga(null, hostiaT.LogoImage);
-                domNazov.Text = "Domáci";
-                hosNazov.Text = hostiaT.NazovTimu;
-                nastavMuzstvoDomacibutton.Enabled = false;
-                nastavMuzstvoHostiabutton.Enabled = true;
-            }
-            //ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
-                       
-            zrusitDatabazaButton.Enabled = true;
-        }
-
-        private void DatabazaButton_Click(object sender, EventArgs e)
-        {
-
-            DatabazaForm df = new DatabazaForm(dbtimy, dbhraci, dbrozhodcovia, dbzapasy);
-            df.Show();
-        }
-
-        private void loadList()
+        private void NacitajTypyZapasov()
         {
             TextReader textReader = null;
 
@@ -576,20 +342,20 @@ namespace LGR_Futbal.Forms
                 if (zoznamTypovZapasu.Count > 0)
                 {
                     foreach (ParametreZapasu pz in zoznamTypovZapasu)
-                        typyZapasovListBox.Items.Add(pz.ToString());
+                        TypyZapasovListBox.Items.Add(pz.ToString());
 
-                    typyZapasovListBox.SelectedIndex = 0;
-                    odstranitTypZapasuButton.Enabled = true;
-                    vybratButton.Enabled = true;
+                    TypyZapasovListBox.SelectedIndex = 0;
+                    OdstranitTypBtn.Enabled = true;
+                    VybratTypBtn.Enabled = true;
                 }
             }
             catch
             {
-                typyZapasovListBox.Items.Clear();
+                TypyZapasovListBox.Items.Clear();
                 zoznamTypovZapasu.Clear();
 
-                odstranitTypZapasuButton.Enabled = false;
-                vybratButton.Enabled = false;
+                OdstranitTypBtn.Enabled = false;
+                VybratTypBtn.Enabled = false;
             }
             finally
             {
@@ -598,7 +364,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void saveList()
+        private void UlozTypyZapasov()
         {
             TextWriter textWriter = null;
 
@@ -619,7 +385,7 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void pridatTypZapasuButton_Click(object sender, EventArgs e)
+        private void PridatTypBtn_Click(object sender, EventArgs e)
         {
             TypZapasuForm tzf = new TypZapasuForm();
             tzf.OnNovyTypZapasu += Tzf_OnNovyTypZapasu;
@@ -629,16 +395,25 @@ namespace LGR_Futbal.Forms
         private void Tzf_OnNovyTypZapasu(ParametreZapasu parZap)
         {
             zoznamTypovZapasu.Add(parZap);
-            typyZapasovListBox.Items.Add(parZap.ToString());
-            typyZapasovListBox.SelectedIndex = 0;
+            TypyZapasovListBox.Items.Add(parZap.ToString());
+            TypyZapasovListBox.SelectedIndex = 0;
 
-            odstranitTypZapasuButton.Enabled = true;
-            vybratButton.Enabled = true;
+            OdstranitTypBtn.Enabled = true;
+            VybratTypBtn.Enabled = true;
         }
 
-        private void vybratButton_Click(object sender, EventArgs e)
+        private void VybratTypBtn_Click(object sender, EventArgs e)
         {
-            int index = typyZapasovListBox.SelectedIndex;
+            VyberTypZapasu();
+        }
+        private void TypyZapasovListBox_DoubleClick(object sender, EventArgs e)
+        {
+            VyberTypZapasu();
+        }
+
+        private void VyberTypZapasu()
+        {
+            int index = TypyZapasovListBox.SelectedIndex;
             if (index >= 0)
             {
                 ParametreZapasu pz = zoznamTypovZapasu[index];
@@ -647,49 +422,198 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void odstranitTypZapasuButton_Click(object sender, EventArgs e)
+        private void OdstranitTypBtn_Click(object sender, EventArgs e)
         {
-            int index = typyZapasovListBox.SelectedIndex;
+            int index = TypyZapasovListBox.SelectedIndex;
             if (index >= 0)
             {
                 zoznamTypovZapasu.RemoveAt(index);
-                typyZapasovListBox.Items.RemoveAt(index);
+                TypyZapasovListBox.Items.RemoveAt(index);
 
-                if (typyZapasovListBox.Items.Count > 0)
-                    typyZapasovListBox.SelectedIndex = 0;
+                if (TypyZapasovListBox.Items.Count > 0)
+                    TypyZapasovListBox.SelectedIndex = 0;
                 else
                 {
-                    odstranitTypZapasuButton.Enabled = false;
-                    vybratButton.Enabled = false;
+                    OdstranitTypBtn.Enabled = false;
+                    VybratTypBtn.Enabled = false;
                 }
             }
         }
 
-        private void createColorsButton_Click(object sender, EventArgs e)
+        #endregion PRIEBEH HRY
+
+        #region MUZSTVA A LOGA
+
+        private void ZobrazLoga(Image domaci, Image hostia)
         {
-            FarbyForm ff = new FarbyForm(adresar + "\\Files\\FarebneNastavenia", farbyTabule);
-            ff.OnZmenaFarieb += () => this.OnZmenaFarieb?.Invoke();
-            ff.OnObnovaFarieb += () => this.OnObnovaFarieb?.Invoke();
-            ff.Show();
+            try
+            {
+                logoDomaciPictureBox.Image = domaci;
+            }
+            catch
+            {
+                logoDomaciPictureBox.Image = null;
+            }
+
+            try
+            {
+                logoHostiaPictureBox.Image = hostia;
+            }
+            catch
+            {
+                logoHostiaPictureBox.Image = null;
+            }
+        }
+        private void ZmenitLogoDomBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Multiselect = false;
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.FilterIndex = 1;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    logoDomaciPictureBox.Image = Image.FromFile(ofd.FileName);
+                    if (domaciT != null)
+                    {
+                        domaciT.LogoImage = Image.FromFile(ofd.FileName);
+                    }
+                }
+            }
+            catch
+            {
+                logoDomaciPictureBox.Image = null;
+            }
+        }
+        private void ZmenitLogoHosBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Multiselect = false;
+                ofd.Filter = "jpeg files (*.jpg)|*.jpg|png files (*.png)|*.png|All files (*.*)|*.*";
+                ofd.FilterIndex = 1;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    logoHostiaPictureBox.Image = Image.FromFile(ofd.FileName);
+                    if (hostiaT != null)
+                    {
+                        hostiaT.LogoImage = Image.FromFile(ofd.FileName);
+                    }
+                }
+            }
+            catch
+            {
+                logoHostiaPictureBox.Image = null;
+            }
         }
 
-        private void fontyButton_Click(object sender, EventArgs e)
+        private void ZrusitLogoDomBtn_Click(object sender, EventArgs e)
         {
-            fontyForm = new FontyForm(adresar + "\\Files\\FontyNastavenia", fontyTabule);
-            fontyForm.OnZmenaFontov += () => this.OnZmenaFontov?.Invoke();
-            fontyForm.Show();
+            logoDomaciPictureBox.Image = null;
+            domaciT.LogoImage = null;
         }
 
-        private void SetupForm_KeyDown(object sender, KeyEventArgs e)
+        private void ZrusitLogoHosBtn_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            logoHostiaPictureBox.Image = null;
+            hostiaT.LogoImage = null;
         }
 
-        private void InicializujNastaveniaAnimacii()
+        private void NastavHracovDomBtn_Click(object sender, EventArgs e)
         {
-            checkBox1.Checked = konfig.ZobrazitAnimaciuDomaci;
-            checkBox2.Checked = konfig.ZobrazitAnimaciuHostia;
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT);
+            hraciZapasForm.ShowDialog();
+        }
+
+        private void NastavHracovHosBtn_Click(object sender, EventArgs e)
+        {
+            HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT);
+            hraciZapasForm.ShowDialog();
+        }
+
+        private void ZrusitTimyBtn_Click(object sender, EventArgs e)
+        {
+            domaciT = null;
+            hostiaT = null;
+            domNazov.Text = "Domáci";
+            hosNazov.Text = "Hostia";
+            ZrusitTimyBtn.Enabled = false;
+            NastavHracovDomBtn.Enabled = false;
+            NastavHracovHosBtn.Enabled = false;
+        }
+
+        private void NacitatTimyBtn_Click(object sender, EventArgs e)
+        {
+            TimyForm tf = new TimyForm(domaciT, hostiaT, dbtimy, dbhraci);
+            tf.OnTimyVybrane += Tf_OnTimyVybrane;
+            tf.ShowDialog();
+        }
+
+        private void Tf_OnTimyVybrane(FutbalovyTim t1, FutbalovyTim t2)
+        {
+            domaciT = t1;
+            hostiaT = t2;
+            if (domaciT != null && hostiaT != null)
+            {
+                ZobrazLoga(domaciT.LogoImage, hostiaT.LogoImage);
+                domNazov.Text = domaciT.NazovTimu;
+                hosNazov.Text = hostiaT.NazovTimu;
+                NastavHracovDomBtn.Enabled = true;
+                NastavHracovHosBtn.Enabled = true;
+            }
+            else if (domaciT != null && hostiaT == null)
+            {
+                ZobrazLoga(domaciT.LogoImage, null);
+                domNazov.Text = domaciT.NazovTimu;
+                hosNazov.Text = "Hostia";
+                NastavHracovDomBtn.Enabled = true;
+                NastavHracovHosBtn.Enabled = false;
+            }
+            else if (domaciT == null && hostiaT != null)
+            {
+                ZobrazLoga(null, hostiaT.LogoImage);
+                domNazov.Text = "Domáci";
+                hosNazov.Text = hostiaT.NazovTimu;
+                NastavHracovDomBtn.Enabled = false;
+                NastavHracovHosBtn.Enabled = true;
+            }
+
+            ZrusitTimyBtn.Enabled = true;
+        }
+        private string OdstranDiakritiku(string vstup)
+        {
+            // Pomocna metoda na odstranenie diakritiky z retazca
+            vstup = vstup.Normalize(NormalizationForm.FormD);
+
+            StringBuilder stb = new StringBuilder();
+            for (int i = 0; i < vstup.Length; i++)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(vstup[i]) != UnicodeCategory.NonSpacingMark)
+                    stb.Append(vstup[i]);
+            }
+
+            return stb.ToString();
+        }
+        private void RozhodcoviaZapasBtn_Click(object sender, EventArgs e)
+        {
+            RozhodcoviaForm rf = new RozhodcoviaForm(rozhodcovia, dbrozhodcovia);
+            rf.Show();
+        }
+
+        #endregion MUZSTVA A LOGA
+
+        #region ANIMACIE GOLOV
+
+        private void InicializujNastaveniaAnimaciiGolov()
+        {
+            domaciGooolCheckBox.Checked = animKonfig.ZobrazitAnimaciuDomaci;
+            hostiaGooolCheckBox.Checked = animKonfig.ZobrazitAnimaciuHostia;
 
             FileInfo fi;
             string nazov;
@@ -702,12 +626,12 @@ namespace LGR_Futbal.Forms
                     nazov = fi.Name;
                     zoznamSuborov.Add(pole[i]);
 
-                    if (konfig.AnimacieDomaci.Contains(nazov))
+                    if (animKonfig.AnimacieDomaci.Contains(nazov))
                         animDomBox.Items.Add(nazov, true);
                     else
                         animDomBox.Items.Add(nazov, false);
 
-                    if (konfig.AnimacieHostia.Contains(nazov))
+                    if (animKonfig.AnimacieHostia.Contains(nazov))
                         animHosBox.Items.Add(nazov, true);
                     else
                         animHosBox.Items.Add(nazov, false);
@@ -715,13 +639,13 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void UlozNastaveniaAnimacii()
+        private void UlozNastaveniaAnimaciiGolov()
         {
-            konfig.ZobrazitAnimaciuDomaci = checkBox1.Checked;
-            konfig.ZobrazitAnimaciuHostia = checkBox2.Checked;
+            animKonfig.ZobrazitAnimaciuDomaci = domaciGooolCheckBox.Checked;
+            animKonfig.ZobrazitAnimaciuHostia = hostiaGooolCheckBox.Checked;
 
-            konfig.AnimacieDomaci.Clear();
-            konfig.AnimacieHostia.Clear();
+            animKonfig.AnimacieDomaci.Clear();
+            animKonfig.AnimacieHostia.Clear();
 
             FileInfo fi;
             string nazov;
@@ -731,19 +655,19 @@ namespace LGR_Futbal.Forms
                 {
                     fi = new FileInfo(zoznamSuborov[i]);
                     nazov = fi.Name;
-                    konfig.AnimacieDomaci.Add(nazov);
+                    animKonfig.AnimacieDomaci.Add(nazov);
                 }
 
                 if (animHosBox.GetItemChecked(i))
                 {
                     fi = new FileInfo(zoznamSuborov[i]);
                     nazov = fi.Name;
-                    konfig.AnimacieHostia.Add(nazov);
+                    animKonfig.AnimacieHostia.Add(nazov);
                 }
             }
         }
 
-        private void importAnimacieBtn_Click(object sender, EventArgs e)
+        private void ImportAnimacieGolBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
@@ -766,7 +690,11 @@ namespace LGR_Futbal.Forms
             }
         }
 
-        private void zmenitZltaKartaBtn_Click(object sender, EventArgs e)
+        #endregion ANIMACIE GOLOV
+
+        #region ANIMACIE KARIET
+
+        private void ZmenitZltaAnimBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = adresar + "\\" + kartyAdresar;
@@ -786,18 +714,18 @@ namespace LGR_Futbal.Forms
 
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(novyNazov);
-                    zltaAnimacia = nazov;
+                    zltaKartaPictureBox.Image = Image.FromFile(novyNazov);
+                    animKonfig.ZltaKartaAnimacia = nazov;
                 }
                 catch
                 {
-                    pictureBox1.Image = null;
-                    zltaAnimacia = string.Empty;
+                    zltaKartaPictureBox.Image = null;
+                    animKonfig.ZltaKartaAnimacia = string.Empty;
                 }
             }
         }
 
-        private void zmenitCervenaKartaBtn_Click(object sender, EventArgs e)
+        private void ZmenitCervenaAnimBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = adresar + "\\" + kartyAdresar;
@@ -817,65 +745,126 @@ namespace LGR_Futbal.Forms
 
                 try
                 {
-                    pictureBox2.Image = Image.FromFile(novyNazov);
-                    cervenaAnimacia = nazov;
+                    cervenaKartaPictureBox.Image = Image.FromFile(novyNazov);
+                    animKonfig.CervenaKartaAnimacia = nazov;
                 }
                 catch
                 {
-                    pictureBox2.Image = null;
-                    cervenaAnimacia = string.Empty;
+                    cervenaKartaPictureBox.Image = null;
+                    animKonfig.CervenaKartaAnimacia = string.Empty;
                 }
             }
         }
 
-        private void ZrusitZltaKartaBtn_Click(object sender, EventArgs e)
+        private void ZrusitZltaAnimBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                pictureBox1.Image = null;
-                zltaAnimacia = string.Empty;
+                zltaKartaPictureBox.Image = null;
+                animKonfig.ZltaKartaAnimacia = string.Empty;
             }
         }
 
-        private void ZrusitCervenaKartaBtn_Click(object sender, EventArgs e)
+        private void ZrusitCervenaAnimBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                pictureBox2.Image = null;
-                cervenaAnimacia = string.Empty;
+                cervenaKartaPictureBox.Image = null;
+                animKonfig.CervenaKartaAnimacia = string.Empty;
             }
         }
 
-        private void rozlozenieButton_Click(object sender, EventArgs e)
+
+        #endregion ANIMACIE KARIET
+
+        #region INE
+
+        private void TabulaBtn_Click(object sender, EventArgs e)
         {
-            rf = new RozlozenieForm(adresar + "\\Files\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
-            rf.OnZmenaRozlozenia += RF_OnZmenaRozlozenia;
-            rf.Show();
+            ovladace.SelectedIndex = 0;
         }
 
-        private void RF_OnZmenaRozlozenia()
+        private void HraBtn_Click(object sender, EventArgs e)
         {
-            OnZmenaRozlozenia?.Invoke();
+            ovladace.SelectedIndex = 1;
         }
 
-        #endregion
-
-        private void nastavMuzstvoDomacibutton_Click(object sender, EventArgs e)
+        private void TimyBtn_Click(object sender, EventArgs e)
         {
-            HraciZapasForm hraciZapasForm = new HraciZapasForm(domaciT);
-            hraciZapasForm.ShowDialog();
+            ovladace.SelectedIndex = 2;
         }
 
-        private void nastavMuzstvoHostiabutton_Click(object sender, EventArgs e)
+        private void GolyAnimacieBtn_Click(object sender, EventArgs e)
         {
-            HraciZapasForm hraciZapasForm = new HraciZapasForm(hostiaT);
-            hraciZapasForm.ShowDialog();
+            ovladace.SelectedIndex = 3;
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void KartyAnimacieBtn_Click(object sender, EventArgs e)
         {
-            RozhodcoviaForm rf = new RozhodcoviaForm(rozhodcovia, dbrozhodcovia);
-            rf.Show();
+            ovladace.SelectedIndex = 4;
         }
+
+        private void DatabazaBtn_Click(object sender, EventArgs e)
+        {
+
+            DatabazaForm df = new DatabazaForm(dbtimy, dbhraci, dbrozhodcovia, dbzapasy);
+            df.Show();
+        }
+        private void UlozitBtn_Click(object sender, EventArgs e)
+        {
+            UlozNastaveniaAnimaciiGolov();
+
+            OnAnimacieKarietPotvrdene?.Invoke(animKonfig.ZltaKartaAnimacia, animKonfig.CervenaKartaAnimacia);
+
+            if (OnDataPotvrdene != null)
+            {
+                bool poz = pozadieCheckBox.Checked;
+                bool initSet = initNastaveniaCheckBox.Checked;
+                int sirka = (int)sirkaNumUpDown.Value;
+                int vyska = (int)vyskaNumUpDown.Value;
+                int dlzkaPolcasu = (int)dlzkaPolcasuNumUpDown.Value;
+                bool prerusenie = prerusenieCheckBox.Checked;
+                bool diak = diakritikaCheckBox.Checked;
+                int animCas = (int)animaciaNumUpDown.Value;
+                OnDataPotvrdene(poz, initSet, sirka, vyska, dlzkaPolcasu, prerusenie, diak, animCas);
+            }
+
+            if (OnNazvyLogaPotvrdene != null)
+            {
+                string dn = domNazov.Text;
+                string hn = hosNazov.Text;
+
+                if (diakritikaCheckBox.Checked)
+                {
+                    dn = OdstranDiakritiku(dn);
+                    hn = OdstranDiakritiku(hn);
+                }
+                if (domaciT != null && hostiaT != null)
+                {
+                    OnNazvyLogaPotvrdene(dn, domaciT.LogoImage, hn, hostiaT.LogoImage);
+                }
+                else
+                {
+                    OnNazvyLogaPotvrdene(dn, logoDomaciPictureBox.Image, hn, logoHostiaPictureBox.Image);
+                }
+
+            }
+
+            OnTimyVybrane?.Invoke(domaciT, hostiaT);
+
+            Close();
+        }
+
+        private void ZrusitBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UlozTypyZapasov();
+        }
+
+        #endregion INE
     }
 }

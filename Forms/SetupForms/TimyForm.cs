@@ -8,8 +8,6 @@ using LGR_Futbal.Databaza;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void TimyVybraneHandler(FutbalovyTim t1, FutbalovyTim t2);
-
     public partial class TimyForm : Form
     {
         public event TimyVybraneHandler OnTimyVybrane;
@@ -31,8 +29,6 @@ namespace LGR_Futbal.Forms
                 AktivovatBtn.Enabled = false;
             else
             {
-                domaciLB.Items.Add("    ");
-                hostiaLB.Items.Add("    ");
                 foreach (FutbalovyTim t in timy)
                 {
                     domaciLB.Items.Add(t.NazovTimu);
@@ -54,8 +50,8 @@ namespace LGR_Futbal.Forms
             }
             else
             {
-                domaci = timy[domaciLB.SelectedIndex - 1];
-                domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex - 1].IdFutbalovyTim);
+                domaci = timy[domaciLB.SelectedIndex];
+                domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex].IdFutbalovyTim);
             }
             if (hostiaLB.SelectedIndex == 0)
             {
@@ -64,10 +60,16 @@ namespace LGR_Futbal.Forms
             else
             {
                 hostia = timy[hostiaLB.SelectedIndex - 1];
-                hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex - 1].IdFutbalovyTim);
+                hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex].IdFutbalovyTim);
             }
             OnTimyVybrane?.Invoke(domaci, hostia);
             Close();
+        }
+
+        private void OdznacenieVsetkeho(object sender, EventArgs e)
+        {
+            domaciLB.ClearSelected();
+            hostiaLB.ClearSelected();
         }
     }
 }

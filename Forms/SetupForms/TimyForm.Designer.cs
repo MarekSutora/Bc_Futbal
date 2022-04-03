@@ -40,25 +40,27 @@
             // 
             this.hostiaLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hostiaLabel.ForeColor = System.Drawing.Color.Black;
-            this.hostiaLabel.Location = new System.Drawing.Point(332, 22);
+            this.hostiaLabel.Location = new System.Drawing.Point(298, 22);
             this.hostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hostiaLabel.Name = "hostiaLabel";
-            this.hostiaLabel.Size = new System.Drawing.Size(227, 37);
+            this.hostiaLabel.Size = new System.Drawing.Size(286, 37);
             this.hostiaLabel.TabIndex = 544;
             this.hostiaLabel.Text = "HOSTIA";
             this.hostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hostiaLabel.Click += new System.EventHandler(this.OdznacenieVsetkeho);
             // 
             // domaciLabel
             // 
             this.domaciLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domaciLabel.ForeColor = System.Drawing.Color.Black;
-            this.domaciLabel.Location = new System.Drawing.Point(51, 22);
+            this.domaciLabel.Location = new System.Drawing.Point(14, 22);
             this.domaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.domaciLabel.Name = "domaciLabel";
-            this.domaciLabel.Size = new System.Drawing.Size(227, 37);
+            this.domaciLabel.Size = new System.Drawing.Size(280, 37);
             this.domaciLabel.TabIndex = 543;
             this.domaciLabel.Text = "DOMÁCI";
             this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.domaciLabel.Click += new System.EventHandler(this.OdznacenieVsetkeho);
             // 
             // AktivovatBtn
             // 
@@ -117,6 +119,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Výber tímov z databázy";
+            this.Click += new System.EventHandler(this.OdznacenieVsetkeho);
             this.ResumeLayout(false);
 
         }

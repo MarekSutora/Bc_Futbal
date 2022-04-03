@@ -12,13 +12,9 @@ namespace LGR_Futbal.Forms
 {
     public partial class PrezentaciaForm : Form
     {
-        #region Konstanty
+        #region Atributy
 
         private const string fotkyAdresar = "\\Files\\Fotky\\";
-
-        #endregion
-
-        #region Atributy
 
         private string adresar;
         private FutbalovyTim prezentovanyTim = null;
@@ -27,10 +23,9 @@ namespace LGR_Futbal.Forms
         private List<Hrac> nahradnici = null;
         private List<Hrac> aktualnyZoznam = null;
 
-        #endregion
+        #endregion Atributy
 
         #region Konstruktor a metody
-
         public PrezentaciaForm(string adresar, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
@@ -94,7 +89,7 @@ namespace LGR_Futbal.Forms
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
-            this.SpustiCas();
+            SpustiCas();
         }
 
         private void Casovac_Tick(object sender, EventArgs e)
@@ -102,7 +97,7 @@ namespace LGR_Futbal.Forms
             if ((zakladnaJedenastka.Count == 0) && (nahradnici.Count == 0))
             {
                 ZastavCas();
-                this.Close();
+                Close();
             }
             else
             {
@@ -143,7 +138,7 @@ namespace LGR_Futbal.Forms
                     if (aktualnyZoznam == nahradnici)
                     {
                         ZastavCas();
-                        this.Close();
+                        Close();
                     }
                     else if (aktualnyZoznam == zakladnaJedenastka)
                     {
@@ -158,7 +153,7 @@ namespace LGR_Futbal.Forms
                     else
                     {
                         ZastavCas();
-                        this.Close();
+                        Close();
                     }
                 }
             }

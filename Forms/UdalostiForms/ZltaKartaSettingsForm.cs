@@ -14,13 +14,13 @@ namespace LGR_Futbal.Forms.UdalostiForms
         public event UdalostPridanaHandler OnUdalostPridana;
         
         private bool domaci = false;
+        private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
         private Karta karta = null;
-        private bool uspech = false;
-        #region Konstruktor a metody
 
+        #region Konstruktor a metody
         public ZltaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Karta karta)
         {
             InitializeComponent();
@@ -46,15 +46,15 @@ namespace LGR_Futbal.Forms.UdalostiForms
             }
 
             if (tim == null)
-                PotvrditButton.Enabled = true;
+                PotvrditBtn.Enabled = true;
             else
             {
                 if (zoznamHracov.Count == 0)
-                    PotvrditButton.Enabled = false;
+                    PotvrditBtn.Enabled = false;
                 else
                 {
                     HraciLB.SelectedIndex = 0;
-                    PotvrditButton.Enabled = true;
+                    PotvrditBtn.Enabled = true;
                 }
             }
         }
@@ -89,14 +89,14 @@ namespace LGR_Futbal.Forms.UdalostiForms
             this.Close();
         }
 
-        private void PotvrditButton_Click(object sender, EventArgs e)
+        private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             PotvrdKartu();
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
+        private void SpatBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void HraciLB_DoubleClick(object sender, EventArgs e)
@@ -110,8 +110,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
-
-
         #endregion 
     }
 }

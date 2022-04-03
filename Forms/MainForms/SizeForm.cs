@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void PrenesNastaveniaHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska);
+    public delegate void NastaveniaPotvrdenieHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska);
     
     public partial class SizeForm : Form
     {
         #region Atributy a udalosti
 
         private bool aktivnaZmena = true;
-        public event PrenesNastaveniaHandler OnSettingsConfirmation;
+        public event NastaveniaPotvrdenieHandler OnNastaveniaPotvrdenie;
         private bool koniec = true;
         private int sirka, vyska;
         #endregion
@@ -76,7 +76,7 @@ namespace LGR_Futbal.Forms
 
         private void AktivovatButton_Click(object sender, EventArgs e)
         {
-            if (OnSettingsConfirmation != null)
+            if (OnNastaveniaPotvrdenie != null)
             {
                 int s = (int)sirkaNumUpDown.Value;
                 int v = (int)vyskaNumUpDown.Value;
@@ -86,8 +86,7 @@ namespace LGR_Futbal.Forms
                 sirka = s;
                 vyska = v;
 
-
-                OnSettingsConfirmation(poz, initSet, s, v);
+                OnNastaveniaPotvrdenie(poz, initSet, s, v);
             }
             koniec = false;
             this.Close();

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GolSettingsForm));
-            this.potvrditButton = new System.Windows.Forms.Button();
+            this.PotvrditBtn = new System.Windows.Forms.Button();
             this.HraciLB = new System.Windows.Forms.ListBox();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.znizitSkoreButton = new System.Windows.Forms.Button();
-            this.resetSkoreButton = new System.Windows.Forms.Button();
-            this.NastavitButton = new System.Windows.Forms.Button();
+            this.SpatBtn = new System.Windows.Forms.Button();
+            this.ZnizitSkoreBtn = new System.Windows.Forms.Button();
+            this.ResetSkoreBtn = new System.Windows.Forms.Button();
+            this.NastavitBtn = new System.Windows.Forms.Button();
             this.HodnotaLabel = new System.Windows.Forms.Label();
             this.HodnotaNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.AsistHraciLB = new System.Windows.Forms.ListBox();
@@ -44,18 +44,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.HodnotaNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // potvrditButton
+            // PotvrditBtn
             // 
-            this.potvrditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.potvrditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.potvrditButton.Location = new System.Drawing.Point(598, 12);
-            this.potvrditButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.potvrditButton.Name = "potvrditButton";
-            this.potvrditButton.Size = new System.Drawing.Size(175, 78);
-            this.potvrditButton.TabIndex = 552;
-            this.potvrditButton.Text = "Potvrdiť gól";
-            this.potvrditButton.UseVisualStyleBackColor = false;
-            this.potvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
+            this.PotvrditBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PotvrditBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PotvrditBtn.Location = new System.Drawing.Point(598, 12);
+            this.PotvrditBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.PotvrditBtn.Name = "PotvrditBtn";
+            this.PotvrditBtn.Size = new System.Drawing.Size(175, 78);
+            this.PotvrditBtn.TabIndex = 552;
+            this.PotvrditBtn.Text = "Potvrdiť gól";
+            this.PotvrditBtn.UseVisualStyleBackColor = false;
+            this.PotvrditBtn.Click += new System.EventHandler(this.PotvrditBtn_Click);
             // 
             // HraciLB
             // 
@@ -69,57 +69,57 @@
             this.HraciLB.TabIndex = 551;
             this.HraciLB.DoubleClick += new System.EventHandler(this.HraciLB_DoubleClick);
             // 
-            // BackButton
+            // SpatBtn
             // 
-            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BackButton.Location = new System.Drawing.Point(600, 345);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(175, 78);
-            this.BackButton.TabIndex = 550;
-            this.BackButton.Text = "Návrat späť";
-            this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.SpatBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.SpatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpatBtn.Location = new System.Drawing.Point(600, 345);
+            this.SpatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.SpatBtn.Name = "SpatBtn";
+            this.SpatBtn.Size = new System.Drawing.Size(175, 78);
+            this.SpatBtn.TabIndex = 550;
+            this.SpatBtn.Text = "Návrat späť";
+            this.SpatBtn.UseVisualStyleBackColor = false;
+            this.SpatBtn.Click += new System.EventHandler(this.SpatBtn_Click);
             // 
-            // znizitSkoreButton
+            // ZnizitSkoreBtn
             // 
-            this.znizitSkoreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.znizitSkoreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.znizitSkoreButton.Location = new System.Drawing.Point(598, 94);
-            this.znizitSkoreButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.znizitSkoreButton.Name = "znizitSkoreButton";
-            this.znizitSkoreButton.Size = new System.Drawing.Size(176, 78);
-            this.znizitSkoreButton.TabIndex = 553;
-            this.znizitSkoreButton.Text = "Znížiť skóre";
-            this.znizitSkoreButton.UseVisualStyleBackColor = false;
-            this.znizitSkoreButton.Click += new System.EventHandler(this.ZnizitSkoreButton_Click);
+            this.ZnizitSkoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ZnizitSkoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZnizitSkoreBtn.Location = new System.Drawing.Point(598, 94);
+            this.ZnizitSkoreBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ZnizitSkoreBtn.Name = "ZnizitSkoreBtn";
+            this.ZnizitSkoreBtn.Size = new System.Drawing.Size(176, 78);
+            this.ZnizitSkoreBtn.TabIndex = 553;
+            this.ZnizitSkoreBtn.Text = "Znížiť skóre";
+            this.ZnizitSkoreBtn.UseVisualStyleBackColor = false;
+            this.ZnizitSkoreBtn.Click += new System.EventHandler(this.ZnizitSkoreBtn_Click);
             // 
-            // resetSkoreButton
+            // ResetSkoreBtn
             // 
-            this.resetSkoreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.resetSkoreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.resetSkoreButton.Location = new System.Drawing.Point(598, 175);
-            this.resetSkoreButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.resetSkoreButton.Name = "resetSkoreButton";
-            this.resetSkoreButton.Size = new System.Drawing.Size(176, 78);
-            this.resetSkoreButton.TabIndex = 554;
-            this.resetSkoreButton.Text = "Resetovať skóre";
-            this.resetSkoreButton.UseVisualStyleBackColor = false;
-            this.resetSkoreButton.Click += new System.EventHandler(this.ResetSkoreButton_Click);
+            this.ResetSkoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ResetSkoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ResetSkoreBtn.Location = new System.Drawing.Point(598, 175);
+            this.ResetSkoreBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ResetSkoreBtn.Name = "ResetSkoreBtn";
+            this.ResetSkoreBtn.Size = new System.Drawing.Size(176, 78);
+            this.ResetSkoreBtn.TabIndex = 554;
+            this.ResetSkoreBtn.Text = "Resetovať skóre";
+            this.ResetSkoreBtn.UseVisualStyleBackColor = false;
+            this.ResetSkoreBtn.Click += new System.EventHandler(this.ResetSkoreBtn_Click);
             // 
-            // NastavitButton
+            // NastavitBtn
             // 
-            this.NastavitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.NastavitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NastavitButton.Location = new System.Drawing.Point(600, 296);
-            this.NastavitButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.NastavitButton.Name = "NastavitButton";
-            this.NastavitButton.Size = new System.Drawing.Size(174, 42);
-            this.NastavitButton.TabIndex = 555;
-            this.NastavitButton.Text = "Nastaviť";
-            this.NastavitButton.UseVisualStyleBackColor = false;
-            this.NastavitButton.Click += new System.EventHandler(this.NastavitButton_Click);
+            this.NastavitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NastavitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NastavitBtn.Location = new System.Drawing.Point(600, 296);
+            this.NastavitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.NastavitBtn.Name = "NastavitBtn";
+            this.NastavitBtn.Size = new System.Drawing.Size(174, 42);
+            this.NastavitBtn.TabIndex = 555;
+            this.NastavitBtn.Text = "Nastaviť";
+            this.NastavitBtn.UseVisualStyleBackColor = false;
+            this.NastavitBtn.Click += new System.EventHandler(this.NastavitBtn_Click);
             // 
             // HodnotaLabel
             // 
@@ -196,12 +196,12 @@
             this.Controls.Add(this.AsistHraciLB);
             this.Controls.Add(this.HodnotaNumericUpDown);
             this.Controls.Add(this.HodnotaLabel);
-            this.Controls.Add(this.NastavitButton);
-            this.Controls.Add(this.resetSkoreButton);
-            this.Controls.Add(this.znizitSkoreButton);
-            this.Controls.Add(this.potvrditButton);
+            this.Controls.Add(this.NastavitBtn);
+            this.Controls.Add(this.ResetSkoreBtn);
+            this.Controls.Add(this.ZnizitSkoreBtn);
+            this.Controls.Add(this.PotvrditBtn);
             this.Controls.Add(this.HraciLB);
-            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.SpatBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -220,12 +220,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button potvrditButton;
+        private System.Windows.Forms.Button PotvrditBtn;
         private System.Windows.Forms.ListBox HraciLB;
-        private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.Button znizitSkoreButton;
-        private System.Windows.Forms.Button resetSkoreButton;
-        private System.Windows.Forms.Button NastavitButton;
+        private System.Windows.Forms.Button SpatBtn;
+        private System.Windows.Forms.Button ZnizitSkoreBtn;
+        private System.Windows.Forms.Button ResetSkoreBtn;
+        private System.Windows.Forms.Button NastavitBtn;
         private System.Windows.Forms.Label HodnotaLabel;
         private System.Windows.Forms.NumericUpDown HodnotaNumericUpDown;
         private System.Windows.Forms.ListBox AsistHraciLB;

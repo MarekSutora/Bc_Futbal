@@ -97,7 +97,7 @@
             this.PotvrditButton.TabIndex = 555;
             this.PotvrditButton.Text = "Potvrdiť";
             this.PotvrditButton.UseVisualStyleBackColor = false;
-            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditButton_Click);
+            this.PotvrditButton.Click += new System.EventHandler(this.PotvrditBtn_Click);
             // 
             // BackButton
             // 
@@ -110,7 +110,7 @@
             this.BackButton.TabIndex = 556;
             this.BackButton.Text = "Návrat späť";
             this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.Click += new System.EventHandler(this.SpatBtn_Click);
             // 
             // HraciLabel
             // 
