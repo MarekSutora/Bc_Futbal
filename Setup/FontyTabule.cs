@@ -85,35 +85,5 @@ namespace LGR_Futbal.Setup
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
             return (Font)converter.ConvertFromString(CisloMenoPrezentaciaFont);
         }
-
-        //public void convertSkoreFont(Font font)
-        //{
-        //    TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-        //    SkoreFont = converter.ConvertToString(font);
-        //}
-
-        //public void convertNazvyFont(Font font)
-        //{
-        //    TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-        //    NazvyFont = converter.ConvertToString(font);
-        //}
-
-        //public void convertCasFont(Font font)
-        //{
-        //    TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-        //    CasFont = converter.ConvertToString(font);
-        //}
-
-        //public void convertPolcasFont(Font font)
-        //{
-        //    TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-        //    PolcasFont = converter.ConvertToString(font);
-        //}
-
-        //public void convertStriedaniaFont(Font font)
-        //{
-        //    TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
-        //    StriedaniaFont = converter.ConvertToString(font);
-        //}
     }
 }

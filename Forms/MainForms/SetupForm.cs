@@ -91,7 +91,7 @@ namespace LGR_Futbal.Forms
             zoznamSuborov = new List<string>();
             animKonfig = konfiguracia;
             adresar = adr;
-            InicializujNastaveniaAnimaciiGolov();
+            NacitajNastaveniaAnimaciiGolov();
             farbyTabule = farby;
             NastavHracovDomBtn.Enabled = true;
             if (domaciT == null)
@@ -464,6 +464,7 @@ namespace LGR_Futbal.Forms
                 logoHostiaPictureBox.Image = null;
             }
         }
+
         private void ZmenitLogoDomBtn_Click(object sender, EventArgs e)
         {
             try
@@ -488,6 +489,7 @@ namespace LGR_Futbal.Forms
                 logoDomaciPictureBox.Image = null;
             }
         }
+
         private void ZmenitLogoHosBtn_Click(object sender, EventArgs e)
         {
             try
@@ -586,6 +588,7 @@ namespace LGR_Futbal.Forms
 
             ZrusitTimyBtn.Enabled = true;
         }
+
         private string OdstranDiakritiku(string vstup)
         {
             // Pomocna metoda na odstranenie diakritiky z retazca
@@ -600,6 +603,7 @@ namespace LGR_Futbal.Forms
 
             return stb.ToString();
         }
+
         private void RozhodcoviaZapasBtn_Click(object sender, EventArgs e)
         {
             RozhodcoviaForm rf = new RozhodcoviaForm(rozhodcovia, dbrozhodcovia);
@@ -610,7 +614,7 @@ namespace LGR_Futbal.Forms
 
         #region ANIMACIE GOLOV
 
-        private void InicializujNastaveniaAnimaciiGolov()
+        private void NacitajNastaveniaAnimaciiGolov()
         {
             domaciGooolCheckBox.Checked = animKonfig.ZobrazitAnimaciuDomaci;
             hostiaGooolCheckBox.Checked = animKonfig.ZobrazitAnimaciuHostia;
@@ -810,6 +814,7 @@ namespace LGR_Futbal.Forms
             DatabazaForm df = new DatabazaForm(dbtimy, dbhraci, dbrozhodcovia, dbzapasy);
             df.Show();
         }
+
         private void UlozitBtn_Click(object sender, EventArgs e)
         {
             UlozNastaveniaAnimaciiGolov();

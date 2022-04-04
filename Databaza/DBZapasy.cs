@@ -632,6 +632,7 @@ namespace LGR_Futbal.Databaza
         private void PridajStriedanieDoUdalosti(int id, List<Udalost> udalosti)
         {
             Striedanie striedanie = new Striedanie();
+            striedanie.Typ = 6;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
 
@@ -674,6 +675,7 @@ namespace LGR_Futbal.Databaza
         private void PridajOutDoUdalosti(int id, List<Udalost> udalosti)
         {
             Out _out = new Out();
+            _out.Typ = 5;
             // using (OracleConnection conn = new OracleConnection(constring))
             //{
 
@@ -707,6 +709,7 @@ namespace LGR_Futbal.Databaza
         private void PridajOffsideDoUdalosti(int id, List<Udalost> udalosti)
         {
             Offside offside = new Offside();
+            offside.Typ = 4;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
 
@@ -741,6 +744,7 @@ namespace LGR_Futbal.Databaza
         private void PridajKopDoUdalosti(int id, List<Udalost> udalosti)
         {
             Kop kop = new Kop();
+            kop.Typ = 3;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
 
@@ -782,6 +786,7 @@ namespace LGR_Futbal.Databaza
         private void PridajtKartaDoUdalosti(int id, List<Udalost> udalosti)
         {
             Karta karta = new Karta();
+            karta.Typ = 2;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
 
@@ -822,6 +827,7 @@ namespace LGR_Futbal.Databaza
         private void PridajGolDoUdalosti(int id, List<Udalost> udalosti)
         {
             Gol gol = new Gol();
+            gol.Typ = 1;
             //using (OracleConnection conn = new OracleConnection(constring))
             //{
 

@@ -9,22 +9,24 @@ namespace LGR_Futbal.Forms
     
     public partial class SizeForm : Form
     {
-        #region Atributy a udalosti
+        #region ATRIBUTY
 
-        private bool aktivnaZmena = true;
         public event NastaveniaPotvrdenieHandler OnNastaveniaPotvrdenie;
+        private bool aktivnaZmena = true;   
         private bool koniec = true;
-        private int sirka, vyska;
+        private int sirka;
+        private int vyska;
+
         #endregion
 
-        #region Konstruktor a metody
+        #region KONSTRUKTOR A METODY
 
         public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni)
         {
             InitializeComponent();
 
-            sirka = ZistiSirku();
-            vyska = ZistiVysku();
+            sirka = 1920;
+            vyska = 1080;
 
             rozlisenieLabel.Text = sirka.ToString() + " x " + vyska.ToString();
 
@@ -89,11 +91,9 @@ namespace LGR_Futbal.Forms
                 OnNastaveniaPotvrdenie(poz, initSet, s, v);
             }
             koniec = false;
-            this.Close();
+            Close();
         }
-
-        
-
+   
         public bool Vypnut()
         {
             return koniec;
@@ -101,14 +101,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitButton_Click(object sender, EventArgs e)
         {
-
-            this.Close();
-        }
-
-        private void SizeForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                Close();
+            Close();
         }
 
         #endregion

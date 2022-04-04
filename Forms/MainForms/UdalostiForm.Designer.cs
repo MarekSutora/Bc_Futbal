@@ -266,9 +266,10 @@
             // 
             // AktivovatFilterBtn
             // 
-            this.AktivovatFilterBtn.Location = new System.Drawing.Point(1176, 161);
+            this.AktivovatFilterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AktivovatFilterBtn.Location = new System.Drawing.Point(1176, 155);
             this.AktivovatFilterBtn.Name = "AktivovatFilterBtn";
-            this.AktivovatFilterBtn.Size = new System.Drawing.Size(104, 23);
+            this.AktivovatFilterBtn.Size = new System.Drawing.Size(104, 29);
             this.AktivovatFilterBtn.TabIndex = 11;
             this.AktivovatFilterBtn.Text = "Aktivovať filter";
             this.AktivovatFilterBtn.UseVisualStyleBackColor = true;
@@ -373,7 +374,7 @@
             this.PridatDoDatabazyBtn.TabIndex = 22;
             this.PridatDoDatabazyBtn.Text = "pridať do databázy";
             this.PridatDoDatabazyBtn.UseVisualStyleBackColor = true;
-            this.PridatDoDatabazyBtn.Click += new System.EventHandler(this.databazaButton_Click);
+            this.PridatDoDatabazyBtn.Click += new System.EventHandler(this.PridatDoDatabazyBtn_Click);
             // 
             // UdalostiForm
             // 

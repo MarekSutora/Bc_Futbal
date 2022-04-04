@@ -176,7 +176,8 @@
             this.ZmenitRozlozenieBtn.Size = new System.Drawing.Size(160, 50);
             this.ZmenitRozlozenieBtn.TabIndex = 25;
             this.ZmenitRozlozenieBtn.Text = "Zmeniť rozloženie   ";
-            this.ZmenitRozlozenieBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZmenitRozlozenieBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.ZmenitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ZmenitRozlozenieBtn.UseVisualStyleBackColor = true;
             this.ZmenitRozlozenieBtn.Click += new System.EventHandler(this.ZmenitRozlozenieBtn_Click);
             // 
@@ -185,13 +186,13 @@
             this.ZmenitFontyBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.ZmenitFontyBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.ZmenitFontyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZmenitFontyBtn.Location = new System.Drawing.Point(351, 183);
+            this.ZmenitFontyBtn.Location = new System.Drawing.Point(356, 184);
             this.ZmenitFontyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitFontyBtn.Name = "ZmenitFontyBtn";
-            this.ZmenitFontyBtn.Size = new System.Drawing.Size(167, 50);
+            this.ZmenitFontyBtn.Size = new System.Drawing.Size(169, 50);
             this.ZmenitFontyBtn.TabIndex = 24;
-            this.ZmenitFontyBtn.Text = "Zmeniť fonty           \r\na veľkosti písma         ";
-            this.ZmenitFontyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ZmenitFontyBtn.Text = "      Zmeniť fonty";
+            this.ZmenitFontyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ZmenitFontyBtn.UseVisualStyleBackColor = true;
             this.ZmenitFontyBtn.Click += new System.EventHandler(this.ZmenitFontyBtn_Click);
             // 
@@ -202,9 +203,10 @@
             this.ZmenitFarbyBtn.Location = new System.Drawing.Point(175, 184);
             this.ZmenitFarbyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitFarbyBtn.Name = "ZmenitFarbyBtn";
-            this.ZmenitFarbyBtn.Size = new System.Drawing.Size(167, 50);
+            this.ZmenitFarbyBtn.Size = new System.Drawing.Size(177, 50);
             this.ZmenitFarbyBtn.TabIndex = 23;
-            this.ZmenitFarbyBtn.Text = "               Zmeniť                                     farebné nastavenia";
+            this.ZmenitFarbyBtn.Text = "Zmeniť  farebné nastavenia";
+            this.ZmenitFarbyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ZmenitFarbyBtn.UseVisualStyleBackColor = true;
             this.ZmenitFarbyBtn.Click += new System.EventHandler(this.ZmenitFarbyBtn_Click);
             // 
@@ -319,7 +321,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(329, 18);
+            this.label2.Location = new System.Drawing.Point(302, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 16);
@@ -926,7 +928,7 @@
             this.animHosBox.FormattingEnabled = true;
             this.animHosBox.Location = new System.Drawing.Point(294, 76);
             this.animHosBox.Name = "animHosBox";
-            this.animHosBox.Size = new System.Drawing.Size(230, 289);
+            this.animHosBox.Size = new System.Drawing.Size(230, 276);
             this.animHosBox.TabIndex = 5;
             // 
             // label4
@@ -952,7 +954,7 @@
             this.animDomBox.FormattingEnabled = true;
             this.animDomBox.Location = new System.Drawing.Point(3, 76);
             this.animDomBox.Name = "animDomBox";
-            this.animDomBox.Size = new System.Drawing.Size(230, 289);
+            this.animDomBox.Size = new System.Drawing.Size(230, 276);
             this.animDomBox.TabIndex = 2;
             // 
             // hostiaGooolCheckBox

@@ -160,7 +160,7 @@ namespace LGR_Futbal
             tabulaForm.SetFonty(fontyTabule);
         }
 
-        public void SetDefaultColors()
+        private void SetDefaultColors()
         {
             casLabel.ForeColor = Color.Lime;
             domaciLabel.ForeColor = Color.Aqua;
@@ -859,18 +859,16 @@ namespace LGR_Futbal
         #region SETUP
         private void SetupBtn_Click(object sender, EventArgs e)
         {
-            SetupForm setupForm = new SetupForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu,
+            SetupForm sf = new SetupForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu,
                 povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia, aktualnyAdresar,
                 animacnyCas, farbyTabule, animKonfig, rozhodcovia, dbtimy, dbhraci, dbrozhodcovia, dbzapasy, fontyTabule, rozlozenieTabule);
-
-            setupForm.OnAnimacieKarietPotvrdene += (zlta, cervena) =>
+            sf.OnAnimacieKarietPotvrdene += (zlta, cervena) =>
             {
                 animKonfig.ZltaKartaAnimacia = zlta;
                 animKonfig.CervenaKartaAnimacia = cervena;
             };
-
-            setupForm.OnDataPotvrdene += Sf_OnDataPotvrdene;
-            setupForm.OnReset += () =>
+            sf.OnDataPotvrdene += Sf_OnDataPotvrdene;
+            sf.OnReset += () =>
             {
                 if (hraBezi)
                     ZastavCas();
@@ -878,26 +876,23 @@ namespace LGR_Futbal
                 KoniecPolcasu(2, 0);
                 tabulaForm.Reset();
             };
-
-            setupForm.OnZhasnut += () =>
+            sf.OnZhasnut += () =>
             {
                 tabulaForm.Hide();
                 Focus();
             };
-
-            setupForm.OnRozsvietit += () =>
+            sf.OnRozsvietit += () =>
             {
                 tabulaForm.Show();
                 Focus();
             };
-
-            setupForm.OnNazvyLogaPotvrdene += Sf_OnNazvyLogaPotvrdene;
-            setupForm.OnTimyVybrane += Sf_OnTimyVybrane;
-            setupForm.OnObnovaFarieb += Sf_OnObnovaFarieb;
-            setupForm.OnZmenaFarieb += () => AplikujFarebnuSchemu(farbyTabule); ;
-            setupForm.OnZmenaFontov += () => tabulaForm.SetFonty(fontyTabule); ;
-            setupForm.OnZmenaRozlozenia += () => tabulaForm.SetLayout(rozlozenieTabule); ;
-            setupForm.Show();
+            sf.OnNazvyLogaPotvrdene += Sf_OnNazvyLogaPotvrdene;
+            sf.OnTimyVybrane += Sf_OnTimyVybrane;
+            sf.OnObnovaFarieb += Sf_OnObnovaFarieb;
+            sf.OnZmenaFarieb += () => AplikujFarebnuSchemu(farbyTabule); ;
+            sf.OnZmenaFontov += () => tabulaForm.SetFonty(fontyTabule); ;
+            sf.OnZmenaRozlozenia += () => tabulaForm.SetLayout(rozlozenieTabule); ;
+            sf.Show();
         }
 
         private void Sf_OnObnovaFarieb()
@@ -1324,7 +1319,7 @@ namespace LGR_Futbal
                     SetSkoreDomaci(novyStav);
                 else
                 {
-                    if ((polcas == 0))
+                    if (polcas == 0)
                         MessageBox.Show("Góly možno pridávať len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
@@ -1343,7 +1338,7 @@ namespace LGR_Futbal
                     SetSkoreHostia(novyStav);
                 else
                 {
-                    if ((polcas == 0))
+                    if (polcas == 0)
                         MessageBox.Show("Góly možno pridávať len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {

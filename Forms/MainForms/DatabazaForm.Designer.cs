@@ -158,7 +158,7 @@
             // 
             this.HraciBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.HraciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HraciBtn.Location = new System.Drawing.Point(11, 123);
+            this.HraciBtn.Location = new System.Drawing.Point(11, 129);
             this.HraciBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.HraciBtn.Name = "HraciBtn";
             this.HraciBtn.Size = new System.Drawing.Size(190, 72);
@@ -184,7 +184,7 @@
             // 
             this.RozhodcoviaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.RozhodcoviaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.RozhodcoviaBtn.Location = new System.Drawing.Point(11, 239);
+            this.RozhodcoviaBtn.Location = new System.Drawing.Point(11, 247);
             this.RozhodcoviaBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.RozhodcoviaBtn.Name = "RozhodcoviaBtn";
             this.RozhodcoviaBtn.Size = new System.Drawing.Size(190, 72);
@@ -868,7 +868,7 @@
             this.OdstranitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OdstranitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
             this.OdstranitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OdstranitTimBtn.Location = new System.Drawing.Point(277, 142);
+            this.OdstranitTimBtn.Location = new System.Drawing.Point(277, 153);
             this.OdstranitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.OdstranitTimBtn.Name = "OdstranitTimBtn";
             this.OdstranitTimBtn.Size = new System.Drawing.Size(138, 57);
@@ -884,7 +884,7 @@
             this.ZmenitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZmenitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.ZmenitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZmenitTimBtn.Location = new System.Drawing.Point(277, 79);
+            this.ZmenitTimBtn.Location = new System.Drawing.Point(277, 90);
             this.ZmenitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ZmenitTimBtn.Name = "ZmenitTimBtn";
             this.ZmenitTimBtn.Size = new System.Drawing.Size(138, 57);
@@ -899,7 +899,7 @@
             this.VlozitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.VlozitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
             this.VlozitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.VlozitTimBtn.Location = new System.Drawing.Point(277, 16);
+            this.VlozitTimBtn.Location = new System.Drawing.Point(277, 27);
             this.VlozitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.VlozitTimBtn.Name = "VlozitTimBtn";
             this.VlozitTimBtn.Size = new System.Drawing.Size(138, 57);
@@ -1470,7 +1470,7 @@
             // 
             this.ZapasyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ZapasyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZapasyBtn.Location = new System.Drawing.Point(11, 358);
+            this.ZapasyBtn.Location = new System.Drawing.Point(11, 364);
             this.ZapasyBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.ZapasyBtn.Name = "ZapasyBtn";
             this.ZapasyBtn.Size = new System.Drawing.Size(190, 72);

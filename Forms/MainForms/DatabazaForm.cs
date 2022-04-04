@@ -44,7 +44,7 @@ namespace LGR_Futbal.Forms
             dbrozhodcovia = dbr;
             dbzapasy = dbz;
 
-            NaplnTimyCB();
+            NaplnTimyLB();
             NaplnRozhodcoviaCB();
             kategoriaComboBox.Items.Add("");
             kategoriaCombobox2.Items.Add("");
@@ -81,7 +81,7 @@ namespace LGR_Futbal.Forms
 
         #region TIMY
 
-        private void NaplnTimyCB()
+        private void NaplnTimyLB()
         {
             TimyListBox.Items.Clear();
             hracTimCB.Items.Clear();
@@ -175,7 +175,7 @@ namespace LGR_Futbal.Forms
                     ZmenitTimBtn.Enabled = true;
                     OdstranitTimBtn.Enabled = true;
                     pridatTimGroupBox.Visible = false;
-                    NaplnTimyCB();
+                    NaplnTimyLB();
                 }
             }
         }
@@ -194,7 +194,7 @@ namespace LGR_Futbal.Forms
                 nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbtimy.OdstranTim(timy[TimyListBox.SelectedIndex]);
-                NaplnTimyCB();
+                NaplnTimyLB();
                 if (TimyListBox.Items.Count > 0)
                     TimyListBox.SelectedIndex = 0;
                 else
@@ -266,7 +266,7 @@ namespace LGR_Futbal.Forms
                     {
                         MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    NaplnTimyCB();
+                    NaplnTimyLB();
                     upravitTimGroupBox.Visible = false;
                     pridatTimGroupBox.Visible = false;
                 }
@@ -941,7 +941,7 @@ namespace LGR_Futbal.Forms
             ZapasUdalostForm();
         }
 
-        private void FillZapasyLB()
+        private void NaplnZapasyLB()
         {
             if (zapasy == null)
             {
@@ -1003,7 +1003,7 @@ namespace LGR_Futbal.Forms
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 3)
-                FillZapasyLB();
+                NaplnZapasyLB();
         }
 
         #endregion INE        
