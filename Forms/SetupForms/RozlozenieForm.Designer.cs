@@ -726,7 +726,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CasXNumeric);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RozlozenieForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rozloženie tabule";
             ((System.ComponentModel.ISupportInitialize)(this.CasXNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CasYNumeric)).EndInit();

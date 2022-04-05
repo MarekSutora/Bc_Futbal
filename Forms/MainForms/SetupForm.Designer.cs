@@ -143,7 +143,7 @@
             this.ovladace.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ovladace.Name = "ovladace";
             this.ovladace.SelectedIndex = 0;
-            this.ovladace.Size = new System.Drawing.Size(535, 416);
+            this.ovladace.Size = new System.Drawing.Size(535, 425);
             this.ovladace.TabIndex = 0;
             // 
             // tabPage1
@@ -705,7 +705,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(527, 387);
+            this.tabPage3.Size = new System.Drawing.Size(527, 396);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mužstvá a logá";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1194,7 +1194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 431);
+            this.ClientSize = new System.Drawing.Size(841, 437);
             this.Controls.Add(this.KartyAnimacieBtn);
             this.Controls.Add(this.GolyAnimacieBtn);
             this.Controls.Add(this.DatabazaBtn);

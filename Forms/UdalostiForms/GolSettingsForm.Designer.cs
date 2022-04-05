@@ -162,6 +162,7 @@
             this.label2.Size = new System.Drawing.Size(73, 24);
             this.label2.TabIndex = 559;
             this.label2.Text = "Strelec:";
+            this.label2.Click += new System.EventHandler(this.OdznacVsetko);
             // 
             // label3
             // 
@@ -172,6 +173,7 @@
             this.label3.Size = new System.Drawing.Size(94, 24);
             this.label3.TabIndex = 560;
             this.label3.Text = "Asistujúci:";
+            this.label3.Click += new System.EventHandler(this.OdznacVsetko);
             // 
             // PenaltaCheckBox
             // 
@@ -212,6 +214,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gól - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GolSettingsForm_FormClosed);
+            this.Click += new System.EventHandler(this.OdznacVsetko);
             ((System.ComponentModel.ISupportInitialize)(this.HodnotaNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

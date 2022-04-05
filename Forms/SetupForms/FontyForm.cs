@@ -14,12 +14,12 @@ namespace LGR_Futbal.Forms
 
         private string adresar;
         private FontyTabule fontyTabule = null;
-        public FontyForm(string adresar, FontyTabule fonty)
+        public FontyForm(FontyTabule fonty)
         {
             InitializeComponent();
 
             fontyTabule = fonty;
-            this.adresar = adresar;
+            adresar = Directory.GetCurrentDirectory() + "\\Files\\FontyNastavenia";
             nazvyFontLabel.Text = fontyTabule.NazvyFont;
             skoreFontLabel.Text = fontyTabule.SkoreFont;
             casFontLabel.Text = fontyTabule.CasFont;

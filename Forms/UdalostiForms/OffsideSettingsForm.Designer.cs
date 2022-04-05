@@ -107,7 +107,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Offside";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OffsideSettingsForm_FormClosed);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OffsideSettingsForm_MouseClick);
+            this.Click += new System.EventHandler(this.OffsideSettingsForm_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -26,7 +26,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
         #region Konstruktor a metody
         public GolSettingsForm(FutbalovyTim tim, bool domaci, int aktualneSkore, Zapas zapas, Gol gol)
         {
-            InitializeComponent();            
+            InitializeComponent();
 
             futbalovyTim = tim;
             this.domaci = domaci;
@@ -44,7 +44,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
             zoznamHracov = new List<Hrac>();
             if (tim != null)
             {
-                AsistHraciLB.Items.Add("");
                 foreach (Hrac h in tim.ZoznamHracov)
                 {
                     if ((h.HraAktualnyZapas) && (!h.Nahradnik) && (!h.CervenaKarta))
@@ -54,65 +53,63 @@ namespace LGR_Futbal.Forms.UdalostiForms
                         {
                             HraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
                             AsistHraciLB.Items.Add(h.CisloDresu + ". " + h.Meno + " " + h.Priezvisko.ToUpper());
-                        }   
+                        }
                         else
                         {
                             HraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
                             AsistHraciLB.Items.Add(h.Meno + " " + h.Priezvisko.ToUpper());
-                        }         
+                        }
                     }
                 }
             }
 
-            if (tim == null)
-                PotvrditBtn.Enabled = true;
-            else
-            {
-                if (zoznamHracov.Count == 0)
-                    PotvrditBtn.Enabled = false;
-                else
-                {
-                    HraciLB.SelectedIndex = 0;
-                    PotvrditBtn.Enabled = true;
-                }
-            }
+            //if (tim == null)
+            //    PotvrditBtn.Enabled = true;
+            //else
+            //{
+            //    if (zoznamHracov.Count == 0)
+            //        PotvrditBtn.Enabled = false;
+            //    else
+            //    {
+            //        HraciLB.SelectedIndex = 0;
+            //        PotvrditBtn.Enabled = true;
+            //    }
+            //}
         }
 
         private void PotvrdGol()
         {
             if (OnGoalSettingsConfirmed != null)
             {
+                gol.TypGolu = PenaltaCheckBox.Checked ? 2 : 1;
+                gol.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
                 if (futbalovyTim == null)
                 {
-                    gol.TypGolu = PenaltaCheckBox.Checked ? 2 : 1;
-                    gol.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    
+
                     zapas.Udalosti.Add(gol);
                     uspech = true;
                     OnGoalSettingsConfirmed(null, domaci, stav + 1);
-                }    
+                }
                 else
                 {
+                    bool strielajuciOznaceny = false;
                     if (HraciLB.SelectedIndex != -1)
                     {
                         gol.Strielajuci = zoznamHracov[HraciLB.SelectedIndex];
-                        if(AsistHraciLB.SelectedIndex != -1 && AsistHraciLB.SelectedIndex != 0)
-                        {
-                            gol.Asistujuci = zoznamHracov[AsistHraciLB.SelectedIndex - 1];
-                        }
-                        gol.TypGolu = PenaltaCheckBox.Checked ? 2 : 1;
-                        gol.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                        gol.IdFutbalovyTim = futbalovyTim.IdFutbalovyTim;
-                        zapas.Udalosti.Add(gol);
-                        uspech = true;
+                        strielajuciOznaceny = true;
+                    }
+                        
+                    if (AsistHraciLB.SelectedIndex != -1)
+                        gol.Asistujuci = zoznamHracov[AsistHraciLB.SelectedIndex];
+
+                    gol.IdFutbalovyTim = futbalovyTim.IdFutbalovyTim;
+                    zapas.Udalosti.Add(gol);
+                    uspech = true;
+                    if (strielajuciOznaceny)
                         OnGoalSettingsConfirmed(zoznamHracov[HraciLB.SelectedIndex], domaci, stav + 1);
-                    } 
                     else
-                    {
-                        MessageBox.Show("Nevybrali ste strelca gólu!", "Úprava skóre", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }      
+                        OnGoalSettingsConfirmed(null, domaci, stav + 1);
                 }
-                    
             }
             Close();
         }
@@ -134,8 +131,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
             {
                 if (MessageBox.Show("Naozaj chcete resetovať skóre?", "Úprava skóre", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (OnGoalSettingsConfirmed != null)
-                        OnGoalSettingsConfirmed(null, domaci, 0);
+                    OnGoalSettingsConfirmed?.Invoke(null, domaci, 0);
                 }
             }
             Close();
@@ -152,8 +148,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
         private void NastavitBtn_Click(object sender, EventArgs e)
         {
             int hodnota = (int)HodnotaNumericUpDown.Value;
-            if (OnGoalValueConfirmed != null)
-                OnGoalValueConfirmed(domaci, hodnota);
+            OnGoalValueConfirmed?.Invoke(domaci, hodnota);
             Close();
         }
         private void PenaltaCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -168,11 +163,20 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 AsistHraciLB.Enabled = true;
             }
         }
+
+        private void OdznacVsetko(object sender, EventArgs e)
+        {
+            AsistHraciLB.ClearSelected();
+            HraciLB.ClearSelected();
+        }
+
         private void GolSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
         }
+
+
         #endregion    
     }
 }

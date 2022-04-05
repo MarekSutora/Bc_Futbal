@@ -70,7 +70,7 @@ namespace LGR_Futbal.Forms
                         hraci[i].Priradeny = 'N';
                     }
                 }
-                this.Close();
+                Close();
             }
             else
                 MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);

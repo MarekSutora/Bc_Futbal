@@ -10,17 +10,24 @@ namespace LGR_Futbal.Forms
     {
         private List<Rozhodca> rozhodcovia = null;
         private List<Rozhodca> vsetciRozhodcovia = null;
+        private DBRozhodcovia dbRozhodcovia = null;
 
         public RozhodcoviaForm(List<Rozhodca> rozhodcovia, DBRozhodcovia dbr)
         {
             InitializeComponent();
             this.rozhodcovia = rozhodcovia;
-            vsetciRozhodcovia = dbr.GetRozhodcovia();
+            dbRozhodcovia = dbr;
             foreach (var rozhodca in vsetciRozhodcovia)
             {
                 rozhodcoviaCheckListBox.Items.Add(rozhodca.Meno + " " + rozhodca.Priezvisko.ToUpper(), true);
             }
         }
+
+        private async void RozhodcoviaForm_Load(object sender, EventArgs e)
+        {
+            vsetciRozhodcovia = await dbRozhodcovia.GetRozhodcovia();
+        }
+
         private void AktivovatBtn_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < rozhodcoviaCheckListBox.Items.Count; i++)

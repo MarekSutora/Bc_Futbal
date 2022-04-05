@@ -60,46 +60,64 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
             }
 
-            if (HraciLBodch.Items.Count > 0)
-                HraciLBodch.SelectedIndex = 0;
+            //if (HraciLBodch.Items.Count > 0)
+            //    HraciLBodch.SelectedIndex = 0;
 
-            if (HraciLBnast.Items.Count > 0)
-                HraciLBnast.SelectedIndex = 0;
+            //if (HraciLBnast.Items.Count > 0)
+            //    HraciLBnast.SelectedIndex = 0;
 
-            if (tim == null)
-                PotvrditButton.Enabled = true;
-            else
-            {
-                if ((odchMoznosti.Count > 0) && (nastMoznosti.Count > 0))
-                    PotvrditButton.Enabled = true;
-                else
-                    PotvrditButton.Enabled = false;
-            }
+            //if (tim == null)
+            //    PotvrditButton.Enabled = true;
+            //else
+            //{
+            //    if ((odchMoznosti.Count > 0) && (nastMoznosti.Count > 0))
+            //        PotvrditButton.Enabled = true;
+            //    else
+            //        PotvrditButton.Enabled = false;
+            //}
         }
         private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             if (OnStriedanieHraciSelected != null)
             {
-                string nazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia; 
+
+                string nazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+                striedanie.NazovTimu = nazovTimu;
                 if (futbalovyTim == null)
                 {
-
-                    striedanie.NazovTimu = nazovTimu;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
                     OnStriedanieHraciSelected(nazovTimu, null, null, domaci);
                 }            
                 else
                 {
-                    Hrac h1 = odchMoznosti[HraciLBodch.SelectedIndex];
-                    Hrac h2 = nastMoznosti[HraciLBnast.SelectedIndex];
-                    striedanie.Striedajuci = h2;
-                    striedanie.Striedany = h1;
-                    striedanie.NazovTimu = nazovTimu;
+                    Hrac h1 = null;
+                    Hrac h2 = null;
+                    if (HraciLBodch.SelectedIndex != -1)
+                    {
+                        h1 = odchMoznosti[HraciLBodch.SelectedIndex];
+                        striedanie.Striedany = h1;
+                    }
+                    if (HraciLBnast.SelectedIndex != -1)
+                    {
+                        h2 = nastMoznosti[HraciLBnast.SelectedIndex];
+                        striedanie.Striedajuci = h2;
+                    }
+                        
                     striedanie.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
+
                     OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
+
+                    //if (h1 != null && h2 != null)
+                    //     OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
+                    //else if (h1 == null && h2 != null)
+                    //    OnStriedanieHraciSelected(nazovTimu, null, h2, domaci);
+                    //else if(h1 != null && h2 == null)
+                    //    OnStriedanieHraciSelected(nazovTimu, h1, null, domaci);
+                    //else
+                    //    OnStriedanieHraciSelected(nazovTimu, null, null, domaci);
                 }
                 
             }
@@ -114,6 +132,13 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
+
+        private void OdznacVsetko(object sender, EventArgs e)
+        {
+            HraciLBnast.ClearSelected();
+            HraciLBodch.ClearSelected();
+        }
+
         #endregion
     }
 }

@@ -45,29 +45,30 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
             }
 
-            if (tim == null)
-                PotvrditBtn.Enabled = true;
-            else
-            {
-                if (zoznamHracov.Count == 0)
-                    PotvrditBtn.Enabled = false;
-                else
-                {
-                    HraciLB.SelectedIndex = 0;
-                    PotvrditBtn.Enabled = true;
-                }
-            }
+            //if (tim == null)
+            //    PotvrditBtn.Enabled = true;
+            //else
+            //{
+            //    if (zoznamHracov.Count == 0)
+            //        PotvrditBtn.Enabled = false;
+            //    else
+            //    {
+            //        HraciLB.SelectedIndex = 0;
+            //        PotvrditBtn.Enabled = true;
+            //    }
+            //}
         }
 
         private void PotvrdKartu()
         {
             if (OnHracZltaKartaSelected != null)
             {
-                if (futbalovyTim == null)
+                karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+                karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                if (futbalovyTim == null || HraciLB.SelectedIndex == -1)
                 {
                     karta.TypKarty = 'Z'; 
-                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                    
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(null);
@@ -77,8 +78,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     Hrac hrac = zoznamHracov[HraciLB.SelectedIndex];
                     karta.Hrac = hrac;
                     karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z'; 
-                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(zoznamHracov[HraciLB.SelectedIndex]);
@@ -86,7 +85,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     
             }
 
-            this.Close();
+            Close();
         }
 
         private void PotvrditBtn_Click(object sender, EventArgs e)

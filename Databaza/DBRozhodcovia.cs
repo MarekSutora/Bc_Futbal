@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
 using LGR_Futbal.Model;
-using LGR_Futbal.Databaza;
+using System.Threading.Tasks;
 
 namespace LGR_Futbal.Databaza
 {
@@ -19,31 +19,36 @@ namespace LGR_Futbal.Databaza
             this.dbhraci = dbhraci;
         }
 
-        public List<Rozhodca> GetRozhodcovia()
+        public async Task<List<Rozhodca>> GetRozhodcovia()
         {
             List<Rozhodca> rozhodcovia = new List<Rozhodca>();
             Rozhodca rozhodca;
             string cmdQuery = "SELECT * FROM rozhodca WHERE datum_ukoncenia IS NULL";
             try
             {
-                conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                using (OracleDataReader reader = cmd.ExecuteReader())
+                await Task.Run(() =>
                 {
-                    while (reader.Read())
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    using (OracleDataReader reader = cmd.ExecuteReader())
                     {
-                        rozhodca = new Rozhodca();
-                        if (!reader.IsDBNull(0))
-                            rozhodca.IdRozhodca = reader.GetInt32(0);
-                        if (!reader.IsDBNull(1))
-                            rozhodca.IdOsoba = reader.GetInt32(1);
-                        dbhraci.NastavOsobneUdaje(rozhodca);
-                        rozhodcovia.Add(rozhodca);
+                        while (reader.Read())
+                        {
+                            rozhodca = new Rozhodca();
+                            if (!reader.IsDBNull(0))
+                                rozhodca.IdRozhodca = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                                rozhodca.IdOsoba = reader.GetInt32(1);
+                            dbhraci.NastavOsobneUdaje(rozhodca);
+                            rozhodcovia.Add(rozhodca);
+                        }
                     }
-                }
-                conn.Close();
+                    conn.Close();
+                }).ConfigureAwait(false);
             }
             catch
             {
@@ -54,8 +59,6 @@ namespace LGR_Futbal.Databaza
 
         public void InsertRozhodca(Rozhodca r)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             try
             {
                 conn.Open();
@@ -66,15 +69,15 @@ namespace LGR_Futbal.Databaza
                 param[0].Value = r.Meno;
                 param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
                 param[1].Value = r.Priezvisko;
-                param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Char);
+                param[2] = cmd.Parameters.Add("pohlavie", OracleDbType.Char);
                 if (r.Pohlavie != 'X')
                 {
 
-                    param[3].Value = r.Pohlavie;
+                    param[2].Value = r.Pohlavie;
                 }
                 else
                 {
-                    param[3].Value = null;
+                    param[2].Value = null;
                 }
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
@@ -99,7 +102,6 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
 
         public void UpdateRozhodca(Rozhodca r)

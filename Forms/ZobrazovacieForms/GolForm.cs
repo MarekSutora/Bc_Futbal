@@ -1,10 +1,7 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -12,14 +9,9 @@ namespace LGR_Futbal.Forms
 {
     public partial class GolForm : Form
     {
-        #region Konstanty
-
+        #region ATRIBUTY
         private const string fotkyAdresar = "\\Files\\Fotky\\";
         private const string gifyAdresar = "\\Files\\Gify\\";
-
-        #endregion
-
-        #region Atributy
 
         private string adresar;
         private Hrac prezentovanyHrac;
@@ -33,7 +25,7 @@ namespace LGR_Futbal.Forms
 
         #endregion
 
-        #region Konstruktor a metody
+        #region KONSTRUKTOR A METODY
 
         public GolForm(string adresar, int sirka, int cas, Hrac h, FontyTabule fonty, FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
         {

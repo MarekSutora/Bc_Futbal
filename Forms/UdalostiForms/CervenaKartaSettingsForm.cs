@@ -45,38 +45,40 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
             }
 
-            if (tim == null)
-                PotvrditBtn.Enabled = true;
-            else
-            {
-                if (zoznamHracov.Count == 0)
-                    PotvrditBtn.Enabled = false;
-                else
-                {
-                    HraciLB.SelectedIndex = 0;
-                    PotvrditBtn.Enabled = true;
-                }
-            }
+            //if (tim == null)
+            //    PotvrditBtn.Enabled = true;
+            //else
+            //{
+            //    if (zoznamHracov.Count == 0)
+            //        PotvrditBtn.Enabled = false;
+            //    else
+            //    {
+            //        HraciLB.SelectedIndex = 0;
+            //        PotvrditBtn.Enabled = true;
+            //    }
+            //}
+        }
+
+        private void CervenaKartaSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
         }
         private void PotvrdKartu()
         {
             if (OnHracCervenaKartaSelected != null)
             {
-                if (futbalovyTim == null)
-                {
-                    karta.TypKarty = 'C';
-                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
+                karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                karta.TypKarty = 'C';
+                if (futbalovyTim == null || HraciLB.SelectedIndex == -1)
+                {                    
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracCervenaKartaSelected(null);
                 }                   
                 else
                 {
-                    karta.Hrac = zoznamHracov[HraciLB.SelectedIndex];
-                    karta.TypKarty = 'C'; 
-                    karta.NazovTimu = domaci ? zapas.NazovDomaci : zapas.NazovHostia;
-                    karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
+                    karta.Hrac = zoznamHracov[HraciLB.SelectedIndex];   
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracCervenaKartaSelected(zoznamHracov[HraciLB.SelectedIndex]);
@@ -103,5 +105,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 OnUdalostPridana("ČERVENÁ KARTA PRIDANÁ DO UDALOSTÍ");
         }
         #endregion
+
+        
     }
 }

@@ -46,17 +46,17 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-            if (futbalovyTim == null)
-                PotvrditButton.Enabled = true;
-            else
-            {
-                if (zoznamHracov.Count == 0)
-                    PotvrditButton.Enabled = false;
-                else
-                {
-                    PotvrditButton.Enabled = true;
-                }
-            }
+            //if (futbalovyTim == null)
+            //    PotvrditButton.Enabled = true;
+            //else
+            //{
+            //    if (zoznamHracov.Count == 0)
+            //        PotvrditButton.Enabled = false;
+            //    else
+            //    {
+            //        PotvrditButton.Enabled = true;
+            //    }
+            //}
         }
         private void PotvrdKop()
         {
@@ -86,7 +86,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
             }
             zapas.Udalosti.Add(kop);
             uspech = true;
-            this.Close();
+            Close();
         }
         private void PotvrditBtn_Click(object sender, EventArgs e)
         {
@@ -110,6 +110,11 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
-        } 
+        }
+
+        private void KopySettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
     }
 }

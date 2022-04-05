@@ -90,6 +90,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Červená karta - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CervenaKartaSettingsForm_FormClosed);
+            this.Click += new System.EventHandler(this.CervenaKartaSettingsForm_Click);
             this.ResumeLayout(false);
 
         }

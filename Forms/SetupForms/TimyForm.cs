@@ -24,7 +24,14 @@ namespace LGR_Futbal.Forms
 
             dbTimy = dbt;
             dbHraci = dbh;
-            timy = dbTimy.GetTimy();
+            this.domaci = domaci;
+            this.hostia = hostia;
+        }
+
+        private async void TimyForm_Load(object sender, EventArgs e)
+        {
+            timy = await dbTimy.GetTimy();
+
             if (timy.Count == 0)
                 AktivovatBtn.Enabled = false;
             else
@@ -37,30 +44,28 @@ namespace LGR_Futbal.Forms
 
                 domaciLB.SelectedIndex = 0;
                 hostiaLB.SelectedIndex = 0;
-            }
-            this.domaci = domaci;
-            this.hostia = hostia;
+            }           
         }
 
-        private void AktivovatBtn_Click(object sender, EventArgs e)
+        private async void AktivovatBtn_Click(object sender, EventArgs e)
         {
-            if (domaciLB.SelectedIndex == 0 )
+            if (domaciLB.SelectedIndex == -1)
             {
                 domaci = null;
             }
             else
             {
                 domaci = timy[domaciLB.SelectedIndex];
-                domaci.ZoznamHracov = dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex].IdFutbalovyTim);
+                domaci.ZoznamHracov = await dbHraci.GetHraciVTime(timy[domaciLB.SelectedIndex].IdFutbalovyTim);
             }
-            if (hostiaLB.SelectedIndex == 0)
+            if (hostiaLB.SelectedIndex == -1)
             {
                 hostia = null;
             }
             else
             {
-                hostia = timy[hostiaLB.SelectedIndex - 1];
-                hostia.ZoznamHracov = dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex].IdFutbalovyTim);
+                hostia = timy[hostiaLB.SelectedIndex];
+                hostia.ZoznamHracov = await dbHraci.GetHraciVTime(timy[hostiaLB.SelectedIndex].IdFutbalovyTim);
             }
             OnTimyVybrane?.Invoke(domaci, hostia);
             Close();
@@ -70,6 +75,6 @@ namespace LGR_Futbal.Forms
         {
             domaciLB.ClearSelected();
             hostiaLB.ClearSelected();
-        }
+        }    
     }
 }

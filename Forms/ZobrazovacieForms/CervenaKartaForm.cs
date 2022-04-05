@@ -1,10 +1,8 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -29,13 +27,13 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public CervenaKartaForm(string adresar, int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
+        public CervenaKartaForm(int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
             string animZ, string animC)
         {
             InitializeComponent();
 
             casovac.Interval = 1000 * cas;
-
+            string adresar = Directory.GetCurrentDirectory();
             if (animZ.Equals(string.Empty))
                 pictureBox1.Image = null;
             else
@@ -124,7 +122,7 @@ namespace LGR_Futbal.Forms
                     zobrazovane.Add(prezentacnyPanel1);
             }
             else
-                this.BackColor = Color.Red;
+                BackColor = Color.Red;
 
             zobrazovane.Add(uvodnyPanel2);
             uvodnyPanel2.Visible = !sDruhouZltouKartou;
@@ -136,8 +134,7 @@ namespace LGR_Futbal.Forms
         private void CervenaKartaForm_Load(object sender, EventArgs e)
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
-
-            this.SpustiCas();
+            SpustiCas();
         }
 
         private void Casovac_Tick(object sender, EventArgs e)
@@ -145,7 +142,7 @@ namespace LGR_Futbal.Forms
             if (pocetZobrazenychPanelov == zobrazovane.Count)
             {
                 ZastavCas();
-                this.Close();
+                Close();
             }
             else
             {

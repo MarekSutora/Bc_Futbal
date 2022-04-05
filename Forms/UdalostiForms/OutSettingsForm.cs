@@ -46,18 +46,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-
-            if (futbalovyTim == null)
-                PotvrditBtn.Enabled = true;
-            else
-            {
-                if (zoznamHracov.Count == 0)
-                    PotvrditBtn.Enabled = false;
-                else
-                {
-                    PotvrditBtn.Enabled = true;
-                }
-            }
         }
         private void PotvrdOut()
         {
@@ -76,23 +64,27 @@ namespace LGR_Futbal.Forms.UdalostiForms
         {
             PotvrdOut();
         }
+
         private void SpatBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
             if (HraciLB.SelectedIndex >= 0)
                 PotvrdOut();
         }
-        private void OutSettingsForm_MouseClick(object sender, MouseEventArgs e)
-        {
-            HraciLB.ClearSelected();
-        }
+
         private void OutSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OUT PRIDANÝ DO UDALOSTÍ");
-        }     
+        }
+
+        private void OutSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
     }
 }

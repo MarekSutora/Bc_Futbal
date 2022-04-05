@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
-using System.Timers;
 using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
@@ -22,7 +19,7 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = (float)sirka / this.Width;
             Scale(new SizeF(pomer, pomer));
 
             this.video = video;
@@ -41,9 +38,7 @@ namespace LGR_Futbal.Forms
 
         private void VlcControl_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {
-            var currentAssembly = Assembly.GetEntryAssembly();
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
-            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
         }
 
         public void VypnutVideo()

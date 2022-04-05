@@ -151,6 +151,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KopySettingsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KopySettingsForm_FormClosed);
+            this.Click += new System.EventHandler(this.KopySettingsForm_Click);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.KopySettingsForm_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();

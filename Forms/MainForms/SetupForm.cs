@@ -72,7 +72,7 @@ namespace LGR_Futbal.Forms
 
 
         public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int si, int vy, int dlzkaPolcasu, bool prerusenie, bool diakritika,
-            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, string adr, int animacia, FarbyTabule farby, 
+            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, int animacia, FarbyTabule farby, 
             AnimacnaKonfiguracia konfiguracia, List<Rozhodca> roz, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule f, RozlozenieTabule r)
         {
             InitializeComponent();
@@ -90,7 +90,7 @@ namespace LGR_Futbal.Forms
             hostiaT = hostia;
             zoznamSuborov = new List<string>();
             animKonfig = konfiguracia;
-            adresar = adr;
+            adresar = Directory.GetCurrentDirectory();
             NacitajNastaveniaAnimaciiGolov();
             farbyTabule = farby;
             NastavHracovDomBtn.Enabled = true;
@@ -218,7 +218,7 @@ namespace LGR_Futbal.Forms
 
         private void ZmenitFarbyBtn_Click(object sender, EventArgs e)
         {
-            FarbyForm ff = new FarbyForm(adresar + "\\Files\\FarebneNastavenia", farbyTabule);
+            FarbyForm ff = new FarbyForm(farbyTabule);
             ff.OnZmenaFarieb += () => this.OnZmenaFarieb?.Invoke();
             ff.OnObnovaFarieb += () => this.OnObnovaFarieb?.Invoke();
             ff.Show();
@@ -226,14 +226,14 @@ namespace LGR_Futbal.Forms
 
         private void ZmenitFontyBtn_Click(object sender, EventArgs e)
         {
-            FontyForm fontyForm = new FontyForm(adresar + "\\Files\\FontyNastavenia", fontyTabule);
+            FontyForm fontyForm = new FontyForm(fontyTabule);
             fontyForm.OnZmenaFontov += () => this.OnZmenaFontov?.Invoke();
             fontyForm.Show();
         }
 
         private void ZmenitRozlozenieBtn_Click(object sender, EventArgs e)
         {
-            RozlozenieForm rf = new RozlozenieForm(adresar + "\\Files\\RozlozenieNastavenia", rozlozenieTabule, sirka, vyska);
+            RozlozenieForm rf = new RozlozenieForm(rozlozenieTabule, sirka, vyska);
             rf.OnZmenaRozlozenia += () => this.OnZmenaRozlozenia?.Invoke();
             rf.Show();
         }

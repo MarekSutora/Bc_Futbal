@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LGR_Futbal.Setup;
 using System.Xml.Serialization;
 using System.IO;
-using LGR_Futbal.Properties;
 
 namespace LGR_Futbal.Forms
 {
@@ -23,7 +15,7 @@ namespace LGR_Futbal.Forms
         private int vyska;
         private RozlozenieTabule rozlozenieTabule = null;
 
-        public RozlozenieForm(string adresar, RozlozenieTabule rt, int sirka, int vyska)
+        public RozlozenieForm(RozlozenieTabule rt, int sirka, int vyska)
         {
             InitializeComponent();
 
@@ -45,7 +37,7 @@ namespace LGR_Futbal.Forms
             toolTip1.SetToolTip(LogoDomaciYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
             toolTip1.SetToolTip(LogoHostiaYNumeric, "Zvyšovanie - dole \nZnižovanie - hore");
 
-            this.adresar = adresar;
+            adresar = Directory.GetCurrentDirectory() + "\\Files\\RozlozenieNastavenia";
             this.sirka = sirka;
             this.vyska = vyska;
             rozlozenieTabule = rt;
@@ -239,12 +231,12 @@ namespace LGR_Futbal.Forms
                 LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
                 LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
                 LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
-                domaciLogoCB.Checked = true;
+                domaciLogoCB.Checked = rozlozenieTabule.LogoDomaciZobrazit;
 
                 LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
                 LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
                 LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
-                domaciLogoCB.Checked = true;
+                hostiaLogoCB.Checked = rozlozenieTabule.LogoHostiaZobrazit;
 
                 PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
                 PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;

@@ -1,10 +1,8 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -26,11 +24,11 @@ namespace LGR_Futbal.Forms
         #endregion Atributy
 
         #region Konstruktor a metody
-        public PrezentaciaForm(string adresar, int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
+        public PrezentaciaForm(int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
 
-            this.adresar = adresar;
+            adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 2 * 1000 * cas;
             prezentovanyTim = tim;
 

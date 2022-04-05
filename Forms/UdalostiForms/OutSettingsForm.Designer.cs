@@ -106,7 +106,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutSettingsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OutSettingsForm_FormClosed);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OutSettingsForm_MouseClick);
+            this.Click += new System.EventHandler(this.OutSettingsForm_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

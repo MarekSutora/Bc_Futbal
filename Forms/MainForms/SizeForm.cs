@@ -25,8 +25,8 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            sirka = 1920;
-            vyska = 1080;
+            sirka = ZistiSirku();
+            vyska = ZistiVysku();
 
             rozlisenieLabel.Text = sirka.ToString() + " x " + vyska.ToString();
 

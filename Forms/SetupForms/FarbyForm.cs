@@ -15,12 +15,12 @@ namespace LGR_Futbal.Forms
         private string adresar;  
         private FarbyTabule farbyTabule = null;
 
-        public FarbyForm(string adresar, FarbyTabule ft)
+        public FarbyForm(FarbyTabule ft)
         {
             InitializeComponent();
 
             farbyTabule = ft;
-            this.adresar = adresar;
+            adresar = Directory.GetCurrentDirectory() + "\\Files\\FarebneNastavenia";
 
             domaciLabel.ForeColor = farbyTabule.GetNadpisDomFarba();
             hostiaLabel.ForeColor = farbyTabule.GetNadpisHosFarba();

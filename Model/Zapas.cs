@@ -23,5 +23,6 @@ namespace LGR_Futbal.Model
             Udalosti = new List<Udalost>();
             Rozhodcovia = new List<Rozhodca>();
         }
+
     }
 }

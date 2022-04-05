@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
 using LGR_Futbal.Model;
+using System.Threading.Tasks;
 
 namespace LGR_Futbal.Databaza
 {
@@ -19,8 +20,6 @@ namespace LGR_Futbal.Databaza
 
         public void InsertHrac(Hrac h)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             try
             {
                 conn.Open();
@@ -103,166 +102,170 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
 
-        public List<Hrac> GetVsetciHraci()
+        public async Task<List<Hrac>> GetVsetciHraci()
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL";
             try
             {
-                conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery)
+                await Task.Run(() =>
                 {
-                    Connection = conn,
-                    CommandType = CommandType.Text
-                };
-                using (OracleDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    OracleCommand cmd = new OracleCommand(cmdQuery)
                     {
-                        hrac = new Hrac();
-                        if (!reader.IsDBNull(0))
-                            hrac.IdHrac = reader.GetInt32(0);
-                        if (!reader.IsDBNull(1))
-                            hrac.IdOsoba = reader.GetInt32(1);
-                        if (!reader.IsDBNull(2))
-                            hrac.IdFutbalovyTim = reader.GetInt32(2);
-                        if (!reader.IsDBNull(3))
-                            hrac.Poznamka = reader.GetString(3);
-                        if (!reader.IsDBNull(4))
-                            hrac.CisloDresu = reader.GetString(4);
-                        if (!reader.IsDBNull(6))
+                        Connection = conn,
+                        CommandType = CommandType.Text
+                    };
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
                         {
-                            hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
-                            hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
+                            hrac = new Hrac();
+                            if (!reader.IsDBNull(0))
+                                hrac.IdHrac = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                                hrac.IdOsoba = reader.GetInt32(1);
+                            if (!reader.IsDBNull(2))
+                                hrac.IdFutbalovyTim = reader.GetInt32(2);
+                            if (!reader.IsDBNull(3))
+                                hrac.Poznamka = reader.GetString(3);
+                            if (!reader.IsDBNull(4))
+                                hrac.CisloDresu = reader.GetString(4);
+                            if (!reader.IsDBNull(6))
+                            {
+                                hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
+                                hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
+                            }
+                            if (!reader.IsDBNull(7))
+                                hrac.Pozicia = reader.GetString(7);
+                            NastavOsobneUdaje(hrac);
+                            hraci.Add(hrac);
                         }
-                        if (!reader.IsDBNull(7))
-                            hrac.Pozicia = reader.GetString(7);
-                        NastavOsobneUdaje(hrac);
-                        hraci.Add(hrac);
                     }
-                }
-                conn.Close();
+                    conn.Close();
+                }).ConfigureAwait(false);
             }
             catch
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
             return hraci;
         }
 
 
-        public List<Hrac> GetHraciVTime(int idTim)
-        {
-            List<Hrac> hraci = new List<Hrac>();
-            Hrac hrac = null;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-            string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim = :id_timu";
-            try
-            {
-                conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
-                OracleParameter param = new OracleParameter("id_timu", OracleDbType.Int32);
-                param.Value = idTim;
-                cmd.Parameters.Add(param);
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                using (OracleDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        hrac = new Hrac();
-                        if (!reader.IsDBNull(0))
-                            hrac.IdHrac = reader.GetInt32(0);
-                        if (!reader.IsDBNull(1))
-                            hrac.IdOsoba = reader.GetInt32(1);
-                        if (!reader.IsDBNull(2))
-                            hrac.IdFutbalovyTim = reader.GetInt32(2);
-                        if (!reader.IsDBNull(3))
-                            hrac.Poznamka = reader.GetString(3);
-                        if (!reader.IsDBNull(4))
-                            hrac.CisloDresu = reader.GetString(4);
-                        if (!reader.IsDBNull(6))
-                        {
-                            hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
-                            hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
-                        }
-                        if (!reader.IsDBNull(7))
-                            hrac.Pozicia = reader.GetString(7);
-                        NastavOsobneUdaje(hrac);
-                        hraci.Add(hrac);
-                    }
-                }
-                conn.Close();
-            }
-            catch
-            {
-                throw new Exception("Chyba pri praci s Databazou");
-            }
-            //}
-            return hraci;
-        }
-
-        public List<Hrac> GetNezaradeniHraci()
+        public async Task<List<Hrac>> GetHraciVTime(int idTim)
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
-            string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim IS NULL";
+            string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim = :id_timu";
             try
             {
-                conn.Open();
-                OracleCommand cmd = new OracleCommand(cmdQuery);
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                using (OracleDataReader reader = cmd.ExecuteReader())
+                await Task.Run(() =>
                 {
-                    while (reader.Read())
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    OracleParameter param = new OracleParameter("id_timu", OracleDbType.Int32);
+                    param.Value = idTim;
+                    cmd.Parameters.Add(param);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    using (OracleDataReader reader = cmd.ExecuteReader())
                     {
-                        hrac = new Hrac();
-                        if (!reader.IsDBNull(0))
-                            hrac.IdHrac = reader.GetInt32(0);
-                        if (!reader.IsDBNull(1))
-                            hrac.IdOsoba = reader.GetInt32(1);
-                        if (!reader.IsDBNull(2))
-                            hrac.IdFutbalovyTim = reader.GetInt32(3);
-                        if (!reader.IsDBNull(3))
-                            hrac.Poznamka = reader.GetString(3);
-                        if (!reader.IsDBNull(4))
-                            hrac.CisloDresu = reader.GetString(4);
-                        if (!reader.IsDBNull(6))
+                        while (reader.Read())
                         {
-                            hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
-                            hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
+                            hrac = new Hrac();
+                            if (!reader.IsDBNull(0))
+                                hrac.IdHrac = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                                hrac.IdOsoba = reader.GetInt32(1);
+                            if (!reader.IsDBNull(2))
+                                hrac.IdFutbalovyTim = reader.GetInt32(2);
+                            if (!reader.IsDBNull(3))
+                                hrac.Poznamka = reader.GetString(3);
+                            if (!reader.IsDBNull(4))
+                                hrac.CisloDresu = reader.GetString(4);
+                            if (!reader.IsDBNull(6))
+                            {
+                                hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
+                                hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
+                            }
+                            if (!reader.IsDBNull(7))
+                                hrac.Pozicia = reader.GetString(7);
+                            NastavOsobneUdaje(hrac);
+                            hraci.Add(hrac);
                         }
-                        if (!reader.IsDBNull(7))
-                            hrac.Pozicia = reader.GetString(7);
-                        NastavOsobneUdaje(hrac);
-                        hraci.Add(hrac);
                     }
-                }
-                conn.Close();
+
+                    conn.Close();
+                }).ConfigureAwait(false);
             }
             catch
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
+            return hraci;
+        }
+
+        public async Task<List<Hrac>> GetNezaradeniHraci()
+        {
+            List<Hrac> hraci = new List<Hrac>();
+            Hrac hrac;
+            string cmdQuery = "SELECT * FROM hrac WHERE datum_ukoncenia IS NULL AND id_futbalovy_tim IS NULL";
+            try
+            {
+                await Task.Run(() =>
+                {
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            hrac = new Hrac();
+                            if (!reader.IsDBNull(0))
+                                hrac.IdHrac = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                                hrac.IdOsoba = reader.GetInt32(1);
+                            if (!reader.IsDBNull(2))
+                                hrac.IdFutbalovyTim = reader.GetInt32(3);
+                            if (!reader.IsDBNull(3))
+                                hrac.Poznamka = reader.GetString(3);
+                            if (!reader.IsDBNull(4))
+                                hrac.CisloDresu = reader.GetString(4);
+                            if (!reader.IsDBNull(6))
+                            {
+                                hrac.FotkaBlob = reader.GetOracleBlob(6).Value;
+                                hrac.FotkaImage = BytesToImage(hrac.FotkaBlob);
+                            }
+                            if (!reader.IsDBNull(7))
+                                hrac.Pozicia = reader.GetString(7);
+                            NastavOsobneUdaje(hrac);
+                            hraci.Add(hrac);
+                        }
+                    }
+                    conn.Close();
+                }).ConfigureAwait(false);
+            }
+            catch
+            {
+                throw new Exception("Chyba pri praci s Databazou");
+            }
             return hraci;
         }
 
         public void UpdateHrac(Hrac h)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
             string cmdQuery2 = "UPDATE hrac SET id_futbalovy_tim = :id_futbalovy_tim, poznamka = :poznamka, cislo_dresu = :cislo_dresu, fotka = :fotka, post = :post WHERE id_hrac = :id_hrac";
             try
@@ -351,13 +354,10 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
 
         public void OdstranHraca(Hrac h)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery = "UPDATE hrac SET datum_ukoncenia = SYSDATE WHERE id_hrac = :id_hrac";
             try
             {
@@ -376,7 +376,6 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
 
         public Hrac GetHrac(int idHrac)
@@ -422,14 +421,12 @@ namespace LGR_Futbal.Databaza
             catch
             {
                 throw new Exception("Chyba pri praci s Databazou");
-            }         
+            }
             return hrac;
         }
 
         public void NastavOsobneUdaje(Osoba o)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery = "SELECT * FROM osoba WHERE id_osoba = :id_osoba";
             OracleParameter param = new OracleParameter("id_osoba", OracleDbType.Varchar2);
             OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -437,6 +434,9 @@ namespace LGR_Futbal.Databaza
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add(param);
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
 
             using (OracleDataReader reader = cmd.ExecuteReader())
             {
@@ -452,7 +452,6 @@ namespace LGR_Futbal.Databaza
                         o.Pohlavie = reader.GetString(4)[0];
                 }
             }
-            //}
         }
 
         public Image BytesToImage(byte[] bytes)

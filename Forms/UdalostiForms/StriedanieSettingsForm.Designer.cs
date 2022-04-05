@@ -77,24 +77,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(8, 6);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(5, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 29);
+            this.label1.Size = new System.Drawing.Size(173, 24);
             this.label1.TabIndex = 556;
             this.label1.Text = "Odchádzajúci hráč:";
+            this.label1.Click += new System.EventHandler(this.OdznacVsetko);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(285, 6);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(286, 13);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 29);
+            this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 557;
             this.label2.Text = "Nastupujúci hráč:";
+            this.label2.Click += new System.EventHandler(this.OdznacVsetko);
             // 
             // HraciLBnast
             // 
@@ -128,6 +130,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Striedanie - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StriedanieSettingsForm_FormClosed);
+            this.Click += new System.EventHandler(this.OdznacVsetko);
             this.ResumeLayout(false);
             this.PerformLayout();
 

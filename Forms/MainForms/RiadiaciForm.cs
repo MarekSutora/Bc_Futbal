@@ -95,7 +95,6 @@ namespace LGR_Futbal
             farbyPrezHostia = new FarbyPrezentacie();
             farbyPrezDomaci = new FarbyPrezentacie();
             LoadSettings();
-
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {
@@ -113,6 +112,7 @@ namespace LGR_Futbal
             else koniec = false;
             if (!koniec)
             {
+
                 rozhodcovia = new List<Rozhodca>();
                 if (zobrazitPozadie)
                 {
@@ -163,6 +163,7 @@ namespace LGR_Futbal
         private void SetDefaultColors()
         {
             casLabel.ForeColor = Color.Lime;
+            casPodrobneLabel.ForeColor = Color.Lime;
             domaciLabel.ForeColor = Color.Aqua;
             hostiaLabel.ForeColor = Color.Aqua;
             skoreDomaciLabel.ForeColor = Color.Red;
@@ -264,7 +265,7 @@ namespace LGR_Futbal
                     zmenenaSekunda = 0;
                     tabulaForm.SetPolcas(polcas, pocetNadstavenychMinut, nadstavenyCas);
                     //casLabel.Text = polcas == 2 ? (((polcas - 1) * dlzkaPolcasu) + 1) + ":00" : "00:00";
-                    tabulaForm.SetCas(casLabel.Text);
+                   // tabulaForm.SetCas(casLabel.Text);
 
                     SpustiCas(true);
 
@@ -850,7 +851,7 @@ namespace LGR_Futbal
 
         private void Psf_OnVyberTimuNaPrezentaciu(FutbalovyTim tim, FarbyPrezentacie fp)
         {
-            prezentaciaForm = new PrezentaciaForm(aktualnyAdresar, sirkaTabule, animacnyCas, tim, fp, fontyTabule, zobrazitNahradnikov);
+            prezentaciaForm = new PrezentaciaForm(sirkaTabule, animacnyCas, tim, fp, fontyTabule, zobrazitNahradnikov);
             prezentaciaForm.FormClosing += (o, e) => prezentaciaForm = null;
             prezentaciaForm.Show();
         }
@@ -860,7 +861,7 @@ namespace LGR_Futbal
         private void SetupBtn_Click(object sender, EventArgs e)
         {
             SetupForm sf = new SetupForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu,
-                povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia, aktualnyAdresar,
+                povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia,
                 animacnyCas, farbyTabule, animKonfig, rozhodcovia, dbtimy, dbhraci, dbrozhodcovia, dbzapasy, fontyTabule, rozlozenieTabule);
             sf.OnAnimacieKarietPotvrdene += (zlta, cervena) =>
             {
@@ -870,10 +871,13 @@ namespace LGR_Futbal
             sf.OnDataPotvrdene += Sf_OnDataPotvrdene;
             sf.OnReset += () =>
             {
-                if (hraBezi)
-                    ZastavCas();
-
+                logoDomaci.Image = null;
+                logoHostia.Image = null;
+                tabulaForm.ZobrazLogoDomaci(null);
+                tabulaForm.ZobrazLogoHostia(null);
                 KoniecPolcasu(2, 0);
+                casLabel.Text = "00:00";
+                casPodrobneLabel.Text = "00:00.000";
                 tabulaForm.Reset();
             };
             sf.OnZhasnut += () =>
@@ -1091,7 +1095,8 @@ namespace LGR_Futbal
         private void RiadiaciForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-            SaveSettings();
+            if (!koniec)
+                SaveSettings();
 
             if (pozadieForm != null)
                 pozadieForm.Close();
@@ -1172,7 +1177,7 @@ namespace LGR_Futbal
                         }
                     }
 
-                    ZltaKartaForm zkf = new ZltaKartaForm(aktualnyAdresar, sirkaTabule, animacnyCas, hrac, fontyTabule, animKonfig.ZltaKartaAnimacia);
+                    ZltaKartaForm zkf = new ZltaKartaForm(sirkaTabule, animacnyCas, hrac, fontyTabule, animKonfig.ZltaKartaAnimacia);
                     zkf.Show();
                 }
                 else
@@ -1202,14 +1207,14 @@ namespace LGR_Futbal
                             }
                         }
                     }
-                    CervenaKartaForm ckf = new CervenaKartaForm(aktualnyAdresar, sirkaTabule, animacnyCas, hrac, true,
+                    CervenaKartaForm ckf = new CervenaKartaForm(sirkaTabule, animacnyCas, hrac, true,
                         fontyTabule, animKonfig.ZltaKartaAnimacia, animKonfig.CervenaKartaAnimacia);
                     ckf.Show();
                 }
             }
             else
             {
-                ZltaKartaForm zkf = new ZltaKartaForm(aktualnyAdresar, sirkaTabule, animacnyCas, hrac, fontyTabule, animKonfig.ZltaKartaAnimacia);
+                ZltaKartaForm zkf = new ZltaKartaForm(sirkaTabule, animacnyCas, hrac, fontyTabule, animKonfig.ZltaKartaAnimacia);
                 zkf.Show();
             }
         }
@@ -1257,7 +1262,7 @@ namespace LGR_Futbal
             if (hrac != null)
                 hrac.CervenaKarta = true;
 
-            CervenaKartaForm ckf = new CervenaKartaForm(aktualnyAdresar, sirkaTabule, animacnyCas, hrac, false, fontyTabule, animKonfig.ZltaKartaAnimacia, animKonfig.CervenaKartaAnimacia);
+            CervenaKartaForm ckf = new CervenaKartaForm(sirkaTabule, animacnyCas, hrac, false, fontyTabule, animKonfig.ZltaKartaAnimacia, animKonfig.CervenaKartaAnimacia);
             ckf.Show();
         }
 
@@ -1536,7 +1541,7 @@ namespace LGR_Futbal
 
             FarbyPrezentacie farbicky = jeDomaciTim ? farbyPrezDomaci : farbyPrezHostia;
 
-            StriedanieForm sf = new StriedanieForm(aktualnyAdresar, sirkaTabule, animacnyCas, nazovTimu, odchadzajuci, nastupujuci, farbicky, fontyTabule);
+            StriedanieForm sf = new StriedanieForm(sirkaTabule, animacnyCas, nazovTimu, odchadzajuci, nastupujuci, farbicky, fontyTabule);
             sf.Show();
         }
 

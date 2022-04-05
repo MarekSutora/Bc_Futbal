@@ -1,9 +1,7 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -27,10 +25,11 @@ namespace LGR_Futbal.Forms
 
         #region Konstruktor a metody
 
-        public StriedanieForm(string adresar, int sirka, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
+        public StriedanieForm(int sirka, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
         {
             InitializeComponent();
 
+            string adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 1000 * cas;
 
             striedanyHrac = striedany;

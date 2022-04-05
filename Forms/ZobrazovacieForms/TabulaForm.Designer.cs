@@ -68,7 +68,7 @@
             // 
             this.skoreHostiaLabel.Font = new System.Drawing.Font("Arial", 100.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreHostiaLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreHostiaLabel.Location = new System.Drawing.Point(694, 337);
+            this.skoreHostiaLabel.Location = new System.Drawing.Point(684, 337);
             this.skoreHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreHostiaLabel.Name = "skoreHostiaLabel";
             this.skoreHostiaLabel.Size = new System.Drawing.Size(256, 220);
@@ -80,7 +80,7 @@
             // 
             this.skoreDomaciLabel.Font = new System.Drawing.Font("Arial", 100.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreDomaciLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreDomaciLabel.Location = new System.Drawing.Point(19, 337);
+            this.skoreDomaciLabel.Location = new System.Drawing.Point(20, 337);
             this.skoreDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreDomaciLabel.Name = "skoreDomaciLabel";
             this.skoreDomaciLabel.Size = new System.Drawing.Size(256, 220);
@@ -116,7 +116,7 @@
             this.logoHostia.Location = new System.Drawing.Point(695, 10);
             this.logoHostia.Name = "logoHostia";
             this.logoHostia.Size = new System.Drawing.Size(255, 244);
-            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoHostia.TabIndex = 542;
             this.logoHostia.TabStop = false;
             // 
@@ -125,7 +125,7 @@
             this.logoDomaci.Location = new System.Drawing.Point(10, 10);
             this.logoDomaci.Name = "logoDomaci";
             this.logoDomaci.Size = new System.Drawing.Size(255, 244);
-            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoDomaci.TabIndex = 541;
             this.logoDomaci.TabStop = false;
             // 

@@ -110,6 +110,7 @@
             this.Controls.Add(this.AktivovatBtn);
             this.Name = "RozhodcoviaForm";
             this.Text = "RozhodcoviaForm";
+            this.Load += new System.EventHandler(this.RozhodcoviaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

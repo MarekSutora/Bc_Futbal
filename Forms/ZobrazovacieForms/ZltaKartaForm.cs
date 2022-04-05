@@ -1,9 +1,7 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
+﻿using LGR_Futbal.Setup;
 using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -11,28 +9,24 @@ namespace LGR_Futbal.Forms
 {
     public partial class ZltaKartaForm : Form
     {
-        #region Konstanty
+        #region ATRIBUTY
 
         private const string fotkyAdresar = "\\Files\\Fotky\\";
         private const string kartyAdresar = "\\Files\\Karty\\";
 
-        #endregion
-
-        #region Atributy
-
         private Hrac prezentovanyHrac = null;
         private bool prezentaciaSkoncila;
 
-        #endregion
+        #endregion 
         
-        #region Konstruktor a metody
+        #region KONSTRUKTOR A METODY
 
-        public ZltaKartaForm(string adresar, int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
+        public ZltaKartaForm(int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
         {
             InitializeComponent();
 
+            string adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 1000 * cas;
-
             prezentovanyHrac = hrac;
             prezentaciaSkoncila = false;
 
@@ -51,7 +45,7 @@ namespace LGR_Futbal.Forms
             }
 
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = (float)sirka / this.Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -99,14 +93,14 @@ namespace LGR_Futbal.Forms
             if (prezentovanyHrac == null)
             {
                 ZastavCas();
-                this.Close();
+                Close();
             }
             else
             {
                 if (prezentaciaSkoncila)
                 {
                     ZastavCas();
-                    this.Close();
+                    Close();
                 }
                 else
                 {

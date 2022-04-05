@@ -37,6 +37,9 @@ namespace LGR_Futbal.Setup
 
         public void NativneRozlozenie(int sirka, int vyska)
         {
+            LogoDomaciZobrazit = true;
+            LogoHostiaZobrazit = true;
+
             Cas_X = (int)(sirka / (1920 / 540.0));
             Cas_Y = (int)(vyska / (1080 / 20.0));
 
