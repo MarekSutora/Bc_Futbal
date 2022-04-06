@@ -13,6 +13,7 @@ namespace LGR_Futbal.Databaza
     public class DBHraci
     {
         private OracleConnection conn = null;
+
         public DBHraci(Pripojenie pripojenie)
         {
             conn = pripojenie.GetConnection();
@@ -104,7 +105,7 @@ namespace LGR_Futbal.Databaza
             }
         }
 
-        public async Task<List<Hrac>> GetVsetciHraci()
+        public async Task<List<Hrac>> GetVsetciHraciAsync()
         {
             List<Hrac> hraci = new List<Hrac>();
             Hrac hrac;
@@ -126,10 +127,8 @@ namespace LGR_Futbal.Databaza
                         while (reader.Read())
                         {
                             hrac = new Hrac();
-                            if (!reader.IsDBNull(0))
-                                hrac.IdHrac = reader.GetInt32(0);
-                            if (!reader.IsDBNull(1))
-                                hrac.IdOsoba = reader.GetInt32(1);
+                            hrac.IdHrac = reader.GetInt32(0);
+                            hrac.IdOsoba = reader.GetInt32(1);
                             if (!reader.IsDBNull(2))
                                 hrac.IdFutbalovyTim = reader.GetInt32(2);
                             if (!reader.IsDBNull(3))
@@ -356,7 +355,7 @@ namespace LGR_Futbal.Databaza
             }
         }
 
-        public void OdstranHraca(Hrac h)
+        public void OdstranHrac(Hrac h)
         {
             string cmdQuery = "UPDATE hrac SET datum_ukoncenia = SYSDATE WHERE id_hrac = :id_hrac";
             try
@@ -383,7 +382,9 @@ namespace LGR_Futbal.Databaza
             Hrac hrac = null;
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand("SELECT * FROM hrac WHERE id_hrac = :id_hrac");
                 OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int32);
                 param.Value = idHrac;
@@ -434,18 +435,14 @@ namespace LGR_Futbal.Databaza
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add(param);
-
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-
             using (OracleDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    if (!reader.IsDBNull(1))
-                        o.Meno = reader.GetString(1);
-                    if (!reader.IsDBNull(2))
-                        o.Priezvisko = reader.GetString(2);
+                    o.Meno = reader.GetString(1);
+                    o.Priezvisko = reader.GetString(2);
                     if (!reader.IsDBNull(3))
                         o.DatumNarodenia = reader.GetDateTime(3);
                     if (!reader.IsDBNull(4))

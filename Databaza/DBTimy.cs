@@ -11,6 +11,7 @@ namespace LGR_Futbal.Databaza
 {
     public class DBTimy
     {
+
         private DBHraci dbhraci = null;
         private OracleConnection conn = null;
 
@@ -19,7 +20,7 @@ namespace LGR_Futbal.Databaza
             conn = pripojenie.GetConnection();
             this.dbhraci = dbhraci;
         }
-        public async Task<List<FutbalovyTim>> GetTimy()
+        public async Task<List<FutbalovyTim>> GetTimyAsync()
         {
             List<FutbalovyTim> timy = new List<FutbalovyTim>();
             FutbalovyTim ft;
@@ -39,12 +40,9 @@ namespace LGR_Futbal.Databaza
                         while (reader.Read())
                         {
                             ft = new FutbalovyTim();
-                            if (!reader.IsDBNull(0))
-                                ft.IdFutbalovyTim = reader.GetInt32(0);
-                            if (!reader.IsDBNull(1))
-                                ft.Kategoria = reader.GetInt32(1);
-                            if (!reader.IsDBNull(2))
-                                ft.NazovTimu = reader.GetString(2);
+                            ft.IdFutbalovyTim = reader.GetInt32(0);
+                            ft.Kategoria = reader.GetInt32(1);
+                            ft.NazovTimu = reader.GetString(2);
                             if (!reader.IsDBNull(3))
                             {
                                 ft.LogoBlob = reader.GetOracleBlob(3).Value;
@@ -63,7 +61,7 @@ namespace LGR_Futbal.Databaza
             return timy;
         }
 
-        public async Task<List<string>> GetKategorie()
+        public async Task<List<string>> GetKategorieAsync()
         {
             List<string> kategorie = new List<string>();
 
@@ -100,8 +98,6 @@ namespace LGR_Futbal.Databaza
         public bool CheckNazovTimu(string nazov)
         {
             bool returnVal = false;
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery = "SELECT COUNT(*) FROM futbalovy_tim WHERE nazov_timu = :nazov AND datum_zrusenia IS NULL";
             try
             {
@@ -121,7 +117,6 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
             return returnVal;
         }
 
@@ -244,7 +239,7 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "SELECT nazov_timu FROM futbalovy_tim WHERE id_futbalovy_tim = :id_futbalovy_tim";
             try
             {
-                if(conn.State != ConnectionState.Open)
+                if (conn.State != ConnectionState.Open)
                     conn.Open();
 
                 OracleCommand cmd = new OracleCommand(cmdQuery);

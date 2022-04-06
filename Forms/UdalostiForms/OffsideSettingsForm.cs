@@ -46,18 +46,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-
-            //if (futbalovyTim == null)
-            //    PotvrditBtn.Enabled = true;
-            //else
-            //{
-            //    if (zoznamHracov.Count == 0)
-            //        PotvrditBtn.Enabled = false;
-            //    else
-            //    {
-            //        PotvrditBtn.Enabled = true;
-            //    }
-            //}
         }
         private void PotvrdOffside()
         {
@@ -85,15 +73,18 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (HraciLB.SelectedIndex >= 0)
                 PotvrdOffside();
         }
+
+        private void OffsideSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
+
         private void OffsideSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
         }
 
-        private void OffsideSettingsForm_Click(object sender, EventArgs e)
-        {
-            HraciLB.ClearSelected();
-        }
+        
     }
 }

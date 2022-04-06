@@ -25,7 +25,7 @@ namespace LGR_Futbal.Forms
 
         private async void RozhodcoviaForm_Load(object sender, EventArgs e)
         {
-            vsetciRozhodcovia = await dbRozhodcovia.GetRozhodcovia();
+            vsetciRozhodcovia = await dbRozhodcovia.GetRozhodcoviaAsync();
         }
 
         private void AktivovatBtn_Click(object sender, EventArgs e)

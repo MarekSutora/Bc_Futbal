@@ -95,14 +95,14 @@ namespace LGR_Futbal.Forms
                     {
                         string meno_priezvisko = string.Empty;
                         string priradenost = string.Empty;
-                        if (zapas.Domaci.ZoznamHracov[i].Priradeny == 'Z')
+                        if (zapas.Domaci.ZoznamHracov[i].TypHraca == 'Z')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         } 
-                        else if (zapas.Domaci.ZoznamHracov[i].Priradeny == 'N')
+                        else if (zapas.Domaci.ZoznamHracov[i].TypHraca == 'N')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
                             priradenost = "Nahradník";
@@ -117,14 +117,14 @@ namespace LGR_Futbal.Forms
                     {
                         string meno_priezvisko = string.Empty;
                         string priradenost = string.Empty;
-                        if (zapas.Hostia.ZoznamHracov[i].Priradeny == 'Z')
+                        if (zapas.Hostia.ZoznamHracov[i].TypHraca == 'Z')
                         {
                             meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         }
-                        else if (zapas.Hostia.ZoznamHracov[i].Priradeny == 'N')
+                        else if (zapas.Hostia.ZoznamHracov[i].TypHraca == 'N')
                         {
                             meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Nahradník";
@@ -175,12 +175,12 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Súbor sa nepodarilo vygenerovať", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Súbor sa nepodarilo vygenerovať", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
                 if (uspech)
-                    MessageBox.Show("Súbor úspešne vygenerovaný", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Súbor úspešne vygenerovaný", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }

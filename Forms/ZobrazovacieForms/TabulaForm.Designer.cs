@@ -42,48 +42,52 @@
             // 
             // domaciLabel
             // 
+            this.domaciLabel.AutoSize = true;
             this.domaciLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domaciLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.domaciLabel.Location = new System.Drawing.Point(10, 272);
+            this.domaciLabel.Location = new System.Drawing.Point(45, 296);
             this.domaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.domaciLabel.Name = "domaciLabel";
-            this.domaciLabel.Size = new System.Drawing.Size(400, 65);
+            this.domaciLabel.Size = new System.Drawing.Size(220, 56);
             this.domaciLabel.TabIndex = 543;
             this.domaciLabel.Text = "DOMÁCI";
-            this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // hostiaLabel
             // 
+            this.hostiaLabel.AutoSize = true;
             this.hostiaLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hostiaLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.hostiaLabel.Location = new System.Drawing.Point(549, 272);
+            this.hostiaLabel.Location = new System.Drawing.Point(695, 314);
             this.hostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hostiaLabel.Name = "hostiaLabel";
-            this.hostiaLabel.Size = new System.Drawing.Size(400, 65);
+            this.hostiaLabel.Size = new System.Drawing.Size(204, 56);
             this.hostiaLabel.TabIndex = 544;
             this.hostiaLabel.Text = "HOSTIA";
-            this.hostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // skoreHostiaLabel
             // 
+            this.skoreHostiaLabel.BackColor = System.Drawing.Color.Black;
             this.skoreHostiaLabel.Font = new System.Drawing.Font("Arial", 100.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreHostiaLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreHostiaLabel.Location = new System.Drawing.Point(684, 337);
+            this.skoreHostiaLabel.Location = new System.Drawing.Point(695, 392);
             this.skoreHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreHostiaLabel.Name = "skoreHostiaLabel";
-            this.skoreHostiaLabel.Size = new System.Drawing.Size(256, 220);
+            this.skoreHostiaLabel.Size = new System.Drawing.Size(255, 157);
             this.skoreHostiaLabel.TabIndex = 546;
             this.skoreHostiaLabel.Text = "0";
             this.skoreHostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // skoreDomaciLabel
             // 
+            this.skoreDomaciLabel.BackColor = System.Drawing.Color.Black;
             this.skoreDomaciLabel.Font = new System.Drawing.Font("Arial", 100.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreDomaciLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreDomaciLabel.Location = new System.Drawing.Point(20, 337);
+            this.skoreDomaciLabel.Location = new System.Drawing.Point(10, 392);
             this.skoreDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreDomaciLabel.Name = "skoreDomaciLabel";
-            this.skoreDomaciLabel.Size = new System.Drawing.Size(256, 220);
+            this.skoreDomaciLabel.Size = new System.Drawing.Size(255, 157);
             this.skoreDomaciLabel.TabIndex = 545;
             this.skoreDomaciLabel.Text = "0";
             this.skoreDomaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,10 +96,10 @@
             // 
             this.polcasLabel.Font = new System.Drawing.Font("Arial", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.polcasLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.polcasLabel.Location = new System.Drawing.Point(270, 439);
+            this.polcasLabel.Location = new System.Drawing.Point(269, 422);
             this.polcasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.polcasLabel.Name = "polcasLabel";
-            this.polcasLabel.Size = new System.Drawing.Size(420, 81);
+            this.polcasLabel.Size = new System.Drawing.Size(421, 81);
             this.polcasLabel.TabIndex = 547;
             this.polcasLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -153,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoHostia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoDomaci)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

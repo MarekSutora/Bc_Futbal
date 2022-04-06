@@ -45,24 +45,8 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 }
             }
 
-            //if (tim == null)
-            //    PotvrditBtn.Enabled = true;
-            //else
-            //{
-            //    if (zoznamHracov.Count == 0)
-            //        PotvrditBtn.Enabled = false;
-            //    else
-            //    {
-            //        HraciLB.SelectedIndex = 0;
-            //        PotvrditBtn.Enabled = true;
-            //    }
-            //}
         }
 
-        private void CervenaKartaSettingsForm_Click(object sender, EventArgs e)
-        {
-            HraciLB.ClearSelected();
-        }
         private void PotvrdKartu()
         {
             if (OnHracCervenaKartaSelected != null)
@@ -86,19 +70,28 @@ namespace LGR_Futbal.Forms.UdalostiForms
             }
             Close();
         }
+
         private void PotvrditBtn_Click(object sender, EventArgs e)
         {
             PotvrdKartu();
         }
+
         private void SpatBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void HraciLB_DoubleClick(object sender, EventArgs e)
         {
             if (HraciLB.SelectedIndex >= 0)
                 PotvrdKartu();
         }
+
+        private void CervenaKartaSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
+
         private void CervenaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)

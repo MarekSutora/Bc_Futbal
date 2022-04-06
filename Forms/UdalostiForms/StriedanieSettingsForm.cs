@@ -59,22 +59,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-
-            //if (HraciLBodch.Items.Count > 0)
-            //    HraciLBodch.SelectedIndex = 0;
-
-            //if (HraciLBnast.Items.Count > 0)
-            //    HraciLBnast.SelectedIndex = 0;
-
-            //if (tim == null)
-            //    PotvrditButton.Enabled = true;
-            //else
-            //{
-            //    if ((odchMoznosti.Count > 0) && (nastMoznosti.Count > 0))
-            //        PotvrditButton.Enabled = true;
-            //    else
-            //        PotvrditButton.Enabled = false;
-            //}
         }
         private void PotvrditBtn_Click(object sender, EventArgs e)
         {
@@ -109,28 +93,15 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     uspech = true;
 
                     OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
-
-                    //if (h1 != null && h2 != null)
-                    //     OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
-                    //else if (h1 == null && h2 != null)
-                    //    OnStriedanieHraciSelected(nazovTimu, null, h2, domaci);
-                    //else if(h1 != null && h2 == null)
-                    //    OnStriedanieHraciSelected(nazovTimu, h1, null, domaci);
-                    //else
-                    //    OnStriedanieHraciSelected(nazovTimu, null, null, domaci);
                 }
                 
             }
             Close();
         }
+
         private void SpatBtn_Click(object sender, EventArgs e)
         {
             Close();
-        }
-        private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
 
         private void OdznacVsetko(object sender, EventArgs e)
@@ -138,6 +109,14 @@ namespace LGR_Futbal.Forms.UdalostiForms
             HraciLBnast.ClearSelected();
             HraciLBodch.ClearSelected();
         }
+
+        private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uspech && OnUdalostPridana != null)
+                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
+        }
+
+        
 
         #endregion
     }

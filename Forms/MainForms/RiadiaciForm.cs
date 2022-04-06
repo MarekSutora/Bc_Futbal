@@ -51,6 +51,7 @@ namespace LGR_Futbal
         private bool povolitPrerusenieHry = false;
         private bool koniec = true;
         private bool zobrazitNahradnikov = true;
+        private bool bolReset = false;
 
         private string nazovDomaci = "Domáci";
         private string nazovHostia = "Hostia";
@@ -98,7 +99,7 @@ namespace LGR_Futbal
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {
-                sf.OnNastaveniaPotvrdenie += (pozadie, nastavenia, s, v)  =>
+                sf.OnNastaveniaPotvrdenie += (pozadie, nastavenia, s, v) =>
                     {
                         zobrazitPozadie = pozadie;
                         zobrazitNastaveniaPoSpusteni = nastavenia;
@@ -147,7 +148,7 @@ namespace LGR_Futbal
         {
             Screen primarnyDisplej = Screen.AllScreens.ElementAtOrDefault(0);
             int sirkaObr = primarnyDisplej.Bounds.Width;
-            pomer = (float)sirkaObr / (float)this.Width;
+            pomer = (float)sirkaObr / this.Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -235,6 +236,7 @@ namespace LGR_Futbal
 
         private void PolcasBtn_Click(object sender, EventArgs e)
         {
+            bolReset = false;
             if (!hraBezi)
             {
                 // Spustenie casu
@@ -258,14 +260,10 @@ namespace LGR_Futbal
                     casLabel.ForeColor = Color.Lime;
                     casPodrobneLabel.ForeColor = Color.Lime;
                     polcas++;
-                    //casPodrobneLabel.Text = ((polcas - 1) * dlzkaPolcasu).ToString("D2") + ":00.000";
-                    //aktualnaMinuta = (polcas - 1) * dlzkaPolcasu;
                     minutaPolcasu = 0;
                     zmenenaMinuta = 0;
                     zmenenaSekunda = 0;
                     tabulaForm.SetPolcas(polcas, pocetNadstavenychMinut, nadstavenyCas);
-                    //casLabel.Text = polcas == 2 ? (((polcas - 1) * dlzkaPolcasu) + 1) + ":00" : "00:00";
-                   // tabulaForm.SetCas(casLabel.Text);
 
                     SpustiCas(true);
 
@@ -383,20 +381,8 @@ namespace LGR_Futbal
                         else if (m == ((polcas * dlzkaPolcasu) + pocetNadstavenychMinut))
                         {
                             nadstavenyCas = false;
-                            // Koniec nadstaveneho casu
 
                             KoniecPolcasu(polcas, m);
-                            //if (polcas == 1)
-                            //{
-                            //    zapas.NadstavenyCas1 = pocetNadstavenychMinut;
-                            //    PolcasBtn.Text = 2 + ". polčas\nSTART";
-                            //}
-                            //else
-                            //{
-                            //    zapas.NadstavenyCas2 = pocetNadstavenychMinut;
-                            //    polcas = 0;
-                            //    PolcasBtn.Text = 1 + ". polčas\nSTART";
-                            //}
                             nadstavenaMinuta = 0;
                             pocetNadstavenychMinut = 0;
                         }
@@ -414,11 +400,19 @@ namespace LGR_Futbal
                         aktualnaSekunda = s;
                     }
                 }
+                if (bolReset)
+                {
+                    casLabel.Text = "00:00";
+                    casPodrobneLabel.Text = "00:00.000";
+                    tabulaForm.SetCas("00:00");
+                    bolReset = false;
+                }
             }
             catch
             {
                 MessageBox.Show("Nastala chyba pri spracovávani času!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void KoniecPolcasu(int polcas, int minuty)
@@ -764,6 +758,7 @@ namespace LGR_Futbal
             TextWriter textWriter = null;
             try
             {
+                rozlozenieTabule = tabulaForm.GetRozlozenie();
                 XmlSerializer serializer = new XmlSerializer(typeof(RozlozenieTabule));
                 textWriter = new StreamWriter(aktualnyAdresar + rozlozenieSubor);
                 serializer.Serialize(textWriter, rozlozenieTabule);
@@ -861,8 +856,8 @@ namespace LGR_Futbal
         private void SetupBtn_Click(object sender, EventArgs e)
         {
             SetupForm sf = new SetupForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu,
-                povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia,
-                animacnyCas, farbyTabule, animKonfig, rozhodcovia, dbtimy, dbhraci, dbrozhodcovia, dbzapasy, fontyTabule, rozlozenieTabule);
+                povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia, tabulaForm,
+                animacnyCas, farbyTabule, animKonfig, rozhodcovia, dbtimy, dbhraci, dbrozhodcovia, dbzapasy, fontyTabule);
             sf.OnAnimacieKarietPotvrdene += (zlta, cervena) =>
             {
                 animKonfig.ZltaKartaAnimacia = zlta;
@@ -871,13 +866,12 @@ namespace LGR_Futbal
             sf.OnDataPotvrdene += Sf_OnDataPotvrdene;
             sf.OnReset += () =>
             {
+                bolReset = true;
                 logoDomaci.Image = null;
                 logoHostia.Image = null;
                 tabulaForm.ZobrazLogoDomaci(null);
                 tabulaForm.ZobrazLogoHostia(null);
                 KoniecPolcasu(2, 0);
-                casLabel.Text = "00:00";
-                casPodrobneLabel.Text = "00:00.000";
                 tabulaForm.Reset();
             };
             sf.OnZhasnut += () =>
@@ -895,7 +889,11 @@ namespace LGR_Futbal
             sf.OnObnovaFarieb += Sf_OnObnovaFarieb;
             sf.OnZmenaFarieb += () => AplikujFarebnuSchemu(farbyTabule); ;
             sf.OnZmenaFontov += () => tabulaForm.SetFonty(fontyTabule); ;
-            sf.OnZmenaRozlozenia += () => tabulaForm.SetLayout(rozlozenieTabule); ;
+            sf.OnZmenaRozlozenia += (rt) =>
+                {
+                    rozlozenieTabule = rt;
+                    tabulaForm.SetLayout(rt);
+                };
             sf.Show();
         }
 

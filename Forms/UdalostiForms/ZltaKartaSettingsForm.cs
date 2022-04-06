@@ -44,19 +44,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-
-            //if (tim == null)
-            //    PotvrditBtn.Enabled = true;
-            //else
-            //{
-            //    if (zoznamHracov.Count == 0)
-            //        PotvrditBtn.Enabled = false;
-            //    else
-            //    {
-            //        HraciLB.SelectedIndex = 0;
-            //        PotvrditBtn.Enabled = true;
-            //    }
-            //}
         }
 
         private void PotvrdKartu()
@@ -104,11 +91,17 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 PotvrdKartu();
         }
 
+        private void ZltaKartaSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
+
         private void ZltaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
-        #endregion 
+
+        #endregion
     }
 }

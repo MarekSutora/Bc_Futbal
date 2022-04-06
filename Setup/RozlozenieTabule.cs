@@ -11,25 +11,31 @@ namespace LGR_Futbal.Setup
     {
         public int Cas_X { get; set; }
         public int Cas_Y { get; set; }
-        public int Domaci_X { get; set; }
-        public int Domaci_Y { get; set; }
-        public int Hostia_X { get; set; }
-        public int Hostia_Y { get; set; }
+        public int Cas_Sirka { get; set; }
+        public int DomaciNazov_X { get; set; }
+        public int DomaciNazov_Y { get; set; }
+        public int DomaciNazov_Sirka { get; set; }
+        public int HostiaNazov_X { get; set; }
+        public int HostiaNazov_Y { get; set; }
+        public int HostiaNazov_Sirka { get; set; }
         public int DomaciSkore_X { get; set; }
         public int DomaciSkore_Y { get; set; }
+        public int DomaciSkore_Sirka { get; set; }
         public int HostiaSkore_X { get; set; }
         public int HostiaSkore_Y { get; set; }
+        public int HostiaSkore_Sirka { get; set; }
         public int LogoDomaci_X { get; set; }
-        public int LogoDomaci_Y { get; set; }     
+        public int LogoDomaci_Y { get; set; }
+        public int LogoDomaci_Sirka { get; set; }
+        public bool LogoDomaci_Zobrazit { get; set; }
         public int LogoHostia_X { get; set; }
         public int LogoHostia_Y { get; set; }
+        public int LogoHostia_Sirka { get; set; }
+        public bool LogoHostia_Zobrazit { get; set; }
         public int Polcas_X { get; set; }
         public int Polcas_Y { get; set; }
-        public int LogoDomaciSirka { get; set; }
-        public int LogoHostiaSirka { get; set; }
-        public bool LogoDomaciZobrazit { get; set; }
-        public bool LogoHostiaZobrazit { get; set; } 
-      
+        public int Polcas_Sirka { get; set; }
+
         public RozlozenieTabule()
         {
 
@@ -37,34 +43,40 @@ namespace LGR_Futbal.Setup
 
         public void NativneRozlozenie(int sirka, int vyska)
         {
-            LogoDomaciZobrazit = true;
-            LogoHostiaZobrazit = true;
+            LogoDomaci_Zobrazit = true;
+            LogoHostia_Zobrazit = true;
 
             Cas_X = (int)(sirka / (1920 / 540.0));
             Cas_Y = (int)(vyska / (1080 / 20.0));
+            Cas_Sirka = (int)(sirka / (1920 / 840.0));
 
-            Domaci_X = (int)(sirka / (1920 / 20.0));
-            Domaci_Y = (int)(vyska / (1080 / 544.0));
+            DomaciNazov_X = (int)(sirka / (1920 / 112.0));
+            DomaciNazov_Y = (int)(vyska / (1080 / 562.0));
+            DomaciNazov_Sirka = (int)(sirka / (1920 / 440.0));
 
-            Hostia_X = (int)(sirka / (1920 / 1098.0));
-            Hostia_Y = (int)(vyska / (1080 / 544.0));
+            HostiaNazov_X = (int)(sirka / (1920 / 1370.0));
+            HostiaNazov_Y = (int)(vyska / (1080 / 562.0));
+            HostiaNazov_Sirka = (int)(sirka / (1920 / 440.0));
 
             DomaciSkore_X = (int)(sirka / (1920 / 38.0));
             DomaciSkore_Y = (int)(vyska / (1080 / 674.0));
+            DomaciSkore_Sirka = (int)(sirka / (1920 / 490.0));
 
             HostiaSkore_X = (int)(sirka / (1920 / 1388.0));
             HostiaSkore_Y = (int)(vyska / (1080 / 674.0));
+            HostiaSkore_Sirka = (int)(sirka / (1920 / 490.0));
 
             LogoDomaci_X = (int)(sirka / (1920 / 20.0));
             LogoDomaci_Y = (int)(vyska / (1080 / 20.0));
-            LogoDomaciSirka = (int)(sirka / (1920 / 510.0));
+            LogoDomaci_Sirka = (int)(sirka / (1920 / 510.0));
 
             LogoHostia_X = (int)(sirka / (1920 / 1390.0));
             LogoHostia_Y = (int)(vyska / (1080 / 20.0));
-            LogoHostiaSirka = (int)(sirka / (1920 / 510.0));
+            LogoHostia_Sirka = (int)(sirka / (1920 / 510.0));
 
             Polcas_X = (int)(sirka / (1920 / 550.0));
             Polcas_Y = (int)(vyska / (1080 / 878.0));
+            Polcas_Sirka = (int)(sirka / (1920 / 878.0));
         }
     }
 }

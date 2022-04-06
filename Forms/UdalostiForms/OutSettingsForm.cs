@@ -76,15 +76,17 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 PotvrdOut();
         }
 
+        private void OutSettingsForm_Click(object sender, EventArgs e)
+        {
+            HraciLB.ClearSelected();
+        }
+
         private void OutSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("OUT PRIDANÝ DO UDALOSTÍ");
         }
 
-        private void OutSettingsForm_Click(object sender, EventArgs e)
-        {
-            HraciLB.ClearSelected();
-        }
+        
     }
 }

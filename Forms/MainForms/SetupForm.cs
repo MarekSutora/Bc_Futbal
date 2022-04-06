@@ -25,7 +25,7 @@ namespace LGR_Futbal.Forms
     public delegate void ZmenaFariebHandler();
     public delegate void ZmenaFontovHandler();
     public delegate void AnimacieKarietPotvrdeneHandler(string s1, string s2);
-    public delegate void ZmenaRozlozeniaHandler();
+    public delegate void ZmenaRozlozeniaHandler(RozlozenieTabule rt);
 
     public partial class SetupForm : Form
     {
@@ -60,7 +60,7 @@ namespace LGR_Futbal.Forms
         private AnimacnaKonfiguracia animKonfig = null;
         private List<string> zoznamSuborov = null;
         private List<Rozhodca> rozhodcovia = null;
-        private RozlozenieTabule rozlozenieTabule = null;
+        private TabulaForm tabulaForm = null;
         private FontyTabule fontyTabule = null;
 
         private DBTimy dbtimy = null;
@@ -72,14 +72,13 @@ namespace LGR_Futbal.Forms
 
 
         public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int si, int vy, int dlzkaPolcasu, bool prerusenie, bool diakritika,
-            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, int animacia, FarbyTabule farby, 
-            AnimacnaKonfiguracia konfiguracia, List<Rozhodca> roz, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule f, RozlozenieTabule r)
+            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, TabulaForm tf, int animacia, FarbyTabule farby, 
+            AnimacnaKonfiguracia konfiguracia, List<Rozhodca> roz, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule f)
         {
             InitializeComponent();
 
             sirka = si;
             vyska = vy;
-            rozlozenieTabule = r;
             dbtimy = dbt;
             dbhraci = dbh;
             dbrozhodcovia = dbr;
@@ -88,6 +87,7 @@ namespace LGR_Futbal.Forms
             rozhodcovia = roz;
             domaciT = domaci;
             hostiaT = hostia;
+            tabulaForm = tf;
             zoznamSuborov = new List<string>();
             animKonfig = konfiguracia;
             adresar = Directory.GetCurrentDirectory();
@@ -233,8 +233,8 @@ namespace LGR_Futbal.Forms
 
         private void ZmenitRozlozenieBtn_Click(object sender, EventArgs e)
         {
-            RozlozenieForm rf = new RozlozenieForm(rozlozenieTabule, sirka, vyska);
-            rf.OnZmenaRozlozenia += () => this.OnZmenaRozlozenia?.Invoke();
+            RozlozenieForm rf = new RozlozenieForm(sirka, vyska, tabulaForm);
+            rf.OnZmenaRozlozenia += (rt) => this.OnZmenaRozlozenia?.Invoke(rt);
             rf.Show();
         }
 
@@ -543,6 +543,8 @@ namespace LGR_Futbal.Forms
         {
             domaciT = null;
             hostiaT = null;
+            logoDomaciPictureBox.Image = null;
+            logoHostiaPictureBox.Image = null;
             domNazov.Text = "Domáci";
             hosNazov.Text = "Hostia";
             ZrusitTimyBtn.Enabled = false;

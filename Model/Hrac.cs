@@ -19,10 +19,10 @@ namespace LGR_Futbal.Model
         public bool Nahradnik { get; set; }
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
-        public char Priradeny { get; set; }
+        public char TypHraca { get; set; }
         public Hrac()    
         {
-            Priradeny = 'X';
+            TypHraca = 'X';
             Poznamka = " ";
             Meno = string.Empty;
             Priezvisko = string.Empty;

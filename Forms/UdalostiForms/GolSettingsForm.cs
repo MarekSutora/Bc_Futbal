@@ -62,19 +62,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     }
                 }
             }
-
-            //if (tim == null)
-            //    PotvrditBtn.Enabled = true;
-            //else
-            //{
-            //    if (zoznamHracov.Count == 0)
-            //        PotvrditBtn.Enabled = false;
-            //    else
-            //    {
-            //        HraciLB.SelectedIndex = 0;
-            //        PotvrditBtn.Enabled = true;
-            //    }
-            //}
         }
 
         private void PotvrdGol()

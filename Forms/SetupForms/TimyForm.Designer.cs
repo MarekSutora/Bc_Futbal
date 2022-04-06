@@ -119,6 +119,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Výber tímov z databázy";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TimyForm_FormClosing);
             this.Load += new System.EventHandler(this.TimyForm_Load);
             this.Click += new System.EventHandler(this.OdznacenieVsetkeho);
             this.ResumeLayout(false);

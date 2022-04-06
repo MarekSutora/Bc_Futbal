@@ -88,6 +88,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Žltá karta - nastavenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ZltaKartaSettingsForm_FormClosed);
+            this.Click += new System.EventHandler(this.ZltaKartaSettingsForm_Click);
             this.ResumeLayout(false);
 
         }

@@ -19,7 +19,7 @@ namespace LGR_Futbal.Databaza
             this.dbhraci = dbhraci;
         }
 
-        public async Task<List<Rozhodca>> GetRozhodcovia()
+        public async Task<List<Rozhodca>> GetRozhodcoviaAsync()
         {
             List<Rozhodca> rozhodcovia = new List<Rozhodca>();
             Rozhodca rozhodca;
@@ -39,10 +39,8 @@ namespace LGR_Futbal.Databaza
                         while (reader.Read())
                         {
                             rozhodca = new Rozhodca();
-                            if (!reader.IsDBNull(0))
-                                rozhodca.IdRozhodca = reader.GetInt32(0);
-                            if (!reader.IsDBNull(1))
-                                rozhodca.IdOsoba = reader.GetInt32(1);
+                            rozhodca.IdRozhodca = reader.GetInt32(0);
+                            rozhodca.IdOsoba = reader.GetInt32(1);
                             dbhraci.NastavOsobneUdaje(rozhodca);
                             rozhodcovia.Add(rozhodca);
                         }
@@ -106,8 +104,6 @@ namespace LGR_Futbal.Databaza
 
         public void UpdateRozhodca(Rozhodca r)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
             try
             {
@@ -142,13 +138,10 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
 
-        public void OdstranRozhodcu(Rozhodca rozhodca)
+        public void OdstranRozhodca(Rozhodca rozhodca)
         {
-            //using (OracleConnection conn = new OracleConnection(constring))
-            //{
             string cmdQuery = "UPDATE rozhodca SET datum_ukoncenia = SYSDATE WHERE id_rozhodca = :id_rozhodca";
             try
             {
@@ -167,7 +160,6 @@ namespace LGR_Futbal.Databaza
             {
                 throw new Exception("Chyba pri praci s Databazou");
             }
-            //}
         }
         public Rozhodca GetRozhodca(int idRozhodca)
         {
@@ -187,10 +179,8 @@ namespace LGR_Futbal.Databaza
                     while (reader.Read())
                     {
                         Rozhodca = new Rozhodca();
-                        if (!reader.IsDBNull(0))
-                            Rozhodca.IdRozhodca = reader.GetInt32(0);
-                        if (!reader.IsDBNull(1))
-                            Rozhodca.IdOsoba = reader.GetInt32(1);
+                        Rozhodca.IdRozhodca = reader.GetInt32(0);
+                        Rozhodca.IdOsoba = reader.GetInt32(1);
                         dbhraci.NastavOsobneUdaje(Rozhodca);
                     }
                 }

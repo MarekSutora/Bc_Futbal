@@ -15,7 +15,7 @@ namespace LGR_Futbal.Forms
         private int vyska;
         private RozlozenieTabule rozlozenieTabule = null;
 
-        public RozlozenieForm(RozlozenieTabule rt, int sirka, int vyska)
+        public RozlozenieForm(int sirka, int vyska, TabulaForm tf)
         {
             InitializeComponent();
 
@@ -40,7 +40,7 @@ namespace LGR_Futbal.Forms
             adresar = Directory.GetCurrentDirectory() + "\\Files\\RozlozenieNastavenia";
             this.sirka = sirka;
             this.vyska = vyska;
-            rozlozenieTabule = rt;
+            rozlozenieTabule = tf.GetRozlozenie();
             NastavRozlozenie();
         }
 
@@ -48,31 +48,37 @@ namespace LGR_Futbal.Forms
         {
             CasXNumeric.Value = rozlozenieTabule.Cas_X;
             CasYNumeric.Value = rozlozenieTabule.Cas_Y;
+            CasSirkaNumeric.Value = rozlozenieTabule.Cas_Sirka;
 
-            DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
-            DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
+            DomaciXNumeric.Value = rozlozenieTabule.DomaciNazov_X;
+            DomaciYNumeric.Value = rozlozenieTabule.DomaciNazov_Y;
+            DomaciSirkaNumeric.Value = rozlozenieTabule.DomaciNazov_Sirka;
 
-            HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
-            HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
+            HostiaXNumeric.Value = rozlozenieTabule.HostiaNazov_X;
+            HostiaYNumeric.Value = rozlozenieTabule.HostiaNazov_Y;
+            HostiaSirkaNumeric.Value = rozlozenieTabule.HostiaNazov_Sirka;
 
             SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
             SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
+            SkoreDomaciSirkaNumeric.Value = rozlozenieTabule.DomaciSkore_Sirka;
 
             SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
             SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
+            SkoreHostiaSirkaNumeric.Value = rozlozenieTabule.HostiaSkore_Sirka;
 
             LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
             LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
-            LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
-            domaciLogoCB.Checked = rozlozenieTabule.LogoDomaciZobrazit;
+            LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaci_Sirka;
+            domaciLogoCB.Checked = rozlozenieTabule.LogoDomaci_Zobrazit;
 
             LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
             LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
-            LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
-            hostiaLogoCB.Checked = rozlozenieTabule.LogoHostiaZobrazit;
+            LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostia_Sirka;
+            hostiaLogoCB.Checked = rozlozenieTabule.LogoHostia_Zobrazit;
 
             PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
             PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
+            PolcasSirkaNumeric.Value = rozlozenieTabule.Polcas_Sirka;
         }
 
         private void AktivovatBtn_Click(object sender, EventArgs e)
@@ -81,32 +87,38 @@ namespace LGR_Futbal.Forms
             {
                 rozlozenieTabule.Cas_X = (int)CasXNumeric.Value;
                 rozlozenieTabule.Cas_Y = (int)CasYNumeric.Value;
+                rozlozenieTabule.Cas_Sirka = (int)CasSirkaNumeric.Value;
 
-                rozlozenieTabule.Domaci_X = (int)DomaciXNumeric.Value;
-                rozlozenieTabule.Domaci_Y = (int)DomaciYNumeric.Value;
+                rozlozenieTabule.DomaciNazov_X = (int)DomaciXNumeric.Value;
+                rozlozenieTabule.DomaciNazov_Y = (int)DomaciYNumeric.Value;
+                rozlozenieTabule.DomaciNazov_Sirka = (int)DomaciSirkaNumeric.Value;
 
-                rozlozenieTabule.Hostia_X = (int)HostiaXNumeric.Value;
-                rozlozenieTabule.Hostia_Y = (int)HostiaYNumeric.Value;
+                rozlozenieTabule.HostiaNazov_X = (int)HostiaXNumeric.Value;
+                rozlozenieTabule.HostiaNazov_Y = (int)HostiaYNumeric.Value;
+                rozlozenieTabule.HostiaNazov_Sirka = (int)HostiaSirkaNumeric.Value;
 
                 rozlozenieTabule.DomaciSkore_X = (int)SkoreDomaciXNumeric.Value;
                 rozlozenieTabule.DomaciSkore_Y = (int)SkoreDomaciYNumeric.Value;
+                rozlozenieTabule.DomaciSkore_Sirka = (int)SkoreDomaciSirkaNumeric.Value;
 
                 rozlozenieTabule.HostiaSkore_X = (int)SkoreHostiaXNumeric.Value;
                 rozlozenieTabule.HostiaSkore_Y = (int)SkoreHostiaYNumeric.Value;
+                rozlozenieTabule.HostiaSkore_Sirka = (int)SkoreHostiaSirkaNumeric.Value;
 
                 rozlozenieTabule.LogoDomaci_X = (int)LogoDomaciXNumeric.Value;
                 rozlozenieTabule.LogoDomaci_Y = (int)LogoDomaciYNumeric.Value;
-                rozlozenieTabule.LogoDomaciSirka = (int)LogoDomaciSirkaNumeric.Value;
-                rozlozenieTabule.LogoDomaciZobrazit = domaciLogoCB.Checked;
+                rozlozenieTabule.LogoDomaci_Sirka = (int)LogoDomaciSirkaNumeric.Value;
+                rozlozenieTabule.LogoDomaci_Zobrazit = domaciLogoCB.Checked;
 
                 rozlozenieTabule.LogoHostia_X = (int)LogoHostiaXNumeric.Value;
                 rozlozenieTabule.LogoHostia_Y = (int)LogoHostiaYNumeric.Value;
-                rozlozenieTabule.LogoHostiaSirka = (int)LogoHostiaSirkaNumeric.Value;
-                rozlozenieTabule.LogoHostiaZobrazit = hostiaLogoCB.Checked;
+                rozlozenieTabule.LogoHostia_Sirka = (int)LogoHostiaSirkaNumeric.Value;
+                rozlozenieTabule.LogoHostia_Zobrazit = hostiaLogoCB.Checked;
 
                 rozlozenieTabule.Polcas_X = (int)PolcasXNumeric.Value;
                 rozlozenieTabule.Polcas_Y = (int)PolcasYNumeric.Value;
-                OnZmenaRozlozenia?.Invoke();
+                rozlozenieTabule.Polcas_Sirka = (int)PolcasSirkaNumeric.Value;
+                OnZmenaRozlozenia?.Invoke(rozlozenieTabule);
             }
                
         }
@@ -125,31 +137,37 @@ namespace LGR_Futbal.Forms
                     RozlozenieTabule rt = new RozlozenieTabule();
                     rt.Cas_X = (int)CasXNumeric.Value;
                     rt.Cas_Y = (int)CasYNumeric.Value;
+                    rt.Cas_Sirka = (int)CasSirkaNumeric.Value;
 
-                    rt.Domaci_X = (int)DomaciXNumeric.Value;
-                    rt.Domaci_Y = (int)DomaciYNumeric.Value;
+                    rt.DomaciNazov_X = (int)DomaciXNumeric.Value;
+                    rt.DomaciNazov_Y = (int)DomaciYNumeric.Value;
+                    rt.DomaciNazov_Sirka = (int)DomaciSirkaNumeric.Value;
 
-                    rt.Hostia_X = (int)HostiaXNumeric.Value;
-                    rt.Hostia_Y = (int)HostiaYNumeric.Value;
+                    rt.HostiaNazov_X = (int)HostiaXNumeric.Value;
+                    rt.HostiaNazov_Y = (int)HostiaYNumeric.Value;
+                    rt.HostiaNazov_Sirka = (int)HostiaSirkaNumeric.Value;
 
                     rt.DomaciSkore_X = (int)SkoreDomaciXNumeric.Value;
                     rt.DomaciSkore_Y = (int)SkoreDomaciYNumeric.Value;
+                    rt.DomaciSkore_Sirka = (int)SkoreDomaciSirkaNumeric.Value;
 
                     rt.HostiaSkore_X = (int)SkoreHostiaXNumeric.Value;
                     rt.HostiaSkore_Y = (int)SkoreHostiaYNumeric.Value;
+                    rt.HostiaSkore_Sirka = (int)SkoreHostiaSirkaNumeric.Value;
 
                     rt.LogoDomaci_X = (int)LogoDomaciXNumeric.Value;
                     rt.LogoDomaci_Y = (int)LogoDomaciYNumeric.Value;
-                    rt.LogoDomaciSirka = (int)LogoDomaciSirkaNumeric.Value;
-                    rt.LogoDomaciZobrazit = domaciLogoCB.Checked;
+                    rt.LogoDomaci_Sirka = (int)LogoDomaciSirkaNumeric.Value;
+                    rt.LogoDomaci_Zobrazit = domaciLogoCB.Checked;
 
                     rt.LogoHostia_X = (int)LogoHostiaXNumeric.Value;
                     rt.LogoHostia_Y = (int)LogoHostiaYNumeric.Value;
-                    rt.LogoHostiaSirka = (int)LogoHostiaSirkaNumeric.Value;
-                    rt.LogoHostiaZobrazit = hostiaLogoCB.Checked;
+                    rt.LogoHostia_Sirka = (int)LogoHostiaSirkaNumeric.Value;
+                    rt.LogoHostia_Zobrazit = hostiaLogoCB.Checked;
 
                     rt.Polcas_X = (int)PolcasXNumeric.Value;
                     rt.Polcas_Y = (int)PolcasYNumeric.Value;
+                    rt.Polcas_Sirka = (int)PolcasSirkaNumeric.Value;
 
                     XmlSerializer serializer = new XmlSerializer(typeof(RozlozenieTabule));
                     textWriter = new StreamWriter(sfd.FileName);
@@ -157,7 +175,7 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -190,7 +208,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -201,7 +219,7 @@ namespace LGR_Futbal.Forms
                     {
                         rozlozenieTabule = rt;
                         NastavRozlozenie();
-                        OnZmenaRozlozenia?.Invoke();
+                        OnZmenaRozlozenia?.Invoke(rozlozenieTabule);
                     }
                 }
             }
@@ -213,35 +231,9 @@ namespace LGR_Futbal.Forms
             {
                 rozlozenieTabule.NativneRozlozenie(sirka, vyska);
 
-                CasXNumeric.Value = rozlozenieTabule.Cas_X;
-                CasYNumeric.Value = rozlozenieTabule.Cas_Y;
+                NastavRozlozenie();
 
-                DomaciXNumeric.Value = rozlozenieTabule.Domaci_X;
-                DomaciYNumeric.Value = rozlozenieTabule.Domaci_Y;
-
-                HostiaXNumeric.Value = rozlozenieTabule.Hostia_X;
-                HostiaYNumeric.Value = rozlozenieTabule.Hostia_Y;
-
-                SkoreDomaciXNumeric.Value = rozlozenieTabule.DomaciSkore_X;
-                SkoreDomaciYNumeric.Value = rozlozenieTabule.DomaciSkore_Y;
-
-                SkoreHostiaXNumeric.Value = rozlozenieTabule.HostiaSkore_X;
-                SkoreHostiaYNumeric.Value = rozlozenieTabule.HostiaSkore_Y;
-
-                LogoDomaciXNumeric.Value = rozlozenieTabule.LogoDomaci_X;
-                LogoDomaciYNumeric.Value = rozlozenieTabule.LogoDomaci_Y;
-                LogoDomaciSirkaNumeric.Value = rozlozenieTabule.LogoDomaciSirka;
-                domaciLogoCB.Checked = rozlozenieTabule.LogoDomaciZobrazit;
-
-                LogoHostiaXNumeric.Value = rozlozenieTabule.LogoHostia_X;
-                LogoHostiaYNumeric.Value = rozlozenieTabule.LogoHostia_Y;
-                LogoHostiaSirkaNumeric.Value = rozlozenieTabule.LogoHostiaSirka;
-                hostiaLogoCB.Checked = rozlozenieTabule.LogoHostiaZobrazit;
-
-                PolcasXNumeric.Value = rozlozenieTabule.Polcas_X;
-                PolcasYNumeric.Value = rozlozenieTabule.Polcas_Y;
-
-                OnZmenaRozlozenia?.Invoke();
+                OnZmenaRozlozenia?.Invoke(rozlozenieTabule);
             } 
         }
     }

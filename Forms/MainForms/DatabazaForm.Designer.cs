@@ -238,7 +238,7 @@
             this.UpravaHracaGroupBox.Controls.Add(this.UpravaVlozFotoBtn);
             this.UpravaHracaGroupBox.Controls.Add(this.upravaFotoPictureBox);
             this.UpravaHracaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.UpravaHracaGroupBox.Location = new System.Drawing.Point(415, 6);
+            this.UpravaHracaGroupBox.Location = new System.Drawing.Point(419, 6);
             this.UpravaHracaGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.UpravaHracaGroupBox.Name = "UpravaHracaGroupBox";
             this.UpravaHracaGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
