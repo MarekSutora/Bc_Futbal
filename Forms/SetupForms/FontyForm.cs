@@ -59,7 +59,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -103,7 +103,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -120,7 +120,7 @@ namespace LGR_Futbal.Forms
         }
         private void ObnovitBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia rozloženia?", "FutbalApp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia rozloženia?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 nazvyFontLabel.Text = "Arial; 53,25pt; style=Bold";
                 skoreFontLabel.Text = "Arial; 147pt; style=Bold";

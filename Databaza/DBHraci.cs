@@ -4,8 +4,8 @@ using System.IO;
 using System.Drawing;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
-using LGR_Futbal.Model;
 using System.Threading.Tasks;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Databaza
 {
@@ -23,7 +23,9 @@ namespace LGR_Futbal.Databaza
         {
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 string cmdQuery1 = "INSERT INTO osoba(meno, priezvisko, datum_narodenia, pohlavie) VALUES(:meno, :priezvisko, :datum_narodenia, :pohlavie)";
                 OracleCommand cmd = new OracleCommand(cmdQuery1);
                 OracleParameter[] param = new OracleParameter[4];
@@ -101,7 +103,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -117,11 +119,9 @@ namespace LGR_Futbal.Databaza
                     if (conn.State != ConnectionState.Open)
                         conn.Open();
 
-                    OracleCommand cmd = new OracleCommand(cmdQuery)
-                    {
-                        Connection = conn,
-                        CommandType = CommandType.Text
-                    };
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
                     using (OracleDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -151,7 +151,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return hraci;
         }
@@ -207,7 +207,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return hraci;
         }
@@ -258,7 +258,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return hraci;
         }
@@ -269,7 +269,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery2 = "UPDATE hrac SET id_futbalovy_tim = :id_futbalovy_tim, poznamka = :poznamka, cislo_dresu = :cislo_dresu, fotka = :fotka, post = :post WHERE id_hrac = :id_hrac";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery1);
                 OracleParameter[] param = new OracleParameter[5];
 
@@ -351,7 +353,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -360,7 +362,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "UPDATE hrac SET datum_ukoncenia = SYSDATE WHERE id_hrac = :id_hrac";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Int32);
                 param.Value = h.IdHrac;
@@ -373,7 +377,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -421,7 +425,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return hrac;
         }

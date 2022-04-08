@@ -1,25 +1,19 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
     public partial class ZltaKartaForm : Form
     {
-        #region ATRIBUTY
-
         private const string fotkyAdresar = "\\Files\\Fotky\\";
         private const string kartyAdresar = "\\Files\\Karty\\";
 
         private Hrac prezentovanyHrac = null;
         private bool prezentaciaSkoncila;
-
-        #endregion 
-        
-        #region KONSTRUKTOR A METODY
 
         public ZltaKartaForm(int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
         {
@@ -44,8 +38,7 @@ namespace LGR_Futbal.Forms
                 }
             }
 
-            // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / this.Width;
+            float pomer = (float)sirka / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -54,14 +47,14 @@ namespace LGR_Futbal.Forms
             {
                 try
                 {
-                    if(prezentovanyHrac.FotkaImage != null)
+                    if (prezentovanyHrac.FotkaImage != null)
                     {
                         fotkaPictureBox.Image = prezentovanyHrac.FotkaImage;
                     }
                     else
                     {
                         fotkaPictureBox.Image = Image.FromFile(adresar + fotkyAdresar + "Default.png");
-                    }          
+                    }
                 }
                 catch
                 {
@@ -69,7 +62,7 @@ namespace LGR_Futbal.Forms
                 }
 
                 cisloHracaLabel.Text = prezentovanyHrac.CisloDresu.ToString();
-                
+
                 string identifikacia = prezentovanyHrac.Meno + " " + prezentovanyHrac.Priezvisko.ToUpper();
 
                 menoHracaLabel.Text = identifikacia;
@@ -85,7 +78,7 @@ namespace LGR_Futbal.Forms
         private void ZltaKartaForm_Load(object sender, EventArgs e)
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
-            this.SpustiCas();
+            SpustiCas();
         }
 
         private void Casovac_Tick(object sender, EventArgs e)
@@ -120,7 +113,5 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-
-        #endregion
     }
 }

@@ -1,10 +1,8 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
-using LGR_Futbal.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Databaza;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
@@ -32,6 +30,7 @@ namespace LGR_Futbal.Forms
         private async void TimyForm_Load(object sender, EventArgs e)
         {
             timy = await dbTimy.GetTimyAsync();
+            timy.Sort((x, y) => x.NazovTimu.CompareTo(y.NazovTimu));
 
             if (timy.Count == 0)
                 AktivovatBtn.Enabled = false;
@@ -42,7 +41,6 @@ namespace LGR_Futbal.Forms
                     domaciLB.Items.Add(t.NazovTimu);
                     hostiaLB.Items.Add(t.NazovTimu);
                 }
-
                 domaciLB.SelectedIndex = 0;
                 hostiaLB.SelectedIndex = 0;
             }           

@@ -1,10 +1,9 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public delegate void HracCervenaKartaSelectedHandler(Hrac hrac);
     public partial class CervenaKartaSettingsForm : Form
@@ -12,14 +11,13 @@ namespace LGR_Futbal.Forms.UdalostiForms
         public event HracCervenaKartaSelectedHandler OnHracCervenaKartaSelected;
         public event UdalostPridanaHandler OnUdalostPridana;
 
-        private bool domaci = false;        
+        private bool domaci = false;
         private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
         private Karta karta = null;
 
-        #region Konstruktor a metody
         public CervenaKartaSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Karta karta)
         {
             InitializeComponent();
@@ -55,18 +53,18 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                 karta.TypKarty = 'C';
                 if (futbalovyTim == null || HraciLB.SelectedIndex == -1)
-                {                    
+                {
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracCervenaKartaSelected(null);
-                }                   
+                }
                 else
                 {
-                    karta.Hrac = zoznamHracov[HraciLB.SelectedIndex];   
+                    karta.Hrac = zoznamHracov[HraciLB.SelectedIndex];
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracCervenaKartaSelected(zoznamHracov[HraciLB.SelectedIndex]);
-                }         
+                }
             }
             Close();
         }
@@ -97,8 +95,5 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("ČERVENÁ KARTA PRIDANÁ DO UDALOSTÍ");
         }
-        #endregion
-
-        
     }
 }

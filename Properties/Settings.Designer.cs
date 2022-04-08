@@ -22,5 +22,17 @@ namespace LGR_Futbal.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LGR_Futbal")]
+        public string NazovProgramu {
+            get {
+                return ((string)(this["NazovProgramu"]));
+            }
+            set {
+                this["NazovProgramu"] = value;
+            }
+        }
     }
 }

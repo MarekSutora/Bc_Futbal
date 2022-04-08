@@ -4,20 +4,20 @@ using System.Drawing;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
 
     public partial class OutSettingsForm : Form
     {
         public event UdalostPridanaHandler OnUdalostPridana;
 
-        private bool domaci = false;       
+        private bool domaci = false;
         private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
         private FutbalovyTim futbalovyTim = null;
         private Zapas zapas = null;
         private Out _out = null;
-        
+
         public OutSettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Out _out)
         {
             InitializeComponent();
@@ -87,6 +87,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 OnUdalostPridana("OUT PRIDANÝ DO UDALOSTÍ");
         }
 
-        
+
     }
 }

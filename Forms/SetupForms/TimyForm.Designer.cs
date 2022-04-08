@@ -40,10 +40,10 @@
             // 
             this.hostiaLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hostiaLabel.ForeColor = System.Drawing.Color.Black;
-            this.hostiaLabel.Location = new System.Drawing.Point(298, 22);
+            this.hostiaLabel.Location = new System.Drawing.Point(261, 6);
             this.hostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hostiaLabel.Name = "hostiaLabel";
-            this.hostiaLabel.Size = new System.Drawing.Size(286, 37);
+            this.hostiaLabel.Size = new System.Drawing.Size(240, 37);
             this.hostiaLabel.TabIndex = 544;
             this.hostiaLabel.Text = "HOSTIA";
             this.hostiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,10 +53,10 @@
             // 
             this.domaciLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domaciLabel.ForeColor = System.Drawing.Color.Black;
-            this.domaciLabel.Location = new System.Drawing.Point(14, 22);
+            this.domaciLabel.Location = new System.Drawing.Point(5, 6);
             this.domaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.domaciLabel.Name = "domaciLabel";
-            this.domaciLabel.Size = new System.Drawing.Size(280, 37);
+            this.domaciLabel.Size = new System.Drawing.Size(243, 37);
             this.domaciLabel.TabIndex = 543;
             this.domaciLabel.Text = "DOMÁCI";
             this.domaciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +67,7 @@
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AktivovatBtn.Location = new System.Drawing.Point(588, 61);
+            this.AktivovatBtn.Location = new System.Drawing.Point(505, 45);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AktivovatBtn.Name = "AktivovatBtn";
             this.AktivovatBtn.Size = new System.Drawing.Size(109, 60);
@@ -83,10 +83,10 @@
             this.domaciLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domaciLB.FormattingEnabled = true;
             this.domaciLB.ItemHeight = 26;
-            this.domaciLB.Location = new System.Drawing.Point(14, 61);
+            this.domaciLB.Location = new System.Drawing.Point(8, 45);
             this.domaciLB.Margin = new System.Windows.Forms.Padding(2);
             this.domaciLB.Name = "domaciLB";
-            this.domaciLB.Size = new System.Drawing.Size(280, 342);
+            this.domaciLB.Size = new System.Drawing.Size(240, 264);
             this.domaciLB.TabIndex = 547;
             // 
             // hostiaLB
@@ -94,17 +94,17 @@
             this.hostiaLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hostiaLB.FormattingEnabled = true;
             this.hostiaLB.ItemHeight = 26;
-            this.hostiaLB.Location = new System.Drawing.Point(304, 61);
+            this.hostiaLB.Location = new System.Drawing.Point(261, 45);
             this.hostiaLB.Margin = new System.Windows.Forms.Padding(2);
             this.hostiaLB.Name = "hostiaLB";
-            this.hostiaLB.Size = new System.Drawing.Size(280, 342);
+            this.hostiaLB.Size = new System.Drawing.Size(240, 264);
             this.hostiaLB.TabIndex = 548;
             // 
             // TimyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 417);
+            this.ClientSize = new System.Drawing.Size(622, 317);
             this.Controls.Add(this.hostiaLB);
             this.Controls.Add(this.domaciLB);
             this.Controls.Add(this.AktivovatBtn);

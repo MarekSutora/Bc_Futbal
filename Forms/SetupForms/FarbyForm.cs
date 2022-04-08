@@ -79,7 +79,7 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -110,7 +110,7 @@ namespace LGR_Futbal.Forms
                 catch (Exception ex)
                 {
                     uspech = false;
-                    MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -133,7 +133,7 @@ namespace LGR_Futbal.Forms
 
         private void ObnovitBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia farieb?", "FutbalApp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete obnoviť výrobné nastavenia farieb?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 OnObnovaFarieb?.Invoke();
             }

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Data;
-using System.IO;
-using System.Drawing;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
-using LGR_Futbal.Model;
 using System.Threading.Tasks;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Databaza
 {
@@ -50,7 +48,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return rozhodcovia;
         }
@@ -59,7 +57,9 @@ namespace LGR_Futbal.Databaza
         {
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 string cmdQuery1 = "INSERT INTO osoba(meno, priezvisko, pohlavie) VALUES(:meno, :priezvisko, :pohlavie)";
                 OracleCommand cmd = new OracleCommand(cmdQuery1);
                 OracleParameter[] param = new OracleParameter[3];
@@ -98,16 +98,18 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
         public void UpdateRozhodca(Rozhodca r)
         {
-            string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, datum_narodenia = :datum_narodenia, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
+            string cmdQuery1 = "UPDATE osoba SET meno = :meno, priezvisko = :priezvisko, pohlavie = :pohlavie WHERE id_osoba = :id_osoba";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery1);
                 OracleParameter[] param = new OracleParameter[4];
 
@@ -115,18 +117,19 @@ namespace LGR_Futbal.Databaza
                 param[0].Value = r.Meno;
                 param[1] = cmd.Parameters.Add("priezvisko", OracleDbType.Varchar2);
                 param[1].Value = r.Priezvisko;
-                param[2] = cmd.Parameters.Add("id_osoba", OracleDbType.Int32);
-                param[2].Value = r.IdOsoba;
-                param[3] = cmd.Parameters.Add("pohlavie", OracleDbType.Char);
+                param[2] = cmd.Parameters.Add("pohlavie", OracleDbType.Char);
                 if (r.Pohlavie != 'X')
                 {
 
-                    param[3].Value = r.Pohlavie;
+                    param[2].Value = r.Pohlavie;
                 }
                 else
                 {
-                    param[3].Value = null;
+                    param[2].Value = null;
                 }
+                param[3] = cmd.Parameters.Add("id_osoba", OracleDbType.Int32);
+                param[3].Value = r.IdOsoba;
+
 
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
@@ -136,7 +139,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -145,7 +148,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "UPDATE rozhodca SET datum_ukoncenia = SYSDATE WHERE id_rozhodca = :id_rozhodca";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter param = new OracleParameter("id_rozhodca", OracleDbType.Int32);
                 param.Value = rozhodca.IdRozhodca;
@@ -158,7 +163,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
         public Rozhodca GetRozhodca(int idRozhodca)
@@ -167,7 +172,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "SELECT * FROM rozhodca WHERE id_rozhodca = :id_rozhodca";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter param = new OracleParameter("id_hrac", OracleDbType.Varchar2);
                 param.Value = idRozhodca;
@@ -188,7 +195,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return Rozhodca;
         }

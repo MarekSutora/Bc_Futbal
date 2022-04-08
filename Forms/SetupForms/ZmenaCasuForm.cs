@@ -1,5 +1,4 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace LGR_Futbal.Forms

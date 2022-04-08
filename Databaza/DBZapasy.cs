@@ -2,8 +2,8 @@
 using System.Data;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
-using LGR_Futbal.Model;
 using System.Threading.Tasks;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Databaza
 {
@@ -176,7 +176,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
         private void InsertStriedanie(Udalost udalost)
@@ -216,7 +216,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavani striedania!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -247,7 +247,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavani outu!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -278,7 +278,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavania offsidu!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -311,7 +311,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavani karty!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -344,7 +344,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavani kopu!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -386,7 +386,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri pridavani golu!");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -439,7 +439,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return zapasy;
         }
@@ -510,7 +510,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return zapas;
 
@@ -570,7 +570,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
 
             udalosti.Add(striedanie);
@@ -597,7 +597,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
 
             udalosti.Add(_out);
@@ -624,7 +624,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
 
             udalosti.Add(offside);
@@ -659,7 +659,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
 
             udalosti.Add(kop);
@@ -694,7 +694,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             udalosti.Add(karta);
         }
@@ -731,7 +731,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             udalosti.Add(gol);
         }
@@ -762,7 +762,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
     }

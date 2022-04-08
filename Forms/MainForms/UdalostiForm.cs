@@ -18,7 +18,7 @@ namespace LGR_Futbal.Forms
         public UdalostiForm(Zapas zapas, bool zDatabazi, DBZapasy dBZapasy)
         {
             InitializeComponent();
-            this.zapas = zapas;         
+            this.zapas = zapas;
             polcas1CB.Checked = true;
             polcas2CB.Checked = true;
             timCB.Checked = true;
@@ -70,7 +70,7 @@ namespace LGR_Futbal.Forms
         }
         private void GenerovatCsvBtn_Click(object sender, EventArgs e)
         {
-            
+
             bool uspech = false;
             try
             {
@@ -101,7 +101,7 @@ namespace LGR_Futbal.Forms
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
-                        } 
+                        }
                         else if (zapas.Domaci.ZoznamHracov[i].TypHraca == 'N')
                         {
                             meno_priezvisko = zapas.Domaci.ZoznamHracov[i].CisloDresu + ". " + zapas.Domaci.ZoznamHracov[i].Meno + " " + zapas.Domaci.ZoznamHracov[i].Priezvisko;
@@ -109,7 +109,7 @@ namespace LGR_Futbal.Forms
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         }
-                        
+
                     }
                     line = string.Format("{0}", "Hráči Tím 2:");
                     sw.WriteLine(line);
@@ -136,8 +136,8 @@ namespace LGR_Futbal.Forms
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Rozhodcovia.Count; i++)
                     {
-                        line = string.Format("{0}", zapas.Rozhodcovia[i].Meno +  zapas.Rozhodcovia[i].Priezvisko);
-                        
+                        line = string.Format("{0}", zapas.Rozhodcovia[i].Meno + zapas.Rozhodcovia[i].Priezvisko);
+
                         sw.WriteLine(line);
                     }
 
@@ -182,7 +182,7 @@ namespace LGR_Futbal.Forms
                 if (uspech)
                     MessageBox.Show("Súbor úspešne vygenerovaný", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
         private void UdalostiForm_Shown(object sender, EventArgs e)
         {
@@ -191,7 +191,7 @@ namespace LGR_Futbal.Forms
 
         private void AktivovatFilterBtn_Click(object sender, EventArgs e)
         {
-            Filtruj();       
+            Filtruj();
         }
 
         private void Filtruj()

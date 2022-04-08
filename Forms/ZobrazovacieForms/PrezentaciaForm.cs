@@ -1,17 +1,15 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
     public partial class PrezentaciaForm : Form
     {
-        #region Atributy
-
         private const string fotkyAdresar = "\\Files\\Fotky\\";
 
         private string adresar;
@@ -21,9 +19,6 @@ namespace LGR_Futbal.Forms
         private List<Hrac> nahradnici = null;
         private List<Hrac> aktualnyZoznam = null;
 
-        #endregion Atributy
-
-        #region Konstruktor a metody
         public PrezentaciaForm(int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
@@ -49,7 +44,7 @@ namespace LGR_Futbal.Forms
             aktualnyZoznam = zakladnaJedenastka;
             pocetPrezentovanychHracov = 0;
 
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = sirka / (float)Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -106,20 +101,17 @@ namespace LGR_Futbal.Forms
                 if (pocetPrezentovanychHracov < aktualnyZoznam.Count)
                 {
                     Hrac h = aktualnyZoznam[pocetPrezentovanychHracov];
-                    try
-                    {
-                        fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + h.Fotka);
-                    }
-                    catch
-                    {
+
+                    if (h.FotkaImage != null)
+                        fotkaPictureBox.Image = h.FotkaImage;
+                    else
                         fotkaPictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
-                    }
 
                     cisloHracaLabel.Text = h.CisloDresu.ToString();
-                    
-                    String identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
+
+                    string identifikacia = h.Meno + " " + h.Priezvisko.ToUpper();
                     menoHracaLabel.Text = identifikacia;
-                    
+
                     if (h.Poznamka.Equals(string.Empty))
                         infoRichTextBox.Visible = false;
                     else
@@ -147,6 +139,11 @@ namespace LGR_Futbal.Forms
                             prezentacnyPanel.Visible = false;
                             nahradniciPanel.Visible = true;
                         }
+                        else
+                        {
+                            ZastavCas();
+                            Close();
+                        }
                     }
                     else
                     {
@@ -166,6 +163,5 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-        #endregion
     }
 }

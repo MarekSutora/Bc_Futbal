@@ -45,17 +45,17 @@
             this.zakladCheckListBox.CheckOnClick = true;
             this.zakladCheckListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zakladCheckListBox.FormattingEnabled = true;
-            this.zakladCheckListBox.Location = new System.Drawing.Point(8, 42);
+            this.zakladCheckListBox.Location = new System.Drawing.Point(9, 29);
             this.zakladCheckListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.zakladCheckListBox.Name = "zakladCheckListBox";
-            this.zakladCheckListBox.Size = new System.Drawing.Size(279, 361);
+            this.zakladCheckListBox.Size = new System.Drawing.Size(279, 277);
             this.zakladCheckListBox.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(4, 16);
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 24);
@@ -67,17 +67,17 @@
             this.nahradniciCheckListBox.CheckOnClick = true;
             this.nahradniciCheckListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nahradniciCheckListBox.FormattingEnabled = true;
-            this.nahradniciCheckListBox.Location = new System.Drawing.Point(401, 42);
+            this.nahradniciCheckListBox.Location = new System.Drawing.Point(402, 28);
             this.nahradniciCheckListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.nahradniciCheckListBox.Name = "nahradniciCheckListBox";
-            this.nahradniciCheckListBox.Size = new System.Drawing.Size(279, 361);
+            this.nahradniciCheckListBox.Size = new System.Drawing.Size(279, 277);
             this.nahradniciCheckListBox.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(397, 15);
+            this.label2.Location = new System.Drawing.Point(398, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 24);
@@ -89,7 +89,7 @@
             this.OznacitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OznacitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
             this.OznacitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OznacitNahradniciBtn.Location = new System.Drawing.Point(684, 295);
+            this.OznacitNahradniciBtn.Location = new System.Drawing.Point(685, 196);
             this.OznacitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.OznacitNahradniciBtn.Name = "OznacitNahradniciBtn";
             this.OznacitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
@@ -104,7 +104,7 @@
             this.ZrusitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZrusitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.ZrusitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(684, 351);
+            this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(685, 253);
             this.ZrusitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ZrusitNahradniciBtn.Name = "ZrusitNahradniciBtn";
             this.ZrusitNahradniciBtn.Size = new System.Drawing.Size(107, 52);
@@ -119,7 +119,7 @@
             this.ZrusitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZrusitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
             this.ZrusitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZrusitZakladBtn.Location = new System.Drawing.Point(291, 351);
+            this.ZrusitZakladBtn.Location = new System.Drawing.Point(292, 253);
             this.ZrusitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ZrusitZakladBtn.Name = "ZrusitZakladBtn";
             this.ZrusitZakladBtn.Size = new System.Drawing.Size(107, 52);
@@ -134,7 +134,7 @@
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AktivovatBtn.Location = new System.Drawing.Point(684, 42);
+            this.AktivovatBtn.Location = new System.Drawing.Point(685, 28);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.AktivovatBtn.Name = "AktivovatBtn";
             this.AktivovatBtn.Size = new System.Drawing.Size(107, 52);
@@ -150,7 +150,7 @@
             this.OznacitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OznacitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
             this.OznacitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 295);
+            this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 196);
             this.OznacitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.OznacitZakladBtn.Name = "OznacitZakladBtn";
             this.OznacitZakladBtn.Size = new System.Drawing.Size(107, 52);
@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 411);
+            this.ClientSize = new System.Drawing.Size(799, 317);
             this.Controls.Add(this.OznacitNahradniciBtn);
             this.Controls.Add(this.ZrusitNahradniciBtn);
             this.Controls.Add(this.label2);

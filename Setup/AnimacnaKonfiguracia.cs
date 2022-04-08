@@ -20,6 +20,6 @@ namespace LGR_Futbal.Setup
             AnimacieHostia = new List<string>();
             ZltaKartaAnimacia = "";
             CervenaKartaAnimacia = "";
-        }    
+        }
     }
 }

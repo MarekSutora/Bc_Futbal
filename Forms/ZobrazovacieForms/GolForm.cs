@@ -1,15 +1,14 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
     public partial class GolForm : Form
     {
-        #region ATRIBUTY
         private const string fotkyAdresar = "\\Files\\Fotky\\";
         private const string gifyAdresar = "\\Files\\Gify\\";
 
@@ -22,10 +21,6 @@ namespace LGR_Futbal.Forms
         private List<string> subory;
         private int faza;
         private int pocetZobrazenychAnimacii;
-
-        #endregion
-
-        #region KONSTRUKTOR A METODY
 
         public GolForm(string adresar, int sirka, int cas, Hrac h, FontyTabule fonty, FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
         {
@@ -50,7 +45,7 @@ namespace LGR_Futbal.Forms
             casovyLimit = cas;
 
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = (float)sirka / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -126,7 +121,7 @@ namespace LGR_Futbal.Forms
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
-            this.SpustiCas();
+            SpustiCas();
         }
 
         private void Casovac_Tick(object sender, EventArgs e)
@@ -155,7 +150,7 @@ namespace LGR_Futbal.Forms
                         else
                         {
                             ZastavCas();
-                            this.Close();
+                            Close();
                         }
                     }
                     else
@@ -174,7 +169,7 @@ namespace LGR_Futbal.Forms
                             else
                             {
                                 ZastavCas();
-                                this.Close();
+                                Close();
                             }
                         }
                         else
@@ -191,7 +186,7 @@ namespace LGR_Futbal.Forms
                     if (pocetZobrazenychAnimacii == subory.Count)
                     {
                         ZastavCas();
-                        this.Close();
+                        Close();
                     }
                     else
                     {
@@ -219,7 +214,5 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-
-        #endregion
     }
 }

@@ -1,7 +1,4 @@
-﻿using LGR_Futbal.Forms;
-using LGR_Futbal.Model;
-using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Collections.Generic;
@@ -10,7 +7,9 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using LGR_Futbal.Databaza;
-using LGR_Futbal.Forms.UdalostiForms;
+using LGR_Futbal.Forms;
+using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal
 {
@@ -21,7 +20,6 @@ namespace LGR_Futbal
     {
         #region ATRIBUTY
 
-        private const string nazovProgramuString = "LGR Futbal";
         private string konfiguracnySubor = "\\Files\\Config.bin";
         private string animacieSubor = "\\Files\\Gify\\Settings.xml";
         private string rozlozenieSubor = "\\Files\\LastUsed\\PoslednePouziteRozlozenie.xml";
@@ -44,7 +42,6 @@ namespace LGR_Futbal
 
         private bool hraBezi = false;
         private bool poPreruseni = false;
-        private bool odstranovatDiakritiku = true;
         private bool nadstavenyCas = false;
         private bool zobrazitPozadie = false;
         private bool zobrazitNastaveniaPoSpusteni = true;
@@ -148,7 +145,7 @@ namespace LGR_Futbal
         {
             Screen primarnyDisplej = Screen.AllScreens.ElementAtOrDefault(0);
             int sirkaObr = primarnyDisplej.Bounds.Width;
-            pomer = (float)sirkaObr / this.Width;
+            pomer = (float)sirkaObr / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -179,7 +176,6 @@ namespace LGR_Futbal
             sirkaTabule = 1280;
             vyskaTabule = 720;
             dlzkaPolcasu = 45;
-            odstranovatDiakritiku = true;
             animacnyCas = 3;
             zobrazitNahradnikov = true;
         }
@@ -230,7 +226,7 @@ namespace LGR_Futbal
                     tabulaForm.SetPolcas(polcas, pocetNadstavenychMinut, nadstavenyCas);
                 }
                 else
-                    MessageBox.Show("Počas nadstaveného času ho možno len predĺžiť!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Počas nadstaveného času ho možno len predĺžiť!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -410,7 +406,7 @@ namespace LGR_Futbal
             }
             catch
             {
-                MessageBox.Show("Nastala chyba pri spracovávani času!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nastala chyba pri spracovávani času!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -459,7 +455,7 @@ namespace LGR_Futbal
         {
             if (nadstavenyCas)
             {
-                MessageBox.Show("Nemožno meniť čas počas nadstaveného času", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nemožno meniť čas počas nadstaveného času", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -473,7 +469,7 @@ namespace LGR_Futbal
         private void Zcf_OnZmenaCasu(int novaMin, int novaSek)
         {
             if (polcas == 0)
-                MessageBox.Show("Zmena času sa môže prejaviť len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Zmena času sa môže prejaviť len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (pocetNadstavenychMinut == 0 && novaMin >= (polcas * dlzkaPolcasu) && novaSek > 0)
@@ -500,24 +496,15 @@ namespace LGR_Futbal
                 if ((minutaPolcasu == dlzkaPolcasu) && (aktualnaSekunda == 0) && !nadstavenyCas)
                 {
                     KoniecPolcasu(1, dlzkaPolcasu);
-                    //tabulaForm.SetCas(casLabel.Text);
-                    //ZastavCas();
-                    //minutaPolcasu = 0;
-                    //tabulaForm.SetPolcas(1, 0, false);
-                    //polcas = 2;
-                    //PolcasBtn.Text = "2. polčas\nSTART";
                 }
                 else if ((minutaPolcasu == 2 * dlzkaPolcasu) && (aktualnaSekunda == 0) && !nadstavenyCas)
                 {
                     KoniecPolcasu(2, 2 * dlzkaPolcasu);
-                    //ZastavCas();
-                    //Reset();
                 }
                 else
                 {
                     tabulaForm.SetCas(casLabel.Text);
                     tabulaForm.SetPolcas(polcas, pocetNadstavenychMinut, nadstavenyCas);
-                    //PolcasBtn.Text = PolcasBtn.Text.Replace("1", polcas.ToString());
                     PolcasBtn.Text = polcas + ". polčas\nSTART";
 
                     if (hraBezi)
@@ -551,7 +538,6 @@ namespace LGR_Futbal
                 vyskaTabule = br.ReadInt32();
                 dlzkaPolcasu = br.ReadInt32();
                 povolitPrerusenieHry = br.ReadBoolean();
-                odstranovatDiakritiku = br.ReadBoolean();
                 animacnyCas = br.ReadInt32();
                 fontyTabule.NazvyFont = br.ReadString();
                 fontyTabule.PolcasFont = br.ReadString();
@@ -567,7 +553,7 @@ namespace LGR_Futbal
             catch (Exception ex)
             {
                 SetDefaults();
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -592,7 +578,7 @@ namespace LGR_Futbal
             catch (Exception ex)
             {
                 animKonfig = new AnimacnaKonfiguracia();
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -703,7 +689,6 @@ namespace LGR_Futbal
                 bw.Write(vyskaTabule);
                 bw.Write(dlzkaPolcasu);
                 bw.Write(povolitPrerusenieHry);
-                bw.Write(odstranovatDiakritiku);
                 bw.Write(animacnyCas);
                 bw.Write(fontyTabule.NazvyFont);
                 bw.Write(fontyTabule.PolcasFont);
@@ -718,7 +703,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -744,7 +729,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -765,7 +750,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -785,7 +770,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -803,7 +788,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -819,7 +804,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -856,7 +841,7 @@ namespace LGR_Futbal
         private void SetupBtn_Click(object sender, EventArgs e)
         {
             SetupForm sf = new SetupForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni, sirkaTabule, vyskaTabule, dlzkaPolcasu,
-                povolitPrerusenieHry, odstranovatDiakritiku, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia, tabulaForm,
+                povolitPrerusenieHry, domaciLabel.Text, hostiaLabel.Text, timDomaci, timHostia, tabulaForm,
                 animacnyCas, farbyTabule, animKonfig, rozhodcovia, dbtimy, dbhraci, dbrozhodcovia, dbzapasy, fontyTabule);
             sf.OnAnimacieKarietPotvrdene += (zlta, cervena) =>
             {
@@ -929,7 +914,7 @@ namespace LGR_Futbal
             }
             else
                 if ((timDomaci != domTim) || (timHostia != hosTim))
-                MessageBox.Show("Tímy nie je možné meniť po začiatku zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tímy nie je možné meniť po začiatku zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Sf_OnNazvyLogaPotvrdene(string domNazov, Image domLogo, string hosNazov, Image hosLogo)
@@ -974,16 +959,16 @@ namespace LGR_Futbal
             nazovHostia = hostiaLabel.Text;
         }
 
-        private void Sf_OnDataPotvrdene(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, bool diakritika, int animacia)
+        private void Sf_OnDataPotvrdene(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, int animacia)
         {
             if (cas == 0)
-                MessageBox.Show("Dĺžka polčasu nemôže byť nulová!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dĺžka polčasu nemôže byť nulová!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 if (dlzkaPolcasu != cas)
                 {
                     if (polcas == 2)
-                        MessageBox.Show("Dĺžku druhého polčasu nie je možné skracovať, musí byť rovnaká ako v prvom polčase!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Dĺžku druhého polčasu nie je možné skracovať, musí byť rovnaká ako v prvom polčase!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         if (dlzkaPolcasu < cas)
@@ -994,7 +979,7 @@ namespace LGR_Futbal
                         else
                         {
                             if (minutaPolcasu >= cas)
-                                MessageBox.Show("Dĺžku polčasu nie je možné skrátiť, aktuálny čas je za hranicou, ktorú chcete nastaviť!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Dĺžku polčasu nie je možné skrátiť, aktuálny čas je za hranicou, ktorú chcete nastaviť!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             else
                             {
                                 dlzkaPolcasu = cas;
@@ -1013,12 +998,10 @@ namespace LGR_Futbal
                 else
                     prerusenieLabel.Text = "nie";
             }
-
-            odstranovatDiakritiku = diakritika;
             animacnyCas = animacia;
 
             if ((sirka != sirkaTabule) || (vyska != vyskaTabule))
-                MessageBox.Show("Zmena veľkosti zobrazovacej plochy sa prejaví až po reštarte aplikácie!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Zmena veľkosti zobrazovacej plochy sa prejaví až po reštarte aplikácie!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             zobrazitPozadie = zobrazovatPozadie;
             if (zobrazitPozadie)
@@ -1061,7 +1044,7 @@ namespace LGR_Futbal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1085,7 +1068,7 @@ namespace LGR_Futbal
 
         private void UkoncitBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete ukončiť beh aplikácie?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete ukončiť beh aplikácie?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Close();
         }
 
@@ -1110,7 +1093,7 @@ namespace LGR_Futbal
         {
             if ((polcas == 0))
             {
-                MessageBox.Show("Žltú kartu možno udeliť len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Žltú kartu možno udeliť len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1131,7 +1114,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Žltú kartu možno udeliť len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Žltú kartu možno udeliť len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Karta karta = new Karta();
@@ -1221,7 +1204,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Červenú kartu možno udeliť len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Červenú kartu možno udeliť len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Karta karta = new Karta();
@@ -1240,7 +1223,7 @@ namespace LGR_Futbal
         {
             if ((polcas == 0))
             {
-                MessageBox.Show("Červenú kartu možno udeliť len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Červenú kartu možno udeliť len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Karta karta = new Karta();
@@ -1268,7 +1251,7 @@ namespace LGR_Futbal
         {
             if ((polcas == 0))
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Gol gol = new Gol();
@@ -1289,7 +1272,7 @@ namespace LGR_Futbal
         {
             if ((polcas == 0))
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Gol gol = new Gol();
@@ -1323,7 +1306,7 @@ namespace LGR_Futbal
                 else
                 {
                     if (polcas == 0)
-                        MessageBox.Show("Góly možno pridávať len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Góly možno pridávať len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         SetSkoreDomaci(novyStav);
@@ -1342,7 +1325,7 @@ namespace LGR_Futbal
                 else
                 {
                     if (polcas == 0)
-                        MessageBox.Show("Góly možno pridávať len počas zápasu!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Góly možno pridávať len počas zápasu!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         SetSkoreHostia(novyStav);
@@ -1376,7 +1359,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Kop kop = new Kop();
@@ -1395,7 +1378,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Kop kop = new Kop();
@@ -1414,7 +1397,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Offside offside = new Offside();
@@ -1433,7 +1416,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Offside offside = new Offside();
@@ -1452,7 +1435,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Out _out = new Out();
@@ -1471,7 +1454,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Možné pridať len počas hry", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Možné pridať len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Out _out = new Out();
@@ -1490,7 +1473,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Striedanie je možné len počas hry!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Striedanie je možné len počas hry!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Striedanie striedanie = new Striedanie();
@@ -1510,7 +1493,7 @@ namespace LGR_Futbal
         {
             if (polcas == 0)
             {
-                MessageBox.Show("Striedanie je možné len počas hry!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Striedanie je možné len počas hry!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Striedanie striedanie = new Striedanie();
@@ -1554,11 +1537,13 @@ namespace LGR_Futbal
 
         private void UdalostiBtn_Click(object sender, EventArgs e)
         {
-            if (zapas != null)
+            if (polcas == 0)
             {
-                UdalostiForm uf = new UdalostiForm(zapas, false, dbzapasy);
-                uf.Show();
+                MessageBox.Show("Možné pozrieť len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            UdalostiForm uf = new UdalostiForm(zapas, false, dbzapasy);
+            uf.Show();
         }
 
         #endregion UDALOSTI
@@ -1615,7 +1600,7 @@ namespace LGR_Futbal
             }
             catch
             {
-                MessageBox.Show("Nepodarilo sa vypnúť video!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nepodarilo sa vypnúť video!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion REKLAMA

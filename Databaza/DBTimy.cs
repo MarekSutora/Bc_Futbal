@@ -3,9 +3,8 @@ using System.Data;
 using System.IO;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
-using LGR_Futbal.Model;
 using System.Threading.Tasks;
-
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Databaza
 {
@@ -56,7 +55,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return timy;
         }
@@ -90,7 +89,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return kategorie;
         }
@@ -115,7 +114,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
             return returnVal;
         }
@@ -157,7 +156,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -207,7 +206,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
 
@@ -230,7 +229,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
         }
         public string GetNazovTimu(int id)
@@ -255,7 +254,7 @@ namespace LGR_Futbal.Databaza
             }
             catch
             {
-                throw new Exception("Chyba pri praci s Databazou");
+                throw new Exception("Chyba pri práci s Databázou");
             }
 
             return nazov;

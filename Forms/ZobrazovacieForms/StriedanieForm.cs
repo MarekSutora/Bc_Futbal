@@ -1,29 +1,19 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
     public partial class StriedanieForm : Form
     {
-        #region Konstanty
-
         private const string fotkyAdresar = "Pripojenie\\Fotky\\";
-
-        #endregion
-
-        #region Atributy
 
         private Hrac striedanyHrac = null;
         private Hrac striedajuciHrac = null;
         private bool prezentaciaSkoncila;
-
-        #endregion
-
-        #region Konstruktor a metody
 
         public StriedanieForm(int sirka, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
         {
@@ -38,8 +28,7 @@ namespace LGR_Futbal.Forms
 
             nazovLabel.Text = nazovMuzstva;
 
-            // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / this.Width;
+            float pomer = (float)sirka / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -98,7 +87,7 @@ namespace LGR_Futbal.Forms
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
-            this.SpustiCas();
+            SpustiCas();
         }
 
         private void Casovac_Tick(object sender, EventArgs e)
@@ -106,14 +95,14 @@ namespace LGR_Futbal.Forms
             if ((striedanyHrac == null) || (striedajuciHrac == null))
             {
                 ZastavCas();
-                this.Close();
+                Close();
             }
             else
             {
                 if (prezentaciaSkoncila)
                 {
                     ZastavCas();
-                    this.Close();
+                    Close();
                 }
                 else
                 {
@@ -133,7 +122,5 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-
-        #endregion
     }
 }

@@ -1,10 +1,9 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public delegate void StriedanieHraciSelectedHandler(string nazovTimu, Hrac odchadzajuci, Hrac nastupujuci, bool jeDomaciTim);
 
@@ -36,7 +35,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
 
             if (futbalovyTim != null)
             {
-                foreach(Hrac h in futbalovyTim.ZoznamHracov)
+                foreach (Hrac h in futbalovyTim.ZoznamHracov)
                 {
                     if (!h.CervenaKarta)
                     {
@@ -72,7 +71,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
                     OnStriedanieHraciSelected(nazovTimu, null, null, domaci);
-                }            
+                }
                 else
                 {
                     Hrac h1 = null;
@@ -87,14 +86,14 @@ namespace LGR_Futbal.Forms.UdalostiForms
                         h2 = nastMoznosti[HraciLBnast.SelectedIndex];
                         striedanie.Striedajuci = h2;
                     }
-                        
+
                     striedanie.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                     zapas.Udalosti.Add(striedanie);
                     uspech = true;
 
                     OnStriedanieHraciSelected(nazovTimu, h1, h2, domaci);
                 }
-                
+
             }
             Close();
         }
@@ -116,7 +115,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
         }
 
-        
+
 
         #endregion
     }

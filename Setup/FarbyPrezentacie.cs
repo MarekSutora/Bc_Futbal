@@ -73,7 +73,7 @@ namespace LGR_Futbal.Setup
         {
             return Color.FromArgb(NadpisFarba_r, NadpisFarba_g, NadpisFarba_b);
         }
-        
+
         public Color GetUdajeFarba()
         {
             return Color.FromArgb(UdajeFarba_r, UdajeFarba_g, UdajeFarba_b);

@@ -79,7 +79,6 @@
             this.ZrusitLogoDomBtn = new System.Windows.Forms.Button();
             this.ZmenitLogoHosBtn = new System.Windows.Forms.Button();
             this.ZmenitLogoDomBtn = new System.Windows.Forms.Button();
-            this.diakritikaCheckBox = new System.Windows.Forms.CheckBox();
             this.hosNazov = new System.Windows.Forms.TextBox();
             this.domNazov = new System.Windows.Forms.TextBox();
             this.hostiaLabel = new System.Windows.Forms.Label();
@@ -161,7 +160,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage1.Size = new System.Drawing.Size(527, 387);
+            this.tabPage1.Size = new System.Drawing.Size(527, 396);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Výsledková tabuľa";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -170,13 +169,12 @@
             // 
             this.ZmenitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
             this.ZmenitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZmenitRozlozenieBtn.Location = new System.Drawing.Point(11, 183);
+            this.ZmenitRozlozenieBtn.Location = new System.Drawing.Point(11, 196);
             this.ZmenitRozlozenieBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitRozlozenieBtn.Name = "ZmenitRozlozenieBtn";
-            this.ZmenitRozlozenieBtn.Size = new System.Drawing.Size(160, 50);
+            this.ZmenitRozlozenieBtn.Size = new System.Drawing.Size(166, 50);
             this.ZmenitRozlozenieBtn.TabIndex = 25;
-            this.ZmenitRozlozenieBtn.Text = "Zmeniť rozloženie   ";
-            this.ZmenitRozlozenieBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.ZmenitRozlozenieBtn.Text = "  Zmeniť rozloženie   ";
             this.ZmenitRozlozenieBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ZmenitRozlozenieBtn.UseVisualStyleBackColor = true;
             this.ZmenitRozlozenieBtn.Click += new System.EventHandler(this.ZmenitRozlozenieBtn_Click);
@@ -186,10 +184,10 @@
             this.ZmenitFontyBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.ZmenitFontyBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
             this.ZmenitFontyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZmenitFontyBtn.Location = new System.Drawing.Point(356, 184);
+            this.ZmenitFontyBtn.Location = new System.Drawing.Point(181, 196);
             this.ZmenitFontyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitFontyBtn.Name = "ZmenitFontyBtn";
-            this.ZmenitFontyBtn.Size = new System.Drawing.Size(169, 50);
+            this.ZmenitFontyBtn.Size = new System.Drawing.Size(166, 50);
             this.ZmenitFontyBtn.TabIndex = 24;
             this.ZmenitFontyBtn.Text = "      Zmeniť fonty";
             this.ZmenitFontyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -200,10 +198,10 @@
             // 
             this.ZmenitFarbyBtn.Image = global::LGR_Futbal.Properties.Resources.Themes_2;
             this.ZmenitFarbyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ZmenitFarbyBtn.Location = new System.Drawing.Point(175, 184);
+            this.ZmenitFarbyBtn.Location = new System.Drawing.Point(351, 196);
             this.ZmenitFarbyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitFarbyBtn.Name = "ZmenitFarbyBtn";
-            this.ZmenitFarbyBtn.Size = new System.Drawing.Size(177, 50);
+            this.ZmenitFarbyBtn.Size = new System.Drawing.Size(166, 50);
             this.ZmenitFarbyBtn.TabIndex = 23;
             this.ZmenitFarbyBtn.Text = "Zmeniť  farebné nastavenia";
             this.ZmenitFarbyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -214,10 +212,10 @@
             // 
             this.RozsvietitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.RozsvietitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RozsvietitBtn.Location = new System.Drawing.Point(345, 320);
+            this.RozsvietitBtn.Location = new System.Drawing.Point(351, 320);
             this.RozsvietitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.RozsvietitBtn.Name = "RozsvietitBtn";
-            this.RozsvietitBtn.Size = new System.Drawing.Size(181, 65);
+            this.RozsvietitBtn.Size = new System.Drawing.Size(166, 65);
             this.RozsvietitBtn.TabIndex = 20;
             this.RozsvietitBtn.Text = "ROZSVIETIŤ";
             this.RozsvietitBtn.UseVisualStyleBackColor = false;
@@ -227,10 +225,10 @@
             // 
             this.ZhasnutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ZhasnutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZhasnutBtn.Location = new System.Drawing.Point(175, 320);
+            this.ZhasnutBtn.Location = new System.Drawing.Point(181, 320);
             this.ZhasnutBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ZhasnutBtn.Name = "ZhasnutBtn";
-            this.ZhasnutBtn.Size = new System.Drawing.Size(167, 65);
+            this.ZhasnutBtn.Size = new System.Drawing.Size(166, 65);
             this.ZhasnutBtn.TabIndex = 19;
             this.ZhasnutBtn.Text = "ZHASNÚŤ";
             this.ZhasnutBtn.UseVisualStyleBackColor = false;
@@ -243,7 +241,7 @@
             this.ResetBtn.Location = new System.Drawing.Point(11, 320);
             this.ResetBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ResetBtn.Name = "ResetBtn";
-            this.ResetBtn.Size = new System.Drawing.Size(160, 65);
+            this.ResetBtn.Size = new System.Drawing.Size(166, 65);
             this.ResetBtn.TabIndex = 18;
             this.ResetBtn.Text = "RESET";
             this.ResetBtn.UseVisualStyleBackColor = false;
@@ -254,7 +252,7 @@
             this.initNastaveniaCheckBox.AutoSize = true;
             this.initNastaveniaCheckBox.Checked = true;
             this.initNastaveniaCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.initNastaveniaCheckBox.Location = new System.Drawing.Point(11, 161);
+            this.initNastaveniaCheckBox.Location = new System.Drawing.Point(11, 165);
             this.initNastaveniaCheckBox.Name = "initNastaveniaCheckBox";
             this.initNastaveniaCheckBox.Size = new System.Drawing.Size(341, 20);
             this.initNastaveniaCheckBox.TabIndex = 17;
@@ -452,7 +450,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage2.Size = new System.Drawing.Size(527, 387);
+            this.tabPage2.Size = new System.Drawing.Size(527, 396);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Priebeh hry";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -695,7 +693,6 @@
             this.tabPage3.Controls.Add(this.ZrusitLogoDomBtn);
             this.tabPage3.Controls.Add(this.ZmenitLogoHosBtn);
             this.tabPage3.Controls.Add(this.ZmenitLogoDomBtn);
-            this.tabPage3.Controls.Add(this.diakritikaCheckBox);
             this.tabPage3.Controls.Add(this.hosNazov);
             this.tabPage3.Controls.Add(this.domNazov);
             this.tabPage3.Controls.Add(this.hostiaLabel);
@@ -713,7 +710,7 @@
             // RozhodcoviaZapasBtn
             // 
             this.RozhodcoviaZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RozhodcoviaZapasBtn.Location = new System.Drawing.Point(216, 301);
+            this.RozhodcoviaZapasBtn.Location = new System.Drawing.Point(216, 293);
             this.RozhodcoviaZapasBtn.Name = "RozhodcoviaZapasBtn";
             this.RozhodcoviaZapasBtn.Size = new System.Drawing.Size(96, 28);
             this.RozhodcoviaZapasBtn.TabIndex = 554;
@@ -724,7 +721,7 @@
             // NastavHracovHosBtn
             // 
             this.NastavHracovHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.NastavHracovHosBtn.Location = new System.Drawing.Point(318, 301);
+            this.NastavHracovHosBtn.Location = new System.Drawing.Point(318, 293);
             this.NastavHracovHosBtn.Name = "NastavHracovHosBtn";
             this.NastavHracovHosBtn.Size = new System.Drawing.Size(175, 28);
             this.NastavHracovHosBtn.TabIndex = 553;
@@ -735,7 +732,7 @@
             // NastavHracovDomBtn
             // 
             this.NastavHracovDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.NastavHracovDomBtn.Location = new System.Drawing.Point(35, 301);
+            this.NastavHracovDomBtn.Location = new System.Drawing.Point(35, 293);
             this.NastavHracovDomBtn.Name = "NastavHracovDomBtn";
             this.NastavHracovDomBtn.Size = new System.Drawing.Size(175, 28);
             this.NastavHracovDomBtn.TabIndex = 552;
@@ -778,7 +775,7 @@
             // 
             this.ZrusitLogoHosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ZrusitLogoHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZrusitLogoHosBtn.Location = new System.Drawing.Point(409, 257);
+            this.ZrusitLogoHosBtn.Location = new System.Drawing.Point(409, 239);
             this.ZrusitLogoHosBtn.Name = "ZrusitLogoHosBtn";
             this.ZrusitLogoHosBtn.Size = new System.Drawing.Size(115, 40);
             this.ZrusitLogoHosBtn.TabIndex = 549;
@@ -790,7 +787,7 @@
             // 
             this.ZrusitLogoDomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ZrusitLogoDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZrusitLogoDomBtn.Location = new System.Drawing.Point(124, 257);
+            this.ZrusitLogoDomBtn.Location = new System.Drawing.Point(128, 239);
             this.ZrusitLogoDomBtn.Name = "ZrusitLogoDomBtn";
             this.ZrusitLogoDomBtn.Size = new System.Drawing.Size(115, 40);
             this.ZrusitLogoDomBtn.TabIndex = 548;
@@ -802,7 +799,7 @@
             // 
             this.ZmenitLogoHosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ZmenitLogoHosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZmenitLogoHosBtn.Location = new System.Drawing.Point(293, 257);
+            this.ZmenitLogoHosBtn.Location = new System.Drawing.Point(293, 239);
             this.ZmenitLogoHosBtn.Name = "ZmenitLogoHosBtn";
             this.ZmenitLogoHosBtn.Size = new System.Drawing.Size(115, 40);
             this.ZmenitLogoHosBtn.TabIndex = 547;
@@ -814,26 +811,13 @@
             // 
             this.ZmenitLogoDomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ZmenitLogoDomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZmenitLogoDomBtn.Location = new System.Drawing.Point(7, 257);
+            this.ZmenitLogoDomBtn.Location = new System.Drawing.Point(7, 239);
             this.ZmenitLogoDomBtn.Name = "ZmenitLogoDomBtn";
             this.ZmenitLogoDomBtn.Size = new System.Drawing.Size(115, 40);
             this.ZmenitLogoDomBtn.TabIndex = 546;
             this.ZmenitLogoDomBtn.Text = "Zmeniť \nlogo";
             this.ZmenitLogoDomBtn.UseVisualStyleBackColor = false;
             this.ZmenitLogoDomBtn.Click += new System.EventHandler(this.ZmenitLogoDomBtn_Click);
-            // 
-            // diakritikaCheckBox
-            // 
-            this.diakritikaCheckBox.AutoSize = true;
-            this.diakritikaCheckBox.Checked = true;
-            this.diakritikaCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.diakritikaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.diakritikaCheckBox.Location = new System.Drawing.Point(7, 228);
-            this.diakritikaCheckBox.Name = "diakritikaCheckBox";
-            this.diakritikaCheckBox.Size = new System.Drawing.Size(305, 30);
-            this.diakritikaCheckBox.TabIndex = 545;
-            this.diakritikaCheckBox.Text = "Odstrániť diakritiku z názvov";
-            this.diakritikaCheckBox.UseVisualStyleBackColor = true;
             // 
             // hosNazov
             // 
@@ -908,7 +892,7 @@
             this.tabPage4.Controls.Add(this.domaciGooolCheckBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(527, 387);
+            this.tabPage4.Size = new System.Drawing.Size(527, 396);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Animácie gólov";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -985,7 +969,7 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(527, 387);
+            this.tabPage5.Size = new System.Drawing.Size(527, 396);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Animácia kariet";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1194,7 +1178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 437);
+            this.ClientSize = new System.Drawing.Size(835, 437);
             this.Controls.Add(this.KartyAnimacieBtn);
             this.Controls.Add(this.GolyAnimacieBtn);
             this.Controls.Add(this.DatabazaBtn);
@@ -1281,7 +1265,6 @@
         private System.Windows.Forms.PictureBox logoDomaciPictureBox;
         private System.Windows.Forms.Label hostiaLabel;
         private System.Windows.Forms.Label domaciLabel;
-        private System.Windows.Forms.CheckBox diakritikaCheckBox;
         private System.Windows.Forms.TextBox hosNazov;
         private System.Windows.Forms.TextBox domNazov;
         private System.Windows.Forms.Button ZmenitLogoHosBtn;

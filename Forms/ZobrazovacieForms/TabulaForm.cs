@@ -1,7 +1,7 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
@@ -13,8 +13,7 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
             SetDefaultFarby();
-            // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirkaPlochy / this.Width;
+            float pomer = (float)sirkaPlochy / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -47,12 +46,12 @@ namespace LGR_Futbal.Forms
             rozlozenieTabule.LogoDomaci_X = logoDomaci.Left;
             rozlozenieTabule.LogoDomaci_Y = logoDomaci.Top;
             rozlozenieTabule.LogoDomaci_Sirka = logoDomaci.Width;
-            rozlozenieTabule.LogoDomaci_Zobrazit = logoDomaci.Image == null ? false : true;
+            rozlozenieTabule.LogoDomaci_Zobrazit = true;
 
             rozlozenieTabule.LogoHostia_X = logoHostia.Left;
             rozlozenieTabule.LogoHostia_Y = logoHostia.Top;
             rozlozenieTabule.LogoHostia_Sirka = logoHostia.Width;
-            rozlozenieTabule.LogoHostia_Zobrazit = logoHostia.Image == null ? false : true;
+            rozlozenieTabule.LogoHostia_Zobrazit = true;
 
             rozlozenieTabule.Polcas_X = polcasLabel.Left;
             rozlozenieTabule.Polcas_Y = polcasLabel.Top;
@@ -122,7 +121,7 @@ namespace LGR_Futbal.Forms
                 polcasLabel.ForeColor = Color.Lime;
                 casLabel.ForeColor = Color.Lime;
             }
-            
+
         }
 
         public void SetCas(string text)
@@ -152,56 +151,56 @@ namespace LGR_Futbal.Forms
 
         public void SetLayout(RozlozenieTabule rozlozenie)
         {
-            double pom = this.logoDomaci.Width / this.logoDomaci.Height;
+            double pom = logoDomaci.Width / logoDomaci.Height;
             if (!rozlozenie.LogoDomaci_Zobrazit)
             {
-                this.logoDomaci.Visible = false;
+                logoDomaci.Visible = false;
             }
             else
             {
-                this.logoDomaci.Left = rozlozenie.LogoDomaci_X;
-                this.logoDomaci.Top = rozlozenie.LogoDomaci_Y;
-                this.logoDomaci.Width = rozlozenie.LogoDomaci_Sirka;
-                this.logoDomaci.Height = (int)(pom * this.logoDomaci.Width);
-                this.logoDomaci.Visible = true;
+                logoDomaci.Left = rozlozenie.LogoDomaci_X;
+                logoDomaci.Top = rozlozenie.LogoDomaci_Y;
+                logoDomaci.Width = rozlozenie.LogoDomaci_Sirka;
+                logoDomaci.Height = (int)(pom * logoDomaci.Width);
+                logoDomaci.Visible = true;
             }
 
             if (!rozlozenie.LogoHostia_Zobrazit)
             {
-                this.logoHostia.Visible = false;
+                logoHostia.Visible = false;
             }
             else
             {
-                this.logoHostia.Left = rozlozenie.LogoHostia_X;
-                this.logoHostia.Top = rozlozenie.LogoHostia_Y;
-                this.logoHostia.Width = rozlozenie.LogoHostia_Sirka;
-                this.logoHostia.Height = (int)(pom * this.logoHostia.Width);
-                this.logoHostia.Visible = true;
+                logoHostia.Left = rozlozenie.LogoHostia_X;
+                logoHostia.Top = rozlozenie.LogoHostia_Y;
+                logoHostia.Width = rozlozenie.LogoHostia_Sirka;
+                logoHostia.Height = (int)(pom * logoHostia.Width);
+                logoHostia.Visible = true;
             }
 
-            this.skoreDomaciLabel.Left = rozlozenie.DomaciSkore_X;
-            this.skoreDomaciLabel.Top = rozlozenie.DomaciSkore_Y;
-            this.skoreDomaciLabel.Width = rozlozenie.DomaciSkore_Sirka;
+            skoreDomaciLabel.Left = rozlozenie.DomaciSkore_X;
+            skoreDomaciLabel.Top = rozlozenie.DomaciSkore_Y;
+            skoreDomaciLabel.Width = rozlozenie.DomaciSkore_Sirka;
 
-            this.skoreHostiaLabel.Left = rozlozenie.HostiaSkore_X;
-            this.skoreHostiaLabel.Top = rozlozenie.HostiaSkore_Y;
-            this.skoreHostiaLabel.Width = rozlozenie.HostiaSkore_Sirka;
+            skoreHostiaLabel.Left = rozlozenie.HostiaSkore_X;
+            skoreHostiaLabel.Top = rozlozenie.HostiaSkore_Y;
+            skoreHostiaLabel.Width = rozlozenie.HostiaSkore_Sirka;
 
-            this.hostiaLabel.Left = rozlozenie.HostiaNazov_X;
-            this.hostiaLabel.Top = rozlozenie.HostiaNazov_Y;
-            this.hostiaLabel.Width = rozlozenie.HostiaNazov_Sirka;
+            hostiaLabel.Left = rozlozenie.HostiaNazov_X;
+            hostiaLabel.Top = rozlozenie.HostiaNazov_Y;
+            hostiaLabel.Width = rozlozenie.HostiaNazov_Sirka;
 
-            this.domaciLabel.Left = rozlozenie.DomaciNazov_X;
-            this.domaciLabel.Top = rozlozenie.DomaciNazov_Y;
-            this.domaciLabel.Width = rozlozenie.DomaciNazov_Sirka;
+            domaciLabel.Left = rozlozenie.DomaciNazov_X;
+            domaciLabel.Top = rozlozenie.DomaciNazov_Y;
+            domaciLabel.Width = rozlozenie.DomaciNazov_Sirka;
 
-            this.casLabel.Left = rozlozenie.Cas_X;
-            this.casLabel.Top = rozlozenie.Cas_Y;
-            this.casLabel.Width = rozlozenie.Cas_Sirka;
+            casLabel.Left = rozlozenie.Cas_X;
+            casLabel.Top = rozlozenie.Cas_Y;
+            casLabel.Width = rozlozenie.Cas_Sirka;
 
-            this.polcasLabel.Left = rozlozenie.Polcas_X;
-            this.polcasLabel.Top = rozlozenie.Polcas_Y;
-            this.polcasLabel.Width = rozlozenie.Polcas_Sirka;
+            polcasLabel.Left = rozlozenie.Polcas_X;
+            polcasLabel.Top = rozlozenie.Polcas_Y;
+            polcasLabel.Width = rozlozenie.Polcas_Sirka;
 
         }
 

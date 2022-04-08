@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.IO;
 using System.Drawing;
 
 namespace LGR_Futbal.Model
@@ -20,7 +18,7 @@ namespace LGR_Futbal.Model
         public bool HraAktualnyZapas { get; set; }
         public string Pozicia { get; set; }
         public char TypHraca { get; set; }
-        public Hrac()    
+        public Hrac()
         {
             TypHraca = 'X';
             Poznamka = " ";

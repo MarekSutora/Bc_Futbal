@@ -40,7 +40,7 @@ namespace LGR_Futbal.Model
 
         private bool FilterTimy(bool t1, bool t2, string nazovT1, string nazovT2)
         {
-            if(t1 && nazovT1 == NazovTimu)
+            if (t1 && nazovT1 == NazovTimu)
                 return true;
 
             if (t2 && nazovT2 == NazovTimu)

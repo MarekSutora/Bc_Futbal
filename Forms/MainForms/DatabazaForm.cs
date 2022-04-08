@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using LGR_Futbal.Model;
 using LGR_Futbal.Databaza;
 
@@ -13,12 +12,9 @@ namespace LGR_Futbal.Forms
 
         #region ATRIBUTY
 
-        private const string nazovProgramuString = "FutbalApp";
-
         private string logoCesta = string.Empty;
         private string fotoCesta = string.Empty;
         private int lastFilterHraci = 0;
-        private int lastIndexRozhodca = 0;
 
         private FutbalovyTim aktTim = null;
         private Hrac aktHrac = null;
@@ -93,6 +89,8 @@ namespace LGR_Futbal.Forms
             hracTimCB.Items.Add("");
             upravaHracaTimCB.Items.Add("");
 
+            timy.Sort((x, y) => x.NazovTimu.CompareTo(y.NazovTimu));
+
             for (int i = 0; i < timy.Count; i++)
             {
                 TimyListBox.Items.Add(timy[i].NazovTimu);
@@ -153,11 +151,11 @@ namespace LGR_Futbal.Forms
         {
             string novyNazov = nazovTextBox.Text.Trim();
             if (novyNazov.Equals(string.Empty))
-                MessageBox.Show("Názov tímu nesmie byť prázdny!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Názov tímu nesmie byť prázdny!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (dbtimy.CheckNazovTimu(novyNazov))
-                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     FutbalovyTim t = new FutbalovyTim();
@@ -178,7 +176,7 @@ namespace LGR_Futbal.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     upravitTimGroupBox.Visible = true;
@@ -201,7 +199,7 @@ namespace LGR_Futbal.Forms
             upravitTimGroupBox.Visible = false;
 
             if (MessageBox.Show("Naozaj chcete odstrániť z databázy hráča " + TimyListBox.SelectedItem.ToString() + "?",
-                nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbtimy.OdstranTim(timy[TimyListBox.SelectedIndex]);
 
@@ -245,12 +243,12 @@ namespace LGR_Futbal.Forms
         {
             string novyNazov = editNazovTextBox.Text.Trim();
             if (novyNazov.Equals(string.Empty))
-                MessageBox.Show("Názov tímu nesmie byť prázdny!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Názov tímu nesmie byť prázdny!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
 
                 if (dbtimy.CheckNazovTimu(novyNazov) && aktTim.NazovTimu != novyNazov)
-                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("V databáze sa už nachádza tím s týmto názvom!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     if (!logoCesta.Equals(string.Empty))
@@ -275,7 +273,7 @@ namespace LGR_Futbal.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                 }
@@ -407,14 +405,14 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void OdstranitHracaBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Naozaj chcete odstrániť z databázy hráča " + HraciListBox.SelectedItem.ToString() + "?"
-                , nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                , Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbhraci.OdstranHrac(hraci[HraciListBox.SelectedIndex]);
                 FiltrujHracov(lastFilterHraci);
@@ -492,17 +490,17 @@ namespace LGR_Futbal.Forms
             bool pokracuj = true;
             if (Meno.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba meno", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (Priezvisko.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba priezvisko", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (!cisloHracaTextBox.Text.Equals(string.Empty) && !int.TryParse(cisloHracaTextBox.Text, out int cislo))
             {
-                MessageBox.Show("Vkladajte len celé čísla", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vkladajte len celé čísla", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
 
@@ -542,7 +540,7 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 UpravaHracaGroupBox.Visible = false;
@@ -578,6 +576,7 @@ namespace LGR_Futbal.Forms
                 {
                     lastFilterHraci = 0;
                     hraci = await dbhraci.GetVsetciHraciAsync();
+                    hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
                     foreach (var hrac in hraci)
                     {
                         HraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -587,6 +586,7 @@ namespace LGR_Futbal.Forms
                 {
                     lastFilterHraci = 1;
                     hraci = await dbhraci.GetNezaradeniHraci();
+                    hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
                     foreach (var hrac in hraci)
                     {
                         HraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -595,7 +595,8 @@ namespace LGR_Futbal.Forms
                 else
                 {
                     int pom = 0;
-                    hraci = await dbhraci.GetHraciVTime(timy[timyFilterCB.SelectedIndex - 2].IdFutbalovyTim); ;
+                    hraci = await dbhraci.GetHraciVTime(timy[timyFilterCB.SelectedIndex - 2].IdFutbalovyTim);
+                    hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
                     foreach (var hrac in hraci)
                     {
                         pom++;
@@ -617,7 +618,7 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -631,6 +632,8 @@ namespace LGR_Futbal.Forms
                 {
                     lastFilterHraci = 0;
                     hraci = await dbhraci.GetVsetciHraciAsync();
+                    hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
+
                     foreach (var hrac in hraci)
                     {
                         HraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -640,6 +643,7 @@ namespace LGR_Futbal.Forms
                 {
                     lastFilterHraci = 1;
                     hraci = await dbhraci.GetNezaradeniHraci();
+                    hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
                     foreach (var hrac in hraci)
                     {
                         HraciListBox.Items.Add(hrac.Meno + " " + hrac.Priezvisko);
@@ -663,7 +667,7 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -674,18 +678,17 @@ namespace LGR_Futbal.Forms
             bool pokracuj = true;
             if (Meno.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba meno", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (Priezvisko.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba priezvisko", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
-            int cislo;
-            if (!cisloHracaTextBox.Text.Equals(string.Empty) && !int.TryParse(cisloHracaTextBox.Text, out cislo))
+            if (!cisloHracaTextBox.Text.Equals(string.Empty) && !int.TryParse(cisloHracaTextBox.Text, out int cislo))
             {
-                MessageBox.Show("Vkladajte len celé čísla", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vkladajte len celé čísla", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (pokracuj)
@@ -728,7 +731,7 @@ namespace LGR_Futbal.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 finally
                 {
@@ -743,10 +746,12 @@ namespace LGR_Futbal.Forms
 
         #region ROZHODCOVIA
 
-        private void NaplnRozhodcoviaCB()
+        private void NaplnRozhodcoviaLB()
         {
             RozhodcoviaListBox.Items.Clear();
+            rozhodcovia.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
 
+            rozhodcaPohlavieCB.SelectedIndex = 0;
             for (int i = 0; i < rozhodcovia.Count; i++)
             {
                 RozhodcoviaListBox.Items.Add(rozhodcovia[i].Meno + " " + rozhodcovia[i].Priezvisko);
@@ -778,14 +783,15 @@ namespace LGR_Futbal.Forms
             string Meno = editRozhodcaMeno.Text.Trim();
             string Priezvisko = editRozhdocaPriezvisko.Text.Trim();
             bool pokracuj = true;
+            bool uspech = true;
             if (Meno.Equals(string.Empty))
             {
-                MessageBox.Show("Rozhodcovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rozhodcovi chýba meno", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (Priezvisko.Equals(string.Empty))
             {
-                MessageBox.Show("Rozhodcovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rozhodcovi chýba priezvisko", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (pokracuj)
@@ -812,16 +818,16 @@ namespace LGR_Futbal.Forms
                     dbrozhodcovia.UpdateRozhodca(aktRozhodca);
 
                     rozhodcovia = await dbrozhodcovia.GetRozhodcoviaAsync();
-                    NaplnRozhodcoviaCB();
+                    NaplnRozhodcoviaLB();
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    uspech = false;
+                    MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                //editRozhodcuGroupBox.Visible = true;
-                RozhodcoviaListBox.SelectedIndex = lastIndexRozhodca;
-                NastavRozhodcoveUdaje();
+
+                if (uspech)
+                    MessageBox.Show("Rozhodca úspešne upravený!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK);
 
                 addRozhodcuGroupBox.Visible = false;
             }
@@ -832,14 +838,15 @@ namespace LGR_Futbal.Forms
             string Meno = addRozhodcaMeno.Text.Trim();
             string Priezvisko = addRozhdocaPriezvisko.Text.Trim();
             bool pokracuj = true;
+            bool uspech = true;
             if (Meno.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba meno", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba meno", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (Priezvisko.Equals(string.Empty))
             {
-                MessageBox.Show("Hráčovi chýba priezvisko", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hráčovi chýba priezvisko", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pokracuj = false;
             }
             if (pokracuj)
@@ -867,13 +874,16 @@ namespace LGR_Futbal.Forms
                     dbrozhodcovia.InsertRozhodca(r);
 
                     rozhodcovia = await dbrozhodcovia.GetRozhodcoviaAsync();
-                    NaplnRozhodcoviaCB();
+                    NaplnRozhodcoviaLB();
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    uspech = false;
+                    MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                if (uspech)
+                    MessageBox.Show("Rozhodca úspešne pridaný!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK);
 
                 editRozhodcuGroupBox.Visible = false;
                 addRozhodcuGroupBox.Visible = true;
@@ -907,21 +917,24 @@ namespace LGR_Futbal.Forms
                     aktRozhodca = dbrozhodcovia.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
                 }
 
-                lastIndexRozhodca = RozhodcoviaListBox.SelectedIndex;
                 editRozhodcaMeno.Text = aktRozhodca.Meno;
                 editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
                 if (aktRozhodca.Pohlavie == 'M')
                 {
                     upravaRozhodcaPohlavieCB.SelectedIndex = 1;
                 }
-                else
+                else if (aktRozhodca.Pohlavie == 'Z')
                 {
                     upravaRozhodcaPohlavieCB.SelectedIndex = 2;
+                }
+                else
+                {
+                    upravaRozhodcaPohlavieCB.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -934,12 +947,12 @@ namespace LGR_Futbal.Forms
         {
 
             if (MessageBox.Show("Naozaj chcete odstrániť z databázy rozhodcu " + RozhodcoviaListBox.SelectedItem.ToString() + "?"
-                , nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                , Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbrozhodcovia.OdstranRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex]);
 
                 rozhodcovia = await dbrozhodcovia.GetRozhodcoviaAsync();
-                NaplnRozhodcoviaCB();
+                NaplnRozhodcoviaLB();
             }
         }
 
@@ -967,7 +980,7 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -989,7 +1002,7 @@ namespace LGR_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
             }
         }
 
@@ -1024,8 +1037,8 @@ namespace LGR_Futbal.Forms
                 if (RozhodcoviaListBox.Items.Count == 0)
                 {
                     rozhodcovia = await dbrozhodcovia.GetRozhodcoviaAsync();
-                    NaplnRozhodcoviaCB();
-                }        
+                    NaplnRozhodcoviaLB();
+                }
             }
             else if (tabControl1.SelectedIndex == 3)
             {

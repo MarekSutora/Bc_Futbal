@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public partial class KopySettingsForm : Form
     {
@@ -17,7 +17,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
         private Zapas zapas = null;
         private Kop kop = null;
 
-        public KopySettingsForm(FutbalovyTim tim, Zapas zapas,  bool domaci, Kop kop)
+        public KopySettingsForm(FutbalovyTim tim, Zapas zapas, bool domaci, Kop kop)
         {
             InitializeComponent();
             this.Text = "Kop";
@@ -103,6 +103,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
         }
-        
+
     }
 }

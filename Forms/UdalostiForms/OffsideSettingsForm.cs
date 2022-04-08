@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public partial class OffsideSettingsForm : Form
     {
@@ -85,6 +85,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
         }
 
-        
+
     }
 }

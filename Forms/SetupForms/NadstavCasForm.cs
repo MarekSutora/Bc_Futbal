@@ -1,5 +1,4 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
@@ -13,7 +12,7 @@ namespace LGR_Futbal.Forms
 
         private int polcas = -1;
         private Zapas zapas = null;
-        
+
         public NadstavCasForm(int aktualnaHodnota, int polcas, Zapas zapas)
         {
             InitializeComponent();

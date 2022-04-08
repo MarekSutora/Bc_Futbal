@@ -1,10 +1,9 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public delegate void HracZltaKartaSelectedHandler(Hrac hrac);
 
@@ -12,7 +11,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
     {
         public event HracZltaKartaSelectedHandler OnHracZltaKartaSelected;
         public event UdalostPridanaHandler OnUdalostPridana;
-        
+
         private bool domaci = false;
         private bool uspech = false;
         private List<Hrac> zoznamHracov = null;
@@ -54,22 +53,22 @@ namespace LGR_Futbal.Forms.UdalostiForms
                 karta.IdFutbalovyTim = futbalovyTim != null ? futbalovyTim.IdFutbalovyTim : 0;
                 if (futbalovyTim == null || HraciLB.SelectedIndex == -1)
                 {
-                    karta.TypKarty = 'Z'; 
-                    
+                    karta.TypKarty = 'Z';
+
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(null);
-                }                  
+                }
                 else
                 {
                     Hrac hrac = zoznamHracov[HraciLB.SelectedIndex];
                     karta.Hrac = hrac;
-                    karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z'; 
+                    karta.TypKarty = hrac.ZltaKarta ? 'C' : 'Z';
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(zoznamHracov[HraciLB.SelectedIndex]);
                 }
-                    
+
             }
 
             Close();

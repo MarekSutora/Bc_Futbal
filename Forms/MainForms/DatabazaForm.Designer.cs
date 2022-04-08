@@ -52,7 +52,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.editMenoTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.UpravaZrusFotoBtn = new System.Windows.Forms.Button();
             this.UpravaVlozFotoBtn = new System.Windows.Forms.Button();
             this.upravaFotoPictureBox = new System.Windows.Forms.PictureBox();
@@ -137,6 +136,7 @@
             this.VybratZapasBtn = new System.Windows.Forms.Button();
             this.ZapasyListBox = new System.Windows.Forms.ListBox();
             this.ZapasyBtn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.UpravaHracaGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upravaFotoPictureBox)).BeginInit();
@@ -157,11 +157,11 @@
             // HraciBtn
             // 
             this.HraciBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.HraciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HraciBtn.Location = new System.Drawing.Point(11, 129);
+            this.HraciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HraciBtn.Location = new System.Drawing.Point(15, 121);
             this.HraciBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.HraciBtn.Name = "HraciBtn";
-            this.HraciBtn.Size = new System.Drawing.Size(190, 72);
+            this.HraciBtn.Size = new System.Drawing.Size(190, 95);
             this.HraciBtn.TabIndex = 25;
             this.HraciBtn.Text = "HRÁČI";
             this.HraciBtn.UseVisualStyleBackColor = false;
@@ -170,11 +170,11 @@
             // TimyBtn
             // 
             this.TimyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.TimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TimyBtn.Location = new System.Drawing.Point(11, 10);
+            this.TimyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TimyBtn.Location = new System.Drawing.Point(15, 13);
             this.TimyBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.TimyBtn.Name = "TimyBtn";
-            this.TimyBtn.Size = new System.Drawing.Size(190, 72);
+            this.TimyBtn.Size = new System.Drawing.Size(190, 95);
             this.TimyBtn.TabIndex = 24;
             this.TimyBtn.Text = "TÍMY";
             this.TimyBtn.UseVisualStyleBackColor = false;
@@ -183,11 +183,11 @@
             // RozhodcoviaBtn
             // 
             this.RozhodcoviaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.RozhodcoviaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.RozhodcoviaBtn.Location = new System.Drawing.Point(11, 247);
+            this.RozhodcoviaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RozhodcoviaBtn.Location = new System.Drawing.Point(15, 229);
             this.RozhodcoviaBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.RozhodcoviaBtn.Name = "RozhodcoviaBtn";
-            this.RozhodcoviaBtn.Size = new System.Drawing.Size(190, 72);
+            this.RozhodcoviaBtn.Size = new System.Drawing.Size(190, 95);
             this.RozhodcoviaBtn.TabIndex = 32;
             this.RozhodcoviaBtn.Text = "ROZHODCOVIA";
             this.RozhodcoviaBtn.UseVisualStyleBackColor = false;
@@ -435,20 +435,6 @@
             this.label21.Size = new System.Drawing.Size(82, 17);
             this.label21.TabIndex = 31;
             this.label21.Text = "Číslo hráča:";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(269, 335);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 52);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "Vložiť     \r\nhráča     ";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // UpravaZrusFotoBtn
             // 
@@ -1469,15 +1455,29 @@
             // ZapasyBtn
             // 
             this.ZapasyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ZapasyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZapasyBtn.Location = new System.Drawing.Point(11, 364);
+            this.ZapasyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZapasyBtn.Location = new System.Drawing.Point(15, 338);
             this.ZapasyBtn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.ZapasyBtn.Name = "ZapasyBtn";
-            this.ZapasyBtn.Size = new System.Drawing.Size(190, 72);
+            this.ZapasyBtn.Size = new System.Drawing.Size(190, 95);
             this.ZapasyBtn.TabIndex = 33;
             this.ZapasyBtn.Text = "ZÁPASY";
             this.ZapasyBtn.UseVisualStyleBackColor = false;
             this.ZapasyBtn.Click += new System.EventHandler(this.ZapasyBtn_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(269, 335);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 52);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "Vložiť     \r\nhráča     ";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // DatabazaForm
             // 
@@ -1549,7 +1549,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox editMenoTextBox;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button UpravaZrusFotoBtn;
         private System.Windows.Forms.Button UpravaVlozFotoBtn;
         private System.Windows.Forms.PictureBox upravaFotoPictureBox;
@@ -1635,5 +1634,6 @@
         private System.Windows.Forms.ListBox ZapasyListBox;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox editCisloTextBox;
+        private System.Windows.Forms.Button button3;
     }
 }

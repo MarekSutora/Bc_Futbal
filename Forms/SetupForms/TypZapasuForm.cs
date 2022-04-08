@@ -1,6 +1,6 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
@@ -8,7 +8,7 @@ namespace LGR_Futbal.Forms
 
     public partial class TypZapasuForm : Form
     {
-        
+
         public event NovyTypZapasuHandler OnNovyTypZapasu;
 
         public TypZapasuForm()
@@ -21,7 +21,7 @@ namespace LGR_Futbal.Forms
             string n = nazovTextBox.Text.Trim();
             if (n.Equals(string.Empty))
             {
-                MessageBox.Show("Nezadali ste názov!", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nezadali ste názov!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

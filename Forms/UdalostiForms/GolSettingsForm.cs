@@ -1,10 +1,9 @@
-﻿using LGR_Futbal.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
 
-namespace LGR_Futbal.Forms.UdalostiForms
+namespace LGR_Futbal.Forms
 {
     public delegate void GoalSettingsConfirmedHandler(Hrac h, bool priznak, int novyStav);
     public delegate void GoalValueConfirmedHandler(bool domPriznak, int hodnota);
@@ -23,7 +22,6 @@ namespace LGR_Futbal.Forms.UdalostiForms
         private Zapas zapas = null;
         private Gol gol = null;
 
-        #region Konstruktor a metody
         public GolSettingsForm(FutbalovyTim tim, bool domaci, int aktualneSkore, Zapas zapas, Gol gol)
         {
             InitializeComponent();
@@ -85,7 +83,7 @@ namespace LGR_Futbal.Forms.UdalostiForms
                         gol.Strielajuci = zoznamHracov[HraciLB.SelectedIndex];
                         strielajuciOznaceny = true;
                     }
-                        
+
                     if (AsistHraciLB.SelectedIndex != -1)
                         gol.Asistujuci = zoznamHracov[AsistHraciLB.SelectedIndex];
 
@@ -162,8 +160,5 @@ namespace LGR_Futbal.Forms.UdalostiForms
             if (uspech && OnUdalostPridana != null)
                 OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
         }
-
-
-        #endregion    
     }
 }

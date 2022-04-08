@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.uvodnyPanel = new System.Windows.Forms.Panel();
-            this.podnadpisLabel = new System.Windows.Forms.Label();
-            this.nazovLabel = new System.Windows.Forms.Label();
+            this.nahradniciPanel = new System.Windows.Forms.Panel();
+            this.nahradniciLabel = new System.Windows.Forms.Label();
             this.prezentacnyPanel = new System.Windows.Forms.Panel();
             this.infoRichTextBox = new System.Windows.Forms.RichTextBox();
             this.postLabel = new System.Windows.Forms.Label();
@@ -41,51 +41,48 @@
             this.fotkaPictureBox = new System.Windows.Forms.PictureBox();
             this.cisloHracaLabel = new System.Windows.Forms.Label();
             this.menoHracaLabel = new System.Windows.Forms.Label();
+            this.podnadpisLabel = new System.Windows.Forms.Label();
+            this.nazovLabel = new System.Windows.Forms.Label();
             this.casovac = new System.Windows.Forms.Timer(this.components);
-            this.nahradniciPanel = new System.Windows.Forms.Panel();
-            this.nahradniciLabel = new System.Windows.Forms.Label();
             this.uvodnyPanel.SuspendLayout();
+            this.nahradniciPanel.SuspendLayout();
             this.prezentacnyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).BeginInit();
-            this.nahradniciPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // uvodnyPanel
             // 
             this.uvodnyPanel.BackColor = System.Drawing.Color.Black;
-            this.uvodnyPanel.Controls.Add(this.nahradniciPanel);
-            this.uvodnyPanel.Controls.Add(this.prezentacnyPanel);
             this.uvodnyPanel.Controls.Add(this.podnadpisLabel);
+            this.uvodnyPanel.Controls.Add(this.nahradniciPanel);
             this.uvodnyPanel.Controls.Add(this.nazovLabel);
-            this.uvodnyPanel.Location = new System.Drawing.Point(9, 10);
+            this.uvodnyPanel.Location = new System.Drawing.Point(2, 2);
             this.uvodnyPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.uvodnyPanel.Name = "uvodnyPanel";
             this.uvodnyPanel.Size = new System.Drawing.Size(462, 273);
             this.uvodnyPanel.TabIndex = 0;
             // 
-            // podnadpisLabel
+            // nahradniciPanel
             // 
-            this.podnadpisLabel.Font = new System.Drawing.Font("Arial", 25.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.podnadpisLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.podnadpisLabel.Location = new System.Drawing.Point(-4, 163);
-            this.podnadpisLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.podnadpisLabel.Name = "podnadpisLabel";
-            this.podnadpisLabel.Size = new System.Drawing.Size(462, 101);
-            this.podnadpisLabel.TabIndex = 545;
-            this.podnadpisLabel.Text = "predstavenie hráčov";
-            this.podnadpisLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.nahradniciPanel.BackColor = System.Drawing.Color.Black;
+            this.nahradniciPanel.Controls.Add(this.nahradniciLabel);
+            this.nahradniciPanel.Location = new System.Drawing.Point(0, 0);
+            this.nahradniciPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.nahradniciPanel.Name = "nahradniciPanel";
+            this.nahradniciPanel.Size = new System.Drawing.Size(462, 273);
+            this.nahradniciPanel.TabIndex = 549;
             // 
-            // nazovLabel
+            // nahradniciLabel
             // 
-            this.nazovLabel.Font = new System.Drawing.Font("Arial", 66F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nazovLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.nazovLabel.Location = new System.Drawing.Point(0, 0);
-            this.nazovLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.nazovLabel.Name = "nazovLabel";
-            this.nazovLabel.Size = new System.Drawing.Size(462, 172);
-            this.nazovLabel.TabIndex = 544;
-            this.nazovLabel.Text = "DOMÁCI";
-            this.nazovLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nahradniciLabel.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nahradniciLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.nahradniciLabel.Location = new System.Drawing.Point(18, 16);
+            this.nahradniciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nahradniciLabel.Name = "nahradniciLabel";
+            this.nahradniciLabel.Size = new System.Drawing.Size(428, 243);
+            this.nahradniciLabel.TabIndex = 544;
+            this.nahradniciLabel.Text = "NÁHRADNÍCI";
+            this.nahradniciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // prezentacnyPanel
             // 
@@ -98,7 +95,7 @@
             this.prezentacnyPanel.Controls.Add(this.fotkaPictureBox);
             this.prezentacnyPanel.Controls.Add(this.cisloHracaLabel);
             this.prezentacnyPanel.Controls.Add(this.menoHracaLabel);
-            this.prezentacnyPanel.Location = new System.Drawing.Point(3, 3);
+            this.prezentacnyPanel.Location = new System.Drawing.Point(4, 2);
             this.prezentacnyPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.prezentacnyPanel.Name = "prezentacnyPanel";
             this.prezentacnyPanel.Size = new System.Drawing.Size(460, 273);
@@ -199,39 +196,42 @@
             this.menoHracaLabel.Text = "DOMÁCI";
             this.menoHracaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // podnadpisLabel
+            // 
+            this.podnadpisLabel.Font = new System.Drawing.Font("Arial", 25.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.podnadpisLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.podnadpisLabel.Location = new System.Drawing.Point(10, 160);
+            this.podnadpisLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.podnadpisLabel.Name = "podnadpisLabel";
+            this.podnadpisLabel.Size = new System.Drawing.Size(441, 101);
+            this.podnadpisLabel.TabIndex = 545;
+            this.podnadpisLabel.Text = "predstavenie hráčov";
+            this.podnadpisLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // nazovLabel
+            // 
+            this.nazovLabel.Font = new System.Drawing.Font("Arial", 66F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nazovLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.nazovLabel.Location = new System.Drawing.Point(17, 0);
+            this.nazovLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nazovLabel.Name = "nazovLabel";
+            this.nazovLabel.Size = new System.Drawing.Size(434, 172);
+            this.nazovLabel.TabIndex = 544;
+            this.nazovLabel.Text = "DOMÁCI";
+            this.nazovLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // casovac
             // 
             this.casovac.Interval = 500;
             this.casovac.Tick += new System.EventHandler(this.Casovac_Tick);
-            // 
-            // nahradniciPanel
-            // 
-            this.nahradniciPanel.BackColor = System.Drawing.Color.Black;
-            this.nahradniciPanel.Controls.Add(this.nahradniciLabel);
-            this.nahradniciPanel.Location = new System.Drawing.Point(1, 0);
-            this.nahradniciPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.nahradniciPanel.Name = "nahradniciPanel";
-            this.nahradniciPanel.Size = new System.Drawing.Size(462, 273);
-            this.nahradniciPanel.TabIndex = 549;
-            // 
-            // nahradniciLabel
-            // 
-            this.nahradniciLabel.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nahradniciLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.nahradniciLabel.Location = new System.Drawing.Point(1, 0);
-            this.nahradniciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.nahradniciLabel.Name = "nahradniciLabel";
-            this.nahradniciLabel.Size = new System.Drawing.Size(468, 276);
-            this.nahradniciLabel.TabIndex = 544;
-            this.nahradniciLabel.Text = "NÁHRADNÍCI";
-            this.nahradniciLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PrezentaciaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(490, 297);
+            this.ClientSize = new System.Drawing.Size(466, 277);
+            this.Controls.Add(this.prezentacnyPanel);
             this.Controls.Add(this.uvodnyPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -240,9 +240,9 @@
             this.Name = "PrezentaciaForm";
             this.Load += new System.EventHandler(this.PrezentaciaForm_Load);
             this.uvodnyPanel.ResumeLayout(false);
+            this.nahradniciPanel.ResumeLayout(false);
             this.prezentacnyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fotkaPictureBox)).EndInit();
-            this.nahradniciPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

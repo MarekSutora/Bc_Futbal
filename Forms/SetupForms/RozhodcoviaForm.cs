@@ -17,15 +17,16 @@ namespace LGR_Futbal.Forms
             InitializeComponent();
             this.rozhodcovia = rozhodcovia;
             dbRozhodcovia = dbr;
-            foreach (var rozhodca in vsetciRozhodcovia)
-            {
-                rozhodcoviaCheckListBox.Items.Add(rozhodca.Meno + " " + rozhodca.Priezvisko.ToUpper(), true);
-            }
+
         }
 
         private async void RozhodcoviaForm_Load(object sender, EventArgs e)
         {
             vsetciRozhodcovia = await dbRozhodcovia.GetRozhodcoviaAsync();
+            foreach (var rozhodca in vsetciRozhodcovia)
+            {
+                rozhodcoviaCheckListBox.Items.Add(rozhodca.Meno + " " + rozhodca.Priezvisko.ToUpper(), false);
+            }
         }
 
         private void AktivovatBtn_Click(object sender, EventArgs e)

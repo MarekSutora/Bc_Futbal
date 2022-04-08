@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
@@ -16,8 +15,10 @@ namespace LGR_Futbal.Forms
 
             futbalovyTim = ft;
             hraci = ft.ZoznamHracov;
-            hraci = hraci.OrderBy(o => o.Priezvisko).ToList();
-            this.Text = this.Text + " - tím " + futbalovyTim.NazovTimu;
+
+            Text = Text + " - tím " + futbalovyTim.NazovTimu;
+
+            hraci.Sort((x, y) => x.Priezvisko.CompareTo(y.Priezvisko));
 
             int pocet = 0;
             foreach (Hrac h in hraci)
@@ -64,7 +65,7 @@ namespace LGR_Futbal.Forms
                     if (zakladCheckListBox.GetItemChecked(i))
                     {
                         hraci[i].TypHraca = 'Z';
-                    } 
+                    }
                     else if (nahradniciCheckListBox.GetItemChecked(i))
                     {
                         hraci[i].TypHraca = 'N';
@@ -73,7 +74,7 @@ namespace LGR_Futbal.Forms
                 Close();
             }
             else
-                MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", "FutbalApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Jeden alebo viac hráčov nemá korektne nastavené atribúty!\nNemôže byť súčasne na ihrisku aj náhradník!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void OznacitZakladBtn_Click(object sender, EventArgs e)
         {

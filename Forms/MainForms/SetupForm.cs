@@ -1,21 +1,18 @@
-﻿using LGR_Futbal.Properties;
-using LGR_Futbal.Setup;
-using LGR_Futbal.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using LGR_Futbal.Databaza;
+using LGR_Futbal.Setup;
+using LGR_Futbal.Model;
 
 namespace LGR_Futbal.Forms
 {
-    public delegate void DataPotvrdeneHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, bool diakritika, int animacia);
+    public delegate void DataPotvrdeneHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, int animacia);
     public delegate void ResetHandler();
     public delegate void ZhasniHandler();
     public delegate void RozsvietHandler();
@@ -42,7 +39,6 @@ namespace LGR_Futbal.Forms
         public event AnimacieKarietPotvrdeneHandler OnAnimacieKarietPotvrdene;
         public event ZmenaRozlozeniaHandler OnZmenaRozlozenia;
 
-        private const string nazovProgramuString = "FutbalApp";
         private const string gifyAdresar = "Files\\Gify\\";
         private const string kartyAdresar = "Files\\Karty\\";
         private const string typyZapasovSubor = "Files\\Typy.xml";
@@ -71,8 +67,8 @@ namespace LGR_Futbal.Forms
         #endregion ATRIBUTY
 
 
-        public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int si, int vy, int dlzkaPolcasu, bool prerusenie, bool diakritika,
-            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, TabulaForm tf, int animacia, FarbyTabule farby, 
+        public SetupForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni, int si, int vy, int dlzkaPolcasu, bool prerusenie,
+            string nazovDom, string nazovHos, FutbalovyTim domaci, FutbalovyTim hostia, TabulaForm tf, int animacia, FarbyTabule farby,
             AnimacnaKonfiguracia konfiguracia, List<Rozhodca> roz, DBTimy dbt, DBHraci dbh, DBRozhodcovia dbr, DBZapasy dbz, FontyTabule f)
         {
             InitializeComponent();
@@ -93,12 +89,10 @@ namespace LGR_Futbal.Forms
             adresar = Directory.GetCurrentDirectory();
             NacitajNastaveniaAnimaciiGolov();
             farbyTabule = farby;
-            NastavHracovDomBtn.Enabled = true;
             if (domaciT == null)
             {
                 NastavHracovDomBtn.Enabled = false;
             }
-            NastavHracovHosBtn.Enabled = true;
             if (hostiaT == null)
             {
                 NastavHracovHosBtn.Enabled = false;
@@ -142,7 +136,6 @@ namespace LGR_Futbal.Forms
             vyskaNumUpDown.Value = vyska;
             dlzkaPolcasuNumUpDown.Value = dlzkaPolcasu;
             prerusenieCheckBox.Checked = prerusenie;
-            diakritikaCheckBox.Checked = diakritika;
 
             pozadieCheckBox.Checked = zobrazitPozadie;
             initNastaveniaCheckBox.Checked = zobrazitNastaveniaPoSpusteni;
@@ -174,7 +167,7 @@ namespace LGR_Futbal.Forms
 
         private void ResetBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete resetovať výsledkovú tabuľu?", nazovProgramuString, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete resetovať výsledkovú tabuľu?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 OnReset?.Invoke();
 
             Close();
@@ -344,7 +337,6 @@ namespace LGR_Futbal.Forms
                     foreach (ParametreZapasu pz in zoznamTypovZapasu)
                         TypyZapasovListBox.Items.Add(pz.ToString());
 
-                    TypyZapasovListBox.SelectedIndex = 0;
                     OdstranitTypBtn.Enabled = true;
                     VybratTypBtn.Enabled = true;
                 }
@@ -431,7 +423,7 @@ namespace LGR_Futbal.Forms
                 TypyZapasovListBox.Items.RemoveAt(index);
 
                 if (TypyZapasovListBox.Items.Count > 0)
-                    TypyZapasovListBox.SelectedIndex = 0;
+                    TypyZapasovListBox.SelectedIndex = TypyZapasovListBox.Items.Count - 1;
                 else
                 {
                     OdstranitTypBtn.Enabled = false;
@@ -591,21 +583,6 @@ namespace LGR_Futbal.Forms
             ZrusitTimyBtn.Enabled = true;
         }
 
-        private string OdstranDiakritiku(string vstup)
-        {
-            // Pomocna metoda na odstranenie diakritiky z retazca
-            vstup = vstup.Normalize(NormalizationForm.FormD);
-
-            StringBuilder stb = new StringBuilder();
-            for (int i = 0; i < vstup.Length; i++)
-            {
-                if (CharUnicodeInfo.GetUnicodeCategory(vstup[i]) != UnicodeCategory.NonSpacingMark)
-                    stb.Append(vstup[i]);
-            }
-
-            return stb.ToString();
-        }
-
         private void RozhodcoviaZapasBtn_Click(object sender, EventArgs e)
         {
             RozhodcoviaForm rf = new RozhodcoviaForm(rozhodcovia, dbrozhodcovia);
@@ -685,7 +662,7 @@ namespace LGR_Futbal.Forms
                 string nazov = fi.Name;
                 string novyNazov = adresar + "\\" + gifyAdresar + "\\" + nazov;
                 if (File.Exists(novyNazov))
-                    MessageBox.Show("Súbor s takýmto názvon už existuje!", nazovProgramuString, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Súbor s takýmto názvon už existuje!", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     File.Copy(ofd.FileName, novyNazov);
@@ -764,7 +741,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitZltaAnimBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 zltaKartaPictureBox.Image = null;
                 animKonfig.ZltaKartaAnimacia = string.Empty;
@@ -773,7 +750,7 @@ namespace LGR_Futbal.Forms
 
         private void ZrusitCervenaAnimBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", nazovProgramuString, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Naozaj chcete zrušiť obrázok (animáciu)?", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cervenaKartaPictureBox.Image = null;
                 animKonfig.CervenaKartaAnimacia = string.Empty;
@@ -831,9 +808,8 @@ namespace LGR_Futbal.Forms
                 int vyska = (int)vyskaNumUpDown.Value;
                 int dlzkaPolcasu = (int)dlzkaPolcasuNumUpDown.Value;
                 bool prerusenie = prerusenieCheckBox.Checked;
-                bool diak = diakritikaCheckBox.Checked;
                 int animCas = (int)animaciaNumUpDown.Value;
-                OnDataPotvrdene(poz, initSet, sirka, vyska, dlzkaPolcasu, prerusenie, diak, animCas);
+                OnDataPotvrdene(poz, initSet, sirka, vyska, dlzkaPolcasu, prerusenie, animCas);
             }
 
             if (OnNazvyLogaPotvrdene != null)
@@ -841,11 +817,6 @@ namespace LGR_Futbal.Forms
                 string dn = domNazov.Text;
                 string hn = hosNazov.Text;
 
-                if (diakritikaCheckBox.Checked)
-                {
-                    dn = OdstranDiakritiku(dn);
-                    hn = OdstranDiakritiku(hn);
-                }
                 if (domaciT != null && hostiaT != null)
                 {
                     OnNazvyLogaPotvrdene(dn, domaciT.LogoImage, hn, hostiaT.LogoImage);

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using LGR_Futbal.Setup;
 using System.Xml.Serialization;
 using System.IO;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
@@ -120,7 +120,7 @@ namespace LGR_Futbal.Forms
                 rozlozenieTabule.Polcas_Sirka = (int)PolcasSirkaNumeric.Value;
                 OnZmenaRozlozenia?.Invoke(rozlozenieTabule);
             }
-               
+
         }
 
         private void UlozitBtn_Click(object sender, EventArgs e)
@@ -234,7 +234,7 @@ namespace LGR_Futbal.Forms
                 NastavRozlozenie();
 
                 OnZmenaRozlozenia?.Invoke(rozlozenieTabule);
-            } 
+            }
         }
     }
 }

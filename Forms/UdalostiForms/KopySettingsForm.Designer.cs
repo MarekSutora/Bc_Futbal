@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms.UdalostiForms
+﻿namespace LGR_Futbal.Forms
 {
     partial class KopySettingsForm
     {

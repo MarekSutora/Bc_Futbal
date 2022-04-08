@@ -16,7 +16,7 @@ namespace LGR_Futbal.Setup
             form.Left = sekundarnyDisplej.WorkingArea.Left;
             form.Top = sekundarnyDisplej.WorkingArea.Top;
         }
-        
+
         public static void NastavVelkostiElementov(Form form, float pomer)
         {
             Label l;
@@ -40,7 +40,8 @@ namespace LGR_Futbal.Setup
                             l.Font = new Font(l.Font.Name, (float)Math.Floor(l.Font.Size * pomer));
                         }
                     }
-                } else if (item.GetType() == typeof(Button))
+                }
+                else if (item.GetType() == typeof(Button))
                 {
                     b = (Button)item;
                     b.Font = new Font(b.Font.Name, (float)Math.Floor(b.Font.Size * pomer));

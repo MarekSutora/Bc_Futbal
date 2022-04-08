@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
 using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
@@ -19,7 +18,7 @@ namespace LGR_Futbal.Forms
         {
             InitializeComponent();
 
-            float pomer = (float)sirka / this.Width;
+            float pomer = (float)sirka /Width;
             Scale(new SizeF(pomer, pomer));
 
             this.video = video;
@@ -32,8 +31,6 @@ namespace LGR_Futbal.Forms
             FileInfo fi = new FileInfo(video);
             VlcControl.SetMedia(fi);
             VlcControl.Play();
-
-
         }
 
         private void VlcControl_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
@@ -56,8 +53,8 @@ namespace LGR_Futbal.Forms
             });
             new Task(() =>
             {
-                if (this.InvokeRequired)
-                    this.Invoke(act);
+                if (InvokeRequired)
+                    Invoke(act);
                 else
                     act();
             }).Start();
@@ -66,8 +63,7 @@ namespace LGR_Futbal.Forms
 
         private void ReklamaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (OnReklamaKoniec != null)
-                OnReklamaKoniec();
+            OnReklamaKoniec?.Invoke();
         }
     }
 }

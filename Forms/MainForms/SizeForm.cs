@@ -6,20 +6,15 @@ using System.Windows.Forms;
 namespace LGR_Futbal.Forms
 {
     public delegate void NastaveniaPotvrdenieHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska);
-    
+
     public partial class SizeForm : Form
     {
-        #region ATRIBUTY
 
         public event NastaveniaPotvrdenieHandler OnNastaveniaPotvrdenie;
-        private bool aktivnaZmena = true;   
+        private bool aktivnaZmena = true;
         private bool koniec = true;
         private int sirka;
         private int vyska;
-
-        #endregion
-
-        #region KONSTRUKTOR A METODY
 
         public SizeForm(bool zobrazitPozadie, bool zobrazitNastaveniaPoSpusteni)
         {
@@ -93,7 +88,7 @@ namespace LGR_Futbal.Forms
             koniec = false;
             Close();
         }
-   
+
         public bool Vypnut()
         {
             return koniec;
@@ -103,8 +98,5 @@ namespace LGR_Futbal.Forms
         {
             Close();
         }
-
-        #endregion
-
     }
 }

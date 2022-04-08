@@ -1,31 +1,21 @@
-﻿using LGR_Futbal.Setup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using LGR_Futbal.Model;
+using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
 {
     public partial class CervenaKartaForm : Form
     {
-        #region Konstanty
-
         private const string fotkyAdresar = "Files\\Fotky\\";
         private const string kartyAdresar = "Files\\Karty\\";
-
-        #endregion
-
-        #region Atributy
 
         private Hrac prezentovanyHrac = null;
         private int pocetZobrazenychPanelov;
         private List<Panel> zobrazovane = null;
-
-        #endregion
-
-        #region Konstruktor a metody
 
         public CervenaKartaForm(int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
             string animZ, string animC)
@@ -67,7 +57,7 @@ namespace LGR_Futbal.Forms
             zobrazovane = new List<Panel>();
 
             // Nastavenie velkosti zobrazovacej plochy - zvacsenie na pozadovanu velkost
-            float pomer = (float)sirka / (float)this.Width;
+            float pomer = (float)sirka / Width;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -149,7 +139,7 @@ namespace LGR_Futbal.Forms
                 zobrazovane[pocetZobrazenychPanelov - 1].Visible = false;
                 zobrazovane[pocetZobrazenychPanelov].Visible = true;
                 if (zobrazovane[pocetZobrazenychPanelov] == uvodnyPanel2)
-                    this.BackColor = Color.Red;
+                    BackColor = Color.Red;
                 pocetZobrazenychPanelov++;
             }
         }
@@ -163,7 +153,5 @@ namespace LGR_Futbal.Forms
         {
             casovac.Enabled = false;
         }
-
-        #endregion
     }
 }

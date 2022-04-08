@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.skoreLabel = new System.Windows.Forms.Label();
             this.GenerovatCsvBtn = new System.Windows.Forms.Button();
             this.ZapasUdalostiDataGrid = new System.Windows.Forms.DataGridView();
@@ -76,20 +76,20 @@
             this.GenerovatCsvBtn.Name = "GenerovatCsvBtn";
             this.GenerovatCsvBtn.Size = new System.Drawing.Size(173, 30);
             this.GenerovatCsvBtn.TabIndex = 3;
-            this.GenerovatCsvBtn.Text = "vygenerovať súbor";
+            this.GenerovatCsvBtn.Text = "Vygenerovať súbor";
             this.GenerovatCsvBtn.UseVisualStyleBackColor = true;
             this.GenerovatCsvBtn.Click += new System.EventHandler(this.GenerovatCsvBtn_Click);
             // 
             // ZapasUdalostiDataGrid
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ZapasUdalostiDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ZapasUdalostiDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ZapasUdalostiDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ZapasUdalostiDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCas,
@@ -311,7 +311,7 @@
             this.PridatDoDatabazyBtn.Name = "PridatDoDatabazyBtn";
             this.PridatDoDatabazyBtn.Size = new System.Drawing.Size(173, 30);
             this.PridatDoDatabazyBtn.TabIndex = 22;
-            this.PridatDoDatabazyBtn.Text = "pridať do databázy";
+            this.PridatDoDatabazyBtn.Text = "Pridať do databázy";
             this.PridatDoDatabazyBtn.UseVisualStyleBackColor = true;
             this.PridatDoDatabazyBtn.Click += new System.EventHandler(this.PridatDoDatabazyBtn_Click);
             // 

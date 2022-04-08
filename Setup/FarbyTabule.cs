@@ -19,7 +19,7 @@ namespace LGR_Futbal.Setup
         public int NadpisHosFarba_g { get; set; }
         public int NadpisHosFarba_b { get; set; }
         public int SkoreFarba_r { get; set; }
-        public int SkoreFarba_g { get; set; }        
+        public int SkoreFarba_g { get; set; }
         public int SkoreFarba_b { get; set; }
 
         public FarbyTabule()
@@ -86,7 +86,7 @@ namespace LGR_Futbal.Setup
         {
             return Color.FromArgb(NadpisHosFarba_r, NadpisHosFarba_g, NadpisHosFarba_b);
         }
-        
+
         public Color GetSkoreFarba()
         {
             return Color.FromArgb(SkoreFarba_r, SkoreFarba_g, SkoreFarba_b);
