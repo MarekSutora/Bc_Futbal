@@ -38,6 +38,7 @@ namespace LGR_Futbal.Forms
                     rozhodcovia.Add(vsetciRozhodcovia[i]);
                 }
             }
+            Close();
         }
         private void OznacitVsetkoBtn_Click(object sender, EventArgs e)
         {
@@ -50,7 +51,7 @@ namespace LGR_Futbal.Forms
         {
             for (int i = 0; i < rozhodcoviaCheckListBox.Items.Count; i++)
             {
-                rozhodcoviaCheckListBox.SetItemChecked(i, true);
+                rozhodcoviaCheckListBox.SetItemChecked(i, false);
             }
         }
     }

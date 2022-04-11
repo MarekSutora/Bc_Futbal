@@ -98,7 +98,7 @@ namespace LGR_Futbal.Forms
         private void ZltaKartaSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("ŽLTÁ KARTA ÚSPEŠNE PRIDANÁ");
         }
 
         #endregion

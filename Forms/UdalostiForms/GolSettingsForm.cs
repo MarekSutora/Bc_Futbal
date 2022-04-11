@@ -158,7 +158,7 @@ namespace LGR_Futbal.Forms
         private void GolSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("GÓl PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("GÓl ÚSPEŠNE PRIDANÝ");
         }
     }
 }

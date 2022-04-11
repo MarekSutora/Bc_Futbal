@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Linq;
 using LGR_Futbal.Setup;
 
 namespace LGR_Futbal.Forms
@@ -13,8 +15,21 @@ namespace LGR_Futbal.Forms
 
         private void PozadieForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
-            WindowState = FormWindowState.Maximized;
+
+            if (Screen.AllScreens.Length == 1)
+            {
+                Screen primarnyDisplej = Screen.AllScreens[0];
+                int sirkaObr = primarnyDisplej.Bounds.Width;
+                float pomer = (float)sirkaObr / Width;
+                Scale(new SizeF(pomer, pomer));
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+                WindowState = FormWindowState.Maximized;
+            }
+            
         }
     }
 }

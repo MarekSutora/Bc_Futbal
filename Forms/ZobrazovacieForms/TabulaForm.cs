@@ -8,12 +8,14 @@ namespace LGR_Futbal.Forms
     public partial class TabulaForm : Form
     {
         private RozlozenieTabule rozlozenieTabule;
+        private int sirka;
 
         public TabulaForm(int sirkaPlochy)
         {
             InitializeComponent();
             SetDefaultFarby();
             float pomer = (float)sirkaPlochy / Width;
+            this.sirka = sirkaPlochy;
             Scale(new SizeF(pomer, pomer));
 
             LayoutSetter.NastavVelkostiElementov(this, pomer);
@@ -207,6 +209,9 @@ namespace LGR_Futbal.Forms
         private void TabulaForm_Load(object sender, EventArgs e)
         {
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
+
+            if (Screen.AllScreens.Length == 1)
+                this.Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
 
             ControlExtension.Draggable(logoDomaci, true);
             ControlExtension.Draggable(logoHostia, true);

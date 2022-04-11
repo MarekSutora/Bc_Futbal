@@ -100,7 +100,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "SELECT COUNT(*) FROM futbalovy_tim WHERE nazov_timu = :nazov AND datum_zrusenia IS NULL";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleParameter param = new OracleParameter("nazov", nazov);
                 param.OracleDbType = OracleDbType.Varchar2;
                 OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -137,7 +139,9 @@ namespace LGR_Futbal.Databaza
                     fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
                     fls.Close();
                 }
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter[] param = new OracleParameter[3];
 
@@ -186,7 +190,9 @@ namespace LGR_Futbal.Databaza
                         fls.Close();
                     }
                 }
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter[] param = new OracleParameter[4];
                 param[0] = cmd.Parameters.Add("id_kategoria", OracleDbType.Int32);
@@ -215,7 +221,9 @@ namespace LGR_Futbal.Databaza
             string cmdQuery = "UPDATE futbalovy_tim SET datum_zrusenia = SYSDATE, logo = NULL WHERE id_futbalovy_tim = :id_futbalovy_tim";
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
                 OracleCommand cmd = new OracleCommand(cmdQuery);
                 OracleParameter param = new OracleParameter();
                 param = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);

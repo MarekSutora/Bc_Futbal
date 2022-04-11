@@ -441,6 +441,7 @@ namespace LGR_Futbal.Databaza
             cmd.Parameters.Add(param);
             if (conn.State != ConnectionState.Open)
                 conn.Open();
+
             using (OracleDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())

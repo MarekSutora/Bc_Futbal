@@ -112,7 +112,7 @@ namespace LGR_Futbal.Forms
         private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("STRIEDANIE PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("STRIEDANIE ÚSPEŠNE PRIDANÉ");
         }
 
 

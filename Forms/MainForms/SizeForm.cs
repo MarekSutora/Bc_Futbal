@@ -25,7 +25,6 @@ namespace LGR_Futbal.Forms
 
             rozlisenieLabel.Text = sirka.ToString() + " x " + vyska.ToString();
 
-
             sirkaNumUpDown.Value = sirka;
             vyskaNumUpDown.Value = vyska;
 

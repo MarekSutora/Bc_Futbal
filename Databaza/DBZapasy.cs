@@ -23,10 +23,10 @@ namespace LGR_Futbal.Databaza
 
         public void PridajZapas(Zapas z)
         {
-            List<Udalost> udalosti;
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
 
                 string cmdQuery1 = "INSERT INTO zapas(id_futbalovy_tim_domaci, id_futbalovy_tim_hostia, datum_zapasu, domaci_skore, hostia_skore, dlzka_polcasu, nadstaveny_cas1, nadstaveny_cas2) " +
                     "VALUES(:id_futbalovy_tim_domaci, :id_futbalovy_tim_hostia, :datum_zapasu, :domaci_skore, :hostia_skore, :dlzka_polcasu, :nadstaveny_cas1, :nadstaveny_cas2)";
@@ -52,8 +52,6 @@ namespace LGR_Futbal.Databaza
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
-
-                udalosti = z.Udalosti;
 
                 cmd.Parameters.Clear();
                 string cmdQuery2 = "SELECT MAX(id_zapas) FROM zapas";
@@ -123,23 +121,23 @@ namespace LGR_Futbal.Databaza
                     "VALUES(:id_zapas, :aktualny_cas, :id_futbalovy_tim, :minuta, :polcas, :nadstavena_minuta, :typ_udalosti)";
                 OracleParameter[] param3 = new OracleParameter[7];
 
-                for (int i = 0; i < udalosti.Count; i++)
+                for (int i = 0; i < z.Udalosti.Count; i++)
                 {
                     cmd.CommandText = cmdQuery4;
                     param3[0] = cmd.Parameters.Add("id_zapas", OracleDbType.Int32);
                     param3[0].Value = IdZapas;
                     param3[1] = cmd.Parameters.Add("id_futbalovy_tim", OracleDbType.Int32);
-                    param3[1].Value = udalosti[i].IdFutbalovyTim;
+                    param3[1].Value = z.Udalosti[i].IdFutbalovyTim;
                     param3[2] = cmd.Parameters.Add("aktualny_cas", OracleDbType.Date);
-                    param3[2].Value = udalosti[i].AktualnyCas;
+                    param3[2].Value = z.Udalosti[i].AktualnyCas;
                     param3[3] = cmd.Parameters.Add("minuta", OracleDbType.Int32);
-                    param3[3].Value = udalosti[i].Minuta;
+                    param3[3].Value = z.Udalosti[i].Minuta;
                     param3[4] = cmd.Parameters.Add("polcas", OracleDbType.Int32);
-                    param3[4].Value = udalosti[i].Polcas;
+                    param3[4].Value = z.Udalosti[i].Polcas;
                     param3[5] = cmd.Parameters.Add("nadstavena_minuta", OracleDbType.Int32);
-                    param3[5].Value = udalosti[i].NadstavenaMinuta;
+                    param3[5].Value = z.Udalosti[i].NadstavenaMinuta;
                     param3[6] = cmd.Parameters.Add("typ_udalosti", OracleDbType.Int32);
-                    param3[6].Value = udalosti[i].Typ;
+                    param3[6].Value = z.Udalosti[i].Typ;
 
                     cmd.ExecuteNonQuery();
 
@@ -148,27 +146,27 @@ namespace LGR_Futbal.Databaza
                     cmd.CommandText = cmdQuery5;
                     int IdUdalost = int.Parse(cmd.ExecuteScalar().ToString());
 
-                    udalosti[i].IdUdalosti = IdUdalost;
+                    z.Udalosti[i].IdUdalosti = IdUdalost;
 
-                    switch (udalosti[i].Typ)
+                    switch (z.Udalosti[i].Typ)
                     {
                         case 1:
-                            InsertGol(udalosti[i]);
+                            InsertGol(z.Udalosti[i]);
                             break;
                         case 2:
-                            InsertKarta(udalosti[i]);
+                            InsertKarta(z.Udalosti[i]);
                             break;
                         case 3:
-                            InsertKop(udalosti[i]);
+                            InsertKop(z.Udalosti[i]);
                             break;
                         case 4:
-                            InsertOffside(udalosti[i]);
+                            InsertOffside(z.Udalosti[i]);
                             break;
                         case 5:
-                            InsertOut(udalosti[i]);
+                            InsertOut(z.Udalosti[i]);
                             break;
                         case 6:
-                            InsertStriedanie(udalosti[i]);
+                            InsertStriedanie(z.Udalosti[i]);
                             break;
                     }
                 }

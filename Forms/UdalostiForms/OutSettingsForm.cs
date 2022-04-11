@@ -84,7 +84,7 @@ namespace LGR_Futbal.Forms
         private void OutSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("OUT PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("OUT ÚSPEŠNE PRIDANÝ");
         }
 
 

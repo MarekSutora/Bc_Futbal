@@ -101,7 +101,7 @@ namespace LGR_Futbal.Forms
         private void KopySettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("KOP PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("KOP ÚSPEŠNE PRIDANÝ");
         }
 
     }

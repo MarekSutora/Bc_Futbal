@@ -83,9 +83,7 @@ namespace LGR_Futbal
         public RiadiaciForm()
         {
             InitializeComponent();
-
-            SetDefaultColors();
-            SizeForm sf = new SizeForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni);
+            SetDefaultColors();     
             fontyTabule = new FontyTabule();
             aktualnyAdresar = Directory.GetCurrentDirectory();
             rozlozenieTabule = new RozlozenieTabule();
@@ -93,6 +91,7 @@ namespace LGR_Futbal
             farbyPrezHostia = new FarbyPrezentacie();
             farbyPrezDomaci = new FarbyPrezentacie();
             LoadSettings();
+            SizeForm sf = new SizeForm(zobrazitPozadie, zobrazitNastaveniaPoSpusteni);
             // Zobrazenie formulara so zakladnymi nastaveniami tabule
             if (zobrazitNastaveniaPoSpusteni)
             {

@@ -82,7 +82,7 @@ namespace LGR_Futbal.Forms
         private void OffsideSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uspech && OnUdalostPridana != null)
-                OnUdalostPridana("OFFSIDE PRIDANÝ DO UDALOSTÍ");
+                OnUdalostPridana("OFFSIDE ÚSPEŠNE PRIDANÝ");
         }
 
 
