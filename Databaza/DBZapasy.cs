@@ -21,7 +21,32 @@ namespace LGR_Futbal.Databaza
             this.dbtimy = dbtimy;
         }
 
-        public void PridajZapas(Zapas z)
+        public void OdstranZapas(Zapas z)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                string cmdQuery = "DELETE FROM zapas WHERE id_zapas = :id_zapas";
+                OracleParameter param = new OracleParameter("id_zapas", z.IdZapasu);
+                param.OracleDbType = OracleDbType.Int32;
+                OracleCommand cmd = new OracleCommand(cmdQuery);
+                cmd.Parameters.Add(param);
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch
+            {
+                throw new Exception("Chyba pri práci s Databázou");
+            }
+        }
+
+        public void InsertZapas(Zapas z)
         {
             try
             {

@@ -336,7 +336,7 @@ namespace LGR_Futbal.Forms
             {
                 await Task.Run(() =>
                 {
-                    dbzapasy.PridajZapas(zapas);
+                    dbzapasy.InsertZapas(zapas);
                     uspech = true;
                 }).ConfigureAwait(false);
             }

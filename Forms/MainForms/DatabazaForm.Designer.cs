@@ -52,6 +52,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.editMenoTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.UpravaZrusFotoBtn = new System.Windows.Forms.Button();
             this.UpravaVlozFotoBtn = new System.Windows.Forms.Button();
             this.upravaFotoPictureBox = new System.Windows.Forms.PictureBox();
@@ -133,10 +134,10 @@
             this.VlozitRozhodcuBtn = new System.Windows.Forms.Button();
             this.RozhodcoviaListBox = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.OdstranitZapasBtn = new System.Windows.Forms.Button();
             this.VybratZapasBtn = new System.Windows.Forms.Button();
             this.ZapasyListBox = new System.Windows.Forms.ListBox();
             this.ZapasyBtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.UpravaHracaGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upravaFotoPictureBox)).BeginInit();
@@ -435,6 +436,20 @@
             this.label21.Size = new System.Drawing.Size(82, 17);
             this.label21.TabIndex = 31;
             this.label21.Text = "Číslo hráča:";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(269, 335);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 52);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "Vložiť     \r\nhráča     ";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // UpravaZrusFotoBtn
             // 
@@ -1420,6 +1435,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.OdstranitZapasBtn);
             this.tabPage4.Controls.Add(this.VybratZapasBtn);
             this.tabPage4.Controls.Add(this.ZapasyListBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -1430,14 +1446,29 @@
             this.tabPage4.Text = "ZÁPASY";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // OdstranitZapasBtn
+            // 
+            this.OdstranitZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OdstranitZapasBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitZapasBtn.Location = new System.Drawing.Point(695, 80);
+            this.OdstranitZapasBtn.Name = "OdstranitZapasBtn";
+            this.OdstranitZapasBtn.Size = new System.Drawing.Size(124, 62);
+            this.OdstranitZapasBtn.TabIndex = 2;
+            this.OdstranitZapasBtn.Text = "Odstrániť zápas";
+            this.OdstranitZapasBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OdstranitZapasBtn.UseVisualStyleBackColor = true;
+            this.OdstranitZapasBtn.Click += new System.EventHandler(this.OdstranitZapasBtn_Click);
+            // 
             // VybratZapasBtn
             // 
             this.VybratZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.VybratZapasBtn.Location = new System.Drawing.Point(730, 12);
+            this.VybratZapasBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.VybratZapasBtn.Location = new System.Drawing.Point(695, 12);
             this.VybratZapasBtn.Name = "VybratZapasBtn";
-            this.VybratZapasBtn.Size = new System.Drawing.Size(89, 30);
+            this.VybratZapasBtn.Size = new System.Drawing.Size(124, 62);
             this.VybratZapasBtn.TabIndex = 1;
-            this.VybratZapasBtn.Text = "Vybrať";
+            this.VybratZapasBtn.Text = "  Vybrať    zápas";
+            this.VybratZapasBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.VybratZapasBtn.UseVisualStyleBackColor = true;
             this.VybratZapasBtn.Click += new System.EventHandler(this.VybratZapasBtn_Click);
             // 
@@ -1448,7 +1479,7 @@
             this.ZapasyListBox.ItemHeight = 20;
             this.ZapasyListBox.Location = new System.Drawing.Point(6, 12);
             this.ZapasyListBox.Name = "ZapasyListBox";
-            this.ZapasyListBox.Size = new System.Drawing.Size(718, 384);
+            this.ZapasyListBox.Size = new System.Drawing.Size(683, 384);
             this.ZapasyListBox.TabIndex = 0;
             this.ZapasyListBox.DoubleClick += new System.EventHandler(this.ZapasyListBox_DoubleClick);
             // 
@@ -1464,20 +1495,6 @@
             this.ZapasyBtn.Text = "ZÁPASY";
             this.ZapasyBtn.UseVisualStyleBackColor = false;
             this.ZapasyBtn.Click += new System.EventHandler(this.ZapasyBtn_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(269, 335);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 52);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "Vložiť     \r\nhráča     ";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // DatabazaForm
             // 
@@ -1635,5 +1652,6 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox editCisloTextBox;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button OdstranitZapasBtn;
     }
 }
