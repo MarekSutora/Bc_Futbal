@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class HraciZapasForm
     {
@@ -87,7 +87,7 @@
             // OznacitNahradniciBtn
             // 
             this.OznacitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OznacitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.OznacitNahradniciBtn.Image = global::BC_Futbal.Properties.Resources.Spell;
             this.OznacitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OznacitNahradniciBtn.Location = new System.Drawing.Point(685, 196);
             this.OznacitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -102,7 +102,7 @@
             // ZrusitNahradniciBtn
             // 
             this.ZrusitNahradniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZrusitNahradniciBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitNahradniciBtn.Image = global::BC_Futbal.Properties.Resources.Stop_2;
             this.ZrusitNahradniciBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ZrusitNahradniciBtn.Location = new System.Drawing.Point(685, 253);
             this.ZrusitNahradniciBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -117,7 +117,7 @@
             // ZrusitZakladBtn
             // 
             this.ZrusitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZrusitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.ZrusitZakladBtn.Image = global::BC_Futbal.Properties.Resources.Stop_2;
             this.ZrusitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ZrusitZakladBtn.Location = new System.Drawing.Point(292, 253);
             this.ZrusitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -132,7 +132,7 @@
             // AktivovatBtn
             // 
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(685, 28);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -148,7 +148,7 @@
             // OznacitZakladBtn
             // 
             this.OznacitZakladBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OznacitZakladBtn.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.OznacitZakladBtn.Image = global::BC_Futbal.Properties.Resources.Spell;
             this.OznacitZakladBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OznacitZakladBtn.Location = new System.Drawing.Point(291, 196);
             this.OznacitZakladBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

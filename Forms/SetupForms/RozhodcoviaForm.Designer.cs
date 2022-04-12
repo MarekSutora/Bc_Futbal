@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class RozhodcoviaForm
     {
@@ -39,7 +39,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Image = global::LGR_Futbal.Properties.Resources.Spell;
+            this.button1.Image = global::BC_Futbal.Properties.Resources.Spell;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(296, 198);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -54,7 +54,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.button2.Image = global::BC_Futbal.Properties.Resources.Stop_2;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(296, 258);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -91,7 +91,7 @@
             // AktivovatBtn
             // 
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(296, 32);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

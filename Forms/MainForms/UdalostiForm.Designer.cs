@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class UdalostiForm
     {
@@ -340,6 +340,7 @@
             this.Controls.Add(this.GenerovatCsvBtn);
             this.Controls.Add(this.skoreLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "UdalostiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Udalosti";

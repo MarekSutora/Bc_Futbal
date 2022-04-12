@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class StriedanieForm
     {
@@ -110,7 +110,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::LGR_Futbal.Properties.Resources.Obrázok4;
+            this.pictureBox2.Image = global::BC_Futbal.Properties.Resources.Obrázok4;
             this.pictureBox2.Location = new System.Drawing.Point(6, 144);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -121,7 +121,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LGR_Futbal.Properties.Resources.Obrázok3;
+            this.pictureBox1.Image = global::BC_Futbal.Properties.Resources.Obrázok3;
             this.pictureBox1.Location = new System.Drawing.Point(128, 62);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";

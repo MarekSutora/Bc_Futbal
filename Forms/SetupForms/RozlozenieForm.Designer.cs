@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class RozlozenieForm
     {
@@ -421,7 +421,7 @@
             // 
             // NacitatBtn
             // 
-            this.NacitatBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
+            this.NacitatBtn.Image = global::BC_Futbal.Properties.Resources.Browse_3;
             this.NacitatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NacitatBtn.Location = new System.Drawing.Point(321, 322);
             this.NacitatBtn.Name = "NacitatBtn";
@@ -435,7 +435,7 @@
             // 
             // UlozitBtn
             // 
-            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
+            this.UlozitBtn.Image = global::BC_Futbal.Properties.Resources.Save;
             this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitBtn.Location = new System.Drawing.Point(167, 322);
             this.UlozitBtn.Name = "UlozitBtn";
@@ -449,7 +449,7 @@
             // 
             // AktivovatBtn
             // 
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(13, 321);
             this.AktivovatBtn.Name = "AktivovatBtn";
@@ -555,7 +555,7 @@
             // 
             // ObnovitBtn
             // 
-            this.ObnovitBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.ObnovitBtn.Image = global::BC_Futbal.Properties.Resources.Refresh;
             this.ObnovitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ObnovitBtn.Location = new System.Drawing.Point(474, 321);
             this.ObnovitBtn.Margin = new System.Windows.Forms.Padding(2);

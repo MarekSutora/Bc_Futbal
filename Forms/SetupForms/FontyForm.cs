@@ -1,4 +1,4 @@
-﻿using LGR_Futbal.Setup;
+﻿using BC_Futbal.Setup;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class FontyForm : Form
     {

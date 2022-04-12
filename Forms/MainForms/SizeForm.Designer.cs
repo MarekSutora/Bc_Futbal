@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class SizeForm
     {
@@ -191,7 +191,7 @@
             // 
             // zrusitButton
             // 
-            this.zrusitButton.Image = global::LGR_Futbal.Properties.Resources.Stop_2;
+            this.zrusitButton.Image = global::BC_Futbal.Properties.Resources.Stop_2;
             this.zrusitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.zrusitButton.Location = new System.Drawing.Point(247, 86);
             this.zrusitButton.Margin = new System.Windows.Forms.Padding(2);
@@ -205,7 +205,7 @@
             // 
             // aktivovatButton
             // 
-            this.aktivovatButton.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.aktivovatButton.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aktivovatButton.Location = new System.Drawing.Point(247, 8);
             this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2);

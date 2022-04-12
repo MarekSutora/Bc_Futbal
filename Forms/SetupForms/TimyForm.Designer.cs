@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class TimyForm
     {
@@ -65,7 +65,7 @@
             // AktivovatBtn
             // 
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(505, 45);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2);

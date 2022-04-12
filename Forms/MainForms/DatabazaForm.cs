@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using LGR_Futbal.Model;
-using LGR_Futbal.Databaza;
+using BC_Futbal.Model;
+using BC_Futbal.Databaza;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class DatabazaForm : Form
     {

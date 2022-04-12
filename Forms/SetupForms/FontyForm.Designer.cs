@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class FontyForm
     {
@@ -223,7 +223,7 @@
             // ObnovitBtn
             // 
             this.ObnovitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.ObnovitBtn.Image = global::LGR_Futbal.Properties.Resources.Refresh;
+            this.ObnovitBtn.Image = global::BC_Futbal.Properties.Resources.Refresh;
             this.ObnovitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ObnovitBtn.Location = new System.Drawing.Point(469, 179);
             this.ObnovitBtn.Margin = new System.Windows.Forms.Padding(2);
@@ -239,7 +239,7 @@
             // NacitatBtn
             // 
             this.NacitatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.NacitatBtn.Image = global::LGR_Futbal.Properties.Resources.Browse_3;
+            this.NacitatBtn.Image = global::BC_Futbal.Properties.Resources.Browse_3;
             this.NacitatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NacitatBtn.Location = new System.Drawing.Point(469, 67);
             this.NacitatBtn.Margin = new System.Windows.Forms.Padding(2);
@@ -255,7 +255,7 @@
             // UlozitBtn
             // 
             this.UlozitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Save;
+            this.UlozitBtn.Image = global::BC_Futbal.Properties.Resources.Save;
             this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitBtn.Location = new System.Drawing.Point(469, 123);
             this.UlozitBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -271,7 +271,7 @@
             // AktivovatBtn
             // 
             this.AktivovatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(469, 12);
             this.AktivovatBtn.Name = "AktivovatBtn";

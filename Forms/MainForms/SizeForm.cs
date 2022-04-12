@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void NastaveniaPotvrdenieHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska);
 

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace LGR_Futbal.Setup
+namespace BC_Futbal.Setup
 {
     public static class LayoutSetter
     {

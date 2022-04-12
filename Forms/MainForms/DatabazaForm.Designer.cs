@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class DatabazaForm
     {
@@ -301,7 +301,7 @@
             // UlozitUpravaHracaBtn
             // 
             this.UlozitUpravaHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UlozitUpravaHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitUpravaHracaBtn.Image = global::BC_Futbal.Properties.Resources.Rename___Edit;
             this.UlozitUpravaHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitUpravaHracaBtn.Location = new System.Drawing.Point(269, 335);
             this.UlozitUpravaHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -440,7 +440,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
+            this.button3.Image = global::BC_Futbal.Properties.Resources.Add_Card;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(269, 335);
             this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -571,7 +571,7 @@
             // UlozitHracaBtn
             // 
             this.UlozitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UlozitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitHracaBtn.Image = global::BC_Futbal.Properties.Resources.Rename___Edit;
             this.UlozitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitHracaBtn.Location = new System.Drawing.Point(269, 335);
             this.UlozitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -710,7 +710,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Image = global::LGR_Futbal.Properties.Resources.Add_Card;
+            this.button2.Image = global::BC_Futbal.Properties.Resources.Add_Card;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(269, 335);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -790,7 +790,7 @@
             // 
             this.OdstranitHracaBtn.Enabled = false;
             this.OdstranitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OdstranitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitHracaBtn.Image = global::BC_Futbal.Properties.Resources.Delete;
             this.OdstranitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OdstranitHracaBtn.Location = new System.Drawing.Point(278, 164);
             this.OdstranitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -806,7 +806,7 @@
             // 
             this.UpravitHracaBtn.Enabled = false;
             this.UpravitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UpravitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.UpravitHracaBtn.Image = global::BC_Futbal.Properties.Resources.Fonts_2;
             this.UpravitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpravitHracaBtn.Location = new System.Drawing.Point(278, 101);
             this.UpravitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -821,7 +821,7 @@
             // VlozitHracaBtn
             // 
             this.VlozitHracaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.VlozitHracaBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitHracaBtn.Image = global::BC_Futbal.Properties.Resources.Add_Folder;
             this.VlozitHracaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.VlozitHracaBtn.Location = new System.Drawing.Point(278, 38);
             this.VlozitHracaBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -867,7 +867,7 @@
             // 
             this.OdstranitTimBtn.Enabled = false;
             this.OdstranitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OdstranitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitTimBtn.Image = global::BC_Futbal.Properties.Resources.Delete;
             this.OdstranitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OdstranitTimBtn.Location = new System.Drawing.Point(277, 153);
             this.OdstranitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -883,7 +883,7 @@
             // 
             this.ZmenitTimBtn.Enabled = false;
             this.ZmenitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZmenitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.ZmenitTimBtn.Image = global::BC_Futbal.Properties.Resources.Fonts_2;
             this.ZmenitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ZmenitTimBtn.Location = new System.Drawing.Point(277, 90);
             this.ZmenitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -898,7 +898,7 @@
             // VlozitTimBtn
             // 
             this.VlozitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.VlozitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitTimBtn.Image = global::BC_Futbal.Properties.Resources.Add_Folder;
             this.VlozitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.VlozitTimBtn.Location = new System.Drawing.Point(277, 27);
             this.VlozitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -985,7 +985,7 @@
             // UlozitTimBtn
             // 
             this.UlozitTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UlozitTimBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.UlozitTimBtn.Image = global::BC_Futbal.Properties.Resources.Add_Folder;
             this.UlozitTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitTimBtn.Location = new System.Drawing.Point(279, 181);
             this.UlozitTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1088,7 +1088,7 @@
             // PotvrditUpravuTimBtn
             // 
             this.PotvrditUpravuTimBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PotvrditUpravuTimBtn.Image = global::LGR_Futbal.Properties.Resources.Write;
+            this.PotvrditUpravuTimBtn.Image = global::BC_Futbal.Properties.Resources.Write;
             this.PotvrditUpravuTimBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PotvrditUpravuTimBtn.Location = new System.Drawing.Point(279, 181);
             this.PotvrditUpravuTimBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1224,7 +1224,7 @@
             // PotrvditUpravuRozhodcuBtn
             // 
             this.PotrvditUpravuRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PotrvditUpravuRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.PotrvditUpravuRozhodcuBtn.Image = global::BC_Futbal.Properties.Resources.Rename___Edit;
             this.PotrvditUpravuRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PotrvditUpravuRozhodcuBtn.Location = new System.Drawing.Point(132, 134);
             this.PotrvditUpravuRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1319,7 +1319,7 @@
             // UlozitRozhodcuBtn
             // 
             this.UlozitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.UlozitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Rename___Edit;
+            this.UlozitRozhodcuBtn.Image = global::BC_Futbal.Properties.Resources.Rename___Edit;
             this.UlozitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitRozhodcuBtn.Location = new System.Drawing.Point(132, 134);
             this.UlozitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1375,7 +1375,7 @@
             // 
             this.OdstranitRozhodcuBtn.Enabled = false;
             this.OdstranitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.OdstranitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitRozhodcuBtn.Image = global::BC_Futbal.Properties.Resources.Delete;
             this.OdstranitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OdstranitRozhodcuBtn.Location = new System.Drawing.Point(272, 157);
             this.OdstranitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1392,7 +1392,7 @@
             // 
             this.UpravaRozhodcuBtn.Enabled = false;
             this.UpravaRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.UpravaRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Fonts_2;
+            this.UpravaRozhodcuBtn.Image = global::BC_Futbal.Properties.Resources.Fonts_2;
             this.UpravaRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpravaRozhodcuBtn.Location = new System.Drawing.Point(272, 94);
             this.UpravaRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1408,7 +1408,7 @@
             // VlozitRozhodcuBtn
             // 
             this.VlozitRozhodcuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.VlozitRozhodcuBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.VlozitRozhodcuBtn.Image = global::BC_Futbal.Properties.Resources.Add_Folder;
             this.VlozitRozhodcuBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.VlozitRozhodcuBtn.Location = new System.Drawing.Point(272, 34);
             this.VlozitRozhodcuBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1449,7 +1449,7 @@
             // OdstranitZapasBtn
             // 
             this.OdstranitZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OdstranitZapasBtn.Image = global::LGR_Futbal.Properties.Resources.Delete;
+            this.OdstranitZapasBtn.Image = global::BC_Futbal.Properties.Resources.Delete;
             this.OdstranitZapasBtn.Location = new System.Drawing.Point(695, 80);
             this.OdstranitZapasBtn.Name = "OdstranitZapasBtn";
             this.OdstranitZapasBtn.Size = new System.Drawing.Size(124, 62);
@@ -1462,7 +1462,7 @@
             // VybratZapasBtn
             // 
             this.VybratZapasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.VybratZapasBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.VybratZapasBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.VybratZapasBtn.Location = new System.Drawing.Point(695, 12);
             this.VybratZapasBtn.Name = "VybratZapasBtn";
             this.VybratZapasBtn.Size = new System.Drawing.Size(124, 62);

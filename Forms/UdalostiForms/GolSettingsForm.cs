@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using LGR_Futbal.Model;
+using BC_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void GoalSettingsConfirmedHandler(Hrac h, bool priznak, int novyStav);
     public delegate void GoalValueConfirmedHandler(bool domPriznak, int hodnota);

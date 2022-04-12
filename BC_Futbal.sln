@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGR_Futbal", "LGR_Futbal.csproj", "{7EB714CA-7E20-4ABD-8FCB-75F26A5649CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BC_Futbal", "BC_Futbal.csproj", "{7EB714CA-7E20-4ABD-8FCB-75F26A5649CA}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "..\AppSetup\AppSetup.vdproj", "{F535A4B5-6D89-4305-B309-4C45775E22C9}"
 EndProject

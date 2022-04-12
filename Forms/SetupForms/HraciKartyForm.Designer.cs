@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class HraciKartyForm
     {
@@ -93,7 +93,7 @@
             // UlozitBtn
             // 
             this.UlozitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UlozitBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.UlozitBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.UlozitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitBtn.Location = new System.Drawing.Point(652, 32);
             this.UlozitBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

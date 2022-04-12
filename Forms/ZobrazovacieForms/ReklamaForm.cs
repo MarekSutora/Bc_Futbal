@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using LGR_Futbal.Setup;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void ReklamaKoniecHandler();
     public partial class ReklamaForm : Form

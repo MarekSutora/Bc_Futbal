@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using LGR_Futbal.Model;
+using BC_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void HracZltaKartaSelectedHandler(Hrac hrac);
 
@@ -54,7 +54,6 @@ namespace LGR_Futbal.Forms
                 if (futbalovyTim == null || HraciLB.SelectedIndex == -1)
                 {
                     karta.TypKarty = 'Z';
-
                     zapas.Udalosti.Add(karta);
                     uspech = true;
                     OnHracZltaKartaSelected(null);

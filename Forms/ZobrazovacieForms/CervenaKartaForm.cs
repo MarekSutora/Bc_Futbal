@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using LGR_Futbal.Model;
-using LGR_Futbal.Setup;
+using BC_Futbal.Model;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class CervenaKartaForm : Form
     {

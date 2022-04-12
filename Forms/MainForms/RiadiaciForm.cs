@@ -6,12 +6,12 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using LGR_Futbal.Databaza;
-using LGR_Futbal.Forms;
-using LGR_Futbal.Model;
-using LGR_Futbal.Setup;
+using BC_Futbal.Databaza;
+using BC_Futbal.Forms;
+using BC_Futbal.Model;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal
+namespace BC_Futbal
 {
     public delegate void SetTextCallback();
     public delegate void UdalostPridanaHandler(string text);
@@ -852,6 +852,8 @@ namespace LGR_Futbal
                 bolReset = true;
                 logoDomaci.Image = null;
                 logoHostia.Image = null;
+                hostiaLabel.Text = "HOSTIA";
+                domaciLabel.Text = "DOMÁCI";
                 tabulaForm.ZobrazLogoDomaci(null);
                 tabulaForm.ZobrazLogoHostia(null);
                 KoniecPolcasu(2, 0);
@@ -1210,6 +1212,7 @@ namespace LGR_Futbal
             karta.Polcas = polcas;
             karta.NadstavenaMinuta = nadstavenaMinuta;
             karta.AktualnyCas = DateTime.Now;
+            karta.Typ = 2;
 
             CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timDomaci, zapas, true, karta);
             cksf.OnHracCervenaKartaSelected += Cksf_OnHracCervenaKartaSelected;
@@ -1229,6 +1232,7 @@ namespace LGR_Futbal
             karta.Polcas = polcas;
             karta.NadstavenaMinuta = nadstavenaMinuta;
             karta.AktualnyCas = DateTime.Now;
+            karta.Typ = 2;
 
             CervenaKartaSettingsForm cksf = new CervenaKartaSettingsForm(timHostia, zapas, false, karta);
             cksf.OnHracCervenaKartaSelected += Cksf_OnHracCervenaKartaSelected;

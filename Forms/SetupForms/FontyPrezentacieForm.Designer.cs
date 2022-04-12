@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class FontyPrezentacieForm
     {
@@ -179,7 +179,7 @@
             // 
             // AktivovatBtn
             // 
-            this.AktivovatBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.AktivovatBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.AktivovatBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AktivovatBtn.Location = new System.Drawing.Point(547, 5);
             this.AktivovatBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

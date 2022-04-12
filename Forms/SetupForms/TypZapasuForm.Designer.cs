@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class TypZapasuForm
     {
@@ -41,7 +41,7 @@
             // PridatTypBtn
             // 
             this.PridatTypBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PridatTypBtn.Image = global::LGR_Futbal.Properties.Resources.Forward___Next;
+            this.PridatTypBtn.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.PridatTypBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PridatTypBtn.Location = new System.Drawing.Point(365, 12);
             this.PridatTypBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

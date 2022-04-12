@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="NazovProgramu" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LGR_Futbal</Value>
+      <Value Profile="(Default)">BC_Futbal</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Oracle.ManagedDataAccess.Client;
 
-namespace LGR_Futbal.Databaza
+namespace BC_Futbal.Databaza
 {
     public class Pripojenie
     {

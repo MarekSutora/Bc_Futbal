@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace LGR_Futbal.Setup
+namespace BC_Futbal.Setup
 {
     [Serializable]
     public class FontyTabule

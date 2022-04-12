@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 using System.Drawing;
 using System.Linq;
-using LGR_Futbal.Setup;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class PozadieForm : Form
     {

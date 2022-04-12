@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void ZmenaCasuHandler(int novaMin, int novaSek);
 

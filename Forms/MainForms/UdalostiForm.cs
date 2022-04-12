@@ -4,10 +4,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading.Tasks;
-using LGR_Futbal.Model;
-using LGR_Futbal.Databaza;
+using BC_Futbal.Model;
+using BC_Futbal.Databaza;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class UdalostiForm : Form
     {
@@ -60,9 +60,7 @@ namespace LGR_Futbal.Forms
                 }
             }
 
-            adresar = Directory.GetCurrentDirectory() + "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
-                + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
-                + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
+            
 
             skoreLabel.Text = zapas.NazovDomaci + " " + zapas.DomaciSkore + ":" + zapas.HostiaSkore + " " + zapas.NazovHostia;
             udalosti = zapas.Udalosti;
@@ -70,11 +68,14 @@ namespace LGR_Futbal.Forms
         }
         private void GenerovatCsvBtn_Click(object sender, EventArgs e)
         {
+            adresar = Directory.GetCurrentDirectory() + "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+                + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
+                + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
 
             bool uspech = false;
             try
             {
-                using (var sw = new StreamWriter(File.Open(adresar, FileMode.OpenOrCreate), Encoding.UTF8))
+                using (var sw = new StreamWriter(File.Open(adresar, FileMode.Create), Encoding.UTF8))
                 {
                     string line = string.Format("{0};{1}", "Tím 1: ", zapas.NazovDomaci);
                     sw.WriteLine(line);

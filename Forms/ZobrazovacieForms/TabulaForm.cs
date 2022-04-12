@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using LGR_Futbal.Setup;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public partial class TabulaForm : Form
     {
@@ -133,6 +133,8 @@ namespace LGR_Futbal.Forms
 
         public void Reset()
         {
+            hostiaLabel.Text = "HOSTIA";
+            domaciLabel.Text = "DOMÁCI";
             SetSkoreDomaci(0);
             SetSkoreHostia(0);
             SetPolcas(0, 0, false);

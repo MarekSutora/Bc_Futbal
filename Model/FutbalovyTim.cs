@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
 
-namespace LGR_Futbal.Model
+namespace BC_Futbal.Model
 {
     public class FutbalovyTim
     {

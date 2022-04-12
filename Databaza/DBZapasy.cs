@@ -3,9 +3,9 @@ using System.Data;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
 using System.Threading.Tasks;
-using LGR_Futbal.Model;
+using BC_Futbal.Model;
 
-namespace LGR_Futbal.Databaza
+namespace BC_Futbal.Databaza
 {
     public class DBZapasy
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LGR_Futbal.Properties {
+namespace BC_Futbal.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace LGR_Futbal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LGR_Futbal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("BC_Futbal")]
         public string NazovProgramu {
             get {
                 return ((string)(this["NazovProgramu"]));

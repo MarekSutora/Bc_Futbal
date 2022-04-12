@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LGR_Futbal.Model
+namespace BC_Futbal.Model
 {
     public class Rozhodca : Osoba
     {

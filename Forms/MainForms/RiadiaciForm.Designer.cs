@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal
+﻿namespace BC_Futbal
 {
     partial class RiadiaciForm
     {
@@ -693,7 +693,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RiadiaciForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LGR Futbal";
+            this.Text = "BC Futbal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RiadiaciForm_FormClosing);
             this.Load += new System.EventHandler(this.RiadiaciForm_Load);

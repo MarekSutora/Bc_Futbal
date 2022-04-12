@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class FarbyPrezentacieForm
     {
@@ -55,7 +55,7 @@
             // UlozitFarbyBtn
             // 
             this.UlozitFarbyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UlozitFarbyBtn.Image = global::LGR_Futbal.Properties.Resources.Add_Folder;
+            this.UlozitFarbyBtn.Image = global::BC_Futbal.Properties.Resources.Add_Folder;
             this.UlozitFarbyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UlozitFarbyBtn.Location = new System.Drawing.Point(613, 8);
             this.UlozitFarbyBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

@@ -1,4 +1,4 @@
-﻿namespace LGR_Futbal.Forms
+﻿namespace BC_Futbal.Forms
 {
     partial class CervenaKartaForm
     {
@@ -74,7 +74,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LGR_Futbal.Properties.Resources.yc;
+            this.pictureBox1.Image = global::BC_Futbal.Properties.Resources.yc;
             this.pictureBox1.Location = new System.Drawing.Point(0, 1);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -167,7 +167,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::LGR_Futbal.Properties.Resources.rc;
+            this.pictureBox2.Image = global::BC_Futbal.Properties.Resources.rc;
             this.pictureBox2.Location = new System.Drawing.Point(0, 1);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";

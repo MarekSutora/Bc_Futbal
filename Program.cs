@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace LGR_Futbal
+namespace BC_Futbal
 {
     static class Program
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using LGR_Futbal.Setup;
+using BC_Futbal.Setup;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void NovyTypZapasuHandler(ParametreZapasu parZap);
 

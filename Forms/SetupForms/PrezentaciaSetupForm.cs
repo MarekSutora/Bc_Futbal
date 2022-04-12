@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using LGR_Futbal.Setup;
-using LGR_Futbal.Model;
+using BC_Futbal.Setup;
+using BC_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void VyberTimuNaPrezentaciuHandler(FutbalovyTim tim, FarbyPrezentacie farby);
     public delegate void ZastavenieHandlerPrezentacie();

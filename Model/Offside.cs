@@ -1,6 +1,6 @@
 ﻿
 
-namespace LGR_Futbal.Model
+namespace BC_Futbal.Model
 {
     public class Offside : Udalost
     {

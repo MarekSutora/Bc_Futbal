@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LGR_Futbal.Setup
+namespace BC_Futbal.Setup
 {
     [Serializable]
     public class RozlozenieTabule

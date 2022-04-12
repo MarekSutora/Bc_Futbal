@@ -6,11 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using LGR_Futbal.Databaza;
-using LGR_Futbal.Setup;
-using LGR_Futbal.Model;
+using BC_Futbal.Databaza;
+using BC_Futbal.Setup;
+using BC_Futbal.Model;
 
-namespace LGR_Futbal.Forms
+namespace BC_Futbal.Forms
 {
     public delegate void DataPotvrdeneHandler(bool zobrazovatPozadie, bool zobrazNastavenia, int sirka, int vyska, int cas, bool prerusenie, int animacia);
     public delegate void ResetHandler();
