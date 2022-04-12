@@ -76,7 +76,7 @@
             // 
             this.DomZltaKartaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.DomZltaKartaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DomZltaKartaBtn.Location = new System.Drawing.Point(7, 21);
+            this.DomZltaKartaBtn.Location = new System.Drawing.Point(12, 25);
             this.DomZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomZltaKartaBtn.Name = "DomZltaKartaBtn";
             this.DomZltaKartaBtn.Size = new System.Drawing.Size(147, 36);
@@ -91,7 +91,7 @@
             // 
             this.HosZltaKartaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.HosZltaKartaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HosZltaKartaBtn.Location = new System.Drawing.Point(684, 21);
+            this.HosZltaKartaBtn.Location = new System.Drawing.Point(689, 25);
             this.HosZltaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosZltaKartaBtn.Name = "HosZltaKartaBtn";
             this.HosZltaKartaBtn.Size = new System.Drawing.Size(147, 36);
@@ -106,7 +106,7 @@
             // 
             this.DomCervenaKartaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.DomCervenaKartaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DomCervenaKartaBtn.Location = new System.Drawing.Point(7, 61);
+            this.DomCervenaKartaBtn.Location = new System.Drawing.Point(12, 65);
             this.DomCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomCervenaKartaBtn.Name = "DomCervenaKartaBtn";
             this.DomCervenaKartaBtn.Size = new System.Drawing.Size(147, 36);
@@ -121,7 +121,7 @@
             // 
             this.HosCervenaKartaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.HosCervenaKartaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HosCervenaKartaBtn.Location = new System.Drawing.Point(684, 61);
+            this.HosCervenaKartaBtn.Location = new System.Drawing.Point(689, 65);
             this.HosCervenaKartaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosCervenaKartaBtn.Name = "HosCervenaKartaBtn";
             this.HosCervenaKartaBtn.Size = new System.Drawing.Size(147, 36);
@@ -136,7 +136,7 @@
             // 
             this.DomZmenaStavuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.DomZmenaStavuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DomZmenaStavuBtn.Location = new System.Drawing.Point(9, 119);
+            this.DomZmenaStavuBtn.Location = new System.Drawing.Point(14, 123);
             this.DomZmenaStavuBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomZmenaStavuBtn.Name = "DomZmenaStavuBtn";
             this.DomZmenaStavuBtn.Size = new System.Drawing.Size(147, 36);
@@ -151,7 +151,7 @@
             // 
             this.HosZmenaStavuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.HosZmenaStavuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HosZmenaStavuBtn.Location = new System.Drawing.Point(684, 119);
+            this.HosZmenaStavuBtn.Location = new System.Drawing.Point(689, 123);
             this.HosZmenaStavuBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosZmenaStavuBtn.Name = "HosZmenaStavuBtn";
             this.HosZmenaStavuBtn.Size = new System.Drawing.Size(147, 36);
@@ -170,7 +170,7 @@
             this.DomStriedanieBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DomStriedanieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DomStriedanieBtn.ForeColor = System.Drawing.Color.White;
-            this.DomStriedanieBtn.Location = new System.Drawing.Point(9, 159);
+            this.DomStriedanieBtn.Location = new System.Drawing.Point(14, 163);
             this.DomStriedanieBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomStriedanieBtn.Name = "DomStriedanieBtn";
             this.DomStriedanieBtn.Size = new System.Drawing.Size(147, 36);
@@ -189,7 +189,7 @@
             this.HosStriedanieBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HosStriedanieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HosStriedanieBtn.ForeColor = System.Drawing.Color.White;
-            this.HosStriedanieBtn.Location = new System.Drawing.Point(684, 159);
+            this.HosStriedanieBtn.Location = new System.Drawing.Point(689, 163);
             this.HosStriedanieBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosStriedanieBtn.Name = "HosStriedanieBtn";
             this.HosStriedanieBtn.Size = new System.Drawing.Size(147, 36);
@@ -205,7 +205,7 @@
             this.PolcasBtn.BackColor = System.Drawing.Color.Black;
             this.PolcasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PolcasBtn.ForeColor = System.Drawing.Color.Lime;
-            this.PolcasBtn.Location = new System.Drawing.Point(325, 172);
+            this.PolcasBtn.Location = new System.Drawing.Point(330, 176);
             this.PolcasBtn.Margin = new System.Windows.Forms.Padding(2);
             this.PolcasBtn.Name = "PolcasBtn";
             this.PolcasBtn.Size = new System.Drawing.Size(187, 78);
@@ -220,7 +220,7 @@
             // 
             this.hostiaLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hostiaLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.hostiaLabel.Location = new System.Drawing.Point(473, 108);
+            this.hostiaLabel.Location = new System.Drawing.Point(478, 112);
             this.hostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hostiaLabel.Name = "hostiaLabel";
             this.hostiaLabel.Size = new System.Drawing.Size(207, 37);
@@ -232,7 +232,7 @@
             // 
             this.domaciLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domaciLabel.ForeColor = System.Drawing.Color.Aqua;
-            this.domaciLabel.Location = new System.Drawing.Point(159, 108);
+            this.domaciLabel.Location = new System.Drawing.Point(164, 112);
             this.domaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.domaciLabel.Name = "domaciLabel";
             this.domaciLabel.Size = new System.Drawing.Size(207, 37);
@@ -244,7 +244,7 @@
             // 
             this.skoreHostiaLabel.Font = new System.Drawing.Font("Arial", 57.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreHostiaLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreHostiaLabel.Location = new System.Drawing.Point(517, 154);
+            this.skoreHostiaLabel.Location = new System.Drawing.Point(522, 158);
             this.skoreHostiaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreHostiaLabel.Name = "skoreHostiaLabel";
             this.skoreHostiaLabel.Size = new System.Drawing.Size(164, 96);
@@ -256,7 +256,7 @@
             // 
             this.skoreDomaciLabel.Font = new System.Drawing.Font("Arial", 57.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.skoreDomaciLabel.ForeColor = System.Drawing.Color.Red;
-            this.skoreDomaciLabel.Location = new System.Drawing.Point(159, 154);
+            this.skoreDomaciLabel.Location = new System.Drawing.Point(164, 158);
             this.skoreDomaciLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skoreDomaciLabel.Name = "skoreDomaciLabel";
             this.skoreDomaciLabel.Size = new System.Drawing.Size(164, 96);
@@ -268,7 +268,7 @@
             // 
             this.casLabel.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casLabel.ForeColor = System.Drawing.Color.Lime;
-            this.casLabel.Location = new System.Drawing.Point(326, 11);
+            this.casLabel.Location = new System.Drawing.Point(331, 15);
             this.casLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.casLabel.Name = "casLabel";
             this.casLabel.Size = new System.Drawing.Size(187, 75);
@@ -280,7 +280,7 @@
             // 
             this.casPodrobneLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.casPodrobneLabel.ForeColor = System.Drawing.Color.Lime;
-            this.casPodrobneLabel.Location = new System.Drawing.Point(326, 86);
+            this.casPodrobneLabel.Location = new System.Drawing.Point(331, 90);
             this.casPodrobneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.casPodrobneLabel.Name = "casPodrobneLabel";
             this.casPodrobneLabel.Size = new System.Drawing.Size(187, 28);
@@ -293,7 +293,7 @@
             this.infoLabel2.AutoSize = true;
             this.infoLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoLabel2.ForeColor = System.Drawing.Color.White;
-            this.infoLabel2.Location = new System.Drawing.Point(327, 311);
+            this.infoLabel2.Location = new System.Drawing.Point(332, 315);
             this.infoLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel2.Name = "infoLabel2";
             this.infoLabel2.Size = new System.Drawing.Size(134, 17);
@@ -305,7 +305,7 @@
             this.polcasLabel.AutoSize = true;
             this.polcasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.polcasLabel.ForeColor = System.Drawing.Color.White;
-            this.polcasLabel.Location = new System.Drawing.Point(488, 311);
+            this.polcasLabel.Location = new System.Drawing.Point(493, 315);
             this.polcasLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.polcasLabel.Name = "polcasLabel";
             this.polcasLabel.Size = new System.Drawing.Size(24, 17);
@@ -317,7 +317,7 @@
             this.infoLabel3.AutoSize = true;
             this.infoLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoLabel3.ForeColor = System.Drawing.Color.White;
-            this.infoLabel3.Location = new System.Drawing.Point(327, 295);
+            this.infoLabel3.Location = new System.Drawing.Point(332, 299);
             this.infoLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel3.Name = "infoLabel3";
             this.infoLabel3.Size = new System.Drawing.Size(151, 17);
@@ -329,7 +329,7 @@
             this.prerusenieLabel.AutoSize = true;
             this.prerusenieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.prerusenieLabel.ForeColor = System.Drawing.Color.White;
-            this.prerusenieLabel.Location = new System.Drawing.Point(488, 295);
+            this.prerusenieLabel.Location = new System.Drawing.Point(493, 299);
             this.prerusenieLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.prerusenieLabel.Name = "prerusenieLabel";
             this.prerusenieLabel.Size = new System.Drawing.Size(27, 17);
@@ -341,7 +341,7 @@
             this.UkoncitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.UkoncitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UkoncitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UkoncitBtn.Location = new System.Drawing.Point(685, 379);
+            this.UkoncitBtn.Location = new System.Drawing.Point(690, 383);
             this.UkoncitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UkoncitBtn.Name = "UkoncitBtn";
             this.UkoncitBtn.Size = new System.Drawing.Size(146, 46);
@@ -357,7 +357,7 @@
             this.PrezentaciaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.PrezentaciaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PrezentaciaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PrezentaciaBtn.Location = new System.Drawing.Point(287, 344);
+            this.PrezentaciaBtn.Location = new System.Drawing.Point(292, 348);
             this.PrezentaciaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.PrezentaciaBtn.Name = "PrezentaciaBtn";
             this.PrezentaciaBtn.Size = new System.Drawing.Size(130, 40);
@@ -373,7 +373,7 @@
             this.NadstCasBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.NadstCasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.NadstCasBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NadstCasBtn.Location = new System.Drawing.Point(287, 385);
+            this.NadstCasBtn.Location = new System.Drawing.Point(292, 389);
             this.NadstCasBtn.Margin = new System.Windows.Forms.Padding(2);
             this.NadstCasBtn.Name = "NadstCasBtn";
             this.NadstCasBtn.Size = new System.Drawing.Size(130, 40);
@@ -389,7 +389,7 @@
             this.SetupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.SetupBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SetupBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SetupBtn.Location = new System.Drawing.Point(11, 379);
+            this.SetupBtn.Location = new System.Drawing.Point(16, 383);
             this.SetupBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SetupBtn.Name = "SetupBtn";
             this.SetupBtn.Size = new System.Drawing.Size(146, 46);
@@ -405,7 +405,7 @@
             this.ZmenitCasBtn.BackColor = System.Drawing.Color.Black;
             this.ZmenitCasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZmenitCasBtn.ForeColor = System.Drawing.Color.Lime;
-            this.ZmenitCasBtn.Location = new System.Drawing.Point(325, 254);
+            this.ZmenitCasBtn.Location = new System.Drawing.Point(330, 258);
             this.ZmenitCasBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ZmenitCasBtn.Name = "ZmenitCasBtn";
             this.ZmenitCasBtn.Size = new System.Drawing.Size(187, 39);
@@ -424,7 +424,7 @@
             this.DomKopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DomKopyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DomKopyBtn.ForeColor = System.Drawing.Color.White;
-            this.DomKopyBtn.Location = new System.Drawing.Point(9, 199);
+            this.DomKopyBtn.Location = new System.Drawing.Point(14, 203);
             this.DomKopyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomKopyBtn.Name = "DomKopyBtn";
             this.DomKopyBtn.Size = new System.Drawing.Size(147, 36);
@@ -440,7 +440,7 @@
             this.DomKartyLabel.AutoSize = true;
             this.DomKartyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DomKartyLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.DomKartyLabel.Location = new System.Drawing.Point(54, 1);
+            this.DomKartyLabel.Location = new System.Drawing.Point(59, 5);
             this.DomKartyLabel.Name = "DomKartyLabel";
             this.DomKartyLabel.Size = new System.Drawing.Size(56, 18);
             this.DomKartyLabel.TabIndex = 557;
@@ -452,7 +452,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(45, 100);
+            this.label2.Location = new System.Drawing.Point(50, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 18);
             this.label2.TabIndex = 558;
@@ -466,7 +466,7 @@
             this.DomOffsideBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DomOffsideBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DomOffsideBtn.ForeColor = System.Drawing.Color.White;
-            this.DomOffsideBtn.Location = new System.Drawing.Point(9, 239);
+            this.DomOffsideBtn.Location = new System.Drawing.Point(14, 243);
             this.DomOffsideBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomOffsideBtn.Name = "DomOffsideBtn";
             this.DomOffsideBtn.Size = new System.Drawing.Size(147, 36);
@@ -485,7 +485,7 @@
             this.DomOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DomOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DomOutBtn.ForeColor = System.Drawing.Color.White;
-            this.DomOutBtn.Location = new System.Drawing.Point(9, 279);
+            this.DomOutBtn.Location = new System.Drawing.Point(14, 283);
             this.DomOutBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DomOutBtn.Name = "DomOutBtn";
             this.DomOutBtn.Size = new System.Drawing.Size(147, 36);
@@ -501,7 +501,7 @@
             this.HosKartyLabel.AutoSize = true;
             this.HosKartyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HosKartyLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.HosKartyLabel.Location = new System.Drawing.Point(731, 1);
+            this.HosKartyLabel.Location = new System.Drawing.Point(736, 5);
             this.HosKartyLabel.Name = "HosKartyLabel";
             this.HosKartyLabel.Size = new System.Drawing.Size(56, 18);
             this.HosKartyLabel.TabIndex = 562;
@@ -513,7 +513,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(720, 99);
+            this.label4.Location = new System.Drawing.Point(725, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 18);
             this.label4.TabIndex = 563;
@@ -527,7 +527,7 @@
             this.HosOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HosOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HosOutBtn.ForeColor = System.Drawing.Color.White;
-            this.HosOutBtn.Location = new System.Drawing.Point(684, 279);
+            this.HosOutBtn.Location = new System.Drawing.Point(689, 283);
             this.HosOutBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosOutBtn.Name = "HosOutBtn";
             this.HosOutBtn.Size = new System.Drawing.Size(147, 36);
@@ -546,7 +546,7 @@
             this.HosOffsideBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HosOffsideBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HosOffsideBtn.ForeColor = System.Drawing.Color.White;
-            this.HosOffsideBtn.Location = new System.Drawing.Point(684, 239);
+            this.HosOffsideBtn.Location = new System.Drawing.Point(689, 243);
             this.HosOffsideBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosOffsideBtn.Name = "HosOffsideBtn";
             this.HosOffsideBtn.Size = new System.Drawing.Size(147, 36);
@@ -565,7 +565,7 @@
             this.HosKopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HosKopyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HosKopyBtn.ForeColor = System.Drawing.Color.White;
-            this.HosKopyBtn.Location = new System.Drawing.Point(684, 199);
+            this.HosKopyBtn.Location = new System.Drawing.Point(689, 203);
             this.HosKopyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HosKopyBtn.Name = "HosKopyBtn";
             this.HosKopyBtn.Size = new System.Drawing.Size(147, 36);
@@ -581,7 +581,7 @@
             this.UdalostiBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.UdalostiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UdalostiBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UdalostiBtn.Location = new System.Drawing.Point(426, 344);
+            this.UdalostiBtn.Location = new System.Drawing.Point(431, 348);
             this.UdalostiBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UdalostiBtn.Name = "UdalostiBtn";
             this.UdalostiBtn.Size = new System.Drawing.Size(130, 40);
@@ -594,7 +594,7 @@
             // 
             // logoHostia
             // 
-            this.logoHostia.Location = new System.Drawing.Point(517, 9);
+            this.logoHostia.Location = new System.Drawing.Point(522, 13);
             this.logoHostia.Name = "logoHostia";
             this.logoHostia.Size = new System.Drawing.Size(164, 95);
             this.logoHostia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -603,7 +603,7 @@
             // 
             // logoDomaci
             // 
-            this.logoDomaci.Location = new System.Drawing.Point(159, 9);
+            this.logoDomaci.Location = new System.Drawing.Point(164, 13);
             this.logoDomaci.Name = "logoDomaci";
             this.logoDomaci.Size = new System.Drawing.Size(163, 93);
             this.logoDomaci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -615,7 +615,7 @@
             this.ReklamaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ReklamaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ReklamaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReklamaBtn.Location = new System.Drawing.Point(426, 385);
+            this.ReklamaBtn.Location = new System.Drawing.Point(431, 389);
             this.ReklamaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ReklamaBtn.Name = "ReklamaBtn";
             this.ReklamaBtn.Size = new System.Drawing.Size(130, 40);
@@ -631,7 +631,7 @@
             this.VypnutVideoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.VypnutVideoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.VypnutVideoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.VypnutVideoBtn.Location = new System.Drawing.Point(426, 385);
+            this.VypnutVideoBtn.Location = new System.Drawing.Point(431, 389);
             this.VypnutVideoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.VypnutVideoBtn.Name = "VypnutVideoBtn";
             this.VypnutVideoBtn.Size = new System.Drawing.Size(130, 40);
@@ -688,7 +688,6 @@
             this.Controls.Add(this.DomCervenaKartaBtn);
             this.Controls.Add(this.HosZltaKartaBtn);
             this.Controls.Add(this.DomZltaKartaBtn);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);

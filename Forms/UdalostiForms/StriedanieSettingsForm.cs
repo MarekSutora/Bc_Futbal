@@ -111,7 +111,7 @@ namespace LGR_Futbal.Forms
 
         private void StriedanieSettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (uspech && OnUdalostPridana != null)
+            if (uspech && OnUdalostPridana != null && Screen.AllScreens.Length != 1)
                 OnUdalostPridana("STRIEDANIE ÚSPEŠNE PRIDANÉ");
         }
 

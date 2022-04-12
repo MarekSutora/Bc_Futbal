@@ -13,16 +13,17 @@ namespace LGR_Futbal.Forms
         private const string fotkyAdresar = "\\Files\\Fotky\\";
 
         private string adresar;
-        private FutbalovyTim prezentovanyTim = null;
         private int pocetPrezentovanychHracov;
+        private int sirka;
+        private FutbalovyTim prezentovanyTim = null;
         private List<Hrac> zakladnaJedenastka = null;
         private List<Hrac> nahradnici = null;
         private List<Hrac> aktualnyZoznam = null;
 
-        public PrezentaciaForm(int sirka, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
+        public PrezentaciaForm(int s, int cas, FutbalovyTim tim, FarbyPrezentacie farby, FontyTabule fonty, bool ajNahradnici)
         {
             InitializeComponent();
-
+            sirka = s;
             adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 2 * 1000 * cas;
             prezentovanyTim = tim;
@@ -80,7 +81,16 @@ namespace LGR_Futbal.Forms
 
         private void PrezentaciaForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
 
             SpustiCas();
         }

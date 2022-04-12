@@ -11,7 +11,7 @@ namespace LGR_Futbal.Setup
 
         public static void ZobrazNaDruhejObrazovke(Form form)
         {
-            Screen primarnyDisplej = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen primarnyDisplej = Screen.AllScreens[0];
             Screen sekundarnyDisplej = Screen.AllScreens.FirstOrDefault(s => s != primarnyDisplej) ?? primarnyDisplej;
             form.Left = sekundarnyDisplej.WorkingArea.Left;
             form.Top = sekundarnyDisplej.WorkingArea.Top;

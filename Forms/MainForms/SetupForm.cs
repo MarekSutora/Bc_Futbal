@@ -128,7 +128,7 @@ namespace LGR_Futbal.Forms
                 }
             }
 
-            Screen pd = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen pd = Screen.AllScreens[0];
             Screen sd = Screen.AllScreens.FirstOrDefault(s => s != pd) ?? pd;
             rozlisenieLabel.Text = sd.Bounds.Width.ToString() + " x " + sd.Bounds.Height.ToString();
 

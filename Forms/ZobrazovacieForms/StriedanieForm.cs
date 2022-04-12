@@ -14,14 +14,15 @@ namespace LGR_Futbal.Forms
         private Hrac striedanyHrac = null;
         private Hrac striedajuciHrac = null;
         private bool prezentaciaSkoncila;
+        private int sirka;
 
-        public StriedanieForm(int sirka, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
+        public StriedanieForm(int s, int cas, string nazovMuzstva, Hrac striedany, Hrac striedajuci, FarbyPrezentacie farby, FontyTabule pisma)
         {
             InitializeComponent();
 
             string adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 1000 * cas;
-
+            sirka = s;
             striedanyHrac = striedany;
             striedajuciHrac = striedajuci;
             prezentaciaSkoncila = false;
@@ -82,7 +83,16 @@ namespace LGR_Futbal.Forms
 
         private void StriedanieForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
 
             SpustiCas();
         }

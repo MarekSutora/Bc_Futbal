@@ -13,10 +13,12 @@ namespace LGR_Futbal.Forms
 
         public event ReklamaKoniecHandler OnReklamaKoniec;
         private string video = string.Empty;
+        private int sirka;
 
-        public ReklamaForm(int sirka, string video)
+        public ReklamaForm(int s, string video)
         {
             InitializeComponent();
+            sirka = s;
 
             float pomer = (float)sirka /Width;
             Scale(new SizeF(pomer, pomer));
@@ -26,7 +28,16 @@ namespace LGR_Futbal.Forms
 
         private void ReklamaForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
 
             FileInfo fi = new FileInfo(video);
             VlcControl.SetMedia(fi);

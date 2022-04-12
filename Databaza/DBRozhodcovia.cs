@@ -53,8 +53,9 @@ namespace LGR_Futbal.Databaza
             return rozhodcovia;
         }
 
-        public void InsertRozhodca(Rozhodca r)
+        public int InsertRozhodca(Rozhodca r)
         {
+            int id = 0;
             try
             {
                 if (conn.State != ConnectionState.Open)
@@ -94,12 +95,17 @@ namespace LGR_Futbal.Databaza
                 cmd.Parameters.Add(param1);
                 cmd.ExecuteNonQuery();
 
+                string cmdQuery4 = "SELECT MAX(id_rozhodca) FROM rozhodca";
+                cmd.CommandText = cmdQuery4;
+                id = int.Parse(cmd.ExecuteScalar().ToString());
+
                 conn.Close();
             }
             catch
             {
                 throw new Exception("Chyba pri práci s Databázou");
             }
+            return id;
         }
 
         public void UpdateRozhodca(Rozhodca r)

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LGR_Futbal</RootNamespace>
     <AssemblyName>LGR_Futbal</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -362,6 +362,7 @@
     <Compile Include="Model\FutbalovyTim.cs" />
     <EmbeddedResource Include="Forms\ZobrazovacieForms\CervenaKartaForm.resx">
       <DependentUpon>CervenaKartaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UdalostiForms\CervenaKartaSettingsForm.resx">
       <DependentUpon>CervenaKartaSettingsForm.cs</DependentUpon>
@@ -467,7 +468,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>

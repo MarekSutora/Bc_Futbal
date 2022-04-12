@@ -14,11 +14,13 @@ namespace LGR_Futbal.Forms
 
         private Hrac prezentovanyHrac = null;
         private bool prezentaciaSkoncila;
+        private int sirka;
 
-        public ZltaKartaForm(int sirka, int cas, Hrac hrac, FontyTabule pisma, string animZ)
+        public ZltaKartaForm(int s, int cas, Hrac hrac, FontyTabule pisma, string animZ)
         {
             InitializeComponent();
 
+            sirka = s;
             string adresar = Directory.GetCurrentDirectory();
             casovac.Interval = 1000 * cas;
             prezentovanyHrac = hrac;
@@ -77,7 +79,17 @@ namespace LGR_Futbal.Forms
 
         private void ZltaKartaForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
+
             SpustiCas();
         }
 

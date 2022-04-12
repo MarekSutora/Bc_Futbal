@@ -42,6 +42,11 @@ namespace LGR_Futbal.Forms
             dbrozhodcovia = dbr;
             dbzapasy = dbz;
 
+            timy = new List<FutbalovyTim>();
+            hraci = new List<Hrac>();
+            zapasy = new List<Zapas>();
+            rozhodcovia = new List<Rozhodca>();
+
             hracPohlavieCB.Items.Add("");
             hracPohlavieCB.Items.Add("Muž");
             hracPohlavieCB.Items.Add("Žena");
@@ -103,6 +108,11 @@ namespace LGR_Futbal.Forms
                 TimyListBox.SelectedIndex = 0;
                 ZmenitTimBtn.Enabled = true;
                 OdstranitTimBtn.Enabled = true;
+            }
+            else
+            {
+                ZmenitTimBtn.Enabled = false;
+                OdstranitTimBtn.Enabled = false;
             }
         }
 
@@ -208,7 +218,8 @@ namespace LGR_Futbal.Forms
                     }
                     try
                     {
-                        dbtimy.InsertFutbalovyTeam(t);
+                        int idtimu = dbtimy.InsertFutbalovyTeam(t);
+                        t.IdFutbalovyTim = idtimu;
                         timy.Add(t);
                         NaplnTimyLB();
                     }
@@ -230,9 +241,9 @@ namespace LGR_Futbal.Forms
 
         private void OdstranitTimBtn_Click(object sender, EventArgs e)
         {
-            pridatTimGroupBox.Visible = false;
+            upravitTimGroupBox.Visible = false;
 
-            if (MessageBox.Show("Naozaj chcete odstrániť z databázy hráča " + TimyListBox.SelectedItem.ToString() + "?",
+            if (MessageBox.Show("Naozaj chcete odstrániť z databázy tím " + TimyListBox.SelectedItem.ToString() + "?",
                 Properties.Settings.Default.NazovProgramu, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dbtimy.OdstranTim(timy[TimyListBox.SelectedIndex]);
@@ -349,7 +360,7 @@ namespace LGR_Futbal.Forms
             try
             {
                 int index = -1;
-                aktHrac = dbhraci.GetHrac(hraci[HraciListBox.SelectedIndex].IdHrac);
+                aktHrac = hraci[HraciListBox.SelectedIndex];
 
                 if (aktHrac.IdFutbalovyTim != 0)
                 {
@@ -526,10 +537,14 @@ namespace LGR_Futbal.Forms
                             h.Pohlavie = 'Z';
                         }
                     }
-                    dbhraci.InsertHrac(h);
-
+                    int idhraca = dbhraci.InsertHrac(h);
+                    
                     if (poslednyFilterHraci == -1 || poslednyFilterHraci == 0 || poslednyFilterHraci == 1 || h.IdFutbalovyTim == timy[poslednyFilterHraci - 2].IdFutbalovyTim)
+                    {
+                        h.IdHrac = idhraca;
                         hraci.Add(h);
+                    }
+                        
 
                     NaplnHraciLB();
                 }
@@ -811,7 +826,8 @@ namespace LGR_Futbal.Forms
                 }
                 try
                 {
-                    dbrozhodcovia.InsertRozhodca(r);
+                    r.IdRozhodca = dbrozhodcovia.InsertRozhodca(r);
+
                     rozhodcovia.Add(r);
                     NaplnRozhodcoviaLB();
                 }
@@ -848,7 +864,7 @@ namespace LGR_Futbal.Forms
 
             try
             {
-                aktRozhodca = dbrozhodcovia.GetRozhodca(rozhodcovia[RozhodcoviaListBox.SelectedIndex].IdRozhodca);
+                aktRozhodca = rozhodcovia[RozhodcoviaListBox.SelectedIndex];
 
                 editRozhodcaMeno.Text = aktRozhodca.Meno;
                 editRozhdocaPriezvisko.Text = aktRozhodca.Priezvisko;
@@ -916,7 +932,16 @@ namespace LGR_Futbal.Forms
                     }
                     ZapasyListBox.SelectedIndex = 0;
                 }
-
+                if (ZapasyListBox.Items.Count > 0)
+                {
+                    VybratZapasBtn.Enabled = true;
+                    OdstranitZapasBtn.Enabled = true;
+                }
+                else
+                {
+                    VybratZapasBtn.Enabled = false;
+                    OdstranitZapasBtn.Enabled = false;
+                }
             }
             catch (Exception ex)
             {

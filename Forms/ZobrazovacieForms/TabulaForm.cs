@@ -208,10 +208,17 @@ namespace LGR_Futbal.Forms
 
         private void TabulaForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
 
             if (Screen.AllScreens.Length == 1)
-                this.Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);  
+            }
 
             ControlExtension.Draggable(logoDomaci, true);
             ControlExtension.Draggable(logoHostia, true);

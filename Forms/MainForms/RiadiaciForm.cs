@@ -440,8 +440,7 @@ namespace LGR_Futbal
                 minutaPolcasu = 0;
                 aktualnaSekunda = 0;
                 zmenenaSekunda = 0;
-                zmenenaMinuta = 0;
-                zapas = null;
+                zmenenaMinuta = 0;   
                 tabulaForm.SetPolcas(2, 0, false);
                 casPodrobneLabel.Text = minuty.ToString("D2") + ":00.000";
                 casLabel.Text = minuty.ToString("D2") + ":00";
@@ -1514,9 +1513,18 @@ namespace LGR_Futbal
             {
                 odchadzajuci.HraAktualnyZapas = false;
                 odchadzajuci.Nahradnik = false;
-
                 nastupujuci.HraAktualnyZapas = true;
                 nastupujuci.Nahradnik = false;
+            } 
+            else if ((odchadzajuci == null) && (nastupujuci != null))
+            {
+                nastupujuci.HraAktualnyZapas = true;
+                nastupujuci.Nahradnik = false;
+            }
+            else if ((odchadzajuci != null) && (nastupujuci == null))
+            {
+                odchadzajuci.HraAktualnyZapas = false;
+                odchadzajuci.Nahradnik = false;
             }
 
             FarbyPrezentacie farbicky = jeDomaciTim ? farbyPrezDomaci : farbyPrezHostia;
@@ -1536,13 +1544,11 @@ namespace LGR_Futbal
 
         private void UdalostiBtn_Click(object sender, EventArgs e)
         {
-            if (polcas == 0)
+            if (zapas != null)
             {
-                MessageBox.Show("Možné pozrieť len počas hry", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            UdalostiForm uf = new UdalostiForm(zapas, false, dbzapasy);
-            uf.Show();
+                UdalostiForm uf = new UdalostiForm(zapas, false, dbzapasy);
+                uf.Show();
+            }        
         }
 
         #endregion UDALOSTI

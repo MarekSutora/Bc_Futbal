@@ -121,11 +121,13 @@ namespace LGR_Futbal.Databaza
             return returnVal;
         }
 
-        public void InsertFutbalovyTeam(FutbalovyTim ft)
+        public int InsertFutbalovyTeam(FutbalovyTim ft)
         {
-            string cmdQuery = "INSERT INTO futbalovy_tim(id_kategoria, nazov_timu, logo) VALUES(:id_kategoria, :nazov_timu, :logo)";
+            
+            int id = 0;
             try
             {
+                string cmdQuery = "INSERT INTO futbalovy_tim(id_kategoria, nazov_timu, logo) VALUES(:id_kategoria, :nazov_timu, :logo)";
                 byte[] blob = null;
                 int? kategoria = null;
                 if (ft.Kategoria != 0 && ft.Kategoria != -1)
@@ -136,7 +138,7 @@ namespace LGR_Futbal.Databaza
                     FileStream fls;
                     fls = new FileStream(@ft.Logo, FileMode.Open, FileAccess.Read);
                     blob = new byte[fls.Length];
-                    fls.Read(blob, 0, System.Convert.ToInt32(fls.Length));
+                    fls.Read(blob, 0, Convert.ToInt32(fls.Length));
                     fls.Close();
                 }
                 if (conn.State != ConnectionState.Open)
@@ -156,12 +158,17 @@ namespace LGR_Futbal.Databaza
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
 
+                string cmdQuery2 = "SELECT MAX(id_futbalovy_tim) FROM futbalovy_tim";
+                cmd.CommandText = cmdQuery2;
+                id = int.Parse(cmd.ExecuteScalar().ToString());
+
                 conn.Close();
             }
             catch
             {
                 throw new Exception("Chyba pri práci s Databázou");
             }
+            return id;
         }
 
         public void UpdateTim(FutbalovyTim ft)

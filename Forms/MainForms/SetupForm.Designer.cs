@@ -909,6 +909,7 @@
             // 
             // animHosBox
             // 
+            this.animHosBox.CheckOnClick = true;
             this.animHosBox.FormattingEnabled = true;
             this.animHosBox.Location = new System.Drawing.Point(294, 76);
             this.animHosBox.Name = "animHosBox";
@@ -935,6 +936,7 @@
             // 
             // animDomBox
             // 
+            this.animDomBox.CheckOnClick = true;
             this.animDomBox.FormattingEnabled = true;
             this.animDomBox.Location = new System.Drawing.Point(3, 76);
             this.animDomBox.Name = "animDomBox";

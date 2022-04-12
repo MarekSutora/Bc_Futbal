@@ -34,14 +34,14 @@ namespace LGR_Futbal.Forms
 
         public int ZistiVysku()
         {
-            Screen primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen primaryDisplay = Screen.AllScreens[0];
             Screen screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
             return screen.Bounds.Height;
         }
 
         public int ZistiSirku()
         {
-            Screen primaryDisplay = Screen.AllScreens.ElementAtOrDefault(0);
+            Screen primaryDisplay = Screen.AllScreens[0];
             Screen screen = Screen.AllScreens.FirstOrDefault(s => s != primaryDisplay) ?? primaryDisplay;
             return screen.Bounds.Width;
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KopySettingsForm));
             this.RohovyRB = new System.Windows.Forms.RadioButton();
             this.PriamyRB = new System.Windows.Forms.RadioButton();
             this.NepriamyRB = new System.Windows.Forms.RadioButton();
@@ -147,6 +148,7 @@
             this.Controls.Add(this.PriamyRB);
             this.Controls.Add(this.RohovyRB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KopySettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KopySettingsForm";

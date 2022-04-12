@@ -16,12 +16,14 @@ namespace LGR_Futbal.Forms
         private Hrac prezentovanyHrac = null;
         private int pocetZobrazenychPanelov;
         private List<Panel> zobrazovane = null;
+        private int sirka;
 
-        public CervenaKartaForm(int sirka, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
+        public CervenaKartaForm(int s, int cas, Hrac hrac, bool sDruhouZltouKartou, FontyTabule pisma,
             string animZ, string animC)
         {
             InitializeComponent();
 
+            sirka = s;
             casovac.Interval = 1000 * cas;
             string adresar = Directory.GetCurrentDirectory();
             if (animZ.Equals(string.Empty))
@@ -123,6 +125,17 @@ namespace LGR_Futbal.Forms
 
         private void CervenaKartaForm_Load(object sender, EventArgs e)
         {
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
+
             LayoutSetter.ZobrazNaDruhejObrazovke(this);
             SpustiCas();
         }

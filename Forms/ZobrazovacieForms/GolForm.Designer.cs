@@ -197,7 +197,7 @@
             // animaciaPB
             // 
             this.animaciaPB.BackColor = System.Drawing.Color.Black;
-            this.animaciaPB.Location = new System.Drawing.Point(3, 3);
+            this.animaciaPB.Location = new System.Drawing.Point(11, 0);
             this.animaciaPB.Name = "animaciaPB";
             this.animaciaPB.Size = new System.Drawing.Size(450, 263);
             this.animaciaPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

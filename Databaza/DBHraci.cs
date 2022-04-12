@@ -19,8 +19,9 @@ namespace LGR_Futbal.Databaza
             conn = pripojenie.GetConnection();
         }
 
-        public void InsertHrac(Hrac h)
+        public int InsertHrac(Hrac h)
         {
+            int id = 0;
             try
             {
                 if (conn.State != ConnectionState.Open)
@@ -99,12 +100,18 @@ namespace LGR_Futbal.Databaza
                 param1[5].Value = pozicia;
                 cmd.ExecuteNonQuery();
 
+                string cmdQuery4 = "SELECT MAX(id_hrac) FROM hrac";
+                cmd.CommandText = cmdQuery4;
+                id = int.Parse(cmd.ExecuteScalar().ToString());
+
+
                 conn.Close();
             }
             catch
             {
                 throw new Exception("Chyba pri práci s Databázou");
             }
+            return id;
         }
 
         public async Task<List<Hrac>> GetVsetciHraciAsync()

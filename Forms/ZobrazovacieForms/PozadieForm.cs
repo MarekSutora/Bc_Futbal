@@ -18,18 +18,20 @@ namespace LGR_Futbal.Forms
 
             if (Screen.AllScreens.Length == 1)
             {
-                Screen primarnyDisplej = Screen.AllScreens[0];
-                int sirkaObr = primarnyDisplej.Bounds.Width;
-                float pomer = (float)sirkaObr / Width;
-                Scale(new SizeF(pomer, pomer));
-                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+                //Screen primarnyDisplej = Screen.AllScreens[0];
+                //int sirkaObr = primarnyDisplej.Bounds.Width;
+                //float pomer = (float)sirkaObr / Width;
+                //Scale(new SizeF(pomer, pomer));
+                Height = Screen.PrimaryScreen.WorkingArea.Height;
+                Width = Screen.PrimaryScreen.WorkingArea.Width;
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
             }
             else
             {
                 LayoutSetter.ZobrazNaDruhejObrazovke(this);
                 WindowState = FormWindowState.Maximized;
-            }
-            
+            }  
         }
     }
 }

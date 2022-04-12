@@ -21,12 +21,13 @@ namespace LGR_Futbal.Forms
         private List<string> subory;
         private int faza;
         private int pocetZobrazenychAnimacii;
+        private int sirka;
 
-        public GolForm(string adresar, int sirka, int cas, Hrac h, FontyTabule fonty, FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
+        public GolForm(string adresar, int s, int cas, Hrac h, FontyTabule fonty, FarbyPrezentacie farby, AnimacnaKonfiguracia animacie, bool domaci)
         {
             InitializeComponent();
             this.adresar = adresar;
-
+            sirka = s;
             if (domaci)
             {
                 zobrazitDefault = animacie.ZobrazitAnimaciuDomaci;
@@ -119,7 +120,16 @@ namespace LGR_Futbal.Forms
 
         private void GolForm_Load(object sender, EventArgs e)
         {
-            LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            if (Screen.AllScreens.Length == 1)
+            {
+                Location = Screen.PrimaryScreen.WorkingArea.Location;
+                MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+                Left += (Screen.PrimaryScreen.Bounds.Width - sirka) / 2;
+            }
+            else
+            {
+                LayoutSetter.ZobrazNaDruhejObrazovke(this);
+            }
 
             SpustiCas();
         }
