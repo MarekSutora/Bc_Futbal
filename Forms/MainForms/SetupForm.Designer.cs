@@ -167,7 +167,7 @@
             // 
             // ZmenitRozlozenieBtn
             // 
-            this.ZmenitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.layout__1_;
+            this.ZmenitRozlozenieBtn.Image = global::LGR_Futbal.Properties.Resources.layout;
             this.ZmenitRozlozenieBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ZmenitRozlozenieBtn.Location = new System.Drawing.Point(11, 196);
             this.ZmenitRozlozenieBtn.Margin = new System.Windows.Forms.Padding(2);

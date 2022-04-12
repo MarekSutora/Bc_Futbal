@@ -44,11 +44,9 @@ namespace LGR_Futbal.Forms
                     fotka1PictureBox.Image = Image.FromFile(adresar + "\\" + fotkyAdresar + "Default.png");
                 }
 
-                cisloHraca1Label.Text = striedanyHrac.CisloDresu.ToString();
-               
-                string identifikacia = striedanyHrac.Meno + " " + striedanyHrac.Priezvisko.ToUpper();
+                cisloHraca1Label.Text = striedanyHrac.CisloDresu.ToString();           
 
-                menoHraca1Label.Text = identifikacia;
+                menoHraca1Label.Text = striedanyHrac.Meno + " " + striedanyHrac.Priezvisko.ToUpper();
             }
 
             if (striedajuciHrac != null)
@@ -63,9 +61,8 @@ namespace LGR_Futbal.Forms
                 }
 
                 cisloHraca2Label.Text = striedajuciHrac.CisloDresu.ToString();
-                string identifikacia = striedajuciHrac.Meno + " " + striedajuciHrac.Priezvisko.ToUpper();
 
-                menoHraca2Label.Text = identifikacia;
+                menoHraca2Label.Text = striedajuciHrac.Meno + " " + striedajuciHrac.Priezvisko.ToUpper();
             }
 
             nazovLabel.ForeColor = farby.GetNadpisFarba();

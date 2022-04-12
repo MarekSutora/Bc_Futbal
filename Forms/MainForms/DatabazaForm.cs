@@ -474,10 +474,6 @@ namespace LGR_Futbal.Forms
 
         private void UlozitHracaBtn_Click(object sender, EventArgs e)
         {
-            //VlozitHracaGroupBox.BringToFront();
-            //VlozitHracaGroupBox.Visible = true;
-            //UpravaHracaGroupBox.SendToBack();
-            //UpravaHracaGroupBox.Visible = false;
             Hrac h = new Hrac();
             string Meno = menoTextBox.Text.Trim();
             string Priezvisko = priezviskoTextBox.Text.Trim();

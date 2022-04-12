@@ -44,14 +44,10 @@
             this.striedanieFontLabel = new System.Windows.Forms.Label();
             this.striedanieLabel = new System.Windows.Forms.Label();
             this.ZmenitStriedanieBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.ObnovitBtn = new System.Windows.Forms.Button();
             this.NacitatBtn = new System.Windows.Forms.Button();
             this.UlozitBtn = new System.Windows.Forms.Button();
             this.AktivovatBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nazvyLabel
@@ -224,39 +220,6 @@
             this.ZmenitStriedanieBtn.UseVisualStyleBackColor = true;
             this.ZmenitStriedanieBtn.Click += new System.EventHandler(this.ZmenitStriedanieBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(9, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 18);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Názvy tímov:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(9, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Skóre:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(9, 112);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 18);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Hrací čas:";
-            // 
             // ObnovitBtn
             // 
             this.ObnovitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -321,18 +284,6 @@
             this.AktivovatBtn.UseVisualStyleBackColor = true;
             this.AktivovatBtn.Click += new System.EventHandler(this.AktivovatBtn_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Image = global::LGR_Futbal.Properties.Resources._4214982731537355855_321;
-            this.label4.Location = new System.Drawing.Point(9, 157);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 18);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Polčas:";
-            // 
             // FontyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,9 +341,5 @@
         private System.Windows.Forms.Button NacitatBtn;
         private System.Windows.Forms.Button UlozitBtn;
         private System.Windows.Forms.Button ObnovitBtn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
     }
 }
