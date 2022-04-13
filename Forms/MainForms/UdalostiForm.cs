@@ -13,8 +13,8 @@ namespace BC_Futbal.Forms
     {
         private Zapas zapas = null;
         private List<Udalost> udalosti = null;
-        private string adresar;
         private DBZapasy dbzapasy = null;
+
         public UdalostiForm(Zapas zapas, bool zDatabazi, DBZapasy dBZapasy)
         {
             InitializeComponent();
@@ -68,14 +68,24 @@ namespace BC_Futbal.Forms
         }
         private void GenerovatCsvBtn_Click(object sender, EventArgs e)
         {
-            adresar = Directory.GetCurrentDirectory() + "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
-                + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
-                + zapas.DatumZapasu.Minute + "_" + zapas.DatumZapasu.Second + ".csv";
+            int poc = 1;
+            string subor = Directory.GetCurrentDirectory() + "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
+                 + zapas.DatumZapasu.Minute + "_" + poc + ".csv";
+            
+            while (File.Exists(subor))
+            {
+                poc++;
+                subor = Directory.GetCurrentDirectory() + "\\Files\\CSV\\" + zapas.NazovDomaci + "_" + zapas.DomaciSkore + "_" + zapas.HostiaSkore
+                 + "_" + zapas.NazovHostia + zapas.DatumZapasu.Day + "_" + zapas.DatumZapasu.Month + "_" + zapas.DatumZapasu.Year + "_" + zapas.DatumZapasu.Hour
+                 + zapas.DatumZapasu.Minute + "_" + poc + ".csv";
+            }
+            
 
             bool uspech = false;
             try
             {
-                using (var sw = new StreamWriter(File.Open(adresar, FileMode.Create), Encoding.UTF8))
+                using (var sw = new StreamWriter(File.Open(subor, FileMode.Create), Encoding.UTF8))
                 {
                     string line = string.Format("{0};{1}", "Tím 1: ", zapas.NazovDomaci);
                     sw.WriteLine(line);
@@ -86,11 +96,11 @@ namespace BC_Futbal.Forms
                     line = string.Format("{0};{1}", "Skóre: ", zapas.DomaciSkore + " - " + zapas.HostiaSkore);
                     sw.WriteLine(line);
 
-                    line = string.Format("{0};{1}", "Dĺžka polčasu:", zapas.DlzkaPolcasu);
+                    line = string.Format("{0};{1}", "Dĺžka polčasu: ", zapas.DlzkaPolcasu);
                     sw.WriteLine(line);
                     sw.WriteLine("");
                     sw.WriteLine("");
-                    line = string.Format("{0}", "Hráči Tím 1:");
+                    line = string.Format("{0}", "Hráči Tím 1: ");
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Domaci.ZoznamHracov.Count; i++)
                     {
@@ -112,7 +122,7 @@ namespace BC_Futbal.Forms
                         }
 
                     }
-                    line = string.Format("{0}", "Hráči Tím 2:");
+                    line = string.Format("{0}", "Hráči Tím 2: ");
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Hostia.ZoznamHracov.Count; i++)
                     {
@@ -120,20 +130,20 @@ namespace BC_Futbal.Forms
                         string priradenost = string.Empty;
                         if (zapas.Hostia.ZoznamHracov[i].TypHraca == 'Z')
                         {
-                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
+                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + " " + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Hrajúci";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         }
                         else if (zapas.Hostia.ZoznamHracov[i].TypHraca == 'N')
                         {
-                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + zapas.Hostia.ZoznamHracov[i].Priezvisko;
+                            meno_priezvisko = zapas.Hostia.ZoznamHracov[i].CisloDresu + ". " + zapas.Hostia.ZoznamHracov[i].Meno + " " + zapas.Hostia.ZoznamHracov[i].Priezvisko;
                             priradenost = "Nahradník";
                             line = string.Format("{0}, {1}", meno_priezvisko, priradenost);
                             sw.WriteLine(line);
                         }
                     }
-                    line = string.Format("{0}", "Rozhodcovia:");
+                    line = string.Format("{0}", "Rozhodcovia: ");
                     sw.WriteLine(line);
                     for (int i = 0; i < zapas.Rozhodcovia.Count; i++)
                     {
@@ -176,12 +186,12 @@ namespace BC_Futbal.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Súbor sa nepodarilo vygenerovať", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Súbor sa nepodarilo vygenerovať", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
                 if (uspech)
-                    MessageBox.Show("Súbor úspešne vygenerovaný", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Súbor úspešne vygenerovaný", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -218,7 +228,7 @@ namespace BC_Futbal.Forms
                     {
                         pridat = true;
                         Gol gol = (Gol)udalosti[i];
-                        meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + gol.Strielajuci.Priezvisko : "";
+                        meno_priezvisko = !gol.Strielajuci.Meno.Equals(string.Empty) ? gol.Strielajuci.CisloDresu + ". " + gol.Strielajuci.Meno + " " + gol.Strielajuci.Priezvisko : "";
                         if (!gol.Asistujuci.Meno.Equals(string.Empty))
                             poznamka = "Asist: " + gol.Asistujuci.CisloDresu + ". " + gol.Asistujuci.Priezvisko;
 
@@ -229,7 +239,7 @@ namespace BC_Futbal.Forms
                     if (udalosti[i].Typ == 2)
                     {
                         Karta karta = (Karta)udalosti[i];
-                        meno_priezvisko = karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko;
+                        meno_priezvisko = !karta.Hrac.Meno.Equals(string.Empty) ? karta.Hrac.CisloDresu + ". " + karta.Hrac.Meno + " " + karta.Hrac.Priezvisko : "";
                         if (karta.TypKarty == 'C')
                         {
                             if (cervenaKartaCB.Checked)
@@ -293,14 +303,14 @@ namespace BC_Futbal.Forms
                         Offside offside = (Offside)udalosti[i];
                         meno_priezvisko = !offside.Hrac.Meno.Equals(string.Empty) ? offside.Hrac.CisloDresu + ". " + offside.Hrac.Meno + " " + offside.Hrac.Priezvisko : "";
                         pridat = true;
-                        udalost = "Offside";
+                        udalost = "Ofsajd";
                     }
                     if (udalosti[i].Typ == 5 && outCB.Checked)
                     {
                         Out _out = (Out)udalosti[i];
                         pridat = true;
                         meno_priezvisko = !_out.Hrac.Meno.Equals(string.Empty) ? _out.Hrac.CisloDresu + ". " + _out.Hrac.Meno + " " + _out.Hrac.Priezvisko : "";
-                        udalost = "Outové vhadzovanie";
+                        udalost = "Autové vhadzovanie";
                     }
                     if (udalosti[i].Typ == 6 && striedanieCB.Checked)
                     {
@@ -343,12 +353,12 @@ namespace BC_Futbal.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString(), Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
                 if (uspech)
-                    MessageBox.Show("Zápas úšpesne pridaný do databázy", "LGR_Futbal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Zápas úšpesne pridaný do databázy", Properties.Settings.Default.NazovProgramu, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

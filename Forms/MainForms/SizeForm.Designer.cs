@@ -207,7 +207,7 @@
             // 
             this.aktivovatButton.Image = global::BC_Futbal.Properties.Resources.Forward___Next;
             this.aktivovatButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aktivovatButton.Location = new System.Drawing.Point(247, 8);
+            this.aktivovatButton.Location = new System.Drawing.Point(247, 13);
             this.aktivovatButton.Margin = new System.Windows.Forms.Padding(2);
             this.aktivovatButton.Name = "aktivovatButton";
             this.aktivovatButton.Size = new System.Drawing.Size(106, 52);

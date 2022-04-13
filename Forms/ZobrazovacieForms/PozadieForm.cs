@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Linq;
 using BC_Futbal.Setup;
 
 namespace BC_Futbal.Forms

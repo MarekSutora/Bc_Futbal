@@ -502,11 +502,12 @@ namespace BC_Futbal.Databaza
 
                     using (OracleDataReader reader = cmd.ExecuteReader())
                     {
-                        Hrac hrac = new Hrac();
+                        Hrac hrac;
                         while (reader.Read())
                         {
-                            hrac.TypHraca = reader.GetString(4)[0];
-
+                            hrac = dbhraci.GetHrac(reader.GetInt32(2));
+                            hrac.TypHraca = reader.GetString(4)[0];   
+                            
                             if (reader.GetInt32(3) == zapas.Domaci.IdFutbalovyTim)
                             {
                                 zapas.Domaci.ZoznamHracov.Add(hrac);
